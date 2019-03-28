@@ -1,0 +1,11 @@
+
+TODO items for IMDG version
+
+- Create a TransactionGenerator that feeds transactions into a Queue.   This should be suitable for either IMDG or Jet
+
+- In IMDGMain, read from the Queue, process the transaction, write Result objects to a Map.
+
+- In JetMain, create a Job
+        Define the queue as the source
+        Define the ruleEvaluationResult map as the sink
+        Define a stream stage that rules the rule engine.

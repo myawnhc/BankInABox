@@ -1,0 +1,28 @@
+
+Ideas on performance monitoring
+
+- Have some sort of bucket, perhaps every 10 seconds, to check sizes/lengths
+- Have various counters per structure
+
+- For Queue:
+    - Report incoming rate (bucketed counter), outgoing rate (bucketed counter), high water mark
+
+- For Map
+    - Report writes per interval (put / update), reads (get)
+
+
+
+SimpleCounter    int
+BucketedCounter  int interval #, long value
+
+Always accumulate in a SimpleCounter, then when interval pops, add that to BC list and reset Simple
+
+BCMap
+
+key: attribute    value:  BucketedCounter
+
+Attribute might also be compound,
+    Structure type: Map, Queue
+    Structure name: PendingTransactions
+    Access:   Reads
+
