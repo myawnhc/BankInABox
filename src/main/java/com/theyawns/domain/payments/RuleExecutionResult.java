@@ -19,4 +19,6 @@ public class RuleExecutionResult {
     public void setResult(boolean result) {
         this.result = result;
     }
+
+    public String getTransactionID() { return transaction.getID(); }
 }

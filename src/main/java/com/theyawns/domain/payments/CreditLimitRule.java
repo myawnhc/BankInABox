@@ -14,17 +14,17 @@ public class CreditLimitRule extends BaseRule {
 
     @Override
     Pipeline buildPipeline() {
+
+        ClientConfig clientConfig = new ClientConfig();
+        clientConfig.getNetworkConfig().addAddress(JetMain.IMDG_HOST);
+        clientConfig.getGroupConfig().setName("dev").setPassword("ignored");
+
         Pipeline p = Pipeline.create();
         StreamStage<TransactionWithRules> enrichedJournal = getEnrichedJournal(p);
 
         // Rule-specific enrichment -  add Account info to get access to the Credit Limit for the account
         ContextFactory<IMap<String, Account>> contextFactory =
                 ContextFactory.withCreateFn(x -> {
-                    // Doing this here to avoid capturing wider scope
-                    ClientConfig clientConfig = new ClientConfig();
-                    clientConfig.getNetworkConfig().addAddress(JetMain.IMDG_HOST);
-                    clientConfig.getGroupConfig().setName("dev").setPassword("ignored");
-                    //clientConfig.getNearCacheConfigMap().put("accountMap", new NearCacheConfig());
                     return Jet.newJetClient(clientConfig).getMap("accountMap");
                 });
 
@@ -44,6 +44,19 @@ public class CreditLimitRule extends BaseRule {
         });
 
         // TODO: drain to results map
+
+//        result.drainTo(Sinks.remoteMapWithMerging("resultMap", clientConfig,
+//                /* toKeyFn */ RuleExecutionResult::getTransactionID,
+//                /* toValueFn */ (RuleExecutionResult r) -> r,
+//                /* mergeFn */ (List<RuleExecutionResult> original, List<RuleExecutionResult> modified) -> {
+//                    original.add(r);
+//                    return original;
+//                })).setName("Drain to remote results map with merge");
+
+
+
+        // TODO: drain to Grafana
+
         result.drainTo(Sinks.logger());
 
         return p;
