@@ -13,7 +13,7 @@ public class TransactionWithRules extends Transaction {
         this.rules = rules;
         this.ingestTimeInMillis = System.currentTimeMillis();
 
-        System.out.println("Transaction enriched with " + rules.size() + " rules");
+        //System.out.println("Transaction enriched with " + rules.size() + " rules");
     }
 
     public long getIngestTime() {

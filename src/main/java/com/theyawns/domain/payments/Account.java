@@ -37,4 +37,8 @@ public class Account implements Serializable {
     public void setAccountStatus(AccountStatus status) { this.status = status; }
     public AccountStatus getAccountStatus() { return status; }
 
+    public String toString() {
+        return "Acct " + accountNumber + " " + creditLimit + " " + balance + " " + status;
+    }
+
 }

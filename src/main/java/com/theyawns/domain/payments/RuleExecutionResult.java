@@ -1,6 +1,8 @@
 package com.theyawns.domain.payments;
 
-public class RuleExecutionResult {
+import java.io.Serializable;
+
+public class RuleExecutionResult implements Serializable {
 
     Transaction transaction;
     String ruleName;
@@ -21,4 +23,8 @@ public class RuleExecutionResult {
     }
 
     public String getTransactionID() { return transaction.getID(); }
+
+    public String toString() {
+        return "RuleExecutionResult " + ruleName + " " + transaction.getID() + result;
+    }
 }

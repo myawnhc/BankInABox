@@ -41,7 +41,7 @@ public class TransactionGenerator {
 
     public void start() throws InterruptedException {
         System.out.println("Starting transaction generator");
-        GeneratorHelper helper = new GeneratorHelper();
+        TransactionGeneratorHelper helper = new TransactionGeneratorHelper();
         Runnable task = () -> {
             active = true;
             while (active) {
