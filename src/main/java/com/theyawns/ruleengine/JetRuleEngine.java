@@ -82,14 +82,14 @@ public class JetRuleEngine<T extends HasID> extends BaseRuleEngine<T> {
         // This 'convenience method' gives ADDED and UPDATED events; note that if there are any UPDATES we'll
         // double-count and will need to change to the more verbose variant.  Design doesn't anticipate updates
         // So going with this for now,.
-        StreamStage<T> items =
+        StreamSourceStage<T> items =
                 p.drawFrom(Sources.remoteMapJournal("pendingTransactions", ccfg, mapPutEvents(), mapEventNewValue(), JournalInitialPosition.START_FROM_OLDEST) );
                 //.setName("Draw entries from pendingTransaction's MapJournal");
 
         //StreamStage<T> items = mapEntries.map((mapentry) -> mapentry.getValue()).setName("Extract values from journaled Map.Entries");
 
         // For each item in the input stream, emit applicable rulesets (1:Many)
-        StreamStage<RuleSet<T>> ruleSetsForItem = items.flatMap((T item) -> {
+        StreamStage<RuleSet<T>> ruleSetsForItem = items.withoutTimestamps().flatMap((T item) -> {
             Set<RuleSet<T>> setOfRuleSets = localFactory.getRuleSetsFor(item);
             return traverseIterator(setOfRuleSets.iterator());
         }).setName("Map stream items to applicable RuleSets");

@@ -215,3 +215,36 @@ t=2019-04-11T08:49:17+0000 lvl=info msg="Request Completed" logger=context userI
 t=2019-04-11T08:50:17+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=14 size=8772 referer=
 t=2019-04-11T08:51:07+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=13 size=8772 referer=
 t=2019-04-11T08:52:07+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=14 size=8772 referer=
+t=2019-04-11T09:12:15+0000 lvl=info msg="Starting Grafana" logger=server version=4.6.1 commit=cac8b97 compiled=2017-11-01T10:27:12+0000
+t=2019-04-11T09:12:15+0000 lvl=info msg="Config loaded from" logger=settings file=/opt/grafana/conf/defaults.ini
+t=2019-04-11T09:12:15+0000 lvl=info msg="Config loaded from" logger=settings file=/opt/grafana/conf/custom.ini
+t=2019-04-11T09:12:15+0000 lvl=info msg="Path Home" logger=settings path=/opt/grafana
+t=2019-04-11T09:12:15+0000 lvl=info msg="Path Data" logger=settings path=/opt/grafana/data
+t=2019-04-11T09:12:15+0000 lvl=info msg="Path Logs" logger=settings path=/opt/grafana/data/log
+t=2019-04-11T09:12:15+0000 lvl=info msg="Path Plugins" logger=settings path=/opt/grafana/data/plugins
+t=2019-04-11T09:12:15+0000 lvl=info msg="App mode production" logger=settings
+t=2019-04-11T09:12:15+0000 lvl=info msg="Initializing DB" logger=sqlstore dbtype=sqlite3
+t=2019-04-11T09:12:15+0000 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-04-11T09:12:15+0000 lvl=info msg="Executing migration" logger=migrator id="copy data account to org"
+t=2019-04-11T09:12:15+0000 lvl=info msg="Skipping migration condition not fulfilled" logger=migrator id="copy data account to org"
+t=2019-04-11T09:12:15+0000 lvl=info msg="Executing migration" logger=migrator id="copy data account_user to org_user"
+t=2019-04-11T09:12:15+0000 lvl=info msg="Skipping migration condition not fulfilled" logger=migrator id="copy data account_user to org_user"
+t=2019-04-11T09:12:15+0000 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-04-11T09:12:15+0000 lvl=warn msg="Plugin dir does not exist" logger=plugins dir=/opt/grafana/data/plugins
+t=2019-04-11T09:12:15+0000 lvl=info msg="Plugin dir created" logger=plugins dir=/opt/grafana/data/plugins
+t=2019-04-11T09:12:15+0000 lvl=info msg="Initializing CleanUpService" logger=cleanup
+t=2019-04-11T09:12:15+0000 lvl=info msg="Initializing Alerting" logger=alerting.engine
+t=2019-04-11T09:12:15+0000 lvl=info msg="Initializing Stream Manager"
+t=2019-04-11T09:12:15+0000 lvl=info msg="Initializing HTTP Server" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+t=2019-04-11T09:12:24+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/ status=302 remote_addr=172.18.0.1 time_ms=7 size=29 referer=
+t=2019-04-11T09:12:26+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=12 size=8772 referer=
+t=2019-04-11T09:12:26+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=11 size=8772 referer=
+t=2019-04-11T09:12:27+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=25 size=82 referer=
+t=2019-04-11T09:12:39+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=27 size=82 referer=
+t=2019-04-11T09:12:51+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=28 size=82 referer=
+t=2019-04-11T09:13:03+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=27 size=82 referer=
+t=2019-04-11T09:13:15+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T09:13:16+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=11 size=8772 referer=
+t=2019-04-11T09:13:17+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=9 size=8772 referer=
+t=2019-04-11T09:13:27+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=27 size=82 referer=
+t=2019-04-11T09:13:40+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=27 size=82 referer=

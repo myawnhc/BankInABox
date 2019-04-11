@@ -42,11 +42,11 @@ public abstract class BaseRule {
     }
 
     protected StreamStage<TransactionWithRules> getEnrichedJournal(Pipeline p) {
-        StreamStage<Transaction> txns = p.drawFrom(Sources.remoteMapJournal("preAuth", ccfg, mapPutEvents(),
+        StreamSourceStage<Transaction> txns = p.drawFrom(Sources.remoteMapJournal("preAuth", ccfg, mapPutEvents(),
                 mapEventNewValue(), JournalInitialPosition.START_FROM_OLDEST) );
 
         StreamStage<TransactionWithRules> enriched =
-                txns.mapUsingContext(getJetContext(), (JetInstance jet, Transaction t) -> {
+                txns.withoutTimestamps().mapUsingContext(getJetContext(), (JetInstance jet, Transaction t) -> {
                     List<Job> activeJobs = jet.getJobs();
                     Set<String> rules = new HashSet<>();
                     for (Job j : activeJobs) {
