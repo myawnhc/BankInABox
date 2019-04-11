@@ -22,7 +22,7 @@ public class LocationBasedRule extends BaseRule {
         Pipeline p = Pipeline.create();
         StreamStage<TransactionWithRules> enrichedJournal = getEnrichedJournal(p);
 
-        // TODO: copy applicable processing stages from JetRuleEngine
+        // done: copy applicable processing stages from JetRuleEngine
         enrichedJournal.drainTo(Sinks.logger());
 
         return p;

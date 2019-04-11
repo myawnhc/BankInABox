@@ -43,34 +43,33 @@ public class CreditLimitRule extends BaseRule implements Serializable {
                 TransactionWithAccountInfo twa = new TransactionWithAccountInfo(txn);
                 twa.setAccountInfo(acct);
                 return twa;
-            }}).setName("Enrich transactions with Account info");
+            }
+        }).setName("Enrich transactions with Account info");
 
         StreamStage<RuleExecutionResult> result = txnsWithAccountInfo.map( txn -> {
             RuleExecutionResult rer = new RuleExecutionResult(txn, RULE_NAME);
             rer.setResult(process(txn));
             rer.setElapsed(System.currentTimeMillis() - txn.getIngestTime());
             return rer;
-        }).peek()
-                .setName("Evaluate Credit Limit rule");
+        }).setName("Evaluate Credit Limit rule");
 
         // Drain to remote (IMDG) results map, merging with any previous results
         ClientConfig clientConfig = new ClientConfig();
         clientConfig.getNetworkConfig().addAddress(JetMain.IMDG_HOST);
         clientConfig.getGroupConfig().setName("dev").setPassword("ignored");
 
-            result.drainTo(Sinks.remoteMapWithMerging(
-                    "resultMap",
-                    clientConfig,
-                    (RuleExecutionResult r) -> r.getTransactionID(),
-                    (RuleExecutionResult r) -> new ArrayList<>(Arrays.asList(r)),
-                    (List<RuleExecutionResult> o, List<RuleExecutionResult> n) -> {
-                        System.out.println("Merging result to resultsMap");
-                        o.addAll(n);
-                        return o;
-                    }
-                    )).setName("Drain to IMDG results map");
+        result.drainTo(Sinks.remoteMapWithMerging(
+                "resultMap",
+                clientConfig,
+                (RuleExecutionResult r) -> r.getTransactionID(),
+                (RuleExecutionResult r) -> new ArrayList<>(Arrays.asList(r)),
+                (List<RuleExecutionResult> o, List<RuleExecutionResult> n) -> {
+                    System.out.println("Merging result to resultsMap");
+                    o.addAll(n);
+                    return o;
+                })).setName("Drain to IMDG results map");
 
-        // TODO: drain to Grafana
+        // TODO: drain to Graphite/Grafana
 
         result.drainTo(Sinks.logger());
 
