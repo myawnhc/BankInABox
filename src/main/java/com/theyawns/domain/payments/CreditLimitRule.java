@@ -21,8 +21,6 @@ public class CreditLimitRule extends BaseRule implements Serializable {
     @Override
     Pipeline buildPipeline() {
 
-
-
         Pipeline p = Pipeline.create();
         StreamStage<TransactionWithRules> enrichedJournal = getEnrichedJournal(p);
 
@@ -37,8 +35,11 @@ public class CreditLimitRule extends BaseRule implements Serializable {
 
         StreamStage<TransactionWithAccountInfo> txnsWithAccountInfo = enrichedJournal.mapUsingContext(contextFactory, (map, txn) -> {
             if (txn.getAccountNumber() == null) {
+                // Seeing this happen ... appears we lose connection to the HZ cluster but account id should already be embedded in the txn.
                 System.out.println("Null account not allowed");
                 return null;
+            } else {
+                System.out.println("Good account");
             }
            Account acct = map.get(txn.getAccountNumber());
            TransactionWithAccountInfo twa = new TransactionWithAccountInfo(txn);
@@ -52,18 +53,10 @@ public class CreditLimitRule extends BaseRule implements Serializable {
             rer.setResult(process(txn));
             rer.setElapsed(System.currentTimeMillis() - txn.getIngestTime());
             return rer;
-        });
+        }).peek()
+                .setName("Evaluate Credit Limit rule");
 
-        // TODO: drain to results map
-
-//        result.drainTo(Sinks.remoteMapWithMerging("resultMap", clientConfig,
-//                /* toKeyFn */ RuleExecutionResult::getTransactionID,
-//                /* toValueFn */ (RuleExecutionResult r) -> r,
-//                /* mergeFn */ (List<RuleExecutionResult> original, List<RuleExecutionResult> modified) -> {
-//                    original.add(r);
-//                    return original;
-//                })).setName("Drain to remote results map with merge");
-
+        // Drain to remote (IMDG) results map, merging with any previous results
         ClientConfig clientConfig = new ClientConfig();
         clientConfig.getNetworkConfig().addAddress(JetMain.IMDG_HOST);
         clientConfig.getGroupConfig().setName("dev").setPassword("ignored");
@@ -74,10 +67,11 @@ public class CreditLimitRule extends BaseRule implements Serializable {
                     (RuleExecutionResult r) -> r.getTransactionID(),
                     (RuleExecutionResult r) -> new ArrayList<>(Arrays.asList(r)),
                     (List<RuleExecutionResult> o, List<RuleExecutionResult> n) -> {
+                        System.out.println("Merging result to resultsMap");
                         o.addAll(n);
                         return o;
                     }
-                    ));
+                    )).setName("Drain to IMDG results map");
 
         // TODO: drain to Grafana
 
@@ -89,6 +83,7 @@ public class CreditLimitRule extends BaseRule implements Serializable {
     // false = transaction should be rejected, over limit
     // true = transaction should be approved, <= limit
     private static boolean process(TransactionWithAccountInfo transaction) {
+        System.out.println("Evaluating rule");
         Account account = transaction.getAccountInfo();
         double projectedBalance = account.getBalance() + transaction.getAmount();
         if (projectedBalance > account.getCreditLimit())

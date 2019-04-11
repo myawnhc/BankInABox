@@ -23,4 +23,8 @@ public class RuleExecutionResult implements Serializable {
     }
 
     public String getTransactionID() { return transaction.getID(); }
+
+    public String toString() {
+        return "RuleExecutionResult " + ruleName + " " + transaction.getID() + result;
+    }
 }

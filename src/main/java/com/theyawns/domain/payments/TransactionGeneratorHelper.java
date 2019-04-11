@@ -2,7 +2,7 @@ package com.theyawns.domain.payments;
 
 import java.util.Random;
 
-public class GeneratorHelper {
+public class TransactionGeneratorHelper {
 
     private Random countryCodeRandom;
     private Random cityCodeRandom;
@@ -10,7 +10,7 @@ public class GeneratorHelper {
     private Random txnAmountRandom;
     private Random responseCodeRandom;
 
-    public GeneratorHelper() {
+    public TransactionGeneratorHelper() {
         //countryCodeRandom = new Random(1);
         //cityCodeRandom = new Random(1);
         //merchantTypeRandom = new Random(1);
@@ -24,8 +24,12 @@ public class GeneratorHelper {
 
     public Transaction generateTransactionForAccount(Account a, int txnNum) {
         Transaction t = new Transaction(txnNum);
+        //System.out.println("Account " + a);
         t.setAccountNumber(a.getAccountNumber());
         t.setAmount(generateTxnAmount());
+        if (t.getAccountNumber() == null) {
+            System.out.println("TGH account issue");
+        }
         // TODO: current timestamp
         return t;
 

@@ -52,14 +52,17 @@ public abstract class BaseRule implements Serializable {
                 mapEventNewValue(), JournalInitialPosition.START_FROM_OLDEST) );
 
         StreamStage<TransactionWithRules> enriched =
-                txns.withoutTimestamps().mapUsingContext(getJetContext(), (JetInstance jet, Transaction t) -> {
+                txns.withoutTimestamps()
+                        .setName("draw from IMDG authMap")
+                        .mapUsingContext(getJetContext(), (JetInstance jet, Transaction t) -> {
                     List<Job> activeJobs = jet.getJobs();
                     Set<String> rules = new HashSet<>();
                     for (Job j : activeJobs) {
                         rules.add(j.getName());
                     }
+                    System.out.println("Adding " + activeJobs.size() + " rule ids to transaction " + t.getID() + "( acct " + t.getAccountNumber() + ")");
                     return new TransactionWithRules(t, rules);
-                });
+                }).setName("Enrich with currently active rule info");
         return enriched;
     }
 
