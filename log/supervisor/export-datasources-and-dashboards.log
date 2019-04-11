@@ -1,0 +1,11 @@
+Output:
+{"id":1,"message":"Datasource added","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"slug":"jet","status":"success","version":1}
+✔ Dashboard Jet exported successfully.
+Output:
+{"slug":"flight-telemetry","status":"success","version":1}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 2 dashboards exported successfully.
