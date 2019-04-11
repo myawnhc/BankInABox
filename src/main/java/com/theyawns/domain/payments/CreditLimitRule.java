@@ -36,17 +36,14 @@ public class CreditLimitRule extends BaseRule implements Serializable {
         StreamStage<TransactionWithAccountInfo> txnsWithAccountInfo = enrichedJournal.mapUsingContext(contextFactory, (map, txn) -> {
             if (txn.getAccountNumber() == null) {
                 // Seeing this happen ... appears we lose connection to the HZ cluster but account id should already be embedded in the txn.
-                System.out.println("Null account not allowed");
+                System.out.println("Null account not allowed");  // FIXED, shouldn't need this check any longer
                 return null;
             } else {
-                System.out.println("Good account");
-            }
-           Account acct = map.get(txn.getAccountNumber());
-           TransactionWithAccountInfo twa = new TransactionWithAccountInfo(txn);
-           twa.setAccountInfo(acct);
-           return twa;
-        })
-                .setName("Enrich transactions with Account info");
+                Account acct = map.get(txn.getAccountNumber());
+                TransactionWithAccountInfo twa = new TransactionWithAccountInfo(txn);
+                twa.setAccountInfo(acct);
+                return twa;
+            }}).setName("Enrich transactions with Account info");
 
         StreamStage<RuleExecutionResult> result = txnsWithAccountInfo.map( txn -> {
             RuleExecutionResult rer = new RuleExecutionResult(txn, RULE_NAME);
