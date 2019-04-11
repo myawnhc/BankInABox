@@ -2,26 +2,18 @@ package com.theyawns.domain.payments;
 
 import com.hazelcast.jet.datamodel.KeyedWindowResult;
 import com.hazelcast.jet.pipeline.Pipeline;
+import com.hazelcast.jet.pipeline.Sink;
 import com.hazelcast.jet.pipeline.Sinks;
 import com.hazelcast.jet.pipeline.StreamStage;
-import com.hazelcast.jet.pipeline.Sink;
-import static com.hazelcast.jet.pipeline.SinkBuilder.sinkBuilder;
-import com.hazelcast.jet.datamodel.KeyedWindowResult;
-
-import org.python.core.PyFloat;
-import org.python.core.PyInteger;
-import org.python.core.PyList;
-import org.python.core.PyString;
-import org.python.core.PyTuple;
+import org.python.core.*;
 import org.python.modules.cPickle;
 
 import java.io.BufferedOutputStream;
 import java.net.Socket;
 import java.nio.ByteBuffer;
 import java.time.Instant;
-import java.util.Map.Entry;
-import java.util.SortedMap;
-import java.util.function.Consumer;
+
+import static com.hazelcast.jet.pipeline.SinkBuilder.sinkBuilder;
 
 public class LocationBasedRule extends BaseRule {
 
@@ -38,7 +30,7 @@ public class LocationBasedRule extends BaseRule {
 
     public static void main(String[] args) {
         LocationBasedRule rule = new LocationBasedRule();
-        rule.run();
+        rule.run("LocationBasedRule"); // Run method now requires name to use for the job
     }
 
     /**
