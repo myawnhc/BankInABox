@@ -8,8 +8,8 @@
 .idea/vcs.xml
 .idea/workspace.xml
 RuleEngine.iml
-*.jar
 *.class
+target/*
 target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
 target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
 target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
