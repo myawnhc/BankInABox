@@ -1,6 +1,7 @@
 package com.theyawns.domain.payments;
 
 import com.hazelcast.jet.datamodel.KeyedWindowResult;
+import com.hazelcast.jet.function.ComparatorEx;
 import com.hazelcast.jet.pipeline.Pipeline;
 import com.hazelcast.jet.pipeline.Sinks;
 import com.hazelcast.jet.pipeline.StreamStage;
@@ -25,6 +26,16 @@ import java.util.function.Consumer;
 
 public class LocationBasedRule extends BaseRule {
 
+    private static final String RESULT_MAP = "LocationBasedRule";
+
+    private static final int SINK_PORT = 2004;
+    private static String SINK_HOST;
+    static {
+        //System.setProperty("hazelcast.logging.type", "log4j");
+        SINK_HOST = System.getProperty("SINK_HOST", "127.0.0.1");
+    }
+
+
     @Override
     Pipeline buildPipeline() {
         Pipeline p = Pipeline.create();
@@ -33,7 +44,38 @@ public class LocationBasedRule extends BaseRule {
         // TODO: copy applicable processing stages from JetRuleEngine
         enrichedJournal.drainTo(Sinks.logger());
 
+//        for all transactions
+//                determine if location of transaction is near location of cellphone
+//                group by MerchantID
+//                aggregate
+//                setName(this.getClass().getName())
+//
+//        StreamStage<KeyedWindowResult<String, Transaction>> transactions = p
+//                .drawFrom()
+//
+//
+        // Build Graphite sink
+        Sink<KeyedWindowResult> graphiteSink = buildGraphiteSink(SINK_HOST, SINK_PORT);
+
+        //enrichedJournal.drainTo(Sinks.map(RESULT_MAP));
+
+
+        // Drain all results to the Graphite sink
+        p.drainTo(graphiteSink, failedTransactions)
+                .setName("graphiteSink");
+
         return p;
+    }
+
+    /**
+     * Returns the Fraud Results
+     *
+     * @param
+     * @return \
+     */
+    private static int getFraudResult(int fraudResult) {
+        // your logic here
+        return fraudResult;
     }
 
     public static void main(String[] args) {
@@ -53,7 +95,7 @@ public class LocationBasedRule extends BaseRule {
                 new BufferedOutputStream(new Socket(host, port).getOutputStream()))
                 .<KeyedWindowResult>receiveFn((bos, entry) -> {
                     GraphiteMetric metric = new GraphiteMetric();
-                    metric.from(entry);
+                    //metric.from(entry);
 
                     PyString payload = cPickle.dumps(metric.getAsList(), 2);
                     byte[] header = ByteBuffer.allocate(4).putInt(payload.__len__()).array();
@@ -77,6 +119,7 @@ public class LocationBasedRule extends BaseRule {
         private GraphiteMetric() {
         }
 
+        // Graph Transaction Results (approved/not)
         private void fromTransactionEntry(KeyedWindowResult<Long, Transaction> transactionEntry) {
             Transaction transaction = transactionEntry.getValue();
 
@@ -88,34 +131,6 @@ public class LocationBasedRule extends BaseRule {
                     transaction.getRequestTime() ));
 
             metricValue = new PyFloat(1);
-        }
-
-        // Graph Transaction Results (approved/not)
-        // Graph
-
-        private void fromMaxNoiseEntry(KeyedWindowResult<String, Integer> entry) {
-            metricName = new PyString(replaceWhiteSpace(entry.getKey()));
-            timestamp = new PyInteger(getEpochSecond(entry.end()));
-            metricValue = new PyFloat(entry.getValue());
-        }
-
-        private void fromTotalC02Entry(KeyedWindowResult<String, Double> entry) {
-            metricName = new PyString(replaceWhiteSpace(entry.getKey()));
-            timestamp = new PyInteger(getEpochSecond(entry.end()));
-            metricValue = new PyFloat(entry.getValue());
-        }
-
-        void from(KeyedWindowResult entry) {
-//            if (entry.getKey() instanceof Long) {
-//                KeyedWindowResult<Long, Aircraft> aircraftEntry = entry;
-//                fromAirCraftEntry(aircraftEntry);
-//            } else {
-//                if (entry.getValue() instanceof Double) {
-//                    fromTotalC02Entry(entry);
-//                } else {
-//                    fromMaxNoiseEntry(entry);
-//                }
-//            }
         }
 
         PyList getAsList() {

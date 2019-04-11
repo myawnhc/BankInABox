@@ -9,6 +9,7 @@ import com.hazelcast.jet.Job;
 import com.hazelcast.jet.config.JetConfig;
 import com.hazelcast.jet.pipeline.*;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -16,7 +17,7 @@ import java.util.Set;
 import static com.hazelcast.jet.Util.mapEventNewValue;
 import static com.hazelcast.jet.Util.mapPutEvents;
 
-public abstract class BaseRule {
+public abstract class BaseRule implements Serializable {
 
     public static final String IMDG_HOST = "10.216.1.141:5701";
     protected ClientConfig ccfg;
@@ -64,7 +65,7 @@ public abstract class BaseRule {
 
     abstract Pipeline buildPipeline();
 
-    private ContextFactory<JetInstance> getJetContext() {
+    protected ContextFactory<JetInstance> getJetContext() {
         return ContextFactory.withCreateFn(jet -> { return jet; } );
     }
 

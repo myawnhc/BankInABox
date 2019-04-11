@@ -2,6 +2,7 @@ package com.theyawns.domain.payments;
 
 import com.hazelcast.config.Config;
 import com.hazelcast.config.ManagementCenterConfig;
+import com.hazelcast.config.TcpIpConfig;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
 
@@ -21,7 +22,10 @@ public class TransactionGeneratorMain {
         //      transaction generator and then removed by EntryListener when Jet results are posted.
         Config hzConfig = new Config();
         hzConfig.getNetworkConfig().getJoin().getMulticastConfig().setEnabled(false);
-        hzConfig.getGroupConfig().setName("dev").setPassword("ignored");
+        TcpIpConfig tcpIpConfig = new TcpIpConfig();
+        tcpIpConfig.addMember("127.0.0.1");
+        hzConfig.getNetworkConfig().getJoin().setTcpIpConfig(tcpIpConfig);
+        hzConfig.getGroupConfig().setName("dev");
         hzConfig.getMapEventJournalConfig("preAuth").setEnabled(true).setCapacity(1000000);
         hzConfig.setManagementCenterConfig(mcc);
         hzConfig.setProperty("hazelcast.map.entry.filtering.natural.event.types", "true");

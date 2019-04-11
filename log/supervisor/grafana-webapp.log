@@ -1004,3 +1004,74 @@ t=2019-04-11T11:19:02+0000 lvl=info msg="Request Completed" logger=context userI
 t=2019-04-11T11:19:14+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=27 size=82 referer=
 t=2019-04-11T11:19:25+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=51 size=82 referer=
 t=2019-04-11T11:19:37+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=29 size=82 referer=
+t=2019-04-11T13:36:37+0000 lvl=info msg="Starting Grafana" logger=server version=4.6.1 commit=cac8b97 compiled=2017-11-01T10:27:12+0000
+t=2019-04-11T13:36:37+0000 lvl=info msg="Config loaded from" logger=settings file=/opt/grafana/conf/defaults.ini
+t=2019-04-11T13:36:37+0000 lvl=info msg="Config loaded from" logger=settings file=/opt/grafana/conf/custom.ini
+t=2019-04-11T13:36:37+0000 lvl=info msg="Path Home" logger=settings path=/opt/grafana
+t=2019-04-11T13:36:37+0000 lvl=info msg="Path Data" logger=settings path=/opt/grafana/data
+t=2019-04-11T13:36:37+0000 lvl=info msg="Path Logs" logger=settings path=/opt/grafana/data/log
+t=2019-04-11T13:36:37+0000 lvl=info msg="Path Plugins" logger=settings path=/opt/grafana/data/plugins
+t=2019-04-11T13:36:37+0000 lvl=info msg="App mode production" logger=settings
+t=2019-04-11T13:36:37+0000 lvl=info msg="Initializing DB" logger=sqlstore dbtype=sqlite3
+t=2019-04-11T13:36:37+0000 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-04-11T13:36:37+0000 lvl=info msg="Executing migration" logger=migrator id="copy data account to org"
+t=2019-04-11T13:36:37+0000 lvl=info msg="Skipping migration condition not fulfilled" logger=migrator id="copy data account to org"
+t=2019-04-11T13:36:37+0000 lvl=info msg="Executing migration" logger=migrator id="copy data account_user to org_user"
+t=2019-04-11T13:36:37+0000 lvl=info msg="Skipping migration condition not fulfilled" logger=migrator id="copy data account_user to org_user"
+t=2019-04-11T13:36:37+0000 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-04-11T13:36:37+0000 lvl=warn msg="Plugin dir does not exist" logger=plugins dir=/opt/grafana/data/plugins
+t=2019-04-11T13:36:37+0000 lvl=info msg="Plugin dir created" logger=plugins dir=/opt/grafana/data/plugins
+t=2019-04-11T13:36:37+0000 lvl=info msg="Initializing Alerting" logger=alerting.engine
+t=2019-04-11T13:36:37+0000 lvl=info msg="Initializing CleanUpService" logger=cleanup
+t=2019-04-11T13:36:37+0000 lvl=info msg="Initializing Stream Manager"
+t=2019-04-11T13:36:37+0000 lvl=info msg="Initializing HTTP Server" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+t=2019-04-11T13:36:38+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/ status=302 remote_addr=172.23.0.1 time_ms=8 size=29 referer=
+t=2019-04-11T13:36:38+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/login status=302 remote_addr=172.23.0.1 time_ms=17 size=24 referer=
+t=2019-04-11T13:36:48+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=28 size=82 referer=
+t=2019-04-11T13:37:01+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=29 size=82 referer=
+t=2019-04-11T13:37:13+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=31 size=82 referer=
+t=2019-04-11T13:37:25+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=27 size=82 referer=
+t=2019-04-11T13:37:37+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=28 size=82 referer=
+t=2019-04-11T13:37:48+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T13:38:00+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T13:38:12+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=28 size=82 referer=
+t=2019-04-11T13:38:24+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=27 size=82 referer=
+t=2019-04-11T13:38:36+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=25 size=82 referer=
+t=2019-04-11T13:38:48+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=27 size=82 referer=
+t=2019-04-11T13:38:59+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T13:39:11+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=28 size=82 referer=
+t=2019-04-11T13:39:23+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T13:39:35+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T13:39:47+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=29 size=82 referer=
+t=2019-04-11T13:39:58+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=25 size=82 referer=
+t=2019-04-11T13:40:11+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T13:40:23+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=27 size=82 referer=
+t=2019-04-11T13:40:36+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=48 size=82 referer=
+t=2019-04-11T13:40:48+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T13:41:00+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=27 size=82 referer=
+t=2019-04-11T13:41:12+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=27 size=82 referer=
+t=2019-04-11T13:41:23+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T13:41:35+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=27 size=82 referer=
+t=2019-04-11T13:41:47+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T13:41:59+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T13:42:12+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=25 size=82 referer=
+t=2019-04-11T13:42:24+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T13:42:36+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=25 size=82 referer=
+t=2019-04-11T13:42:48+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=28 size=82 referer=
+t=2019-04-11T13:42:59+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T13:43:11+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T13:43:22+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=25 size=82 referer=
+t=2019-04-11T13:43:35+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=24 size=82 referer=
+t=2019-04-11T13:43:47+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T13:43:59+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T13:44:11+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T13:44:22+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=24 size=82 referer=
+t=2019-04-11T13:44:35+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=47 size=82 referer=
+t=2019-04-11T13:44:47+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=27 size=82 referer=
+t=2019-04-11T13:44:58+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=27 size=82 referer=
+t=2019-04-11T13:45:10+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=29 size=82 referer=
+t=2019-04-11T13:45:22+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=29 size=82 referer=
+t=2019-04-11T13:45:34+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-11T13:45:45+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=31 size=82 referer=
+t=2019-04-11T13:45:58+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=25 size=82 referer=
+t=2019-04-11T13:46:10+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=27 size=82 referer=
