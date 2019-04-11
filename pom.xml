@@ -18,9 +18,11 @@
         -->
 
         <dependency>
-            <groupId>com.hazelcast.jet</groupId>
+            <groupId>com.hazelcast</groupId>
             <artifactId>hazelcast-jet</artifactId>
-            <version>0.7</version>
+            <version>3.0</version>
+	    <scope>system</scope>
+            <systemPath>${project.basedir}/lib/hazelcast-jet-3.0.jar</systemPath>
         </dependency>
     </dependencies>
 
