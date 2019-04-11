@@ -1,24 +1,881 @@
-2019-04-11,09:12:33.742 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.ASCENDING" took 2.98023e-05s
-2019-04-11,09:12:33.742 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.ASCENDING" took 2.90871e-05s
-2019-04-11,09:12:33.742 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.ASCENDING" took 3.00407e-05s
-2019-04-11,09:12:33.748 :: graphite.render.datalib.fetchData :: lookup and merge of "London.ASCENDING" took 0.00011301s
-2019-04-11,09:12:33.763 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.ASCENDING" took 2.88486e-05s
-2019-04-11,09:12:33.766 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.ASCENDING" took 5.00679e-05s
-2019-04-11,09:12:33.767 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_AVG_NOISE" took 3.88622e-05s
-2019-04-11,09:12:33.769 :: graphite.render.datalib.fetchData :: lookup and merge of "London.DESCENDING" took 3.38554e-05s
-2019-04-11,09:12:33.771 :: graphite.render.datalib.fetchData :: lookup and merge of "London_AVG_NOISE" took 3.8147e-05s
-2019-04-11,09:12:33.774 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.DESCENDING" took 3.60012e-05s
-2019-04-11,09:12:33.776 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_AVG_NOISE" took 6.10352e-05s
-2019-04-11,09:12:33.779 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.DESCENDING" took 3.88622e-05s
-2019-04-11,09:12:33.779 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_AVG_NOISE" took 4.3869e-05s
-2019-04-11,09:12:33.784 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_AVG_NOISE" took 5.19753e-05s
-2019-04-11,09:12:33.787 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_AVG_NOISE" took 4.69685e-05s
-2019-04-11,09:12:33.790 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.DESCENDING" took 4.1008e-05s
-2019-04-11,09:12:33.794 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.69549e-05s
-2019-04-11,09:12:33.798 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.DESCENDING" took 4.19617e-05s
-2019-04-11,09:12:33.798 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 3.91006e-05s
-2019-04-11,09:12:33.798 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.DESCENDING" took 3.48091e-05s
-2019-04-11,09:12:33.803 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 4.19617e-05s
-2019-04-11,09:12:33.806 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 4.29153e-05s
-2019-04-11,09:12:33.809 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 3.31402e-05s
-2019-04-11,09:12:33.811 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 3.19481e-05s
+2019-04-11,20:44:35.509 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.updateOperations" took 3.60012e-05s
+2019-04-11,20:44:35.512 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.metricsReceived" took 2.19345e-05s
+2019-04-11,20:44:35.514 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.committedPoints" took 2.19345e-05s
+2019-04-11,20:44:35.516 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.pointsPerUpdate" took 1.90735e-05s
+2019-04-11,20:44:35.518 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.cpuUsage" took 1.90735e-05s
+2019-04-11,20:44:35.520 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.creates" took 1.90735e-05s
+2019-04-11,20:46:39.026 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.updateOperations" took 3.00407e-05s
+2019-04-11,20:46:39.029 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.metricsReceived" took 3.31402e-05s
+2019-04-11,20:46:39.031 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.committedPoints" took 7.08103e-05s
+2019-04-11,20:46:39.033 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.pointsPerUpdate" took 2.7895e-05s
+2019-04-11,20:46:39.035 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.cpuUsage" took 2.09808e-05s
+2019-04-11,20:46:39.038 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.creates" took 4.1008e-05s
+2019-04-11,20:46:46.921 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.ASCENDING" took 4.50611e-05s
+2019-04-11,20:46:46.964 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_AVG_NOISE" took 3.29018e-05s
+2019-04-11,20:46:46.966 :: graphite.render.datalib.fetchData :: lookup and merge of "London_AVG_NOISE" took 2.81334e-05s
+2019-04-11,20:46:46.969 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_AVG_NOISE" took 0.000104904s
+2019-04-11,20:46:46.971 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_AVG_NOISE" took 2.5034e-05s
+2019-04-11,20:46:46.973 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_AVG_NOISE" took 2.59876e-05s
+2019-04-11,20:46:46.975 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_AVG_NOISE" took 0.000103951s
+2019-04-11,20:46:47.017 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.09944e-05s
+2019-04-11,20:46:47.019 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.90871e-05s
+2019-04-11,20:46:47.021 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.69413e-05s
+2019-04-11,20:46:47.023 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.69413e-05s
+2019-04-11,20:46:47.026 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 3.29018e-05s
+2019-04-11,20:46:47.028 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.98023e-05s
+2019-04-11,20:46:47.034 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.ASCENDING" took 6.48499e-05s
+2019-04-11,20:46:47.038 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.ASCENDING" took 2.59876e-05s
+2019-04-11,20:46:47.042 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.ASCENDING" took 6.29425e-05s
+2019-04-11,20:46:47.044 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.ASCENDING" took 8.70228e-05s
+2019-04-11,20:46:47.051 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.DESCENDING" took 4.00543e-05s
+2019-04-11,20:46:47.059 :: graphite.render.datalib.fetchData :: lookup and merge of "London.DESCENDING" took 4.31538e-05s
+2019-04-11,20:46:47.075 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.DESCENDING" took 9.39369e-05s
+2019-04-11,20:46:47.076 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.DESCENDING" took 4.81606e-05s
+2019-04-11,20:46:47.086 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.DESCENDING" took 2.59876e-05s
+2019-04-11,20:46:47.087 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.DESCENDING" took 2.69413e-05s
+2019-04-11,20:46:47.092 :: graphite.render.datalib.fetchData :: lookup and merge of "London.ASCENDING" took 0.00011301s
+2019-04-11,20:46:51.864 :: graphite.render.datalib.fetchData :: lookup and merge of "London.ASCENDING" took 3.60012e-05s
+2019-04-11,20:46:51.870 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.ASCENDING" took 4.98295e-05s
+2019-04-11,20:46:51.875 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.ASCENDING" took 6.00815e-05s
+2019-04-11,20:46:51.876 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.ASCENDING" took 0.00114298s
+2019-04-11,20:46:51.891 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.ASCENDING" took 8.4877e-05s
+2019-04-11,20:46:51.902 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.DESCENDING" took 4.88758e-05s
+2019-04-11,20:46:51.902 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.ASCENDING" took 0.000219107s
+2019-04-11,20:46:51.915 :: graphite.render.datalib.fetchData :: lookup and merge of "London.DESCENDING" took 8.60691e-05s
+2019-04-11,20:46:51.929 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.DESCENDING" took 4.50611e-05s
+2019-04-11,20:46:51.936 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.DESCENDING" took 6.48499e-05s
+2019-04-11,20:46:51.943 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 6.79493e-05s
+2019-04-11,20:46:51.953 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 5.29289e-05s
+2019-04-11,20:46:51.957 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 5.31673e-05s
+2019-04-11,20:46:51.960 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_AVG_NOISE" took 3.00407e-05s
+2019-04-11,20:46:51.961 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.DESCENDING" took 4.31538e-05s
+2019-04-11,20:46:51.959 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.DESCENDING" took 2.7895e-05s
+2019-04-11,20:46:51.960 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.90871e-05s
+2019-04-11,20:46:51.964 :: graphite.render.datalib.fetchData :: lookup and merge of "London_AVG_NOISE" took 0.000129938s
+2019-04-11,20:46:51.971 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_AVG_NOISE" took 7.89165e-05s
+2019-04-11,20:46:51.972 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 7.08103e-05s
+2019-04-11,20:46:51.974 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_AVG_NOISE" took 3.8147e-05s
+2019-04-11,20:46:51.975 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 3.29018e-05s
+2019-04-11,20:46:51.977 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_AVG_NOISE" took 0.000159025s
+2019-04-11,20:46:51.980 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_AVG_NOISE" took 0.000126123s
+2019-04-11,20:54:30.809 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.updateOperations" took 2.90871e-05s
+2019-04-11,20:54:30.811 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.metricsReceived" took 2.09808e-05s
+2019-04-11,20:54:30.813 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.committedPoints" took 2.5034e-05s
+2019-04-11,20:54:30.816 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.pointsPerUpdate" took 7.60555e-05s
+2019-04-11,20:54:30.819 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.cpuUsage" took 2.90871e-05s
+2019-04-11,20:54:30.821 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.creates" took 2.28882e-05s
+2019-04-11,20:57:24.779 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.updateOperations" took 3.19481e-05s
+2019-04-11,20:57:24.782 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.metricsReceived" took 4.60148e-05s
+2019-04-11,20:57:24.784 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.committedPoints" took 2.09808e-05s
+2019-04-11,20:57:24.786 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.pointsPerUpdate" took 2.00272e-05s
+2019-04-11,20:57:24.788 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.cpuUsage" took 1.97887e-05s
+2019-04-11,20:57:24.790 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.creates" took 2.00272e-05s
+2019-04-11,20:57:28.496 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.ASCENDING" took 3.31402e-05s
+2019-04-11,20:57:28.500 :: graphite.render.datalib.fetchData :: lookup and merge of "London.ASCENDING" took 0.000163078s
+2019-04-11,20:57:28.500 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.ASCENDING" took 3.79086e-05s
+2019-04-11,20:57:28.505 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.ASCENDING" took 6.69956e-05s
+2019-04-11,20:57:28.523 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.ASCENDING" took 4.00543e-05s
+2019-04-11,20:57:28.528 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.ASCENDING" took 3.19481e-05s
+2019-04-11,20:57:28.536 :: graphite.render.datalib.fetchData :: lookup and merge of "London.DESCENDING" took 0.000344992s
+2019-04-11,20:57:28.541 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 5.81741e-05s
+2019-04-11,20:57:28.544 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 3.19481e-05s
+2019-04-11,20:57:28.546 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.DESCENDING" took 4.1008e-05s
+2019-04-11,20:57:28.547 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.DESCENDING" took 6.50883e-05s
+2019-04-11,20:57:28.549 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 4.50611e-05s
+2019-04-11,20:57:28.556 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_AVG_NOISE" took 7.98702e-05s
+2019-04-11,20:57:28.558 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 4.60148e-05s
+2019-04-11,20:57:28.560 :: graphite.render.datalib.fetchData :: lookup and merge of "London_AVG_NOISE" took 6.48499e-05s
+2019-04-11,20:57:28.560 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.DESCENDING" took 9.20296e-05s
+2019-04-11,20:57:28.566 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 0.000170946s
+2019-04-11,20:57:28.569 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.DESCENDING" took 0.000126123s
+2019-04-11,20:57:28.570 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_AVG_NOISE" took 7.89165e-05s
+2019-04-11,20:57:28.571 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 0.000204802s
+2019-04-11,20:57:28.574 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.DESCENDING" took 8.60691e-05s
+2019-04-11,20:57:28.577 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_AVG_NOISE" took 0.000120163s
+2019-04-11,20:57:28.579 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_AVG_NOISE" took 3.69549e-05s
+2019-04-11,20:57:28.581 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_AVG_NOISE" took 3.09944e-05s
+2019-04-11,20:57:33.466 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.ASCENDING" took 3.29018e-05s
+2019-04-11,20:57:33.476 :: graphite.render.datalib.fetchData :: lookup and merge of "London.ASCENDING" took 0.000108957s
+2019-04-11,20:57:33.477 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.ASCENDING" took 0.000149012s
+2019-04-11,20:57:33.488 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.ASCENDING" took 0.000113964s
+2019-04-11,20:57:33.491 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.ASCENDING" took 9.58443e-05s
+2019-04-11,20:57:33.492 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 4.79221e-05s
+2019-04-11,20:57:33.498 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 0.000224113s
+2019-04-11,20:57:33.503 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 6.00815e-05s
+2019-04-11,20:57:33.506 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.DESCENDING" took 7.29561e-05s
+2019-04-11,20:57:33.508 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 0.000144958s
+2019-04-11,20:57:33.510 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.ASCENDING" took 9.10759e-05s
+2019-04-11,20:57:33.513 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 3.91006e-05s
+2019-04-11,20:57:33.514 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_AVG_NOISE" took 3.8147e-05s
+2019-04-11,20:57:33.518 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.DESCENDING" took 9.58443e-05s
+2019-04-11,20:57:33.519 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 5.10216e-05s
+2019-04-11,20:57:33.522 :: graphite.render.datalib.fetchData :: lookup and merge of "London_AVG_NOISE" took 0.000118971s
+2019-04-11,20:57:33.535 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.DESCENDING" took 5.60284e-05s
+2019-04-11,20:57:33.536 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_AVG_NOISE" took 0.00173879s
+2019-04-11,20:57:33.538 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.DESCENDING" took 4.88758e-05s
+2019-04-11,20:57:33.540 :: graphite.render.datalib.fetchData :: lookup and merge of "London.DESCENDING" took 8.60691e-05s
+2019-04-11,20:57:33.550 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_AVG_NOISE" took 5.00679e-05s
+2019-04-11,20:57:33.552 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.DESCENDING" took 3.48091e-05s
+2019-04-11,20:57:33.553 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_AVG_NOISE" took 3.69549e-05s
+2019-04-11,20:57:33.556 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_AVG_NOISE" took 5.6982e-05s
+2019-04-11,20:57:38.455 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.50475e-05s
+2019-04-11,20:57:38.457 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.19345e-05s
+2019-04-11,20:57:38.459 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.00272e-05s
+2019-04-11,20:57:38.460 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 1.81198e-05s
+2019-04-11,20:57:38.462 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 1.90735e-05s
+2019-04-11,20:57:38.464 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 1.88351e-05s
+2019-04-11,20:57:43.460 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.09944e-05s
+2019-04-11,20:57:43.462 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 3.38554e-05s
+2019-04-11,20:57:43.464 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 8.91685e-05s
+2019-04-11,20:57:43.467 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 3.69549e-05s
+2019-04-11,20:57:43.469 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.59876e-05s
+2019-04-11,20:57:43.470 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 1.88351e-05s
+2019-04-11,20:57:47.003 :: find_view query=Frankfurt_C02_EMISSION.* local_only=0 matches=0
+2019-04-11,20:57:47.004 :: received remote find request: pattern=Frankfurt_C02_EMISSION.* from=1555015903 until=1555016323 local_only=0 format=treejson matches=0
+2019-04-11,20:57:48.470 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.40939e-05s
+2019-04-11,20:57:48.472 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.47955e-05s
+2019-04-11,20:57:48.474 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.19345e-05s
+2019-04-11,20:57:48.476 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 1.97887e-05s
+2019-04-11,20:57:48.478 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 1.90735e-05s
+2019-04-11,20:57:48.479 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.00272e-05s
+2019-04-11,20:57:53.472 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.29018e-05s
+2019-04-11,20:57:53.474 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:57:53.476 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 1.90735e-05s
+2019-04-11,20:57:53.478 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.19345e-05s
+2019-04-11,20:57:53.479 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.00272e-05s
+2019-04-11,20:57:53.481 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 1.90735e-05s
+2019-04-11,20:57:58.474 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.40939e-05s
+2019-04-11,20:57:58.477 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.59876e-05s
+2019-04-11,20:57:58.479 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 3.19481e-05s
+2019-04-11,20:57:58.480 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.5034e-05s
+2019-04-11,20:57:58.482 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.28882e-05s
+2019-04-11,20:57:58.484 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:58:03.480 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 7.82013e-05s
+2019-04-11,20:58:03.482 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 5.19753e-05s
+2019-04-11,20:58:03.484 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.00272e-05s
+2019-04-11,20:58:03.486 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 1.88351e-05s
+2019-04-11,20:58:03.488 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.00272e-05s
+2019-04-11,20:58:03.489 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.59876e-05s
+2019-04-11,20:58:08.465 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.88622e-05s
+2019-04-11,20:58:08.467 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.7895e-05s
+2019-04-11,20:58:08.469 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.00272e-05s
+2019-04-11,20:58:08.471 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 1.97887e-05s
+2019-04-11,20:58:08.473 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.59876e-05s
+2019-04-11,20:58:08.475 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:58:13.471 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.19481e-05s
+2019-04-11,20:58:13.473 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.19345e-05s
+2019-04-11,20:58:13.475 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.28882e-05s
+2019-04-11,20:58:13.477 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:58:13.479 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.31266e-05s
+2019-04-11,20:58:13.480 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.00272e-05s
+2019-04-11,20:58:18.476 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.69549e-05s
+2019-04-11,20:58:18.478 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.19345e-05s
+2019-04-11,20:58:18.480 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:58:18.482 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.31266e-05s
+2019-04-11,20:58:18.484 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:58:18.485 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 1.97887e-05s
+2019-04-11,20:58:23.484 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.48091e-05s
+2019-04-11,20:58:23.486 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.19345e-05s
+2019-04-11,20:58:23.488 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:58:23.490 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.00272e-05s
+2019-04-11,20:58:23.491 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.19345e-05s
+2019-04-11,20:58:23.493 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.69413e-05s
+2019-04-11,20:58:28.487 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.21865e-05s
+2019-04-11,20:58:28.489 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:58:28.491 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 1.90735e-05s
+2019-04-11,20:58:28.493 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:58:28.494 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.00272e-05s
+2019-04-11,20:58:28.496 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 1.90735e-05s
+2019-04-11,20:58:33.498 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.31402e-05s
+2019-04-11,20:58:33.499 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:58:33.501 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 1.88351e-05s
+2019-04-11,20:58:33.503 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.19345e-05s
+2019-04-11,20:58:33.505 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 1.90735e-05s
+2019-04-11,20:58:33.506 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 1.78814e-05s
+2019-04-11,20:58:38.480 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.31402e-05s
+2019-04-11,20:58:38.483 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.59876e-05s
+2019-04-11,20:58:38.484 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.19345e-05s
+2019-04-11,20:58:38.486 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:58:38.488 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.21729e-05s
+2019-04-11,20:58:38.490 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 1.88351e-05s
+2019-04-11,20:58:43.494 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.50475e-05s
+2019-04-11,20:58:43.497 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.40803e-05s
+2019-04-11,20:58:43.499 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.5034e-05s
+2019-04-11,20:58:43.501 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:58:43.503 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.21729e-05s
+2019-04-11,20:58:43.504 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:58:48.501 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.38554e-05s
+2019-04-11,20:58:48.504 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.5034e-05s
+2019-04-11,20:58:48.506 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:58:48.508 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.19345e-05s
+2019-04-11,20:58:48.510 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:58:48.512 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 1.90735e-05s
+2019-04-11,20:58:53.530 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 2.90871e-05s
+2019-04-11,20:58:53.532 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.28882e-05s
+2019-04-11,20:58:53.534 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.19345e-05s
+2019-04-11,20:58:53.535 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.00272e-05s
+2019-04-11,20:58:53.537 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 1.88351e-05s
+2019-04-11,20:58:53.539 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 1.88351e-05s
+2019-04-11,20:58:58.510 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.60012e-05s
+2019-04-11,20:58:58.511 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.21729e-05s
+2019-04-11,20:58:58.513 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.28882e-05s
+2019-04-11,20:58:58.515 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.28882e-05s
+2019-04-11,20:58:58.517 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.19345e-05s
+2019-04-11,20:58:58.519 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:59:02.750 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 4.41074e-05s
+2019-04-11,20:59:02.753 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 4.19617e-05s
+2019-04-11,20:59:02.755 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 3.79086e-05s
+2019-04-11,20:59:02.758 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 4.1008e-05s
+2019-04-11,20:59:02.760 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 3.69549e-05s
+2019-04-11,20:59:02.762 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 3.50475e-05s
+2019-04-11,20:59:03.524 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.60012e-05s
+2019-04-11,20:59:03.526 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.5034e-05s
+2019-04-11,20:59:03.528 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.47955e-05s
+2019-04-11,20:59:03.530 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.19345e-05s
+2019-04-11,20:59:03.532 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.40803e-05s
+2019-04-11,20:59:03.534 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:59:08.505 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.40939e-05s
+2019-04-11,20:59:08.507 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.38419e-05s
+2019-04-11,20:59:08.508 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 1.97887e-05s
+2019-04-11,20:59:08.510 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.00272e-05s
+2019-04-11,20:59:08.512 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.5034e-05s
+2019-04-11,20:59:08.514 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.28882e-05s
+2019-04-11,20:59:13.518 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 0.000159979s
+2019-04-11,20:59:13.522 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 4.60148e-05s
+2019-04-11,20:59:13.524 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.81334e-05s
+2019-04-11,20:59:13.527 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 3.19481e-05s
+2019-04-11,20:59:13.529 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.21729e-05s
+2019-04-11,20:59:13.531 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:59:18.516 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 5.07832e-05s
+2019-04-11,20:59:18.518 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 3.60012e-05s
+2019-04-11,20:59:18.520 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.5034e-05s
+2019-04-11,20:59:18.522 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.00272e-05s
+2019-04-11,20:59:18.524 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.40803e-05s
+2019-04-11,20:59:18.525 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.5034e-05s
+2019-04-11,20:59:23.533 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 6.8903e-05s
+2019-04-11,20:59:23.537 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 4.1008e-05s
+2019-04-11,20:59:23.540 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.81334e-05s
+2019-04-11,20:59:23.542 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.88486e-05s
+2019-04-11,20:59:23.545 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.40803e-05s
+2019-04-11,20:59:23.547 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.69413e-05s
+2019-04-11,20:59:28.524 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.40939e-05s
+2019-04-11,20:59:28.526 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.31266e-05s
+2019-04-11,20:59:28.528 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:59:28.530 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:59:28.531 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.00272e-05s
+2019-04-11,20:59:28.533 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:59:33.535 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.19481e-05s
+2019-04-11,20:59:33.538 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 3.00407e-05s
+2019-04-11,20:59:33.540 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 3.40939e-05s
+2019-04-11,20:59:33.543 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 3.88622e-05s
+2019-04-11,20:59:33.545 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.69413e-05s
+2019-04-11,20:59:33.546 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 1.90735e-05s
+2019-04-11,20:59:35.988 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.ASCENDING" took 6.79493e-05s
+2019-04-11,20:59:36.005 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.ASCENDING" took 4.19617e-05s
+2019-04-11,20:59:36.010 :: graphite.render.datalib.fetchData :: lookup and merge of "London.ASCENDING" took 5.19753e-05s
+2019-04-11,20:59:36.017 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.ASCENDING" took 0.000138998s
+2019-04-11,20:59:36.036 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.ASCENDING" took 0.000144005s
+2019-04-11,20:59:36.040 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_AVG_NOISE" took 4.3869e-05s
+2019-04-11,20:59:36.042 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 7.89165e-05s
+2019-04-11,20:59:36.048 :: graphite.render.datalib.fetchData :: lookup and merge of "London_AVG_NOISE" took 0.000142097s
+2019-04-11,20:59:36.048 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.DESCENDING" took 6.10352e-05s
+2019-04-11,20:59:36.054 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_AVG_NOISE" took 6.19888e-05s
+2019-04-11,20:59:36.055 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.ASCENDING" took 0.000305176s
+2019-04-11,20:59:36.058 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_AVG_NOISE" took 5.29289e-05s
+2019-04-11,20:59:36.060 :: graphite.render.datalib.fetchData :: lookup and merge of "London.DESCENDING" took 4.1008e-05s
+2019-04-11,20:59:36.063 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_AVG_NOISE" took 4.50611e-05s
+2019-04-11,20:59:36.069 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_AVG_NOISE" took 0.000146151s
+2019-04-11,20:59:36.071 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 0.000313044s
+2019-04-11,20:59:36.072 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.DESCENDING" took 8.70228e-05s
+2019-04-11,20:59:36.078 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 0.000141144s
+2019-04-11,20:59:36.080 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.DESCENDING" took 0.000174999s
+2019-04-11,20:59:36.082 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.DESCENDING" took 4.60148e-05s
+2019-04-11,20:59:36.082 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.DESCENDING" took 5.4121e-05s
+2019-04-11,20:59:36.087 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 9.10759e-05s
+2019-04-11,20:59:36.091 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 8.2016e-05s
+2019-04-11,20:59:36.093 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 3.19481e-05s
+2019-04-11,20:59:38.502 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.ASCENDING" took 3.38554e-05s
+2019-04-11,20:59:38.511 :: graphite.render.datalib.fetchData :: lookup and merge of "London.ASCENDING" took 5.60284e-05s
+2019-04-11,20:59:38.523 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.ASCENDING" took 0.000105143s
+2019-04-11,20:59:38.528 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.ASCENDING" took 8.2016e-05s
+2019-04-11,20:59:38.554 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.ASCENDING" took 3.50475e-05s
+2019-04-11,20:59:38.561 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.ASCENDING" took 7.98702e-05s
+2019-04-11,20:59:38.568 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.DESCENDING" took 6.10352e-05s
+2019-04-11,20:59:38.575 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_AVG_NOISE" took 0.000141859s
+2019-04-11,20:59:38.577 :: graphite.render.datalib.fetchData :: lookup and merge of "London.DESCENDING" took 5.19753e-05s
+2019-04-11,20:59:38.581 :: graphite.render.datalib.fetchData :: lookup and merge of "London_AVG_NOISE" took 0.000353098s
+2019-04-11,20:59:38.584 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 4.50611e-05s
+2019-04-11,20:59:38.583 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.DESCENDING" took 4.98295e-05s
+2019-04-11,20:59:38.586 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_AVG_NOISE" took 5.00679e-05s
+2019-04-11,20:59:38.594 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_AVG_NOISE" took 0.000217199s
+2019-04-11,20:59:38.599 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 0.000533104s
+2019-04-11,20:59:38.600 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.DESCENDING" took 4.60148e-05s
+2019-04-11,20:59:38.601 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.DESCENDING" took 0.000226974s
+2019-04-11,20:59:38.603 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_AVG_NOISE" took 9.39369e-05s
+2019-04-11,20:59:38.611 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_AVG_NOISE" took 4.91142e-05s
+2019-04-11,20:59:38.611 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 4.91142e-05s
+2019-04-11,20:59:38.613 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.DESCENDING" took 0.000399828s
+2019-04-11,20:59:38.615 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 3.79086e-05s
+2019-04-11,20:59:38.618 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 3.79086e-05s
+2019-04-11,20:59:38.621 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 3.8147e-05s
+2019-04-11,20:59:43.506 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.ASCENDING" took 3.79086e-05s
+2019-04-11,20:59:43.523 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.ASCENDING" took 8.41618e-05s
+2019-04-11,20:59:43.538 :: graphite.render.datalib.fetchData :: lookup and merge of "London.ASCENDING" took 0.000200033s
+2019-04-11,20:59:43.543 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 0.000139952s
+2019-04-11,20:59:43.550 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 6.60419e-05s
+2019-04-11,20:59:43.555 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_AVG_NOISE" took 5.6982e-05s
+2019-04-11,20:59:43.556 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.ASCENDING" took 0.00022006s
+2019-04-11,20:59:43.556 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 8.82149e-05s
+2019-04-11,20:59:43.560 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 0.000159025s
+2019-04-11,20:59:43.560 :: graphite.render.datalib.fetchData :: lookup and merge of "London_AVG_NOISE" took 0.000148058s
+2019-04-11,20:59:43.562 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.ASCENDING" took 0.000150204s
+2019-04-11,20:59:43.568 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 8.29697e-05s
+2019-04-11,20:59:43.570 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_AVG_NOISE" took 6.38962e-05s
+2019-04-11,20:59:43.572 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.ASCENDING" took 3.31402e-05s
+2019-04-11,20:59:43.574 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 5.4121e-05s
+2019-04-11,20:59:43.580 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.DESCENDING" took 0.00011301s
+2019-04-11,20:59:43.583 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_AVG_NOISE" took 7.98702e-05s
+2019-04-11,20:59:43.591 :: graphite.render.datalib.fetchData :: lookup and merge of "London.DESCENDING" took 5.19753e-05s
+2019-04-11,20:59:43.591 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_AVG_NOISE" took 0.000109911s
+2019-04-11,20:59:43.604 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.DESCENDING" took 0.000139952s
+2019-04-11,20:59:43.611 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.DESCENDING" took 0.000282049s
+2019-04-11,20:59:43.617 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_AVG_NOISE" took 0.000157833s
+2019-04-11,20:59:43.622 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.DESCENDING" took 5.60284e-05s
+2019-04-11,20:59:43.622 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.DESCENDING" took 4.00543e-05s
+2019-04-11,20:59:48.526 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.ASCENDING" took 2.59876e-05s
+2019-04-11,20:59:48.526 :: graphite.render.datalib.fetchData :: lookup and merge of "London.ASCENDING" took 4.1008e-05s
+2019-04-11,20:59:48.540 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.ASCENDING" took 0.000108004s
+2019-04-11,20:59:48.541 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.ASCENDING" took 5.00679e-05s
+2019-04-11,20:59:48.555 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_AVG_NOISE" took 6.38962e-05s
+2019-04-11,20:59:48.557 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.ASCENDING" took 8.4877e-05s
+2019-04-11,20:59:48.558 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 5.48363e-05s
+2019-04-11,20:59:48.562 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 7.29561e-05s
+2019-04-11,20:59:48.563 :: graphite.render.datalib.fetchData :: lookup and merge of "London_AVG_NOISE" took 6.98566e-05s
+2019-04-11,20:59:48.563 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.ASCENDING" took 3.69549e-05s
+2019-04-11,20:59:48.565 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.DESCENDING" took 0.000163794s
+2019-04-11,20:59:48.570 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 0.000123978s
+2019-04-11,20:59:48.576 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 0.000108004s
+2019-04-11,20:59:48.576 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_AVG_NOISE" took 8.2016e-05s
+2019-04-11,20:59:48.583 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.DESCENDING" took 0.000113964s
+2019-04-11,20:59:48.585 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 4.91142e-05s
+2019-04-11,20:59:48.587 :: graphite.render.datalib.fetchData :: lookup and merge of "London.DESCENDING" took 0.00249696s
+2019-04-11,20:59:48.593 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 9.60827e-05s
+2019-04-11,20:59:48.596 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_AVG_NOISE" took 0.000254869s
+2019-04-11,20:59:48.604 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.DESCENDING" took 0.000118971s
+2019-04-11,20:59:48.606 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_AVG_NOISE" took 0.000135899s
+2019-04-11,20:59:48.609 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.DESCENDING" took 9.60827e-05s
+2019-04-11,20:59:48.610 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.DESCENDING" took 5.10216e-05s
+2019-04-11,20:59:48.615 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_AVG_NOISE" took 0.000133038s
+2019-04-11,20:59:53.516 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.ASCENDING" took 3.91006e-05s
+2019-04-11,20:59:53.524 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.ASCENDING" took 6.10352e-05s
+2019-04-11,20:59:53.530 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.ASCENDING" took 3.8147e-05s
+2019-04-11,20:59:53.537 :: graphite.render.datalib.fetchData :: lookup and merge of "London.ASCENDING" took 6.69956e-05s
+2019-04-11,20:59:53.543 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.ASCENDING" took 5.88894e-05s
+2019-04-11,20:59:53.558 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.ASCENDING" took 0.000111818s
+2019-04-11,20:59:53.560 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 7.29561e-05s
+2019-04-11,20:59:53.562 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris.DESCENDING" took 9.5129e-05s
+2019-04-11,20:59:53.568 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 0.000350952s
+2019-04-11,20:59:53.574 :: graphite.render.datalib.fetchData :: lookup and merge of "London.DESCENDING" took 7.70092e-05s
+2019-04-11,20:59:53.575 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 6.60419e-05s
+2019-04-11,20:59:53.580 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt.DESCENDING" took 4.29153e-05s
+2019-04-11,20:59:53.582 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 3.8147e-05s
+2019-04-11,20:59:53.589 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 0.000118971s
+2019-04-11,20:59:53.595 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo.DESCENDING" took 0.000141859s
+2019-04-11,20:59:53.596 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 6.50883e-05s
+2019-04-11,20:59:53.601 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta.DESCENDING" took 5.38826e-05s
+2019-04-11,20:59:53.607 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York.DESCENDING" took 7.39098e-05s
+2019-04-11,20:59:53.625 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_AVG_NOISE" took 6.79493e-05s
+2019-04-11,20:59:53.628 :: graphite.render.datalib.fetchData :: lookup and merge of "London_AVG_NOISE" took 2.59876e-05s
+2019-04-11,20:59:53.630 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_AVG_NOISE" took 2.28882e-05s
+2019-04-11,20:59:53.632 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_AVG_NOISE" took 2.90871e-05s
+2019-04-11,20:59:53.634 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_AVG_NOISE" took 2.28882e-05s
+2019-04-11,20:59:53.635 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_AVG_NOISE" took 2.09808e-05s
+2019-04-11,20:59:58.535 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.38554e-05s
+2019-04-11,20:59:58.537 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.09808e-05s
+2019-04-11,20:59:58.539 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 1.88351e-05s
+2019-04-11,20:59:58.541 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.28882e-05s
+2019-04-11,20:59:58.542 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.19345e-05s
+2019-04-11,20:59:58.544 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.09808e-05s
+2019-04-11,21:00:03.544 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.19481e-05s
+2019-04-11,21:00:03.546 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.19345e-05s
+2019-04-11,21:00:03.548 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.00272e-05s
+2019-04-11,21:00:03.550 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.09808e-05s
+2019-04-11,21:00:03.551 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.09808e-05s
+2019-04-11,21:00:03.553 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.00272e-05s
+2019-04-11,21:00:08.532 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.60012e-05s
+2019-04-11,21:00:08.535 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.69413e-05s
+2019-04-11,21:00:08.537 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.21729e-05s
+2019-04-11,21:00:08.539 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.09808e-05s
+2019-04-11,21:00:08.541 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.00272e-05s
+2019-04-11,21:00:08.542 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 1.90735e-05s
+2019-04-11,21:00:13.540 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.19481e-05s
+2019-04-11,21:00:13.542 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.09808e-05s
+2019-04-11,21:00:13.543 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.09808e-05s
+2019-04-11,21:00:13.545 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.00272e-05s
+2019-04-11,21:00:13.547 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 1.97887e-05s
+2019-04-11,21:00:13.549 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.00272e-05s
+2019-04-11,21:00:18.550 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.31402e-05s
+2019-04-11,21:00:18.552 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.5034e-05s
+2019-04-11,21:00:18.554 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.09808e-05s
+2019-04-11,21:00:18.556 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.38419e-05s
+2019-04-11,21:00:18.558 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.09808e-05s
+2019-04-11,21:00:18.559 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.00272e-05s
+2019-04-11,21:00:23.546 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.29018e-05s
+2019-04-11,21:00:23.548 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.28882e-05s
+2019-04-11,21:00:23.550 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.09808e-05s
+2019-04-11,21:00:23.552 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 3.50475e-05s
+2019-04-11,21:00:23.554 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.19345e-05s
+2019-04-11,21:00:23.556 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.28882e-05s
+2019-04-11,21:00:28.549 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.91006e-05s
+2019-04-11,21:00:28.553 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 4.00543e-05s
+2019-04-11,21:00:28.555 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 3.69549e-05s
+2019-04-11,21:00:28.557 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.47955e-05s
+2019-04-11,21:00:28.559 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.09808e-05s
+2019-04-11,21:00:28.561 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 1.90735e-05s
+2019-04-11,21:00:32.921 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 7.98702e-05s
+2019-04-11,21:00:32.928 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 0.000180006s
+2019-04-11,21:00:32.934 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 7.29561e-05s
+2019-04-11,21:00:32.939 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 9.799e-05s
+2019-04-11,21:00:32.943 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 4.69685e-05s
+2019-04-11,21:00:32.947 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 6.79493e-05s
+2019-04-11,21:01:58.056 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 6.8903e-05s
+2019-04-11,21:01:58.059 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 6.00815e-05s
+2019-04-11,21:01:58.061 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 4.41074e-05s
+2019-04-11,21:01:58.064 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 3.40939e-05s
+2019-04-11,21:01:58.066 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 4.1008e-05s
+2019-04-11,21:01:58.069 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 4.1008e-05s
+2019-04-11,21:02:02.962 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.60012e-05s
+2019-04-11,21:02:02.964 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.88486e-05s
+2019-04-11,21:02:02.966 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.38419e-05s
+2019-04-11,21:02:02.967 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.19345e-05s
+2019-04-11,21:02:02.969 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.00272e-05s
+2019-04-11,21:02:02.971 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 1.90735e-05s
+2019-04-11,21:02:07.942 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.31402e-05s
+2019-04-11,21:02:07.944 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 5.10216e-05s
+2019-04-11,21:02:07.946 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 3.40939e-05s
+2019-04-11,21:02:07.948 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.5034e-05s
+2019-04-11,21:02:07.949 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.47955e-05s
+2019-04-11,21:02:07.951 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.19345e-05s
+2019-04-11,21:02:12.954 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.09944e-05s
+2019-04-11,21:02:12.956 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.09808e-05s
+2019-04-11,21:02:12.958 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.09808e-05s
+2019-04-11,21:02:12.960 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.00272e-05s
+2019-04-11,21:02:12.961 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.00272e-05s
+2019-04-11,21:02:12.963 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 1.88351e-05s
+2019-04-11,21:02:17.957 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.40939e-05s
+2019-04-11,21:02:17.959 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 2.31266e-05s
+2019-04-11,21:02:17.961 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.19345e-05s
+2019-04-11,21:02:17.962 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 1.90735e-05s
+2019-04-11,21:02:17.964 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.09808e-05s
+2019-04-11,21:02:17.966 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.59876e-05s
+2019-04-11,21:02:22.946 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 4.00543e-05s
+2019-04-11,21:02:22.950 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 3.19481e-05s
+2019-04-11,21:02:22.960 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 3.29018e-05s
+2019-04-11,21:02:22.962 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 3.00407e-05s
+2019-04-11,21:02:22.964 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.31266e-05s
+2019-04-11,21:02:22.966 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.00272e-05s
+2019-04-11,21:02:22.968 :: graphite.render.datalib.fetchData :: lookup and merge of "Frankfurt_C02_EMISSION" took 3.50475e-05s
+2019-04-11,21:02:22.970 :: graphite.render.datalib.fetchData :: lookup and merge of "London_C02_EMISSION" took 3.00407e-05s
+2019-04-11,21:02:22.972 :: graphite.render.datalib.fetchData :: lookup and merge of "Paris_C02_EMISSION" took 2.69413e-05s
+2019-04-11,21:02:22.973 :: graphite.render.datalib.fetchData :: lookup and merge of "Tokyo_C02_EMISSION" took 2.38419e-05s
+2019-04-11,21:02:22.975 :: graphite.render.datalib.fetchData :: lookup and merge of "Atlanta_C02_EMISSION" took 2.31266e-05s
+2019-04-11,21:02:22.977 :: graphite.render.datalib.fetchData :: lookup and merge of "New_York_C02_EMISSION" took 2.5034e-05s
+2019-04-11,21:05:12.522 :: graphite.render.datalib.fetchData :: lookup and merge of "CreditLimit_Exceeded" took 5.29289e-05s
+2019-04-11,21:05:45.012 :: graphite.render.datalib.fetchData :: lookup and merge of "CreditLimit_Exceeded" took 0.000102043s
+2019-04-11,21:08:34.251 :: find_view query=* local_only=0 matches=1
+2019-04-11,21:08:34.251 :: received remote find request: pattern=* from=1554995195 until=1555016915 local_only=0 format=treejson matches=1
+2019-04-11,21:08:36.966 :: find_view query=* local_only=0 matches=1
+2019-04-11,21:08:36.967 :: received remote find request: pattern=* from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,21:08:44.749 :: find_view query=* local_only=0 matches=1
+2019-04-11,21:08:44.750 :: received remote find request: pattern=* from=1554995135 until=1555016975 local_only=0 format=treejson matches=1
+2019-04-11,21:08:46.270 :: find_view query=dummy.select metric local_only=0 matches=0
+2019-04-11,21:08:46.271 :: received remote find request: pattern=dummy.select metric from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,21:08:47.519 :: find_view query=dummy.* local_only=0 matches=0
+2019-04-11,21:08:47.519 :: received remote find request: pattern=dummy.* from=1554995075 until=1555017035 local_only=0 format=treejson matches=0
+2019-04-11,21:08:48.533 :: find_view query=* local_only=0 matches=1
+2019-04-11,21:08:48.533 :: received remote find request: pattern=* from=1554995015 until=1555017095 local_only=0 format=treejson matches=1
+2019-04-11,21:08:49.871 :: find_view query=*.select metric local_only=0 matches=0
+2019-04-11,21:08:49.871 :: received remote find request: pattern=*.select metric from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,21:13:16.534 :: find_view query=*.* local_only=0 matches=0
+2019-04-11,21:13:16.534 :: received remote find request: pattern=*.* from=1554994955 until=1555017155 local_only=0 format=treejson matches=0
+2019-04-11,21:13:17.710 :: find_view query=*.* local_only=0 matches=0
+2019-04-11,21:13:17.710 :: received remote find request: pattern=*.* from=1554994895 until=1555017215 local_only=0 format=treejson matches=0
+2019-04-11,21:13:24.399 :: find_view query=*.test.bash.stats local_only=0 matches=0
+2019-04-11,21:13:24.399 :: received remote find request: pattern=*.test.bash.stats from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,21:13:39.402 :: find_view query=*.test.bash.stats.select local_only=0 matches=0
+2019-04-11,21:13:39.403 :: received remote find request: pattern=*.test.bash.stats.select from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,21:13:54.862 :: find_view query=*.test.bash.stats.select local_only=0 matches=0
+2019-04-11,21:13:54.862 :: received remote find request: pattern=*.test.bash.stats.select from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,21:13:58.874 :: find_view query=* local_only=0 matches=1
+2019-04-11,21:13:58.874 :: received remote find request: pattern=* from=1554994835 until=1555017275 local_only=0 format=treejson matches=1
+2019-04-11,21:14:37.449 :: find_view query=* local_only=0 matches=1
+2019-04-11,21:14:37.449 :: received remote find request: pattern=* from=1554995612 until=1555017332 local_only=0 format=treejson matches=1
+2019-04-11,21:14:39.099 :: find_view query=* local_only=0 matches=1
+2019-04-11,21:14:39.099 :: received remote find request: pattern=* from=1554995552 until=1555017392 local_only=0 format=treejson matches=1
+2019-04-11,21:14:43.419 :: find_view query=test.bash.stats local_only=0 matches=0
+2019-04-11,21:14:43.419 :: received remote find request: pattern=test.bash.stats from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,21:14:46.659 :: find_view query=* local_only=0 matches=1
+2019-04-11,21:14:46.659 :: received remote find request: pattern=* from=1554995492 until=1555017452 local_only=0 format=treejson matches=1
+2019-04-11,21:15:32.095 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 0.000149012s
+2019-04-11,21:15:51.749 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 3.48091e-05s
+2019-04-11,21:15:56.746 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 5.81741e-05s
+2019-04-11,21:16:00.797 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 5.98431e-05s
+2019-04-11,21:16:01.750 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 4.19617e-05s
+2019-04-11,21:16:06.726 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 2.21729e-05s
+2019-04-11,21:16:11.743 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 3.69549e-05s
+2019-04-11,21:16:16.749 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 6.98566e-05s
+2019-04-11,21:16:21.758 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 2.90871e-05s
+2019-04-11,21:16:26.759 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 5.50747e-05s
+2019-04-11,21:16:31.763 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 4.00543e-05s
+2019-04-11,21:16:36.750 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 3.19481e-05s
+2019-04-11,21:16:41.756 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 4.69685e-05s
+2019-04-11,21:16:46.757 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 4.29153e-05s
+2019-04-11,21:16:51.759 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 2.7895e-05s
+2019-04-11,21:16:56.769 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 2.59876e-05s
+2019-04-11,21:17:01.777 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 3.29018e-05s
+2019-04-11,21:17:06.752 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 3.00407e-05s
+2019-04-11,21:17:11.774 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 3.19481e-05s
+2019-04-11,21:17:16.778 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 2.90871e-05s
+2019-04-11,21:17:20.467 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 3.38554e-05s
+2019-04-11,21:17:25.459 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 2.69413e-05s
+2019-04-11,21:17:30.473 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 2.7895e-05s
+2019-04-11,21:17:35.475 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 4.00543e-05s
+2019-04-11,21:17:36.066 :: find_view query=test.bash.stats.select local_only=0 matches=0
+2019-04-11,21:17:36.067 :: received remote find request: pattern=test.bash.stats.select from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,21:17:40.457 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 2.59876e-05s
+2019-04-11,21:17:45.464 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 3.19481e-05s
+2019-04-11,21:17:50.473 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 5.60284e-05s
+2019-04-11,21:17:55.477 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 6.19888e-05s
+2019-04-11,21:18:00.484 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 4.19617e-05s
+2019-04-11,21:18:05.491 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 3.09944e-05s
+2019-04-11,21:18:07.069 :: find_view query=test.bash.stats.select local_only=0 matches=0
+2019-04-11,21:18:07.070 :: received remote find request: pattern=test.bash.stats.select from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,21:18:09.990 :: find_view query=* local_only=0 matches=1
+2019-04-11,21:18:09.990 :: received remote find request: pattern=* from=1555017125 until=1555017545 local_only=0 format=treejson matches=1
+2019-04-11,21:18:10.475 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats.select" took 2.5034e-05s
+2019-04-11,21:18:11.679 :: find_view query=*.bash local_only=0 matches=0
+2019-04-11,21:18:11.679 :: received remote find request: pattern=*.bash from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,21:18:13.307 :: find_view query=*.* local_only=0 matches=0
+2019-04-11,21:18:13.308 :: received remote find request: pattern=*.* from=1555017130 until=1555017550 local_only=0 format=treejson matches=0
+2019-04-11,21:18:15.362 :: find_view query=*.* local_only=0 matches=0
+2019-04-11,21:18:15.362 :: received remote find request: pattern=*.* from=1555017070 until=1555017610 local_only=0 format=treejson matches=0
+2019-04-11,21:18:15.478 :: graphite.render.datalib.fetchData :: lookup and merge of "*.select" took 2.90871e-05s
+2019-04-11,21:18:18.124 :: find_view query=*.test.bash.stats local_only=0 matches=0
+2019-04-11,21:18:18.124 :: received remote find request: pattern=*.test.bash.stats from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,21:18:20.485 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.69549e-05s
+2019-04-11,21:18:25.495 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 4.1008e-05s
+2019-04-11,21:18:30.501 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.19481e-05s
+2019-04-11,21:18:36.762 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.50475e-05s
+2019-04-11,21:18:42.854 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.00407e-05s
+2019-04-11,21:18:49.194 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 5.10216e-05s
+2019-04-11,21:18:53.483 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.29018e-05s
+2019-04-11,21:18:58.487 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 0.000103951s
+2019-04-11,21:19:03.493 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.40803e-05s
+2019-04-11,21:19:08.479 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 4.19617e-05s
+2019-04-11,21:19:13.486 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 0.000140905s
+2019-04-11,21:19:18.498 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.40939e-05s
+2019-04-11,21:19:23.504 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.50475e-05s
+2019-04-11,21:19:28.507 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 6.69956e-05s
+2019-04-11,21:25:09.240 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 4.60148e-05s
+2019-04-11,21:25:09.246 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.60012e-05s
+2019-04-11,21:25:14.234 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.48091e-05s
+2019-04-11,21:25:19.244 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 4.1008e-05s
+2019-04-11,21:29:41.433 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.88622e-05s
+2019-04-11,21:29:46.402 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 4.41074e-05s
+2019-04-11,21:29:51.405 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.98159e-05s
+2019-04-11,21:29:56.409 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.48091e-05s
+2019-04-11,21:30:01.412 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.60012e-05s
+2019-04-11,21:30:06.395 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.71933e-05s
+2019-04-11,21:30:11.402 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.40939e-05s
+2019-04-11,21:30:16.414 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 4.60148e-05s
+2019-04-11,21:30:21.416 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.38554e-05s
+2019-04-11,21:30:26.429 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.09944e-05s
+2019-04-11,21:30:31.438 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 4.60148e-05s
+2019-04-11,21:30:36.424 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.50475e-05s
+2019-04-11,21:30:41.435 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.40939e-05s
+2019-04-11,21:30:46.440 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.40939e-05s
+2019-04-11,21:30:51.449 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.38554e-05s
+2019-04-11,21:30:56.456 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.90871e-05s
+2019-04-11,21:31:01.453 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.5034e-05s
+2019-04-11,21:31:06.442 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 5.4121e-05s
+2019-04-11,21:31:11.450 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 8.98838e-05s
+2019-04-11,21:31:16.461 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.71797e-05s
+2019-04-11,21:31:21.469 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.09944e-05s
+2019-04-11,21:31:26.478 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.90871e-05s
+2019-04-11,21:31:31.486 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.59876e-05s
+2019-04-11,21:31:36.467 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.88622e-05s
+2019-04-11,21:31:41.480 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.5034e-05s
+2019-04-11,21:31:46.487 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 4.00543e-05s
+2019-04-11,21:31:51.491 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 4.1008e-05s
+2019-04-11,21:31:56.495 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.38419e-05s
+2019-04-11,21:32:01.499 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.40803e-05s
+2019-04-11,21:32:06.483 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 4.1008e-05s
+2019-04-11,21:32:11.492 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.69413e-05s
+2019-04-11,21:32:16.500 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.29018e-05s
+2019-04-11,21:32:21.508 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.09944e-05s
+2019-04-11,21:32:26.516 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 6.8903e-05s
+2019-04-11,21:32:31.525 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.21865e-05s
+2019-04-11,21:32:36.515 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.31402e-05s
+2019-04-11,21:32:41.521 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 5.00679e-05s
+2019-04-11,21:32:46.529 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 5.19753e-05s
+2019-04-11,21:32:51.534 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 4.1008e-05s
+2019-04-11,21:32:56.540 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.00407e-05s
+2019-04-11,21:33:01.547 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.50475e-05s
+2019-04-11,21:33:06.533 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.31402e-05s
+2019-04-11,21:33:11.535 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.60012e-05s
+2019-04-11,21:33:16.545 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.7895e-05s
+2019-04-11,21:33:21.545 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.98159e-05s
+2019-04-11,21:33:26.557 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.90871e-05s
+2019-04-11,21:33:31.573 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.21865e-05s
+2019-04-11,21:33:36.564 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.09944e-05s
+2019-04-11,21:33:41.579 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 9.89437e-05s
+2019-04-11,21:33:46.574 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 5.6982e-05s
+2019-04-11,21:33:51.576 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.69549e-05s
+2019-04-11,21:33:56.588 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 8.10623e-05s
+2019-04-11,21:34:01.593 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.29018e-05s
+2019-04-11,21:34:06.595 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 0.000100136s
+2019-04-11,21:34:11.602 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.50475e-05s
+2019-04-11,21:34:16.607 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.90871e-05s
+2019-04-11,21:34:21.613 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.31266e-05s
+2019-04-11,21:34:26.617 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.88486e-05s
+2019-04-11,21:34:31.626 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 4.29153e-05s
+2019-04-11,21:34:36.613 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.38554e-05s
+2019-04-11,21:34:41.621 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.5034e-05s
+2019-04-11,21:34:46.641 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 5.79357e-05s
+2019-04-11,21:34:51.638 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.69549e-05s
+2019-04-11,21:34:56.650 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.38554e-05s
+2019-04-11,21:35:01.647 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.60012e-05s
+2019-04-11,21:35:06.636 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 5.38826e-05s
+2019-04-11,21:35:11.645 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.90871e-05s
+2019-04-11,21:35:16.650 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.69549e-05s
+2019-04-11,21:35:21.659 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.7895e-05s
+2019-04-11,21:35:26.656 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.31402e-05s
+2019-04-11,21:35:31.668 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.50475e-05s
+2019-04-11,21:35:36.647 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.71933e-05s
+2019-04-11,21:35:41.583 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.09944e-05s
+2019-04-11,21:35:46.570 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.00407e-05s
+2019-04-11,21:35:51.581 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.59876e-05s
+2019-04-11,21:35:56.587 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.40803e-05s
+2019-04-11,21:37:14.447 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.60012e-05s
+2019-04-11,21:37:19.445 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.91006e-05s
+2019-04-11,21:37:24.446 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 2.40803e-05s
+2019-04-11,21:37:54.134 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.60012e-05s
+2019-04-11,21:37:59.123 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.40939e-05s
+2019-04-11,21:38:04.128 :: graphite.render.datalib.fetchData :: lookup and merge of "*.test.bash.stats.select" took 3.48091e-05s
+2019-04-11,21:38:13.092 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.updateOperations" took 6.60419e-05s
+2019-04-11,21:38:13.095 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.metricsReceived" took 3.40939e-05s
+2019-04-11,21:38:13.098 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.committedPoints" took 3.69549e-05s
+2019-04-11,21:38:13.100 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.pointsPerUpdate" took 2.00272e-05s
+2019-04-11,21:38:13.102 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.cpuUsage" took 2.00272e-05s
+2019-04-11,21:38:13.104 :: graphite.render.datalib.fetchData :: lookup and merge of "carbon.agents.*.creates" took 2.00272e-05s
+2019-04-11,21:38:18.085 :: find_view query=carbon.agents.*.committedPoints local_only=0 matches=0
+2019-04-11,21:38:18.086 :: find_view query=carbon.agents.*.metricsReceived local_only=0 matches=0
+2019-04-11,21:38:18.086 :: find_view query=carbon.agents.*.updateOperations local_only=0 matches=0
+2019-04-11,21:38:18.086 :: received remote find request: pattern=carbon.agents.*.committedPoints from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,21:38:18.087 :: received remote find request: pattern=carbon.agents.*.metricsReceived from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,21:38:18.089 :: received remote find request: pattern=carbon.agents.*.updateOperations from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,21:38:18.090 :: find_view query=carbon.agents.*.creates local_only=0 matches=0
+2019-04-11,21:38:18.093 :: find_view query=carbon.agents.*.cpuUsage local_only=0 matches=0
+2019-04-11,21:38:18.094 :: received remote find request: pattern=carbon.agents.*.creates from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,21:38:18.095 :: received remote find request: pattern=carbon.agents.*.cpuUsage from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,21:38:18.095 :: find_view query=carbon.agents.*.pointsPerUpdate local_only=0 matches=0
+2019-04-11,21:38:18.100 :: received remote find request: pattern=carbon.agents.*.pointsPerUpdate from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,22:00:07.036 :: find_view query=* local_only=0 matches=4
+2019-04-11,22:00:07.037 :: received remote find request: pattern=* from=1554998344 until=1555020064 local_only=0 format=treejson matches=4
+2019-04-11,22:00:15.889 :: find_view query=* local_only=0 matches=4
+2019-04-11,22:00:15.890 :: received remote find request: pattern=* from=1554998284 until=1555020124 local_only=0 format=treejson matches=4
+2019-04-11,22:00:19.850 :: find_view query=test.bash.stats local_only=0 matches=1
+2019-04-11,22:00:19.850 :: received remote find request: pattern=test.bash.stats from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,22:00:19.885 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats" took 0.000216961s
+2019-04-11,22:04:03.527 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats" took 0.000283957s
+2019-04-11,22:06:35.963 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats" took 7.20024e-05s
+2019-04-11,22:09:07.466 :: find_view query=* local_only=0 matches=5
+2019-04-11,22:09:07.466 :: received remote find request: pattern=* from=1554998765 until=1555020485 local_only=0 format=treejson matches=5
+2019-04-11,22:09:09.648 :: find_view query=bib local_only=0 matches=1
+2019-04-11,22:09:09.649 :: received remote find request: pattern=bib from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,22:09:12.589 :: find_view query=bib.* local_only=0 matches=1
+2019-04-11,22:09:12.589 :: received remote find request: pattern=bib.* from=1554998705 until=1555020545 local_only=0 format=treejson matches=1
+2019-04-11,22:09:13.842 :: find_view query=bib.fraud local_only=0 matches=1
+2019-04-11,22:09:13.843 :: received remote find request: pattern=bib.fraud from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,22:09:45.593 :: find_view query=bib.fraud.select local_only=0 matches=0
+2019-04-11,22:09:45.593 :: received remote find request: pattern=bib.fraud.select from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,22:09:48.684 :: find_view query=bib.* local_only=0 matches=1
+2019-04-11,22:09:48.685 :: received remote find request: pattern=bib.* from=1554998645 until=1555020605 local_only=0 format=treejson matches=1
+2019-04-11,22:11:20.043 :: find_view query=bib.fraud.select local_only=0 matches=0
+2019-04-11,22:11:20.043 :: received remote find request: pattern=bib.fraud.select from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,22:11:21.564 :: find_view query=* local_only=0 matches=5
+2019-04-11,22:11:21.565 :: received remote find request: pattern=* from=1554998585 until=1555020665 local_only=0 format=treejson matches=5
+2019-04-11,22:11:24.529 :: find_view query=bib.* local_only=0 matches=2
+2019-04-11,22:11:24.529 :: received remote find request: pattern=bib.* from=1554998525 until=1555020725 local_only=0 format=treejson matches=2
+2019-04-11,22:11:26.089 :: find_view query=bib.payments.select metric local_only=0 matches=0
+2019-04-11,22:11:26.089 :: received remote find request: pattern=bib.payments.select metric from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,22:11:27.161 :: find_view query=bib.payments.* local_only=0 matches=2
+2019-04-11,22:11:27.161 :: received remote find request: pattern=bib.payments.* from=1554998465 until=1555020785 local_only=0 format=treejson matches=2
+2019-04-11,22:11:28.398 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 6.79493e-05s
+2019-04-11,22:11:36.930 :: find_view query=* local_only=0 matches=5
+2019-04-11,22:11:36.930 :: received remote find request: pattern=* from=1554999028 until=1555020748 local_only=0 format=treejson matches=5
+2019-04-11,22:11:38.044 :: find_view query=bib local_only=0 matches=1
+2019-04-11,22:11:38.045 :: received remote find request: pattern=bib from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,22:11:38.900 :: find_view query=bib.* local_only=0 matches=2
+2019-04-11,22:11:38.901 :: received remote find request: pattern=bib.* from=1554998968 until=1555020808 local_only=0 format=treejson matches=2
+2019-04-11,22:11:40.229 :: find_view query=bib.payments local_only=0 matches=1
+2019-04-11,22:11:40.229 :: received remote find request: pattern=bib.payments from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,22:11:41.097 :: find_view query=bib.payments.* local_only=0 matches=2
+2019-04-11,22:11:41.098 :: received remote find request: pattern=bib.payments.* from=1554998908 until=1555020868 local_only=0 format=treejson matches=2
+2019-04-11,22:11:42.319 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 6.41346e-05s
+2019-04-11,22:11:42.320 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 5.10216e-05s
+2019-04-11,22:12:57.730 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats" took 7.00951e-05s
+2019-04-11,22:12:57.756 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 0.000277042s
+2019-04-11,22:12:57.757 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 5.29289e-05s
+2019-04-11,22:13:55.416 :: find_view query=* local_only=0 matches=5
+2019-04-11,22:13:55.416 :: received remote find request: pattern=* from=1554999174 until=1555020894 local_only=0 format=treejson matches=5
+2019-04-11,22:13:56.472 :: find_view query=bib local_only=0 matches=1
+2019-04-11,22:13:56.472 :: received remote find request: pattern=bib from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,22:13:57.469 :: find_view query=bib.* local_only=0 matches=2
+2019-04-11,22:13:57.469 :: received remote find request: pattern=bib.* from=1554999114 until=1555020954 local_only=0 format=treejson matches=2
+2019-04-11,22:13:59.019 :: find_view query=bib.fraud local_only=0 matches=1
+2019-04-11,22:13:59.020 :: received remote find request: pattern=bib.fraud from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,22:14:00.206 :: find_view query=bib.fraud.* local_only=0 matches=1
+2019-04-11,22:14:00.207 :: received remote find request: pattern=bib.fraud.* from=1554999054 until=1555021014 local_only=0 format=treejson matches=1
+2019-04-11,22:14:01.331 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 0.000100136s
+2019-04-11,22:14:06.137 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats" took 0.000102997s
+2019-04-11,22:14:06.150 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 0.000250816s
+2019-04-11,22:14:06.153 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 7.89165e-05s
+2019-04-11,22:14:06.155 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 0.000139952s
+2019-04-11,22:14:16.394 :: find_view query=bib.fraud.rate local_only=0 matches=1
+2019-04-11,22:14:16.394 :: received remote find request: pattern=bib.fraud.rate from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,22:15:03.613 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 6.50883e-05s
+2019-04-11,22:15:17.361 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 9.41753e-05s
+2019-04-11,22:15:17.363 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 7.08103e-05s
+2019-04-11,22:15:25.853 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats" took 5.91278e-05s
+2019-04-11,22:15:25.853 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 5.60284e-05s
+2019-04-11,22:15:25.872 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 5.98431e-05s
+2019-04-11,22:15:25.873 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 4.1008e-05s
+2019-04-11,22:15:27.754 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 0.000672817s
+2019-04-11,22:15:27.757 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 9.41753e-05s
+2019-04-11,22:15:48.046 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 6.07967e-05s
+2019-04-11,22:15:48.053 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats" took 6.48499e-05s
+2019-04-11,22:15:48.056 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 6.8903e-05s
+2019-04-11,22:15:48.057 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 6.41346e-05s
+2019-04-11,22:32:13.309 :: find_view query=bib.payments.amazon local_only=0 matches=1
+2019-04-11,22:32:13.310 :: received remote find request: pattern=bib.payments.amazon from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,22:32:13.315 :: find_view query=bib.payments.walmart local_only=0 matches=1
+2019-04-11,22:32:13.316 :: received remote find request: pattern=bib.payments.walmart from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,22:32:13.364 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 6.48499e-05s
+2019-04-11,22:32:13.365 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 4.50611e-05s
+2019-04-11,22:32:44.164 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 6.10352e-05s
+2019-04-11,22:32:44.165 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 4.19617e-05s
+2019-04-11,22:32:58.803 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 6.81877e-05s
+2019-04-11,22:32:58.805 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 6.60419e-05s
+2019-04-11,22:33:00.826 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 7.41482e-05s
+2019-04-11,22:33:00.829 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 0.000117064s
+2019-04-11,22:33:21.103 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 7.10487e-05s
+2019-04-11,22:33:21.105 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 5.19753e-05s
+2019-04-11,22:33:31.719 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 6.29425e-05s
+2019-04-11,22:33:31.720 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 6.50883e-05s
+2019-04-11,22:33:31.721 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 0.000129938s
+2019-04-11,22:33:31.723 :: graphite.render.datalib.fetchData :: lookup and merge of "test.bash.stats" took 0.000200987s
+2019-04-11,22:33:41.030 :: find_view query=test.bash.stats local_only=0 matches=1
+2019-04-11,22:33:41.030 :: received remote find request: pattern=test.bash.stats from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,22:33:46.175 :: find_view query=* local_only=0 matches=5
+2019-04-11,22:33:46.175 :: received remote find request: pattern=* from=1555021651 until=1555022071 local_only=0 format=treejson matches=5
+2019-04-11,22:33:47.695 :: find_view query=bib.bash local_only=0 matches=0
+2019-04-11,22:33:47.696 :: received remote find request: pattern=bib.bash from=None until=None local_only=0 format=treejson matches=0
+2019-04-11,22:33:48.798 :: find_view query=bib.* local_only=0 matches=2
+2019-04-11,22:33:48.798 :: received remote find request: pattern=bib.* from=1555021591 until=1555022131 local_only=0 format=treejson matches=2
+2019-04-11,22:33:51.396 :: find_view query=bib.payments local_only=0 matches=1
+2019-04-11,22:33:51.397 :: received remote find request: pattern=bib.payments from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,22:33:52.623 :: find_view query=bib.payments.* local_only=0 matches=2
+2019-04-11,22:33:52.623 :: received remote find request: pattern=bib.payments.* from=1555021531 until=1555022191 local_only=0 format=treejson matches=2
+2019-04-11,22:33:55.000 :: find_view query=bib.payments.* local_only=0 matches=2
+2019-04-11,22:33:55.000 :: received remote find request: pattern=bib.payments.* from=None until=None local_only=0 format=treejson matches=2
+2019-04-11,22:33:55.039 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.*" took 7.39098e-05s
+2019-04-11,22:34:02.428 :: find_view query=bib.payments.* local_only=0 matches=2
+2019-04-11,22:34:02.429 :: received remote find request: pattern=bib.payments.* from=1555021674 until=1555022094 local_only=0 format=treejson matches=2
+2019-04-11,22:35:04.253 :: find_view query=* local_only=0 matches=5
+2019-04-11,22:35:04.254 :: received remote find request: pattern=* from=1555021614 until=1555022154 local_only=0 format=treejson matches=5
+2019-04-11,22:35:06.794 :: find_view query=bib.* local_only=0 matches=3
+2019-04-11,22:35:06.794 :: received remote find request: pattern=bib.* from=1555021554 until=1555022214 local_only=0 format=treejson matches=3
+2019-04-11,22:35:08.112 :: find_view query=bib.payment.* local_only=0 matches=1
+2019-04-11,22:35:08.112 :: received remote find request: pattern=bib.payment.* from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,22:35:08.138 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 8.10623e-05s
+2019-04-11,22:35:16.710 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 0.000112057s
+2019-04-11,22:35:29.416 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 9.39369e-05s
+2019-04-11,22:35:29.422 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 7.41482e-05s
+2019-04-11,22:35:29.444 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 0.000170946s
+2019-04-11,22:35:29.447 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 7.9155e-05s
+2019-04-11,22:35:38.779 :: find_view query=bib.fraud.rate local_only=0 matches=1
+2019-04-11,22:35:38.779 :: received remote find request: pattern=bib.fraud.rate from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,22:35:40.589 :: find_view query=* local_only=0 matches=5
+2019-04-11,22:35:40.589 :: received remote find request: pattern=* from=1555021769 until=1555022189 local_only=0 format=treejson matches=5
+2019-04-11,22:35:42.589 :: find_view query=bib.* local_only=0 matches=3
+2019-04-11,22:35:42.590 :: received remote find request: pattern=bib.* from=1555021709 until=1555022249 local_only=0 format=treejson matches=3
+2019-04-11,22:35:45.506 :: find_view query=bib.fraud.* local_only=0 matches=1
+2019-04-11,22:35:45.507 :: received remote find request: pattern=bib.fraud.* from=1555021649 until=1555022309 local_only=0 format=treejson matches=1
+2019-04-11,22:36:26.558 :: find_view query=bib.fraud.* local_only=0 matches=1
+2019-04-11,22:36:26.559 :: received remote find request: pattern=bib.fraud.* from=1555021589 until=1555022369 local_only=0 format=treejson matches=1
+2019-04-11,22:36:28.953 :: find_view query=* local_only=0 matches=5
+2019-04-11,22:36:28.954 :: received remote find request: pattern=* from=1555021529 until=1555022429 local_only=0 format=treejson matches=5
+2019-04-11,22:36:30.977 :: find_view query=bib.* local_only=0 matches=3
+2019-04-11,22:36:30.977 :: received remote find request: pattern=bib.* from=1555021469 until=1555022489 local_only=0 format=treejson matches=3
+2019-04-11,22:36:33.015 :: find_view query=bib.fraud.* local_only=0 matches=1
+2019-04-11,22:36:33.016 :: received remote find request: pattern=bib.fraud.* from=1555021409 until=1555022549 local_only=0 format=treejson matches=1
+2019-04-11,22:36:52.870 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 6.50883e-05s
+2019-04-11,22:36:52.874 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 6.48499e-05s
+2019-04-11,22:36:52.878 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 0.000256062s
+2019-04-11,22:36:52.883 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 7.60555e-05s
+2019-04-11,22:38:47.907 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 0.000104904s
+2019-04-11,22:38:47.908 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 0.000102043s
+2019-04-11,22:38:47.943 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 0.000146866s
+2019-04-11,22:38:47.948 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 6.79493e-05s
+2019-04-11,22:39:24.545 :: find_view query=bib.fraud.rate local_only=0 matches=1
+2019-04-11,22:39:24.546 :: received remote find request: pattern=bib.fraud.rate from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,22:39:39.667 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 9.20296e-05s
+2019-04-11,22:39:41.483 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 0.000164986s
+2019-04-11,22:39:41.494 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 0.000103951s
+2019-04-11,22:39:41.535 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 0.000117064s
+2019-04-11,22:39:41.539 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 7.29561e-05s
+2019-04-11,22:40:48.619 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 0.000138044s
+2019-04-11,22:40:48.620 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 6.60419e-05s
+2019-04-11,22:40:48.639 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 0.000236034s
+2019-04-11,22:40:48.641 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 8.89301e-05s
+2019-04-11,22:40:53.229 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 8.39233e-05s
+2019-04-11,22:40:53.241 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 6.69956e-05s
+2019-04-11,22:40:53.246 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 6.19888e-05s
+2019-04-11,22:40:53.248 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 6.8903e-05s
+2019-04-11,22:40:56.264 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 7.29561e-05s
+2019-04-11,22:40:56.264 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 0.000138998s
+2019-04-11,22:40:56.279 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 7.29561e-05s
+2019-04-11,22:40:56.281 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 7.79629e-05s
+2019-04-11,22:40:57.348 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 0.000170946s
+2019-04-11,22:40:57.360 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 6.58035e-05s
+2019-04-11,22:40:57.369 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 6.60419e-05s
+2019-04-11,22:40:57.373 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 0.000114918s
+2019-04-11,22:40:58.440 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 6.60419e-05s
+2019-04-11,22:40:58.444 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 6.10352e-05s
+2019-04-11,22:40:58.450 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 6.41346e-05s
+2019-04-11,22:40:58.452 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 6.19888e-05s
+2019-04-11,22:41:58.825 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 0.000168085s
+2019-04-11,22:41:58.829 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 0.000148058s
+2019-04-11,22:41:58.858 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 7.70092e-05s
+2019-04-11,22:41:58.860 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 5.79357e-05s
+2019-04-11,22:41:59.816 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 0.000121117s
+2019-04-11,22:41:59.824 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 0.000103951s
+2019-04-11,22:41:59.826 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 8.60691e-05s
+2019-04-11,22:41:59.828 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 6.29425e-05s
+2019-04-11,22:42:05.674 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 7.79629e-05s
+2019-04-11,22:42:05.675 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 0.000104904s
+2019-04-11,22:42:05.681 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 0.000175953s
+2019-04-11,22:42:05.701 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 0.000175953s
+2019-04-11,22:42:05.703 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 0.000103951s
+2019-04-11,22:42:05.711 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 8.70228e-05s
+2019-04-11,22:42:05.731 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 7.08103e-05s
+2019-04-11,22:42:05.735 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 0.000139952s
+2019-04-11,22:42:16.878 :: find_view query=bib.payments.walmart local_only=0 matches=1
+2019-04-11,22:42:16.878 :: find_view query=bib.payments.amazon local_only=0 matches=1
+2019-04-11,22:42:16.879 :: received remote find request: pattern=bib.payments.walmart from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,22:42:16.879 :: received remote find request: pattern=bib.payments.amazon from=None until=None local_only=0 format=treejson matches=1
+2019-04-11,22:42:16.936 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 7.10487e-05s
+2019-04-11,22:42:16.938 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 5.6982e-05s
+2019-04-11,22:42:22.870 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 8.01086e-05s
+2019-04-11,22:42:22.872 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 5.60284e-05s

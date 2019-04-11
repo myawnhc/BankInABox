@@ -8,15 +8,23 @@ import com.hazelcast.jet.Jet;
 import com.hazelcast.jet.JetInstance;
 import com.hazelcast.jet.Job;
 import com.hazelcast.jet.config.JetConfig;
+import com.hazelcast.jet.datamodel.KeyedWindowResult;
 import com.hazelcast.jet.pipeline.*;
+import org.python.core.*;
+import org.python.modules.cPickle;
 
+import java.io.BufferedOutputStream;
 import java.io.Serializable;
+import java.net.Socket;
+import java.nio.ByteBuffer;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import static com.hazelcast.jet.Util.mapEventNewValue;
 import static com.hazelcast.jet.Util.mapPutEvents;
+import static com.hazelcast.jet.pipeline.SinkBuilder.sinkBuilder;
 
 public abstract class BaseRule implements Serializable {
 
@@ -24,8 +32,12 @@ public abstract class BaseRule implements Serializable {
     protected ClientConfig ccfg;
     protected JetConfig jc;
 
+    protected static final int SINK_PORT = 2004;
+    protected static String SINK_HOST;
+
     static {
         System.setProperty("hazelcast.multicast.group", "228.19.18.20");
+        SINK_HOST = System.getProperty("SINK_HOST", "127.0.0.1");
     }
 
     protected void init() {
@@ -90,4 +102,69 @@ public abstract class BaseRule implements Serializable {
             jet.shutdown();
         }
     }
+
+    /**
+     * Sink implementation which forwards the items it receives to the Graphite.
+     * Graphite's Pickle Protocol is used for communication between Jet and Graphite.
+     *
+     * @param host Graphite host
+     * @param port Graphite port
+     */
+    protected static Sink<RuleExecutionResult> buildGraphiteSink(String host, int port) {
+        return sinkBuilder("graphite", instance ->
+                new BufferedOutputStream(new Socket(host, port).getOutputStream()))
+                .<RuleExecutionResult>receiveFn((bos, entry) -> {
+                    GraphiteMetric metric = new GraphiteMetric();
+                    metric.from(entry);
+
+                    PyString payload = cPickle.dumps(metric.getAsList(), 2);
+                    byte[] header = ByteBuffer.allocate(4).putInt(payload.__len__()).array();
+
+                    bos.write(header);
+                    bos.write(payload.toBytes());
+                })
+                .flushFn(BufferedOutputStream::flush)
+                .destroyFn(BufferedOutputStream::close)
+                .build();
+    }
+
+    /**
+     * A data transfer object for Graphite
+     */
+    protected static class GraphiteMetric {
+        PyString metricName;
+        PyInteger timestamp;
+        PyFloat metricValue;
+
+        protected GraphiteMetric() {
+        }
+
+        // Graph Transaction Results (approved/not)
+        protected void from(RuleExecutionResult rer) {
+            metricName = new PyString(replaceWhiteSpace(
+                    rer.ruleName  + "." +
+                            rer.result ));
+
+            timestamp = new PyInteger(getEpochSecond(
+                    rer.elapsedTime ));
+
+            metricValue = new PyFloat(1);
+        }
+
+        protected PyList getAsList() {
+            PyList list = new PyList();
+            PyTuple metric = new PyTuple(metricName, new PyTuple(timestamp, metricValue));
+            list.add(metric);
+            return list;
+        }
+
+        protected int getEpochSecond(long millis) {
+            return (int) Instant.ofEpochMilli(millis).getEpochSecond();
+        }
+
+        protected String replaceWhiteSpace(String string) {
+            return string.replace(" ", "_");
+        }
+    }
+
 }
