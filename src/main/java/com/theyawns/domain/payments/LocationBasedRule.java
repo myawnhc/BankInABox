@@ -82,10 +82,10 @@ public class LocationBasedRule extends BaseRule {
 
             metricName = new PyString(replaceWhiteSpace(
                     transaction.getPaymentResult()  + "." +
-                    transaction.getFraudResult() );
+                    transaction.getFraudResult() ));
 
             timestamp = new PyInteger(getEpochSecond(
-                    transaction.getRequestTime() );
+                    transaction.getRequestTime() ));
 
             metricValue = new PyFloat(1);
         }
@@ -106,16 +106,16 @@ public class LocationBasedRule extends BaseRule {
         }
 
         void from(KeyedWindowResult entry) {
-            if (entry.getKey() instanceof Long) {
-                KeyedWindowResult<Long, Aircraft> aircraftEntry = entry;
-                fromAirCraftEntry(aircraftEntry);
-            } else {
-                if (entry.getValue() instanceof Double) {
-                    fromTotalC02Entry(entry);
-                } else {
-                    fromMaxNoiseEntry(entry);
-                }
-            }
+//            if (entry.getKey() instanceof Long) {
+//                KeyedWindowResult<Long, Aircraft> aircraftEntry = entry;
+//                fromAirCraftEntry(aircraftEntry);
+//            } else {
+//                if (entry.getValue() instanceof Double) {
+//                    fromTotalC02Entry(entry);
+//                } else {
+//                    fromMaxNoiseEntry(entry);
+//                }
+//            }
         }
 
         PyList getAsList() {
