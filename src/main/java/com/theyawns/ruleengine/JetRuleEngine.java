@@ -268,7 +268,7 @@ public class JetRuleEngine<T extends HasID> extends BaseRuleEngine<T> {
 
 
         // Build Graphite sink
-        Sink<TimestampedEntry> graphiteSink = buildGraphiteSink("127.0.0.1", 2004);
+        //Sink<TimestampedEntry> graphiteSink = buildGraphiteSink("127.0.0.1", 2004);
 
         // Drain all results to the Graphite sink
         //p.drainTo(graphiteSink, co2Emission, maxNoise, landingFlights, takingOffFlights)
@@ -299,22 +299,22 @@ public class JetRuleEngine<T extends HasID> extends BaseRuleEngine<T> {
      * @param host Graphite host
      * @param port Graphite port
      */
-    private static Sink<TimestampedEntry> buildGraphiteSink(String host, int port) {
-        return sinkBuilder("graphite", instance ->
-                new BufferedOutputStream(new Socket(host, port).getOutputStream()))
-                .<TimestampedEntry>receiveFn((bos, entry) -> {
-                    GraphiteMetric metric = new GraphiteMetric();
-                    metric.from(entry);
-
-                    PyString payload = cPickle.dumps(metric.getAsList(), 2);
-                    byte[] header = ByteBuffer.allocate(4).putInt(payload.__len__()).array();
-
-                    bos.write(header);
-                    bos.write(payload.toBytes());
-                })
-                .flushFn(BufferedOutputStream::flush)
-                .destroyFn(BufferedOutputStream::close)
-                .build();
-    }
+//    private static Sink<TimestampedEntry> buildGraphiteSink(String host, int port) {
+//        return sinkBuilder("graphite", instance ->
+//                new BufferedOutputStream(new Socket(host, port).getOutputStream()))
+//                .<TimestampedEntry>receiveFn((bos, entry) -> {
+//                    GraphiteMetric metric = new GraphiteMetric();
+//                    metric.from(entry);
+//
+//                    PyString payload = cPickle.dumps(metric.getAsList(), 2);
+//                    byte[] header = ByteBuffer.allocate(4).putInt(payload.__len__()).array();
+//
+//                    bos.write(header);
+//                    bos.write(payload.toBytes());
+//                })
+//                .flushFn(BufferedOutputStream::flush)
+//                .destroyFn(BufferedOutputStream::close)
+//                .build();
+//    }
 
 }
