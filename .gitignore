@@ -1,12 +1,5 @@
 
-.idea/compiler.xml
-.idea/encodings.xml
-.idea/libraries/Maven__com_hazelcast_jet_hazelcast_jet_0_7.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/uiDesigner.xml
-.idea/vcs.xml
-.idea/workspace.xml
+.idea/*
 RuleEngine.iml
 *.class
 target/*
