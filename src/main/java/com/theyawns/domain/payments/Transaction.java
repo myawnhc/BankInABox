@@ -8,8 +8,9 @@ import java.util.Date;
 // TODO: IDS
 public class Transaction implements Serializable, HasID {
 
-    private String acctNumber;
-    private String transactionId;
+    private String acctNumber;      // TODO: this won't be part of object eventually - txn id keys
+    private String transactionId;   // 
+    private String merchantId;
 
     private Date timestamp;
     private Double amount;

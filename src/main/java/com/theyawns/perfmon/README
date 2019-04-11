@@ -1,6 +1,34 @@
 
 Ideas on performance monitoring
 
+Would like to implement something that allows display of important performance status
+    TPS
+    Latency
+
+Idea would be to show these graphically, then could see the effect as changes are made (adding nodes,
+removing nodes, as well as maybe toggling on/off some performance-related features such as pipelining
+for the initial data load).
+
+Could do this as described in older notes below, with bucketed counters, but also might want to
+leverage work already done in this area.  Some of the solutions that came up in a quick survey:
+
+Forward decay: http://dimacs.rutgers.edu/~graham/pubs/papers/fwddecay.pdf
+TDigest: https://github.com/tdunning/t-digest
+			<dependency>
+				<groupId>com.tdunning</groupId>
+				<artifactId>t-digest</artifactId>
+				<version>3.1<version>
+			</dependency>
+HDRHistogram
+
+Looks like HdrHistogram might be the fastest, best for real-time calculation
+Looks like TDigest might be more accurate, for benchmarking, etc. where results can be calculated
+after the fact.
+
+
+
+=== Older notes below here
+
 - Have some sort of bucket, perhaps every 10 seconds, to check sizes/lengths
 - Have various counters per structure
 

@@ -21,7 +21,7 @@ public class TransactionGeneratorMain {
         //      transaction generator and then removed by EntryListener when Jet results are posted.
         Config hzConfig = new Config();
         hzConfig.getGroupConfig().setName("dev").setPassword("ignored");
-        hzConfig.getMapEventJournalConfig("pendingTransactions").setEnabled(true).setCapacity(1000000);
+        hzConfig.getMapEventJournalConfig("preAuth").setEnabled(true).setCapacity(1000000);
         hzConfig.setManagementCenterConfig(mcc);
         hzConfig.setProperty("hazelcast.map.entry.filtering.natural.event.types", "true");
         System.out.println("Starting IMDG instance for Transaction Generator");

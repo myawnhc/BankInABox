@@ -12,7 +12,7 @@ public class TransactionMonitor implements Runnable,
         //EntryRemovedListener<String, Transaction> {
 
     private HazelcastInstance hazelcast;
-    private IMap<String,Transaction> pendingMap;
+    private IMap<String,Transaction> preAuthMap;
     private IMap<String,Transaction> approved;
     private IMap<String,Transaction> rejected;
 
@@ -39,8 +39,8 @@ public class TransactionMonitor implements Runnable,
         Transaction original = entryEvent.getOldValue();
         Transaction update = entryEvent.getMergingValue();
         boolean passed = original.getPaymentResult();
-        pendingMap.remove(key);
-        System.out.println("Updated " + key + " payment " + (passed ? "approved" : "rejected") + " pending count " + pendingMap.size());
+        preAuthMap.remove(key);
+        System.out.println("Updated " + key + " payment " + (passed ? "approved" : "rejected") + " pending count " + preAuthMap.size());
         //System.out.println("original " + original + " result " + original.getPaymentResult());
         if (passed)
             approved.set(key, original);
@@ -49,19 +49,19 @@ public class TransactionMonitor implements Runnable,
 
         if (update != null) {
             System.out.println("update " + update + " result " + update.getPaymentResult());
-            pendingMap.remove(update.getID());
-            System.out.println("Updated, pending size " + pendingMap.size());
+            preAuthMap.remove(update.getID());
+            System.out.println("Updated, pending size " + preAuthMap.size());
         }
 
     }
 
     @Override
     public void run() {
-        pendingMap = hazelcast.getMap("pendingTransactions");
+        preAuthMap = hazelcast.getMap("preAuth");
         // Intent is for grafana to graph these ...
         approved = hazelcast.getMap("approved");
         rejected = hazelcast.getMap("rejected");
-        pendingMap.addEntryListener(this, new SqlPredicate("paymentResult != null"), true);
+        preAuthMap.addEntryListener(this, new SqlPredicate("paymentResult != null"), true);
         System.out.println("EntryListener registered");
     }
 }

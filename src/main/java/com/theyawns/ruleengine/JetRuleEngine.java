@@ -94,7 +94,7 @@ public class JetRuleEngine<T extends HasID> extends BaseRuleEngine<T> {
             return traverseIterator(setOfRuleSets.iterator());
         }).setName("Map stream items to applicable RuleSets");
 
-        // PIPELINE BRANCH - FRAUD BRANCH FOLLOWS
+        // PIPELINE BRANCHES - FRAUD BRANCH FOLLOWS
 
         StreamStage<RuleTask<T>> fraudTasks = ruleSetsForItem
                 .filter((rset) -> rset.name.equals(FraudRuleSet.RULESET_ID))
@@ -270,6 +270,7 @@ public class JetRuleEngine<T extends HasID> extends BaseRuleEngine<T> {
         return p;
     }
 
+    // NOT IN USE
     private ContextFactory<JetInstance> getJetContext() {
         return ContextFactory.withCreateFn(jet -> { return Jet.newJetClient(); } );
     }

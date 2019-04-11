@@ -14,7 +14,7 @@ public class TransactionGenerator {
     private int txnnum;
     private IQueue<Transaction> queue;
     private IMap<String,Account> accountIMap; // Key = Account ID
-    private IMap<String,Transaction> pendingTransactionsMap; // Key = Transaction ID
+    private IMap<String,Transaction> preAuthMap; // Key = Transaction ID
     private IMap<String, List<Transaction>> historyMap; // Key = Account ID;
 
     private HazelcastInstance hazelcast;
@@ -30,7 +30,7 @@ public class TransactionGenerator {
         hazelcast = hz;
         accountIMap = hz.getMap("accountMap");
         // TODO: history IMap (future, for use by fraud detection rules)
-        pendingTransactionsMap = hz.getMap("pendingTransactions");
+        preAuthMap = hz.getMap("preAuth");
     }
 
     @Deprecated
@@ -52,13 +52,13 @@ public class TransactionGenerator {
 
                 Transaction t = helper.generateTransactionForAccount(a, txnnum++);
 
-                pendingTransactionsMap.set(t.getID(), t);
+                preAuthMap.set(t.getID(), t);
 
                 // TODO: add entry listener on resultsMap
 
                 //queue.add(t);
                 if (txnnum % 10000 == 0) {
-                    System.out.println("Added " + txnnum + " transactions, pending size " + pendingTransactionsMap.size());
+                    System.out.println("Added " + txnnum + " transactions, pending size " + preAuthMap.size());
                     if (txnnum >= 1000000) {
                         // Memory constraint, let's not do more than 1 million.  Also, run timer was removed so this is the only constraint now.
                         System.out.println("TxnGen stopping before timer expired due to size (1 million)");
@@ -66,7 +66,7 @@ public class TransactionGenerator {
                     }
                 }
             }
-            System.out.println("Stopped transaction generation, pending size now " + pendingTransactionsMap.size() );
+            System.out.println("Stopped transaction generation, pending size now " + preAuthMap.size() );
 
         };
         new Thread(task).start();
