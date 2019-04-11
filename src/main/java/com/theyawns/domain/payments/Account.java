@@ -12,6 +12,8 @@ public class Account implements Serializable {
     private Double balance;
     private AccountStatus status;
 
+
+
     public Account(String acctNo) {
         this.accountNumber = acctNo;
         status = AccountStatus.CURRENT;
@@ -34,4 +36,5 @@ public class Account implements Serializable {
 
     public void setAccountStatus(AccountStatus status) { this.status = status; }
     public AccountStatus getAccountStatus() { return status; }
+
 }
