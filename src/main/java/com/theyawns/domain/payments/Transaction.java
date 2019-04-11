@@ -14,7 +14,6 @@ public class Transaction implements Serializable, HasID {
 
     private Date timestamp;
     private Double amount;
-    private String vendor;
     private ReportedMobileLocation reportedMobileLocation; // Should this be a separate object, enrichment source?
 
     public int fraudResult = -1;
@@ -23,6 +22,16 @@ public class Transaction implements Serializable, HasID {
     public Transaction(int num) {
 
         this.transactionId = ""+num;
+    }
+
+    public Transaction(Transaction copyfrom) {
+        this.acctNumber = copyfrom.acctNumber;
+        this.transactionId = copyfrom.transactionId;
+        this.merchantId = copyfrom.merchantId;
+        this.timestamp = copyfrom.timestamp;
+        this.amount = copyfrom.amount;
+        // results won't be copied
+
     }
 
     public String getID() {

@@ -7,7 +7,7 @@ public class Account implements Serializable {
 
     public enum AccountStatus { CURRENT, OVERDUE, CLOSED } // TODO
 
-    private String accountNumber;
+    protected String accountNumber;
     private Double creditLimit;
     private Double balance;
     private AccountStatus status;
@@ -19,6 +19,13 @@ public class Account implements Serializable {
         status = AccountStatus.CURRENT;
         balance = 0.0;
         creditLimit = 1000.0;
+    }
+
+    public Account(Account copyfrom) {
+        this.accountNumber = copyfrom.accountNumber;
+        this.creditLimit = copyfrom.creditLimit;
+        this.balance = copyfrom.balance;
+        this.status = copyfrom.status;
     }
 
     public String getAccountNumber() { return accountNumber; }
