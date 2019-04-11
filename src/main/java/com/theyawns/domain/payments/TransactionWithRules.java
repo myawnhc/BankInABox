@@ -5,7 +5,7 @@ import java.util.Set;
 // Transaction enriched with the list of rules that apply to it (set at ingest time)
 public class TransactionWithRules extends Transaction {
 
-    Set<String> rules;
+    protected Set<String> rules;
     private long ingestTimeInMillis;
 
     public TransactionWithRules(Transaction txn, Set<String> rules) {
@@ -19,4 +19,5 @@ public class TransactionWithRules extends Transaction {
     public long getIngestTime() {
         return ingestTimeInMillis;
     }
+    public int getExpectedRuleCount() { return rules.size(); }
 }

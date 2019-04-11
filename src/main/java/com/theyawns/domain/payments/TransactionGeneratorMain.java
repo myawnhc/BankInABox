@@ -32,7 +32,7 @@ public class TransactionGeneratorMain {
         tgen.init(embeddedHZ);
         tgen.start();
 
-        TransactionMonitor tmon = new TransactionMonitor(embeddedHZ);
+        ResultMapMonitor tmon = new ResultMapMonitor(embeddedHZ);
         new Thread(tmon).start();
 
 

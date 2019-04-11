@@ -74,7 +74,7 @@ public abstract class BaseRule implements Serializable {
     }
 
 
-    public void run() {
+    public void run(String jobname) {
 
         init();
         Pipeline p = buildPipeline();
@@ -83,7 +83,9 @@ public abstract class BaseRule implements Serializable {
         JetInstance jet = Jet.newJetInstance(jc);
 
         try {
-            jet.newJob(p).join();
+            Job job = jet.newJob(p);
+            job.getConfig().setName(jobname);
+            job.join();
         } finally {
             jet.shutdown();
         }

@@ -91,6 +91,6 @@ public class CreditLimitRule extends BaseRule implements Serializable {
 
     public static void main(String[] args) {
         CreditLimitRule rule = new CreditLimitRule();
-        rule.run();
+        rule.run(RULE_NAME);
     }
 }
