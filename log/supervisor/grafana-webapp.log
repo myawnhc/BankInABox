@@ -212,3 +212,6 @@ t=2019-04-11T08:46:27+0000 lvl=info msg="Request Completed" logger=context userI
 t=2019-04-11T08:47:27+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=21 size=8772 referer=
 t=2019-04-11T08:48:17+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=16 size=8772 referer=
 t=2019-04-11T08:49:17+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=14 size=8772 referer=
+t=2019-04-11T08:50:17+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=14 size=8772 referer=
+t=2019-04-11T08:51:07+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=13 size=8772 referer=
+t=2019-04-11T08:52:07+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=14 size=8772 referer=
