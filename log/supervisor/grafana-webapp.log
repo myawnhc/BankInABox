@@ -239,3 +239,44 @@ t=2019-04-11T22:42:05+0000 lvl=info msg="Request Completed" logger=context userI
 t=2019-04-11T22:42:05+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/render status=502 remote_addr=172.19.0.1 time_ms=34 size=0 referer=http://localhost/dashboard/db/bank-in-a-box
 t=2019-04-11T22:42:26+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=9 size=8772 referer=
 t=2019-04-11T22:43:03+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=15 size=8772 referer=
+t=2019-04-11T22:44:03+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=14 size=8772 referer=
+t=2019-04-11T22:44:43+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=17 size=8772 referer=
+t=2019-04-11T22:45:34+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=12 size=8772 referer=
+t=2019-04-11T22:46:16+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=9 size=8772 referer=
+t=2019-04-11T22:46:47+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=12 size=8772 referer=
+t=2019-04-11T22:46:51+0000 lvl=eror msg="Failed to get user with id" logger=context userId=1 error="User not found"
+t=2019-04-11T22:46:51+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/api/datasources/proxy/1/render status=401 remote_addr=172.19.0.1 time_ms=15 size=26 referer="http://localhost/dashboard/db/bank-in-a-box?orgId=1&from=now-5m&to=now"
+t=2019-04-11T22:46:51+0000 lvl=info msg="Database table locked, sleeping then retrying" logger=sqlstore retry=0
+t=2019-04-11T22:46:51+0000 lvl=eror msg="Failed to get user with id" logger=context userId=1 error="User not found"
+t=2019-04-11T22:46:51+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/login/ping status=401 remote_addr=172.19.0.1 time_ms=25 size=26 referer="http://localhost/dashboard/db/bank-in-a-box?orgId=1&from=now-5m&to=now"
+t=2019-04-11T22:46:51+0000 lvl=info msg="Database table locked, sleeping then retrying" logger=sqlstore retry=1
+t=2019-04-11T22:47:23+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=8 size=8772 referer=
+t=2019-04-11T22:48:05+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=8 size=8772 referer=
+t=2019-04-11T22:48:39+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=8 size=8772 referer=
+t=2019-04-11T22:49:33+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=14 size=8772 referer=
+t=2019-04-11T22:50:16+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=7 size=8772 referer=
+t=2019-04-11T22:51:04+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=7 size=8772 referer=
+t=2019-04-11T22:51:38+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=10 size=8772 referer=
+2019/04/11 22:51:48 http: proxy error: context canceled
+2019/04/11 22:51:48 http: proxy error: context canceled
+t=2019-04-11T22:51:48+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/render status=502 remote_addr=172.19.0.1 time_ms=31 size=0 referer=http://localhost/dashboard/db/bank-in-a-box
+2019/04/11 22:51:48 http: proxy error: context canceled
+t=2019-04-11T22:51:48+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/render status=502 remote_addr=172.19.0.1 time_ms=40 size=0 referer=http://localhost/dashboard/db/bank-in-a-box
+t=2019-04-11T22:51:48+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/render status=502 remote_addr=172.19.0.1 time_ms=48 size=0 referer=http://localhost/dashboard/db/bank-in-a-box
+t=2019-04-11T22:51:53+0000 lvl=eror msg="Failed to get user with id" logger=context userId=1 error="User not found"
+t=2019-04-11T22:51:53+0000 lvl=eror msg="Failed to get user with id" logger=context userId=1 error="User not found"
+t=2019-04-11T22:51:53+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/annotations status=401 remote_addr=172.19.0.1 time_ms=28 size=26 referer="http://localhost/dashboard/db/bank-in-a-box?orgId=1&from=1555021879505&to=1555023108244"
+t=2019-04-11T22:51:53+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/api/datasources/proxy/1/render status=401 remote_addr=172.19.0.1 time_ms=33 size=26 referer="http://localhost/dashboard/db/bank-in-a-box?orgId=1&from=1555021879505&to=1555023108244"
+t=2019-04-11T22:51:53+0000 lvl=info msg="Database table locked, sleeping then retrying" logger=sqlstore retry=0
+t=2019-04-11T22:51:53+0000 lvl=eror msg="Failed to get user with id" logger=context userId=1 error="User not found"
+t=2019-04-11T22:51:53+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/login/ping status=401 remote_addr=172.19.0.1 time_ms=10 size=26 referer="http://localhost/dashboard/db/bank-in-a-box?orgId=1&from=1555021879505&to=1555023108244"
+t=2019-04-11T22:51:53+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/api/login/ping status=401 remote_addr=172.19.0.1 time_ms=11 size=26 referer="http://localhost/dashboard/db/bank-in-a-box?orgId=1&from=1555021879505&to=1555023108244"
+t=2019-04-11T22:52:13+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=9 size=8772 referer=
+t=2019-04-11T22:53:03+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=15 size=8772 referer=
+t=2019-04-11T22:53:20+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=19 size=8772 referer=
+t=2019-04-11T22:53:23+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=12 size=8772 referer=
+t=2019-04-11T22:53:37+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=20 size=8772 referer=
+t=2019-04-11T22:53:53+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=14 size=8772 referer=
+t=2019-04-11T22:54:03+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=17 size=8772 referer=
+t=2019-04-11T22:54:13+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=10 size=8772 referer=
+t=2019-04-11T22:54:38+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=14 size=8772 referer=
