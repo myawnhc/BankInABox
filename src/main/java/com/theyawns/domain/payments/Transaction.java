@@ -55,6 +55,14 @@ public class Transaction implements Serializable, HasID {
         paymentResult = result;
     }
 
+    /**
+     * The time (at UTC) that the trnsaction was received
+     */
+    private long requestTime;
+    public long getRequestTime() { return requestTime; }
+    public void setRequestTime(long requestTime) { this.requestTime = requestTime; }
+
+
     @Override
     public String toString() {
         return "Transaction " + transactionId;

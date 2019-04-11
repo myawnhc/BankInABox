@@ -13,10 +13,6 @@ public class Account implements Serializable {
     private AccountStatus status;
 
 
-    /**
-     * The time (at UTC) that the trnsaction was received
-     */
-    private long requestTime;
 
     public Account(String acctNo) {
         this.accountNumber = acctNo;
@@ -40,8 +36,5 @@ public class Account implements Serializable {
 
     public void setAccountStatus(AccountStatus status) { this.status = status; }
     public AccountStatus getAccountStatus() { return status; }
-    public long getRequestTime() { return requestTime; }
-
-    public void setRequestTime(long requestTime) { this.requestTime = requestTime; }
 
 }

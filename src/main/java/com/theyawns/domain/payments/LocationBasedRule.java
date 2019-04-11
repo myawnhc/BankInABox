@@ -85,7 +85,7 @@ public class LocationBasedRule extends BaseRule {
                     transaction.getFraudResult() );
 
             timestamp = new PyInteger(getEpochSecond(
-                    transaction.getPosTime()));
+                    transaction.getRequestTime() );
 
             metricValue = new PyFloat(1);
         }
