@@ -20,7 +20,8 @@
         <dependency>
             <groupId>com.hazelcast.jet</groupId>
             <artifactId>hazelcast-jet</artifactId>
-            <version>0.7</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/hazelcast-jet-3.0.jar</systemPath>
         </dependency>
     </dependencies>
 
