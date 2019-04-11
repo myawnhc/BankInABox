@@ -1,6 +1,8 @@
 package com.theyawns.domain.payments;
 
-public class RuleExecutionResult {
+import java.io.Serializable;
+
+public class RuleExecutionResult implements Serializable {
 
     Transaction transaction;
     String ruleName;
