@@ -2,7 +2,7 @@ package com.theyawns.domain.payments;
 
 import com.hazelcast.client.config.ClientConfig;
 import com.hazelcast.config.Config;
-import com.hazelcast.config.ManagementCenterConfig;
+import com.hazelcast.config.NetworkConfig;
 import com.hazelcast.jet.Jet;
 import com.hazelcast.jet.JetInstance;
 import com.hazelcast.jet.Job;
@@ -18,25 +18,30 @@ import static com.hazelcast.jet.Util.mapPutEvents;
 
 public abstract class BaseRule {
 
-    public static final String IMDG_HOST = "localhost:5701";
+    public static final String IMDG_HOST = "10.216.1.141:5701";
     protected ClientConfig ccfg;
     protected JetConfig jc;
 
+    static {
+        System.setProperty("hazelcast.multicast.group", "228.19.18.20");
+    }
+
     protected void init() {
-        ManagementCenterConfig mcc = new ManagementCenterConfig();
-        mcc.setEnabled(true);
-        mcc.setUrl("http://localhost:8080/hazelcast-mancenter");
+        //ManagementCenterConfig mcc = new ManagementCenterConfig();
+        //mcc.setEnabled(true);
+        //mcc.setUrl("http://localhost:8080/hazelcast-mancenter");
 
         ccfg = new ClientConfig();
         ccfg.getGroupConfig().setName("dev").setPassword("ignored");
-        ccfg.getNetworkConfig().addAddress(IMDG_HOST);
+        //ccfg.getNetworkConfig().addAddress(IMDG_HOST);
 
         jc = new JetConfig();
         Config hazelcastConfig = jc.getHazelcastConfig();
         // Avoid collision between the external IMDG (remoteMap) and the internal IMDG
-        hazelcastConfig.getNetworkConfig().setPort(5710); // Group name defaults to Jet but port still defaults to 5701
-        hazelcastConfig.setManagementCenterConfig(mcc);
-
+        NetworkConfig networkConfig = hazelcastConfig.getNetworkConfig();
+        //networkConfig.getJoin().getMulticastConfig().setEnabled(false);
+        networkConfig.setPort(6701); // Group name defaults to Jet but port still defaults to 5701
+        //hazelcastConfig.setManagementCenterConfig(mcc);
         jc.setHazelcastConfig(hazelcastConfig);
 
     }
@@ -60,7 +65,7 @@ public abstract class BaseRule {
     abstract Pipeline buildPipeline();
 
     private ContextFactory<JetInstance> getJetContext() {
-        return ContextFactory.withCreateFn(jet -> { return Jet.newJetClient(); } );
+        return ContextFactory.withCreateFn(jet -> { return jet; } );
     }
 
 
@@ -69,7 +74,7 @@ public abstract class BaseRule {
         init();
         Pipeline p = buildPipeline();
 
-        System.out.println("Starting Jet instance"); // TODO: should defer this until we're ready to run the job!
+        System.out.println("Starting Jet instance");
         JetInstance jet = Jet.newJetInstance(jc);
 
         try {

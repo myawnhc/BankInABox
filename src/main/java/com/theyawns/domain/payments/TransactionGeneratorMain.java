@@ -20,6 +20,7 @@ public class TransactionGeneratorMain {
         // - Pending Transactions map - will have Transactions for which rules will be run, added by
         //      transaction generator and then removed by EntryListener when Jet results are posted.
         Config hzConfig = new Config();
+        hzConfig.getNetworkConfig().getJoin().getMulticastConfig().setEnabled(false);
         hzConfig.getGroupConfig().setName("dev").setPassword("ignored");
         hzConfig.getMapEventJournalConfig("preAuth").setEnabled(true).setCapacity(1000000);
         hzConfig.setManagementCenterConfig(mcc);

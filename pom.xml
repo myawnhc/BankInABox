@@ -11,7 +11,7 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <jet.version>3.0-SNAPSHOT</jet.version>
+        <jet.version>3.1-SNAPSHOT</jet.version>
     </properties>
 
     <repositories>
