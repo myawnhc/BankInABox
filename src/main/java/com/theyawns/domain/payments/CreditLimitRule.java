@@ -38,7 +38,7 @@ public class CreditLimitRule extends BaseRule implements Serializable {
         StreamStage<TransactionWithAccountInfo> txnsWithAccountInfo = enrichedJournal.mapUsingContext(contextFactory, (map, txn) -> {
             if (txn.getAccountNumber() == null) {
                 System.out.println("Null account not allowed");
-                return null; 
+                return null;
             }
            Account acct = map.get(txn.getAccountNumber());
            TransactionWithAccountInfo twa = new TransactionWithAccountInfo(txn);
