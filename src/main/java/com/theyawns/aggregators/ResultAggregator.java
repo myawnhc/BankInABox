@@ -27,6 +27,16 @@ public final class ResultAggregator<T extends HasID> implements Serializable {
                 .andDeduct(BooleanResultAccumulator<S>::deduct)
                 .andExportFinish(BooleanResultAccumulator<S>::anyTrue);
     }
+
+    public static <S extends HasID> AggregateOperation1<RuleEvaluationResult<S, Boolean>, BooleanResultAccumulator<S>, RuleSetEvaluationResult<S, Boolean>> allTrue(
+            DistributedToRuleEvaluationResultFunction<S, Boolean> getResultFn) {
+        return AggregateOperation
+                .withCreate(BooleanResultAccumulator<S>::new)
+                .andAccumulate((BooleanResultAccumulator<S> a, RuleEvaluationResult<S, Boolean> rer) -> a.accumulate(getResultFn.applyAsResult(rer)))
+                .andCombine(BooleanResultAccumulator<S>::combine)
+                .andDeduct(BooleanResultAccumulator<S>::deduct)
+                .andExportFinish(BooleanResultAccumulator<S>::allTrue);
+    }
 }
 
 // TODO: when above working reliably, implement other aggregation operations:
