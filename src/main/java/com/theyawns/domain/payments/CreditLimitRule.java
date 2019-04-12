@@ -36,7 +36,7 @@ public class CreditLimitRule extends BaseRule implements Serializable {
         StreamStage<TransactionWithAccountInfo> txnsWithAccountInfo = enrichedJournal.mapUsingContext(contextFactory, (map, txn) -> {
             if (txn.getAccountNumber() == null) {
                 // Seeing this happen ... appears we lose connection to the HZ cluster but account id should already be embedded in the txn.
-                System.out.println("Null account not allowed");  // FIXED, shouldn't need this check any longer
+                System.out.println("Null account not allowed");  // FIXED & VERIFIED, shouldn't need this check any longer
                 return null;
             } else {
                 Account acct = map.get(txn.getAccountNumber());
@@ -46,6 +46,7 @@ public class CreditLimitRule extends BaseRule implements Serializable {
             }
         }).setName("Enrich transactions with Account info");
 
+        // Common stage to all rules, can this move to base?  Will need to abstract TransactionWithAccountInfo to ? extends Transaction
         StreamStage<RuleExecutionResult> result = txnsWithAccountInfo.map( txn -> {
             RuleExecutionResult rer = new RuleExecutionResult(txn, RULE_NAME);
             rer.setResult(process(txn));
@@ -53,6 +54,7 @@ public class CreditLimitRule extends BaseRule implements Serializable {
             return rer;
         }).setName("Evaluate Credit Limit rule");
 
+        // Also common to all rules, try to move to base
         // Drain to remote (IMDG) results map, merging with any previous results
         ClientConfig clientConfig = new ClientConfig();
         clientConfig.getNetworkConfig().addAddress(JetMain.IMDG_HOST);
@@ -78,6 +80,8 @@ public class CreditLimitRule extends BaseRule implements Serializable {
 
     // false = transaction should be rejected, over limit
     // true = transaction should be approved, <= limit
+    // TODO: if processing stage moves to base, make an abstract base version of this which is overridden here
+    //       with a more specific subtype (base argument type would be <T extends Transaction>
     private static boolean process(TransactionWithAccountInfo transaction) {
         System.out.println("Evaluating rule");
         Account account = transaction.getAccountInfo();
