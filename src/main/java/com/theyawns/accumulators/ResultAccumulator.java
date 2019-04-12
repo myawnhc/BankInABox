@@ -29,41 +29,8 @@ public class ResultAccumulator<T extends HasID, R> implements Serializable {
         return this;
     }
 
-    // Multiple methods support the aggregator's exportFinish function, depending on the logic required
-
-//    // TODO: these depend on the type of the RuleEvaluationResult and need to be parameterized
-//    // This accumulator is only for results with Boolean type
-//    public Boolean majorityTrue() {
-//        return false;  // for now
-//    }
-//
-//    // This method is only for use when the parameterized type of Rules is Boolean ... is there a better abstraction?
-//    public RuleSetEvaluationResult<T, Boolean> anyTrue() {
-//        // We need to actually process the evaluation rule collection and set the RSER state accordingly
-//        RuleSetEvaluationResult<T, Boolean> ruleSetEvaluationResult = new RuleSetEvaluationResult<T, Boolean>();
-//
-//        ruleSetEvaluationResult.setEvaluationResult(false);
-//        for (RuleEvaluationResult<T,R> rer : allResults) {
-//            if (rer == null) {
-//                System.out.println("!!!!! NULL RESULT passed to ResultAccumulator.anyTrue() accumulator");
-//            } else {
-//                if (rer.getItemId() == null) {
-//                    System.out.println("!!!!! NULL item id in ResultAccumulator.anyTrue() accumulator");
-//
-//                } else {
-//
-//                    ruleSetEvaluationResult.setItem(rer.getItem());
-//
-//                    if ((Boolean)rer.getEvaluationResult()) {
-//                        ruleSetEvaluationResult.setEvaluationResult(true);
-//                        return ruleSetEvaluationResult;
-//                    }
-//                }
-//            }
-//        }
-//        return ruleSetEvaluationResult;
-//    }
-
+    // Multiple methods support the aggregator's exportFinish function, depending on the logic required,
+    // and specific to the result type.  See BooleanResultAccumulator as the initial implementation.
 
 
     // Object overrides
