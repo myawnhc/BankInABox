@@ -15,15 +15,23 @@ import java.io.Serializable;
 public class RuleEvaluationResult<T extends HasID, R> implements Serializable {
 
     String ruleName;
-    String ruleSetId;
+    String ruleSetId; // not used by new rule design
     T item;
     //String itemId;
     R evaluationResult;  // early implementations have either Boolean or Integer here
     String message;   // intended for cases where evaluation cannot be completed
+    long elapsedTime;
 
     // Not sure whether this belongs here or somewhere else ...
     long processingTime;  //
 
+    public RuleEvaluationResult(T item, String ruleName) {
+        this.item = item;
+        this.ruleName = ruleName;
+        message = "Not evaluated";
+    }
+
+    // Used by deprecated code, will probably deprecate and drop this eventually
     public RuleEvaluationResult(String ruleName, String ruleSetId, T item) {
         this.ruleName = ruleName;
         this.ruleSetId = ruleSetId;
@@ -33,15 +41,15 @@ public class RuleEvaluationResult<T extends HasID, R> implements Serializable {
         message = "Not evaluated";
     }
 
-    // Methods for grouping keys
-    public String getRuleId() {
-        return ruleName;
+    public void setElapsed(long timeInMillis) {
+        elapsedTime = timeInMillis;
     }
-    public String getRuleSetId() { return ruleSetId; }
+
+    // Methods for grouping keys
     public T getItem() { return item; }
     public String getItemId() { return item.getID(); }
-    public String getRuleSetAndItem() { return ruleSetId+":"+item.getID(); };
 
+    // might not need these methods
     public RuleEvaluationResult<T,R> getValue() {
         return this;
     }
@@ -49,10 +57,12 @@ public class RuleEvaluationResult<T extends HasID, R> implements Serializable {
     public R getEvaluationResult() {
         return evaluationResult;
     }
+
     public void setEvaluationResult(R result) {
         this.evaluationResult = result;
         this.message = "evaluated to: " + evaluationResult;
     }
+    // end possible deprecatable methods
 
     public String toString() {
         return "RuleEvaluationResult " + ruleName + " " + message;

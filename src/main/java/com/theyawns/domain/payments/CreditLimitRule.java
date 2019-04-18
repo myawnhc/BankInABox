@@ -7,6 +7,7 @@ import com.hazelcast.jet.pipeline.ContextFactory;
 import com.hazelcast.jet.pipeline.Pipeline;
 import com.hazelcast.jet.pipeline.Sinks;
 import com.hazelcast.jet.pipeline.StreamStage;
+import com.theyawns.ruleengine.RuleEvaluationResult;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -34,22 +35,16 @@ public class CreditLimitRule extends BaseRule implements Serializable {
                 });
 
         StreamStage<TransactionWithAccountInfo> txnsWithAccountInfo = enrichedJournal.mapUsingContext(contextFactory, (map, txn) -> {
-            if (txn.getAccountNumber() == null) {
-                // Seeing this happen ... appears we lose connection to the HZ cluster but account id should already be embedded in the txn.
-                System.out.println("Null account not allowed");  // FIXED & VERIFIED, shouldn't need this check any longer
-                return null;
-            } else {
-                Account acct = map.get(txn.getAccountNumber());
-                TransactionWithAccountInfo twa = new TransactionWithAccountInfo(txn);
-                twa.setAccountInfo(acct);
-                return twa;
-            }
+            Account acct = map.get(txn.getAccountNumber());
+            TransactionWithAccountInfo twa = new TransactionWithAccountInfo(txn);
+            twa.setAccountInfo(acct);
+            return twa;
         }).setName("Enrich transactions with Account info");
 
         // Common stage to all rules, can this move to base?  Will need to abstract TransactionWithAccountInfo to ? extends Transaction
-        StreamStage<RuleExecutionResult> result = txnsWithAccountInfo.map( txn -> {
-            RuleExecutionResult rer = new RuleExecutionResult(txn, RULE_NAME);
-            rer.setResult(process(txn));
+        StreamStage<RuleEvaluationResult<Transaction,Boolean>> result = txnsWithAccountInfo.map(txn -> {
+            RuleEvaluationResult<Transaction,Boolean> rer = new RuleEvaluationResult<Transaction,Boolean>(txn, RULE_NAME);
+            rer.setEvaluationResult(process(txn));
             rer.setElapsed(System.currentTimeMillis() - txn.getIngestTime());
             return rer;
         }).setName("Evaluate Credit Limit rule");
@@ -63,9 +58,9 @@ public class CreditLimitRule extends BaseRule implements Serializable {
         result.drainTo(Sinks.remoteMapWithMerging(
                 "resultMap",
                 clientConfig,
-                (RuleExecutionResult r) -> r.getTransactionID(),
-                (RuleExecutionResult r) -> new ArrayList<>(Arrays.asList(r)),
-                (List<RuleExecutionResult> o, List<RuleExecutionResult> n) -> {
+                (RuleEvaluationResult r) -> r.getItemId(),
+                (RuleEvaluationResult r) -> new ArrayList<>(Arrays.asList(r)),
+                (List<RuleEvaluationResult> o, List<RuleEvaluationResult> n) -> {
                     System.out.println("Merging result to resultsMap");
                     o.addAll(n);
                     return o;
@@ -83,7 +78,7 @@ public class CreditLimitRule extends BaseRule implements Serializable {
     // TODO: if processing stage moves to base, make an abstract base version of this which is overridden here
     //       with a more specific subtype (base argument type would be <T extends Transaction>
     private static boolean process(TransactionWithAccountInfo transaction) {
-        System.out.println("Evaluating rule");
+        //System.out.println("Evaluating rule");
         Account account = transaction.getAccountInfo();
         double projectedBalance = account.getBalance() + transaction.getAmount();
         if (projectedBalance > account.getCreditLimit())

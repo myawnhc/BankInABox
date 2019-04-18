@@ -21,7 +21,7 @@ public class TransactionGeneratorMain {
         // - Pending Transactions map - will have Transactions for which rules will be run, added by
         //      transaction generator and then removed by EntryListener when Jet results are posted.
         Config hzConfig = new Config();
-        hzConfig.getNetworkConfig().getJoin().getMulticastConfig().setEnabled(false);
+        hzConfig.getNetworkConfig().getJoin().getMulticastConfig().setEnabled(true);
         TcpIpConfig tcpIpConfig = new TcpIpConfig();
         tcpIpConfig.addMember("127.0.0.1");
         hzConfig.getNetworkConfig().getJoin().setTcpIpConfig(tcpIpConfig);

@@ -5,19 +5,20 @@ import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
 import com.hazelcast.map.listener.EntryAddedListener;
 import com.hazelcast.map.listener.EntryUpdatedListener;
+import com.theyawns.ruleengine.RuleEvaluationResult;
 
 import java.util.List;
 
 public class ResultMapMonitor implements Runnable,
-        EntryAddedListener<String, List<RuleExecutionResult>>,
-        EntryUpdatedListener<String, List<RuleExecutionResult>> {
+        EntryAddedListener<String, List<RuleEvaluationResult<Transaction, Boolean>>>,
+        EntryUpdatedListener<String, List<RuleEvaluationResult<Transaction, Boolean>>> {
         //EntryRemovedListener<String, Transaction> {
 
     private HazelcastInstance hazelcast;
     private IMap<String,Transaction> preAuthMap;
     private IMap<String,Transaction> approved;
     private IMap<String,Transaction> rejected;
-    private IMap<String, List<RuleExecutionResult>> resultMap;
+    private IMap<String,List<RuleEvaluationResult<Transaction, Boolean>>> resultMap;
 
     public ResultMapMonitor(HazelcastInstance instance) {
         hazelcast = instance;
@@ -25,12 +26,12 @@ public class ResultMapMonitor implements Runnable,
 
 
     @Override
-    public void entryAdded(EntryEvent<String, List<RuleExecutionResult>> entryEvent) {
+    public void entryAdded(EntryEvent<String, List<RuleEvaluationResult<Transaction, Boolean>>> entryEvent) {
         //System.out.println("Added " + entryEvent);
         String transactionId = entryEvent.getKey();
-        List<RuleExecutionResult> resultList = entryEvent.getValue();
+        List<RuleEvaluationResult<Transaction, Boolean>> resultList = entryEvent.getValue();
         // TODO: This cast should always work but still should add an instanceof or change RER member variable type
-        TransactionWithRules txn = (TransactionWithRules) resultList.get(0).transaction;
+        TransactionWithRules txn = (TransactionWithRules) resultList.get(0).getItem();
         int resultsExpected = txn.getExpectedRuleCount();
         int resultsReceived = resultList.size();
         if (resultsReceived < resultsExpected) {
@@ -40,7 +41,7 @@ public class ResultMapMonitor implements Runnable,
             preAuthMap.remove(transactionId);
             // TODO: we really should have an aggregation coming to us, not individual results!
             // TODO: But since we know there's just one rule alive now, treat as if it's an aggregation
-            boolean txnOK = resultList.get(0).result;
+            boolean txnOK = resultList.get(0).getEvaluationResult();
             if (txnOK)
                 approved.put(transactionId, txn);
             else
@@ -56,7 +57,7 @@ public class ResultMapMonitor implements Runnable,
 //    }
 
     @Override
-    public void entryUpdated(EntryEvent<String, List<RuleExecutionResult>> entryEvent) {
+    public void entryUpdated(EntryEvent<String, List<RuleEvaluationResult<Transaction, Boolean>>> entryEvent) {
         System.out.println("updated " + entryEvent);
         // TODO: figure out why 'original' has the new value, and 'update' is null.
 //        String key = entryEvent.getKey();

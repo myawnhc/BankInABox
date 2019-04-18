@@ -8,7 +8,6 @@ import com.hazelcast.jet.Jet;
 import com.hazelcast.jet.JetInstance;
 import com.hazelcast.jet.Job;
 import com.hazelcast.jet.config.JetConfig;
-import com.hazelcast.jet.datamodel.KeyedWindowResult;
 import com.hazelcast.jet.pipeline.*;
 import org.python.core.*;
 import org.python.modules.cPickle;
@@ -73,7 +72,7 @@ public abstract class BaseRule implements Serializable {
                     for (Job j : activeJobs) {
                         rules.add(j.getName());
                     }
-                    System.out.println("Adding " + activeJobs.size() + " rule ids to transaction " + t.getID() + "( acct " + t.getAccountNumber() + ")");
+                    //System.out.println("Adding " + activeJobs.size() + " rule ids to transaction " + t.getID() + "( acct " + t.getAccountNumber() + ")");
                     return new TransactionWithRules(t, rules);
                 }).setName("Enrich with currently active rule info");
         return enriched;

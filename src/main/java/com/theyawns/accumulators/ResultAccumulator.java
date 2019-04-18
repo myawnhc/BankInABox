@@ -32,7 +32,6 @@ public class ResultAccumulator<T extends HasID, R> implements Serializable {
     // Multiple methods support the aggregator's exportFinish function, depending on the logic required,
     // and specific to the result type.  See BooleanResultAccumulator as the initial implementation.
 
-
     // Object overrides
     @Override
     public boolean equals(Object o) {

@@ -2,6 +2,10 @@ package com.theyawns.domain.payments;
 
 import java.io.Serializable;
 
+/**
+ * @deprecated Use RuleEvaluationResult in ruleengine package instead
+ */
+@Deprecated
 public class RuleExecutionResult implements Serializable {
 
     Transaction transaction;
