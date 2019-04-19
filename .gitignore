@@ -1,5 +1,7 @@
 
 .idea/*
+data/grafana/*
+log/*
 RuleEngine.iml
 *.class
 target/*
