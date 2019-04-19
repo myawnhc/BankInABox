@@ -1,9 +1,5 @@
 .idea/*
-# any one of these three patterns should work.  WTF, git?
 data/grafana/grafana.db
-data/grafana/**
-**/grafana.db
-# Also not doing a damn thing, logs getting committed every time.
 log/**
 RuleEngine.iml
 *.class
