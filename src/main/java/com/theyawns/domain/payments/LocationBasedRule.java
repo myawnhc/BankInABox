@@ -1,12 +1,10 @@
 package com.theyawns.domain.payments;
 
-import com.hazelcast.jet.datamodel.KeyedWindowResult;
 import com.hazelcast.jet.pipeline.Pipeline;
 import com.hazelcast.jet.pipeline.Sinks;
 import com.hazelcast.jet.pipeline.StreamStage;
-import org.python.core.*;
 
-import java.time.Instant;
+//import org.python.core.*;
 
 public class LocationBasedRule extends BaseRule {
 
@@ -67,6 +65,7 @@ public class LocationBasedRule extends BaseRule {
         rule.run("LocationBasedRule"); // Run method now requires name to use for the job
     }
 
+
     /**
      * Sink implementation which forwards the items it receives to the Graphite.
      * Graphite's Pickle Protocol is used for communication between Jet and Graphite.
@@ -92,45 +91,45 @@ public class LocationBasedRule extends BaseRule {
 //                .build();
 //    }
 
-    /**
-     * A data transfer object for Graphite
-     */
-    private static class GraphiteMetric {
-        PyString metricName;
-        PyInteger timestamp;
-        PyFloat metricValue;
-
-        private GraphiteMetric() {
-        }
-
-        // Graph Transaction Results (approved/not)
-        private void fromTransactionEntry(KeyedWindowResult<Long, Transaction> transactionEntry) {
-            Transaction transaction = transactionEntry.getValue();
-
-            metricName = new PyString(replaceWhiteSpace(
-                    transaction.getPaymentResult()  + "." +
-                    transaction.getFraudResult() ));
-
-            timestamp = new PyInteger(getEpochSecond(
-                    transaction.getRequestTime() ));
-
-            metricValue = new PyFloat(1);
-        }
-
-        PyList getAsList() {
-            PyList list = new PyList();
-            PyTuple metric = new PyTuple(metricName, new PyTuple(timestamp, metricValue));
-            list.add(metric);
-            return list;
-        }
-
-        private int getEpochSecond(long millis) {
-            return (int) Instant.ofEpochMilli(millis).getEpochSecond();
-        }
-
-        private String replaceWhiteSpace(String string) {
-            return string.replace(" ", "_");
-        }
-    }
+//    /**
+//     * A data transfer object for Graphite
+//     */
+//    private static class GraphiteMetric {
+//        PyString metricName;
+//        PyInteger timestamp;
+//        PyFloat metricValue;
+//
+//        private GraphiteMetric() {
+//        }
+//
+//        // Graph Transaction Results (approved/not)
+//        private void fromTransactionEntry(KeyedWindowResult<Long, Transaction> transactionEntry) {
+//            Transaction transaction = transactionEntry.getValue();
+//
+//            metricName = new PyString(replaceWhiteSpace(
+//                    transaction.getPaymentResult()  + "." +
+//                    transaction.getFraudResult() ));
+//
+//            timestamp = new PyInteger(getEpochSecond(
+//                    transaction.getRequestTime() ));
+//
+//            metricValue = new PyFloat(1);
+//        }
+//
+//        PyList getAsList() {
+//            PyList list = new PyList();
+//            PyTuple metric = new PyTuple(metricName, new PyTuple(timestamp, metricValue));
+//            list.add(metric);
+//            return list;
+////        }
+//
+//        private int getEpochSecond(long millis) {
+//            return (int) Instant.ofEpochMilli(millis).getEpochSecond();
+//        }
+//
+//        private String replaceWhiteSpace(String string) {
+//            return string.replace(" ", "_");
+//        }
+//    }
 
 }

@@ -89,6 +89,7 @@ public class Launcher {
         preAuthMap.addEntryListener(new TransactionMapListener(main.hazelcast),
                 entry -> (isEven(entry.getValue().getID())), true);
 
+        // This has no purpose other than monitoring the backlog during debug
         while (true) {
             try {
                 Thread.sleep(10000);

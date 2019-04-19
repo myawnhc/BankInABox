@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast
+        xmlns="http://www.hazelcast.com/schema/config"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.hazelcast.com/schema/config
+        http://www.hazelcast.com/schema/config/hazelcast-config-3.11.xsd"
+        >
+
+    <group>
+        <name>dev</name>
+    </group>
+
+    <management-center enabled="true">
+        http://localhost:8080/hazelcast-mancenter
+    </management-center>
+
+    <network>
+        <join>
+            <multicast enabled="true"></multicast>
+        </join>
+
+    </network>
+
+    <properties>
+        <!--
+        <property name="hazelcast.partition.count">1471</property>
+        <property name="hazelcast.operation.thread.count">12</property>
+         -->
+    </properties>
+
+
+    <!--
+    <native-memory enabled="true" allocator-type="POOLED">
+        <size value="10" unit="GIGABYTES"/>
+    </native-memory>
+
+
+    <map name="transactionHistory">
+        <in-memory-format>NATIVE</in-memory-format>
+        <backup-count>0</backup-count>
+    </map>
+
+    <multimap name="transactionHistory">
+        <binary>true</binary>
+        <value-collection-type>LIST</value-collection-type>
+    </multimap>
+
+
+    <serialization>
+        <data-serializable-factories>
+            <data-serializable-factory factory-id="101">
+                com.hazelcast.certification.process.impl.executorService.IDSFactory
+            </data-serializable-factory>
+        </data-serializable-factories>
+    </serialization>
+    -->
+
+    <license-key>
+    </license-key>
+
+</hazelcast>
