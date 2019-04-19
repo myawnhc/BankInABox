@@ -1,6 +1,6 @@
 .idea/*
+data/grafana/grafana.db
 data/grafana/**
-**/grafana.db
 log/**
 RuleEngine.iml
 *.class
