@@ -1,39 +1,74 @@
 package com.theyawns.domain.payments;
 
+import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.core.IMap;
+
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class TransactionGeneratorHelper {
 
     private Random countryCodeRandom;
     private Random cityCodeRandom;
-    private Random merchantTypeRandom;
+    private Random merchantRandom;
     private Random txnAmountRandom;
+    private Random locationRandom;
     private Random responseCodeRandom;
 
-    public TransactionGeneratorHelper() {
+    private HazelcastInstance hazelcast;
+
+    DecimalFormat merchantFormat = new DecimalFormat("00000000");
+
+
+    public TransactionGeneratorHelper(HazelcastInstance hazelcast) {
+        this.hazelcast = hazelcast;
         //countryCodeRandom = new Random(1);
         //cityCodeRandom = new Random(1);
-        //merchantTypeRandom = new Random(1);
+        merchantRandom = new Random(1);
         txnAmountRandom = new Random(100);
+        locationRandom = new Random(42);
         //responseCodeRandom = new Random(10);
     }
 
     public Account generateNewAccount(int acctNum) {
-        return new Account(generateCreditCardNumber(acctNum));
+        Account acct = new Account(generateCreditCardNumber(acctNum));
+        acct.setLastReportedLocation(Location.getRandom());
+        return acct;
     }
 
     public Transaction generateTransactionForAccount(Account a, int txnNum) {
         Transaction t = new Transaction(txnNum);
         //System.out.println("Account " + a);
         t.setAccountNumber(a.getAccountNumber());
-        t.setAmount(generateTxnAmount());
-        if (t.getAccountNumber() == null) {
-            System.out.println("TGH account issue");
+
+        int id = merchantRandom.nextInt(10000);
+        String merchantID = merchantFormat.format(id);
+        t.setMerchantId(merchantID);
+
+        // Transaction amounts will be normally distributed around vendor average
+        IMap<String,Merchant> merchantMap = hazelcast.getMap("merchantMap");
+        Merchant merchant = merchantMap.get(merchantID);
+        t.setAmount(merchant.getRandomTransactionAmount());
+
+        // 75% of transactions will be in same city as last reported location
+        int value = locationRandom.nextInt(100);
+        if (value < 75) {
+            t.setLocation(a.getLastReportedLocation());
         }
-        // TODO: current timestamp
+        // 20% will be in a close-by city
+        else if (value < 95) {
+            t.setLocation(a.getLastReportedLocation().getCloseCity());
+        }
+        // 5% will be random
+        else t.setLocation(Location.getRandom());
+
         return t;
+    }
 
-
+    public Merchant generateNewMerchant(int merchantId) {
+        Merchant m = new Merchant(merchantFormat.format(merchantId));
+        // TODO: set location,
+        return m;
     }
 
 //    /**
@@ -118,6 +153,7 @@ public class TransactionGeneratorHelper {
             buffer.append(id);
         return buffer.toString();
     }
+
 
 //    // last 90 days
 //    public long generateHistoricalTimeStamp() {

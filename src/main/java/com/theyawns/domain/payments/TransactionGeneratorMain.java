@@ -1,9 +1,9 @@
 package com.theyawns.domain.payments;
 
+import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.config.Config;
 import com.hazelcast.config.ManagementCenterConfig;
 import com.hazelcast.config.TcpIpConfig;
-import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
 
 public class TransactionGeneratorMain {
@@ -30,13 +30,14 @@ public class TransactionGeneratorMain {
         hzConfig.setManagementCenterConfig(mcc);
         hzConfig.setProperty("hazelcast.map.entry.filtering.natural.event.types", "true");
         System.out.println("Starting IMDG instance for Transaction Generator");
-        HazelcastInstance embeddedHZ = Hazelcast.newHazelcastInstance(hzConfig);
+        //HazelcastInstance embeddedHZ = Hazelcast.newHazelcastInstance(hzConfig);
+        HazelcastInstance hazelcast = HazelcastClient.newHazelcastClient();
 
         TransactionGenerator tgen = new TransactionGenerator();
-        tgen.init(embeddedHZ);
+        tgen.init(hazelcast);
         tgen.start();
 
-        ResultMapMonitor tmon = new ResultMapMonitor(embeddedHZ);
+        ResultMapMonitor tmon = new ResultMapMonitor(hazelcast);
         new Thread(tmon).start();
 
 

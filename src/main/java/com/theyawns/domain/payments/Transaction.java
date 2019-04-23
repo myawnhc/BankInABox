@@ -3,7 +3,6 @@ package com.theyawns.domain.payments;
 import com.theyawns.ruleengine.HasID;
 
 import java.io.Serializable;
-import java.util.Date;
 
 // TODO: IDS
 public class Transaction implements Serializable, HasID {
@@ -12,16 +11,16 @@ public class Transaction implements Serializable, HasID {
     private String transactionId;   // 
     private String merchantId;
 
-    private Date timestamp;
+    private long timestamp;
     private Double amount;
-    private ReportedMobileLocation reportedMobileLocation; // Should this be a separate object, enrichment source?
+    private Location location; // Should this be a separate object, enrichment source?
 
     public int fraudResult = -1;
     public Boolean paymentResult;
 
     public Transaction(int num) {
-
         this.transactionId = ""+num;
+        timestamp = System.currentTimeMillis();
     }
 
     public Transaction(Transaction copyfrom) {
@@ -47,6 +46,14 @@ public class Transaction implements Serializable, HasID {
     public Double getAmount() {
         return amount;
     }
+
+    public void setMerchantId(String id) {
+        this.merchantId = id;
+    }
+    public String getMerchantId() { return merchantId; }
+
+    public void setLocation(Location l) { this.location = l; }
+    public Location getLocation() { return location; }
 
     public void setFraudResult(int result) {
         fraudResult = result;

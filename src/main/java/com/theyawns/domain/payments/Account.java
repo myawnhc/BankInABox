@@ -11,7 +11,7 @@ public class Account implements Serializable {
     private Double creditLimit;
     private Double balance;
     private AccountStatus status;
-
+    private Location lastReportedLocation;
 
 
     public Account(String acctNo) {
@@ -43,6 +43,9 @@ public class Account implements Serializable {
 
     public void setAccountStatus(AccountStatus status) { this.status = status; }
     public AccountStatus getAccountStatus() { return status; }
+
+    public void setLastReportedLocation(Location location) { this.lastReportedLocation = location; }
+    public Location getLastReportedLocation() { return lastReportedLocation; }
 
     public String toString() {
         return "Acct " + accountNumber + " " + creditLimit + " " + balance + " " + status;

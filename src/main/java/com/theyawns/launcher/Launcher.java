@@ -1,10 +1,10 @@
 package com.theyawns.launcher;
 
+import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.client.config.ClientConfig;
 import com.hazelcast.config.Config;
 import com.hazelcast.config.ManagementCenterConfig;
 import com.hazelcast.config.NetworkConfig;
-import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
 import com.hazelcast.jet.config.JetConfig;
@@ -50,10 +50,10 @@ public class Launcher {
         //hazelcastConfig.setManagementCenterConfig(mcc);
         jc.setHazelcastConfig(hazelcastConfig);
 
-        Config config = new Config();
-        config.getGroupConfig().setName("dev").setPassword("ignored");
-        config.getNetworkConfig().getJoin().getTcpIpConfig().addMember(IMDG_HOST);
-        hazelcast = Hazelcast.newHazelcastInstance(config);
+//        Config config = new Config();
+//        config.getGroupConfig().setName("dev").setPassword("ignored");
+//        config.getNetworkConfig().getJoin().getTcpIpConfig().addMember(IMDG_HOST);
+        hazelcast = HazelcastClient.newHazelcastClient();
         distributedES = hazelcast.getExecutorService("execSvc");
 
     }
@@ -69,7 +69,6 @@ public class Launcher {
     public static boolean isEven(String txnId) {
         int numericID = Integer.parseInt(txnId);
         boolean result =  (numericID % 2) == 0;
-        System.out.println("isEvent " + result);
         return result;
     }
 
@@ -85,9 +84,12 @@ public class Launcher {
         // This runs the EntryProcessor version of the rule.   Not getting any hits.
         // Are we getting the map from the 'wrong' instance? (Internal vs. external?)
         IMap<String, Transaction> preAuthMap = main.hazelcast.getMap("preAuth");
-        System.out.println("PreAuth size " + preAuthMap.size());  // should be non-zero
+        System.out.println("initial PreAuth size " + preAuthMap.size());  // should be non-zero
+//        preAuthMap.addEntryListener(new TransactionMapListener(main.hazelcast),
+//                entry -> (isEven(entry.getValue().getID())), true);
+
         preAuthMap.addEntryListener(new TransactionMapListener(main.hazelcast),
-                entry -> (isEven(entry.getValue().getID())), true);
+                true);
 
         // This has no purpose other than monitoring the backlog during debug
         while (true) {
