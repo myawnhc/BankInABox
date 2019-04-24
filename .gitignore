@@ -1,5 +1,4 @@
 .idea/*
-log/**
 RuleEngine.iml
 *.class
 target/**
