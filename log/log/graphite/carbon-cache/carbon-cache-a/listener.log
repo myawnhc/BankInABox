@@ -1,0 +1,1614 @@
+13/04/2019 00:02:15 :: MetricLineReceiver connection with 127.0.0.1:59140 established
+13/04/2019 00:02:15 :: MetricLineReceiver connection with 127.0.0.1:59140 closed cleanly
+13/04/2019 00:02:23 :: MetricLineReceiver connection with 127.0.0.1:59142 established
+13/04/2019 00:02:23 :: MetricLineReceiver connection with 127.0.0.1:59142 closed cleanly
+13/04/2019 00:02:33 :: MetricLineReceiver connection with 127.0.0.1:59146 established
+13/04/2019 00:02:33 :: MetricLineReceiver connection with 127.0.0.1:59146 closed cleanly
+13/04/2019 00:08:06 :: MetricLineReceiver connection with 127.0.0.1:59148 established
+13/04/2019 00:08:06 :: MetricLineReceiver connection with 127.0.0.1:59148 closed cleanly
+13/04/2019 00:08:13 :: MetricLineReceiver connection with 127.0.0.1:59150 established
+13/04/2019 00:08:13 :: MetricLineReceiver connection with 127.0.0.1:59150 closed cleanly
+13/04/2019 00:08:23 :: MetricLineReceiver connection with 127.0.0.1:59152 established
+13/04/2019 00:08:23 :: MetricLineReceiver connection with 127.0.0.1:59152 closed cleanly
+13/04/2019 00:08:33 :: MetricLineReceiver connection with 127.0.0.1:59154 established
+13/04/2019 00:08:33 :: MetricLineReceiver connection with 127.0.0.1:59154 closed cleanly
+13/04/2019 00:08:42 :: MetricLineReceiver connection with 127.0.0.1:59158 established
+13/04/2019 00:08:42 :: MetricLineReceiver connection with 127.0.0.1:59158 closed cleanly
+13/04/2019 00:08:43 :: MetricLineReceiver connection with 127.0.0.1:59160 established
+13/04/2019 00:08:43 :: MetricLineReceiver connection with 127.0.0.1:59160 closed cleanly
+13/04/2019 00:08:53 :: MetricLineReceiver connection with 127.0.0.1:59162 established
+13/04/2019 00:08:53 :: MetricLineReceiver connection with 127.0.0.1:59162 closed cleanly
+13/04/2019 00:09:03 :: MetricLineReceiver connection with 127.0.0.1:59164 established
+13/04/2019 00:09:03 :: MetricLineReceiver connection with 127.0.0.1:59164 closed cleanly
+13/04/2019 01:19:10 :: MetricLineReceiver connection with 127.0.0.1:59166 established
+13/04/2019 01:19:10 :: MetricLineReceiver connection with 127.0.0.1:59166 closed cleanly
+13/04/2019 01:19:13 :: MetricLineReceiver connection with 127.0.0.1:59170 established
+13/04/2019 01:19:13 :: MetricLineReceiver connection with 127.0.0.1:59170 closed cleanly
+13/04/2019 20:46:17 :: MetricLineReceiver connection with 127.0.0.1:59172 established
+13/04/2019 20:46:17 :: MetricLineReceiver connection with 127.0.0.1:59172 closed cleanly
+13/04/2019 20:46:23 :: MetricLineReceiver connection with 127.0.0.1:59174 established
+13/04/2019 20:46:23 :: MetricLineReceiver connection with 127.0.0.1:59174 closed cleanly
+13/04/2019 20:46:33 :: MetricLineReceiver connection with 127.0.0.1:59176 established
+13/04/2019 20:46:33 :: MetricLineReceiver connection with 127.0.0.1:59176 closed cleanly
+13/04/2019 20:46:43 :: MetricLineReceiver connection with 127.0.0.1:59178 established
+13/04/2019 20:46:43 :: MetricLineReceiver connection with 127.0.0.1:59178 closed cleanly
+13/04/2019 20:46:53 :: MetricLineReceiver connection with 127.0.0.1:59182 established
+13/04/2019 20:46:53 :: MetricLineReceiver connection with 127.0.0.1:59182 closed cleanly
+13/04/2019 20:47:01 :: MetricLineReceiver connection with 127.0.0.1:59184 established
+13/04/2019 20:47:01 :: MetricLineReceiver connection with 127.0.0.1:59184 closed cleanly
+13/04/2019 20:47:03 :: MetricLineReceiver connection with 127.0.0.1:59186 established
+13/04/2019 20:47:03 :: MetricLineReceiver connection with 127.0.0.1:59186 closed cleanly
+13/04/2019 20:47:13 :: MetricLineReceiver connection with 127.0.0.1:59188 established
+13/04/2019 20:47:13 :: MetricLineReceiver connection with 127.0.0.1:59188 closed cleanly
+13/04/2019 20:47:23 :: MetricLineReceiver connection with 127.0.0.1:59190 established
+13/04/2019 20:47:23 :: MetricLineReceiver connection with 127.0.0.1:59190 closed cleanly
+13/04/2019 20:47:32 :: MetricLineReceiver connection with 127.0.0.1:59192 established
+13/04/2019 20:47:32 :: MetricLineReceiver connection with 127.0.0.1:59192 closed cleanly
+13/04/2019 20:47:33 :: MetricLineReceiver connection with 127.0.0.1:59194 established
+13/04/2019 20:47:33 :: MetricLineReceiver connection with 127.0.0.1:59194 closed cleanly
+13/04/2019 20:47:43 :: MetricLineReceiver connection with 127.0.0.1:59198 established
+13/04/2019 20:47:43 :: MetricLineReceiver connection with 127.0.0.1:59198 closed cleanly
+13/04/2019 20:47:53 :: MetricLineReceiver connection with 127.0.0.1:59200 established
+13/04/2019 20:47:53 :: MetricLineReceiver connection with 127.0.0.1:59200 closed cleanly
+13/04/2019 20:48:02 :: MetricLineReceiver connection with 127.0.0.1:59202 established
+13/04/2019 20:48:02 :: MetricLineReceiver connection with 127.0.0.1:59202 closed cleanly
+13/04/2019 20:48:03 :: MetricLineReceiver connection with 127.0.0.1:59204 established
+13/04/2019 20:48:03 :: MetricLineReceiver connection with 127.0.0.1:59204 closed cleanly
+13/04/2019 20:48:13 :: MetricLineReceiver connection with 127.0.0.1:59206 established
+13/04/2019 20:48:13 :: MetricLineReceiver connection with 127.0.0.1:59206 closed cleanly
+13/04/2019 20:48:23 :: MetricLineReceiver connection with 127.0.0.1:59208 established
+13/04/2019 20:48:23 :: MetricLineReceiver connection with 127.0.0.1:59208 closed cleanly
+13/04/2019 20:48:32 :: MetricLineReceiver connection with 127.0.0.1:59210 established
+13/04/2019 20:48:32 :: MetricLineReceiver connection with 127.0.0.1:59210 closed cleanly
+13/04/2019 20:48:33 :: MetricLineReceiver connection with 127.0.0.1:59212 established
+13/04/2019 20:48:33 :: MetricLineReceiver connection with 127.0.0.1:59212 closed cleanly
+13/04/2019 20:48:43 :: MetricLineReceiver connection with 127.0.0.1:59216 established
+13/04/2019 20:48:43 :: MetricLineReceiver connection with 127.0.0.1:59216 closed cleanly
+13/04/2019 20:48:53 :: MetricLineReceiver connection with 127.0.0.1:59218 established
+13/04/2019 20:48:53 :: MetricLineReceiver connection with 127.0.0.1:59218 closed cleanly
+13/04/2019 20:49:02 :: MetricLineReceiver connection with 127.0.0.1:59220 established
+13/04/2019 20:49:02 :: MetricLineReceiver connection with 127.0.0.1:59220 closed cleanly
+13/04/2019 20:49:03 :: MetricLineReceiver connection with 127.0.0.1:59222 established
+13/04/2019 20:49:03 :: MetricLineReceiver connection with 127.0.0.1:59222 closed cleanly
+13/04/2019 20:49:13 :: MetricLineReceiver connection with 127.0.0.1:59224 established
+13/04/2019 20:49:13 :: MetricLineReceiver connection with 127.0.0.1:59224 closed cleanly
+13/04/2019 20:49:23 :: MetricLineReceiver connection with 127.0.0.1:59226 established
+13/04/2019 20:49:23 :: MetricLineReceiver connection with 127.0.0.1:59226 closed cleanly
+13/04/2019 20:49:32 :: MetricLineReceiver connection with 127.0.0.1:59228 established
+13/04/2019 20:49:32 :: MetricLineReceiver connection with 127.0.0.1:59228 closed cleanly
+13/04/2019 20:49:33 :: MetricLineReceiver connection with 127.0.0.1:59230 established
+13/04/2019 20:49:33 :: MetricLineReceiver connection with 127.0.0.1:59230 closed cleanly
+13/04/2019 20:49:43 :: MetricLineReceiver connection with 127.0.0.1:59234 established
+13/04/2019 20:49:43 :: MetricLineReceiver connection with 127.0.0.1:59234 closed cleanly
+13/04/2019 20:49:53 :: MetricLineReceiver connection with 127.0.0.1:59236 established
+13/04/2019 20:49:53 :: MetricLineReceiver connection with 127.0.0.1:59236 closed cleanly
+13/04/2019 20:50:02 :: MetricLineReceiver connection with 127.0.0.1:59238 established
+13/04/2019 20:50:02 :: MetricLineReceiver connection with 127.0.0.1:59238 closed cleanly
+13/04/2019 20:50:03 :: MetricLineReceiver connection with 127.0.0.1:59240 established
+13/04/2019 20:50:03 :: MetricLineReceiver connection with 127.0.0.1:59240 closed cleanly
+13/04/2019 20:50:13 :: MetricLineReceiver connection with 127.0.0.1:59246 established
+13/04/2019 20:50:13 :: MetricLineReceiver connection with 127.0.0.1:59246 closed cleanly
+13/04/2019 20:50:23 :: MetricLineReceiver connection with 127.0.0.1:59248 established
+13/04/2019 20:50:23 :: MetricLineReceiver connection with 127.0.0.1:59248 closed cleanly
+13/04/2019 20:50:32 :: MetricLineReceiver connection with 127.0.0.1:59250 established
+13/04/2019 20:50:32 :: MetricLineReceiver connection with 127.0.0.1:59250 closed cleanly
+13/04/2019 20:50:33 :: MetricLineReceiver connection with 127.0.0.1:59252 established
+13/04/2019 20:50:33 :: MetricLineReceiver connection with 127.0.0.1:59252 closed cleanly
+13/04/2019 20:50:43 :: MetricLineReceiver connection with 127.0.0.1:59256 established
+13/04/2019 20:50:43 :: MetricLineReceiver connection with 127.0.0.1:59256 closed cleanly
+13/04/2019 20:50:53 :: MetricLineReceiver connection with 127.0.0.1:59258 established
+13/04/2019 20:50:53 :: MetricLineReceiver connection with 127.0.0.1:59258 closed cleanly
+13/04/2019 20:51:02 :: MetricLineReceiver connection with 127.0.0.1:59260 established
+13/04/2019 20:51:02 :: MetricLineReceiver connection with 127.0.0.1:59260 closed cleanly
+13/04/2019 20:51:03 :: MetricLineReceiver connection with 127.0.0.1:59262 established
+13/04/2019 20:51:03 :: MetricLineReceiver connection with 127.0.0.1:59262 closed cleanly
+13/04/2019 20:51:13 :: MetricLineReceiver connection with 127.0.0.1:59264 established
+13/04/2019 20:51:13 :: MetricLineReceiver connection with 127.0.0.1:59264 closed cleanly
+13/04/2019 20:51:23 :: MetricLineReceiver connection with 127.0.0.1:59266 established
+13/04/2019 20:51:23 :: MetricLineReceiver connection with 127.0.0.1:59266 closed cleanly
+13/04/2019 20:51:32 :: MetricLineReceiver connection with 127.0.0.1:59268 established
+13/04/2019 20:51:32 :: MetricLineReceiver connection with 127.0.0.1:59268 closed cleanly
+13/04/2019 20:51:33 :: MetricLineReceiver connection with 127.0.0.1:59270 established
+13/04/2019 20:51:33 :: MetricLineReceiver connection with 127.0.0.1:59270 closed cleanly
+13/04/2019 20:51:43 :: MetricLineReceiver connection with 127.0.0.1:59274 established
+13/04/2019 20:51:43 :: MetricLineReceiver connection with 127.0.0.1:59274 closed cleanly
+13/04/2019 20:51:53 :: MetricLineReceiver connection with 127.0.0.1:59276 established
+13/04/2019 20:51:53 :: MetricLineReceiver connection with 127.0.0.1:59276 closed cleanly
+13/04/2019 20:52:02 :: MetricLineReceiver connection with 127.0.0.1:59278 established
+13/04/2019 20:52:02 :: MetricLineReceiver connection with 127.0.0.1:59278 closed cleanly
+13/04/2019 20:52:03 :: MetricLineReceiver connection with 127.0.0.1:59280 established
+13/04/2019 20:52:03 :: MetricLineReceiver connection with 127.0.0.1:59280 closed cleanly
+13/04/2019 20:52:13 :: MetricLineReceiver connection with 127.0.0.1:59282 established
+13/04/2019 20:52:13 :: MetricLineReceiver connection with 127.0.0.1:59282 closed cleanly
+13/04/2019 20:52:23 :: MetricLineReceiver connection with 127.0.0.1:59284 established
+13/04/2019 20:52:23 :: MetricLineReceiver connection with 127.0.0.1:59284 closed cleanly
+13/04/2019 20:52:32 :: MetricLineReceiver connection with 127.0.0.1:59286 established
+13/04/2019 20:52:32 :: MetricLineReceiver connection with 127.0.0.1:59286 closed cleanly
+13/04/2019 20:52:33 :: MetricLineReceiver connection with 127.0.0.1:59288 established
+13/04/2019 20:52:33 :: MetricLineReceiver connection with 127.0.0.1:59288 closed cleanly
+13/04/2019 20:52:43 :: MetricLineReceiver connection with 127.0.0.1:59292 established
+13/04/2019 20:52:43 :: MetricLineReceiver connection with 127.0.0.1:59292 closed cleanly
+13/04/2019 20:52:53 :: MetricLineReceiver connection with 127.0.0.1:59294 established
+13/04/2019 20:52:53 :: MetricLineReceiver connection with 127.0.0.1:59294 closed cleanly
+13/04/2019 20:53:02 :: MetricLineReceiver connection with 127.0.0.1:59296 established
+13/04/2019 20:53:02 :: MetricLineReceiver connection with 127.0.0.1:59296 closed cleanly
+13/04/2019 20:53:03 :: MetricLineReceiver connection with 127.0.0.1:59298 established
+13/04/2019 20:53:03 :: MetricLineReceiver connection with 127.0.0.1:59298 closed cleanly
+13/04/2019 20:53:13 :: MetricLineReceiver connection with 127.0.0.1:59300 established
+13/04/2019 20:53:13 :: MetricLineReceiver connection with 127.0.0.1:59300 closed cleanly
+13/04/2019 20:53:23 :: MetricLineReceiver connection with 127.0.0.1:59302 established
+13/04/2019 20:53:23 :: MetricLineReceiver connection with 127.0.0.1:59302 closed cleanly
+13/04/2019 20:53:32 :: MetricLineReceiver connection with 127.0.0.1:59304 established
+13/04/2019 20:53:32 :: MetricLineReceiver connection with 127.0.0.1:59304 closed cleanly
+13/04/2019 20:53:33 :: MetricLineReceiver connection with 127.0.0.1:59306 established
+13/04/2019 20:53:33 :: MetricLineReceiver connection with 127.0.0.1:59306 closed cleanly
+13/04/2019 20:53:43 :: MetricLineReceiver connection with 127.0.0.1:59310 established
+13/04/2019 20:53:43 :: MetricLineReceiver connection with 127.0.0.1:59310 closed cleanly
+13/04/2019 20:53:53 :: MetricLineReceiver connection with 127.0.0.1:59312 established
+13/04/2019 20:53:53 :: MetricLineReceiver connection with 127.0.0.1:59312 closed cleanly
+13/04/2019 20:54:02 :: MetricLineReceiver connection with 127.0.0.1:59314 established
+13/04/2019 20:54:02 :: MetricLineReceiver connection with 127.0.0.1:59314 closed cleanly
+13/04/2019 20:54:03 :: MetricLineReceiver connection with 127.0.0.1:59316 established
+13/04/2019 20:54:03 :: MetricLineReceiver connection with 127.0.0.1:59316 closed cleanly
+13/04/2019 20:54:13 :: MetricLineReceiver connection with 127.0.0.1:59318 established
+13/04/2019 20:54:13 :: MetricLineReceiver connection with 127.0.0.1:59318 closed cleanly
+13/04/2019 20:54:22 :: MetricLineReceiver connection with 127.0.0.1:59320 established
+13/04/2019 20:54:22 :: MetricLineReceiver connection with 127.0.0.1:59320 closed cleanly
+13/04/2019 20:54:23 :: MetricLineReceiver connection with 127.0.0.1:59322 established
+13/04/2019 20:54:23 :: MetricLineReceiver connection with 127.0.0.1:59322 closed cleanly
+13/04/2019 20:54:33 :: MetricLineReceiver connection with 127.0.0.1:59324 established
+13/04/2019 20:54:33 :: MetricLineReceiver connection with 127.0.0.1:59324 closed cleanly
+13/04/2019 20:54:43 :: MetricLineReceiver connection with 127.0.0.1:59328 established
+13/04/2019 20:54:43 :: MetricLineReceiver connection with 127.0.0.1:59328 closed cleanly
+13/04/2019 20:54:52 :: MetricLineReceiver connection with 127.0.0.1:59330 established
+13/04/2019 20:54:52 :: MetricLineReceiver connection with 127.0.0.1:59330 closed cleanly
+13/04/2019 20:54:53 :: MetricLineReceiver connection with 127.0.0.1:59332 established
+13/04/2019 20:54:53 :: MetricLineReceiver connection with 127.0.0.1:59332 closed cleanly
+13/04/2019 20:55:03 :: MetricLineReceiver connection with 127.0.0.1:59334 established
+13/04/2019 20:55:03 :: MetricLineReceiver connection with 127.0.0.1:59334 closed cleanly
+13/04/2019 20:55:13 :: MetricLineReceiver connection with 127.0.0.1:59336 established
+13/04/2019 20:55:13 :: MetricLineReceiver connection with 127.0.0.1:59336 closed cleanly
+13/04/2019 20:55:22 :: MetricLineReceiver connection with 127.0.0.1:59338 established
+13/04/2019 20:55:22 :: MetricLineReceiver connection with 127.0.0.1:59338 closed cleanly
+13/04/2019 20:55:23 :: MetricLineReceiver connection with 127.0.0.1:59340 established
+13/04/2019 20:55:23 :: MetricLineReceiver connection with 127.0.0.1:59340 closed cleanly
+13/04/2019 20:55:33 :: MetricLineReceiver connection with 127.0.0.1:59342 established
+13/04/2019 20:55:33 :: MetricLineReceiver connection with 127.0.0.1:59342 closed cleanly
+13/04/2019 20:55:43 :: MetricLineReceiver connection with 127.0.0.1:59346 established
+13/04/2019 20:55:43 :: MetricLineReceiver connection with 127.0.0.1:59346 closed cleanly
+13/04/2019 20:55:52 :: MetricLineReceiver connection with 127.0.0.1:59348 established
+13/04/2019 20:55:52 :: MetricLineReceiver connection with 127.0.0.1:59348 closed cleanly
+13/04/2019 20:55:53 :: MetricLineReceiver connection with 127.0.0.1:59350 established
+13/04/2019 20:55:53 :: MetricLineReceiver connection with 127.0.0.1:59350 closed cleanly
+13/04/2019 20:56:03 :: MetricLineReceiver connection with 127.0.0.1:59352 established
+13/04/2019 20:56:03 :: MetricLineReceiver connection with 127.0.0.1:59352 closed cleanly
+13/04/2019 20:56:13 :: MetricLineReceiver connection with 127.0.0.1:59354 established
+13/04/2019 20:56:13 :: MetricLineReceiver connection with 127.0.0.1:59354 closed cleanly
+13/04/2019 20:56:22 :: MetricLineReceiver connection with 127.0.0.1:59356 established
+13/04/2019 20:56:22 :: MetricLineReceiver connection with 127.0.0.1:59356 closed cleanly
+13/04/2019 20:56:23 :: MetricLineReceiver connection with 127.0.0.1:59358 established
+13/04/2019 20:56:23 :: MetricLineReceiver connection with 127.0.0.1:59358 closed cleanly
+13/04/2019 20:56:33 :: MetricLineReceiver connection with 127.0.0.1:59362 established
+13/04/2019 20:56:33 :: MetricLineReceiver connection with 127.0.0.1:59362 closed cleanly
+13/04/2019 20:56:43 :: MetricLineReceiver connection with 127.0.0.1:59364 established
+13/04/2019 20:56:43 :: MetricLineReceiver connection with 127.0.0.1:59364 closed cleanly
+13/04/2019 20:56:52 :: MetricLineReceiver connection with 127.0.0.1:59366 established
+13/04/2019 20:56:52 :: MetricLineReceiver connection with 127.0.0.1:59366 closed cleanly
+13/04/2019 20:56:53 :: MetricLineReceiver connection with 127.0.0.1:59368 established
+13/04/2019 20:56:53 :: MetricLineReceiver connection with 127.0.0.1:59368 closed cleanly
+13/04/2019 20:57:03 :: MetricLineReceiver connection with 127.0.0.1:59370 established
+13/04/2019 20:57:03 :: MetricLineReceiver connection with 127.0.0.1:59370 closed cleanly
+13/04/2019 20:57:13 :: MetricLineReceiver connection with 127.0.0.1:59372 established
+13/04/2019 20:57:13 :: MetricLineReceiver connection with 127.0.0.1:59372 closed cleanly
+13/04/2019 20:57:22 :: MetricLineReceiver connection with 127.0.0.1:59374 established
+13/04/2019 20:57:22 :: MetricLineReceiver connection with 127.0.0.1:59374 closed cleanly
+13/04/2019 20:57:23 :: MetricLineReceiver connection with 127.0.0.1:59376 established
+13/04/2019 20:57:23 :: MetricLineReceiver connection with 127.0.0.1:59376 closed cleanly
+13/04/2019 20:57:33 :: MetricLineReceiver connection with 127.0.0.1:59380 established
+13/04/2019 20:57:33 :: MetricLineReceiver connection with 127.0.0.1:59380 closed cleanly
+13/04/2019 20:57:43 :: MetricLineReceiver connection with 127.0.0.1:59382 established
+13/04/2019 20:57:43 :: MetricLineReceiver connection with 127.0.0.1:59382 closed cleanly
+13/04/2019 20:57:52 :: MetricLineReceiver connection with 127.0.0.1:59384 established
+13/04/2019 20:57:52 :: MetricLineReceiver connection with 127.0.0.1:59384 closed cleanly
+13/04/2019 20:57:53 :: MetricLineReceiver connection with 127.0.0.1:59386 established
+13/04/2019 20:57:53 :: MetricLineReceiver connection with 127.0.0.1:59386 closed cleanly
+13/04/2019 20:58:03 :: MetricLineReceiver connection with 127.0.0.1:59388 established
+13/04/2019 20:58:03 :: MetricLineReceiver connection with 127.0.0.1:59388 closed cleanly
+13/04/2019 20:58:13 :: MetricLineReceiver connection with 127.0.0.1:59390 established
+13/04/2019 20:58:13 :: MetricLineReceiver connection with 127.0.0.1:59390 closed cleanly
+13/04/2019 20:58:22 :: MetricLineReceiver connection with 127.0.0.1:59392 established
+13/04/2019 20:58:22 :: MetricLineReceiver connection with 127.0.0.1:59392 closed cleanly
+13/04/2019 20:58:23 :: MetricLineReceiver connection with 127.0.0.1:59394 established
+13/04/2019 20:58:23 :: MetricLineReceiver connection with 127.0.0.1:59394 closed cleanly
+13/04/2019 20:58:33 :: MetricLineReceiver connection with 127.0.0.1:59398 established
+13/04/2019 20:58:33 :: MetricLineReceiver connection with 127.0.0.1:59398 closed cleanly
+13/04/2019 20:58:43 :: MetricLineReceiver connection with 127.0.0.1:59400 established
+13/04/2019 20:58:43 :: MetricLineReceiver connection with 127.0.0.1:59400 closed cleanly
+13/04/2019 20:58:52 :: MetricLineReceiver connection with 127.0.0.1:59402 established
+13/04/2019 20:58:52 :: MetricLineReceiver connection with 127.0.0.1:59402 closed cleanly
+13/04/2019 20:58:53 :: MetricLineReceiver connection with 127.0.0.1:59404 established
+13/04/2019 20:58:53 :: MetricLineReceiver connection with 127.0.0.1:59404 closed cleanly
+13/04/2019 20:59:03 :: MetricLineReceiver connection with 127.0.0.1:59406 established
+13/04/2019 20:59:03 :: MetricLineReceiver connection with 127.0.0.1:59406 closed cleanly
+13/04/2019 20:59:13 :: MetricLineReceiver connection with 127.0.0.1:59408 established
+13/04/2019 20:59:13 :: MetricLineReceiver connection with 127.0.0.1:59408 closed cleanly
+13/04/2019 20:59:22 :: MetricLineReceiver connection with 127.0.0.1:59410 established
+13/04/2019 20:59:22 :: MetricLineReceiver connection with 127.0.0.1:59410 closed cleanly
+13/04/2019 20:59:23 :: MetricLineReceiver connection with 127.0.0.1:59412 established
+13/04/2019 20:59:23 :: MetricLineReceiver connection with 127.0.0.1:59412 closed cleanly
+13/04/2019 20:59:33 :: MetricLineReceiver connection with 127.0.0.1:59416 established
+13/04/2019 20:59:33 :: MetricLineReceiver connection with 127.0.0.1:59416 closed cleanly
+13/04/2019 20:59:43 :: MetricLineReceiver connection with 127.0.0.1:59418 established
+13/04/2019 20:59:43 :: MetricLineReceiver connection with 127.0.0.1:59418 closed cleanly
+13/04/2019 20:59:52 :: MetricLineReceiver connection with 127.0.0.1:59420 established
+13/04/2019 20:59:52 :: MetricLineReceiver connection with 127.0.0.1:59420 closed cleanly
+13/04/2019 20:59:53 :: MetricLineReceiver connection with 127.0.0.1:59422 established
+13/04/2019 20:59:53 :: MetricLineReceiver connection with 127.0.0.1:59422 closed cleanly
+13/04/2019 21:00:03 :: MetricLineReceiver connection with 127.0.0.1:59424 established
+13/04/2019 21:00:03 :: MetricLineReceiver connection with 127.0.0.1:59424 closed cleanly
+13/04/2019 21:00:13 :: MetricLineReceiver connection with 127.0.0.1:59430 established
+13/04/2019 21:00:13 :: MetricLineReceiver connection with 127.0.0.1:59430 closed cleanly
+13/04/2019 21:00:22 :: MetricLineReceiver connection with 127.0.0.1:59432 established
+13/04/2019 21:00:22 :: MetricLineReceiver connection with 127.0.0.1:59432 closed cleanly
+13/04/2019 21:00:23 :: MetricLineReceiver connection with 127.0.0.1:59434 established
+13/04/2019 21:00:23 :: MetricLineReceiver connection with 127.0.0.1:59434 closed cleanly
+13/04/2019 21:00:33 :: MetricLineReceiver connection with 127.0.0.1:59438 established
+13/04/2019 21:00:33 :: MetricLineReceiver connection with 127.0.0.1:59438 closed cleanly
+13/04/2019 21:00:43 :: MetricLineReceiver connection with 127.0.0.1:59440 established
+13/04/2019 21:00:43 :: MetricLineReceiver connection with 127.0.0.1:59440 closed cleanly
+13/04/2019 21:00:52 :: MetricLineReceiver connection with 127.0.0.1:59442 established
+13/04/2019 21:00:52 :: MetricLineReceiver connection with 127.0.0.1:59442 closed cleanly
+13/04/2019 21:00:53 :: MetricLineReceiver connection with 127.0.0.1:59444 established
+13/04/2019 21:00:53 :: MetricLineReceiver connection with 127.0.0.1:59444 closed cleanly
+13/04/2019 21:01:03 :: MetricLineReceiver connection with 127.0.0.1:59446 established
+13/04/2019 21:01:03 :: MetricLineReceiver connection with 127.0.0.1:59446 closed cleanly
+13/04/2019 21:01:13 :: MetricLineReceiver connection with 127.0.0.1:59448 established
+13/04/2019 21:01:13 :: MetricLineReceiver connection with 127.0.0.1:59448 closed cleanly
+13/04/2019 21:01:22 :: MetricLineReceiver connection with 127.0.0.1:59450 established
+13/04/2019 21:01:22 :: MetricLineReceiver connection with 127.0.0.1:59450 closed cleanly
+13/04/2019 21:01:23 :: MetricLineReceiver connection with 127.0.0.1:59452 established
+13/04/2019 21:01:23 :: MetricLineReceiver connection with 127.0.0.1:59452 closed cleanly
+13/04/2019 21:01:33 :: MetricLineReceiver connection with 127.0.0.1:59456 established
+13/04/2019 21:01:33 :: MetricLineReceiver connection with 127.0.0.1:59456 closed cleanly
+13/04/2019 21:01:43 :: MetricLineReceiver connection with 127.0.0.1:59458 established
+13/04/2019 21:01:43 :: MetricLineReceiver connection with 127.0.0.1:59458 closed cleanly
+13/04/2019 21:01:52 :: MetricLineReceiver connection with 127.0.0.1:59460 established
+13/04/2019 21:01:52 :: MetricLineReceiver connection with 127.0.0.1:59460 closed cleanly
+13/04/2019 21:01:53 :: MetricLineReceiver connection with 127.0.0.1:59462 established
+13/04/2019 21:01:53 :: MetricLineReceiver connection with 127.0.0.1:59462 closed cleanly
+13/04/2019 21:02:03 :: MetricLineReceiver connection with 127.0.0.1:59464 established
+13/04/2019 21:02:03 :: MetricLineReceiver connection with 127.0.0.1:59464 closed cleanly
+13/04/2019 21:02:13 :: MetricLineReceiver connection with 127.0.0.1:59466 established
+13/04/2019 21:02:13 :: MetricLineReceiver connection with 127.0.0.1:59466 closed cleanly
+13/04/2019 21:02:22 :: MetricLineReceiver connection with 127.0.0.1:59468 established
+13/04/2019 21:02:22 :: MetricLineReceiver connection with 127.0.0.1:59468 closed cleanly
+13/04/2019 21:02:23 :: MetricLineReceiver connection with 127.0.0.1:59470 established
+13/04/2019 21:02:23 :: MetricLineReceiver connection with 127.0.0.1:59470 closed cleanly
+13/04/2019 21:02:33 :: MetricLineReceiver connection with 127.0.0.1:59474 established
+13/04/2019 21:02:33 :: MetricLineReceiver connection with 127.0.0.1:59474 closed cleanly
+13/04/2019 21:02:43 :: MetricLineReceiver connection with 127.0.0.1:59476 established
+13/04/2019 21:02:43 :: MetricLineReceiver connection with 127.0.0.1:59476 closed cleanly
+13/04/2019 21:02:52 :: MetricLineReceiver connection with 127.0.0.1:59478 established
+13/04/2019 21:02:52 :: MetricLineReceiver connection with 127.0.0.1:59478 closed cleanly
+13/04/2019 21:02:53 :: MetricLineReceiver connection with 127.0.0.1:59480 established
+13/04/2019 21:02:53 :: MetricLineReceiver connection with 127.0.0.1:59480 closed cleanly
+13/04/2019 21:03:03 :: MetricLineReceiver connection with 127.0.0.1:59482 established
+13/04/2019 21:03:03 :: MetricLineReceiver connection with 127.0.0.1:59482 closed cleanly
+13/04/2019 21:03:13 :: MetricLineReceiver connection with 127.0.0.1:59484 established
+13/04/2019 21:03:13 :: MetricLineReceiver connection with 127.0.0.1:59484 closed cleanly
+13/04/2019 21:03:22 :: MetricLineReceiver connection with 127.0.0.1:59488 established
+13/04/2019 21:03:22 :: MetricLineReceiver connection with 127.0.0.1:59488 closed cleanly
+13/04/2019 21:03:23 :: MetricLineReceiver connection with 127.0.0.1:59490 established
+13/04/2019 21:03:23 :: MetricLineReceiver connection with 127.0.0.1:59490 closed cleanly
+13/04/2019 21:03:33 :: MetricLineReceiver connection with 127.0.0.1:59492 established
+13/04/2019 21:03:33 :: MetricLineReceiver connection with 127.0.0.1:59492 closed cleanly
+13/04/2019 21:03:43 :: MetricLineReceiver connection with 127.0.0.1:59494 established
+13/04/2019 21:03:43 :: MetricLineReceiver connection with 127.0.0.1:59494 closed cleanly
+13/04/2019 21:03:52 :: MetricLineReceiver connection with 127.0.0.1:59496 established
+13/04/2019 21:03:52 :: MetricLineReceiver connection with 127.0.0.1:59496 closed cleanly
+13/04/2019 21:03:53 :: MetricLineReceiver connection with 127.0.0.1:59498 established
+13/04/2019 21:03:53 :: MetricLineReceiver connection with 127.0.0.1:59498 closed cleanly
+13/04/2019 21:04:03 :: MetricLineReceiver connection with 127.0.0.1:59500 established
+13/04/2019 21:04:03 :: MetricLineReceiver connection with 127.0.0.1:59500 closed cleanly
+13/04/2019 21:04:13 :: MetricLineReceiver connection with 127.0.0.1:59502 established
+13/04/2019 21:04:13 :: MetricLineReceiver connection with 127.0.0.1:59502 closed cleanly
+13/04/2019 21:04:22 :: MetricLineReceiver connection with 127.0.0.1:59506 established
+13/04/2019 21:04:22 :: MetricLineReceiver connection with 127.0.0.1:59506 closed cleanly
+13/04/2019 21:04:23 :: MetricLineReceiver connection with 127.0.0.1:59508 established
+13/04/2019 21:04:23 :: MetricLineReceiver connection with 127.0.0.1:59508 closed cleanly
+13/04/2019 21:04:33 :: MetricLineReceiver connection with 127.0.0.1:59510 established
+13/04/2019 21:04:33 :: MetricLineReceiver connection with 127.0.0.1:59510 closed cleanly
+13/04/2019 21:04:43 :: MetricLineReceiver connection with 127.0.0.1:59512 established
+13/04/2019 21:04:43 :: MetricLineReceiver connection with 127.0.0.1:59512 closed cleanly
+13/04/2019 21:04:52 :: MetricLineReceiver connection with 127.0.0.1:59514 established
+13/04/2019 21:04:52 :: MetricLineReceiver connection with 127.0.0.1:59514 closed cleanly
+13/04/2019 21:04:53 :: MetricLineReceiver connection with 127.0.0.1:59516 established
+13/04/2019 21:04:53 :: MetricLineReceiver connection with 127.0.0.1:59516 closed cleanly
+13/04/2019 21:05:03 :: MetricLineReceiver connection with 127.0.0.1:59518 established
+13/04/2019 21:05:03 :: MetricLineReceiver connection with 127.0.0.1:59518 closed cleanly
+13/04/2019 21:05:13 :: MetricLineReceiver connection with 127.0.0.1:59520 established
+13/04/2019 21:05:13 :: MetricLineReceiver connection with 127.0.0.1:59520 closed cleanly
+13/04/2019 21:05:22 :: MetricLineReceiver connection with 127.0.0.1:59524 established
+13/04/2019 21:05:22 :: MetricLineReceiver connection with 127.0.0.1:59524 closed cleanly
+13/04/2019 21:05:23 :: MetricLineReceiver connection with 127.0.0.1:59526 established
+13/04/2019 21:05:23 :: MetricLineReceiver connection with 127.0.0.1:59526 closed cleanly
+13/04/2019 21:05:33 :: MetricLineReceiver connection with 127.0.0.1:59528 established
+13/04/2019 21:05:33 :: MetricLineReceiver connection with 127.0.0.1:59528 closed cleanly
+13/04/2019 21:05:43 :: MetricLineReceiver connection with 127.0.0.1:59530 established
+13/04/2019 21:05:43 :: MetricLineReceiver connection with 127.0.0.1:59530 closed cleanly
+13/04/2019 21:05:52 :: MetricLineReceiver connection with 127.0.0.1:59532 established
+13/04/2019 21:05:52 :: MetricLineReceiver connection with 127.0.0.1:59532 closed cleanly
+13/04/2019 21:05:53 :: MetricLineReceiver connection with 127.0.0.1:59534 established
+13/04/2019 21:05:53 :: MetricLineReceiver connection with 127.0.0.1:59534 closed cleanly
+13/04/2019 21:06:03 :: MetricLineReceiver connection with 127.0.0.1:59536 established
+13/04/2019 21:06:03 :: MetricLineReceiver connection with 127.0.0.1:59536 closed cleanly
+13/04/2019 21:06:13 :: MetricLineReceiver connection with 127.0.0.1:59538 established
+13/04/2019 21:06:13 :: MetricLineReceiver connection with 127.0.0.1:59538 closed cleanly
+13/04/2019 21:06:22 :: MetricLineReceiver connection with 127.0.0.1:59542 established
+13/04/2019 21:06:22 :: MetricLineReceiver connection with 127.0.0.1:59542 closed cleanly
+13/04/2019 21:06:23 :: MetricLineReceiver connection with 127.0.0.1:59544 established
+13/04/2019 21:06:23 :: MetricLineReceiver connection with 127.0.0.1:59544 closed cleanly
+13/04/2019 21:06:33 :: MetricLineReceiver connection with 127.0.0.1:59546 established
+13/04/2019 21:06:33 :: MetricLineReceiver connection with 127.0.0.1:59546 closed cleanly
+13/04/2019 21:06:43 :: MetricLineReceiver connection with 127.0.0.1:59548 established
+13/04/2019 21:06:43 :: MetricLineReceiver connection with 127.0.0.1:59548 closed cleanly
+13/04/2019 21:06:52 :: MetricLineReceiver connection with 127.0.0.1:59550 established
+13/04/2019 21:06:52 :: MetricLineReceiver connection with 127.0.0.1:59550 closed cleanly
+13/04/2019 21:06:53 :: MetricLineReceiver connection with 127.0.0.1:59552 established
+13/04/2019 21:06:53 :: MetricLineReceiver connection with 127.0.0.1:59552 closed cleanly
+13/04/2019 21:07:03 :: MetricLineReceiver connection with 127.0.0.1:59554 established
+13/04/2019 21:07:03 :: MetricLineReceiver connection with 127.0.0.1:59554 closed cleanly
+13/04/2019 21:07:13 :: MetricLineReceiver connection with 127.0.0.1:59556 established
+13/04/2019 21:07:13 :: MetricLineReceiver connection with 127.0.0.1:59556 closed cleanly
+13/04/2019 21:07:22 :: MetricLineReceiver connection with 127.0.0.1:59560 established
+13/04/2019 21:07:22 :: MetricLineReceiver connection with 127.0.0.1:59560 closed cleanly
+13/04/2019 21:07:23 :: MetricLineReceiver connection with 127.0.0.1:59562 established
+13/04/2019 21:07:23 :: MetricLineReceiver connection with 127.0.0.1:59562 closed cleanly
+13/04/2019 21:07:33 :: MetricLineReceiver connection with 127.0.0.1:59564 established
+13/04/2019 21:07:33 :: MetricLineReceiver connection with 127.0.0.1:59564 closed cleanly
+13/04/2019 21:07:43 :: MetricLineReceiver connection with 127.0.0.1:59566 established
+13/04/2019 21:07:43 :: MetricLineReceiver connection with 127.0.0.1:59566 closed cleanly
+13/04/2019 21:07:52 :: MetricLineReceiver connection with 127.0.0.1:59568 established
+13/04/2019 21:07:52 :: MetricLineReceiver connection with 127.0.0.1:59568 closed cleanly
+13/04/2019 21:07:53 :: MetricLineReceiver connection with 127.0.0.1:59570 established
+13/04/2019 21:07:53 :: MetricLineReceiver connection with 127.0.0.1:59570 closed cleanly
+13/04/2019 21:08:03 :: MetricLineReceiver connection with 127.0.0.1:59572 established
+13/04/2019 21:08:03 :: MetricLineReceiver connection with 127.0.0.1:59572 closed cleanly
+13/04/2019 21:08:13 :: MetricLineReceiver connection with 127.0.0.1:59574 established
+13/04/2019 21:08:13 :: MetricLineReceiver connection with 127.0.0.1:59574 closed cleanly
+13/04/2019 21:08:22 :: MetricLineReceiver connection with 127.0.0.1:59578 established
+13/04/2019 21:08:22 :: MetricLineReceiver connection with 127.0.0.1:59578 closed cleanly
+13/04/2019 21:08:23 :: MetricLineReceiver connection with 127.0.0.1:59580 established
+13/04/2019 21:08:23 :: MetricLineReceiver connection with 127.0.0.1:59580 closed cleanly
+13/04/2019 21:08:33 :: MetricLineReceiver connection with 127.0.0.1:59582 established
+13/04/2019 21:08:33 :: MetricLineReceiver connection with 127.0.0.1:59582 closed cleanly
+13/04/2019 21:08:43 :: MetricLineReceiver connection with 127.0.0.1:59584 established
+13/04/2019 21:08:43 :: MetricLineReceiver connection with 127.0.0.1:59584 closed cleanly
+13/04/2019 21:08:52 :: MetricLineReceiver connection with 127.0.0.1:59586 established
+13/04/2019 21:08:52 :: MetricLineReceiver connection with 127.0.0.1:59586 closed cleanly
+13/04/2019 21:08:53 :: MetricLineReceiver connection with 127.0.0.1:59588 established
+13/04/2019 21:08:53 :: MetricLineReceiver connection with 127.0.0.1:59588 closed cleanly
+13/04/2019 21:09:03 :: MetricLineReceiver connection with 127.0.0.1:59590 established
+13/04/2019 21:09:03 :: MetricLineReceiver connection with 127.0.0.1:59590 closed cleanly
+13/04/2019 21:09:13 :: MetricLineReceiver connection with 127.0.0.1:59592 established
+13/04/2019 21:09:13 :: MetricLineReceiver connection with 127.0.0.1:59592 closed cleanly
+13/04/2019 21:09:22 :: MetricLineReceiver connection with 127.0.0.1:59596 established
+13/04/2019 21:09:22 :: MetricLineReceiver connection with 127.0.0.1:59596 closed cleanly
+13/04/2019 21:09:23 :: MetricLineReceiver connection with 127.0.0.1:59598 established
+13/04/2019 21:09:23 :: MetricLineReceiver connection with 127.0.0.1:59598 closed cleanly
+13/04/2019 21:09:33 :: MetricLineReceiver connection with 127.0.0.1:59600 established
+13/04/2019 21:09:33 :: MetricLineReceiver connection with 127.0.0.1:59600 closed cleanly
+13/04/2019 21:09:43 :: MetricLineReceiver connection with 127.0.0.1:59602 established
+13/04/2019 21:09:43 :: MetricLineReceiver connection with 127.0.0.1:59602 closed cleanly
+13/04/2019 21:09:52 :: MetricLineReceiver connection with 127.0.0.1:59604 established
+13/04/2019 21:09:52 :: MetricLineReceiver connection with 127.0.0.1:59604 closed cleanly
+13/04/2019 21:09:53 :: MetricLineReceiver connection with 127.0.0.1:59606 established
+13/04/2019 21:09:53 :: MetricLineReceiver connection with 127.0.0.1:59606 closed cleanly
+13/04/2019 21:10:03 :: MetricLineReceiver connection with 127.0.0.1:59608 established
+13/04/2019 21:10:03 :: MetricLineReceiver connection with 127.0.0.1:59608 closed cleanly
+13/04/2019 21:10:13 :: MetricLineReceiver connection with 127.0.0.1:59616 established
+13/04/2019 21:10:13 :: MetricLineReceiver connection with 127.0.0.1:59616 closed cleanly
+13/04/2019 21:10:23 :: MetricLineReceiver connection with 127.0.0.1:59618 established
+13/04/2019 21:10:23 :: MetricLineReceiver connection with 127.0.0.1:59618 closed cleanly
+13/04/2019 21:10:33 :: MetricLineReceiver connection with 127.0.0.1:59620 established
+13/04/2019 21:10:33 :: MetricLineReceiver connection with 127.0.0.1:59620 closed cleanly
+13/04/2019 21:10:43 :: MetricLineReceiver connection with 127.0.0.1:59622 established
+13/04/2019 21:10:43 :: MetricLineReceiver connection with 127.0.0.1:59622 closed cleanly
+13/04/2019 21:10:52 :: MetricLineReceiver connection with 127.0.0.1:59624 established
+13/04/2019 21:10:52 :: MetricLineReceiver connection with 127.0.0.1:59624 closed cleanly
+13/04/2019 21:10:53 :: MetricLineReceiver connection with 127.0.0.1:59626 established
+13/04/2019 21:10:53 :: MetricLineReceiver connection with 127.0.0.1:59626 closed cleanly
+13/04/2019 21:11:03 :: MetricLineReceiver connection with 127.0.0.1:59628 established
+13/04/2019 21:11:03 :: MetricLineReceiver connection with 127.0.0.1:59628 closed cleanly
+13/04/2019 21:11:13 :: MetricLineReceiver connection with 127.0.0.1:59632 established
+13/04/2019 21:11:13 :: MetricLineReceiver connection with 127.0.0.1:59632 closed cleanly
+13/04/2019 21:11:22 :: MetricLineReceiver connection with 127.0.0.1:59634 established
+13/04/2019 21:11:22 :: MetricLineReceiver connection with 127.0.0.1:59634 closed cleanly
+13/04/2019 21:11:23 :: MetricLineReceiver connection with 127.0.0.1:59636 established
+13/04/2019 21:11:23 :: MetricLineReceiver connection with 127.0.0.1:59636 closed cleanly
+13/04/2019 21:11:33 :: MetricLineReceiver connection with 127.0.0.1:59638 established
+13/04/2019 21:11:33 :: MetricLineReceiver connection with 127.0.0.1:59638 closed cleanly
+13/04/2019 21:11:43 :: MetricLineReceiver connection with 127.0.0.1:59640 established
+13/04/2019 21:11:43 :: MetricLineReceiver connection with 127.0.0.1:59640 closed cleanly
+13/04/2019 21:11:52 :: MetricLineReceiver connection with 127.0.0.1:59642 established
+13/04/2019 21:11:52 :: MetricLineReceiver connection with 127.0.0.1:59642 closed cleanly
+13/04/2019 21:11:53 :: MetricLineReceiver connection with 127.0.0.1:59644 established
+13/04/2019 21:11:53 :: MetricLineReceiver connection with 127.0.0.1:59644 closed cleanly
+13/04/2019 21:12:03 :: MetricLineReceiver connection with 127.0.0.1:59646 established
+13/04/2019 21:12:03 :: MetricLineReceiver connection with 127.0.0.1:59646 closed cleanly
+13/04/2019 21:12:13 :: MetricLineReceiver connection with 127.0.0.1:59650 established
+13/04/2019 21:12:13 :: MetricLineReceiver connection with 127.0.0.1:59650 closed cleanly
+13/04/2019 21:12:22 :: MetricLineReceiver connection with 127.0.0.1:59652 established
+13/04/2019 21:12:22 :: MetricLineReceiver connection with 127.0.0.1:59652 closed cleanly
+13/04/2019 21:12:23 :: MetricLineReceiver connection with 127.0.0.1:59654 established
+13/04/2019 21:12:23 :: MetricLineReceiver connection with 127.0.0.1:59654 closed cleanly
+13/04/2019 21:12:33 :: MetricLineReceiver connection with 127.0.0.1:59656 established
+13/04/2019 21:12:33 :: MetricLineReceiver connection with 127.0.0.1:59656 closed cleanly
+13/04/2019 21:12:43 :: MetricLineReceiver connection with 127.0.0.1:59658 established
+13/04/2019 21:12:43 :: MetricLineReceiver connection with 127.0.0.1:59658 closed cleanly
+13/04/2019 21:12:52 :: MetricLineReceiver connection with 127.0.0.1:59660 established
+13/04/2019 21:12:52 :: MetricLineReceiver connection with 127.0.0.1:59660 closed cleanly
+13/04/2019 21:12:53 :: MetricLineReceiver connection with 127.0.0.1:59662 established
+13/04/2019 21:12:53 :: MetricLineReceiver connection with 127.0.0.1:59662 closed cleanly
+13/04/2019 21:13:03 :: MetricLineReceiver connection with 127.0.0.1:59664 established
+13/04/2019 21:13:03 :: MetricLineReceiver connection with 127.0.0.1:59664 closed cleanly
+13/04/2019 21:13:13 :: MetricLineReceiver connection with 127.0.0.1:59668 established
+13/04/2019 21:13:13 :: MetricLineReceiver connection with 127.0.0.1:59668 closed cleanly
+13/04/2019 21:13:22 :: MetricLineReceiver connection with 127.0.0.1:59670 established
+13/04/2019 21:13:22 :: MetricLineReceiver connection with 127.0.0.1:59670 closed cleanly
+13/04/2019 21:13:23 :: MetricLineReceiver connection with 127.0.0.1:59672 established
+13/04/2019 21:13:23 :: MetricLineReceiver connection with 127.0.0.1:59672 closed cleanly
+13/04/2019 21:13:33 :: MetricLineReceiver connection with 127.0.0.1:59674 established
+13/04/2019 21:13:33 :: MetricLineReceiver connection with 127.0.0.1:59674 closed cleanly
+13/04/2019 21:13:43 :: MetricLineReceiver connection with 127.0.0.1:59676 established
+13/04/2019 21:13:43 :: MetricLineReceiver connection with 127.0.0.1:59676 closed cleanly
+13/04/2019 21:13:52 :: MetricLineReceiver connection with 127.0.0.1:59678 established
+13/04/2019 21:13:52 :: MetricLineReceiver connection with 127.0.0.1:59678 closed cleanly
+13/04/2019 21:13:53 :: MetricLineReceiver connection with 127.0.0.1:59680 established
+13/04/2019 21:13:53 :: MetricLineReceiver connection with 127.0.0.1:59680 closed cleanly
+13/04/2019 21:14:03 :: MetricLineReceiver connection with 127.0.0.1:59682 established
+13/04/2019 21:14:03 :: MetricLineReceiver connection with 127.0.0.1:59682 closed cleanly
+13/04/2019 21:14:13 :: MetricLineReceiver connection with 127.0.0.1:59686 established
+13/04/2019 21:14:13 :: MetricLineReceiver connection with 127.0.0.1:59686 closed cleanly
+13/04/2019 21:14:22 :: MetricLineReceiver connection with 127.0.0.1:59688 established
+13/04/2019 21:14:22 :: MetricLineReceiver connection with 127.0.0.1:59688 closed cleanly
+13/04/2019 21:14:23 :: MetricLineReceiver connection with 127.0.0.1:59690 established
+13/04/2019 21:14:23 :: MetricLineReceiver connection with 127.0.0.1:59690 closed cleanly
+13/04/2019 21:14:33 :: MetricLineReceiver connection with 127.0.0.1:59692 established
+13/04/2019 21:14:33 :: MetricLineReceiver connection with 127.0.0.1:59692 closed cleanly
+13/04/2019 21:14:43 :: MetricLineReceiver connection with 127.0.0.1:59694 established
+13/04/2019 21:14:43 :: MetricLineReceiver connection with 127.0.0.1:59694 closed cleanly
+13/04/2019 21:14:52 :: MetricLineReceiver connection with 127.0.0.1:59696 established
+13/04/2019 21:14:52 :: MetricLineReceiver connection with 127.0.0.1:59696 closed cleanly
+13/04/2019 21:14:53 :: MetricLineReceiver connection with 127.0.0.1:59698 established
+13/04/2019 21:14:53 :: MetricLineReceiver connection with 127.0.0.1:59698 closed cleanly
+13/04/2019 21:15:03 :: MetricLineReceiver connection with 127.0.0.1:59700 established
+13/04/2019 21:15:03 :: MetricLineReceiver connection with 127.0.0.1:59700 closed cleanly
+13/04/2019 21:15:13 :: MetricLineReceiver connection with 127.0.0.1:59704 established
+13/04/2019 21:15:13 :: MetricLineReceiver connection with 127.0.0.1:59704 closed cleanly
+13/04/2019 21:15:22 :: MetricLineReceiver connection with 127.0.0.1:59706 established
+13/04/2019 21:15:22 :: MetricLineReceiver connection with 127.0.0.1:59706 closed cleanly
+13/04/2019 21:15:23 :: MetricLineReceiver connection with 127.0.0.1:59708 established
+13/04/2019 21:15:23 :: MetricLineReceiver connection with 127.0.0.1:59708 closed cleanly
+13/04/2019 21:15:33 :: MetricLineReceiver connection with 127.0.0.1:59710 established
+13/04/2019 21:15:33 :: MetricLineReceiver connection with 127.0.0.1:59710 closed cleanly
+13/04/2019 21:15:43 :: MetricLineReceiver connection with 127.0.0.1:59712 established
+13/04/2019 21:15:43 :: MetricLineReceiver connection with 127.0.0.1:59712 closed cleanly
+13/04/2019 21:15:52 :: MetricLineReceiver connection with 127.0.0.1:59714 established
+13/04/2019 21:15:52 :: MetricLineReceiver connection with 127.0.0.1:59714 closed cleanly
+13/04/2019 21:15:53 :: MetricLineReceiver connection with 127.0.0.1:59716 established
+13/04/2019 21:15:53 :: MetricLineReceiver connection with 127.0.0.1:59716 closed cleanly
+13/04/2019 21:16:03 :: MetricLineReceiver connection with 127.0.0.1:59718 established
+13/04/2019 21:16:03 :: MetricLineReceiver connection with 127.0.0.1:59718 closed cleanly
+13/04/2019 21:16:13 :: MetricLineReceiver connection with 127.0.0.1:59722 established
+13/04/2019 21:16:13 :: MetricLineReceiver connection with 127.0.0.1:59722 closed cleanly
+13/04/2019 21:16:22 :: MetricLineReceiver connection with 127.0.0.1:59724 established
+13/04/2019 21:16:22 :: MetricLineReceiver connection with 127.0.0.1:59724 closed cleanly
+13/04/2019 21:16:23 :: MetricLineReceiver connection with 127.0.0.1:59726 established
+13/04/2019 21:16:23 :: MetricLineReceiver connection with 127.0.0.1:59726 closed cleanly
+13/04/2019 21:16:33 :: MetricLineReceiver connection with 127.0.0.1:59728 established
+13/04/2019 21:16:33 :: MetricLineReceiver connection with 127.0.0.1:59728 closed cleanly
+13/04/2019 21:16:43 :: MetricLineReceiver connection with 127.0.0.1:59730 established
+13/04/2019 21:16:43 :: MetricLineReceiver connection with 127.0.0.1:59730 closed cleanly
+13/04/2019 21:16:52 :: MetricLineReceiver connection with 127.0.0.1:59732 established
+13/04/2019 21:16:52 :: MetricLineReceiver connection with 127.0.0.1:59732 closed cleanly
+13/04/2019 21:16:53 :: MetricLineReceiver connection with 127.0.0.1:59734 established
+13/04/2019 21:16:53 :: MetricLineReceiver connection with 127.0.0.1:59734 closed cleanly
+13/04/2019 21:17:03 :: MetricLineReceiver connection with 127.0.0.1:59738 established
+13/04/2019 21:17:03 :: MetricLineReceiver connection with 127.0.0.1:59738 closed cleanly
+13/04/2019 21:17:13 :: MetricLineReceiver connection with 127.0.0.1:59740 established
+13/04/2019 21:17:13 :: MetricLineReceiver connection with 127.0.0.1:59740 closed cleanly
+13/04/2019 21:17:22 :: MetricLineReceiver connection with 127.0.0.1:59742 established
+13/04/2019 21:17:22 :: MetricLineReceiver connection with 127.0.0.1:59742 closed cleanly
+13/04/2019 21:17:23 :: MetricLineReceiver connection with 127.0.0.1:59744 established
+13/04/2019 21:17:23 :: MetricLineReceiver connection with 127.0.0.1:59744 closed cleanly
+13/04/2019 21:17:33 :: MetricLineReceiver connection with 127.0.0.1:59746 established
+13/04/2019 21:17:33 :: MetricLineReceiver connection with 127.0.0.1:59746 closed cleanly
+13/04/2019 21:17:43 :: MetricLineReceiver connection with 127.0.0.1:59748 established
+13/04/2019 21:17:43 :: MetricLineReceiver connection with 127.0.0.1:59748 closed cleanly
+13/04/2019 21:17:52 :: MetricLineReceiver connection with 127.0.0.1:59750 established
+13/04/2019 21:17:52 :: MetricLineReceiver connection with 127.0.0.1:59750 closed cleanly
+13/04/2019 21:17:53 :: MetricLineReceiver connection with 127.0.0.1:59752 established
+13/04/2019 21:17:53 :: MetricLineReceiver connection with 127.0.0.1:59752 closed cleanly
+13/04/2019 21:18:03 :: MetricLineReceiver connection with 127.0.0.1:59756 established
+13/04/2019 21:18:03 :: MetricLineReceiver connection with 127.0.0.1:59756 closed cleanly
+13/04/2019 21:18:13 :: MetricLineReceiver connection with 127.0.0.1:59758 established
+13/04/2019 21:18:13 :: MetricLineReceiver connection with 127.0.0.1:59758 closed cleanly
+13/04/2019 21:18:22 :: MetricLineReceiver connection with 127.0.0.1:59760 established
+13/04/2019 21:18:22 :: MetricLineReceiver connection with 127.0.0.1:59760 closed cleanly
+13/04/2019 21:18:23 :: MetricLineReceiver connection with 127.0.0.1:59762 established
+13/04/2019 21:18:23 :: MetricLineReceiver connection with 127.0.0.1:59762 closed cleanly
+13/04/2019 21:18:33 :: MetricLineReceiver connection with 127.0.0.1:59764 established
+13/04/2019 21:18:33 :: MetricLineReceiver connection with 127.0.0.1:59764 closed cleanly
+13/04/2019 21:18:43 :: MetricLineReceiver connection with 127.0.0.1:59766 established
+13/04/2019 21:18:43 :: MetricLineReceiver connection with 127.0.0.1:59766 closed cleanly
+13/04/2019 21:18:52 :: MetricLineReceiver connection with 127.0.0.1:59768 established
+13/04/2019 21:18:52 :: MetricLineReceiver connection with 127.0.0.1:59768 closed cleanly
+13/04/2019 21:18:53 :: MetricLineReceiver connection with 127.0.0.1:59770 established
+13/04/2019 21:18:53 :: MetricLineReceiver connection with 127.0.0.1:59770 closed cleanly
+13/04/2019 21:19:03 :: MetricLineReceiver connection with 127.0.0.1:59774 established
+13/04/2019 21:19:03 :: MetricLineReceiver connection with 127.0.0.1:59774 closed cleanly
+13/04/2019 21:19:13 :: MetricLineReceiver connection with 127.0.0.1:59776 established
+13/04/2019 21:19:13 :: MetricLineReceiver connection with 127.0.0.1:59776 closed cleanly
+13/04/2019 21:19:22 :: MetricLineReceiver connection with 127.0.0.1:59778 established
+13/04/2019 21:19:22 :: MetricLineReceiver connection with 127.0.0.1:59778 closed cleanly
+13/04/2019 21:19:23 :: MetricLineReceiver connection with 127.0.0.1:59780 established
+13/04/2019 21:19:23 :: MetricLineReceiver connection with 127.0.0.1:59780 closed cleanly
+13/04/2019 21:19:33 :: MetricLineReceiver connection with 127.0.0.1:59782 established
+13/04/2019 21:19:33 :: MetricLineReceiver connection with 127.0.0.1:59782 closed cleanly
+13/04/2019 21:19:43 :: MetricLineReceiver connection with 127.0.0.1:59784 established
+13/04/2019 21:19:43 :: MetricLineReceiver connection with 127.0.0.1:59784 closed cleanly
+13/04/2019 21:19:52 :: MetricLineReceiver connection with 127.0.0.1:59786 established
+13/04/2019 21:19:52 :: MetricLineReceiver connection with 127.0.0.1:59786 closed cleanly
+13/04/2019 21:19:53 :: MetricLineReceiver connection with 127.0.0.1:59788 established
+13/04/2019 21:19:53 :: MetricLineReceiver connection with 127.0.0.1:59788 closed cleanly
+13/04/2019 21:20:03 :: MetricLineReceiver connection with 127.0.0.1:59792 established
+13/04/2019 21:20:03 :: MetricLineReceiver connection with 127.0.0.1:59792 closed cleanly
+13/04/2019 21:20:13 :: MetricLineReceiver connection with 127.0.0.1:59798 established
+13/04/2019 21:20:13 :: MetricLineReceiver connection with 127.0.0.1:59798 closed cleanly
+13/04/2019 21:20:22 :: MetricLineReceiver connection with 127.0.0.1:59800 established
+13/04/2019 21:20:22 :: MetricLineReceiver connection with 127.0.0.1:59800 closed cleanly
+13/04/2019 21:20:23 :: MetricLineReceiver connection with 127.0.0.1:59802 established
+13/04/2019 21:20:23 :: MetricLineReceiver connection with 127.0.0.1:59802 closed cleanly
+13/04/2019 21:20:33 :: MetricLineReceiver connection with 127.0.0.1:59804 established
+13/04/2019 21:20:33 :: MetricLineReceiver connection with 127.0.0.1:59804 closed cleanly
+13/04/2019 21:20:43 :: MetricLineReceiver connection with 127.0.0.1:59806 established
+13/04/2019 21:20:43 :: MetricLineReceiver connection with 127.0.0.1:59806 closed cleanly
+13/04/2019 21:20:52 :: MetricLineReceiver connection with 127.0.0.1:59808 established
+13/04/2019 21:20:52 :: MetricLineReceiver connection with 127.0.0.1:59808 closed cleanly
+13/04/2019 21:20:53 :: MetricLineReceiver connection with 127.0.0.1:59810 established
+13/04/2019 21:20:53 :: MetricLineReceiver connection with 127.0.0.1:59810 closed cleanly
+13/04/2019 21:21:03 :: MetricLineReceiver connection with 127.0.0.1:59814 established
+13/04/2019 21:21:03 :: MetricLineReceiver connection with 127.0.0.1:59814 closed cleanly
+13/04/2019 21:21:13 :: MetricLineReceiver connection with 127.0.0.1:59816 established
+13/04/2019 21:21:13 :: MetricLineReceiver connection with 127.0.0.1:59816 closed cleanly
+13/04/2019 21:21:22 :: MetricLineReceiver connection with 127.0.0.1:59818 established
+13/04/2019 21:21:22 :: MetricLineReceiver connection with 127.0.0.1:59818 closed cleanly
+13/04/2019 21:21:23 :: MetricLineReceiver connection with 127.0.0.1:59820 established
+13/04/2019 21:21:23 :: MetricLineReceiver connection with 127.0.0.1:59820 closed cleanly
+13/04/2019 21:21:33 :: MetricLineReceiver connection with 127.0.0.1:59822 established
+13/04/2019 21:21:33 :: MetricLineReceiver connection with 127.0.0.1:59822 closed cleanly
+13/04/2019 21:21:43 :: MetricLineReceiver connection with 127.0.0.1:59824 established
+13/04/2019 21:21:43 :: MetricLineReceiver connection with 127.0.0.1:59824 closed cleanly
+13/04/2019 21:21:52 :: MetricLineReceiver connection with 127.0.0.1:59826 established
+13/04/2019 21:21:52 :: MetricLineReceiver connection with 127.0.0.1:59826 closed cleanly
+13/04/2019 21:21:53 :: MetricLineReceiver connection with 127.0.0.1:59828 established
+13/04/2019 21:21:53 :: MetricLineReceiver connection with 127.0.0.1:59828 closed cleanly
+13/04/2019 21:22:03 :: MetricLineReceiver connection with 127.0.0.1:59832 established
+13/04/2019 21:22:03 :: MetricLineReceiver connection with 127.0.0.1:59832 closed cleanly
+13/04/2019 21:22:13 :: MetricLineReceiver connection with 127.0.0.1:59834 established
+13/04/2019 21:22:13 :: MetricLineReceiver connection with 127.0.0.1:59834 closed cleanly
+13/04/2019 21:22:22 :: MetricLineReceiver connection with 127.0.0.1:59836 established
+13/04/2019 21:22:22 :: MetricLineReceiver connection with 127.0.0.1:59836 closed cleanly
+13/04/2019 21:22:23 :: MetricLineReceiver connection with 127.0.0.1:59838 established
+13/04/2019 21:22:23 :: MetricLineReceiver connection with 127.0.0.1:59838 closed cleanly
+13/04/2019 21:22:33 :: MetricLineReceiver connection with 127.0.0.1:59840 established
+13/04/2019 21:22:33 :: MetricLineReceiver connection with 127.0.0.1:59840 closed cleanly
+13/04/2019 21:22:43 :: MetricLineReceiver connection with 127.0.0.1:59842 established
+13/04/2019 21:22:43 :: MetricLineReceiver connection with 127.0.0.1:59842 closed cleanly
+13/04/2019 21:22:52 :: MetricLineReceiver connection with 127.0.0.1:59844 established
+13/04/2019 21:22:52 :: MetricLineReceiver connection with 127.0.0.1:59844 closed cleanly
+13/04/2019 21:22:53 :: MetricLineReceiver connection with 127.0.0.1:59846 established
+13/04/2019 21:22:53 :: MetricLineReceiver connection with 127.0.0.1:59846 closed cleanly
+13/04/2019 21:23:03 :: MetricLineReceiver connection with 127.0.0.1:59850 established
+13/04/2019 21:23:03 :: MetricLineReceiver connection with 127.0.0.1:59850 closed cleanly
+13/04/2019 21:23:13 :: MetricLineReceiver connection with 127.0.0.1:59852 established
+13/04/2019 21:23:13 :: MetricLineReceiver connection with 127.0.0.1:59852 closed cleanly
+13/04/2019 21:23:22 :: MetricLineReceiver connection with 127.0.0.1:59854 established
+13/04/2019 21:23:22 :: MetricLineReceiver connection with 127.0.0.1:59854 closed cleanly
+13/04/2019 21:23:23 :: MetricLineReceiver connection with 127.0.0.1:59856 established
+13/04/2019 21:23:23 :: MetricLineReceiver connection with 127.0.0.1:59856 closed cleanly
+13/04/2019 21:23:33 :: MetricLineReceiver connection with 127.0.0.1:59858 established
+13/04/2019 21:23:33 :: MetricLineReceiver connection with 127.0.0.1:59858 closed cleanly
+13/04/2019 21:23:43 :: MetricLineReceiver connection with 127.0.0.1:59860 established
+13/04/2019 21:23:43 :: MetricLineReceiver connection with 127.0.0.1:59860 closed cleanly
+13/04/2019 21:23:52 :: MetricLineReceiver connection with 127.0.0.1:59864 established
+13/04/2019 21:23:52 :: MetricLineReceiver connection with 127.0.0.1:59864 closed cleanly
+13/04/2019 21:23:53 :: MetricLineReceiver connection with 127.0.0.1:59866 established
+13/04/2019 21:23:53 :: MetricLineReceiver connection with 127.0.0.1:59866 closed cleanly
+13/04/2019 21:24:03 :: MetricLineReceiver connection with 127.0.0.1:59868 established
+13/04/2019 21:24:03 :: MetricLineReceiver connection with 127.0.0.1:59868 closed cleanly
+13/04/2019 21:24:13 :: MetricLineReceiver connection with 127.0.0.1:59870 established
+13/04/2019 21:24:13 :: MetricLineReceiver connection with 127.0.0.1:59870 closed cleanly
+13/04/2019 21:24:22 :: MetricLineReceiver connection with 127.0.0.1:59872 established
+13/04/2019 21:24:22 :: MetricLineReceiver connection with 127.0.0.1:59872 closed cleanly
+13/04/2019 21:24:23 :: MetricLineReceiver connection with 127.0.0.1:59874 established
+13/04/2019 21:24:23 :: MetricLineReceiver connection with 127.0.0.1:59874 closed cleanly
+13/04/2019 21:24:33 :: MetricLineReceiver connection with 127.0.0.1:59876 established
+13/04/2019 21:24:33 :: MetricLineReceiver connection with 127.0.0.1:59876 closed cleanly
+13/04/2019 21:24:43 :: MetricLineReceiver connection with 127.0.0.1:59878 established
+13/04/2019 21:24:43 :: MetricLineReceiver connection with 127.0.0.1:59878 closed cleanly
+13/04/2019 21:24:52 :: MetricLineReceiver connection with 127.0.0.1:59882 established
+13/04/2019 21:24:52 :: MetricLineReceiver connection with 127.0.0.1:59882 closed cleanly
+13/04/2019 21:24:53 :: MetricLineReceiver connection with 127.0.0.1:59884 established
+13/04/2019 21:24:53 :: MetricLineReceiver connection with 127.0.0.1:59884 closed cleanly
+13/04/2019 21:25:03 :: MetricLineReceiver connection with 127.0.0.1:59886 established
+13/04/2019 21:25:03 :: MetricLineReceiver connection with 127.0.0.1:59886 closed cleanly
+13/04/2019 21:25:13 :: MetricLineReceiver connection with 127.0.0.1:59888 established
+13/04/2019 21:25:13 :: MetricLineReceiver connection with 127.0.0.1:59888 closed cleanly
+13/04/2019 21:25:22 :: MetricLineReceiver connection with 127.0.0.1:59890 established
+13/04/2019 21:25:22 :: MetricLineReceiver connection with 127.0.0.1:59890 closed cleanly
+13/04/2019 21:25:23 :: MetricLineReceiver connection with 127.0.0.1:59892 established
+13/04/2019 21:25:23 :: MetricLineReceiver connection with 127.0.0.1:59892 closed cleanly
+13/04/2019 21:25:33 :: MetricLineReceiver connection with 127.0.0.1:59894 established
+13/04/2019 21:25:33 :: MetricLineReceiver connection with 127.0.0.1:59894 closed cleanly
+13/04/2019 21:25:43 :: MetricLineReceiver connection with 127.0.0.1:59896 established
+13/04/2019 21:25:43 :: MetricLineReceiver connection with 127.0.0.1:59896 closed cleanly
+13/04/2019 21:25:52 :: MetricLineReceiver connection with 127.0.0.1:59900 established
+13/04/2019 21:25:52 :: MetricLineReceiver connection with 127.0.0.1:59900 closed cleanly
+13/04/2019 21:25:53 :: MetricLineReceiver connection with 127.0.0.1:59902 established
+13/04/2019 21:25:53 :: MetricLineReceiver connection with 127.0.0.1:59902 closed cleanly
+13/04/2019 21:26:03 :: MetricLineReceiver connection with 127.0.0.1:59904 established
+13/04/2019 21:26:03 :: MetricLineReceiver connection with 127.0.0.1:59904 closed cleanly
+13/04/2019 21:26:13 :: MetricLineReceiver connection with 127.0.0.1:59906 established
+13/04/2019 21:26:13 :: MetricLineReceiver connection with 127.0.0.1:59906 closed cleanly
+13/04/2019 21:26:22 :: MetricLineReceiver connection with 127.0.0.1:59908 established
+13/04/2019 21:26:22 :: MetricLineReceiver connection with 127.0.0.1:59908 closed cleanly
+13/04/2019 21:26:23 :: MetricLineReceiver connection with 127.0.0.1:59910 established
+13/04/2019 21:26:23 :: MetricLineReceiver connection with 127.0.0.1:59910 closed cleanly
+13/04/2019 21:26:33 :: MetricLineReceiver connection with 127.0.0.1:59912 established
+13/04/2019 21:26:33 :: MetricLineReceiver connection with 127.0.0.1:59912 closed cleanly
+13/04/2019 21:26:43 :: MetricLineReceiver connection with 127.0.0.1:59914 established
+13/04/2019 21:26:43 :: MetricLineReceiver connection with 127.0.0.1:59914 closed cleanly
+13/04/2019 21:26:52 :: MetricLineReceiver connection with 127.0.0.1:59918 established
+13/04/2019 21:26:52 :: MetricLineReceiver connection with 127.0.0.1:59918 closed cleanly
+13/04/2019 21:26:53 :: MetricLineReceiver connection with 127.0.0.1:59920 established
+13/04/2019 21:26:53 :: MetricLineReceiver connection with 127.0.0.1:59920 closed cleanly
+13/04/2019 21:27:03 :: MetricLineReceiver connection with 127.0.0.1:59922 established
+13/04/2019 21:27:03 :: MetricLineReceiver connection with 127.0.0.1:59922 closed cleanly
+13/04/2019 21:27:13 :: MetricLineReceiver connection with 127.0.0.1:59924 established
+13/04/2019 21:27:13 :: MetricLineReceiver connection with 127.0.0.1:59924 closed cleanly
+13/04/2019 21:27:22 :: MetricLineReceiver connection with 127.0.0.1:59926 established
+13/04/2019 21:27:22 :: MetricLineReceiver connection with 127.0.0.1:59926 closed cleanly
+13/04/2019 21:27:23 :: MetricLineReceiver connection with 127.0.0.1:59928 established
+13/04/2019 21:27:23 :: MetricLineReceiver connection with 127.0.0.1:59928 closed cleanly
+13/04/2019 21:27:33 :: MetricLineReceiver connection with 127.0.0.1:59930 established
+13/04/2019 21:27:33 :: MetricLineReceiver connection with 127.0.0.1:59930 closed cleanly
+13/04/2019 21:27:43 :: MetricLineReceiver connection with 127.0.0.1:59932 established
+13/04/2019 21:27:43 :: MetricLineReceiver connection with 127.0.0.1:59932 closed cleanly
+13/04/2019 21:27:52 :: MetricLineReceiver connection with 127.0.0.1:59936 established
+13/04/2019 21:27:52 :: MetricLineReceiver connection with 127.0.0.1:59936 closed cleanly
+13/04/2019 21:27:53 :: MetricLineReceiver connection with 127.0.0.1:59938 established
+13/04/2019 21:27:53 :: MetricLineReceiver connection with 127.0.0.1:59938 closed cleanly
+13/04/2019 21:28:03 :: MetricLineReceiver connection with 127.0.0.1:59940 established
+13/04/2019 21:28:03 :: MetricLineReceiver connection with 127.0.0.1:59940 closed cleanly
+13/04/2019 21:28:13 :: MetricLineReceiver connection with 127.0.0.1:59942 established
+13/04/2019 21:28:13 :: MetricLineReceiver connection with 127.0.0.1:59942 closed cleanly
+13/04/2019 21:28:22 :: MetricLineReceiver connection with 127.0.0.1:59944 established
+13/04/2019 21:28:22 :: MetricLineReceiver connection with 127.0.0.1:59944 closed cleanly
+13/04/2019 21:28:23 :: MetricLineReceiver connection with 127.0.0.1:59946 established
+13/04/2019 21:28:23 :: MetricLineReceiver connection with 127.0.0.1:59946 closed cleanly
+13/04/2019 21:28:33 :: MetricLineReceiver connection with 127.0.0.1:59948 established
+13/04/2019 21:28:33 :: MetricLineReceiver connection with 127.0.0.1:59948 closed cleanly
+13/04/2019 21:28:43 :: MetricLineReceiver connection with 127.0.0.1:59950 established
+13/04/2019 21:28:43 :: MetricLineReceiver connection with 127.0.0.1:59950 closed cleanly
+13/04/2019 21:28:52 :: MetricLineReceiver connection with 127.0.0.1:59954 established
+13/04/2019 21:28:52 :: MetricLineReceiver connection with 127.0.0.1:59954 closed cleanly
+13/04/2019 21:28:53 :: MetricLineReceiver connection with 127.0.0.1:59956 established
+13/04/2019 21:28:53 :: MetricLineReceiver connection with 127.0.0.1:59956 closed cleanly
+13/04/2019 21:29:03 :: MetricLineReceiver connection with 127.0.0.1:59958 established
+13/04/2019 21:29:03 :: MetricLineReceiver connection with 127.0.0.1:59958 closed cleanly
+13/04/2019 21:29:13 :: MetricLineReceiver connection with 127.0.0.1:59960 established
+13/04/2019 21:29:13 :: MetricLineReceiver connection with 127.0.0.1:59960 closed cleanly
+13/04/2019 21:29:22 :: MetricLineReceiver connection with 127.0.0.1:59962 established
+13/04/2019 21:29:22 :: MetricLineReceiver connection with 127.0.0.1:59962 closed cleanly
+13/04/2019 21:29:23 :: MetricLineReceiver connection with 127.0.0.1:59964 established
+13/04/2019 21:29:23 :: MetricLineReceiver connection with 127.0.0.1:59964 closed cleanly
+13/04/2019 21:29:33 :: MetricLineReceiver connection with 127.0.0.1:59966 established
+13/04/2019 21:29:33 :: MetricLineReceiver connection with 127.0.0.1:59966 closed cleanly
+13/04/2019 21:29:43 :: MetricLineReceiver connection with 127.0.0.1:59968 established
+13/04/2019 21:29:43 :: MetricLineReceiver connection with 127.0.0.1:59968 closed cleanly
+13/04/2019 21:29:52 :: MetricLineReceiver connection with 127.0.0.1:59972 established
+13/04/2019 21:29:52 :: MetricLineReceiver connection with 127.0.0.1:59972 closed cleanly
+13/04/2019 21:29:53 :: MetricLineReceiver connection with 127.0.0.1:59974 established
+13/04/2019 21:29:53 :: MetricLineReceiver connection with 127.0.0.1:59974 closed cleanly
+13/04/2019 21:30:03 :: MetricLineReceiver connection with 127.0.0.1:59976 established
+13/04/2019 21:30:03 :: MetricLineReceiver connection with 127.0.0.1:59976 closed cleanly
+13/04/2019 21:30:13 :: MetricLineReceiver connection with 127.0.0.1:59982 established
+13/04/2019 21:30:13 :: MetricLineReceiver connection with 127.0.0.1:59982 closed cleanly
+13/04/2019 21:30:22 :: MetricLineReceiver connection with 127.0.0.1:59984 established
+13/04/2019 21:30:22 :: MetricLineReceiver connection with 127.0.0.1:59984 closed cleanly
+13/04/2019 21:30:23 :: MetricLineReceiver connection with 127.0.0.1:59986 established
+13/04/2019 21:30:23 :: MetricLineReceiver connection with 127.0.0.1:59986 closed cleanly
+13/04/2019 21:30:33 :: MetricLineReceiver connection with 127.0.0.1:59988 established
+13/04/2019 21:30:33 :: MetricLineReceiver connection with 127.0.0.1:59988 closed cleanly
+13/04/2019 21:30:43 :: MetricLineReceiver connection with 127.0.0.1:59992 established
+13/04/2019 21:30:43 :: MetricLineReceiver connection with 127.0.0.1:59992 closed cleanly
+13/04/2019 21:30:52 :: MetricLineReceiver connection with 127.0.0.1:59994 established
+13/04/2019 21:30:52 :: MetricLineReceiver connection with 127.0.0.1:59994 closed cleanly
+13/04/2019 21:30:53 :: MetricLineReceiver connection with 127.0.0.1:59996 established
+13/04/2019 21:30:53 :: MetricLineReceiver connection with 127.0.0.1:59996 closed cleanly
+13/04/2019 21:31:03 :: MetricLineReceiver connection with 127.0.0.1:59998 established
+13/04/2019 21:31:03 :: MetricLineReceiver connection with 127.0.0.1:59998 closed cleanly
+13/04/2019 21:31:13 :: MetricLineReceiver connection with 127.0.0.1:60000 established
+13/04/2019 21:31:13 :: MetricLineReceiver connection with 127.0.0.1:60000 closed cleanly
+13/04/2019 21:31:22 :: MetricLineReceiver connection with 127.0.0.1:60002 established
+13/04/2019 21:31:22 :: MetricLineReceiver connection with 127.0.0.1:60002 closed cleanly
+13/04/2019 21:31:23 :: MetricLineReceiver connection with 127.0.0.1:60004 established
+13/04/2019 21:31:23 :: MetricLineReceiver connection with 127.0.0.1:60004 closed cleanly
+13/04/2019 21:31:33 :: MetricLineReceiver connection with 127.0.0.1:60006 established
+13/04/2019 21:31:33 :: MetricLineReceiver connection with 127.0.0.1:60006 closed cleanly
+13/04/2019 21:31:43 :: MetricLineReceiver connection with 127.0.0.1:60010 established
+13/04/2019 21:31:43 :: MetricLineReceiver connection with 127.0.0.1:60010 closed cleanly
+13/04/2019 21:31:52 :: MetricLineReceiver connection with 127.0.0.1:60012 established
+13/04/2019 21:31:52 :: MetricLineReceiver connection with 127.0.0.1:60012 closed cleanly
+13/04/2019 21:31:53 :: MetricLineReceiver connection with 127.0.0.1:60014 established
+13/04/2019 21:31:53 :: MetricLineReceiver connection with 127.0.0.1:60014 closed cleanly
+13/04/2019 21:32:03 :: MetricLineReceiver connection with 127.0.0.1:60016 established
+13/04/2019 21:32:03 :: MetricLineReceiver connection with 127.0.0.1:60016 closed cleanly
+13/04/2019 21:32:13 :: MetricLineReceiver connection with 127.0.0.1:60018 established
+13/04/2019 21:32:13 :: MetricLineReceiver connection with 127.0.0.1:60018 closed cleanly
+13/04/2019 21:32:22 :: MetricLineReceiver connection with 127.0.0.1:60020 established
+13/04/2019 21:32:22 :: MetricLineReceiver connection with 127.0.0.1:60020 closed cleanly
+13/04/2019 21:32:23 :: MetricLineReceiver connection with 127.0.0.1:60022 established
+13/04/2019 21:32:23 :: MetricLineReceiver connection with 127.0.0.1:60022 closed cleanly
+13/04/2019 21:32:33 :: MetricLineReceiver connection with 127.0.0.1:60024 established
+13/04/2019 21:32:33 :: MetricLineReceiver connection with 127.0.0.1:60024 closed cleanly
+13/04/2019 21:32:43 :: MetricLineReceiver connection with 127.0.0.1:60028 established
+13/04/2019 21:32:43 :: MetricLineReceiver connection with 127.0.0.1:60028 closed cleanly
+13/04/2019 21:32:52 :: MetricLineReceiver connection with 127.0.0.1:60030 established
+13/04/2019 21:32:52 :: MetricLineReceiver connection with 127.0.0.1:60030 closed cleanly
+13/04/2019 21:32:53 :: MetricLineReceiver connection with 127.0.0.1:60032 established
+13/04/2019 21:32:53 :: MetricLineReceiver connection with 127.0.0.1:60032 closed cleanly
+13/04/2019 21:33:03 :: MetricLineReceiver connection with 127.0.0.1:60034 established
+13/04/2019 21:33:03 :: MetricLineReceiver connection with 127.0.0.1:60034 closed cleanly
+13/04/2019 21:33:13 :: MetricLineReceiver connection with 127.0.0.1:60036 established
+13/04/2019 21:33:13 :: MetricLineReceiver connection with 127.0.0.1:60036 closed cleanly
+13/04/2019 21:33:22 :: MetricLineReceiver connection with 127.0.0.1:60038 established
+13/04/2019 21:33:22 :: MetricLineReceiver connection with 127.0.0.1:60038 closed cleanly
+13/04/2019 21:33:23 :: MetricLineReceiver connection with 127.0.0.1:60040 established
+13/04/2019 21:33:23 :: MetricLineReceiver connection with 127.0.0.1:60040 closed cleanly
+13/04/2019 21:33:33 :: MetricLineReceiver connection with 127.0.0.1:60042 established
+13/04/2019 21:33:33 :: MetricLineReceiver connection with 127.0.0.1:60042 closed cleanly
+13/04/2019 21:33:43 :: MetricLineReceiver connection with 127.0.0.1:60046 established
+13/04/2019 21:33:43 :: MetricLineReceiver connection with 127.0.0.1:60046 closed cleanly
+13/04/2019 21:33:52 :: MetricLineReceiver connection with 127.0.0.1:60048 established
+13/04/2019 21:33:52 :: MetricLineReceiver connection with 127.0.0.1:60048 closed cleanly
+13/04/2019 21:33:53 :: MetricLineReceiver connection with 127.0.0.1:60050 established
+13/04/2019 21:33:53 :: MetricLineReceiver connection with 127.0.0.1:60050 closed cleanly
+13/04/2019 21:34:03 :: MetricLineReceiver connection with 127.0.0.1:60052 established
+13/04/2019 21:34:03 :: MetricLineReceiver connection with 127.0.0.1:60052 closed cleanly
+13/04/2019 21:34:13 :: MetricLineReceiver connection with 127.0.0.1:60054 established
+13/04/2019 21:34:13 :: MetricLineReceiver connection with 127.0.0.1:60054 closed cleanly
+13/04/2019 21:34:22 :: MetricLineReceiver connection with 127.0.0.1:60056 established
+13/04/2019 21:34:22 :: MetricLineReceiver connection with 127.0.0.1:60056 closed cleanly
+13/04/2019 21:34:23 :: MetricLineReceiver connection with 127.0.0.1:60058 established
+13/04/2019 21:34:23 :: MetricLineReceiver connection with 127.0.0.1:60058 closed cleanly
+13/04/2019 21:34:33 :: MetricLineReceiver connection with 127.0.0.1:60060 established
+13/04/2019 21:34:33 :: MetricLineReceiver connection with 127.0.0.1:60060 closed cleanly
+13/04/2019 21:34:43 :: MetricLineReceiver connection with 127.0.0.1:60064 established
+13/04/2019 21:34:43 :: MetricLineReceiver connection with 127.0.0.1:60064 closed cleanly
+13/04/2019 21:34:52 :: MetricLineReceiver connection with 127.0.0.1:60066 established
+13/04/2019 21:34:52 :: MetricLineReceiver connection with 127.0.0.1:60066 closed cleanly
+13/04/2019 21:34:53 :: MetricLineReceiver connection with 127.0.0.1:60068 established
+13/04/2019 21:34:53 :: MetricLineReceiver connection with 127.0.0.1:60068 closed cleanly
+13/04/2019 21:35:03 :: MetricLineReceiver connection with 127.0.0.1:60070 established
+13/04/2019 21:35:03 :: MetricLineReceiver connection with 127.0.0.1:60070 closed cleanly
+13/04/2019 21:35:13 :: MetricLineReceiver connection with 127.0.0.1:60072 established
+13/04/2019 21:35:13 :: MetricLineReceiver connection with 127.0.0.1:60072 closed cleanly
+13/04/2019 21:35:22 :: MetricLineReceiver connection with 127.0.0.1:60074 established
+13/04/2019 21:35:22 :: MetricLineReceiver connection with 127.0.0.1:60074 closed cleanly
+13/04/2019 21:35:23 :: MetricLineReceiver connection with 127.0.0.1:60076 established
+13/04/2019 21:35:23 :: MetricLineReceiver connection with 127.0.0.1:60076 closed cleanly
+13/04/2019 21:35:33 :: MetricLineReceiver connection with 127.0.0.1:60078 established
+13/04/2019 21:35:33 :: MetricLineReceiver connection with 127.0.0.1:60078 closed cleanly
+13/04/2019 21:35:43 :: MetricLineReceiver connection with 127.0.0.1:60082 established
+13/04/2019 21:35:43 :: MetricLineReceiver connection with 127.0.0.1:60082 closed cleanly
+13/04/2019 21:35:52 :: MetricLineReceiver connection with 127.0.0.1:60084 established
+13/04/2019 21:35:52 :: MetricLineReceiver connection with 127.0.0.1:60084 closed cleanly
+13/04/2019 21:35:53 :: MetricLineReceiver connection with 127.0.0.1:60086 established
+13/04/2019 21:35:53 :: MetricLineReceiver connection with 127.0.0.1:60086 closed cleanly
+13/04/2019 21:36:03 :: MetricLineReceiver connection with 127.0.0.1:60088 established
+13/04/2019 21:36:03 :: MetricLineReceiver connection with 127.0.0.1:60088 closed cleanly
+13/04/2019 21:36:13 :: MetricLineReceiver connection with 127.0.0.1:60090 established
+13/04/2019 21:36:13 :: MetricLineReceiver connection with 127.0.0.1:60090 closed cleanly
+13/04/2019 21:36:22 :: MetricLineReceiver connection with 127.0.0.1:60092 established
+13/04/2019 21:36:22 :: MetricLineReceiver connection with 127.0.0.1:60092 closed cleanly
+13/04/2019 21:36:23 :: MetricLineReceiver connection with 127.0.0.1:60094 established
+13/04/2019 21:36:23 :: MetricLineReceiver connection with 127.0.0.1:60094 closed cleanly
+13/04/2019 21:36:33 :: MetricLineReceiver connection with 127.0.0.1:60096 established
+13/04/2019 21:36:33 :: MetricLineReceiver connection with 127.0.0.1:60096 closed cleanly
+13/04/2019 21:36:43 :: MetricLineReceiver connection with 127.0.0.1:60100 established
+13/04/2019 21:36:43 :: MetricLineReceiver connection with 127.0.0.1:60100 closed cleanly
+13/04/2019 21:36:52 :: MetricLineReceiver connection with 127.0.0.1:60102 established
+13/04/2019 21:36:52 :: MetricLineReceiver connection with 127.0.0.1:60102 closed cleanly
+13/04/2019 21:36:53 :: MetricLineReceiver connection with 127.0.0.1:60104 established
+13/04/2019 21:36:53 :: MetricLineReceiver connection with 127.0.0.1:60104 closed cleanly
+13/04/2019 21:37:03 :: MetricLineReceiver connection with 127.0.0.1:60106 established
+13/04/2019 21:37:03 :: MetricLineReceiver connection with 127.0.0.1:60106 closed cleanly
+13/04/2019 21:37:13 :: MetricLineReceiver connection with 127.0.0.1:60108 established
+13/04/2019 21:37:13 :: MetricLineReceiver connection with 127.0.0.1:60108 closed cleanly
+13/04/2019 21:37:22 :: MetricLineReceiver connection with 127.0.0.1:60110 established
+13/04/2019 21:37:22 :: MetricLineReceiver connection with 127.0.0.1:60110 closed cleanly
+13/04/2019 21:37:23 :: MetricLineReceiver connection with 127.0.0.1:60112 established
+13/04/2019 21:37:23 :: MetricLineReceiver connection with 127.0.0.1:60112 closed cleanly
+13/04/2019 21:37:33 :: MetricLineReceiver connection with 127.0.0.1:60114 established
+13/04/2019 21:37:33 :: MetricLineReceiver connection with 127.0.0.1:60114 closed cleanly
+13/04/2019 21:37:43 :: MetricLineReceiver connection with 127.0.0.1:60118 established
+13/04/2019 21:37:43 :: MetricLineReceiver connection with 127.0.0.1:60118 closed cleanly
+13/04/2019 21:37:52 :: MetricLineReceiver connection with 127.0.0.1:60120 established
+13/04/2019 21:37:52 :: MetricLineReceiver connection with 127.0.0.1:60120 closed cleanly
+13/04/2019 21:37:53 :: MetricLineReceiver connection with 127.0.0.1:60122 established
+13/04/2019 21:37:53 :: MetricLineReceiver connection with 127.0.0.1:60122 closed cleanly
+13/04/2019 21:38:03 :: MetricLineReceiver connection with 127.0.0.1:60124 established
+13/04/2019 21:38:03 :: MetricLineReceiver connection with 127.0.0.1:60124 closed cleanly
+13/04/2019 21:38:13 :: MetricLineReceiver connection with 127.0.0.1:60126 established
+13/04/2019 21:38:13 :: MetricLineReceiver connection with 127.0.0.1:60126 closed cleanly
+13/04/2019 21:38:22 :: MetricLineReceiver connection with 127.0.0.1:60128 established
+13/04/2019 21:38:22 :: MetricLineReceiver connection with 127.0.0.1:60128 closed cleanly
+13/04/2019 21:38:23 :: MetricLineReceiver connection with 127.0.0.1:60130 established
+13/04/2019 21:38:23 :: MetricLineReceiver connection with 127.0.0.1:60130 closed cleanly
+13/04/2019 21:38:33 :: MetricLineReceiver connection with 127.0.0.1:60132 established
+13/04/2019 21:38:33 :: MetricLineReceiver connection with 127.0.0.1:60132 closed cleanly
+13/04/2019 21:38:43 :: MetricLineReceiver connection with 127.0.0.1:60136 established
+13/04/2019 21:38:43 :: MetricLineReceiver connection with 127.0.0.1:60136 closed cleanly
+13/04/2019 21:38:52 :: MetricLineReceiver connection with 127.0.0.1:60138 established
+13/04/2019 21:38:52 :: MetricLineReceiver connection with 127.0.0.1:60138 closed cleanly
+13/04/2019 21:38:53 :: MetricLineReceiver connection with 127.0.0.1:60140 established
+13/04/2019 21:38:53 :: MetricLineReceiver connection with 127.0.0.1:60140 closed cleanly
+13/04/2019 21:39:03 :: MetricLineReceiver connection with 127.0.0.1:60142 established
+13/04/2019 21:39:03 :: MetricLineReceiver connection with 127.0.0.1:60142 closed cleanly
+13/04/2019 21:39:13 :: MetricLineReceiver connection with 127.0.0.1:60144 established
+13/04/2019 21:39:13 :: MetricLineReceiver connection with 127.0.0.1:60144 closed cleanly
+13/04/2019 21:39:22 :: MetricLineReceiver connection with 127.0.0.1:60146 established
+13/04/2019 21:39:22 :: MetricLineReceiver connection with 127.0.0.1:60146 closed cleanly
+13/04/2019 21:39:23 :: MetricLineReceiver connection with 127.0.0.1:60148 established
+13/04/2019 21:39:23 :: MetricLineReceiver connection with 127.0.0.1:60148 closed cleanly
+13/04/2019 21:39:33 :: MetricLineReceiver connection with 127.0.0.1:60150 established
+13/04/2019 21:39:33 :: MetricLineReceiver connection with 127.0.0.1:60150 closed cleanly
+13/04/2019 21:39:43 :: MetricLineReceiver connection with 127.0.0.1:60154 established
+13/04/2019 21:39:43 :: MetricLineReceiver connection with 127.0.0.1:60154 closed cleanly
+13/04/2019 21:39:52 :: MetricLineReceiver connection with 127.0.0.1:60156 established
+13/04/2019 21:39:52 :: MetricLineReceiver connection with 127.0.0.1:60156 closed cleanly
+13/04/2019 21:39:53 :: MetricLineReceiver connection with 127.0.0.1:60158 established
+13/04/2019 21:39:53 :: MetricLineReceiver connection with 127.0.0.1:60158 closed cleanly
+13/04/2019 21:40:03 :: MetricLineReceiver connection with 127.0.0.1:60160 established
+13/04/2019 21:40:03 :: MetricLineReceiver connection with 127.0.0.1:60160 closed cleanly
+13/04/2019 21:40:13 :: MetricLineReceiver connection with 127.0.0.1:60166 established
+13/04/2019 21:40:13 :: MetricLineReceiver connection with 127.0.0.1:60166 closed cleanly
+13/04/2019 21:40:22 :: MetricLineReceiver connection with 127.0.0.1:60168 established
+13/04/2019 21:40:22 :: MetricLineReceiver connection with 127.0.0.1:60168 closed cleanly
+13/04/2019 21:40:23 :: MetricLineReceiver connection with 127.0.0.1:60170 established
+13/04/2019 21:40:23 :: MetricLineReceiver connection with 127.0.0.1:60170 closed cleanly
+13/04/2019 21:40:33 :: MetricLineReceiver connection with 127.0.0.1:60172 established
+13/04/2019 21:40:33 :: MetricLineReceiver connection with 127.0.0.1:60172 closed cleanly
+13/04/2019 21:40:43 :: MetricLineReceiver connection with 127.0.0.1:60176 established
+13/04/2019 21:40:43 :: MetricLineReceiver connection with 127.0.0.1:60176 closed cleanly
+13/04/2019 21:40:52 :: MetricLineReceiver connection with 127.0.0.1:60178 established
+13/04/2019 21:40:52 :: MetricLineReceiver connection with 127.0.0.1:60178 closed cleanly
+13/04/2019 21:40:53 :: MetricLineReceiver connection with 127.0.0.1:60180 established
+13/04/2019 21:40:53 :: MetricLineReceiver connection with 127.0.0.1:60180 closed cleanly
+13/04/2019 21:41:03 :: MetricLineReceiver connection with 127.0.0.1:60182 established
+13/04/2019 21:41:03 :: MetricLineReceiver connection with 127.0.0.1:60182 closed cleanly
+13/04/2019 21:41:13 :: MetricLineReceiver connection with 127.0.0.1:60184 established
+13/04/2019 21:41:13 :: MetricLineReceiver connection with 127.0.0.1:60184 closed cleanly
+13/04/2019 21:41:22 :: MetricLineReceiver connection with 127.0.0.1:60186 established
+13/04/2019 21:41:22 :: MetricLineReceiver connection with 127.0.0.1:60186 closed cleanly
+13/04/2019 21:41:23 :: MetricLineReceiver connection with 127.0.0.1:60188 established
+13/04/2019 21:41:23 :: MetricLineReceiver connection with 127.0.0.1:60188 closed cleanly
+13/04/2019 21:41:33 :: MetricLineReceiver connection with 127.0.0.1:60190 established
+13/04/2019 21:41:33 :: MetricLineReceiver connection with 127.0.0.1:60190 closed cleanly
+13/04/2019 21:41:43 :: MetricLineReceiver connection with 127.0.0.1:60194 established
+13/04/2019 21:41:43 :: MetricLineReceiver connection with 127.0.0.1:60194 closed cleanly
+13/04/2019 21:41:52 :: MetricLineReceiver connection with 127.0.0.1:60196 established
+13/04/2019 21:41:52 :: MetricLineReceiver connection with 127.0.0.1:60196 closed cleanly
+13/04/2019 21:41:53 :: MetricLineReceiver connection with 127.0.0.1:60198 established
+13/04/2019 21:41:53 :: MetricLineReceiver connection with 127.0.0.1:60198 closed cleanly
+13/04/2019 21:42:03 :: MetricLineReceiver connection with 127.0.0.1:60200 established
+13/04/2019 21:42:03 :: MetricLineReceiver connection with 127.0.0.1:60200 closed cleanly
+13/04/2019 21:42:13 :: MetricLineReceiver connection with 127.0.0.1:60202 established
+13/04/2019 21:42:13 :: MetricLineReceiver connection with 127.0.0.1:60202 closed cleanly
+13/04/2019 21:42:22 :: MetricLineReceiver connection with 127.0.0.1:60204 established
+13/04/2019 21:42:22 :: MetricLineReceiver connection with 127.0.0.1:60204 closed cleanly
+13/04/2019 21:42:23 :: MetricLineReceiver connection with 127.0.0.1:60206 established
+13/04/2019 21:42:23 :: MetricLineReceiver connection with 127.0.0.1:60206 closed cleanly
+13/04/2019 21:42:33 :: MetricLineReceiver connection with 127.0.0.1:60208 established
+13/04/2019 21:42:33 :: MetricLineReceiver connection with 127.0.0.1:60208 closed cleanly
+13/04/2019 21:42:43 :: MetricLineReceiver connection with 127.0.0.1:60212 established
+13/04/2019 21:42:43 :: MetricLineReceiver connection with 127.0.0.1:60212 closed cleanly
+13/04/2019 21:42:52 :: MetricLineReceiver connection with 127.0.0.1:60214 established
+13/04/2019 21:42:52 :: MetricLineReceiver connection with 127.0.0.1:60214 closed cleanly
+13/04/2019 21:42:53 :: MetricLineReceiver connection with 127.0.0.1:60216 established
+13/04/2019 21:42:53 :: MetricLineReceiver connection with 127.0.0.1:60216 closed cleanly
+13/04/2019 21:43:03 :: MetricLineReceiver connection with 127.0.0.1:60218 established
+13/04/2019 21:43:03 :: MetricLineReceiver connection with 127.0.0.1:60218 closed cleanly
+13/04/2019 21:43:13 :: MetricLineReceiver connection with 127.0.0.1:60220 established
+13/04/2019 21:43:13 :: MetricLineReceiver connection with 127.0.0.1:60220 closed cleanly
+13/04/2019 21:43:22 :: MetricLineReceiver connection with 127.0.0.1:60222 established
+13/04/2019 21:43:22 :: MetricLineReceiver connection with 127.0.0.1:60222 closed cleanly
+13/04/2019 21:43:23 :: MetricLineReceiver connection with 127.0.0.1:60224 established
+13/04/2019 21:43:23 :: MetricLineReceiver connection with 127.0.0.1:60224 closed cleanly
+13/04/2019 21:43:33 :: MetricLineReceiver connection with 127.0.0.1:60226 established
+13/04/2019 21:43:33 :: MetricLineReceiver connection with 127.0.0.1:60226 closed cleanly
+13/04/2019 21:43:43 :: MetricLineReceiver connection with 127.0.0.1:60230 established
+13/04/2019 21:43:43 :: MetricLineReceiver connection with 127.0.0.1:60230 closed cleanly
+13/04/2019 21:43:52 :: MetricLineReceiver connection with 127.0.0.1:60232 established
+13/04/2019 21:43:52 :: MetricLineReceiver connection with 127.0.0.1:60232 closed cleanly
+13/04/2019 21:43:53 :: MetricLineReceiver connection with 127.0.0.1:60234 established
+13/04/2019 21:43:53 :: MetricLineReceiver connection with 127.0.0.1:60234 closed cleanly
+13/04/2019 21:44:03 :: MetricLineReceiver connection with 127.0.0.1:60236 established
+13/04/2019 21:44:03 :: MetricLineReceiver connection with 127.0.0.1:60236 closed cleanly
+13/04/2019 21:44:13 :: MetricLineReceiver connection with 127.0.0.1:60238 established
+13/04/2019 21:44:13 :: MetricLineReceiver connection with 127.0.0.1:60238 closed cleanly
+13/04/2019 21:44:22 :: MetricLineReceiver connection with 127.0.0.1:60240 established
+13/04/2019 21:44:22 :: MetricLineReceiver connection with 127.0.0.1:60240 closed cleanly
+13/04/2019 21:44:23 :: MetricLineReceiver connection with 127.0.0.1:60242 established
+13/04/2019 21:44:23 :: MetricLineReceiver connection with 127.0.0.1:60242 closed cleanly
+13/04/2019 21:44:33 :: MetricLineReceiver connection with 127.0.0.1:60244 established
+13/04/2019 21:44:33 :: MetricLineReceiver connection with 127.0.0.1:60244 closed cleanly
+13/04/2019 21:44:43 :: MetricLineReceiver connection with 127.0.0.1:60248 established
+13/04/2019 21:44:43 :: MetricLineReceiver connection with 127.0.0.1:60248 closed cleanly
+13/04/2019 21:44:52 :: MetricLineReceiver connection with 127.0.0.1:60250 established
+13/04/2019 21:44:52 :: MetricLineReceiver connection with 127.0.0.1:60250 closed cleanly
+13/04/2019 21:44:53 :: MetricLineReceiver connection with 127.0.0.1:60252 established
+13/04/2019 21:44:53 :: MetricLineReceiver connection with 127.0.0.1:60252 closed cleanly
+13/04/2019 21:45:03 :: MetricLineReceiver connection with 127.0.0.1:60254 established
+13/04/2019 21:45:03 :: MetricLineReceiver connection with 127.0.0.1:60254 closed cleanly
+13/04/2019 21:45:13 :: MetricLineReceiver connection with 127.0.0.1:60256 established
+13/04/2019 21:45:13 :: MetricLineReceiver connection with 127.0.0.1:60256 closed cleanly
+13/04/2019 21:45:22 :: MetricLineReceiver connection with 127.0.0.1:60258 established
+13/04/2019 21:45:22 :: MetricLineReceiver connection with 127.0.0.1:60258 closed cleanly
+13/04/2019 21:45:23 :: MetricLineReceiver connection with 127.0.0.1:60260 established
+13/04/2019 21:45:23 :: MetricLineReceiver connection with 127.0.0.1:60260 closed cleanly
+13/04/2019 21:45:33 :: MetricLineReceiver connection with 127.0.0.1:60262 established
+13/04/2019 21:45:33 :: MetricLineReceiver connection with 127.0.0.1:60262 closed cleanly
+13/04/2019 21:45:43 :: MetricLineReceiver connection with 127.0.0.1:60266 established
+13/04/2019 21:45:43 :: MetricLineReceiver connection with 127.0.0.1:60266 closed cleanly
+13/04/2019 21:45:52 :: MetricLineReceiver connection with 127.0.0.1:60268 established
+13/04/2019 21:45:52 :: MetricLineReceiver connection with 127.0.0.1:60268 closed cleanly
+13/04/2019 21:45:53 :: MetricLineReceiver connection with 127.0.0.1:60270 established
+13/04/2019 21:45:53 :: MetricLineReceiver connection with 127.0.0.1:60270 closed cleanly
+13/04/2019 21:46:03 :: MetricLineReceiver connection with 127.0.0.1:60272 established
+13/04/2019 21:46:03 :: MetricLineReceiver connection with 127.0.0.1:60272 closed cleanly
+13/04/2019 21:46:13 :: MetricLineReceiver connection with 127.0.0.1:60274 established
+13/04/2019 21:46:13 :: MetricLineReceiver connection with 127.0.0.1:60274 closed cleanly
+13/04/2019 21:46:22 :: MetricLineReceiver connection with 127.0.0.1:60276 established
+13/04/2019 21:46:22 :: MetricLineReceiver connection with 127.0.0.1:60276 closed cleanly
+13/04/2019 21:46:23 :: MetricLineReceiver connection with 127.0.0.1:60278 established
+13/04/2019 21:46:23 :: MetricLineReceiver connection with 127.0.0.1:60278 closed cleanly
+13/04/2019 21:46:33 :: MetricLineReceiver connection with 127.0.0.1:60282 established
+13/04/2019 21:46:33 :: MetricLineReceiver connection with 127.0.0.1:60282 closed cleanly
+13/04/2019 21:46:43 :: MetricLineReceiver connection with 127.0.0.1:60284 established
+13/04/2019 21:46:43 :: MetricLineReceiver connection with 127.0.0.1:60284 closed cleanly
+13/04/2019 21:46:52 :: MetricLineReceiver connection with 127.0.0.1:60286 established
+13/04/2019 21:46:52 :: MetricLineReceiver connection with 127.0.0.1:60286 closed cleanly
+13/04/2019 21:46:53 :: MetricLineReceiver connection with 127.0.0.1:60288 established
+13/04/2019 21:46:53 :: MetricLineReceiver connection with 127.0.0.1:60288 closed cleanly
+13/04/2019 21:47:03 :: MetricLineReceiver connection with 127.0.0.1:60290 established
+13/04/2019 21:47:03 :: MetricLineReceiver connection with 127.0.0.1:60290 closed cleanly
+13/04/2019 21:47:13 :: MetricLineReceiver connection with 127.0.0.1:60292 established
+13/04/2019 21:47:13 :: MetricLineReceiver connection with 127.0.0.1:60292 closed cleanly
+13/04/2019 21:47:22 :: MetricLineReceiver connection with 127.0.0.1:60294 established
+13/04/2019 21:47:22 :: MetricLineReceiver connection with 127.0.0.1:60294 closed cleanly
+13/04/2019 21:47:23 :: MetricLineReceiver connection with 127.0.0.1:60296 established
+13/04/2019 21:47:23 :: MetricLineReceiver connection with 127.0.0.1:60296 closed cleanly
+13/04/2019 21:47:33 :: MetricLineReceiver connection with 127.0.0.1:60300 established
+13/04/2019 21:47:33 :: MetricLineReceiver connection with 127.0.0.1:60300 closed cleanly
+13/04/2019 21:47:43 :: MetricLineReceiver connection with 127.0.0.1:60302 established
+13/04/2019 21:47:43 :: MetricLineReceiver connection with 127.0.0.1:60302 closed cleanly
+13/04/2019 21:47:52 :: MetricLineReceiver connection with 127.0.0.1:60304 established
+13/04/2019 21:47:52 :: MetricLineReceiver connection with 127.0.0.1:60304 closed cleanly
+13/04/2019 21:47:53 :: MetricLineReceiver connection with 127.0.0.1:60306 established
+13/04/2019 21:47:53 :: MetricLineReceiver connection with 127.0.0.1:60306 closed cleanly
+13/04/2019 21:48:03 :: MetricLineReceiver connection with 127.0.0.1:60308 established
+13/04/2019 21:48:03 :: MetricLineReceiver connection with 127.0.0.1:60308 closed cleanly
+13/04/2019 21:48:13 :: MetricLineReceiver connection with 127.0.0.1:60310 established
+13/04/2019 21:48:13 :: MetricLineReceiver connection with 127.0.0.1:60310 closed cleanly
+13/04/2019 21:48:22 :: MetricLineReceiver connection with 127.0.0.1:60312 established
+13/04/2019 21:48:22 :: MetricLineReceiver connection with 127.0.0.1:60312 closed cleanly
+13/04/2019 21:48:23 :: MetricLineReceiver connection with 127.0.0.1:60314 established
+13/04/2019 21:48:23 :: MetricLineReceiver connection with 127.0.0.1:60314 closed cleanly
+13/04/2019 21:48:33 :: MetricLineReceiver connection with 127.0.0.1:60318 established
+13/04/2019 21:48:33 :: MetricLineReceiver connection with 127.0.0.1:60318 closed cleanly
+13/04/2019 21:48:43 :: MetricLineReceiver connection with 127.0.0.1:60320 established
+13/04/2019 21:48:43 :: MetricLineReceiver connection with 127.0.0.1:60320 closed cleanly
+13/04/2019 21:48:52 :: MetricLineReceiver connection with 127.0.0.1:60322 established
+13/04/2019 21:48:52 :: MetricLineReceiver connection with 127.0.0.1:60322 closed cleanly
+13/04/2019 21:48:53 :: MetricLineReceiver connection with 127.0.0.1:60324 established
+13/04/2019 21:48:53 :: MetricLineReceiver connection with 127.0.0.1:60324 closed cleanly
+13/04/2019 21:49:03 :: MetricLineReceiver connection with 127.0.0.1:60326 established
+13/04/2019 21:49:03 :: MetricLineReceiver connection with 127.0.0.1:60326 closed cleanly
+13/04/2019 21:49:13 :: MetricLineReceiver connection with 127.0.0.1:60328 established
+13/04/2019 21:49:13 :: MetricLineReceiver connection with 127.0.0.1:60328 closed cleanly
+13/04/2019 21:49:22 :: MetricLineReceiver connection with 127.0.0.1:60330 established
+13/04/2019 21:49:22 :: MetricLineReceiver connection with 127.0.0.1:60330 closed cleanly
+13/04/2019 21:49:23 :: MetricLineReceiver connection with 127.0.0.1:60332 established
+13/04/2019 21:49:23 :: MetricLineReceiver connection with 127.0.0.1:60332 closed cleanly
+13/04/2019 21:49:33 :: MetricLineReceiver connection with 127.0.0.1:60336 established
+13/04/2019 21:49:33 :: MetricLineReceiver connection with 127.0.0.1:60336 closed cleanly
+13/04/2019 21:49:43 :: MetricLineReceiver connection with 127.0.0.1:60338 established
+13/04/2019 21:49:43 :: MetricLineReceiver connection with 127.0.0.1:60338 closed cleanly
+13/04/2019 21:49:52 :: MetricLineReceiver connection with 127.0.0.1:60340 established
+13/04/2019 21:49:52 :: MetricLineReceiver connection with 127.0.0.1:60340 closed cleanly
+13/04/2019 21:49:53 :: MetricLineReceiver connection with 127.0.0.1:60342 established
+13/04/2019 21:49:53 :: MetricLineReceiver connection with 127.0.0.1:60342 closed cleanly
+13/04/2019 21:50:03 :: MetricLineReceiver connection with 127.0.0.1:60344 established
+13/04/2019 21:50:03 :: MetricLineReceiver connection with 127.0.0.1:60344 closed cleanly
+13/04/2019 21:50:13 :: MetricLineReceiver connection with 127.0.0.1:60350 established
+13/04/2019 21:50:13 :: MetricLineReceiver connection with 127.0.0.1:60350 closed cleanly
+13/04/2019 21:50:22 :: MetricLineReceiver connection with 127.0.0.1:60352 established
+13/04/2019 21:50:22 :: MetricLineReceiver connection with 127.0.0.1:60352 closed cleanly
+13/04/2019 21:50:23 :: MetricLineReceiver connection with 127.0.0.1:60354 established
+13/04/2019 21:50:23 :: MetricLineReceiver connection with 127.0.0.1:60354 closed cleanly
+13/04/2019 21:50:33 :: MetricLineReceiver connection with 127.0.0.1:60358 established
+13/04/2019 21:50:33 :: MetricLineReceiver connection with 127.0.0.1:60358 closed cleanly
+13/04/2019 21:50:43 :: MetricLineReceiver connection with 127.0.0.1:60360 established
+13/04/2019 21:50:43 :: MetricLineReceiver connection with 127.0.0.1:60360 closed cleanly
+13/04/2019 21:50:52 :: MetricLineReceiver connection with 127.0.0.1:60362 established
+13/04/2019 21:50:52 :: MetricLineReceiver connection with 127.0.0.1:60362 closed cleanly
+13/04/2019 21:50:53 :: MetricLineReceiver connection with 127.0.0.1:60364 established
+13/04/2019 21:50:53 :: MetricLineReceiver connection with 127.0.0.1:60364 closed cleanly
+13/04/2019 21:51:03 :: MetricLineReceiver connection with 127.0.0.1:60366 established
+13/04/2019 21:51:03 :: MetricLineReceiver connection with 127.0.0.1:60366 closed cleanly
+13/04/2019 21:51:13 :: MetricLineReceiver connection with 127.0.0.1:60368 established
+13/04/2019 21:51:13 :: MetricLineReceiver connection with 127.0.0.1:60368 closed cleanly
+13/04/2019 21:51:22 :: MetricLineReceiver connection with 127.0.0.1:60370 established
+13/04/2019 21:51:22 :: MetricLineReceiver connection with 127.0.0.1:60370 closed cleanly
+13/04/2019 21:51:23 :: MetricLineReceiver connection with 127.0.0.1:60372 established
+13/04/2019 21:51:23 :: MetricLineReceiver connection with 127.0.0.1:60372 closed cleanly
+13/04/2019 21:51:33 :: MetricLineReceiver connection with 127.0.0.1:60376 established
+13/04/2019 21:51:33 :: MetricLineReceiver connection with 127.0.0.1:60376 closed cleanly
+13/04/2019 21:51:43 :: MetricLineReceiver connection with 127.0.0.1:60378 established
+13/04/2019 21:51:43 :: MetricLineReceiver connection with 127.0.0.1:60378 closed cleanly
+13/04/2019 21:51:52 :: MetricLineReceiver connection with 127.0.0.1:60380 established
+13/04/2019 21:51:52 :: MetricLineReceiver connection with 127.0.0.1:60380 closed cleanly
+13/04/2019 21:51:53 :: MetricLineReceiver connection with 127.0.0.1:60382 established
+13/04/2019 21:51:53 :: MetricLineReceiver connection with 127.0.0.1:60382 closed cleanly
+13/04/2019 21:52:03 :: MetricLineReceiver connection with 127.0.0.1:60384 established
+13/04/2019 21:52:03 :: MetricLineReceiver connection with 127.0.0.1:60384 closed cleanly
+13/04/2019 21:52:13 :: MetricLineReceiver connection with 127.0.0.1:60386 established
+13/04/2019 21:52:13 :: MetricLineReceiver connection with 127.0.0.1:60386 closed cleanly
+13/04/2019 21:52:22 :: MetricLineReceiver connection with 127.0.0.1:60388 established
+13/04/2019 21:52:22 :: MetricLineReceiver connection with 127.0.0.1:60388 closed cleanly
+13/04/2019 21:52:23 :: MetricLineReceiver connection with 127.0.0.1:60390 established
+13/04/2019 21:52:23 :: MetricLineReceiver connection with 127.0.0.1:60390 closed cleanly
+13/04/2019 21:52:33 :: MetricLineReceiver connection with 127.0.0.1:60394 established
+13/04/2019 21:52:33 :: MetricLineReceiver connection with 127.0.0.1:60394 closed cleanly
+13/04/2019 21:52:43 :: MetricLineReceiver connection with 127.0.0.1:60396 established
+13/04/2019 21:52:43 :: MetricLineReceiver connection with 127.0.0.1:60396 closed cleanly
+13/04/2019 21:52:52 :: MetricLineReceiver connection with 127.0.0.1:60398 established
+13/04/2019 21:52:52 :: MetricLineReceiver connection with 127.0.0.1:60398 closed cleanly
+13/04/2019 21:52:53 :: MetricLineReceiver connection with 127.0.0.1:60400 established
+13/04/2019 21:52:53 :: MetricLineReceiver connection with 127.0.0.1:60400 closed cleanly
+13/04/2019 21:53:03 :: MetricLineReceiver connection with 127.0.0.1:60402 established
+13/04/2019 21:53:03 :: MetricLineReceiver connection with 127.0.0.1:60402 closed cleanly
+13/04/2019 21:53:13 :: MetricLineReceiver connection with 127.0.0.1:60404 established
+13/04/2019 21:53:13 :: MetricLineReceiver connection with 127.0.0.1:60404 closed cleanly
+13/04/2019 21:53:22 :: MetricLineReceiver connection with 127.0.0.1:60408 established
+13/04/2019 21:53:22 :: MetricLineReceiver connection with 127.0.0.1:60408 closed cleanly
+13/04/2019 21:53:23 :: MetricLineReceiver connection with 127.0.0.1:60410 established
+13/04/2019 21:53:23 :: MetricLineReceiver connection with 127.0.0.1:60410 closed cleanly
+13/04/2019 21:53:33 :: MetricLineReceiver connection with 127.0.0.1:60412 established
+13/04/2019 21:53:33 :: MetricLineReceiver connection with 127.0.0.1:60412 closed cleanly
+13/04/2019 21:53:43 :: MetricLineReceiver connection with 127.0.0.1:60414 established
+13/04/2019 21:53:43 :: MetricLineReceiver connection with 127.0.0.1:60414 closed cleanly
+13/04/2019 21:53:52 :: MetricLineReceiver connection with 127.0.0.1:60416 established
+13/04/2019 21:53:52 :: MetricLineReceiver connection with 127.0.0.1:60416 closed cleanly
+13/04/2019 21:53:53 :: MetricLineReceiver connection with 127.0.0.1:60418 established
+13/04/2019 21:53:53 :: MetricLineReceiver connection with 127.0.0.1:60418 closed cleanly
+13/04/2019 21:54:03 :: MetricLineReceiver connection with 127.0.0.1:60420 established
+13/04/2019 21:54:03 :: MetricLineReceiver connection with 127.0.0.1:60420 closed cleanly
+13/04/2019 21:54:13 :: MetricLineReceiver connection with 127.0.0.1:60422 established
+13/04/2019 21:54:13 :: MetricLineReceiver connection with 127.0.0.1:60422 closed cleanly
+13/04/2019 21:54:22 :: MetricLineReceiver connection with 127.0.0.1:60426 established
+13/04/2019 21:54:22 :: MetricLineReceiver connection with 127.0.0.1:60426 closed cleanly
+13/04/2019 21:54:23 :: MetricLineReceiver connection with 127.0.0.1:60428 established
+13/04/2019 21:54:23 :: MetricLineReceiver connection with 127.0.0.1:60428 closed cleanly
+13/04/2019 21:54:33 :: MetricLineReceiver connection with 127.0.0.1:60430 established
+13/04/2019 21:54:33 :: MetricLineReceiver connection with 127.0.0.1:60430 closed cleanly
+13/04/2019 21:54:43 :: MetricLineReceiver connection with 127.0.0.1:60432 established
+13/04/2019 21:54:43 :: MetricLineReceiver connection with 127.0.0.1:60432 closed cleanly
+13/04/2019 21:54:52 :: MetricLineReceiver connection with 127.0.0.1:60434 established
+13/04/2019 21:54:52 :: MetricLineReceiver connection with 127.0.0.1:60434 closed cleanly
+13/04/2019 21:54:53 :: MetricLineReceiver connection with 127.0.0.1:60436 established
+13/04/2019 21:54:53 :: MetricLineReceiver connection with 127.0.0.1:60436 closed cleanly
+13/04/2019 21:55:03 :: MetricLineReceiver connection with 127.0.0.1:60438 established
+13/04/2019 21:55:03 :: MetricLineReceiver connection with 127.0.0.1:60438 closed cleanly
+13/04/2019 21:55:13 :: MetricLineReceiver connection with 127.0.0.1:60440 established
+13/04/2019 21:55:13 :: MetricLineReceiver connection with 127.0.0.1:60440 closed cleanly
+13/04/2019 21:55:22 :: MetricLineReceiver connection with 127.0.0.1:60444 established
+13/04/2019 21:55:22 :: MetricLineReceiver connection with 127.0.0.1:60444 closed cleanly
+13/04/2019 21:55:23 :: MetricLineReceiver connection with 127.0.0.1:60446 established
+13/04/2019 21:55:23 :: MetricLineReceiver connection with 127.0.0.1:60446 closed cleanly
+13/04/2019 21:55:33 :: MetricLineReceiver connection with 127.0.0.1:60448 established
+13/04/2019 21:55:33 :: MetricLineReceiver connection with 127.0.0.1:60448 closed cleanly
+13/04/2019 21:55:43 :: MetricLineReceiver connection with 127.0.0.1:60450 established
+13/04/2019 21:55:43 :: MetricLineReceiver connection with 127.0.0.1:60450 closed cleanly
+13/04/2019 21:55:52 :: MetricLineReceiver connection with 127.0.0.1:60452 established
+13/04/2019 21:55:52 :: MetricLineReceiver connection with 127.0.0.1:60452 closed cleanly
+13/04/2019 21:55:53 :: MetricLineReceiver connection with 127.0.0.1:60454 established
+13/04/2019 21:55:53 :: MetricLineReceiver connection with 127.0.0.1:60454 closed cleanly
+13/04/2019 21:56:03 :: MetricLineReceiver connection with 127.0.0.1:60456 established
+13/04/2019 21:56:03 :: MetricLineReceiver connection with 127.0.0.1:60456 closed cleanly
+13/04/2019 21:56:13 :: MetricLineReceiver connection with 127.0.0.1:60458 established
+13/04/2019 21:56:13 :: MetricLineReceiver connection with 127.0.0.1:60458 closed cleanly
+13/04/2019 21:56:22 :: MetricLineReceiver connection with 127.0.0.1:60462 established
+13/04/2019 21:56:22 :: MetricLineReceiver connection with 127.0.0.1:60462 closed cleanly
+13/04/2019 21:56:23 :: MetricLineReceiver connection with 127.0.0.1:60464 established
+13/04/2019 21:56:23 :: MetricLineReceiver connection with 127.0.0.1:60464 closed cleanly
+13/04/2019 21:56:33 :: MetricLineReceiver connection with 127.0.0.1:60466 established
+13/04/2019 21:56:33 :: MetricLineReceiver connection with 127.0.0.1:60466 closed cleanly
+13/04/2019 21:56:43 :: MetricLineReceiver connection with 127.0.0.1:60468 established
+13/04/2019 21:56:43 :: MetricLineReceiver connection with 127.0.0.1:60468 closed cleanly
+13/04/2019 21:56:52 :: MetricLineReceiver connection with 127.0.0.1:60470 established
+13/04/2019 21:56:52 :: MetricLineReceiver connection with 127.0.0.1:60470 closed cleanly
+13/04/2019 21:56:53 :: MetricLineReceiver connection with 127.0.0.1:60472 established
+13/04/2019 21:56:53 :: MetricLineReceiver connection with 127.0.0.1:60472 closed cleanly
+13/04/2019 21:57:03 :: MetricLineReceiver connection with 127.0.0.1:60474 established
+13/04/2019 21:57:03 :: MetricLineReceiver connection with 127.0.0.1:60474 closed cleanly
+13/04/2019 21:57:13 :: MetricLineReceiver connection with 127.0.0.1:60476 established
+13/04/2019 21:57:13 :: MetricLineReceiver connection with 127.0.0.1:60476 closed cleanly
+13/04/2019 21:57:22 :: MetricLineReceiver connection with 127.0.0.1:60480 established
+13/04/2019 21:57:22 :: MetricLineReceiver connection with 127.0.0.1:60480 closed cleanly
+13/04/2019 21:57:23 :: MetricLineReceiver connection with 127.0.0.1:60482 established
+13/04/2019 21:57:23 :: MetricLineReceiver connection with 127.0.0.1:60482 closed cleanly
+13/04/2019 21:57:33 :: MetricLineReceiver connection with 127.0.0.1:60484 established
+13/04/2019 21:57:33 :: MetricLineReceiver connection with 127.0.0.1:60484 closed cleanly
+13/04/2019 21:57:43 :: MetricLineReceiver connection with 127.0.0.1:60486 established
+13/04/2019 21:57:43 :: MetricLineReceiver connection with 127.0.0.1:60486 closed cleanly
+13/04/2019 21:57:52 :: MetricLineReceiver connection with 127.0.0.1:60488 established
+13/04/2019 21:57:52 :: MetricLineReceiver connection with 127.0.0.1:60488 closed cleanly
+13/04/2019 21:57:53 :: MetricLineReceiver connection with 127.0.0.1:60490 established
+13/04/2019 21:57:53 :: MetricLineReceiver connection with 127.0.0.1:60490 closed cleanly
+13/04/2019 21:58:03 :: MetricLineReceiver connection with 127.0.0.1:60492 established
+13/04/2019 21:58:03 :: MetricLineReceiver connection with 127.0.0.1:60492 closed cleanly
+13/04/2019 21:58:13 :: MetricLineReceiver connection with 127.0.0.1:60494 established
+13/04/2019 21:58:13 :: MetricLineReceiver connection with 127.0.0.1:60494 closed cleanly
+13/04/2019 21:58:22 :: MetricLineReceiver connection with 127.0.0.1:60498 established
+13/04/2019 21:58:22 :: MetricLineReceiver connection with 127.0.0.1:60498 closed cleanly
+13/04/2019 21:58:23 :: MetricLineReceiver connection with 127.0.0.1:60500 established
+13/04/2019 21:58:23 :: MetricLineReceiver connection with 127.0.0.1:60500 closed cleanly
+13/04/2019 21:58:33 :: MetricLineReceiver connection with 127.0.0.1:60502 established
+13/04/2019 21:58:33 :: MetricLineReceiver connection with 127.0.0.1:60502 closed cleanly
+13/04/2019 21:58:43 :: MetricLineReceiver connection with 127.0.0.1:60504 established
+13/04/2019 21:58:43 :: MetricLineReceiver connection with 127.0.0.1:60504 closed cleanly
+13/04/2019 21:58:52 :: MetricLineReceiver connection with 127.0.0.1:60506 established
+13/04/2019 21:58:52 :: MetricLineReceiver connection with 127.0.0.1:60506 closed cleanly
+13/04/2019 21:58:53 :: MetricLineReceiver connection with 127.0.0.1:60508 established
+13/04/2019 21:58:53 :: MetricLineReceiver connection with 127.0.0.1:60508 closed cleanly
+13/04/2019 21:59:03 :: MetricLineReceiver connection with 127.0.0.1:60510 established
+13/04/2019 21:59:03 :: MetricLineReceiver connection with 127.0.0.1:60510 closed cleanly
+13/04/2019 21:59:13 :: MetricLineReceiver connection with 127.0.0.1:60512 established
+13/04/2019 21:59:13 :: MetricLineReceiver connection with 127.0.0.1:60512 closed cleanly
+13/04/2019 21:59:22 :: MetricLineReceiver connection with 127.0.0.1:60516 established
+13/04/2019 21:59:22 :: MetricLineReceiver connection with 127.0.0.1:60516 closed cleanly
+13/04/2019 21:59:23 :: MetricLineReceiver connection with 127.0.0.1:60518 established
+13/04/2019 21:59:23 :: MetricLineReceiver connection with 127.0.0.1:60518 closed cleanly
+13/04/2019 21:59:33 :: MetricLineReceiver connection with 127.0.0.1:60520 established
+13/04/2019 21:59:33 :: MetricLineReceiver connection with 127.0.0.1:60520 closed cleanly
+13/04/2019 21:59:43 :: MetricLineReceiver connection with 127.0.0.1:60522 established
+13/04/2019 21:59:43 :: MetricLineReceiver connection with 127.0.0.1:60522 closed cleanly
+13/04/2019 21:59:52 :: MetricLineReceiver connection with 127.0.0.1:60524 established
+13/04/2019 21:59:52 :: MetricLineReceiver connection with 127.0.0.1:60524 closed cleanly
+13/04/2019 21:59:53 :: MetricLineReceiver connection with 127.0.0.1:60526 established
+13/04/2019 21:59:53 :: MetricLineReceiver connection with 127.0.0.1:60526 closed cleanly
+13/04/2019 22:00:03 :: MetricLineReceiver connection with 127.0.0.1:60528 established
+13/04/2019 22:00:03 :: MetricLineReceiver connection with 127.0.0.1:60528 closed cleanly
+13/04/2019 22:00:13 :: MetricLineReceiver connection with 127.0.0.1:60536 established
+13/04/2019 22:00:13 :: MetricLineReceiver connection with 127.0.0.1:60536 closed cleanly
+13/04/2019 22:00:22 :: MetricLineReceiver connection with 127.0.0.1:60538 established
+13/04/2019 22:00:22 :: MetricLineReceiver connection with 127.0.0.1:60538 closed cleanly
+13/04/2019 22:00:23 :: MetricLineReceiver connection with 127.0.0.1:60540 established
+13/04/2019 22:00:23 :: MetricLineReceiver connection with 127.0.0.1:60540 closed cleanly
+13/04/2019 22:00:33 :: MetricLineReceiver connection with 127.0.0.1:60542 established
+13/04/2019 22:00:33 :: MetricLineReceiver connection with 127.0.0.1:60542 closed cleanly
+13/04/2019 22:00:43 :: MetricLineReceiver connection with 127.0.0.1:60544 established
+13/04/2019 22:00:43 :: MetricLineReceiver connection with 127.0.0.1:60544 closed cleanly
+13/04/2019 22:00:52 :: MetricLineReceiver connection with 127.0.0.1:60546 established
+13/04/2019 22:00:52 :: MetricLineReceiver connection with 127.0.0.1:60546 closed cleanly
+13/04/2019 22:00:53 :: MetricLineReceiver connection with 127.0.0.1:60548 established
+13/04/2019 22:00:53 :: MetricLineReceiver connection with 127.0.0.1:60548 closed cleanly
+13/04/2019 22:01:03 :: MetricLineReceiver connection with 127.0.0.1:60550 established
+13/04/2019 22:01:03 :: MetricLineReceiver connection with 127.0.0.1:60550 closed cleanly
+13/04/2019 22:01:13 :: MetricLineReceiver connection with 127.0.0.1:60554 established
+13/04/2019 22:01:13 :: MetricLineReceiver connection with 127.0.0.1:60554 closed cleanly
+13/04/2019 22:01:22 :: MetricLineReceiver connection with 127.0.0.1:60556 established
+13/04/2019 22:01:22 :: MetricLineReceiver connection with 127.0.0.1:60556 closed cleanly
+13/04/2019 22:01:23 :: MetricLineReceiver connection with 127.0.0.1:60558 established
+13/04/2019 22:01:23 :: MetricLineReceiver connection with 127.0.0.1:60558 closed cleanly
+13/04/2019 22:01:33 :: MetricLineReceiver connection with 127.0.0.1:60560 established
+13/04/2019 22:01:33 :: MetricLineReceiver connection with 127.0.0.1:60560 closed cleanly
+13/04/2019 22:01:43 :: MetricLineReceiver connection with 127.0.0.1:60562 established
+13/04/2019 22:01:43 :: MetricLineReceiver connection with 127.0.0.1:60562 closed cleanly
+13/04/2019 22:01:52 :: MetricLineReceiver connection with 127.0.0.1:60564 established
+13/04/2019 22:01:52 :: MetricLineReceiver connection with 127.0.0.1:60564 closed cleanly
+13/04/2019 22:01:53 :: MetricLineReceiver connection with 127.0.0.1:60566 established
+13/04/2019 22:01:53 :: MetricLineReceiver connection with 127.0.0.1:60566 closed cleanly
+13/04/2019 22:02:03 :: MetricLineReceiver connection with 127.0.0.1:60568 established
+13/04/2019 22:02:03 :: MetricLineReceiver connection with 127.0.0.1:60568 closed cleanly
+13/04/2019 22:02:13 :: MetricLineReceiver connection with 127.0.0.1:60572 established
+13/04/2019 22:02:13 :: MetricLineReceiver connection with 127.0.0.1:60572 closed cleanly
+13/04/2019 22:02:22 :: MetricLineReceiver connection with 127.0.0.1:60574 established
+13/04/2019 22:02:22 :: MetricLineReceiver connection with 127.0.0.1:60574 closed cleanly
+13/04/2019 22:02:23 :: MetricLineReceiver connection with 127.0.0.1:60576 established
+13/04/2019 22:02:23 :: MetricLineReceiver connection with 127.0.0.1:60576 closed cleanly
+13/04/2019 22:02:33 :: MetricLineReceiver connection with 127.0.0.1:60578 established
+13/04/2019 22:02:33 :: MetricLineReceiver connection with 127.0.0.1:60578 closed cleanly
+13/04/2019 22:02:43 :: MetricLineReceiver connection with 127.0.0.1:60580 established
+13/04/2019 22:02:43 :: MetricLineReceiver connection with 127.0.0.1:60580 closed cleanly
+13/04/2019 22:02:52 :: MetricLineReceiver connection with 127.0.0.1:60582 established
+13/04/2019 22:02:52 :: MetricLineReceiver connection with 127.0.0.1:60582 closed cleanly
+13/04/2019 22:02:53 :: MetricLineReceiver connection with 127.0.0.1:60584 established
+13/04/2019 22:02:53 :: MetricLineReceiver connection with 127.0.0.1:60584 closed cleanly
+13/04/2019 22:03:03 :: MetricLineReceiver connection with 127.0.0.1:60586 established
+13/04/2019 22:03:03 :: MetricLineReceiver connection with 127.0.0.1:60586 closed cleanly
+13/04/2019 22:03:13 :: MetricLineReceiver connection with 127.0.0.1:60590 established
+13/04/2019 22:03:13 :: MetricLineReceiver connection with 127.0.0.1:60590 closed cleanly
+13/04/2019 22:03:22 :: MetricLineReceiver connection with 127.0.0.1:60592 established
+13/04/2019 22:03:22 :: MetricLineReceiver connection with 127.0.0.1:60592 closed cleanly
+13/04/2019 22:03:23 :: MetricLineReceiver connection with 127.0.0.1:60594 established
+13/04/2019 22:03:23 :: MetricLineReceiver connection with 127.0.0.1:60594 closed cleanly
+13/04/2019 22:03:33 :: MetricLineReceiver connection with 127.0.0.1:60596 established
+13/04/2019 22:03:33 :: MetricLineReceiver connection with 127.0.0.1:60596 closed cleanly
+13/04/2019 22:03:43 :: MetricLineReceiver connection with 127.0.0.1:60598 established
+13/04/2019 22:03:43 :: MetricLineReceiver connection with 127.0.0.1:60598 closed cleanly
+13/04/2019 22:03:52 :: MetricLineReceiver connection with 127.0.0.1:60600 established
+13/04/2019 22:03:52 :: MetricLineReceiver connection with 127.0.0.1:60600 closed cleanly
+13/04/2019 22:03:53 :: MetricLineReceiver connection with 127.0.0.1:60602 established
+13/04/2019 22:03:53 :: MetricLineReceiver connection with 127.0.0.1:60602 closed cleanly
+13/04/2019 22:04:03 :: MetricLineReceiver connection with 127.0.0.1:60606 established
+13/04/2019 22:04:03 :: MetricLineReceiver connection with 127.0.0.1:60606 closed cleanly
+13/04/2019 22:04:13 :: MetricLineReceiver connection with 127.0.0.1:60608 established
+13/04/2019 22:04:13 :: MetricLineReceiver connection with 127.0.0.1:60608 closed cleanly
+13/04/2019 22:04:22 :: MetricLineReceiver connection with 127.0.0.1:60610 established
+13/04/2019 22:04:22 :: MetricLineReceiver connection with 127.0.0.1:60610 closed cleanly
+13/04/2019 22:04:23 :: MetricLineReceiver connection with 127.0.0.1:60612 established
+13/04/2019 22:04:23 :: MetricLineReceiver connection with 127.0.0.1:60612 closed cleanly
+13/04/2019 22:04:33 :: MetricLineReceiver connection with 127.0.0.1:60614 established
+13/04/2019 22:04:33 :: MetricLineReceiver connection with 127.0.0.1:60614 closed cleanly
+13/04/2019 22:04:43 :: MetricLineReceiver connection with 127.0.0.1:60616 established
+13/04/2019 22:04:43 :: MetricLineReceiver connection with 127.0.0.1:60616 closed cleanly
+13/04/2019 22:04:52 :: MetricLineReceiver connection with 127.0.0.1:60618 established
+13/04/2019 22:04:52 :: MetricLineReceiver connection with 127.0.0.1:60618 closed cleanly
+13/04/2019 22:04:53 :: MetricLineReceiver connection with 127.0.0.1:60620 established
+13/04/2019 22:04:53 :: MetricLineReceiver connection with 127.0.0.1:60620 closed cleanly
+13/04/2019 22:05:03 :: MetricLineReceiver connection with 127.0.0.1:60624 established
+13/04/2019 22:05:03 :: MetricLineReceiver connection with 127.0.0.1:60624 closed cleanly
+13/04/2019 22:05:13 :: MetricLineReceiver connection with 127.0.0.1:60626 established
+13/04/2019 22:05:13 :: MetricLineReceiver connection with 127.0.0.1:60626 closed cleanly
+13/04/2019 22:05:22 :: MetricLineReceiver connection with 127.0.0.1:60628 established
+13/04/2019 22:05:22 :: MetricLineReceiver connection with 127.0.0.1:60628 closed cleanly
+13/04/2019 22:05:23 :: MetricLineReceiver connection with 127.0.0.1:60630 established
+13/04/2019 22:05:23 :: MetricLineReceiver connection with 127.0.0.1:60630 closed cleanly
+13/04/2019 22:05:33 :: MetricLineReceiver connection with 127.0.0.1:60632 established
+13/04/2019 22:05:33 :: MetricLineReceiver connection with 127.0.0.1:60632 closed cleanly
+13/04/2019 22:05:43 :: MetricLineReceiver connection with 127.0.0.1:60634 established
+13/04/2019 22:05:43 :: MetricLineReceiver connection with 127.0.0.1:60634 closed cleanly
+13/04/2019 22:05:52 :: MetricLineReceiver connection with 127.0.0.1:60636 established
+13/04/2019 22:05:52 :: MetricLineReceiver connection with 127.0.0.1:60636 closed cleanly
+13/04/2019 22:05:53 :: MetricLineReceiver connection with 127.0.0.1:60638 established
+13/04/2019 22:05:53 :: MetricLineReceiver connection with 127.0.0.1:60638 closed cleanly
+13/04/2019 22:06:03 :: MetricLineReceiver connection with 127.0.0.1:60642 established
+13/04/2019 22:06:03 :: MetricLineReceiver connection with 127.0.0.1:60642 closed cleanly
+13/04/2019 22:06:13 :: MetricLineReceiver connection with 127.0.0.1:60644 established
+13/04/2019 22:06:13 :: MetricLineReceiver connection with 127.0.0.1:60644 closed cleanly
+13/04/2019 22:06:22 :: MetricLineReceiver connection with 127.0.0.1:60646 established
+13/04/2019 22:06:22 :: MetricLineReceiver connection with 127.0.0.1:60646 closed cleanly
+13/04/2019 22:06:23 :: MetricLineReceiver connection with 127.0.0.1:60648 established
+13/04/2019 22:06:23 :: MetricLineReceiver connection with 127.0.0.1:60648 closed cleanly
+13/04/2019 22:06:33 :: MetricLineReceiver connection with 127.0.0.1:60650 established
+13/04/2019 22:06:33 :: MetricLineReceiver connection with 127.0.0.1:60650 closed cleanly
+13/04/2019 22:06:43 :: MetricLineReceiver connection with 127.0.0.1:60652 established
+13/04/2019 22:06:43 :: MetricLineReceiver connection with 127.0.0.1:60652 closed cleanly
+13/04/2019 22:06:52 :: MetricLineReceiver connection with 127.0.0.1:60654 established
+13/04/2019 22:06:52 :: MetricLineReceiver connection with 127.0.0.1:60654 closed cleanly
+13/04/2019 22:06:53 :: MetricLineReceiver connection with 127.0.0.1:60656 established
+13/04/2019 22:06:53 :: MetricLineReceiver connection with 127.0.0.1:60656 closed cleanly
+13/04/2019 22:07:03 :: MetricLineReceiver connection with 127.0.0.1:60660 established
+13/04/2019 22:07:03 :: MetricLineReceiver connection with 127.0.0.1:60660 closed cleanly
+13/04/2019 22:07:13 :: MetricLineReceiver connection with 127.0.0.1:60662 established
+13/04/2019 22:07:13 :: MetricLineReceiver connection with 127.0.0.1:60662 closed cleanly
+13/04/2019 22:07:22 :: MetricLineReceiver connection with 127.0.0.1:60664 established
+13/04/2019 22:07:22 :: MetricLineReceiver connection with 127.0.0.1:60664 closed cleanly
+13/04/2019 22:07:23 :: MetricLineReceiver connection with 127.0.0.1:60666 established
+13/04/2019 22:07:23 :: MetricLineReceiver connection with 127.0.0.1:60666 closed cleanly
+13/04/2019 22:07:33 :: MetricLineReceiver connection with 127.0.0.1:60668 established
+13/04/2019 22:07:33 :: MetricLineReceiver connection with 127.0.0.1:60668 closed cleanly
+13/04/2019 22:07:43 :: MetricLineReceiver connection with 127.0.0.1:60670 established
+13/04/2019 22:07:43 :: MetricLineReceiver connection with 127.0.0.1:60670 closed cleanly
+13/04/2019 22:07:52 :: MetricLineReceiver connection with 127.0.0.1:60672 established
+13/04/2019 22:07:52 :: MetricLineReceiver connection with 127.0.0.1:60672 closed cleanly
+13/04/2019 22:07:53 :: MetricLineReceiver connection with 127.0.0.1:60674 established
+13/04/2019 22:07:53 :: MetricLineReceiver connection with 127.0.0.1:60674 closed cleanly
+13/04/2019 22:08:03 :: MetricLineReceiver connection with 127.0.0.1:60678 established
+13/04/2019 22:08:03 :: MetricLineReceiver connection with 127.0.0.1:60678 closed cleanly
+13/04/2019 22:08:13 :: MetricLineReceiver connection with 127.0.0.1:60680 established
+13/04/2019 22:08:13 :: MetricLineReceiver connection with 127.0.0.1:60680 closed cleanly
+13/04/2019 22:08:22 :: MetricLineReceiver connection with 127.0.0.1:60682 established
+13/04/2019 22:08:22 :: MetricLineReceiver connection with 127.0.0.1:60682 closed cleanly
+13/04/2019 22:08:23 :: MetricLineReceiver connection with 127.0.0.1:60684 established
+13/04/2019 22:08:23 :: MetricLineReceiver connection with 127.0.0.1:60684 closed cleanly
+13/04/2019 22:08:33 :: MetricLineReceiver connection with 127.0.0.1:60686 established
+13/04/2019 22:08:33 :: MetricLineReceiver connection with 127.0.0.1:60686 closed cleanly
+13/04/2019 22:08:43 :: MetricLineReceiver connection with 127.0.0.1:60688 established
+13/04/2019 22:08:43 :: MetricLineReceiver connection with 127.0.0.1:60688 closed cleanly
+13/04/2019 22:08:52 :: MetricLineReceiver connection with 127.0.0.1:60690 established
+13/04/2019 22:08:52 :: MetricLineReceiver connection with 127.0.0.1:60690 closed cleanly
+13/04/2019 22:08:53 :: MetricLineReceiver connection with 127.0.0.1:60692 established
+13/04/2019 22:08:53 :: MetricLineReceiver connection with 127.0.0.1:60692 closed cleanly
+13/04/2019 22:09:03 :: MetricLineReceiver connection with 127.0.0.1:60696 established
+13/04/2019 22:09:03 :: MetricLineReceiver connection with 127.0.0.1:60696 closed cleanly
+13/04/2019 22:09:13 :: MetricLineReceiver connection with 127.0.0.1:60698 established
+13/04/2019 22:09:13 :: MetricLineReceiver connection with 127.0.0.1:60698 closed cleanly
+13/04/2019 22:09:22 :: MetricLineReceiver connection with 127.0.0.1:60700 established
+13/04/2019 22:09:22 :: MetricLineReceiver connection with 127.0.0.1:60700 closed cleanly
+13/04/2019 22:09:23 :: MetricLineReceiver connection with 127.0.0.1:60702 established
+13/04/2019 22:09:23 :: MetricLineReceiver connection with 127.0.0.1:60702 closed cleanly
+13/04/2019 22:09:33 :: MetricLineReceiver connection with 127.0.0.1:60704 established
+13/04/2019 22:09:33 :: MetricLineReceiver connection with 127.0.0.1:60704 closed cleanly
+13/04/2019 22:09:43 :: MetricLineReceiver connection with 127.0.0.1:60706 established
+13/04/2019 22:09:43 :: MetricLineReceiver connection with 127.0.0.1:60706 closed cleanly
+13/04/2019 22:09:52 :: MetricLineReceiver connection with 127.0.0.1:60708 established
+13/04/2019 22:09:52 :: MetricLineReceiver connection with 127.0.0.1:60708 closed cleanly
+13/04/2019 22:09:53 :: MetricLineReceiver connection with 127.0.0.1:60710 established
+13/04/2019 22:09:53 :: MetricLineReceiver connection with 127.0.0.1:60710 closed cleanly
+13/04/2019 22:10:03 :: MetricLineReceiver connection with 127.0.0.1:60714 established
+13/04/2019 22:10:03 :: MetricLineReceiver connection with 127.0.0.1:60714 closed cleanly
+13/04/2019 22:10:13 :: MetricLineReceiver connection with 127.0.0.1:60720 established
+13/04/2019 22:10:13 :: MetricLineReceiver connection with 127.0.0.1:60720 closed cleanly
+13/04/2019 22:10:22 :: MetricLineReceiver connection with 127.0.0.1:60722 established
+13/04/2019 22:10:22 :: MetricLineReceiver connection with 127.0.0.1:60722 closed cleanly
+13/04/2019 22:10:23 :: MetricLineReceiver connection with 127.0.0.1:60724 established
+13/04/2019 22:10:23 :: MetricLineReceiver connection with 127.0.0.1:60724 closed cleanly
+13/04/2019 22:10:33 :: MetricLineReceiver connection with 127.0.0.1:60726 established
+13/04/2019 22:10:33 :: MetricLineReceiver connection with 127.0.0.1:60726 closed cleanly
+13/04/2019 22:10:43 :: MetricLineReceiver connection with 127.0.0.1:60728 established
+13/04/2019 22:10:43 :: MetricLineReceiver connection with 127.0.0.1:60728 closed cleanly
+13/04/2019 22:10:52 :: MetricLineReceiver connection with 127.0.0.1:60732 established
+13/04/2019 22:10:52 :: MetricLineReceiver connection with 127.0.0.1:60732 closed cleanly
+13/04/2019 22:10:53 :: MetricLineReceiver connection with 127.0.0.1:60734 established
+13/04/2019 22:10:53 :: MetricLineReceiver connection with 127.0.0.1:60734 closed cleanly
+13/04/2019 22:11:03 :: MetricLineReceiver connection with 127.0.0.1:60736 established
+13/04/2019 22:11:03 :: MetricLineReceiver connection with 127.0.0.1:60736 closed cleanly
+13/04/2019 22:11:13 :: MetricLineReceiver connection with 127.0.0.1:60738 established
+13/04/2019 22:11:13 :: MetricLineReceiver connection with 127.0.0.1:60738 closed cleanly
+13/04/2019 22:11:22 :: MetricLineReceiver connection with 127.0.0.1:60740 established
+13/04/2019 22:11:22 :: MetricLineReceiver connection with 127.0.0.1:60740 closed cleanly
+13/04/2019 22:11:23 :: MetricLineReceiver connection with 127.0.0.1:60742 established
+13/04/2019 22:11:23 :: MetricLineReceiver connection with 127.0.0.1:60742 closed cleanly
+13/04/2019 22:11:33 :: MetricLineReceiver connection with 127.0.0.1:60744 established
+13/04/2019 22:11:33 :: MetricLineReceiver connection with 127.0.0.1:60744 closed cleanly
+13/04/2019 22:11:43 :: MetricLineReceiver connection with 127.0.0.1:60746 established
+13/04/2019 22:11:43 :: MetricLineReceiver connection with 127.0.0.1:60746 closed cleanly
+13/04/2019 22:11:52 :: MetricLineReceiver connection with 127.0.0.1:60750 established
+13/04/2019 22:11:52 :: MetricLineReceiver connection with 127.0.0.1:60750 closed cleanly
+13/04/2019 22:11:53 :: MetricLineReceiver connection with 127.0.0.1:60752 established
+13/04/2019 22:11:53 :: MetricLineReceiver connection with 127.0.0.1:60752 closed cleanly
+13/04/2019 22:12:03 :: MetricLineReceiver connection with 127.0.0.1:60754 established
+13/04/2019 22:12:03 :: MetricLineReceiver connection with 127.0.0.1:60754 closed cleanly
+13/04/2019 22:12:13 :: MetricLineReceiver connection with 127.0.0.1:60756 established
+13/04/2019 22:12:13 :: MetricLineReceiver connection with 127.0.0.1:60756 closed cleanly
+13/04/2019 22:12:22 :: MetricLineReceiver connection with 127.0.0.1:60758 established
+13/04/2019 22:12:22 :: MetricLineReceiver connection with 127.0.0.1:60758 closed cleanly
+13/04/2019 22:12:23 :: MetricLineReceiver connection with 127.0.0.1:60760 established
+13/04/2019 22:12:23 :: MetricLineReceiver connection with 127.0.0.1:60760 closed cleanly
+13/04/2019 22:12:33 :: MetricLineReceiver connection with 127.0.0.1:60762 established
+13/04/2019 22:12:33 :: MetricLineReceiver connection with 127.0.0.1:60762 closed cleanly
+13/04/2019 22:12:43 :: MetricLineReceiver connection with 127.0.0.1:60764 established
+13/04/2019 22:12:43 :: MetricLineReceiver connection with 127.0.0.1:60764 closed cleanly
+13/04/2019 22:12:52 :: MetricLineReceiver connection with 127.0.0.1:60768 established
+13/04/2019 22:12:52 :: MetricLineReceiver connection with 127.0.0.1:60768 closed cleanly
+13/04/2019 22:12:53 :: MetricLineReceiver connection with 127.0.0.1:60770 established
+13/04/2019 22:12:53 :: MetricLineReceiver connection with 127.0.0.1:60770 closed cleanly
+13/04/2019 22:13:03 :: MetricLineReceiver connection with 127.0.0.1:60772 established
+13/04/2019 22:13:03 :: MetricLineReceiver connection with 127.0.0.1:60772 closed cleanly
+13/04/2019 22:13:13 :: MetricLineReceiver connection with 127.0.0.1:60774 established
+13/04/2019 22:13:13 :: MetricLineReceiver connection with 127.0.0.1:60774 closed cleanly
+13/04/2019 22:13:22 :: MetricLineReceiver connection with 127.0.0.1:60776 established
+13/04/2019 22:13:22 :: MetricLineReceiver connection with 127.0.0.1:60776 closed cleanly
+13/04/2019 22:13:23 :: MetricLineReceiver connection with 127.0.0.1:60778 established
+13/04/2019 22:13:23 :: MetricLineReceiver connection with 127.0.0.1:60778 closed cleanly
+13/04/2019 22:13:33 :: MetricLineReceiver connection with 127.0.0.1:60780 established
+13/04/2019 22:13:33 :: MetricLineReceiver connection with 127.0.0.1:60780 closed cleanly
+13/04/2019 22:13:43 :: MetricLineReceiver connection with 127.0.0.1:60782 established
+13/04/2019 22:13:43 :: MetricLineReceiver connection with 127.0.0.1:60782 closed cleanly
+13/04/2019 22:13:52 :: MetricLineReceiver connection with 127.0.0.1:60786 established
+13/04/2019 22:13:52 :: MetricLineReceiver connection with 127.0.0.1:60786 closed cleanly
+13/04/2019 22:13:53 :: MetricLineReceiver connection with 127.0.0.1:60788 established
+13/04/2019 22:13:53 :: MetricLineReceiver connection with 127.0.0.1:60788 closed cleanly
+13/04/2019 22:14:03 :: MetricLineReceiver connection with 127.0.0.1:60790 established
+13/04/2019 22:14:03 :: MetricLineReceiver connection with 127.0.0.1:60790 closed cleanly
+13/04/2019 22:14:13 :: MetricLineReceiver connection with 127.0.0.1:60792 established
+13/04/2019 22:14:13 :: MetricLineReceiver connection with 127.0.0.1:60792 closed cleanly
+13/04/2019 22:14:22 :: MetricLineReceiver connection with 127.0.0.1:60794 established
+13/04/2019 22:14:22 :: MetricLineReceiver connection with 127.0.0.1:60794 closed cleanly
+13/04/2019 22:14:23 :: MetricLineReceiver connection with 127.0.0.1:60796 established
+13/04/2019 22:14:23 :: MetricLineReceiver connection with 127.0.0.1:60796 closed cleanly
+13/04/2019 22:14:33 :: MetricLineReceiver connection with 127.0.0.1:60798 established
+13/04/2019 22:14:33 :: MetricLineReceiver connection with 127.0.0.1:60798 closed cleanly
+13/04/2019 22:14:43 :: MetricLineReceiver connection with 127.0.0.1:60800 established
+13/04/2019 22:14:43 :: MetricLineReceiver connection with 127.0.0.1:60800 closed cleanly
+13/04/2019 22:14:52 :: MetricLineReceiver connection with 127.0.0.1:60804 established
+13/04/2019 22:14:52 :: MetricLineReceiver connection with 127.0.0.1:60804 closed cleanly
+13/04/2019 22:14:53 :: MetricLineReceiver connection with 127.0.0.1:60806 established
+13/04/2019 22:14:53 :: MetricLineReceiver connection with 127.0.0.1:60806 closed cleanly
+13/04/2019 22:15:03 :: MetricLineReceiver connection with 127.0.0.1:60808 established
+13/04/2019 22:15:03 :: MetricLineReceiver connection with 127.0.0.1:60808 closed cleanly
+13/04/2019 22:15:13 :: MetricLineReceiver connection with 127.0.0.1:60810 established
+13/04/2019 22:15:13 :: MetricLineReceiver connection with 127.0.0.1:60810 closed cleanly
+13/04/2019 22:15:22 :: MetricLineReceiver connection with 127.0.0.1:60812 established
+13/04/2019 22:15:22 :: MetricLineReceiver connection with 127.0.0.1:60812 closed cleanly
+13/04/2019 22:15:23 :: MetricLineReceiver connection with 127.0.0.1:60814 established
+13/04/2019 22:15:23 :: MetricLineReceiver connection with 127.0.0.1:60814 closed cleanly
+13/04/2019 22:15:33 :: MetricLineReceiver connection with 127.0.0.1:60816 established
+13/04/2019 22:15:33 :: MetricLineReceiver connection with 127.0.0.1:60816 closed cleanly
+13/04/2019 22:15:43 :: MetricLineReceiver connection with 127.0.0.1:60818 established
+13/04/2019 22:15:43 :: MetricLineReceiver connection with 127.0.0.1:60818 closed cleanly
+13/04/2019 22:15:52 :: MetricLineReceiver connection with 127.0.0.1:60822 established
+13/04/2019 22:15:52 :: MetricLineReceiver connection with 127.0.0.1:60822 closed cleanly
+13/04/2019 22:15:53 :: MetricLineReceiver connection with 127.0.0.1:60824 established
+13/04/2019 22:15:53 :: MetricLineReceiver connection with 127.0.0.1:60824 closed cleanly
+13/04/2019 22:16:03 :: MetricLineReceiver connection with 127.0.0.1:60826 established
+13/04/2019 22:16:03 :: MetricLineReceiver connection with 127.0.0.1:60826 closed cleanly
+13/04/2019 22:16:13 :: MetricLineReceiver connection with 127.0.0.1:60828 established
+13/04/2019 22:16:13 :: MetricLineReceiver connection with 127.0.0.1:60828 closed cleanly
+13/04/2019 22:16:22 :: MetricLineReceiver connection with 127.0.0.1:60830 established
+13/04/2019 22:16:22 :: MetricLineReceiver connection with 127.0.0.1:60830 closed cleanly
+13/04/2019 22:16:23 :: MetricLineReceiver connection with 127.0.0.1:60832 established
+13/04/2019 22:16:23 :: MetricLineReceiver connection with 127.0.0.1:60832 closed cleanly
+13/04/2019 22:16:33 :: MetricLineReceiver connection with 127.0.0.1:60834 established
+13/04/2019 22:16:33 :: MetricLineReceiver connection with 127.0.0.1:60834 closed cleanly
+13/04/2019 22:16:43 :: MetricLineReceiver connection with 127.0.0.1:60836 established
+13/04/2019 22:16:43 :: MetricLineReceiver connection with 127.0.0.1:60836 closed cleanly
+13/04/2019 22:16:52 :: MetricLineReceiver connection with 127.0.0.1:60840 established
+13/04/2019 22:16:52 :: MetricLineReceiver connection with 127.0.0.1:60840 closed cleanly
+13/04/2019 22:16:53 :: MetricLineReceiver connection with 127.0.0.1:60842 established
+13/04/2019 22:16:53 :: MetricLineReceiver connection with 127.0.0.1:60842 closed cleanly
+13/04/2019 22:17:03 :: MetricLineReceiver connection with 127.0.0.1:60844 established
+13/04/2019 22:17:03 :: MetricLineReceiver connection with 127.0.0.1:60844 closed cleanly
+13/04/2019 22:17:13 :: MetricLineReceiver connection with 127.0.0.1:60846 established
+13/04/2019 22:17:13 :: MetricLineReceiver connection with 127.0.0.1:60846 closed cleanly
+13/04/2019 22:17:22 :: MetricLineReceiver connection with 127.0.0.1:60848 established
+13/04/2019 22:17:22 :: MetricLineReceiver connection with 127.0.0.1:60848 closed cleanly
+13/04/2019 22:17:23 :: MetricLineReceiver connection with 127.0.0.1:60850 established
+13/04/2019 22:17:23 :: MetricLineReceiver connection with 127.0.0.1:60850 closed cleanly
+13/04/2019 22:17:33 :: MetricLineReceiver connection with 127.0.0.1:60852 established
+13/04/2019 22:17:33 :: MetricLineReceiver connection with 127.0.0.1:60852 closed cleanly
+13/04/2019 22:17:43 :: MetricLineReceiver connection with 127.0.0.1:60856 established
+13/04/2019 22:17:43 :: MetricLineReceiver connection with 127.0.0.1:60856 closed cleanly
+13/04/2019 22:17:52 :: MetricLineReceiver connection with 127.0.0.1:60858 established
+13/04/2019 22:17:52 :: MetricLineReceiver connection with 127.0.0.1:60858 closed cleanly
+13/04/2019 22:17:53 :: MetricLineReceiver connection with 127.0.0.1:60860 established
+13/04/2019 22:17:53 :: MetricLineReceiver connection with 127.0.0.1:60860 closed cleanly
+13/04/2019 22:18:03 :: MetricLineReceiver connection with 127.0.0.1:60862 established
+13/04/2019 22:18:03 :: MetricLineReceiver connection with 127.0.0.1:60862 closed cleanly
+13/04/2019 22:18:13 :: MetricLineReceiver connection with 127.0.0.1:60864 established
+13/04/2019 22:18:13 :: MetricLineReceiver connection with 127.0.0.1:60864 closed cleanly
+13/04/2019 22:18:22 :: MetricLineReceiver connection with 127.0.0.1:60866 established
+13/04/2019 22:18:22 :: MetricLineReceiver connection with 127.0.0.1:60866 closed cleanly
+13/04/2019 22:18:23 :: MetricLineReceiver connection with 127.0.0.1:60868 established
+13/04/2019 22:18:23 :: MetricLineReceiver connection with 127.0.0.1:60868 closed cleanly
+13/04/2019 22:18:33 :: MetricLineReceiver connection with 127.0.0.1:60870 established
+13/04/2019 22:18:33 :: MetricLineReceiver connection with 127.0.0.1:60870 closed cleanly
+13/04/2019 22:18:43 :: MetricLineReceiver connection with 127.0.0.1:60874 established
+13/04/2019 22:18:43 :: MetricLineReceiver connection with 127.0.0.1:60874 closed cleanly
+13/04/2019 22:18:52 :: MetricLineReceiver connection with 127.0.0.1:60876 established
+13/04/2019 22:18:52 :: MetricLineReceiver connection with 127.0.0.1:60876 closed cleanly
+13/04/2019 22:18:53 :: MetricLineReceiver connection with 127.0.0.1:60878 established
+13/04/2019 22:18:53 :: MetricLineReceiver connection with 127.0.0.1:60878 closed cleanly
+13/04/2019 22:19:03 :: MetricLineReceiver connection with 127.0.0.1:60880 established
+13/04/2019 22:19:03 :: MetricLineReceiver connection with 127.0.0.1:60880 closed cleanly
+13/04/2019 22:19:13 :: MetricLineReceiver connection with 127.0.0.1:60882 established
+13/04/2019 22:19:13 :: MetricLineReceiver connection with 127.0.0.1:60882 closed cleanly
+13/04/2019 22:19:22 :: MetricLineReceiver connection with 127.0.0.1:60884 established
+13/04/2019 22:19:22 :: MetricLineReceiver connection with 127.0.0.1:60884 closed cleanly
+13/04/2019 22:19:23 :: MetricLineReceiver connection with 127.0.0.1:60886 established
+13/04/2019 22:19:23 :: MetricLineReceiver connection with 127.0.0.1:60886 closed cleanly
+13/04/2019 22:19:33 :: MetricLineReceiver connection with 127.0.0.1:60888 established
+13/04/2019 22:19:33 :: MetricLineReceiver connection with 127.0.0.1:60888 closed cleanly
+13/04/2019 22:19:43 :: MetricLineReceiver connection with 127.0.0.1:60892 established
+13/04/2019 22:19:43 :: MetricLineReceiver connection with 127.0.0.1:60892 closed cleanly
+13/04/2019 22:19:52 :: MetricLineReceiver connection with 127.0.0.1:60894 established
+13/04/2019 22:19:52 :: MetricLineReceiver connection with 127.0.0.1:60894 closed cleanly
+13/04/2019 22:19:53 :: MetricLineReceiver connection with 127.0.0.1:60896 established
+13/04/2019 22:19:53 :: MetricLineReceiver connection with 127.0.0.1:60896 closed cleanly
+13/04/2019 22:20:03 :: MetricLineReceiver connection with 127.0.0.1:60898 established
+13/04/2019 22:20:03 :: MetricLineReceiver connection with 127.0.0.1:60898 closed cleanly
+13/04/2019 22:20:13 :: MetricLineReceiver connection with 127.0.0.1:60904 established
+13/04/2019 22:20:13 :: MetricLineReceiver connection with 127.0.0.1:60904 closed cleanly
+13/04/2019 22:20:22 :: MetricLineReceiver connection with 127.0.0.1:60906 established
+13/04/2019 22:20:22 :: MetricLineReceiver connection with 127.0.0.1:60906 closed cleanly
+13/04/2019 22:20:23 :: MetricLineReceiver connection with 127.0.0.1:60908 established
+13/04/2019 22:20:23 :: MetricLineReceiver connection with 127.0.0.1:60908 closed cleanly
+13/04/2019 22:20:33 :: MetricLineReceiver connection with 127.0.0.1:60910 established
+13/04/2019 22:20:33 :: MetricLineReceiver connection with 127.0.0.1:60910 closed cleanly
+13/04/2019 22:20:43 :: MetricLineReceiver connection with 127.0.0.1:60916 established
+13/04/2019 22:20:43 :: MetricLineReceiver connection with 127.0.0.1:60916 closed cleanly
+13/04/2019 22:20:52 :: MetricLineReceiver connection with 127.0.0.1:60918 established
+13/04/2019 22:20:52 :: MetricLineReceiver connection with 127.0.0.1:60918 closed cleanly
+13/04/2019 22:20:53 :: MetricLineReceiver connection with 127.0.0.1:60920 established
+13/04/2019 22:20:53 :: MetricLineReceiver connection with 127.0.0.1:60920 closed cleanly
+13/04/2019 22:21:03 :: MetricLineReceiver connection with 127.0.0.1:60922 established
+13/04/2019 22:21:03 :: MetricLineReceiver connection with 127.0.0.1:60922 closed cleanly
+13/04/2019 22:21:13 :: MetricLineReceiver connection with 127.0.0.1:60924 established
+13/04/2019 22:21:13 :: MetricLineReceiver connection with 127.0.0.1:60924 closed cleanly
+13/04/2019 22:21:22 :: MetricLineReceiver connection with 127.0.0.1:60926 established
+13/04/2019 22:21:22 :: MetricLineReceiver connection with 127.0.0.1:60926 closed cleanly
+13/04/2019 22:21:23 :: MetricLineReceiver connection with 127.0.0.1:60928 established
+13/04/2019 22:21:23 :: MetricLineReceiver connection with 127.0.0.1:60928 closed cleanly
+13/04/2019 22:21:33 :: MetricLineReceiver connection with 127.0.0.1:60930 established
+13/04/2019 22:21:33 :: MetricLineReceiver connection with 127.0.0.1:60930 closed cleanly
+13/04/2019 22:21:43 :: MetricLineReceiver connection with 127.0.0.1:60934 established
+13/04/2019 22:21:43 :: MetricLineReceiver connection with 127.0.0.1:60934 closed cleanly
+13/04/2019 22:21:52 :: MetricLineReceiver connection with 127.0.0.1:60936 established
+13/04/2019 22:21:52 :: MetricLineReceiver connection with 127.0.0.1:60936 closed cleanly
+13/04/2019 22:21:53 :: MetricLineReceiver connection with 127.0.0.1:60938 established
+13/04/2019 22:21:53 :: MetricLineReceiver connection with 127.0.0.1:60938 closed cleanly
+13/04/2019 22:22:03 :: MetricLineReceiver connection with 127.0.0.1:60940 established
+13/04/2019 22:22:03 :: MetricLineReceiver connection with 127.0.0.1:60940 closed cleanly
+13/04/2019 22:22:13 :: MetricLineReceiver connection with 127.0.0.1:60942 established
+13/04/2019 22:22:13 :: MetricLineReceiver connection with 127.0.0.1:60942 closed cleanly
+13/04/2019 22:22:22 :: MetricLineReceiver connection with 127.0.0.1:60944 established
+13/04/2019 22:22:22 :: MetricLineReceiver connection with 127.0.0.1:60944 closed cleanly
+13/04/2019 22:22:23 :: MetricLineReceiver connection with 127.0.0.1:60946 established
+13/04/2019 22:22:23 :: MetricLineReceiver connection with 127.0.0.1:60946 closed cleanly
+13/04/2019 22:22:33 :: MetricLineReceiver connection with 127.0.0.1:60948 established
+13/04/2019 22:22:33 :: MetricLineReceiver connection with 127.0.0.1:60948 closed cleanly
+13/04/2019 22:22:43 :: MetricLineReceiver connection with 127.0.0.1:60952 established
+13/04/2019 22:22:43 :: MetricLineReceiver connection with 127.0.0.1:60952 closed cleanly
+13/04/2019 22:22:52 :: MetricLineReceiver connection with 127.0.0.1:60954 established
+13/04/2019 22:22:52 :: MetricLineReceiver connection with 127.0.0.1:60954 closed cleanly
+13/04/2019 22:22:53 :: MetricLineReceiver connection with 127.0.0.1:60956 established
+13/04/2019 22:22:53 :: MetricLineReceiver connection with 127.0.0.1:60956 closed cleanly
+13/04/2019 22:23:03 :: MetricLineReceiver connection with 127.0.0.1:60958 established
+13/04/2019 22:23:03 :: MetricLineReceiver connection with 127.0.0.1:60958 closed cleanly
+13/04/2019 22:23:13 :: MetricLineReceiver connection with 127.0.0.1:60960 established
+13/04/2019 22:23:13 :: MetricLineReceiver connection with 127.0.0.1:60960 closed cleanly
+13/04/2019 22:23:22 :: MetricLineReceiver connection with 127.0.0.1:60962 established
+13/04/2019 22:23:22 :: MetricLineReceiver connection with 127.0.0.1:60962 closed cleanly
+13/04/2019 22:23:23 :: MetricLineReceiver connection with 127.0.0.1:60964 established
+13/04/2019 22:23:23 :: MetricLineReceiver connection with 127.0.0.1:60964 closed cleanly
+13/04/2019 22:23:33 :: MetricLineReceiver connection with 127.0.0.1:60966 established
+13/04/2019 22:23:33 :: MetricLineReceiver connection with 127.0.0.1:60966 closed cleanly
+13/04/2019 22:23:43 :: MetricLineReceiver connection with 127.0.0.1:60970 established
+13/04/2019 22:23:43 :: MetricLineReceiver connection with 127.0.0.1:60970 closed cleanly
+13/04/2019 22:23:52 :: MetricLineReceiver connection with 127.0.0.1:60972 established
+13/04/2019 22:23:52 :: MetricLineReceiver connection with 127.0.0.1:60972 closed cleanly
+13/04/2019 22:23:53 :: MetricLineReceiver connection with 127.0.0.1:60974 established
+13/04/2019 22:23:53 :: MetricLineReceiver connection with 127.0.0.1:60974 closed cleanly
+13/04/2019 22:24:03 :: MetricLineReceiver connection with 127.0.0.1:60976 established
+13/04/2019 22:24:03 :: MetricLineReceiver connection with 127.0.0.1:60976 closed cleanly
+13/04/2019 22:24:13 :: MetricLineReceiver connection with 127.0.0.1:60978 established
+13/04/2019 22:24:13 :: MetricLineReceiver connection with 127.0.0.1:60978 closed cleanly
+13/04/2019 22:24:22 :: MetricLineReceiver connection with 127.0.0.1:60980 established
+13/04/2019 22:24:22 :: MetricLineReceiver connection with 127.0.0.1:60980 closed cleanly
+13/04/2019 22:24:23 :: MetricLineReceiver connection with 127.0.0.1:60982 established
+13/04/2019 22:24:23 :: MetricLineReceiver connection with 127.0.0.1:60982 closed cleanly
+13/04/2019 22:24:33 :: MetricLineReceiver connection with 127.0.0.1:60984 established
+13/04/2019 22:24:33 :: MetricLineReceiver connection with 127.0.0.1:60984 closed cleanly
+13/04/2019 22:24:43 :: MetricLineReceiver connection with 127.0.0.1:60988 established
+13/04/2019 22:24:43 :: MetricLineReceiver connection with 127.0.0.1:60988 closed cleanly
+13/04/2019 22:24:52 :: MetricLineReceiver connection with 127.0.0.1:60990 established
+13/04/2019 22:24:52 :: MetricLineReceiver connection with 127.0.0.1:60990 closed cleanly
+13/04/2019 22:24:53 :: MetricLineReceiver connection with 127.0.0.1:60992 established
+13/04/2019 22:24:53 :: MetricLineReceiver connection with 127.0.0.1:60992 closed cleanly
+13/04/2019 22:25:03 :: MetricLineReceiver connection with 127.0.0.1:60994 established
+13/04/2019 22:25:03 :: MetricLineReceiver connection with 127.0.0.1:60994 closed cleanly
+13/04/2019 22:25:13 :: MetricLineReceiver connection with 127.0.0.1:60996 established
+13/04/2019 22:25:13 :: MetricLineReceiver connection with 127.0.0.1:60996 closed cleanly
+13/04/2019 22:25:22 :: MetricLineReceiver connection with 127.0.0.1:60998 established
+13/04/2019 22:25:22 :: MetricLineReceiver connection with 127.0.0.1:60998 closed cleanly
+13/04/2019 22:25:23 :: MetricLineReceiver connection with 127.0.0.1:32768 established
+13/04/2019 22:25:23 :: MetricLineReceiver connection with 127.0.0.1:32768 closed cleanly
+13/04/2019 22:25:33 :: MetricLineReceiver connection with 127.0.0.1:32770 established
+13/04/2019 22:25:33 :: MetricLineReceiver connection with 127.0.0.1:32770 closed cleanly
