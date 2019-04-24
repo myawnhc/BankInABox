@@ -30,7 +30,7 @@ public class PaymentRulesEP implements EntryProcessor<String, Transaction>, Seri
         // Since we only have one rule implemented, this is trivial
         txn.setPaymentResult(clcOK);
         entry.setValue(txn);  // update the transaction in the map with the result
-        System.out.println("Payment rules complete");
+        //System.out.println("Payment rules complete");
         return clcOK;
     }
 

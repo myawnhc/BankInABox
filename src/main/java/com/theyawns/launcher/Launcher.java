@@ -11,6 +11,7 @@ import com.hazelcast.jet.config.JetConfig;
 import com.theyawns.domain.payments.CreditLimitRule;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.listeners.TransactionMapListener;
+import com.theyawns.pipelines.AdjustMerchantTransactionAverage;
 
 import java.io.Serializable;
 import java.util.concurrent.ExecutorService;
@@ -66,6 +67,13 @@ public class Launcher {
         }
     }
 
+    private static class AdjustMerchantAvgTask implements Runnable, Serializable {
+        public void run() {
+            AdjustMerchantTransactionAverage amta = new AdjustMerchantTransactionAverage();
+            amta.run();
+        }
+    }
+
     public static boolean isEven(String txnId) {
         int numericID = Integer.parseInt(txnId);
         boolean result =  (numericID % 2) == 0;
@@ -90,6 +98,12 @@ public class Launcher {
 
         preAuthMap.addEntryListener(new TransactionMapListener(main.hazelcast),
                 true);
+
+        // Start up the various Jet pipelines
+        // TODO: not sure there's any advantage to using IMDG executor service here
+        // over plain Java
+        AdjustMerchantAvgTask merchantAvgTask = new AdjustMerchantAvgTask();
+        main.distributedES.submit(merchantAvgTask);
 
         // This has no purpose other than monitoring the backlog during debug
         while (true) {

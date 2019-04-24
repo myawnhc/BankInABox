@@ -42,7 +42,7 @@ public class FraudRulesEP implements EntryProcessor<String, Transaction>, Serial
 
         txn.setFraudResult(fraudRisk);
         entry.setValue(txn);  // update the transaction in the map with the result
-        System.out.println("Fraud rules complete");
+        //System.out.println("Fraud rules complete");
         return fraudRisk;
     }
 
