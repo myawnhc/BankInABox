@@ -1,0 +1,2791 @@
+11/04/2019 21:56:37 :: Using sorted write strategy for cache
+11/04/2019 21:56:37 :: twistd 18.9.0 (/usr/bin/python 2.7.15) starting up.
+11/04/2019 21:56:37 :: reactor class: twisted.internet.epollreactor.EPollReactor.
+11/04/2019 21:56:37 :: ServerFactory starting on 7002
+11/04/2019 21:56:37 :: Starting factory <twisted.internet.protocol.ServerFactory instance at 0x7f8af497f0e0>
+11/04/2019 21:56:37 :: Installing SIG_IGN for SIGHUP
+11/04/2019 21:56:37 :: CarbonReceiverFactory starting on 2003
+11/04/2019 21:56:37 :: Starting factory <carbon.protocols.CarbonReceiverFactory instance at 0x7f8af4a03dd0>
+11/04/2019 21:56:37 :: CarbonReceiverFactory starting on 2004
+11/04/2019 21:56:37 :: Starting factory <carbon.protocols.CarbonReceiverFactory instance at 0x7f8af4a03d88>
+11/04/2019 21:56:43 :: Sorted 14 cache queues in 0.000092 seconds
+11/04/2019 21:56:53 :: Queue consumed in 9.248779 seconds
+11/04/2019 21:56:53 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 21:57:03 :: Queue consumed in 10.066119 seconds
+11/04/2019 21:57:03 :: Sorted 14 cache queues in 0.000059 seconds
+11/04/2019 21:57:13 :: Queue consumed in 10.045998 seconds
+11/04/2019 21:57:13 :: Sorted 14 cache queues in 0.000049 seconds
+11/04/2019 21:57:23 :: Queue consumed in 10.061595 seconds
+11/04/2019 21:57:23 :: Sorted 14 cache queues in 0.000062 seconds
+11/04/2019 21:57:33 :: Queue consumed in 10.069628 seconds
+11/04/2019 21:57:33 :: Sorted 14 cache queues in 0.000048 seconds
+11/04/2019 21:57:38 :: Queue consumed in 5.034638 seconds
+11/04/2019 21:57:38 :: Sorted 18 cache queues in 0.000070 seconds
+11/04/2019 21:57:43 :: Queue consumed in 5.227982 seconds
+11/04/2019 21:57:43 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 21:57:53 :: Queue consumed in 10.073909 seconds
+11/04/2019 21:57:53 :: Sorted 14 cache queues in 0.000026 seconds
+11/04/2019 21:58:03 :: Queue consumed in 10.058821 seconds
+11/04/2019 21:58:03 :: Sorted 14 cache queues in 0.000035 seconds
+11/04/2019 21:58:13 :: Queue consumed in 10.030455 seconds
+11/04/2019 21:58:13 :: Sorted 14 cache queues in 0.000043 seconds
+11/04/2019 21:58:20 :: Queue consumed in 7.055112 seconds
+11/04/2019 21:58:20 :: Sorted 1 cache queues in 0.000049 seconds
+11/04/2019 21:58:24 :: Queue consumed in 3.040891 seconds
+11/04/2019 21:58:24 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 21:58:33 :: Queue consumed in 9.057092 seconds
+11/04/2019 21:58:33 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 21:58:34 :: Queue consumed in 1.037632 seconds
+11/04/2019 21:58:34 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 21:58:38 :: Queue consumed in 4.001033 seconds
+11/04/2019 21:58:38 :: Sorted 19 cache queues in 0.000075 seconds
+11/04/2019 21:58:39 :: Queue consumed in 1.050408 seconds
+11/04/2019 21:58:39 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 21:58:40 :: Queue consumed in 1.009419 seconds
+11/04/2019 21:58:40 :: Sorted 1 cache queues in 0.000046 seconds
+11/04/2019 21:58:43 :: Queue consumed in 3.014205 seconds
+11/04/2019 21:58:43 :: Sorted 14 cache queues in 0.000168 seconds
+11/04/2019 21:58:53 :: Queue consumed in 10.063747 seconds
+11/04/2019 21:58:53 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 21:59:03 :: Queue consumed in 10.065466 seconds
+11/04/2019 21:59:03 :: Sorted 14 cache queues in 0.000055 seconds
+11/04/2019 21:59:07 :: Queue consumed in 4.044399 seconds
+11/04/2019 21:59:07 :: Sorted 1 cache queues in 0.000054 seconds
+11/04/2019 21:59:13 :: Queue consumed in 6.023728 seconds
+11/04/2019 21:59:13 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 21:59:23 :: Queue consumed in 10.059763 seconds
+11/04/2019 21:59:23 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 21:59:33 :: Queue consumed in 10.068017 seconds
+11/04/2019 21:59:33 :: Sorted 14 cache queues in 0.000048 seconds
+11/04/2019 21:59:38 :: Queue consumed in 5.033742 seconds
+11/04/2019 21:59:38 :: Sorted 18 cache queues in 0.000075 seconds
+11/04/2019 21:59:43 :: Queue consumed in 5.066484 seconds
+11/04/2019 21:59:43 :: Sorted 14 cache queues in 0.000047 seconds
+11/04/2019 21:59:53 :: Queue consumed in 10.064062 seconds
+11/04/2019 21:59:53 :: Sorted 14 cache queues in 0.000061 seconds
+11/04/2019 22:00:03 :: Queue consumed in 10.059053 seconds
+11/04/2019 22:00:03 :: Sorted 14 cache queues in 0.000061 seconds
+11/04/2019 22:00:13 :: Queue consumed in 10.045207 seconds
+11/04/2019 22:00:13 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:00:23 :: Queue consumed in 10.052561 seconds
+11/04/2019 22:00:23 :: Sorted 14 cache queues in 0.000064 seconds
+11/04/2019 22:00:33 :: Queue consumed in 10.055807 seconds
+11/04/2019 22:00:33 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:00:37 :: Queue consumed in 4.030006 seconds
+11/04/2019 22:00:37 :: Sorted 18 cache queues in 0.000068 seconds
+11/04/2019 22:00:43 :: Queue consumed in 6.051330 seconds
+11/04/2019 22:00:43 :: Sorted 14 cache queues in 0.000033 seconds
+11/04/2019 22:00:53 :: Queue consumed in 9.050051 seconds
+11/04/2019 22:00:53 :: Sorted 14 cache queues in 0.000062 seconds
+11/04/2019 22:01:03 :: Queue consumed in 10.052706 seconds
+11/04/2019 22:01:03 :: Sorted 14 cache queues in 0.000070 seconds
+11/04/2019 22:01:04 :: Queue consumed in 1.034322 seconds
+11/04/2019 22:01:04 :: Sorted 1 cache queues in 0.000023 seconds
+11/04/2019 22:01:13 :: Queue consumed in 9.010052 seconds
+11/04/2019 22:01:13 :: Sorted 14 cache queues in 0.000070 seconds
+11/04/2019 22:01:23 :: Queue consumed in 10.053427 seconds
+11/04/2019 22:01:23 :: Sorted 14 cache queues in 0.000064 seconds
+11/04/2019 22:01:33 :: Queue consumed in 10.060427 seconds
+11/04/2019 22:01:33 :: Sorted 14 cache queues in 0.000030 seconds
+11/04/2019 22:01:38 :: Queue consumed in 5.016275 seconds
+11/04/2019 22:01:38 :: Sorted 18 cache queues in 0.000071 seconds
+11/04/2019 22:01:43 :: Queue consumed in 5.060156 seconds
+11/04/2019 22:01:43 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:01:53 :: Queue consumed in 10.070512 seconds
+11/04/2019 22:01:53 :: Sorted 14 cache queues in 0.000063 seconds
+11/04/2019 22:02:03 :: Queue consumed in 10.067579 seconds
+11/04/2019 22:02:03 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:02:13 :: Queue consumed in 10.041175 seconds
+11/04/2019 22:02:13 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:02:23 :: Queue consumed in 10.058610 seconds
+11/04/2019 22:02:23 :: Sorted 14 cache queues in 0.000073 seconds
+11/04/2019 22:02:33 :: Queue consumed in 10.064991 seconds
+11/04/2019 22:02:33 :: Sorted 14 cache queues in 0.000046 seconds
+11/04/2019 22:02:38 :: Queue consumed in 5.021654 seconds
+11/04/2019 22:02:38 :: Sorted 18 cache queues in 0.000075 seconds
+11/04/2019 22:02:43 :: Queue consumed in 5.055083 seconds
+11/04/2019 22:02:43 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:02:53 :: Queue consumed in 10.067340 seconds
+11/04/2019 22:02:53 :: Sorted 14 cache queues in 0.000063 seconds
+11/04/2019 22:03:03 :: Queue consumed in 10.055232 seconds
+11/04/2019 22:03:03 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:03:13 :: Queue consumed in 10.033208 seconds
+11/04/2019 22:03:13 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:03:23 :: Queue consumed in 10.071486 seconds
+11/04/2019 22:03:23 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:03:33 :: Queue consumed in 9.057060 seconds
+11/04/2019 22:03:33 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:03:38 :: Queue consumed in 5.030428 seconds
+11/04/2019 22:03:38 :: Sorted 18 cache queues in 0.000040 seconds
+11/04/2019 22:03:43 :: Queue consumed in 5.046790 seconds
+11/04/2019 22:03:43 :: Sorted 14 cache queues in 0.000070 seconds
+11/04/2019 22:03:53 :: Queue consumed in 10.055448 seconds
+11/04/2019 22:03:53 :: Sorted 14 cache queues in 0.000058 seconds
+11/04/2019 22:04:03 :: Queue consumed in 10.061853 seconds
+11/04/2019 22:04:03 :: Sorted 14 cache queues in 0.000061 seconds
+11/04/2019 22:04:13 :: Queue consumed in 10.034470 seconds
+11/04/2019 22:04:13 :: Sorted 14 cache queues in 0.000043 seconds
+11/04/2019 22:04:23 :: Queue consumed in 10.052824 seconds
+11/04/2019 22:04:23 :: Sorted 14 cache queues in 0.000048 seconds
+11/04/2019 22:04:33 :: Queue consumed in 10.059940 seconds
+11/04/2019 22:04:33 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:04:38 :: Queue consumed in 5.034127 seconds
+11/04/2019 22:04:38 :: Sorted 18 cache queues in 0.000071 seconds
+11/04/2019 22:04:43 :: Queue consumed in 5.056562 seconds
+11/04/2019 22:04:43 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:04:53 :: Queue consumed in 10.057467 seconds
+11/04/2019 22:04:53 :: Sorted 14 cache queues in 0.000064 seconds
+11/04/2019 22:05:03 :: Queue consumed in 10.070172 seconds
+11/04/2019 22:05:03 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:05:13 :: Queue consumed in 10.035104 seconds
+11/04/2019 22:05:13 :: Sorted 14 cache queues in 0.000064 seconds
+11/04/2019 22:05:23 :: Queue consumed in 10.058500 seconds
+11/04/2019 22:05:23 :: Sorted 14 cache queues in 0.000046 seconds
+11/04/2019 22:05:33 :: Queue consumed in 10.049358 seconds
+11/04/2019 22:05:33 :: Sorted 14 cache queues in 0.000022 seconds
+11/04/2019 22:05:38 :: Queue consumed in 5.019922 seconds
+11/04/2019 22:05:38 :: Sorted 18 cache queues in 0.000072 seconds
+11/04/2019 22:05:43 :: Queue consumed in 5.048706 seconds
+11/04/2019 22:05:43 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:05:53 :: Queue consumed in 10.060058 seconds
+11/04/2019 22:05:53 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:06:03 :: Queue consumed in 10.061732 seconds
+11/04/2019 22:06:03 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:06:13 :: Queue consumed in 10.041735 seconds
+11/04/2019 22:06:13 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:06:23 :: Queue consumed in 9.061463 seconds
+11/04/2019 22:06:23 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:06:33 :: Queue consumed in 10.074276 seconds
+11/04/2019 22:06:33 :: Sorted 14 cache queues in 0.000042 seconds
+11/04/2019 22:06:38 :: Queue consumed in 5.030604 seconds
+11/04/2019 22:06:38 :: Sorted 18 cache queues in 0.000071 seconds
+11/04/2019 22:06:43 :: Queue consumed in 5.069832 seconds
+11/04/2019 22:06:43 :: Sorted 14 cache queues in 0.000091 seconds
+11/04/2019 22:06:53 :: Queue consumed in 10.054172 seconds
+11/04/2019 22:06:53 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:07:03 :: Queue consumed in 10.085469 seconds
+11/04/2019 22:07:03 :: Sorted 14 cache queues in 0.000047 seconds
+11/04/2019 22:07:13 :: Queue consumed in 10.032420 seconds
+11/04/2019 22:07:13 :: Sorted 14 cache queues in 0.000062 seconds
+11/04/2019 22:07:23 :: Queue consumed in 10.055487 seconds
+11/04/2019 22:07:23 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:07:33 :: Queue consumed in 10.068752 seconds
+11/04/2019 22:07:33 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:07:38 :: Queue consumed in 5.041984 seconds
+11/04/2019 22:07:38 :: Sorted 18 cache queues in 0.000074 seconds
+11/04/2019 22:07:43 :: Queue consumed in 5.056055 seconds
+11/04/2019 22:07:43 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:07:53 :: Queue consumed in 10.063442 seconds
+11/04/2019 22:07:53 :: Sorted 14 cache queues in 0.000064 seconds
+11/04/2019 22:08:03 :: Queue consumed in 10.065073 seconds
+11/04/2019 22:08:03 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:08:11 :: Queue consumed in 8.032183 seconds
+11/04/2019 22:08:11 :: Sorted 1 cache queues in 0.000046 seconds
+11/04/2019 22:08:13 :: Queue consumed in 2.034718 seconds
+11/04/2019 22:08:13 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:08:19 :: Queue consumed in 6.051300 seconds
+11/04/2019 22:08:19 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:08:23 :: Queue consumed in 4.016293 seconds
+11/04/2019 22:08:23 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:08:24 :: Queue consumed in 1.030800 seconds
+11/04/2019 22:08:24 :: Sorted 1 cache queues in 0.000050 seconds
+11/04/2019 22:08:32 :: Queue consumed in 8.030504 seconds
+11/04/2019 22:08:32 :: Sorted 1 cache queues in 0.000050 seconds
+11/04/2019 22:08:33 :: Queue consumed in 1.015153 seconds
+11/04/2019 22:08:33 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:08:38 :: Queue consumed in 4.025625 seconds
+11/04/2019 22:08:38 :: Sorted 18 cache queues in 0.000071 seconds
+11/04/2019 22:08:42 :: Queue consumed in 4.049409 seconds
+11/04/2019 22:08:42 :: Sorted 1 cache queues in 0.000047 seconds
+11/04/2019 22:08:43 :: Queue consumed in 1.009571 seconds
+11/04/2019 22:08:43 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:08:53 :: Queue consumed in 10.059989 seconds
+11/04/2019 22:08:53 :: Sorted 14 cache queues in 0.000039 seconds
+11/04/2019 22:09:03 :: Queue consumed in 10.055089 seconds
+11/04/2019 22:09:03 :: Sorted 14 cache queues in 0.000060 seconds
+11/04/2019 22:09:13 :: Queue consumed in 10.034795 seconds
+11/04/2019 22:09:13 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:09:23 :: Queue consumed in 10.076528 seconds
+11/04/2019 22:09:23 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:09:33 :: Queue consumed in 10.066990 seconds
+11/04/2019 22:09:33 :: Sorted 14 cache queues in 0.000070 seconds
+11/04/2019 22:09:38 :: Queue consumed in 5.026376 seconds
+11/04/2019 22:09:38 :: Sorted 18 cache queues in 0.000071 seconds
+11/04/2019 22:09:43 :: Queue consumed in 5.048052 seconds
+11/04/2019 22:09:43 :: Sorted 14 cache queues in 0.000057 seconds
+11/04/2019 22:09:53 :: Queue consumed in 10.067971 seconds
+11/04/2019 22:09:53 :: Sorted 14 cache queues in 0.000035 seconds
+11/04/2019 22:10:03 :: Queue consumed in 10.060344 seconds
+11/04/2019 22:10:03 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:10:13 :: Queue consumed in 10.039238 seconds
+11/04/2019 22:10:13 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:10:23 :: Queue consumed in 10.060673 seconds
+11/04/2019 22:10:23 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:10:33 :: Queue consumed in 10.066680 seconds
+11/04/2019 22:10:33 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:10:38 :: Queue consumed in 5.030994 seconds
+11/04/2019 22:10:38 :: Sorted 18 cache queues in 0.000069 seconds
+11/04/2019 22:10:43 :: Queue consumed in 5.057069 seconds
+11/04/2019 22:10:43 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:10:53 :: Queue consumed in 10.068992 seconds
+11/04/2019 22:10:53 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:10:58 :: Queue consumed in 5.042604 seconds
+11/04/2019 22:10:58 :: Sorted 1 cache queues in 0.000064 seconds
+11/04/2019 22:11:03 :: Queue consumed in 5.039976 seconds
+11/04/2019 22:11:03 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:11:13 :: Queue consumed in 9.037797 seconds
+11/04/2019 22:11:13 :: Sorted 14 cache queues in 0.000060 seconds
+11/04/2019 22:11:16 :: Queue consumed in 3.049439 seconds
+11/04/2019 22:11:16 :: Sorted 1 cache queues in 0.000049 seconds
+11/04/2019 22:11:23 :: Queue consumed in 7.044277 seconds
+11/04/2019 22:11:23 :: Sorted 14 cache queues in 0.000071 seconds
+11/04/2019 22:11:33 :: Queue consumed in 10.055350 seconds
+11/04/2019 22:11:33 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:11:38 :: Queue consumed in 5.025868 seconds
+11/04/2019 22:11:38 :: Sorted 18 cache queues in 0.000063 seconds
+11/04/2019 22:11:43 :: Queue consumed in 5.066711 seconds
+11/04/2019 22:11:43 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:11:53 :: Queue consumed in 10.072096 seconds
+11/04/2019 22:11:53 :: Sorted 14 cache queues in 0.000043 seconds
+11/04/2019 22:12:03 :: Queue consumed in 10.058735 seconds
+11/04/2019 22:12:03 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:12:13 :: Queue consumed in 10.039322 seconds
+11/04/2019 22:12:13 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:12:23 :: Queue consumed in 10.064446 seconds
+11/04/2019 22:12:23 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:12:33 :: Queue consumed in 10.077173 seconds
+11/04/2019 22:12:33 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:12:38 :: Queue consumed in 5.026674 seconds
+11/04/2019 22:12:38 :: Sorted 18 cache queues in 0.000066 seconds
+11/04/2019 22:12:43 :: Queue consumed in 5.059061 seconds
+11/04/2019 22:12:43 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:12:53 :: Queue consumed in 10.072936 seconds
+11/04/2019 22:12:53 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:13:03 :: Queue consumed in 10.053682 seconds
+11/04/2019 22:13:03 :: Sorted 14 cache queues in 0.000042 seconds
+11/04/2019 22:13:13 :: Queue consumed in 10.044470 seconds
+11/04/2019 22:13:13 :: Sorted 14 cache queues in 0.000063 seconds
+11/04/2019 22:13:23 :: Queue consumed in 10.062633 seconds
+11/04/2019 22:13:23 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:13:33 :: Queue consumed in 10.065045 seconds
+11/04/2019 22:13:33 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:13:38 :: Queue consumed in 4.030184 seconds
+11/04/2019 22:13:38 :: Sorted 18 cache queues in 0.000075 seconds
+11/04/2019 22:13:43 :: Queue consumed in 5.057919 seconds
+11/04/2019 22:13:43 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:13:53 :: Queue consumed in 10.064881 seconds
+11/04/2019 22:13:53 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:14:03 :: Queue consumed in 10.068727 seconds
+11/04/2019 22:14:03 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:14:13 :: Queue consumed in 10.036982 seconds
+11/04/2019 22:14:13 :: Sorted 14 cache queues in 0.000058 seconds
+11/04/2019 22:14:23 :: Queue consumed in 10.055137 seconds
+11/04/2019 22:14:23 :: Sorted 14 cache queues in 0.000046 seconds
+11/04/2019 22:14:33 :: Queue consumed in 10.050285 seconds
+11/04/2019 22:14:33 :: Sorted 14 cache queues in 0.000060 seconds
+11/04/2019 22:14:38 :: Queue consumed in 5.038951 seconds
+11/04/2019 22:14:38 :: Sorted 18 cache queues in 0.000066 seconds
+11/04/2019 22:14:43 :: Queue consumed in 5.047974 seconds
+11/04/2019 22:14:43 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:14:53 :: Queue consumed in 10.062883 seconds
+11/04/2019 22:14:53 :: Sorted 14 cache queues in 0.000060 seconds
+11/04/2019 22:15:03 :: Queue consumed in 10.056581 seconds
+11/04/2019 22:15:03 :: Sorted 14 cache queues in 0.000123 seconds
+11/04/2019 22:15:13 :: Queue consumed in 10.051141 seconds
+11/04/2019 22:15:13 :: Sorted 14 cache queues in 0.000046 seconds
+11/04/2019 22:15:23 :: Queue consumed in 10.073621 seconds
+11/04/2019 22:15:23 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:15:33 :: Queue consumed in 10.045124 seconds
+11/04/2019 22:15:33 :: Sorted 14 cache queues in 0.000058 seconds
+11/04/2019 22:15:38 :: Queue consumed in 5.030549 seconds
+11/04/2019 22:15:38 :: Sorted 18 cache queues in 0.000033 seconds
+11/04/2019 22:15:43 :: Queue consumed in 5.045847 seconds
+11/04/2019 22:15:43 :: Sorted 14 cache queues in 0.000064 seconds
+11/04/2019 22:15:53 :: Queue consumed in 10.066065 seconds
+11/04/2019 22:15:53 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:16:03 :: Queue consumed in 10.072365 seconds
+11/04/2019 22:16:03 :: Sorted 14 cache queues in 0.000061 seconds
+11/04/2019 22:16:13 :: Queue consumed in 9.041100 seconds
+11/04/2019 22:16:13 :: Sorted 14 cache queues in 0.000042 seconds
+11/04/2019 22:16:23 :: Queue consumed in 10.060540 seconds
+11/04/2019 22:16:23 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:16:33 :: Queue consumed in 10.052552 seconds
+11/04/2019 22:16:33 :: Sorted 14 cache queues in 0.000053 seconds
+11/04/2019 22:16:38 :: Queue consumed in 5.020741 seconds
+11/04/2019 22:16:38 :: Sorted 18 cache queues in 0.000026 seconds
+11/04/2019 22:16:43 :: Queue consumed in 5.050037 seconds
+11/04/2019 22:16:43 :: Sorted 14 cache queues in 0.000048 seconds
+11/04/2019 22:16:53 :: Queue consumed in 10.071589 seconds
+11/04/2019 22:16:53 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:17:03 :: Queue consumed in 10.061438 seconds
+11/04/2019 22:17:03 :: Sorted 14 cache queues in 0.000070 seconds
+11/04/2019 22:17:13 :: Queue consumed in 10.036276 seconds
+11/04/2019 22:17:13 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:17:23 :: Queue consumed in 10.069907 seconds
+11/04/2019 22:17:23 :: Sorted 14 cache queues in 0.000064 seconds
+11/04/2019 22:17:33 :: Queue consumed in 10.059531 seconds
+11/04/2019 22:17:33 :: Sorted 14 cache queues in 0.000061 seconds
+11/04/2019 22:17:38 :: Queue consumed in 5.029050 seconds
+11/04/2019 22:17:38 :: Sorted 18 cache queues in 0.000067 seconds
+11/04/2019 22:17:43 :: Queue consumed in 5.051060 seconds
+11/04/2019 22:17:43 :: Sorted 14 cache queues in 0.000060 seconds
+11/04/2019 22:17:53 :: Queue consumed in 10.053095 seconds
+11/04/2019 22:17:53 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:18:03 :: Queue consumed in 10.066925 seconds
+11/04/2019 22:18:03 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:18:13 :: Queue consumed in 10.042294 seconds
+11/04/2019 22:18:13 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:18:23 :: Queue consumed in 10.057408 seconds
+11/04/2019 22:18:23 :: Sorted 14 cache queues in 0.000047 seconds
+11/04/2019 22:18:33 :: Queue consumed in 10.072899 seconds
+11/04/2019 22:18:33 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:18:37 :: Queue consumed in 4.023231 seconds
+11/04/2019 22:18:37 :: Sorted 18 cache queues in 0.000075 seconds
+11/04/2019 22:18:43 :: Queue consumed in 6.057501 seconds
+11/04/2019 22:18:43 :: Sorted 14 cache queues in 0.000044 seconds
+11/04/2019 22:18:53 :: Queue consumed in 9.060663 seconds
+11/04/2019 22:18:53 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:19:03 :: Queue consumed in 10.062246 seconds
+11/04/2019 22:19:03 :: Sorted 14 cache queues in 0.000048 seconds
+11/04/2019 22:19:13 :: Queue consumed in 10.036592 seconds
+11/04/2019 22:19:13 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:19:23 :: Queue consumed in 10.074462 seconds
+11/04/2019 22:19:23 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:19:33 :: Queue consumed in 10.064370 seconds
+11/04/2019 22:19:33 :: Sorted 14 cache queues in 0.000075 seconds
+11/04/2019 22:19:38 :: Queue consumed in 5.030001 seconds
+11/04/2019 22:19:38 :: Sorted 18 cache queues in 0.000066 seconds
+11/04/2019 22:19:43 :: Queue consumed in 5.062159 seconds
+11/04/2019 22:19:43 :: Sorted 14 cache queues in 0.000081 seconds
+11/04/2019 22:19:53 :: Queue consumed in 10.058647 seconds
+11/04/2019 22:19:53 :: Sorted 14 cache queues in 0.000064 seconds
+11/04/2019 22:20:03 :: Queue consumed in 10.056270 seconds
+11/04/2019 22:20:03 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:20:13 :: Queue consumed in 10.039187 seconds
+11/04/2019 22:20:13 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:20:23 :: Queue consumed in 10.072492 seconds
+11/04/2019 22:20:23 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:20:33 :: Queue consumed in 10.066686 seconds
+11/04/2019 22:20:33 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:20:38 :: Queue consumed in 5.029759 seconds
+11/04/2019 22:20:38 :: Sorted 18 cache queues in 0.000069 seconds
+11/04/2019 22:20:43 :: Queue consumed in 5.050855 seconds
+11/04/2019 22:20:43 :: Sorted 14 cache queues in 0.000070 seconds
+11/04/2019 22:20:53 :: Queue consumed in 10.056964 seconds
+11/04/2019 22:20:53 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:21:03 :: Queue consumed in 10.053336 seconds
+11/04/2019 22:21:03 :: Sorted 14 cache queues in 0.000033 seconds
+11/04/2019 22:21:13 :: Queue consumed in 10.062387 seconds
+11/04/2019 22:21:13 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:21:23 :: Queue consumed in 9.078849 seconds
+11/04/2019 22:21:23 :: Sorted 14 cache queues in 0.000063 seconds
+11/04/2019 22:21:33 :: Queue consumed in 10.082208 seconds
+11/04/2019 22:21:33 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:21:38 :: Queue consumed in 5.027025 seconds
+11/04/2019 22:21:38 :: Sorted 18 cache queues in 0.000070 seconds
+11/04/2019 22:21:43 :: Queue consumed in 5.055386 seconds
+11/04/2019 22:21:43 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:21:53 :: Queue consumed in 10.061755 seconds
+11/04/2019 22:21:53 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:22:03 :: Queue consumed in 10.065540 seconds
+11/04/2019 22:22:03 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:22:13 :: Queue consumed in 10.038939 seconds
+11/04/2019 22:22:13 :: Sorted 14 cache queues in 0.000070 seconds
+11/04/2019 22:22:23 :: Queue consumed in 10.088435 seconds
+11/04/2019 22:22:23 :: Sorted 14 cache queues in 0.000062 seconds
+11/04/2019 22:22:33 :: Queue consumed in 10.077880 seconds
+11/04/2019 22:22:33 :: Sorted 14 cache queues in 0.000037 seconds
+11/04/2019 22:22:38 :: Queue consumed in 5.033315 seconds
+11/04/2019 22:22:38 :: Sorted 18 cache queues in 0.000071 seconds
+11/04/2019 22:22:43 :: Queue consumed in 5.053418 seconds
+11/04/2019 22:22:43 :: Sorted 14 cache queues in 0.000061 seconds
+11/04/2019 22:22:53 :: Queue consumed in 10.063604 seconds
+11/04/2019 22:22:53 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:23:03 :: Queue consumed in 10.059651 seconds
+11/04/2019 22:23:03 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:23:13 :: Queue consumed in 10.033308 seconds
+11/04/2019 22:23:13 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:23:23 :: Queue consumed in 10.062622 seconds
+11/04/2019 22:23:23 :: Sorted 14 cache queues in 0.000074 seconds
+11/04/2019 22:23:33 :: Queue consumed in 10.050227 seconds
+11/04/2019 22:23:33 :: Sorted 14 cache queues in 0.000063 seconds
+11/04/2019 22:23:37 :: Queue consumed in 4.019048 seconds
+11/04/2019 22:23:37 :: Sorted 18 cache queues in 0.000074 seconds
+11/04/2019 22:23:43 :: Queue consumed in 6.068671 seconds
+11/04/2019 22:23:43 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:23:50 :: Queue consumed in 6.054257 seconds
+11/04/2019 22:23:50 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:23:53 :: Queue consumed in 3.020033 seconds
+11/04/2019 22:23:53 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:24:03 :: Queue consumed in 10.055283 seconds
+11/04/2019 22:24:03 :: Sorted 14 cache queues in 0.000030 seconds
+11/04/2019 22:24:13 :: Queue consumed in 10.036620 seconds
+11/04/2019 22:24:13 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:24:23 :: Queue consumed in 10.070711 seconds
+11/04/2019 22:24:23 :: Sorted 14 cache queues in 0.000064 seconds
+11/04/2019 22:24:33 :: Queue consumed in 10.079888 seconds
+11/04/2019 22:24:33 :: Sorted 14 cache queues in 0.000070 seconds
+11/04/2019 22:24:38 :: Queue consumed in 5.036339 seconds
+11/04/2019 22:24:38 :: Sorted 18 cache queues in 0.000066 seconds
+11/04/2019 22:24:43 :: Queue consumed in 5.067291 seconds
+11/04/2019 22:24:43 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:24:53 :: Queue consumed in 10.067717 seconds
+11/04/2019 22:24:53 :: Sorted 14 cache queues in 0.000059 seconds
+11/04/2019 22:25:03 :: Queue consumed in 10.062000 seconds
+11/04/2019 22:25:03 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:25:13 :: Queue consumed in 10.037382 seconds
+11/04/2019 22:25:13 :: Sorted 14 cache queues in 0.000079 seconds
+11/04/2019 22:25:23 :: Queue consumed in 10.075025 seconds
+11/04/2019 22:25:23 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:25:33 :: Queue consumed in 10.081018 seconds
+11/04/2019 22:25:33 :: Sorted 14 cache queues in 0.000072 seconds
+11/04/2019 22:25:38 :: Queue consumed in 5.027837 seconds
+11/04/2019 22:25:38 :: Sorted 18 cache queues in 0.000040 seconds
+11/04/2019 22:25:43 :: Queue consumed in 5.043169 seconds
+11/04/2019 22:25:43 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:25:53 :: Queue consumed in 10.065273 seconds
+11/04/2019 22:25:53 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:26:03 :: Queue consumed in 10.080651 seconds
+11/04/2019 22:26:03 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:26:13 :: Queue consumed in 9.052748 seconds
+11/04/2019 22:26:13 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:26:23 :: Queue consumed in 10.056570 seconds
+11/04/2019 22:26:23 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:26:33 :: Queue consumed in 10.061562 seconds
+11/04/2019 22:26:33 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:26:38 :: Queue consumed in 5.029432 seconds
+11/04/2019 22:26:38 :: Sorted 18 cache queues in 0.000070 seconds
+11/04/2019 22:26:43 :: Queue consumed in 5.049517 seconds
+11/04/2019 22:26:43 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:26:53 :: Queue consumed in 10.061490 seconds
+11/04/2019 22:26:53 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:27:03 :: Queue consumed in 10.054317 seconds
+11/04/2019 22:27:03 :: Sorted 14 cache queues in 0.000042 seconds
+11/04/2019 22:27:13 :: Queue consumed in 10.037984 seconds
+11/04/2019 22:27:13 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:27:23 :: Queue consumed in 10.065164 seconds
+11/04/2019 22:27:23 :: Sorted 14 cache queues in 0.000057 seconds
+11/04/2019 22:27:33 :: Queue consumed in 10.063165 seconds
+11/04/2019 22:27:33 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:27:38 :: Queue consumed in 5.025981 seconds
+11/04/2019 22:27:38 :: Sorted 18 cache queues in 0.000072 seconds
+11/04/2019 22:27:43 :: Queue consumed in 5.054706 seconds
+11/04/2019 22:27:43 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:27:53 :: Queue consumed in 10.062233 seconds
+11/04/2019 22:27:53 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:28:03 :: Queue consumed in 10.055822 seconds
+11/04/2019 22:28:03 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:28:13 :: Queue consumed in 10.036932 seconds
+11/04/2019 22:28:13 :: Sorted 14 cache queues in 0.000061 seconds
+11/04/2019 22:28:23 :: Queue consumed in 10.054514 seconds
+11/04/2019 22:28:23 :: Sorted 14 cache queues in 0.000036 seconds
+11/04/2019 22:28:33 :: Queue consumed in 10.058209 seconds
+11/04/2019 22:28:33 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:28:38 :: Queue consumed in 5.027103 seconds
+11/04/2019 22:28:38 :: Sorted 18 cache queues in 0.000072 seconds
+11/04/2019 22:28:43 :: Queue consumed in 5.046531 seconds
+11/04/2019 22:28:43 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:28:53 :: Queue consumed in 9.061633 seconds
+11/04/2019 22:28:53 :: Sorted 14 cache queues in 0.000031 seconds
+11/04/2019 22:29:03 :: Queue consumed in 10.053016 seconds
+11/04/2019 22:29:03 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:29:13 :: Queue consumed in 10.038263 seconds
+11/04/2019 22:29:13 :: Sorted 14 cache queues in 0.000059 seconds
+11/04/2019 22:29:23 :: Queue consumed in 10.057443 seconds
+11/04/2019 22:29:23 :: Sorted 14 cache queues in 0.000059 seconds
+11/04/2019 22:29:33 :: Queue consumed in 10.069262 seconds
+11/04/2019 22:29:33 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:29:38 :: Queue consumed in 5.031169 seconds
+11/04/2019 22:29:38 :: Sorted 18 cache queues in 0.000070 seconds
+11/04/2019 22:29:43 :: Queue consumed in 5.056099 seconds
+11/04/2019 22:29:43 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:29:49 :: Queue consumed in 6.045389 seconds
+11/04/2019 22:29:49 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:29:53 :: Queue consumed in 4.017344 seconds
+11/04/2019 22:29:53 :: Sorted 14 cache queues in 0.000071 seconds
+11/04/2019 22:30:03 :: Queue consumed in 10.057985 seconds
+11/04/2019 22:30:03 :: Sorted 14 cache queues in 0.000042 seconds
+11/04/2019 22:30:13 :: Queue consumed in 10.038305 seconds
+11/04/2019 22:30:13 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:30:23 :: Queue consumed in 10.069155 seconds
+11/04/2019 22:30:23 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:30:33 :: Queue consumed in 10.057017 seconds
+11/04/2019 22:30:33 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:30:38 :: Queue consumed in 5.028118 seconds
+11/04/2019 22:30:38 :: Sorted 18 cache queues in 0.000067 seconds
+11/04/2019 22:30:43 :: Queue consumed in 5.060433 seconds
+11/04/2019 22:30:43 :: Sorted 14 cache queues in 0.000043 seconds
+11/04/2019 22:30:53 :: Queue consumed in 10.062505 seconds
+11/04/2019 22:30:53 :: Sorted 14 cache queues in 0.000060 seconds
+11/04/2019 22:31:03 :: Queue consumed in 10.063865 seconds
+11/04/2019 22:31:03 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:31:13 :: Queue consumed in 10.040255 seconds
+11/04/2019 22:31:13 :: Sorted 14 cache queues in 0.000064 seconds
+11/04/2019 22:31:23 :: Queue consumed in 10.063278 seconds
+11/04/2019 22:31:23 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:31:33 :: Queue consumed in 9.060124 seconds
+11/04/2019 22:31:33 :: Sorted 14 cache queues in 0.000035 seconds
+11/04/2019 22:31:38 :: Queue consumed in 5.027765 seconds
+11/04/2019 22:31:38 :: Sorted 18 cache queues in 0.000068 seconds
+11/04/2019 22:31:39 :: Queue consumed in 1.046200 seconds
+11/04/2019 22:31:39 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:31:40 :: Queue consumed in 1.005043 seconds
+11/04/2019 22:31:40 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:31:41 :: Queue consumed in 1.004284 seconds
+11/04/2019 22:31:41 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:31:41 :: Queue consumed in 0.003678 seconds
+11/04/2019 22:31:41 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:31:42 :: Queue consumed in 1.002239 seconds
+11/04/2019 22:31:42 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:31:43 :: Queue consumed in 1.003798 seconds
+11/04/2019 22:31:43 :: Sorted 15 cache queues in 0.000047 seconds
+11/04/2019 22:31:43 :: Queue consumed in 0.044722 seconds
+11/04/2019 22:31:43 :: Sorted 1 cache queues in 0.000026 seconds
+11/04/2019 22:31:44 :: Queue consumed in 1.004635 seconds
+11/04/2019 22:31:44 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:31:45 :: Queue consumed in 1.003936 seconds
+11/04/2019 22:31:45 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:31:46 :: Queue consumed in 1.006275 seconds
+11/04/2019 22:31:46 :: Sorted 1 cache queues in 0.000051 seconds
+11/04/2019 22:31:53 :: Queue consumed in 7.028046 seconds
+11/04/2019 22:31:53 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:32:03 :: Queue consumed in 10.067175 seconds
+11/04/2019 22:32:03 :: Sorted 14 cache queues in 0.000061 seconds
+11/04/2019 22:32:07 :: Queue consumed in 4.022196 seconds
+11/04/2019 22:32:07 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:32:08 :: Queue consumed in 1.003698 seconds
+11/04/2019 22:32:08 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:32:09 :: Queue consumed in 1.003040 seconds
+11/04/2019 22:32:09 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:32:10 :: Queue consumed in 1.004808 seconds
+11/04/2019 22:32:10 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:32:10 :: Queue consumed in 0.003694 seconds
+11/04/2019 22:32:10 :: Sorted 1 cache queues in 0.000032 seconds
+11/04/2019 22:32:11 :: Queue consumed in 1.004085 seconds
+11/04/2019 22:32:11 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:32:12 :: Queue consumed in 1.003148 seconds
+11/04/2019 22:32:12 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:32:13 :: Queue consumed in 1.004697 seconds
+11/04/2019 22:32:13 :: Sorted 15 cache queues in 0.000022 seconds
+11/04/2019 22:32:13 :: Queue consumed in 0.058584 seconds
+11/04/2019 22:32:13 :: Sorted 1 cache queues in 0.000010 seconds
+11/04/2019 22:32:23 :: Queue consumed in 10.031818 seconds
+11/04/2019 22:32:23 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:32:33 :: Queue consumed in 10.072521 seconds
+11/04/2019 22:32:33 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:32:38 :: Queue consumed in 5.034110 seconds
+11/04/2019 22:32:38 :: Sorted 18 cache queues in 0.000068 seconds
+11/04/2019 22:32:43 :: Queue consumed in 5.059684 seconds
+11/04/2019 22:32:43 :: Sorted 14 cache queues in 0.000042 seconds
+11/04/2019 22:32:53 :: Queue consumed in 10.071308 seconds
+11/04/2019 22:32:53 :: Sorted 14 cache queues in 0.000214 seconds
+11/04/2019 22:33:03 :: Queue consumed in 10.066857 seconds
+11/04/2019 22:33:03 :: Sorted 14 cache queues in 0.000031 seconds
+11/04/2019 22:33:13 :: Queue consumed in 10.038977 seconds
+11/04/2019 22:33:13 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:33:23 :: Queue consumed in 10.058856 seconds
+11/04/2019 22:33:23 :: Sorted 14 cache queues in 0.000071 seconds
+11/04/2019 22:33:33 :: Queue consumed in 10.037923 seconds
+11/04/2019 22:33:33 :: Sorted 14 cache queues in 0.000060 seconds
+11/04/2019 22:33:37 :: Queue consumed in 4.056736 seconds
+11/04/2019 22:33:37 :: Sorted 18 cache queues in 0.000052 seconds
+11/04/2019 22:33:43 :: Queue consumed in 6.045311 seconds
+11/04/2019 22:33:43 :: Sorted 14 cache queues in 0.000251 seconds
+11/04/2019 22:33:53 :: Queue consumed in 9.057394 seconds
+11/04/2019 22:33:53 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:34:03 :: Queue consumed in 10.063926 seconds
+11/04/2019 22:34:03 :: Sorted 14 cache queues in 0.000070 seconds
+11/04/2019 22:34:13 :: Queue consumed in 10.040167 seconds
+11/04/2019 22:34:13 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:34:23 :: Queue consumed in 10.057636 seconds
+11/04/2019 22:34:23 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:34:33 :: Queue consumed in 10.082883 seconds
+11/04/2019 22:34:33 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:34:38 :: Queue consumed in 5.034374 seconds
+11/04/2019 22:34:38 :: Sorted 18 cache queues in 0.000069 seconds
+11/04/2019 22:34:43 :: Queue consumed in 5.051465 seconds
+11/04/2019 22:34:43 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:34:53 :: Queue consumed in 10.053700 seconds
+11/04/2019 22:34:53 :: Sorted 14 cache queues in 0.000071 seconds
+11/04/2019 22:35:00 :: Queue consumed in 7.049256 seconds
+11/04/2019 22:35:00 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:35:00 :: Queue consumed in 0.022525 seconds
+11/04/2019 22:35:00 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:35:01 :: Queue consumed in 1.007147 seconds
+11/04/2019 22:35:01 :: Sorted 1 cache queues in 0.000032 seconds
+11/04/2019 22:35:03 :: Queue consumed in 2.012750 seconds
+11/04/2019 22:35:03 :: Sorted 14 cache queues in 0.000035 seconds
+11/04/2019 22:35:13 :: Queue consumed in 10.051858 seconds
+11/04/2019 22:35:13 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:35:23 :: Queue consumed in 10.059272 seconds
+11/04/2019 22:35:23 :: Sorted 14 cache queues in 0.000064 seconds
+11/04/2019 22:35:33 :: Queue consumed in 10.031296 seconds
+11/04/2019 22:35:33 :: Sorted 14 cache queues in 0.000031 seconds
+11/04/2019 22:35:38 :: Queue consumed in 5.039366 seconds
+11/04/2019 22:35:38 :: Sorted 18 cache queues in 0.000039 seconds
+11/04/2019 22:35:43 :: Queue consumed in 5.073280 seconds
+11/04/2019 22:35:43 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:35:53 :: Queue consumed in 10.072176 seconds
+11/04/2019 22:35:53 :: Sorted 14 cache queues in 0.000075 seconds
+11/04/2019 22:36:03 :: Queue consumed in 10.051875 seconds
+11/04/2019 22:36:03 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:36:13 :: Queue consumed in 10.071747 seconds
+11/04/2019 22:36:13 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:36:22 :: Queue consumed in 8.058414 seconds
+11/04/2019 22:36:22 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:36:23 :: Queue consumed in 1.003784 seconds
+11/04/2019 22:36:23 :: Sorted 14 cache queues in 0.000038 seconds
+11/04/2019 22:36:33 :: Queue consumed in 10.067617 seconds
+11/04/2019 22:36:33 :: Sorted 14 cache queues in 0.000032 seconds
+11/04/2019 22:36:38 :: Queue consumed in 5.021492 seconds
+11/04/2019 22:36:38 :: Sorted 18 cache queues in 0.000075 seconds
+11/04/2019 22:36:43 :: Queue consumed in 5.068656 seconds
+11/04/2019 22:36:43 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:36:53 :: Queue consumed in 10.067048 seconds
+11/04/2019 22:36:53 :: Sorted 14 cache queues in 0.000064 seconds
+11/04/2019 22:37:03 :: Queue consumed in 10.062875 seconds
+11/04/2019 22:37:03 :: Sorted 14 cache queues in 0.000039 seconds
+11/04/2019 22:37:13 :: Queue consumed in 10.041477 seconds
+11/04/2019 22:37:13 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:37:23 :: Queue consumed in 10.059769 seconds
+11/04/2019 22:37:23 :: Sorted 14 cache queues in 0.000061 seconds
+11/04/2019 22:37:33 :: Queue consumed in 10.061254 seconds
+11/04/2019 22:37:33 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:37:38 :: Queue consumed in 5.027897 seconds
+11/04/2019 22:37:38 :: Sorted 18 cache queues in 0.000071 seconds
+11/04/2019 22:37:43 :: Queue consumed in 5.051181 seconds
+11/04/2019 22:37:43 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:37:53 :: Queue consumed in 10.063152 seconds
+11/04/2019 22:37:53 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:38:03 :: Queue consumed in 10.037503 seconds
+11/04/2019 22:38:03 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:38:10 :: Queue consumed in 7.062503 seconds
+11/04/2019 22:38:10 :: Sorted 2 cache queues in 0.000016 seconds
+11/04/2019 22:38:11 :: Queue consumed in 1.005591 seconds
+11/04/2019 22:38:11 :: Sorted 2 cache queues in 0.000034 seconds
+11/04/2019 22:38:12 :: Queue consumed in 1.007209 seconds
+11/04/2019 22:38:12 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:38:13 :: Queue consumed in 1.003901 seconds
+11/04/2019 22:38:13 :: Sorted 15 cache queues in 0.000022 seconds
+11/04/2019 22:38:13 :: Queue consumed in 0.037936 seconds
+11/04/2019 22:38:13 :: Sorted 1 cache queues in 0.000023 seconds
+11/04/2019 22:38:14 :: Queue consumed in 1.003672 seconds
+11/04/2019 22:38:14 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:38:15 :: Queue consumed in 1.002774 seconds
+11/04/2019 22:38:15 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:38:16 :: Queue consumed in 1.003085 seconds
+11/04/2019 22:38:16 :: Sorted 1 cache queues in 0.000046 seconds
+11/04/2019 22:38:17 :: Queue consumed in 1.002975 seconds
+11/04/2019 22:38:17 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:38:18 :: Queue consumed in 1.004774 seconds
+11/04/2019 22:38:18 :: Sorted 2 cache queues in 0.000020 seconds
+11/04/2019 22:38:19 :: Queue consumed in 1.007177 seconds
+11/04/2019 22:38:19 :: Sorted 2 cache queues in 0.000015 seconds
+11/04/2019 22:38:20 :: Queue consumed in 1.006667 seconds
+11/04/2019 22:38:20 :: Sorted 2 cache queues in 0.000015 seconds
+11/04/2019 22:38:20 :: Queue consumed in 0.005932 seconds
+11/04/2019 22:38:20 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:38:21 :: Queue consumed in 1.003179 seconds
+11/04/2019 22:38:21 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:38:22 :: Queue consumed in 1.003386 seconds
+11/04/2019 22:38:22 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:38:23 :: Queue consumed in 1.004362 seconds
+11/04/2019 22:38:23 :: Sorted 15 cache queues in 0.000027 seconds
+11/04/2019 22:38:23 :: Queue consumed in 0.048035 seconds
+11/04/2019 22:38:23 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:38:24 :: Queue consumed in 1.004640 seconds
+11/04/2019 22:38:24 :: Sorted 1 cache queues in 0.000041 seconds
+11/04/2019 22:38:24 :: Queue consumed in 0.003245 seconds
+11/04/2019 22:38:24 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:38:25 :: Queue consumed in 1.002120 seconds
+11/04/2019 22:38:25 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:38:26 :: Queue consumed in 1.004054 seconds
+11/04/2019 22:38:26 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:38:27 :: Queue consumed in 1.004260 seconds
+11/04/2019 22:38:27 :: Sorted 2 cache queues in 0.000014 seconds
+11/04/2019 22:38:27 :: Queue consumed in 0.005167 seconds
+11/04/2019 22:38:27 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:38:28 :: Queue consumed in 1.003441 seconds
+11/04/2019 22:38:28 :: Sorted 2 cache queues in 0.000016 seconds
+11/04/2019 22:38:29 :: Queue consumed in 1.006767 seconds
+11/04/2019 22:38:29 :: Sorted 2 cache queues in 0.000016 seconds
+11/04/2019 22:38:30 :: Queue consumed in 1.006823 seconds
+11/04/2019 22:38:30 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:38:30 :: Queue consumed in 0.003766 seconds
+11/04/2019 22:38:30 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:38:31 :: Queue consumed in 1.002717 seconds
+11/04/2019 22:38:31 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:38:32 :: Queue consumed in 1.003471 seconds
+11/04/2019 22:38:32 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:38:33 :: Queue consumed in 0.983801 seconds
+11/04/2019 22:38:33 :: Sorted 15 cache queues in 0.000022 seconds
+11/04/2019 22:38:34 :: Queue consumed in 0.050786 seconds
+11/04/2019 22:38:34 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:38:35 :: Queue consumed in 1.003165 seconds
+11/04/2019 22:38:35 :: Sorted 1 cache queues in 0.000027 seconds
+11/04/2019 22:38:36 :: Queue consumed in 1.002977 seconds
+11/04/2019 22:38:36 :: Sorted 2 cache queues in 0.000017 seconds
+11/04/2019 22:38:37 :: Queue consumed in 1.006479 seconds
+11/04/2019 22:38:37 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:38:37 :: Queue consumed in 0.003852 seconds
+11/04/2019 22:38:37 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:38:38 :: Queue consumed in 1.003531 seconds
+11/04/2019 22:38:38 :: Sorted 21 cache queues in 0.000023 seconds
+11/04/2019 22:38:38 :: Queue consumed in 0.056632 seconds
+11/04/2019 22:38:38 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:38:39 :: Queue consumed in 1.004220 seconds
+11/04/2019 22:38:39 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:38:40 :: Queue consumed in 1.003981 seconds
+11/04/2019 22:38:40 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:38:40 :: Queue consumed in 0.003527 seconds
+11/04/2019 22:38:40 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:38:41 :: Queue consumed in 1.002159 seconds
+11/04/2019 22:38:41 :: Sorted 1 cache queues in 0.000025 seconds
+11/04/2019 22:38:42 :: Queue consumed in 1.003953 seconds
+11/04/2019 22:38:42 :: Sorted 1 cache queues in 0.000023 seconds
+11/04/2019 22:38:43 :: Queue consumed in 1.003923 seconds
+11/04/2019 22:38:43 :: Sorted 15 cache queues in 0.000024 seconds
+11/04/2019 22:38:43 :: Queue consumed in 0.042804 seconds
+11/04/2019 22:38:43 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:38:44 :: Queue consumed in 1.003085 seconds
+11/04/2019 22:38:44 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:38:45 :: Queue consumed in 1.004955 seconds
+11/04/2019 22:38:45 :: Sorted 2 cache queues in 0.000016 seconds
+11/04/2019 22:38:46 :: Queue consumed in 1.006149 seconds
+11/04/2019 22:38:46 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:38:47 :: Queue consumed in 1.003104 seconds
+11/04/2019 22:38:47 :: Sorted 3 cache queues in 0.000022 seconds
+11/04/2019 22:38:48 :: Queue consumed in 1.008909 seconds
+11/04/2019 22:38:48 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:38:49 :: Queue consumed in 1.004282 seconds
+11/04/2019 22:38:49 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:38:50 :: Queue consumed in 1.004430 seconds
+11/04/2019 22:38:50 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:38:50 :: Queue consumed in 0.003184 seconds
+11/04/2019 22:38:50 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:38:51 :: Queue consumed in 1.002280 seconds
+11/04/2019 22:38:51 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:38:51 :: Queue consumed in 0.002685 seconds
+11/04/2019 22:38:51 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:38:52 :: Queue consumed in 1.002768 seconds
+11/04/2019 22:38:52 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:38:53 :: Queue consumed in 1.003841 seconds
+11/04/2019 22:38:53 :: Sorted 15 cache queues in 0.000019 seconds
+11/04/2019 22:38:53 :: Queue consumed in 0.038208 seconds
+11/04/2019 22:38:53 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:38:54 :: Queue consumed in 1.003093 seconds
+11/04/2019 22:38:54 :: Sorted 2 cache queues in 0.000013 seconds
+11/04/2019 22:38:55 :: Queue consumed in 1.006298 seconds
+11/04/2019 22:38:55 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:38:55 :: Queue consumed in 0.003688 seconds
+11/04/2019 22:38:55 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:38:56 :: Queue consumed in 1.002926 seconds
+11/04/2019 22:38:56 :: Sorted 3 cache queues in 0.000014 seconds
+11/04/2019 22:38:57 :: Queue consumed in 1.009082 seconds
+11/04/2019 22:38:57 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:38:58 :: Queue consumed in 1.003294 seconds
+11/04/2019 22:38:58 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:38:59 :: Queue consumed in 1.003669 seconds
+11/04/2019 22:38:59 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:39:00 :: Queue consumed in 1.004372 seconds
+11/04/2019 22:39:00 :: Sorted 1 cache queues in 0.000071 seconds
+11/04/2019 22:39:01 :: Queue consumed in 1.004482 seconds
+11/04/2019 22:39:01 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:39:02 :: Queue consumed in 1.003965 seconds
+11/04/2019 22:39:02 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:39:02 :: Queue consumed in 0.004602 seconds
+11/04/2019 22:39:02 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:39:03 :: Queue consumed in 1.004258 seconds
+11/04/2019 22:39:03 :: Sorted 16 cache queues in 0.000022 seconds
+11/04/2019 22:39:03 :: Queue consumed in 0.039303 seconds
+11/04/2019 22:39:03 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:39:04 :: Queue consumed in 0.982122 seconds
+11/04/2019 22:39:04 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:39:04 :: Queue consumed in 0.003125 seconds
+11/04/2019 22:39:04 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:39:05 :: Queue consumed in 1.002191 seconds
+11/04/2019 22:39:05 :: Sorted 3 cache queues in 0.000014 seconds
+11/04/2019 22:39:06 :: Queue consumed in 1.009734 seconds
+11/04/2019 22:39:06 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:39:07 :: Queue consumed in 1.004278 seconds
+11/04/2019 22:39:07 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:39:07 :: Queue consumed in 0.004243 seconds
+11/04/2019 22:39:07 :: Sorted 1 cache queues in 0.000026 seconds
+11/04/2019 22:39:08 :: Queue consumed in 1.003772 seconds
+11/04/2019 22:39:08 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:39:09 :: Queue consumed in 1.004007 seconds
+11/04/2019 22:39:09 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:39:10 :: Queue consumed in 1.003899 seconds
+11/04/2019 22:39:10 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:39:11 :: Queue consumed in 1.003934 seconds
+11/04/2019 22:39:11 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:39:12 :: Queue consumed in 1.003124 seconds
+11/04/2019 22:39:12 :: Sorted 2 cache queues in 0.000021 seconds
+11/04/2019 22:39:13 :: Queue consumed in 1.006093 seconds
+11/04/2019 22:39:13 :: Sorted 15 cache queues in 0.000022 seconds
+11/04/2019 22:39:13 :: Queue consumed in 0.040830 seconds
+11/04/2019 22:39:13 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:39:14 :: Queue consumed in 1.003260 seconds
+11/04/2019 22:39:14 :: Sorted 3 cache queues in 0.000015 seconds
+11/04/2019 22:39:14 :: Queue consumed in 0.007508 seconds
+11/04/2019 22:39:14 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:39:15 :: Queue consumed in 1.002084 seconds
+11/04/2019 22:39:15 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:39:16 :: Queue consumed in 1.004018 seconds
+11/04/2019 22:39:16 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:39:16 :: Queue consumed in 0.002965 seconds
+11/04/2019 22:39:16 :: Sorted 1 cache queues in 0.000037 seconds
+11/04/2019 22:39:17 :: Queue consumed in 1.002246 seconds
+11/04/2019 22:39:17 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:39:18 :: Queue consumed in 1.004539 seconds
+11/04/2019 22:39:18 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:39:18 :: Queue consumed in 0.003009 seconds
+11/04/2019 22:39:18 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:39:19 :: Queue consumed in 1.002799 seconds
+11/04/2019 22:39:19 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:39:20 :: Queue consumed in 1.004529 seconds
+11/04/2019 22:39:20 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:39:20 :: Queue consumed in 0.003205 seconds
+11/04/2019 22:39:20 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:39:21 :: Queue consumed in 1.003249 seconds
+11/04/2019 22:39:21 :: Sorted 2 cache queues in 0.000015 seconds
+11/04/2019 22:39:22 :: Queue consumed in 1.006552 seconds
+11/04/2019 22:39:22 :: Sorted 2 cache queues in 0.000015 seconds
+11/04/2019 22:39:23 :: Queue consumed in 1.007411 seconds
+11/04/2019 22:39:23 :: Sorted 16 cache queues in 0.000023 seconds
+11/04/2019 22:39:23 :: Queue consumed in 0.043428 seconds
+11/04/2019 22:39:23 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:39:23 :: Queue consumed in 0.003594 seconds
+11/04/2019 22:39:23 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:39:24 :: Queue consumed in 1.002943 seconds
+11/04/2019 22:39:24 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:39:25 :: Queue consumed in 1.007624 seconds
+11/04/2019 22:39:25 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:39:26 :: Queue consumed in 1.004665 seconds
+11/04/2019 22:39:26 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:39:27 :: Queue consumed in 1.002813 seconds
+11/04/2019 22:39:27 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:39:28 :: Queue consumed in 1.004624 seconds
+11/04/2019 22:39:28 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:39:29 :: Queue consumed in 1.004171 seconds
+11/04/2019 22:39:29 :: Sorted 1 cache queues in 0.000047 seconds
+11/04/2019 22:39:29 :: Queue consumed in 0.003048 seconds
+11/04/2019 22:39:29 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:39:30 :: Queue consumed in 1.003024 seconds
+11/04/2019 22:39:30 :: Sorted 2 cache queues in 0.000015 seconds
+11/04/2019 22:39:31 :: Queue consumed in 1.007660 seconds
+11/04/2019 22:39:31 :: Sorted 2 cache queues in 0.000013 seconds
+11/04/2019 22:39:32 :: Queue consumed in 1.006834 seconds
+11/04/2019 22:39:32 :: Sorted 2 cache queues in 0.000014 seconds
+11/04/2019 22:39:33 :: Queue consumed in 0.985267 seconds
+11/04/2019 22:39:33 :: Sorted 15 cache queues in 0.000023 seconds
+11/04/2019 22:39:33 :: Queue consumed in 0.042852 seconds
+11/04/2019 22:39:33 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:39:34 :: Queue consumed in 1.004116 seconds
+11/04/2019 22:39:34 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:39:34 :: Queue consumed in 0.002553 seconds
+11/04/2019 22:39:34 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:39:35 :: Queue consumed in 1.002930 seconds
+11/04/2019 22:39:35 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:39:36 :: Queue consumed in 1.003887 seconds
+11/04/2019 22:39:36 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:39:36 :: Queue consumed in 0.003693 seconds
+11/04/2019 22:39:36 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:39:37 :: Queue consumed in 1.001851 seconds
+11/04/2019 22:39:37 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:39:38 :: Queue consumed in 1.004950 seconds
+11/04/2019 22:39:38 :: Sorted 19 cache queues in 0.000024 seconds
+11/04/2019 22:39:38 :: Queue consumed in 0.049727 seconds
+11/04/2019 22:39:38 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:39:38 :: Queue consumed in 0.004118 seconds
+11/04/2019 22:39:38 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:39:39 :: Queue consumed in 1.003742 seconds
+11/04/2019 22:39:39 :: Sorted 2 cache queues in 0.000013 seconds
+11/04/2019 22:39:40 :: Queue consumed in 1.008338 seconds
+11/04/2019 22:39:40 :: Sorted 2 cache queues in 0.000018 seconds
+11/04/2019 22:39:41 :: Queue consumed in 1.007700 seconds
+11/04/2019 22:39:41 :: Sorted 2 cache queues in 0.000016 seconds
+11/04/2019 22:39:42 :: Queue consumed in 1.007265 seconds
+11/04/2019 22:39:42 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:39:42 :: Queue consumed in 0.003261 seconds
+11/04/2019 22:39:42 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:39:43 :: Queue consumed in 1.002793 seconds
+11/04/2019 22:39:43 :: Sorted 15 cache queues in 0.000023 seconds
+11/04/2019 22:39:43 :: Queue consumed in 0.039829 seconds
+11/04/2019 22:39:43 :: Sorted 1 cache queues in 0.000019 seconds
+11/04/2019 22:39:44 :: Queue consumed in 1.004526 seconds
+11/04/2019 22:39:44 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:39:45 :: Queue consumed in 1.002515 seconds
+11/04/2019 22:39:45 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:39:46 :: Queue consumed in 1.003265 seconds
+11/04/2019 22:39:46 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:39:53 :: Queue consumed in 7.016086 seconds
+11/04/2019 22:39:53 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:40:03 :: Queue consumed in 10.055830 seconds
+11/04/2019 22:40:03 :: Sorted 14 cache queues in 0.000060 seconds
+11/04/2019 22:40:13 :: Queue consumed in 10.058280 seconds
+11/04/2019 22:40:13 :: Sorted 14 cache queues in 0.000037 seconds
+11/04/2019 22:40:23 :: Queue consumed in 10.048780 seconds
+11/04/2019 22:40:23 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:40:33 :: Queue consumed in 9.058022 seconds
+11/04/2019 22:40:33 :: Sorted 15 cache queues in 0.000030 seconds
+11/04/2019 22:40:33 :: Queue consumed in 0.045924 seconds
+11/04/2019 22:40:33 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:40:34 :: Queue consumed in 0.986244 seconds
+11/04/2019 22:40:34 :: Sorted 1 cache queues in 0.000035 seconds
+11/04/2019 22:40:35 :: Queue consumed in 1.007872 seconds
+11/04/2019 22:40:35 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:40:36 :: Queue consumed in 1.005016 seconds
+11/04/2019 22:40:36 :: Sorted 1 cache queues in 0.000027 seconds
+11/04/2019 22:40:37 :: Queue consumed in 1.006756 seconds
+11/04/2019 22:40:37 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:40:38 :: Queue consumed in 1.003338 seconds
+11/04/2019 22:40:38 :: Sorted 19 cache queues in 0.000024 seconds
+11/04/2019 22:40:38 :: Queue consumed in 0.061076 seconds
+11/04/2019 22:40:38 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:40:38 :: Queue consumed in 0.004158 seconds
+11/04/2019 22:40:38 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:40:39 :: Queue consumed in 1.004023 seconds
+11/04/2019 22:40:39 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:40:40 :: Queue consumed in 1.005925 seconds
+11/04/2019 22:40:40 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:40:41 :: Queue consumed in 1.004831 seconds
+11/04/2019 22:40:41 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:40:41 :: Queue consumed in 0.004019 seconds
+11/04/2019 22:40:41 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:40:42 :: Queue consumed in 1.003215 seconds
+11/04/2019 22:40:42 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:40:42 :: Queue consumed in 0.004412 seconds
+11/04/2019 22:40:42 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:40:43 :: Queue consumed in 1.003800 seconds
+11/04/2019 22:40:43 :: Sorted 15 cache queues in 0.000059 seconds
+11/04/2019 22:40:44 :: Queue consumed in 1.050201 seconds
+11/04/2019 22:40:44 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:40:44 :: Queue consumed in 0.004365 seconds
+11/04/2019 22:40:44 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:40:45 :: Queue consumed in 1.004572 seconds
+11/04/2019 22:40:45 :: Sorted 1 cache queues in 0.000047 seconds
+11/04/2019 22:40:46 :: Queue consumed in 1.011870 seconds
+11/04/2019 22:40:46 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:40:47 :: Queue consumed in 1.005225 seconds
+11/04/2019 22:40:47 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:40:48 :: Queue consumed in 1.006316 seconds
+11/04/2019 22:40:48 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:40:49 :: Queue consumed in 1.005232 seconds
+11/04/2019 22:40:49 :: Sorted 1 cache queues in 0.000055 seconds
+11/04/2019 22:40:50 :: Queue consumed in 1.008148 seconds
+11/04/2019 22:40:50 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:40:50 :: Queue consumed in 0.004199 seconds
+11/04/2019 22:40:50 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:40:51 :: Queue consumed in 1.003689 seconds
+11/04/2019 22:40:51 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:40:52 :: Queue consumed in 1.005283 seconds
+11/04/2019 22:40:52 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:40:52 :: Queue consumed in 0.003259 seconds
+11/04/2019 22:40:52 :: Sorted 1 cache queues in 0.000063 seconds
+11/04/2019 22:40:53 :: Queue consumed in 1.002694 seconds
+11/04/2019 22:40:53 :: Sorted 15 cache queues in 0.000019 seconds
+11/04/2019 22:40:53 :: Queue consumed in 0.041475 seconds
+11/04/2019 22:40:53 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:40:54 :: Queue consumed in 1.003621 seconds
+11/04/2019 22:40:54 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:40:55 :: Queue consumed in 1.003134 seconds
+11/04/2019 22:40:55 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:40:56 :: Queue consumed in 1.004597 seconds
+11/04/2019 22:40:56 :: Sorted 1 cache queues in 0.000023 seconds
+11/04/2019 22:40:58 :: Queue consumed in 2.005929 seconds
+11/04/2019 22:40:58 :: Sorted 1 cache queues in 0.000031 seconds
+11/04/2019 22:40:59 :: Queue consumed in 1.009267 seconds
+11/04/2019 22:40:59 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:40:59 :: Queue consumed in 0.003895 seconds
+11/04/2019 22:40:59 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:41:00 :: Queue consumed in 1.003826 seconds
+11/04/2019 22:41:00 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:41:01 :: Queue consumed in 1.005412 seconds
+11/04/2019 22:41:01 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:41:01 :: Queue consumed in 0.004292 seconds
+11/04/2019 22:41:01 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:41:02 :: Queue consumed in 1.003822 seconds
+11/04/2019 22:41:02 :: Sorted 1 cache queues in 0.000049 seconds
+11/04/2019 22:41:03 :: Queue consumed in 1.008982 seconds
+11/04/2019 22:41:03 :: Sorted 15 cache queues in 0.000022 seconds
+11/04/2019 22:41:03 :: Queue consumed in 0.037620 seconds
+11/04/2019 22:41:03 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:41:04 :: Queue consumed in 0.981941 seconds
+11/04/2019 22:41:04 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:41:05 :: Queue consumed in 1.004074 seconds
+11/04/2019 22:41:05 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:41:06 :: Queue consumed in 1.004860 seconds
+11/04/2019 22:41:06 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:41:06 :: Queue consumed in 0.004263 seconds
+11/04/2019 22:41:06 :: Sorted 1 cache queues in 0.000037 seconds
+11/04/2019 22:41:07 :: Queue consumed in 1.004027 seconds
+11/04/2019 22:41:07 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:41:07 :: Queue consumed in 0.004029 seconds
+11/04/2019 22:41:07 :: Sorted 1 cache queues in 0.000045 seconds
+11/04/2019 22:41:08 :: Queue consumed in 1.002437 seconds
+11/04/2019 22:41:08 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:41:09 :: Queue consumed in 1.005582 seconds
+11/04/2019 22:41:09 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:41:10 :: Queue consumed in 1.004760 seconds
+11/04/2019 22:41:10 :: Sorted 1 cache queues in 0.000040 seconds
+11/04/2019 22:41:11 :: Queue consumed in 1.007742 seconds
+11/04/2019 22:41:11 :: Sorted 1 cache queues in 0.000029 seconds
+11/04/2019 22:41:12 :: Queue consumed in 1.005679 seconds
+11/04/2019 22:41:12 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:41:12 :: Queue consumed in 0.003630 seconds
+11/04/2019 22:41:12 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:41:13 :: Queue consumed in 1.004946 seconds
+11/04/2019 22:41:13 :: Sorted 15 cache queues in 0.000072 seconds
+11/04/2019 22:41:14 :: Queue consumed in 1.043130 seconds
+11/04/2019 22:41:14 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:41:15 :: Queue consumed in 1.005625 seconds
+11/04/2019 22:41:15 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:41:16 :: Queue consumed in 1.011627 seconds
+11/04/2019 22:41:16 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:41:17 :: Queue consumed in 1.005334 seconds
+11/04/2019 22:41:17 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:41:18 :: Queue consumed in 1.004807 seconds
+11/04/2019 22:41:18 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:41:19 :: Queue consumed in 1.003230 seconds
+11/04/2019 22:41:19 :: Sorted 1 cache queues in 0.000040 seconds
+11/04/2019 22:41:20 :: Queue consumed in 1.004545 seconds
+11/04/2019 22:41:20 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:41:21 :: Queue consumed in 1.004369 seconds
+11/04/2019 22:41:21 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:41:21 :: Queue consumed in 0.003644 seconds
+11/04/2019 22:41:21 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:41:22 :: Queue consumed in 1.003417 seconds
+11/04/2019 22:41:22 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:41:23 :: Queue consumed in 1.004541 seconds
+11/04/2019 22:41:23 :: Sorted 15 cache queues in 0.000046 seconds
+11/04/2019 22:41:24 :: Queue consumed in 1.039041 seconds
+11/04/2019 22:41:24 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:41:25 :: Queue consumed in 1.006036 seconds
+11/04/2019 22:41:25 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:41:26 :: Queue consumed in 1.012124 seconds
+11/04/2019 22:41:26 :: Sorted 1 cache queues in 0.000050 seconds
+11/04/2019 22:41:27 :: Queue consumed in 1.008369 seconds
+11/04/2019 22:41:27 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:41:27 :: Queue consumed in 0.003774 seconds
+11/04/2019 22:41:27 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:41:28 :: Queue consumed in 1.003791 seconds
+11/04/2019 22:41:28 :: Sorted 1 cache queues in 0.000047 seconds
+11/04/2019 22:41:29 :: Queue consumed in 1.008170 seconds
+11/04/2019 22:41:29 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:41:29 :: Queue consumed in 0.003379 seconds
+11/04/2019 22:41:29 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:41:30 :: Queue consumed in 1.002057 seconds
+11/04/2019 22:41:30 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:41:31 :: Queue consumed in 1.004826 seconds
+11/04/2019 22:41:31 :: Sorted 1 cache queues in 0.000023 seconds
+11/04/2019 22:41:32 :: Queue consumed in 1.003900 seconds
+11/04/2019 22:41:32 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:41:33 :: Queue consumed in 0.995371 seconds
+11/04/2019 22:41:33 :: Sorted 15 cache queues in 0.000023 seconds
+11/04/2019 22:41:33 :: Queue consumed in 0.045106 seconds
+11/04/2019 22:41:33 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:41:34 :: Queue consumed in 1.003389 seconds
+11/04/2019 22:41:34 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:41:35 :: Queue consumed in 1.003847 seconds
+11/04/2019 22:41:35 :: Sorted 1 cache queues in 0.000019 seconds
+11/04/2019 22:41:36 :: Queue consumed in 1.003828 seconds
+11/04/2019 22:41:36 :: Sorted 1 cache queues in 0.000050 seconds
+11/04/2019 22:41:37 :: Queue consumed in 1.010619 seconds
+11/04/2019 22:41:37 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:41:38 :: Queue consumed in 1.009035 seconds
+11/04/2019 22:41:38 :: Sorted 19 cache queues in 0.000042 seconds
+11/04/2019 22:41:38 :: Queue consumed in 0.050201 seconds
+11/04/2019 22:41:38 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:41:39 :: Queue consumed in 1.006856 seconds
+11/04/2019 22:41:39 :: Sorted 1 cache queues in 0.000033 seconds
+11/04/2019 22:41:40 :: Queue consumed in 1.006548 seconds
+11/04/2019 22:41:40 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:41:41 :: Queue consumed in 1.004558 seconds
+11/04/2019 22:41:41 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:41:42 :: Queue consumed in 1.003311 seconds
+11/04/2019 22:41:42 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:41:43 :: Queue consumed in 1.003944 seconds
+11/04/2019 22:41:43 :: Sorted 15 cache queues in 0.000046 seconds
+11/04/2019 22:41:43 :: Queue consumed in 0.043639 seconds
+11/04/2019 22:41:43 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:41:43 :: Queue consumed in 0.004255 seconds
+11/04/2019 22:41:43 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:41:44 :: Queue consumed in 1.003735 seconds
+11/04/2019 22:41:44 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:41:45 :: Queue consumed in 1.003462 seconds
+11/04/2019 22:41:45 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:41:46 :: Queue consumed in 1.004127 seconds
+11/04/2019 22:41:46 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:41:47 :: Queue consumed in 1.003775 seconds
+11/04/2019 22:41:47 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:41:48 :: Queue consumed in 1.002936 seconds
+11/04/2019 22:41:48 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:41:50 :: Queue consumed in 2.008310 seconds
+11/04/2019 22:41:50 :: Sorted 1 cache queues in 0.000059 seconds
+11/04/2019 22:41:51 :: Queue consumed in 1.008083 seconds
+11/04/2019 22:41:51 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:41:52 :: Queue consumed in 1.004215 seconds
+11/04/2019 22:41:52 :: Sorted 1 cache queues in 0.000030 seconds
+11/04/2019 22:41:53 :: Queue consumed in 1.006279 seconds
+11/04/2019 22:41:53 :: Sorted 15 cache queues in 0.000021 seconds
+11/04/2019 22:41:54 :: Queue consumed in 0.049211 seconds
+11/04/2019 22:41:54 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:41:55 :: Queue consumed in 1.006041 seconds
+11/04/2019 22:41:55 :: Sorted 1 cache queues in 0.000043 seconds
+11/04/2019 22:41:56 :: Queue consumed in 1.009903 seconds
+11/04/2019 22:41:56 :: Sorted 1 cache queues in 0.000023 seconds
+11/04/2019 22:41:57 :: Queue consumed in 1.004732 seconds
+11/04/2019 22:41:57 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:41:58 :: Queue consumed in 1.002770 seconds
+11/04/2019 22:41:58 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:41:59 :: Queue consumed in 1.003730 seconds
+11/04/2019 22:41:59 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:42:00 :: Queue consumed in 1.003475 seconds
+11/04/2019 22:42:00 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:42:00 :: Queue consumed in 0.003133 seconds
+11/04/2019 22:42:00 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:42:01 :: Queue consumed in 1.003425 seconds
+11/04/2019 22:42:01 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:42:02 :: Queue consumed in 1.003422 seconds
+11/04/2019 22:42:02 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:42:03 :: Queue consumed in 1.004721 seconds
+11/04/2019 22:42:03 :: Sorted 15 cache queues in 0.000068 seconds
+11/04/2019 22:42:04 :: Queue consumed in 1.039399 seconds
+11/04/2019 22:42:04 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:42:05 :: Queue consumed in 1.009227 seconds
+11/04/2019 22:42:05 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:42:06 :: Queue consumed in 1.006713 seconds
+11/04/2019 22:42:06 :: Sorted 1 cache queues in 0.000050 seconds
+11/04/2019 22:42:07 :: Queue consumed in 1.007315 seconds
+11/04/2019 22:42:07 :: Sorted 1 cache queues in 0.000024 seconds
+11/04/2019 22:42:07 :: Queue consumed in 0.002595 seconds
+11/04/2019 22:42:07 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:42:08 :: Queue consumed in 1.003341 seconds
+11/04/2019 22:42:08 :: Sorted 1 cache queues in 0.000061 seconds
+11/04/2019 22:42:09 :: Queue consumed in 1.008113 seconds
+11/04/2019 22:42:09 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:42:10 :: Queue consumed in 1.003185 seconds
+11/04/2019 22:42:10 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:42:11 :: Queue consumed in 1.003866 seconds
+11/04/2019 22:42:11 :: Sorted 1 cache queues in 0.000023 seconds
+11/04/2019 22:42:12 :: Queue consumed in 1.003410 seconds
+11/04/2019 22:42:12 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:42:13 :: Queue consumed in 1.004393 seconds
+11/04/2019 22:42:13 :: Sorted 15 cache queues in 0.000022 seconds
+11/04/2019 22:42:13 :: Queue consumed in 0.049272 seconds
+11/04/2019 22:42:13 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:42:14 :: Queue consumed in 1.004987 seconds
+11/04/2019 22:42:14 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:42:14 :: Queue consumed in 0.003811 seconds
+11/04/2019 22:42:14 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:42:15 :: Queue consumed in 1.002539 seconds
+11/04/2019 22:42:15 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:42:16 :: Queue consumed in 1.005394 seconds
+11/04/2019 22:42:16 :: Sorted 1 cache queues in 0.000091 seconds
+11/04/2019 22:42:17 :: Queue consumed in 1.008960 seconds
+11/04/2019 22:42:17 :: Sorted 1 cache queues in 0.000043 seconds
+11/04/2019 22:42:18 :: Queue consumed in 1.007288 seconds
+11/04/2019 22:42:18 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:42:19 :: Queue consumed in 1.005232 seconds
+11/04/2019 22:42:19 :: Sorted 1 cache queues in 0.000047 seconds
+11/04/2019 22:42:20 :: Queue consumed in 1.008557 seconds
+11/04/2019 22:42:20 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:42:21 :: Queue consumed in 1.004261 seconds
+11/04/2019 22:42:21 :: Sorted 1 cache queues in 0.000045 seconds
+11/04/2019 22:42:22 :: Queue consumed in 1.007074 seconds
+11/04/2019 22:42:22 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:42:23 :: Queue consumed in 1.004282 seconds
+11/04/2019 22:42:23 :: Sorted 15 cache queues in 0.000022 seconds
+11/04/2019 22:42:23 :: Queue consumed in 0.039221 seconds
+11/04/2019 22:42:23 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:42:24 :: Queue consumed in 1.003207 seconds
+11/04/2019 22:42:24 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:42:25 :: Queue consumed in 1.004316 seconds
+11/04/2019 22:42:25 :: Sorted 1 cache queues in 0.000038 seconds
+11/04/2019 22:42:25 :: Queue consumed in 0.004297 seconds
+11/04/2019 22:42:25 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:42:26 :: Queue consumed in 1.002749 seconds
+11/04/2019 22:42:26 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:42:27 :: Queue consumed in 1.003994 seconds
+11/04/2019 22:42:27 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:42:28 :: Queue consumed in 1.002872 seconds
+11/04/2019 22:42:28 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:42:29 :: Queue consumed in 1.004782 seconds
+11/04/2019 22:42:29 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:42:30 :: Queue consumed in 1.011191 seconds
+11/04/2019 22:42:30 :: Sorted 1 cache queues in 0.000029 seconds
+11/04/2019 22:42:31 :: Queue consumed in 1.005898 seconds
+11/04/2019 22:42:31 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:42:31 :: Queue consumed in 0.003681 seconds
+11/04/2019 22:42:31 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:42:32 :: Queue consumed in 1.004252 seconds
+11/04/2019 22:42:32 :: Sorted 1 cache queues in 0.000030 seconds
+11/04/2019 22:42:33 :: Queue consumed in 1.006983 seconds
+11/04/2019 22:42:33 :: Sorted 15 cache queues in 0.000023 seconds
+11/04/2019 22:42:33 :: Queue consumed in 0.027777 seconds
+11/04/2019 22:42:33 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:42:34 :: Queue consumed in 1.004617 seconds
+11/04/2019 22:42:34 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:42:35 :: Queue consumed in 1.008836 seconds
+11/04/2019 22:42:35 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:42:36 :: Queue consumed in 1.003865 seconds
+11/04/2019 22:42:36 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:42:36 :: Queue consumed in 0.003869 seconds
+11/04/2019 22:42:36 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:42:37 :: Queue consumed in 1.003634 seconds
+11/04/2019 22:42:37 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:42:38 :: Queue consumed in 1.003179 seconds
+11/04/2019 22:42:38 :: Sorted 19 cache queues in 0.000019 seconds
+11/04/2019 22:42:38 :: Queue consumed in 0.039765 seconds
+11/04/2019 22:42:38 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:42:39 :: Queue consumed in 1.003747 seconds
+11/04/2019 22:42:39 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:42:39 :: Queue consumed in 0.003092 seconds
+11/04/2019 22:42:39 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:42:40 :: Queue consumed in 1.002273 seconds
+11/04/2019 22:42:40 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:42:41 :: Queue consumed in 1.003833 seconds
+11/04/2019 22:42:41 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:42:43 :: Queue consumed in 2.007699 seconds
+11/04/2019 22:42:43 :: Sorted 15 cache queues in 0.000071 seconds
+11/04/2019 22:42:44 :: Queue consumed in 1.052126 seconds
+11/04/2019 22:42:44 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:42:45 :: Queue consumed in 1.005541 seconds
+11/04/2019 22:42:45 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:42:46 :: Queue consumed in 1.010934 seconds
+11/04/2019 22:42:46 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:42:47 :: Queue consumed in 1.004144 seconds
+11/04/2019 22:42:47 :: Sorted 1 cache queues in 0.000046 seconds
+11/04/2019 22:42:48 :: Queue consumed in 1.008964 seconds
+11/04/2019 22:42:48 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:42:48 :: Queue consumed in 0.003395 seconds
+11/04/2019 22:42:48 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:42:49 :: Queue consumed in 1.002980 seconds
+11/04/2019 22:42:49 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:42:49 :: Queue consumed in 0.002959 seconds
+11/04/2019 22:42:49 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:42:50 :: Queue consumed in 1.002119 seconds
+11/04/2019 22:42:50 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:42:51 :: Queue consumed in 1.005065 seconds
+11/04/2019 22:42:51 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:42:52 :: Queue consumed in 1.003733 seconds
+11/04/2019 22:42:52 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:42:53 :: Queue consumed in 1.004325 seconds
+11/04/2019 22:42:53 :: Sorted 15 cache queues in 0.000019 seconds
+11/04/2019 22:42:53 :: Queue consumed in 0.050935 seconds
+11/04/2019 22:42:53 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:42:54 :: Queue consumed in 1.005679 seconds
+11/04/2019 22:42:54 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:42:55 :: Queue consumed in 1.009489 seconds
+11/04/2019 22:42:55 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:42:56 :: Queue consumed in 1.005910 seconds
+11/04/2019 22:42:56 :: Sorted 1 cache queues in 0.000030 seconds
+11/04/2019 22:43:03 :: Queue consumed in 6.998431 seconds
+11/04/2019 22:43:03 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:43:13 :: Queue consumed in 10.064375 seconds
+11/04/2019 22:43:13 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:43:23 :: Queue consumed in 10.061101 seconds
+11/04/2019 22:43:23 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:43:33 :: Queue consumed in 10.042590 seconds
+11/04/2019 22:43:33 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:43:37 :: Queue consumed in 4.048655 seconds
+11/04/2019 22:43:37 :: Sorted 18 cache queues in 0.000074 seconds
+11/04/2019 22:43:43 :: Queue consumed in 5.064081 seconds
+11/04/2019 22:43:43 :: Sorted 14 cache queues in 0.000052 seconds
+11/04/2019 22:43:53 :: Queue consumed in 10.054756 seconds
+11/04/2019 22:43:53 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:44:03 :: Queue consumed in 10.060606 seconds
+11/04/2019 22:44:03 :: Sorted 14 cache queues in 0.000044 seconds
+11/04/2019 22:44:13 :: Queue consumed in 10.039390 seconds
+11/04/2019 22:44:13 :: Sorted 14 cache queues in 0.000059 seconds
+11/04/2019 22:44:23 :: Queue consumed in 10.060016 seconds
+11/04/2019 22:44:23 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:44:31 :: Queue consumed in 8.051881 seconds
+11/04/2019 22:44:31 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:44:31 :: Queue consumed in 0.003671 seconds
+11/04/2019 22:44:31 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:44:32 :: Queue consumed in 1.005690 seconds
+11/04/2019 22:44:32 :: Sorted 1 cache queues in 0.000047 seconds
+11/04/2019 22:44:33 :: Queue consumed in 1.009691 seconds
+11/04/2019 22:44:33 :: Sorted 15 cache queues in 0.000025 seconds
+11/04/2019 22:44:33 :: Queue consumed in 0.039758 seconds
+11/04/2019 22:44:33 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:44:33 :: Queue consumed in 0.003614 seconds
+11/04/2019 22:44:33 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:44:34 :: Queue consumed in 0.983368 seconds
+11/04/2019 22:44:34 :: Sorted 1 cache queues in 0.000031 seconds
+11/04/2019 22:44:35 :: Queue consumed in 1.006185 seconds
+11/04/2019 22:44:35 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:44:36 :: Queue consumed in 1.004509 seconds
+11/04/2019 22:44:36 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:44:36 :: Queue consumed in 0.002981 seconds
+11/04/2019 22:44:36 :: Sorted 1 cache queues in 0.000283 seconds
+11/04/2019 22:44:37 :: Queue consumed in 1.002849 seconds
+11/04/2019 22:44:37 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:44:37 :: Queue consumed in 0.003902 seconds
+11/04/2019 22:44:37 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:44:38 :: Queue consumed in 1.003745 seconds
+11/04/2019 22:44:38 :: Sorted 19 cache queues in 0.000024 seconds
+11/04/2019 22:44:38 :: Queue consumed in 0.039756 seconds
+11/04/2019 22:44:38 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:44:39 :: Queue consumed in 1.003823 seconds
+11/04/2019 22:44:39 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:44:39 :: Queue consumed in 0.002636 seconds
+11/04/2019 22:44:39 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:44:40 :: Queue consumed in 1.002265 seconds
+11/04/2019 22:44:40 :: Sorted 1 cache queues in 0.000032 seconds
+11/04/2019 22:44:40 :: Queue consumed in 0.004457 seconds
+11/04/2019 22:44:40 :: Sorted 1 cache queues in 0.000038 seconds
+11/04/2019 22:44:41 :: Queue consumed in 1.005038 seconds
+11/04/2019 22:44:41 :: Sorted 1 cache queues in 0.000024 seconds
+11/04/2019 22:44:42 :: Queue consumed in 1.006465 seconds
+11/04/2019 22:44:42 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:44:43 :: Queue consumed in 1.004740 seconds
+11/04/2019 22:44:43 :: Sorted 15 cache queues in 0.000080 seconds
+11/04/2019 22:44:44 :: Queue consumed in 1.057656 seconds
+11/04/2019 22:44:44 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:44:44 :: Queue consumed in 0.003447 seconds
+11/04/2019 22:44:44 :: Sorted 1 cache queues in 0.000010 seconds
+11/04/2019 22:44:45 :: Queue consumed in 1.004251 seconds
+11/04/2019 22:44:45 :: Sorted 1 cache queues in 0.000046 seconds
+11/04/2019 22:44:46 :: Queue consumed in 1.012841 seconds
+11/04/2019 22:44:46 :: Sorted 1 cache queues in 0.000030 seconds
+11/04/2019 22:44:47 :: Queue consumed in 1.005806 seconds
+11/04/2019 22:44:47 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:44:48 :: Queue consumed in 1.003188 seconds
+11/04/2019 22:44:48 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:44:49 :: Queue consumed in 1.003800 seconds
+11/04/2019 22:44:49 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:44:50 :: Queue consumed in 1.003941 seconds
+11/04/2019 22:44:50 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:44:51 :: Queue consumed in 1.004114 seconds
+11/04/2019 22:44:51 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:44:52 :: Queue consumed in 1.004235 seconds
+11/04/2019 22:44:52 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:44:52 :: Queue consumed in 0.004239 seconds
+11/04/2019 22:44:52 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:44:53 :: Queue consumed in 1.002685 seconds
+11/04/2019 22:44:53 :: Sorted 15 cache queues in 0.000019 seconds
+11/04/2019 22:44:53 :: Queue consumed in 0.044516 seconds
+11/04/2019 22:44:53 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:44:54 :: Queue consumed in 1.008990 seconds
+11/04/2019 22:44:54 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:44:55 :: Queue consumed in 1.007629 seconds
+11/04/2019 22:44:55 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:44:56 :: Queue consumed in 1.005897 seconds
+11/04/2019 22:44:56 :: Sorted 1 cache queues in 0.000041 seconds
+11/04/2019 22:44:57 :: Queue consumed in 1.011184 seconds
+11/04/2019 22:44:57 :: Sorted 1 cache queues in 0.000038 seconds
+11/04/2019 22:44:58 :: Queue consumed in 1.007790 seconds
+11/04/2019 22:44:58 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:44:58 :: Queue consumed in 0.003348 seconds
+11/04/2019 22:44:58 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:44:59 :: Queue consumed in 1.003707 seconds
+11/04/2019 22:44:59 :: Sorted 1 cache queues in 0.000046 seconds
+11/04/2019 22:45:00 :: Queue consumed in 1.010272 seconds
+11/04/2019 22:45:00 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:45:01 :: Queue consumed in 1.003285 seconds
+11/04/2019 22:45:01 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:45:02 :: Queue consumed in 1.004125 seconds
+11/04/2019 22:45:02 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:45:03 :: Queue consumed in 0.982560 seconds
+11/04/2019 22:45:03 :: Sorted 15 cache queues in 0.000022 seconds
+11/04/2019 22:45:03 :: Queue consumed in 0.038463 seconds
+11/04/2019 22:45:03 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:45:04 :: Queue consumed in 1.004342 seconds
+11/04/2019 22:45:04 :: Sorted 1 cache queues in 0.000069 seconds
+11/04/2019 22:45:04 :: Queue consumed in 0.003440 seconds
+11/04/2019 22:45:04 :: Sorted 1 cache queues in 0.000023 seconds
+11/04/2019 22:45:05 :: Queue consumed in 1.002040 seconds
+11/04/2019 22:45:05 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:45:06 :: Queue consumed in 1.006389 seconds
+11/04/2019 22:45:06 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:45:13 :: Queue consumed in 7.034229 seconds
+11/04/2019 22:45:13 :: Sorted 14 cache queues in 0.000062 seconds
+11/04/2019 22:45:23 :: Queue consumed in 10.061912 seconds
+11/04/2019 22:45:23 :: Sorted 14 cache queues in 0.000068 seconds
+11/04/2019 22:45:33 :: Queue consumed in 10.041384 seconds
+11/04/2019 22:45:33 :: Sorted 14 cache queues in 0.000049 seconds
+11/04/2019 22:45:38 :: Queue consumed in 5.042769 seconds
+11/04/2019 22:45:38 :: Sorted 18 cache queues in 0.000096 seconds
+11/04/2019 22:45:43 :: Queue consumed in 5.056383 seconds
+11/04/2019 22:45:43 :: Sorted 14 cache queues in 0.000034 seconds
+11/04/2019 22:45:54 :: Queue consumed in 10.050833 seconds
+11/04/2019 22:45:54 :: Sorted 14 cache queues in 0.000064 seconds
+11/04/2019 22:46:00 :: Queue consumed in 6.048057 seconds
+11/04/2019 22:46:00 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:46:01 :: Queue consumed in 1.005204 seconds
+11/04/2019 22:46:01 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:46:02 :: Queue consumed in 1.004774 seconds
+11/04/2019 22:46:02 :: Sorted 1 cache queues in 0.000046 seconds
+11/04/2019 22:46:03 :: Queue consumed in 1.008662 seconds
+11/04/2019 22:46:03 :: Sorted 15 cache queues in 0.000021 seconds
+11/04/2019 22:46:03 :: Queue consumed in 0.037052 seconds
+11/04/2019 22:46:03 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:46:04 :: Queue consumed in 0.981451 seconds
+11/04/2019 22:46:04 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:46:05 :: Queue consumed in 1.003133 seconds
+11/04/2019 22:46:05 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:46:06 :: Queue consumed in 1.004062 seconds
+11/04/2019 22:46:06 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:46:07 :: Queue consumed in 1.003825 seconds
+11/04/2019 22:46:07 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:46:07 :: Queue consumed in 0.002909 seconds
+11/04/2019 22:46:07 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:46:08 :: Queue consumed in 1.002227 seconds
+11/04/2019 22:46:08 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:46:09 :: Queue consumed in 1.003683 seconds
+11/04/2019 22:46:09 :: Sorted 1 cache queues in 0.000022 seconds
+11/04/2019 22:46:10 :: Queue consumed in 1.008938 seconds
+11/04/2019 22:46:10 :: Sorted 1 cache queues in 0.000051 seconds
+11/04/2019 22:46:11 :: Queue consumed in 1.009848 seconds
+11/04/2019 22:46:11 :: Sorted 1 cache queues in 0.000022 seconds
+11/04/2019 22:46:13 :: Queue consumed in 2.008658 seconds
+11/04/2019 22:46:13 :: Sorted 15 cache queues in 0.000070 seconds
+11/04/2019 22:46:14 :: Queue consumed in 1.038643 seconds
+11/04/2019 22:46:14 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:46:14 :: Queue consumed in 0.004039 seconds
+11/04/2019 22:46:14 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:46:15 :: Queue consumed in 1.004413 seconds
+11/04/2019 22:46:15 :: Sorted 1 cache queues in 0.000047 seconds
+11/04/2019 22:46:16 :: Queue consumed in 1.011097 seconds
+11/04/2019 22:46:16 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:46:17 :: Queue consumed in 1.004296 seconds
+11/04/2019 22:46:17 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:46:18 :: Queue consumed in 1.004316 seconds
+11/04/2019 22:46:18 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:46:18 :: Queue consumed in 0.003859 seconds
+11/04/2019 22:46:18 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:46:19 :: Queue consumed in 1.002325 seconds
+11/04/2019 22:46:19 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:46:20 :: Queue consumed in 1.004337 seconds
+11/04/2019 22:46:20 :: Sorted 1 cache queues in 0.000022 seconds
+11/04/2019 22:46:21 :: Queue consumed in 1.004620 seconds
+11/04/2019 22:46:21 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:46:21 :: Queue consumed in 0.003206 seconds
+11/04/2019 22:46:21 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:46:22 :: Queue consumed in 1.003352 seconds
+11/04/2019 22:46:22 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:46:23 :: Queue consumed in 1.004952 seconds
+11/04/2019 22:46:23 :: Sorted 15 cache queues in 0.000070 seconds
+11/04/2019 22:46:23 :: Queue consumed in 0.043294 seconds
+11/04/2019 22:46:23 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:46:24 :: Queue consumed in 1.004549 seconds
+11/04/2019 22:46:24 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:46:25 :: Queue consumed in 1.011370 seconds
+11/04/2019 22:46:25 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:46:26 :: Queue consumed in 1.004218 seconds
+11/04/2019 22:46:26 :: Sorted 1 cache queues in 0.000049 seconds
+11/04/2019 22:46:27 :: Queue consumed in 1.008617 seconds
+11/04/2019 22:46:27 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:46:28 :: Queue consumed in 1.004472 seconds
+11/04/2019 22:46:28 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:46:29 :: Queue consumed in 1.004391 seconds
+11/04/2019 22:46:29 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:46:30 :: Queue consumed in 1.003791 seconds
+11/04/2019 22:46:30 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:46:30 :: Queue consumed in 0.005847 seconds
+11/04/2019 22:46:30 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:46:31 :: Queue consumed in 1.005355 seconds
+11/04/2019 22:46:31 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:46:31 :: Queue consumed in 0.005039 seconds
+11/04/2019 22:46:31 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:46:32 :: Queue consumed in 1.004870 seconds
+11/04/2019 22:46:32 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:46:33 :: Queue consumed in 0.988662 seconds
+11/04/2019 22:46:33 :: Sorted 15 cache queues in 0.000047 seconds
+11/04/2019 22:46:33 :: Queue consumed in 0.053459 seconds
+11/04/2019 22:46:33 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:46:34 :: Queue consumed in 1.003892 seconds
+11/04/2019 22:46:34 :: Sorted 1 cache queues in 0.000029 seconds
+11/04/2019 22:46:34 :: Queue consumed in 0.005520 seconds
+11/04/2019 22:46:34 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:46:35 :: Queue consumed in 1.004079 seconds
+11/04/2019 22:46:35 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:46:36 :: Queue consumed in 1.003557 seconds
+11/04/2019 22:46:36 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:46:37 :: Queue consumed in 1.003522 seconds
+11/04/2019 22:46:37 :: Sorted 1 cache queues in 0.000049 seconds
+11/04/2019 22:46:38 :: Queue consumed in 1.003347 seconds
+11/04/2019 22:46:38 :: Sorted 19 cache queues in 0.000031 seconds
+11/04/2019 22:46:39 :: Queue consumed in 1.066439 seconds
+11/04/2019 22:46:39 :: Sorted 1 cache queues in 0.000022 seconds
+11/04/2019 22:46:40 :: Queue consumed in 1.008725 seconds
+11/04/2019 22:46:40 :: Sorted 1 cache queues in 0.000050 seconds
+11/04/2019 22:46:41 :: Queue consumed in 1.008078 seconds
+11/04/2019 22:46:41 :: Sorted 1 cache queues in 0.000023 seconds
+11/04/2019 22:46:42 :: Queue consumed in 1.007736 seconds
+11/04/2019 22:46:42 :: Sorted 1 cache queues in 0.000040 seconds
+11/04/2019 22:46:43 :: Queue consumed in 1.009431 seconds
+11/04/2019 22:46:43 :: Sorted 15 cache queues in 0.000031 seconds
+11/04/2019 22:46:43 :: Queue consumed in 0.076239 seconds
+11/04/2019 22:46:43 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:46:44 :: Queue consumed in 1.006735 seconds
+11/04/2019 22:46:44 :: Sorted 1 cache queues in 0.000022 seconds
+11/04/2019 22:46:44 :: Queue consumed in 0.008117 seconds
+11/04/2019 22:46:44 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:46:45 :: Queue consumed in 1.005884 seconds
+11/04/2019 22:46:45 :: Sorted 1 cache queues in 0.000022 seconds
+11/04/2019 22:46:46 :: Queue consumed in 1.004961 seconds
+11/04/2019 22:46:46 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:46:47 :: Queue consumed in 1.003127 seconds
+11/04/2019 22:46:47 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:46:48 :: Queue consumed in 1.005933 seconds
+11/04/2019 22:46:48 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:46:49 :: Queue consumed in 1.006341 seconds
+11/04/2019 22:46:49 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:46:50 :: Queue consumed in 1.004005 seconds
+11/04/2019 22:46:50 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:46:50 :: Queue consumed in 0.005473 seconds
+11/04/2019 22:46:50 :: Sorted 1 cache queues in 0.000031 seconds
+11/04/2019 22:46:51 :: Queue consumed in 1.005602 seconds
+11/04/2019 22:46:51 :: Sorted 1 cache queues in 0.000041 seconds
+11/04/2019 22:46:51 :: Queue consumed in 0.005769 seconds
+11/04/2019 22:46:51 :: Sorted 1 cache queues in 0.000032 seconds
+11/04/2019 22:46:52 :: Queue consumed in 1.004469 seconds
+11/04/2019 22:46:52 :: Sorted 1 cache queues in 0.000046 seconds
+11/04/2019 22:46:53 :: Queue consumed in 1.011408 seconds
+11/04/2019 22:46:53 :: Sorted 15 cache queues in 0.000059 seconds
+11/04/2019 22:46:54 :: Queue consumed in 1.051538 seconds
+11/04/2019 22:46:54 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:46:54 :: Queue consumed in 0.003743 seconds
+11/04/2019 22:46:54 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:46:55 :: Queue consumed in 1.005158 seconds
+11/04/2019 22:46:55 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:46:56 :: Queue consumed in 1.009826 seconds
+11/04/2019 22:46:56 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:46:57 :: Queue consumed in 1.004622 seconds
+11/04/2019 22:46:57 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:46:58 :: Queue consumed in 1.003535 seconds
+11/04/2019 22:46:58 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:46:58 :: Queue consumed in 0.003827 seconds
+11/04/2019 22:46:58 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:46:59 :: Queue consumed in 1.004106 seconds
+11/04/2019 22:46:59 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:46:59 :: Queue consumed in 0.004401 seconds
+11/04/2019 22:46:59 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:47:00 :: Queue consumed in 1.003851 seconds
+11/04/2019 22:47:00 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:47:00 :: Queue consumed in 0.003103 seconds
+11/04/2019 22:47:00 :: Sorted 1 cache queues in 0.000009 seconds
+11/04/2019 22:47:01 :: Queue consumed in 1.003771 seconds
+11/04/2019 22:47:01 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:47:02 :: Queue consumed in 1.004481 seconds
+11/04/2019 22:47:02 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:47:03 :: Queue consumed in 0.982620 seconds
+11/04/2019 22:47:03 :: Sorted 15 cache queues in 0.000022 seconds
+11/04/2019 22:47:03 :: Queue consumed in 0.038546 seconds
+11/04/2019 22:47:03 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:47:03 :: Queue consumed in 0.003637 seconds
+11/04/2019 22:47:03 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:47:04 :: Queue consumed in 1.003635 seconds
+11/04/2019 22:47:04 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:47:05 :: Queue consumed in 1.006029 seconds
+11/04/2019 22:47:05 :: Sorted 1 cache queues in 0.000047 seconds
+11/04/2019 22:47:06 :: Queue consumed in 1.008504 seconds
+11/04/2019 22:47:06 :: Sorted 1 cache queues in 0.000056 seconds
+11/04/2019 22:47:07 :: Queue consumed in 1.006852 seconds
+11/04/2019 22:47:07 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:47:07 :: Queue consumed in 0.004089 seconds
+11/04/2019 22:47:07 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:47:08 :: Queue consumed in 1.003971 seconds
+11/04/2019 22:47:08 :: Sorted 1 cache queues in 0.000038 seconds
+11/04/2019 22:47:09 :: Queue consumed in 1.010320 seconds
+11/04/2019 22:47:09 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:47:10 :: Queue consumed in 1.007444 seconds
+11/04/2019 22:47:10 :: Sorted 1 cache queues in 0.000046 seconds
+11/04/2019 22:47:11 :: Queue consumed in 1.009949 seconds
+11/04/2019 22:47:11 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:47:12 :: Queue consumed in 1.004702 seconds
+11/04/2019 22:47:12 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:47:12 :: Queue consumed in 0.003565 seconds
+11/04/2019 22:47:12 :: Sorted 1 cache queues in 0.000010 seconds
+11/04/2019 22:47:13 :: Queue consumed in 1.003836 seconds
+11/04/2019 22:47:13 :: Sorted 15 cache queues in 0.000020 seconds
+11/04/2019 22:47:13 :: Queue consumed in 0.034529 seconds
+11/04/2019 22:47:13 :: Sorted 1 cache queues in 0.000010 seconds
+11/04/2019 22:47:14 :: Queue consumed in 1.003321 seconds
+11/04/2019 22:47:14 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:47:15 :: Queue consumed in 1.003870 seconds
+11/04/2019 22:47:15 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:47:15 :: Queue consumed in 0.003276 seconds
+11/04/2019 22:47:15 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:47:16 :: Queue consumed in 1.003296 seconds
+11/04/2019 22:47:16 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:47:18 :: Queue consumed in 1.003382 seconds
+11/04/2019 22:47:18 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:47:19 :: Queue consumed in 1.005306 seconds
+11/04/2019 22:47:19 :: Sorted 1 cache queues in 0.000025 seconds
+11/04/2019 22:47:20 :: Queue consumed in 1.007920 seconds
+11/04/2019 22:47:20 :: Sorted 1 cache queues in 0.000047 seconds
+11/04/2019 22:47:21 :: Queue consumed in 1.010125 seconds
+11/04/2019 22:47:21 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:47:22 :: Queue consumed in 1.011001 seconds
+11/04/2019 22:47:22 :: Sorted 1 cache queues in 0.000049 seconds
+11/04/2019 22:47:23 :: Queue consumed in 1.009458 seconds
+11/04/2019 22:47:23 :: Sorted 15 cache queues in 0.000054 seconds
+11/04/2019 22:47:23 :: Queue consumed in 0.060192 seconds
+11/04/2019 22:47:23 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:47:24 :: Queue consumed in 1.006036 seconds
+11/04/2019 22:47:24 :: Sorted 1 cache queues in 0.000028 seconds
+11/04/2019 22:47:25 :: Queue consumed in 1.005894 seconds
+11/04/2019 22:47:25 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:47:26 :: Queue consumed in 1.003982 seconds
+11/04/2019 22:47:26 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:47:27 :: Queue consumed in 1.003945 seconds
+11/04/2019 22:47:27 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:47:28 :: Queue consumed in 1.003962 seconds
+11/04/2019 22:47:28 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:47:28 :: Queue consumed in 0.003232 seconds
+11/04/2019 22:47:28 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:47:29 :: Queue consumed in 1.002734 seconds
+11/04/2019 22:47:29 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:47:30 :: Queue consumed in 1.003393 seconds
+11/04/2019 22:47:30 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:47:31 :: Queue consumed in 1.003440 seconds
+11/04/2019 22:47:31 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:47:32 :: Queue consumed in 1.005920 seconds
+11/04/2019 22:47:32 :: Sorted 1 cache queues in 0.000028 seconds
+11/04/2019 22:47:33 :: Queue consumed in 1.007404 seconds
+11/04/2019 22:47:33 :: Sorted 14 cache queues in 0.000044 seconds
+11/04/2019 22:47:38 :: Queue consumed in 5.023947 seconds
+11/04/2019 22:47:38 :: Sorted 18 cache queues in 0.000070 seconds
+11/04/2019 22:47:43 :: Queue consumed in 5.054921 seconds
+11/04/2019 22:47:43 :: Sorted 14 cache queues in 0.000062 seconds
+11/04/2019 22:47:53 :: Queue consumed in 10.081255 seconds
+11/04/2019 22:47:53 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:47:56 :: Queue consumed in 3.044581 seconds
+11/04/2019 22:47:56 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:47:56 :: Queue consumed in 0.005570 seconds
+11/04/2019 22:47:56 :: Sorted 1 cache queues in 0.000083 seconds
+11/04/2019 22:47:57 :: Queue consumed in 1.004962 seconds
+11/04/2019 22:47:57 :: Sorted 1 cache queues in 0.000051 seconds
+11/04/2019 22:47:58 :: Queue consumed in 1.013138 seconds
+11/04/2019 22:47:58 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:47:59 :: Queue consumed in 1.009310 seconds
+11/04/2019 22:47:59 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:48:00 :: Queue consumed in 1.003839 seconds
+11/04/2019 22:48:00 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:48:01 :: Queue consumed in 1.003353 seconds
+11/04/2019 22:48:01 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:48:02 :: Queue consumed in 1.003377 seconds
+11/04/2019 22:48:02 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:48:03 :: Queue consumed in 0.982555 seconds
+11/04/2019 22:48:03 :: Sorted 15 cache queues in 0.000018 seconds
+11/04/2019 22:48:03 :: Queue consumed in 0.034931 seconds
+11/04/2019 22:48:03 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:48:04 :: Queue consumed in 1.003133 seconds
+11/04/2019 22:48:04 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:48:05 :: Queue consumed in 1.003522 seconds
+11/04/2019 22:48:05 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:48:06 :: Queue consumed in 1.007041 seconds
+11/04/2019 22:48:06 :: Sorted 1 cache queues in 0.000046 seconds
+11/04/2019 22:48:07 :: Queue consumed in 1.007349 seconds
+11/04/2019 22:48:07 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:48:08 :: Queue consumed in 1.005845 seconds
+11/04/2019 22:48:08 :: Sorted 1 cache queues in 0.000050 seconds
+11/04/2019 22:48:09 :: Queue consumed in 1.008171 seconds
+11/04/2019 22:48:09 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:48:09 :: Queue consumed in 0.003267 seconds
+11/04/2019 22:48:09 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:48:10 :: Queue consumed in 1.003711 seconds
+11/04/2019 22:48:10 :: Sorted 1 cache queues in 0.000051 seconds
+11/04/2019 22:48:11 :: Queue consumed in 1.011858 seconds
+11/04/2019 22:48:11 :: Sorted 1 cache queues in 0.000029 seconds
+11/04/2019 22:48:12 :: Queue consumed in 1.005715 seconds
+11/04/2019 22:48:12 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:48:12 :: Queue consumed in 0.003937 seconds
+11/04/2019 22:48:12 :: Sorted 1 cache queues in 0.000052 seconds
+11/04/2019 22:48:13 :: Queue consumed in 1.005325 seconds
+11/04/2019 22:48:13 :: Sorted 15 cache queues in 0.000021 seconds
+11/04/2019 22:48:13 :: Queue consumed in 0.037896 seconds
+11/04/2019 22:48:13 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:48:14 :: Queue consumed in 1.004120 seconds
+11/04/2019 22:48:14 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:48:15 :: Queue consumed in 1.003929 seconds
+11/04/2019 22:48:15 :: Sorted 1 cache queues in 0.000019 seconds
+11/04/2019 22:48:16 :: Queue consumed in 1.004121 seconds
+11/04/2019 22:48:16 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:48:17 :: Queue consumed in 1.003341 seconds
+11/04/2019 22:48:17 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:48:18 :: Queue consumed in 1.003270 seconds
+11/04/2019 22:48:18 :: Sorted 1 cache queues in 0.000033 seconds
+11/04/2019 22:48:18 :: Queue consumed in 0.004709 seconds
+11/04/2019 22:48:18 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:48:19 :: Queue consumed in 1.003791 seconds
+11/04/2019 22:48:19 :: Sorted 1 cache queues in 0.000050 seconds
+11/04/2019 22:48:20 :: Queue consumed in 1.009290 seconds
+11/04/2019 22:48:20 :: Sorted 1 cache queues in 0.000031 seconds
+11/04/2019 22:48:21 :: Queue consumed in 1.005925 seconds
+11/04/2019 22:48:21 :: Sorted 1 cache queues in 0.000047 seconds
+11/04/2019 22:48:22 :: Queue consumed in 1.009929 seconds
+11/04/2019 22:48:22 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:48:23 :: Queue consumed in 1.006640 seconds
+11/04/2019 22:48:23 :: Sorted 15 cache queues in 0.000071 seconds
+11/04/2019 22:48:24 :: Queue consumed in 1.050629 seconds
+11/04/2019 22:48:24 :: Sorted 1 cache queues in 0.000096 seconds
+11/04/2019 22:48:24 :: Queue consumed in 0.006567 seconds
+11/04/2019 22:48:24 :: Sorted 1 cache queues in 0.000034 seconds
+11/04/2019 22:48:26 :: Queue consumed in 2.006508 seconds
+11/04/2019 22:48:26 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:48:27 :: Queue consumed in 1.003162 seconds
+11/04/2019 22:48:27 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:48:28 :: Queue consumed in 1.004316 seconds
+11/04/2019 22:48:28 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:48:28 :: Queue consumed in 0.004395 seconds
+11/04/2019 22:48:28 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:48:29 :: Queue consumed in 1.002097 seconds
+11/04/2019 22:48:29 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:48:30 :: Queue consumed in 1.004737 seconds
+11/04/2019 22:48:30 :: Sorted 1 cache queues in 0.000010 seconds
+11/04/2019 22:48:31 :: Queue consumed in 1.003300 seconds
+11/04/2019 22:48:31 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:48:32 :: Queue consumed in 1.004137 seconds
+11/04/2019 22:48:32 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:48:33 :: Queue consumed in 0.984147 seconds
+11/04/2019 22:48:33 :: Sorted 14 cache queues in 0.000052 seconds
+11/04/2019 22:48:33 :: Queue consumed in 0.040933 seconds
+11/04/2019 22:48:33 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:48:34 :: Queue consumed in 1.004271 seconds
+11/04/2019 22:48:34 :: Sorted 1 cache queues in 0.000024 seconds
+11/04/2019 22:48:35 :: Queue consumed in 1.005716 seconds
+11/04/2019 22:48:35 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:48:35 :: Queue consumed in 0.002608 seconds
+11/04/2019 22:48:35 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:48:36 :: Queue consumed in 1.004848 seconds
+11/04/2019 22:48:36 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:48:37 :: Queue consumed in 1.008911 seconds
+11/04/2019 22:48:37 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:48:38 :: Queue consumed in 1.004060 seconds
+11/04/2019 22:48:38 :: Sorted 19 cache queues in 0.000071 seconds
+11/04/2019 22:48:39 :: Queue consumed in 1.038940 seconds
+11/04/2019 22:48:39 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:48:40 :: Queue consumed in 1.004005 seconds
+11/04/2019 22:48:40 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:48:40 :: Queue consumed in 0.002847 seconds
+11/04/2019 22:48:40 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:48:41 :: Queue consumed in 1.003322 seconds
+11/04/2019 22:48:41 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:48:42 :: Queue consumed in 1.005303 seconds
+11/04/2019 22:48:42 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:48:42 :: Queue consumed in 0.004066 seconds
+11/04/2019 22:48:42 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:48:43 :: Queue consumed in 1.002858 seconds
+11/04/2019 22:48:43 :: Sorted 15 cache queues in 0.000043 seconds
+11/04/2019 22:48:43 :: Queue consumed in 0.046712 seconds
+11/04/2019 22:48:43 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:48:44 :: Queue consumed in 1.004785 seconds
+11/04/2019 22:48:44 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:48:45 :: Queue consumed in 1.004734 seconds
+11/04/2019 22:48:45 :: Sorted 1 cache queues in 0.000050 seconds
+11/04/2019 22:48:46 :: Queue consumed in 1.008787 seconds
+11/04/2019 22:48:46 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:48:47 :: Queue consumed in 1.004640 seconds
+11/04/2019 22:48:47 :: Sorted 1 cache queues in 0.000047 seconds
+11/04/2019 22:48:48 :: Queue consumed in 1.012047 seconds
+11/04/2019 22:48:48 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:48:49 :: Queue consumed in 1.004502 seconds
+11/04/2019 22:48:49 :: Sorted 1 cache queues in 0.000049 seconds
+11/04/2019 22:48:50 :: Queue consumed in 1.008442 seconds
+11/04/2019 22:48:50 :: Sorted 1 cache queues in 0.000028 seconds
+11/04/2019 22:48:51 :: Queue consumed in 1.005109 seconds
+11/04/2019 22:48:51 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:48:52 :: Queue consumed in 1.005624 seconds
+11/04/2019 22:48:52 :: Sorted 1 cache queues in 0.000049 seconds
+11/04/2019 22:48:53 :: Queue consumed in 1.010075 seconds
+11/04/2019 22:48:53 :: Sorted 14 cache queues in 0.000064 seconds
+11/04/2019 22:49:03 :: Queue consumed in 9.073775 seconds
+11/04/2019 22:49:03 :: Sorted 14 cache queues in 0.000107 seconds
+11/04/2019 22:49:13 :: Queue consumed in 10.035796 seconds
+11/04/2019 22:49:13 :: Sorted 14 cache queues in 0.000047 seconds
+11/04/2019 22:49:23 :: Queue consumed in 10.068727 seconds
+11/04/2019 22:49:23 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:49:33 :: Queue consumed in 10.034039 seconds
+11/04/2019 22:49:33 :: Sorted 14 cache queues in 0.000031 seconds
+11/04/2019 22:49:38 :: Queue consumed in 5.038241 seconds
+11/04/2019 22:49:38 :: Sorted 18 cache queues in 0.000071 seconds
+11/04/2019 22:49:43 :: Queue consumed in 5.050656 seconds
+11/04/2019 22:49:43 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:49:53 :: Queue consumed in 10.072249 seconds
+11/04/2019 22:49:53 :: Sorted 14 cache queues in 0.000042 seconds
+11/04/2019 22:49:57 :: Queue consumed in 4.049131 seconds
+11/04/2019 22:49:57 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:49:58 :: Queue consumed in 1.006324 seconds
+11/04/2019 22:49:58 :: Sorted 1 cache queues in 0.000043 seconds
+11/04/2019 22:49:59 :: Queue consumed in 1.008679 seconds
+11/04/2019 22:49:59 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:50:00 :: Queue consumed in 1.008304 seconds
+11/04/2019 22:50:00 :: Sorted 1 cache queues in 0.000023 seconds
+11/04/2019 22:50:01 :: Queue consumed in 1.003997 seconds
+11/04/2019 22:50:01 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:50:01 :: Queue consumed in 0.003964 seconds
+11/04/2019 22:50:01 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:50:02 :: Queue consumed in 1.003359 seconds
+11/04/2019 22:50:02 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:50:02 :: Queue consumed in 0.003601 seconds
+11/04/2019 22:50:02 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:50:03 :: Queue consumed in 0.981174 seconds
+11/04/2019 22:50:03 :: Sorted 15 cache queues in 0.000022 seconds
+11/04/2019 22:50:03 :: Queue consumed in 0.046542 seconds
+11/04/2019 22:50:03 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:50:04 :: Queue consumed in 1.006374 seconds
+11/04/2019 22:50:04 :: Sorted 1 cache queues in 0.000022 seconds
+11/04/2019 22:50:04 :: Queue consumed in 0.004786 seconds
+11/04/2019 22:50:04 :: Sorted 1 cache queues in 0.000032 seconds
+11/04/2019 22:50:05 :: Queue consumed in 1.004412 seconds
+11/04/2019 22:50:05 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:50:06 :: Queue consumed in 1.004493 seconds
+11/04/2019 22:50:06 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:50:07 :: Queue consumed in 1.004320 seconds
+11/04/2019 22:50:07 :: Sorted 1 cache queues in 0.000064 seconds
+11/04/2019 22:50:08 :: Queue consumed in 1.009727 seconds
+11/04/2019 22:50:08 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:50:08 :: Queue consumed in 0.004068 seconds
+11/04/2019 22:50:08 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:50:09 :: Queue consumed in 1.004319 seconds
+11/04/2019 22:50:09 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:50:10 :: Queue consumed in 1.011396 seconds
+11/04/2019 22:50:10 :: Sorted 1 cache queues in 0.000050 seconds
+11/04/2019 22:50:12 :: Queue consumed in 2.012543 seconds
+11/04/2019 22:50:12 :: Sorted 1 cache queues in 0.000049 seconds
+11/04/2019 22:50:13 :: Queue consumed in 1.008700 seconds
+11/04/2019 22:50:13 :: Sorted 15 cache queues in 0.000023 seconds
+11/04/2019 22:50:13 :: Queue consumed in 0.043773 seconds
+11/04/2019 22:50:13 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:50:14 :: Queue consumed in 1.004437 seconds
+11/04/2019 22:50:14 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:50:14 :: Queue consumed in 0.003557 seconds
+11/04/2019 22:50:14 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:50:15 :: Queue consumed in 1.002630 seconds
+11/04/2019 22:50:15 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:50:16 :: Queue consumed in 1.003339 seconds
+11/04/2019 22:50:16 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:50:17 :: Queue consumed in 1.003566 seconds
+11/04/2019 22:50:17 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:50:17 :: Queue consumed in 0.004151 seconds
+11/04/2019 22:50:17 :: Sorted 1 cache queues in 0.000010 seconds
+11/04/2019 22:50:18 :: Queue consumed in 1.003343 seconds
+11/04/2019 22:50:18 :: Sorted 1 cache queues in 0.000019 seconds
+11/04/2019 22:50:19 :: Queue consumed in 1.003749 seconds
+11/04/2019 22:50:19 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:50:20 :: Queue consumed in 1.004474 seconds
+11/04/2019 22:50:20 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:50:21 :: Queue consumed in 1.009037 seconds
+11/04/2019 22:50:21 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:50:23 :: Queue consumed in 2.006308 seconds
+11/04/2019 22:50:23 :: Sorted 15 cache queues in 0.000070 seconds
+11/04/2019 22:50:33 :: Queue consumed in 10.032654 seconds
+11/04/2019 22:50:33 :: Sorted 14 cache queues in 0.000029 seconds
+11/04/2019 22:50:38 :: Queue consumed in 5.051237 seconds
+11/04/2019 22:50:38 :: Sorted 18 cache queues in 0.000071 seconds
+11/04/2019 22:50:43 :: Queue consumed in 5.063047 seconds
+11/04/2019 22:50:43 :: Sorted 14 cache queues in 0.000046 seconds
+11/04/2019 22:50:50 :: Queue consumed in 7.040315 seconds
+11/04/2019 22:50:50 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:50:51 :: Queue consumed in 1.005037 seconds
+11/04/2019 22:50:51 :: Sorted 1 cache queues in 0.000039 seconds
+11/04/2019 22:50:52 :: Queue consumed in 1.005019 seconds
+11/04/2019 22:50:52 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:50:53 :: Queue consumed in 1.003448 seconds
+11/04/2019 22:50:53 :: Sorted 14 cache queues in 0.000036 seconds
+11/04/2019 22:50:53 :: Queue consumed in 0.030583 seconds
+11/04/2019 22:50:53 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:50:54 :: Queue consumed in 1.002781 seconds
+11/04/2019 22:50:54 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:50:54 :: Queue consumed in 0.003632 seconds
+11/04/2019 22:50:54 :: Sorted 1 cache queues in 0.000019 seconds
+11/04/2019 22:50:55 :: Queue consumed in 1.003451 seconds
+11/04/2019 22:50:55 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:50:55 :: Queue consumed in 0.003970 seconds
+11/04/2019 22:50:55 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:50:56 :: Queue consumed in 1.003681 seconds
+11/04/2019 22:50:56 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:50:57 :: Queue consumed in 1.003337 seconds
+11/04/2019 22:50:57 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:50:57 :: Queue consumed in 0.003831 seconds
+11/04/2019 22:50:57 :: Sorted 1 cache queues in 0.000022 seconds
+11/04/2019 22:50:58 :: Queue consumed in 1.003923 seconds
+11/04/2019 22:50:58 :: Sorted 1 cache queues in 0.000023 seconds
+11/04/2019 22:50:59 :: Queue consumed in 1.004526 seconds
+11/04/2019 22:50:59 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:50:59 :: Queue consumed in 0.003382 seconds
+11/04/2019 22:50:59 :: Sorted 1 cache queues in 0.000023 seconds
+11/04/2019 22:51:00 :: Queue consumed in 1.003791 seconds
+11/04/2019 22:51:00 :: Sorted 1 cache queues in 0.000023 seconds
+11/04/2019 22:51:01 :: Queue consumed in 1.006645 seconds
+11/04/2019 22:51:01 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:51:02 :: Queue consumed in 1.004923 seconds
+11/04/2019 22:51:02 :: Sorted 1 cache queues in 0.000045 seconds
+11/04/2019 22:51:03 :: Queue consumed in 0.987333 seconds
+11/04/2019 22:51:03 :: Sorted 15 cache queues in 0.000021 seconds
+11/04/2019 22:51:04 :: Queue consumed in 0.044531 seconds
+11/04/2019 22:51:04 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:51:05 :: Queue consumed in 1.005493 seconds
+11/04/2019 22:51:05 :: Sorted 1 cache queues in 0.000043 seconds
+11/04/2019 22:51:06 :: Queue consumed in 1.015598 seconds
+11/04/2019 22:51:06 :: Sorted 1 cache queues in 0.000046 seconds
+11/04/2019 22:51:07 :: Queue consumed in 1.010394 seconds
+11/04/2019 22:51:07 :: Sorted 1 cache queues in 0.000019 seconds
+11/04/2019 22:51:08 :: Queue consumed in 1.004684 seconds
+11/04/2019 22:51:08 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:51:09 :: Queue consumed in 1.004061 seconds
+11/04/2019 22:51:09 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:51:10 :: Queue consumed in 1.004132 seconds
+11/04/2019 22:51:10 :: Sorted 1 cache queues in 0.000010 seconds
+11/04/2019 22:51:11 :: Queue consumed in 1.003141 seconds
+11/04/2019 22:51:11 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:51:12 :: Queue consumed in 1.004365 seconds
+11/04/2019 22:51:12 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:51:13 :: Queue consumed in 1.004565 seconds
+11/04/2019 22:51:13 :: Sorted 15 cache queues in 0.000022 seconds
+11/04/2019 22:51:13 :: Queue consumed in 0.038962 seconds
+11/04/2019 22:51:13 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:51:14 :: Queue consumed in 1.002874 seconds
+11/04/2019 22:51:14 :: Sorted 1 cache queues in 0.000049 seconds
+11/04/2019 22:51:15 :: Queue consumed in 1.008509 seconds
+11/04/2019 22:51:15 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:51:16 :: Queue consumed in 1.004194 seconds
+11/04/2019 22:51:16 :: Sorted 1 cache queues in 0.000148 seconds
+11/04/2019 22:51:17 :: Queue consumed in 1.008921 seconds
+11/04/2019 22:51:17 :: Sorted 1 cache queues in 0.000051 seconds
+11/04/2019 22:51:18 :: Queue consumed in 1.006566 seconds
+11/04/2019 22:51:18 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:51:19 :: Queue consumed in 1.005636 seconds
+11/04/2019 22:51:19 :: Sorted 1 cache queues in 0.000064 seconds
+11/04/2019 22:51:20 :: Queue consumed in 1.007390 seconds
+11/04/2019 22:51:20 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:51:21 :: Queue consumed in 1.004042 seconds
+11/04/2019 22:51:21 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:51:21 :: Queue consumed in 0.003224 seconds
+11/04/2019 22:51:21 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:51:22 :: Queue consumed in 1.003141 seconds
+11/04/2019 22:51:22 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:51:23 :: Queue consumed in 1.002975 seconds
+11/04/2019 22:51:23 :: Sorted 15 cache queues in 0.000032 seconds
+11/04/2019 22:51:23 :: Queue consumed in 0.047715 seconds
+11/04/2019 22:51:23 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:51:23 :: Queue consumed in 0.004428 seconds
+11/04/2019 22:51:23 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:51:24 :: Queue consumed in 1.003011 seconds
+11/04/2019 22:51:24 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:51:25 :: Queue consumed in 1.004345 seconds
+11/04/2019 22:51:25 :: Sorted 1 cache queues in 0.000023 seconds
+11/04/2019 22:51:25 :: Queue consumed in 0.003425 seconds
+11/04/2019 22:51:25 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:51:26 :: Queue consumed in 1.003643 seconds
+11/04/2019 22:51:26 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:51:27 :: Queue consumed in 1.005237 seconds
+11/04/2019 22:51:27 :: Sorted 1 cache queues in 0.000045 seconds
+11/04/2019 22:51:28 :: Queue consumed in 1.007546 seconds
+11/04/2019 22:51:28 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:51:29 :: Queue consumed in 1.006387 seconds
+11/04/2019 22:51:29 :: Sorted 1 cache queues in 0.000047 seconds
+11/04/2019 22:51:30 :: Queue consumed in 1.010606 seconds
+11/04/2019 22:51:30 :: Sorted 1 cache queues in 0.000044 seconds
+11/04/2019 22:51:31 :: Queue consumed in 1.010682 seconds
+11/04/2019 22:51:31 :: Sorted 1 cache queues in 0.000019 seconds
+11/04/2019 22:51:32 :: Queue consumed in 1.005710 seconds
+11/04/2019 22:51:32 :: Sorted 1 cache queues in 0.000048 seconds
+11/04/2019 22:51:33 :: Queue consumed in 0.985360 seconds
+11/04/2019 22:51:33 :: Sorted 15 cache queues in 0.000021 seconds
+11/04/2019 22:51:33 :: Queue consumed in 0.023277 seconds
+11/04/2019 22:51:33 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:51:33 :: Queue consumed in 0.002629 seconds
+11/04/2019 22:51:33 :: Sorted 1 cache queues in 0.000010 seconds
+11/04/2019 22:51:34 :: Queue consumed in 1.001801 seconds
+11/04/2019 22:51:34 :: Sorted 1 cache queues in 0.000022 seconds
+11/04/2019 22:51:35 :: Queue consumed in 1.003956 seconds
+11/04/2019 22:51:35 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:51:36 :: Queue consumed in 1.002963 seconds
+11/04/2019 22:51:36 :: Sorted 1 cache queues in 0.000039 seconds
+11/04/2019 22:51:37 :: Queue consumed in 1.003560 seconds
+11/04/2019 22:51:37 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:51:38 :: Queue consumed in 1.004407 seconds
+11/04/2019 22:51:38 :: Sorted 19 cache queues in 0.000031 seconds
+11/04/2019 22:51:38 :: Queue consumed in 0.040466 seconds
+11/04/2019 22:51:38 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:51:39 :: Queue consumed in 1.003195 seconds
+11/04/2019 22:51:39 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:51:40 :: Queue consumed in 1.006236 seconds
+11/04/2019 22:51:40 :: Sorted 1 cache queues in 0.000041 seconds
+11/04/2019 22:51:41 :: Queue consumed in 1.011223 seconds
+11/04/2019 22:51:41 :: Sorted 1 cache queues in 0.000046 seconds
+11/04/2019 22:51:42 :: Queue consumed in 1.008452 seconds
+11/04/2019 22:51:42 :: Sorted 1 cache queues in 0.000046 seconds
+11/04/2019 22:51:43 :: Queue consumed in 1.004755 seconds
+11/04/2019 22:51:43 :: Sorted 15 cache queues in 0.000065 seconds
+11/04/2019 22:51:44 :: Queue consumed in 1.032703 seconds
+11/04/2019 22:51:44 :: Sorted 1 cache queues in 0.000019 seconds
+11/04/2019 22:51:45 :: Queue consumed in 1.003830 seconds
+11/04/2019 22:51:45 :: Sorted 1 cache queues in 0.000099 seconds
+11/04/2019 22:51:46 :: Queue consumed in 1.007028 seconds
+11/04/2019 22:51:46 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:51:47 :: Queue consumed in 1.002736 seconds
+11/04/2019 22:51:47 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:51:48 :: Queue consumed in 1.004006 seconds
+11/04/2019 22:51:48 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:51:49 :: Queue consumed in 1.003763 seconds
+11/04/2019 22:51:49 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:51:49 :: Queue consumed in 0.003674 seconds
+11/04/2019 22:51:49 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:51:50 :: Queue consumed in 1.002404 seconds
+11/04/2019 22:51:50 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:51:51 :: Queue consumed in 1.003578 seconds
+11/04/2019 22:51:51 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:51:52 :: Queue consumed in 1.004408 seconds
+11/04/2019 22:51:52 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:51:53 :: Queue consumed in 1.005233 seconds
+11/04/2019 22:51:53 :: Sorted 15 cache queues in 0.000069 seconds
+11/04/2019 22:51:54 :: Queue consumed in 1.055194 seconds
+11/04/2019 22:51:54 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:51:55 :: Queue consumed in 1.005876 seconds
+11/04/2019 22:51:55 :: Sorted 1 cache queues in 0.000047 seconds
+11/04/2019 22:51:56 :: Queue consumed in 1.011055 seconds
+11/04/2019 22:51:56 :: Sorted 1 cache queues in 0.000079 seconds
+11/04/2019 22:51:57 :: Queue consumed in 1.007216 seconds
+11/04/2019 22:51:57 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:51:58 :: Queue consumed in 1.003932 seconds
+11/04/2019 22:51:58 :: Sorted 1 cache queues in 0.000039 seconds
+11/04/2019 22:51:59 :: Queue consumed in 1.007324 seconds
+11/04/2019 22:51:59 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:52:00 :: Queue consumed in 1.003960 seconds
+11/04/2019 22:52:00 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:52:00 :: Queue consumed in 0.004146 seconds
+11/04/2019 22:52:00 :: Sorted 1 cache queues in 0.000024 seconds
+11/04/2019 22:52:01 :: Queue consumed in 1.002715 seconds
+11/04/2019 22:52:01 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:52:02 :: Queue consumed in 1.005240 seconds
+11/04/2019 22:52:02 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:52:03 :: Queue consumed in 0.981730 seconds
+11/04/2019 22:52:03 :: Sorted 15 cache queues in 0.000026 seconds
+11/04/2019 22:52:03 :: Queue consumed in 0.053222 seconds
+11/04/2019 22:52:03 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:52:04 :: Queue consumed in 1.004989 seconds
+11/04/2019 22:52:04 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:52:05 :: Queue consumed in 1.004366 seconds
+11/04/2019 22:52:05 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:52:06 :: Queue consumed in 1.005067 seconds
+11/04/2019 22:52:06 :: Sorted 1 cache queues in 0.000137 seconds
+11/04/2019 22:52:07 :: Queue consumed in 1.008625 seconds
+11/04/2019 22:52:07 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:52:08 :: Queue consumed in 1.005704 seconds
+11/04/2019 22:52:08 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:52:09 :: Queue consumed in 1.006441 seconds
+11/04/2019 22:52:09 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:52:11 :: Queue consumed in 2.006274 seconds
+11/04/2019 22:52:11 :: Sorted 1 cache queues in 0.000042 seconds
+11/04/2019 22:52:12 :: Queue consumed in 1.011841 seconds
+11/04/2019 22:52:12 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:52:13 :: Queue consumed in 1.003069 seconds
+11/04/2019 22:52:13 :: Sorted 15 cache queues in 0.000020 seconds
+11/04/2019 22:52:13 :: Queue consumed in 0.046190 seconds
+11/04/2019 22:52:13 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:52:13 :: Queue consumed in 0.004195 seconds
+11/04/2019 22:52:13 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:52:14 :: Queue consumed in 1.003930 seconds
+11/04/2019 22:52:14 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:52:14 :: Queue consumed in 0.003336 seconds
+11/04/2019 22:52:14 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:52:15 :: Queue consumed in 1.003822 seconds
+11/04/2019 22:52:15 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:52:16 :: Queue consumed in 1.003930 seconds
+11/04/2019 22:52:16 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:52:17 :: Queue consumed in 1.004219 seconds
+11/04/2019 22:52:17 :: Sorted 1 cache queues in 0.000038 seconds
+11/04/2019 22:52:17 :: Queue consumed in 0.003597 seconds
+11/04/2019 22:52:17 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:52:18 :: Queue consumed in 1.003363 seconds
+11/04/2019 22:52:18 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:52:19 :: Queue consumed in 1.004259 seconds
+11/04/2019 22:52:19 :: Sorted 1 cache queues in 0.000104 seconds
+11/04/2019 22:52:20 :: Queue consumed in 1.008468 seconds
+11/04/2019 22:52:20 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:52:21 :: Queue consumed in 1.006842 seconds
+11/04/2019 22:52:21 :: Sorted 1 cache queues in 0.000034 seconds
+11/04/2019 22:52:22 :: Queue consumed in 1.006523 seconds
+11/04/2019 22:52:22 :: Sorted 1 cache queues in 0.000022 seconds
+11/04/2019 22:52:23 :: Queue consumed in 1.005586 seconds
+11/04/2019 22:52:23 :: Sorted 14 cache queues in 0.000057 seconds
+11/04/2019 22:52:33 :: Queue consumed in 10.040856 seconds
+11/04/2019 22:52:33 :: Sorted 14 cache queues in 0.000079 seconds
+11/04/2019 22:52:37 :: Queue consumed in 4.050689 seconds
+11/04/2019 22:52:37 :: Sorted 18 cache queues in 0.000044 seconds
+11/04/2019 22:52:43 :: Queue consumed in 6.066322 seconds
+11/04/2019 22:52:43 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:52:53 :: Queue consumed in 9.058777 seconds
+11/04/2019 22:52:53 :: Sorted 14 cache queues in 0.000058 seconds
+11/04/2019 22:53:03 :: Queue consumed in 10.048873 seconds
+11/04/2019 22:53:03 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:53:06 :: Queue consumed in 3.041834 seconds
+11/04/2019 22:53:06 :: Sorted 1 cache queues in 0.000045 seconds
+11/04/2019 22:53:07 :: Queue consumed in 1.009490 seconds
+11/04/2019 22:53:07 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:53:08 :: Queue consumed in 1.006726 seconds
+11/04/2019 22:53:08 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:53:09 :: Queue consumed in 1.004490 seconds
+11/04/2019 22:53:09 :: Sorted 3 cache queues in 0.000021 seconds
+11/04/2019 22:53:10 :: Queue consumed in 1.011333 seconds
+11/04/2019 22:53:10 :: Sorted 3 cache queues in 0.000035 seconds
+11/04/2019 22:53:10 :: Queue consumed in 0.009176 seconds
+11/04/2019 22:53:10 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:53:11 :: Queue consumed in 1.002771 seconds
+11/04/2019 22:53:11 :: Sorted 2 cache queues in 0.000017 seconds
+11/04/2019 22:53:12 :: Queue consumed in 1.008039 seconds
+11/04/2019 22:53:12 :: Sorted 2 cache queues in 0.000015 seconds
+11/04/2019 22:53:13 :: Queue consumed in 1.007237 seconds
+11/04/2019 22:53:13 :: Sorted 17 cache queues in 0.000036 seconds
+11/04/2019 22:53:13 :: Queue consumed in 0.085928 seconds
+11/04/2019 22:53:13 :: Sorted 3 cache queues in 0.000093 seconds
+11/04/2019 22:53:13 :: Queue consumed in 0.014795 seconds
+11/04/2019 22:53:13 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:53:14 :: Queue consumed in 1.004489 seconds
+11/04/2019 22:53:14 :: Sorted 3 cache queues in 0.000019 seconds
+11/04/2019 22:53:15 :: Queue consumed in 1.010344 seconds
+11/04/2019 22:53:15 :: Sorted 2 cache queues in 0.000021 seconds
+11/04/2019 22:53:16 :: Queue consumed in 1.007205 seconds
+11/04/2019 22:53:16 :: Sorted 2 cache queues in 0.000068 seconds
+11/04/2019 22:53:17 :: Queue consumed in 1.009239 seconds
+11/04/2019 22:53:17 :: Sorted 3 cache queues in 0.000051 seconds
+11/04/2019 22:53:17 :: Queue consumed in 0.013763 seconds
+11/04/2019 22:53:17 :: Sorted 2 cache queues in 0.000020 seconds
+11/04/2019 22:53:17 :: Queue consumed in 0.008458 seconds
+11/04/2019 22:53:17 :: Sorted 2 cache queues in 0.000016 seconds
+11/04/2019 22:53:17 :: Queue consumed in 0.008639 seconds
+11/04/2019 22:53:17 :: Sorted 2 cache queues in 0.000021 seconds
+11/04/2019 22:53:17 :: Queue consumed in 0.009778 seconds
+11/04/2019 22:53:17 :: Sorted 2 cache queues in 0.000015 seconds
+11/04/2019 22:53:17 :: Queue consumed in 0.009225 seconds
+11/04/2019 22:53:17 :: Sorted 2 cache queues in 0.000019 seconds
+11/04/2019 22:53:17 :: Queue consumed in 0.009607 seconds
+11/04/2019 22:53:17 :: Sorted 2 cache queues in 0.000015 seconds
+11/04/2019 22:53:17 :: Queue consumed in 0.009419 seconds
+11/04/2019 22:53:17 :: Sorted 2 cache queues in 0.000015 seconds
+11/04/2019 22:53:17 :: Queue consumed in 0.009884 seconds
+11/04/2019 22:53:17 :: Sorted 2 cache queues in 0.000015 seconds
+11/04/2019 22:53:17 :: Queue consumed in 0.009133 seconds
+11/04/2019 22:53:17 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:53:18 :: Queue consumed in 1.005463 seconds
+11/04/2019 22:53:18 :: Sorted 2 cache queues in 0.000016 seconds
+11/04/2019 22:53:18 :: Queue consumed in 0.009036 seconds
+11/04/2019 22:53:18 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:53:19 :: Queue consumed in 1.004126 seconds
+11/04/2019 22:53:19 :: Sorted 2 cache queues in 0.000014 seconds
+11/04/2019 22:53:20 :: Queue consumed in 1.006872 seconds
+11/04/2019 22:53:20 :: Sorted 3 cache queues in 0.000018 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.013403 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000019 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.010647 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000020 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.010336 seconds
+11/04/2019 22:53:20 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.006412 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000021 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.011006 seconds
+11/04/2019 22:53:20 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.006829 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000017 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.010295 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000022 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.013337 seconds
+11/04/2019 22:53:20 :: Sorted 3 cache queues in 0.000020 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.023254 seconds
+11/04/2019 22:53:20 :: Sorted 3 cache queues in 0.000020 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.020115 seconds
+11/04/2019 22:53:20 :: Sorted 3 cache queues in 0.000158 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.018924 seconds
+11/04/2019 22:53:20 :: Sorted 3 cache queues in 0.000022 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.019004 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000019 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.012312 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000021 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.011705 seconds
+11/04/2019 22:53:20 :: Sorted 3 cache queues in 0.000018 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.016568 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000088 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.014309 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000017 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.011895 seconds
+11/04/2019 22:53:20 :: Sorted 3 cache queues in 0.000015 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.019213 seconds
+11/04/2019 22:53:20 :: Sorted 3 cache queues in 0.000024 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.017195 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000016 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.020172 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000094 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.013158 seconds
+11/04/2019 22:53:20 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.006464 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000020 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.017801 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000084 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.011926 seconds
+11/04/2019 22:53:20 :: Sorted 3 cache queues in 0.000022 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.023310 seconds
+11/04/2019 22:53:20 :: Sorted 3 cache queues in 0.000021 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.025609 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000024 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.014495 seconds
+11/04/2019 22:53:20 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.006047 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000015 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.015085 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000024 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.019847 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000022 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.014837 seconds
+11/04/2019 22:53:20 :: Sorted 1 cache queues in 0.000025 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.006558 seconds
+11/04/2019 22:53:20 :: Sorted 1 cache queues in 0.000040 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.006027 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000019 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.012174 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000025 seconds
+11/04/2019 22:53:20 :: Queue consumed in 0.010909 seconds
+11/04/2019 22:53:20 :: Sorted 2 cache queues in 0.000023 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.013435 seconds
+11/04/2019 22:53:21 :: Sorted 2 cache queues in 0.000018 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.011438 seconds
+11/04/2019 22:53:21 :: Sorted 2 cache queues in 0.000021 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.011530 seconds
+11/04/2019 22:53:21 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.006794 seconds
+11/04/2019 22:53:21 :: Sorted 2 cache queues in 0.000017 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.014526 seconds
+11/04/2019 22:53:21 :: Sorted 2 cache queues in 0.000021 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.010520 seconds
+11/04/2019 22:53:21 :: Sorted 2 cache queues in 0.000015 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.013239 seconds
+11/04/2019 22:53:21 :: Sorted 2 cache queues in 0.000020 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.013699 seconds
+11/04/2019 22:53:21 :: Sorted 3 cache queues in 0.000025 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.019825 seconds
+11/04/2019 22:53:21 :: Sorted 1 cache queues in 0.000026 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.007972 seconds
+11/04/2019 22:53:21 :: Sorted 2 cache queues in 0.000055 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.011966 seconds
+11/04/2019 22:53:21 :: Sorted 2 cache queues in 0.000018 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.014751 seconds
+11/04/2019 22:53:21 :: Sorted 3 cache queues in 0.000017 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.022416 seconds
+11/04/2019 22:53:21 :: Sorted 3 cache queues in 0.000017 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.020028 seconds
+11/04/2019 22:53:21 :: Sorted 3 cache queues in 0.000023 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.019960 seconds
+11/04/2019 22:53:21 :: Sorted 2 cache queues in 0.000021 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.015384 seconds
+11/04/2019 22:53:21 :: Sorted 2 cache queues in 0.000024 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.012868 seconds
+11/04/2019 22:53:21 :: Sorted 2 cache queues in 0.000020 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.012348 seconds
+11/04/2019 22:53:21 :: Sorted 2 cache queues in 0.000022 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.010499 seconds
+11/04/2019 22:53:21 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.004761 seconds
+11/04/2019 22:53:21 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.005671 seconds
+11/04/2019 22:53:21 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:53:21 :: Queue consumed in 0.005301 seconds
+11/04/2019 22:53:21 :: Sorted 1 cache queues in 0.000040 seconds
+11/04/2019 22:53:22 :: Queue consumed in 1.006545 seconds
+11/04/2019 22:53:22 :: Sorted 3 cache queues in 0.000023 seconds
+11/04/2019 22:53:23 :: Queue consumed in 1.010489 seconds
+11/04/2019 22:53:23 :: Sorted 16 cache queues in 0.000025 seconds
+11/04/2019 22:53:23 :: Queue consumed in 0.063000 seconds
+11/04/2019 22:53:23 :: Sorted 2 cache queues in 0.000013 seconds
+11/04/2019 22:53:24 :: Queue consumed in 1.007988 seconds
+11/04/2019 22:53:24 :: Sorted 2 cache queues in 0.000020 seconds
+11/04/2019 22:53:24 :: Queue consumed in 0.009049 seconds
+11/04/2019 22:53:24 :: Sorted 1 cache queues in 0.000019 seconds
+11/04/2019 22:53:24 :: Queue consumed in 0.007457 seconds
+11/04/2019 22:53:24 :: Sorted 1 cache queues in 0.000039 seconds
+11/04/2019 22:53:24 :: Queue consumed in 0.005620 seconds
+11/04/2019 22:53:24 :: Sorted 2 cache queues in 0.000016 seconds
+11/04/2019 22:53:24 :: Queue consumed in 0.006978 seconds
+11/04/2019 22:53:24 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:53:24 :: Queue consumed in 0.005791 seconds
+11/04/2019 22:53:24 :: Sorted 1 cache queues in 0.000024 seconds
+11/04/2019 22:53:24 :: Queue consumed in 0.006079 seconds
+11/04/2019 22:53:24 :: Sorted 2 cache queues in 0.000021 seconds
+11/04/2019 22:53:24 :: Queue consumed in 0.013615 seconds
+11/04/2019 22:53:24 :: Sorted 1 cache queues in 0.000012 seconds
+11/04/2019 22:53:24 :: Queue consumed in 0.005823 seconds
+11/04/2019 22:53:24 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:53:24 :: Queue consumed in 0.007472 seconds
+11/04/2019 22:53:24 :: Sorted 3 cache queues in 0.000021 seconds
+11/04/2019 22:53:24 :: Queue consumed in 0.014461 seconds
+11/04/2019 22:53:24 :: Sorted 1 cache queues in 0.000055 seconds
+11/04/2019 22:53:24 :: Queue consumed in 0.008171 seconds
+11/04/2019 22:53:24 :: Sorted 3 cache queues in 0.000027 seconds
+11/04/2019 22:53:24 :: Queue consumed in 0.014780 seconds
+11/04/2019 22:53:24 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:53:25 :: Queue consumed in 1.005849 seconds
+11/04/2019 22:53:25 :: Sorted 3 cache queues in 0.000026 seconds
+11/04/2019 22:53:26 :: Queue consumed in 1.010835 seconds
+11/04/2019 22:53:26 :: Sorted 2 cache queues in 0.000019 seconds
+11/04/2019 22:53:26 :: Queue consumed in 0.009803 seconds
+11/04/2019 22:53:26 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:53:26 :: Queue consumed in 0.003792 seconds
+11/04/2019 22:53:26 :: Sorted 2 cache queues in 0.000028 seconds
+11/04/2019 22:53:27 :: Queue consumed in 1.007793 seconds
+11/04/2019 22:53:27 :: Sorted 2 cache queues in 0.000037 seconds
+11/04/2019 22:53:27 :: Queue consumed in 0.009053 seconds
+11/04/2019 22:53:27 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:53:28 :: Queue consumed in 1.004273 seconds
+11/04/2019 22:53:28 :: Sorted 3 cache queues in 0.000018 seconds
+11/04/2019 22:53:29 :: Queue consumed in 1.015711 seconds
+11/04/2019 22:53:29 :: Sorted 3 cache queues in 0.000019 seconds
+11/04/2019 22:53:30 :: Queue consumed in 1.011218 seconds
+11/04/2019 22:53:30 :: Sorted 1 cache queues in 0.000019 seconds
+11/04/2019 22:53:31 :: Queue consumed in 1.005682 seconds
+11/04/2019 22:53:31 :: Sorted 2 cache queues in 0.000017 seconds
+11/04/2019 22:53:31 :: Queue consumed in 0.009438 seconds
+11/04/2019 22:53:31 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:53:32 :: Queue consumed in 1.004762 seconds
+11/04/2019 22:53:32 :: Sorted 3 cache queues in 0.000022 seconds
+11/04/2019 22:53:32 :: Queue consumed in 0.024905 seconds
+11/04/2019 22:53:32 :: Sorted 3 cache queues in 0.000032 seconds
+11/04/2019 22:53:32 :: Queue consumed in 0.033732 seconds
+11/04/2019 22:53:32 :: Sorted 2 cache queues in 0.000022 seconds
+11/04/2019 22:53:32 :: Queue consumed in 0.029204 seconds
+11/04/2019 22:53:32 :: Sorted 1 cache queues in 0.000028 seconds
+11/04/2019 22:53:32 :: Queue consumed in 0.011071 seconds
+11/04/2019 22:53:32 :: Sorted 2 cache queues in 0.000025 seconds
+11/04/2019 22:53:32 :: Queue consumed in 0.018600 seconds
+11/04/2019 22:53:32 :: Sorted 1 cache queues in 0.000027 seconds
+11/04/2019 22:53:32 :: Queue consumed in 0.007546 seconds
+11/04/2019 22:53:32 :: Sorted 2 cache queues in 0.000022 seconds
+11/04/2019 22:53:32 :: Queue consumed in 0.010961 seconds
+11/04/2019 22:53:32 :: Sorted 1 cache queues in 0.000022 seconds
+11/04/2019 22:53:33 :: Queue consumed in 0.984534 seconds
+11/04/2019 22:53:33 :: Sorted 17 cache queues in 0.000035 seconds
+11/04/2019 22:53:33 :: Queue consumed in 0.120910 seconds
+11/04/2019 22:53:33 :: Sorted 3 cache queues in 0.000028 seconds
+11/04/2019 22:53:33 :: Queue consumed in 0.025532 seconds
+11/04/2019 22:53:33 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:53:33 :: Queue consumed in 0.009344 seconds
+11/04/2019 22:53:33 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:53:33 :: Queue consumed in 0.008162 seconds
+11/04/2019 22:53:33 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:53:34 :: Queue consumed in 1.005438 seconds
+11/04/2019 22:53:34 :: Sorted 2 cache queues in 0.000053 seconds
+11/04/2019 22:53:35 :: Queue consumed in 1.008272 seconds
+11/04/2019 22:53:35 :: Sorted 2 cache queues in 0.000015 seconds
+11/04/2019 22:53:36 :: Queue consumed in 1.009364 seconds
+11/04/2019 22:53:36 :: Sorted 3 cache queues in 0.000175 seconds
+11/04/2019 22:53:36 :: Queue consumed in 0.015931 seconds
+11/04/2019 22:53:36 :: Sorted 3 cache queues in 0.000022 seconds
+11/04/2019 22:53:36 :: Queue consumed in 0.021922 seconds
+11/04/2019 22:53:36 :: Sorted 3 cache queues in 0.000021 seconds
+11/04/2019 22:53:36 :: Queue consumed in 0.016205 seconds
+11/04/2019 22:53:36 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:53:37 :: Queue consumed in 1.006249 seconds
+11/04/2019 22:53:37 :: Sorted 21 cache queues in 0.000037 seconds
+11/04/2019 22:53:38 :: Queue consumed in 0.082610 seconds
+11/04/2019 22:53:38 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:53:38 :: Queue consumed in 0.005130 seconds
+11/04/2019 22:53:38 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:53:38 :: Queue consumed in 0.003847 seconds
+11/04/2019 22:53:38 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:53:39 :: Queue consumed in 1.004246 seconds
+11/04/2019 22:53:39 :: Sorted 2 cache queues in 0.000017 seconds
+11/04/2019 22:53:40 :: Queue consumed in 1.011308 seconds
+11/04/2019 22:53:40 :: Sorted 2 cache queues in 0.000019 seconds
+11/04/2019 22:53:40 :: Queue consumed in 0.008799 seconds
+11/04/2019 22:53:40 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:53:41 :: Queue consumed in 1.003646 seconds
+11/04/2019 22:53:41 :: Sorted 3 cache queues in 0.000024 seconds
+11/04/2019 22:53:41 :: Queue consumed in 0.014852 seconds
+11/04/2019 22:53:41 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:53:42 :: Queue consumed in 1.007547 seconds
+11/04/2019 22:53:42 :: Sorted 3 cache queues in 0.000045 seconds
+11/04/2019 22:53:42 :: Queue consumed in 0.013294 seconds
+11/04/2019 22:53:42 :: Sorted 1 cache queues in 0.000044 seconds
+11/04/2019 22:53:42 :: Queue consumed in 0.007624 seconds
+11/04/2019 22:53:42 :: Sorted 1 cache queues in 0.000019 seconds
+11/04/2019 22:53:43 :: Queue consumed in 1.004657 seconds
+11/04/2019 22:53:43 :: Sorted 16 cache queues in 0.000033 seconds
+11/04/2019 22:53:43 :: Queue consumed in 0.093560 seconds
+11/04/2019 22:53:43 :: Sorted 2 cache queues in 0.000025 seconds
+11/04/2019 22:53:43 :: Queue consumed in 0.013637 seconds
+11/04/2019 22:53:43 :: Sorted 2 cache queues in 0.000039 seconds
+11/04/2019 22:53:44 :: Queue consumed in 1.008068 seconds
+11/04/2019 22:53:44 :: Sorted 2 cache queues in 0.000018 seconds
+11/04/2019 22:53:45 :: Queue consumed in 1.007102 seconds
+11/04/2019 22:53:45 :: Sorted 3 cache queues in 0.000023 seconds
+11/04/2019 22:53:45 :: Queue consumed in 0.022553 seconds
+11/04/2019 22:53:45 :: Sorted 1 cache queues in 0.000025 seconds
+11/04/2019 22:53:45 :: Queue consumed in 0.007935 seconds
+11/04/2019 22:53:45 :: Sorted 2 cache queues in 0.000016 seconds
+11/04/2019 22:53:45 :: Queue consumed in 0.011698 seconds
+11/04/2019 22:53:45 :: Sorted 2 cache queues in 0.000023 seconds
+11/04/2019 22:53:46 :: Queue consumed in 1.009719 seconds
+11/04/2019 22:53:46 :: Sorted 3 cache queues in 0.000054 seconds
+11/04/2019 22:53:47 :: Queue consumed in 1.016502 seconds
+11/04/2019 22:53:47 :: Sorted 3 cache queues in 0.000043 seconds
+11/04/2019 22:53:48 :: Queue consumed in 1.011900 seconds
+11/04/2019 22:53:48 :: Sorted 2 cache queues in 0.000017 seconds
+11/04/2019 22:53:49 :: Queue consumed in 1.006890 seconds
+11/04/2019 22:53:49 :: Sorted 3 cache queues in 0.000026 seconds
+11/04/2019 22:53:49 :: Queue consumed in 0.018780 seconds
+11/04/2019 22:53:49 :: Sorted 2 cache queues in 0.000019 seconds
+11/04/2019 22:53:50 :: Queue consumed in 1.011740 seconds
+11/04/2019 22:53:50 :: Sorted 3 cache queues in 0.000018 seconds
+11/04/2019 22:53:51 :: Queue consumed in 1.017521 seconds
+11/04/2019 22:53:51 :: Sorted 3 cache queues in 0.000021 seconds
+11/04/2019 22:53:51 :: Queue consumed in 0.011177 seconds
+11/04/2019 22:53:51 :: Sorted 1 cache queues in 0.000019 seconds
+11/04/2019 22:53:52 :: Queue consumed in 1.004223 seconds
+11/04/2019 22:53:52 :: Sorted 2 cache queues in 0.000031 seconds
+11/04/2019 22:53:53 :: Queue consumed in 1.009356 seconds
+11/04/2019 22:53:53 :: Sorted 16 cache queues in 0.000023 seconds
+11/04/2019 22:53:53 :: Queue consumed in 0.064994 seconds
+11/04/2019 22:53:53 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:53:54 :: Queue consumed in 1.004913 seconds
+11/04/2019 22:53:54 :: Sorted 3 cache queues in 0.000056 seconds
+11/04/2019 22:53:54 :: Queue consumed in 0.024880 seconds
+11/04/2019 22:53:54 :: Sorted 2 cache queues in 0.000019 seconds
+11/04/2019 22:53:54 :: Queue consumed in 0.011424 seconds
+11/04/2019 22:53:54 :: Sorted 2 cache queues in 0.000016 seconds
+11/04/2019 22:53:54 :: Queue consumed in 0.014778 seconds
+11/04/2019 22:53:54 :: Sorted 3 cache queues in 0.000109 seconds
+11/04/2019 22:53:54 :: Queue consumed in 0.021909 seconds
+11/04/2019 22:53:54 :: Sorted 2 cache queues in 0.000020 seconds
+11/04/2019 22:53:54 :: Queue consumed in 0.015089 seconds
+11/04/2019 22:53:54 :: Sorted 2 cache queues in 0.000019 seconds
+11/04/2019 22:53:54 :: Queue consumed in 0.017430 seconds
+11/04/2019 22:53:54 :: Sorted 2 cache queues in 0.000026 seconds
+11/04/2019 22:53:54 :: Queue consumed in 0.018740 seconds
+11/04/2019 22:53:54 :: Sorted 2 cache queues in 0.000024 seconds
+11/04/2019 22:53:54 :: Queue consumed in 0.014922 seconds
+11/04/2019 22:53:54 :: Sorted 2 cache queues in 0.000018 seconds
+11/04/2019 22:53:54 :: Queue consumed in 0.017348 seconds
+11/04/2019 22:53:54 :: Sorted 1 cache queues in 0.000022 seconds
+11/04/2019 22:53:54 :: Queue consumed in 0.010724 seconds
+11/04/2019 22:53:54 :: Sorted 3 cache queues in 0.000057 seconds
+11/04/2019 22:53:54 :: Queue consumed in 0.024805 seconds
+11/04/2019 22:53:54 :: Sorted 2 cache queues in 0.000136 seconds
+11/04/2019 22:53:54 :: Queue consumed in 0.019109 seconds
+11/04/2019 22:53:54 :: Sorted 2 cache queues in 0.000018 seconds
+11/04/2019 22:53:54 :: Queue consumed in 0.019548 seconds
+11/04/2019 22:53:54 :: Sorted 3 cache queues in 0.000100 seconds
+11/04/2019 22:53:54 :: Queue consumed in 0.020748 seconds
+11/04/2019 22:53:54 :: Sorted 2 cache queues in 0.000016 seconds
+11/04/2019 22:53:55 :: Queue consumed in 1.010981 seconds
+11/04/2019 22:53:55 :: Sorted 2 cache queues in 0.000019 seconds
+11/04/2019 22:53:56 :: Queue consumed in 1.010033 seconds
+11/04/2019 22:53:56 :: Sorted 2 cache queues in 0.000017 seconds
+11/04/2019 22:53:56 :: Queue consumed in 0.006750 seconds
+11/04/2019 22:53:56 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:53:57 :: Queue consumed in 1.003699 seconds
+11/04/2019 22:53:57 :: Sorted 3 cache queues in 0.000022 seconds
+11/04/2019 22:53:57 :: Queue consumed in 0.015566 seconds
+11/04/2019 22:53:57 :: Sorted 1 cache queues in 0.000016 seconds
+11/04/2019 22:53:57 :: Queue consumed in 0.006006 seconds
+11/04/2019 22:53:57 :: Sorted 3 cache queues in 0.000022 seconds
+11/04/2019 22:53:57 :: Queue consumed in 0.013801 seconds
+11/04/2019 22:53:57 :: Sorted 1 cache queues in 0.000032 seconds
+11/04/2019 22:53:57 :: Queue consumed in 0.007390 seconds
+11/04/2019 22:53:57 :: Sorted 1 cache queues in 0.000022 seconds
+11/04/2019 22:53:57 :: Queue consumed in 0.005757 seconds
+11/04/2019 22:53:57 :: Sorted 2 cache queues in 0.000023 seconds
+11/04/2019 22:53:57 :: Queue consumed in 0.009351 seconds
+11/04/2019 22:53:57 :: Sorted 1 cache queues in 0.000025 seconds
+11/04/2019 22:53:57 :: Queue consumed in 0.007402 seconds
+11/04/2019 22:53:57 :: Sorted 1 cache queues in 0.000071 seconds
+11/04/2019 22:53:58 :: Queue consumed in 1.006247 seconds
+11/04/2019 22:53:58 :: Sorted 3 cache queues in 0.000026 seconds
+11/04/2019 22:53:58 :: Queue consumed in 0.020240 seconds
+11/04/2019 22:53:58 :: Sorted 3 cache queues in 0.000023 seconds
+11/04/2019 22:53:58 :: Queue consumed in 0.019632 seconds
+11/04/2019 22:53:58 :: Sorted 2 cache queues in 0.000023 seconds
+11/04/2019 22:53:58 :: Queue consumed in 0.013741 seconds
+11/04/2019 22:53:58 :: Sorted 2 cache queues in 0.000021 seconds
+11/04/2019 22:53:58 :: Queue consumed in 0.012377 seconds
+11/04/2019 22:53:58 :: Sorted 1 cache queues in 0.000025 seconds
+11/04/2019 22:53:59 :: Queue consumed in 1.007459 seconds
+11/04/2019 22:53:59 :: Sorted 3 cache queues in 0.000023 seconds
+11/04/2019 22:54:00 :: Queue consumed in 1.008193 seconds
+11/04/2019 22:54:00 :: Sorted 2 cache queues in 0.000018 seconds
+11/04/2019 22:54:02 :: Queue consumed in 1.009078 seconds
+11/04/2019 22:54:02 :: Sorted 2 cache queues in 0.000024 seconds
+11/04/2019 22:54:03 :: Queue consumed in 1.009686 seconds
+11/04/2019 22:54:03 :: Sorted 17 cache queues in 0.000071 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.087306 seconds
+11/04/2019 22:54:03 :: Sorted 2 cache queues in 0.000054 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.012251 seconds
+11/04/2019 22:54:03 :: Sorted 2 cache queues in 0.000022 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.012597 seconds
+11/04/2019 22:54:03 :: Sorted 1 cache queues in 0.000024 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.006911 seconds
+11/04/2019 22:54:03 :: Sorted 3 cache queues in 0.000022 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.017023 seconds
+11/04/2019 22:54:03 :: Sorted 1 cache queues in 0.000025 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.006178 seconds
+11/04/2019 22:54:03 :: Sorted 2 cache queues in 0.000023 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.012051 seconds
+11/04/2019 22:54:03 :: Sorted 2 cache queues in 0.000021 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.015173 seconds
+11/04/2019 22:54:03 :: Sorted 3 cache queues in 0.000022 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.022076 seconds
+11/04/2019 22:54:03 :: Sorted 3 cache queues in 0.000065 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.018421 seconds
+11/04/2019 22:54:03 :: Sorted 2 cache queues in 0.000023 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.008255 seconds
+11/04/2019 22:54:03 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.007129 seconds
+11/04/2019 22:54:03 :: Sorted 1 cache queues in 0.000038 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.006432 seconds
+11/04/2019 22:54:03 :: Sorted 2 cache queues in 0.000018 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.008960 seconds
+11/04/2019 22:54:03 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.006780 seconds
+11/04/2019 22:54:03 :: Sorted 1 cache queues in 0.000087 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.007447 seconds
+11/04/2019 22:54:03 :: Sorted 2 cache queues in 0.000027 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.010534 seconds
+11/04/2019 22:54:03 :: Sorted 1 cache queues in 0.000040 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.007553 seconds
+11/04/2019 22:54:03 :: Sorted 1 cache queues in 0.000019 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.007426 seconds
+11/04/2019 22:54:03 :: Sorted 2 cache queues in 0.000018 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.009857 seconds
+11/04/2019 22:54:03 :: Sorted 2 cache queues in 0.000020 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.020385 seconds
+11/04/2019 22:54:03 :: Sorted 2 cache queues in 0.000019 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.010009 seconds
+11/04/2019 22:54:03 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.004095 seconds
+11/04/2019 22:54:03 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.004156 seconds
+11/04/2019 22:54:03 :: Sorted 1 cache queues in 0.000019 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.006326 seconds
+11/04/2019 22:54:03 :: Sorted 1 cache queues in 0.000051 seconds
+11/04/2019 22:54:03 :: Queue consumed in 0.004388 seconds
+11/04/2019 22:54:03 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:54:04 :: Queue consumed in 1.004955 seconds
+11/04/2019 22:54:04 :: Sorted 2 cache queues in 0.000039 seconds
+11/04/2019 22:54:04 :: Queue consumed in 0.010448 seconds
+11/04/2019 22:54:04 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:54:05 :: Queue consumed in 1.005604 seconds
+11/04/2019 22:54:05 :: Sorted 2 cache queues in 0.000032 seconds
+11/04/2019 22:54:06 :: Queue consumed in 1.007519 seconds
+11/04/2019 22:54:06 :: Sorted 3 cache queues in 0.000022 seconds
+11/04/2019 22:54:06 :: Queue consumed in 0.014097 seconds
+11/04/2019 22:54:06 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:54:06 :: Queue consumed in 0.005696 seconds
+11/04/2019 22:54:06 :: Sorted 2 cache queues in 0.000096 seconds
+11/04/2019 22:54:06 :: Queue consumed in 0.008432 seconds
+11/04/2019 22:54:06 :: Sorted 1 cache queues in 0.000021 seconds
+11/04/2019 22:54:07 :: Queue consumed in 1.006731 seconds
+11/04/2019 22:54:07 :: Sorted 3 cache queues in 0.000023 seconds
+11/04/2019 22:54:07 :: Queue consumed in 0.017984 seconds
+11/04/2019 22:54:07 :: Sorted 2 cache queues in 0.000023 seconds
+11/04/2019 22:54:07 :: Queue consumed in 0.013312 seconds
+11/04/2019 22:54:07 :: Sorted 2 cache queues in 0.000024 seconds
+11/04/2019 22:54:07 :: Queue consumed in 0.011689 seconds
+11/04/2019 22:54:07 :: Sorted 1 cache queues in 0.000019 seconds
+11/04/2019 22:54:07 :: Queue consumed in 0.005812 seconds
+11/04/2019 22:54:07 :: Sorted 3 cache queues in 0.000111 seconds
+11/04/2019 22:54:08 :: Queue consumed in 1.015813 seconds
+11/04/2019 22:54:08 :: Sorted 2 cache queues in 0.000017 seconds
+11/04/2019 22:54:08 :: Queue consumed in 0.006782 seconds
+11/04/2019 22:54:08 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:54:09 :: Queue consumed in 1.003939 seconds
+11/04/2019 22:54:09 :: Sorted 2 cache queues in 0.000018 seconds
+11/04/2019 22:54:09 :: Queue consumed in 0.007373 seconds
+11/04/2019 22:54:09 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:54:10 :: Queue consumed in 1.003884 seconds
+11/04/2019 22:54:10 :: Sorted 3 cache queues in 0.000023 seconds
+11/04/2019 22:54:10 :: Queue consumed in 0.013431 seconds
+11/04/2019 22:54:10 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:54:10 :: Queue consumed in 0.005476 seconds
+11/04/2019 22:54:10 :: Sorted 3 cache queues in 0.000081 seconds
+11/04/2019 22:54:10 :: Queue consumed in 0.017782 seconds
+11/04/2019 22:54:10 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:54:11 :: Queue consumed in 1.005205 seconds
+11/04/2019 22:54:11 :: Sorted 3 cache queues in 0.000025 seconds
+11/04/2019 22:54:11 :: Queue consumed in 0.015461 seconds
+11/04/2019 22:54:11 :: Sorted 2 cache queues in 0.000040 seconds
+11/04/2019 22:54:12 :: Queue consumed in 1.008108 seconds
+11/04/2019 22:54:12 :: Sorted 3 cache queues in 0.000022 seconds
+11/04/2019 22:54:13 :: Queue consumed in 1.010712 seconds
+11/04/2019 22:54:13 :: Sorted 16 cache queues in 0.000023 seconds
+11/04/2019 22:54:13 :: Queue consumed in 0.057467 seconds
+11/04/2019 22:54:13 :: Sorted 1 cache queues in 0.000013 seconds
+11/04/2019 22:54:14 :: Queue consumed in 1.004191 seconds
+11/04/2019 22:54:14 :: Sorted 3 cache queues in 0.000027 seconds
+11/04/2019 22:54:14 :: Queue consumed in 0.015548 seconds
+11/04/2019 22:54:14 :: Sorted 1 cache queues in 0.000020 seconds
+11/04/2019 22:54:15 :: Queue consumed in 1.004541 seconds
+11/04/2019 22:54:15 :: Sorted 3 cache queues in 0.000017 seconds
+11/04/2019 22:54:15 :: Queue consumed in 0.013747 seconds
+11/04/2019 22:54:15 :: Sorted 2 cache queues in 0.000038 seconds
+11/04/2019 22:54:16 :: Queue consumed in 1.009625 seconds
+11/04/2019 22:54:16 :: Sorted 3 cache queues in 0.000014 seconds
+11/04/2019 22:54:16 :: Queue consumed in 0.008592 seconds
+11/04/2019 22:54:16 :: Sorted 1 cache queues in 0.000014 seconds
+11/04/2019 22:54:17 :: Queue consumed in 1.003481 seconds
+11/04/2019 22:54:17 :: Sorted 2 cache queues in 0.000021 seconds
+11/04/2019 22:54:18 :: Queue consumed in 1.009624 seconds
+11/04/2019 22:54:18 :: Sorted 2 cache queues in 0.000018 seconds
+11/04/2019 22:54:19 :: Queue consumed in 1.008040 seconds
+11/04/2019 22:54:19 :: Sorted 3 cache queues in 0.000017 seconds
+11/04/2019 22:54:19 :: Queue consumed in 0.017149 seconds
+11/04/2019 22:54:19 :: Sorted 2 cache queues in 0.000073 seconds
+11/04/2019 22:54:19 :: Queue consumed in 0.012471 seconds
+11/04/2019 22:54:19 :: Sorted 3 cache queues in 0.000022 seconds
+11/04/2019 22:54:19 :: Queue consumed in 0.015612 seconds
+11/04/2019 22:54:19 :: Sorted 2 cache queues in 0.000016 seconds
+11/04/2019 22:54:19 :: Queue consumed in 0.030942 seconds
+11/04/2019 22:54:19 :: Sorted 2 cache queues in 0.000153 seconds
+11/04/2019 22:54:19 :: Queue consumed in 0.018431 seconds
+11/04/2019 22:54:19 :: Sorted 2 cache queues in 0.000022 seconds
+11/04/2019 22:54:19 :: Queue consumed in 0.018158 seconds
+11/04/2019 22:54:19 :: Sorted 2 cache queues in 0.000022 seconds
+11/04/2019 22:54:19 :: Queue consumed in 0.023082 seconds
+11/04/2019 22:54:19 :: Sorted 2 cache queues in 0.000026 seconds
+11/04/2019 22:54:19 :: Queue consumed in 0.011252 seconds
+11/04/2019 22:54:19 :: Sorted 1 cache queues in 0.000030 seconds
+11/04/2019 22:54:20 :: Queue consumed in 1.009542 seconds
+11/04/2019 22:54:20 :: Sorted 3 cache queues in 0.000018 seconds
+11/04/2019 22:54:21 :: Queue consumed in 1.012825 seconds
+11/04/2019 22:54:21 :: Sorted 2 cache queues in 0.000020 seconds
+11/04/2019 22:54:22 :: Queue consumed in 1.008975 seconds
+11/04/2019 22:54:22 :: Sorted 2 cache queues in 0.000032 seconds
+11/04/2019 22:54:23 :: Queue consumed in 1.008658 seconds
+11/04/2019 22:54:23 :: Sorted 17 cache queues in 0.000027 seconds
+11/04/2019 22:54:24 :: Queue consumed in 0.089650 seconds
+11/04/2019 22:54:24 :: Sorted 2 cache queues in 0.000021 seconds
+11/04/2019 22:54:24 :: Queue consumed in 0.011207 seconds
+11/04/2019 22:54:24 :: Sorted 2 cache queues in 0.000023 seconds
+11/04/2019 22:54:24 :: Queue consumed in 0.012850 seconds
+11/04/2019 22:54:24 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:54:25 :: Queue consumed in 1.006096 seconds
+11/04/2019 22:54:25 :: Sorted 2 cache queues in 0.000021 seconds
+11/04/2019 22:54:26 :: Queue consumed in 1.006660 seconds
+11/04/2019 22:54:26 :: Sorted 1 cache queues in 0.000017 seconds
+11/04/2019 22:54:27 :: Queue consumed in 1.003470 seconds
+11/04/2019 22:54:27 :: Sorted 1 cache queues in 0.000044 seconds
+11/04/2019 22:54:28 :: Queue consumed in 1.003942 seconds
+11/04/2019 22:54:28 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:54:29 :: Queue consumed in 1.004872 seconds
+11/04/2019 22:54:29 :: Sorted 1 cache queues in 0.000015 seconds
+11/04/2019 22:54:29 :: Queue consumed in 0.003708 seconds
+11/04/2019 22:54:29 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:54:30 :: Queue consumed in 1.002285 seconds
+11/04/2019 22:54:30 :: Sorted 1 cache queues in 0.000039 seconds
+11/04/2019 22:54:31 :: Queue consumed in 1.004018 seconds
+11/04/2019 22:54:31 :: Sorted 1 cache queues in 0.000018 seconds
+11/04/2019 22:54:31 :: Queue consumed in 0.003364 seconds
+11/04/2019 22:54:31 :: Sorted 1 cache queues in 0.000011 seconds
+11/04/2019 22:54:32 :: Queue consumed in 1.005432 seconds
+11/04/2019 22:54:32 :: Sorted 1 cache queues in 0.000047 seconds
+11/04/2019 22:54:33 :: Queue consumed in 0.990159 seconds
+11/04/2019 22:54:33 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:54:38 :: Queue consumed in 5.053173 seconds
+11/04/2019 22:54:38 :: Sorted 18 cache queues in 0.000070 seconds
+11/04/2019 22:54:43 :: Queue consumed in 5.066563 seconds
+11/04/2019 22:54:43 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:54:53 :: Queue consumed in 10.058670 seconds
+11/04/2019 22:54:53 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:55:03 :: Queue consumed in 10.057830 seconds
+11/04/2019 22:55:03 :: Sorted 14 cache queues in 0.000069 seconds
+11/04/2019 22:55:13 :: Queue consumed in 10.061004 seconds
+11/04/2019 22:55:13 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:55:23 :: Queue consumed in 10.054834 seconds
+11/04/2019 22:55:23 :: Sorted 14 cache queues in 0.000071 seconds
+11/04/2019 22:55:33 :: Queue consumed in 10.031917 seconds
+11/04/2019 22:55:33 :: Sorted 14 cache queues in 0.000097 seconds
+11/04/2019 22:55:38 :: Queue consumed in 5.032309 seconds
+11/04/2019 22:55:38 :: Sorted 18 cache queues in 0.000073 seconds
+11/04/2019 22:55:43 :: Queue consumed in 5.046941 seconds
+11/04/2019 22:55:43 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:55:53 :: Queue consumed in 10.055568 seconds
+11/04/2019 22:55:53 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:56:03 :: Queue consumed in 10.036795 seconds
+11/04/2019 22:56:03 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:56:13 :: Queue consumed in 10.057273 seconds
+11/04/2019 22:56:13 :: Sorted 14 cache queues in 0.000062 seconds
+11/04/2019 22:56:23 :: Queue consumed in 10.050089 seconds
+11/04/2019 22:56:23 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:56:33 :: Queue consumed in 10.034797 seconds
+11/04/2019 22:56:33 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:56:38 :: Queue consumed in 5.049682 seconds
+11/04/2019 22:56:38 :: Sorted 18 cache queues in 0.000047 seconds
+11/04/2019 22:56:43 :: Queue consumed in 5.052983 seconds
+11/04/2019 22:56:43 :: Sorted 14 cache queues in 0.000169 seconds
+11/04/2019 22:56:54 :: Queue consumed in 10.058716 seconds
+11/04/2019 22:56:54 :: Sorted 14 cache queues in 0.000058 seconds
+11/04/2019 22:57:03 :: Queue consumed in 9.033880 seconds
+11/04/2019 22:57:03 :: Sorted 14 cache queues in 0.000071 seconds
+11/04/2019 22:57:13 :: Queue consumed in 10.067586 seconds
+11/04/2019 22:57:13 :: Sorted 14 cache queues in 0.000072 seconds
+11/04/2019 22:57:23 :: Queue consumed in 10.071006 seconds
+11/04/2019 22:57:23 :: Sorted 14 cache queues in 0.000070 seconds
+11/04/2019 22:57:33 :: Queue consumed in 10.042580 seconds
+11/04/2019 22:57:33 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:57:38 :: Queue consumed in 5.045839 seconds
+11/04/2019 22:57:38 :: Sorted 18 cache queues in 0.000066 seconds
+11/04/2019 22:57:43 :: Queue consumed in 5.062179 seconds
+11/04/2019 22:57:43 :: Sorted 14 cache queues in 0.000064 seconds
+11/04/2019 22:57:53 :: Queue consumed in 10.053281 seconds
+11/04/2019 22:57:53 :: Sorted 14 cache queues in 0.000079 seconds
+11/04/2019 22:58:03 :: Queue consumed in 10.031406 seconds
+11/04/2019 22:58:03 :: Sorted 14 cache queues in 0.000086 seconds
+11/04/2019 22:58:13 :: Queue consumed in 10.078902 seconds
+11/04/2019 22:58:13 :: Sorted 14 cache queues in 0.000070 seconds
+11/04/2019 22:58:23 :: Queue consumed in 10.066382 seconds
+11/04/2019 22:58:23 :: Sorted 14 cache queues in 0.000078 seconds
+11/04/2019 22:58:33 :: Queue consumed in 10.050120 seconds
+11/04/2019 22:58:33 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:58:38 :: Queue consumed in 5.043363 seconds
+11/04/2019 22:58:38 :: Sorted 18 cache queues in 0.000043 seconds
+11/04/2019 22:58:43 :: Queue consumed in 5.052084 seconds
+11/04/2019 22:58:43 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:58:53 :: Queue consumed in 10.061442 seconds
+11/04/2019 22:58:53 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:59:03 :: Queue consumed in 10.047076 seconds
+11/04/2019 22:59:03 :: Sorted 14 cache queues in 0.000067 seconds
+11/04/2019 22:59:13 :: Queue consumed in 10.064902 seconds
+11/04/2019 22:59:13 :: Sorted 14 cache queues in 0.000052 seconds
+11/04/2019 22:59:23 :: Queue consumed in 10.077124 seconds
+11/04/2019 22:59:23 :: Sorted 14 cache queues in 0.000065 seconds
+11/04/2019 22:59:33 :: Queue consumed in 9.039225 seconds
+11/04/2019 22:59:33 :: Sorted 14 cache queues in 0.000054 seconds
+11/04/2019 22:59:38 :: Queue consumed in 5.063503 seconds
+11/04/2019 22:59:38 :: Sorted 18 cache queues in 0.000069 seconds
+11/04/2019 22:59:43 :: Queue consumed in 5.065624 seconds
+11/04/2019 22:59:43 :: Sorted 14 cache queues in 0.000066 seconds
+11/04/2019 22:59:53 :: Queue consumed in 10.079122 seconds
+11/04/2019 22:59:53 :: Sorted 14 cache queues in 0.000071 seconds
+11/04/2019 23:05:09 :: Queue consumed in 316.267881 seconds
+11/04/2019 23:05:09 :: Sorted 32 cache queues in 0.000040 seconds
+11/04/2019 23:05:13 :: Queue consumed in 4.113503 seconds
+11/04/2019 23:05:13 :: Sorted 14 cache queues in 0.000084 seconds
+11/04/2019 23:05:23 :: Queue consumed in 10.093789 seconds
+11/04/2019 23:05:23 :: Sorted 14 cache queues in 0.000264 seconds
+11/04/2019 23:05:33 :: Queue consumed in 9.710483 seconds
+11/04/2019 23:05:33 :: Sorted 14 cache queues in 0.000247 seconds
+11/04/2019 23:05:37 :: Queue consumed in 4.494205 seconds
+11/04/2019 23:05:37 :: Sorted 18 cache queues in 0.000253 seconds
+11/04/2019 23:05:43 :: Queue consumed in 5.555690 seconds
+11/04/2019 23:05:43 :: Sorted 14 cache queues in 0.000188 seconds
+11/04/2019 23:05:53 :: Queue consumed in 9.614719 seconds
+11/04/2019 23:05:53 :: Sorted 14 cache queues in 0.000252 seconds
+11/04/2019 23:06:03 :: Queue consumed in 10.176810 seconds
+11/04/2019 23:06:03 :: Sorted 14 cache queues in 0.000076 seconds
+11/04/2019 23:36:44 :: Queue consumed in 1841.230598 seconds
+11/04/2019 23:36:44 :: Sorted 32 cache queues in 0.000316 seconds
+11/04/2019 23:36:53 :: Queue consumed in 8.975794 seconds
+11/04/2019 23:36:53 :: Sorted 14 cache queues in 0.000248 seconds
+11/04/2019 23:37:03 :: Queue consumed in 9.577198 seconds
+11/04/2019 23:37:03 :: Sorted 14 cache queues in 0.000260 seconds
+11/04/2019 23:37:13 :: Queue consumed in 10.576736 seconds
+11/04/2019 23:37:13 :: Sorted 14 cache queues in 0.000246 seconds
+11/04/2019 23:37:23 :: Queue consumed in 9.723659 seconds
+11/04/2019 23:37:23 :: Sorted 14 cache queues in 0.000106 seconds
+11/04/2019 23:37:33 :: Queue consumed in 9.671781 seconds
+11/04/2019 23:37:33 :: Sorted 14 cache queues in 0.000071 seconds
+11/04/2019 23:37:38 :: Queue consumed in 5.081088 seconds
+11/04/2019 23:37:38 :: Sorted 18 cache queues in 0.000084 seconds

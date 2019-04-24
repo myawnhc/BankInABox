@@ -1,0 +1,14 @@
+2019-04-24,13:28:37.275 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 0.000617027s
+2019-04-24,13:28:39.832 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 0.000294209s
+2019-04-24,13:28:39.833 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 5.88894e-05s
+2019-04-24,13:28:44.857 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 6.48499e-05s
+2019-04-24,13:28:49.860 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 0.000108957s
+2019-04-24,13:28:59.868 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.fraud.rate" took 0.000113964s
+2019-04-24,13:29:04.834 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 9.98974e-05s
+2019-04-24,13:29:04.836 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 0.00027895s
+2019-04-24,13:29:14.829 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 0.000120878s
+2019-04-24,13:29:19.861 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payment.*" took 9.29832e-05s
+2019-04-24,13:30:22.679 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 7.00951e-05s
+2019-04-24,13:30:22.680 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 5.00679e-05s
+2019-04-24,13:30:23.924 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.amazon" took 6.41346e-05s
+2019-04-24,13:30:23.926 :: graphite.render.datalib.fetchData :: lookup and merge of "bib.payments.walmart" took 0.000118017s

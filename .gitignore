@@ -1,6 +1,4 @@
 .idea/*
-data/grafana/grafana.db
-log/**
 RuleEngine.iml
 *.class
 target/**

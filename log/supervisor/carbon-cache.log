@@ -1,0 +1,44 @@
+carbon-cache (instance a) is already running with pid 22
+carbon-cache (instance a) is already running with pid 22
+carbon-cache (instance a) is already running with pid 22
+carbon-cache (instance a) is already running with pid 22
+Starting carbon-cache (instance a)
+24/04/2019 13:31:45 :: [console] Using sorted write strategy for cache
+24/04/2019 13:31:45 :: [console] twistd 18.9.0 (/usr/bin/python 2.7.15) starting up.
+24/04/2019 13:31:45 :: [console] reactor class: twisted.internet.epollreactor.EPollReactor.
+24/04/2019 13:31:45 :: [console] ServerFactory starting on 7002
+24/04/2019 13:31:45 :: [console] Starting factory <twisted.internet.protocol.ServerFactory instance at 0x7fc213da43f8>
+24/04/2019 13:31:45 :: [console] Installing SIG_IGN for SIGHUP
+24/04/2019 13:31:45 :: [console] CarbonReceiverFactory starting on 2003
+24/04/2019 13:31:45 :: [console] Starting factory <carbon.protocols.CarbonReceiverFactory instance at 0x7fc213e61368>
+24/04/2019 13:31:45 :: [console] CarbonReceiverFactory starting on 2004
+24/04/2019 13:31:45 :: [console] Starting factory <carbon.protocols.CarbonReceiverFactory instance at 0x7fc2141bd1b8>
+24/04/2019 13:31:48 :: [query] 127.0.0.1:43560 connected
+24/04/2019 13:31:48 :: [query] 127.0.0.1:43562 connected
+24/04/2019 13:31:48 :: [query] 127.0.0.1:43564 connected
+24/04/2019 13:31:50 :: [query] 127.0.0.1:43586 connected
+24/04/2019 13:31:55 :: [listener] MetricLineReceiver connection with 127.0.0.1:37458 established
+24/04/2019 13:31:55 :: [listener] MetricLineReceiver connection with 127.0.0.1:37458 closed cleanly
+24/04/2019 13:31:55 :: [console] Sorted 13 cache queues in 0.000046 seconds
+24/04/2019 13:31:55 :: [tagdb] Tagging stats.counters.statsd.metrics_received.count
+24/04/2019 13:31:55 :: [tagdb] Error tagging stats.counters.statsd.metrics_received.count: Error response 404 from http://127.0.0.1:80/tags/tagMultiSeries
+24/04/2019 13:32:04 :: [listener] MetricLineReceiver connection with 127.0.0.1:37530 established
+24/04/2019 13:32:04 :: [listener] MetricLineReceiver connection with 127.0.0.1:37530 closed cleanly
+24/04/2019 13:32:05 :: [listener] MetricLineReceiver connection with 127.0.0.1:37532 established
+24/04/2019 13:32:05 :: [listener] MetricLineReceiver connection with 127.0.0.1:37532 closed cleanly
+24/04/2019 13:32:05 :: [console] Queue consumed in 10.080405 seconds
+24/04/2019 13:32:05 :: [console] Sorted 14 cache queues in 0.000066 seconds
+24/04/2019 13:32:07 :: [console] Received SIGTERM, shutting down.
+24/04/2019 13:32:07 :: [console] Carbon shutting down.  Update rate not changed
+24/04/2019 13:32:07 :: [console] (TCP Port 2004 Closed)
+24/04/2019 13:32:07 :: [console] Stopping factory <carbon.protocols.CarbonReceiverFactory instance at 0x7fc2141bd1b8>
+24/04/2019 13:32:07 :: [console] (TCP Port 2003 Closed)
+24/04/2019 13:32:07 :: [console] Stopping factory <carbon.protocols.CarbonReceiverFactory instance at 0x7fc213e61368>
+24/04/2019 13:32:07 :: [console] (TCP Port 7002 Closed)
+24/04/2019 13:32:07 :: [console] Stopping factory <twisted.internet.protocol.ServerFactory instance at 0x7fc213da43f8>
+24/04/2019 13:32:07 :: [query] 127.0.0.1:43586 connection lost: Connection to the other side was lost in a non-clean fashion: Connection lost.
+24/04/2019 13:32:07 :: [query] 127.0.0.1:43562 connection lost: Connection to the other side was lost in a non-clean fashion: Connection lost.
+24/04/2019 13:32:07 :: [query] 127.0.0.1:43560 connection lost: Connection to the other side was lost in a non-clean fashion: Connection lost.
+24/04/2019 13:32:07 :: [query] 127.0.0.1:43564 connection lost: Connection to the other side was lost in a non-clean fashion: Connection lost.
+24/04/2019 13:32:08 :: [console] Main loop terminated.
+24/04/2019 13:32:08 :: [console] Server Shut Down.

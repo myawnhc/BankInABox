@@ -1,0 +1,111 @@
+11/04/2019 21:56:43 :: new metric stats.counters.statsd.metrics_received.count matched schema default
+11/04/2019 21:56:43 :: new metric stats.counters.statsd.metrics_received.count matched aggregation schema count
+11/04/2019 21:56:43 :: creating database metric stats.counters.statsd.metrics_received.count (archive=[(10, 60480)] xff=0.0 agg=sum)
+11/04/2019 21:56:43 :: new metric stats.statsd.graphiteStats.last_flush matched schema default
+11/04/2019 21:56:43 :: new metric stats.statsd.graphiteStats.last_flush matched aggregation schema default_average
+11/04/2019 21:56:43 :: creating database metric stats.statsd.graphiteStats.last_flush (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:56:43 :: new metric stats.counters.statsd.bad_lines_seen.count matched schema default
+11/04/2019 21:56:43 :: new metric stats.counters.statsd.bad_lines_seen.count matched aggregation schema count
+11/04/2019 21:56:43 :: creating database metric stats.counters.statsd.bad_lines_seen.count (archive=[(10, 60480)] xff=0.0 agg=sum)
+11/04/2019 21:56:44 :: new metric stats.gauges.statsd.timestamp_lag matched schema default
+11/04/2019 21:56:44 :: new metric stats.gauges.statsd.timestamp_lag matched aggregation schema default_average
+11/04/2019 21:56:44 :: creating database metric stats.gauges.statsd.timestamp_lag (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:56:44 :: new metric stats.counters.statsd.packets_received.count matched schema default
+11/04/2019 21:56:44 :: new metric stats.counters.statsd.packets_received.count matched aggregation schema count
+11/04/2019 21:56:44 :: creating database metric stats.counters.statsd.packets_received.count (archive=[(10, 60480)] xff=0.0 agg=sum)
+11/04/2019 21:56:44 :: new metric stats.statsd.graphiteStats.calculationtime matched schema default
+11/04/2019 21:56:44 :: new metric stats.statsd.graphiteStats.calculationtime matched aggregation schema default_average
+11/04/2019 21:56:44 :: creating database metric stats.statsd.graphiteStats.calculationtime (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:56:44 :: new metric stats.counters.statsd.packets_received.rate matched schema default
+11/04/2019 21:56:44 :: new metric stats.counters.statsd.packets_received.rate matched aggregation schema default_average
+11/04/2019 21:56:44 :: creating database metric stats.counters.statsd.packets_received.rate (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:56:44 :: new metric stats.statsd.graphiteStats.flush_length matched schema default
+11/04/2019 21:56:44 :: new metric stats.statsd.graphiteStats.flush_length matched aggregation schema default_average
+11/04/2019 21:56:44 :: creating database metric stats.statsd.graphiteStats.flush_length (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:56:44 :: new metric stats.statsd.numStats matched schema default
+11/04/2019 21:56:44 :: new metric stats.statsd.numStats matched aggregation schema default_average
+11/04/2019 21:56:44 :: creating database metric stats.statsd.numStats (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:56:44 :: new metric stats.statsd.processing_time matched schema default
+11/04/2019 21:56:44 :: new metric stats.statsd.processing_time matched aggregation schema default_average
+11/04/2019 21:56:44 :: creating database metric stats.statsd.processing_time (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:56:44 :: new metric stats.statsd.graphiteStats.flush_time matched schema default
+11/04/2019 21:56:44 :: new metric stats.statsd.graphiteStats.flush_time matched aggregation schema default_average
+11/04/2019 21:56:44 :: creating database metric stats.statsd.graphiteStats.flush_time (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:56:44 :: new metric stats.counters.statsd.metrics_received.rate matched schema default
+11/04/2019 21:56:44 :: new metric stats.counters.statsd.metrics_received.rate matched aggregation schema default_average
+11/04/2019 21:56:44 :: creating database metric stats.counters.statsd.metrics_received.rate (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:56:44 :: new metric stats.counters.statsd.bad_lines_seen.rate matched schema default
+11/04/2019 21:56:44 :: new metric stats.counters.statsd.bad_lines_seen.rate matched aggregation schema default_average
+11/04/2019 21:56:44 :: creating database metric stats.counters.statsd.bad_lines_seen.rate (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:56:44 :: new metric stats.statsd.graphiteStats.last_exception matched schema default
+11/04/2019 21:56:44 :: new metric stats.statsd.graphiteStats.last_exception matched aggregation schema default_average
+11/04/2019 21:56:44 :: creating database metric stats.statsd.graphiteStats.last_exception (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.droppedCreates matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.droppedCreates matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.droppedCreates (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.committedPoints matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.committedPoints matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.committedPoints (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.errors matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.errors matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.errors (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.memUsage matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.memUsage matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.memUsage (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.metricsReceived matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.metricsReceived matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.metricsReceived (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.avgUpdateTime matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.avgUpdateTime matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.avgUpdateTime (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.cache.bulk_queries matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.cache.bulk_queries matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.cache.bulk_queries (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.cache.overflow matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.cache.overflow matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.cache.overflow (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.cache.queues matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.cache.queues matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.cache.queues (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.cache.queries matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.cache.queries matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.cache.queries (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.activeConnections matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.activeConnections matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.activeConnections (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.updateOperations matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.updateOperations matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.updateOperations (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.pointsPerUpdate matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.pointsPerUpdate matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.pointsPerUpdate (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.blacklistMatches matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.blacklistMatches matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.blacklistMatches (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.cpuUsage matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.cpuUsage matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.cpuUsage (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.cache.size matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.cache.size matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.cache.size (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.creates matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.creates matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.creates (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.whitelistRejects matched schema default
+11/04/2019 21:57:38 :: new metric carbon.agents.8ee862c6604e-a.whitelistRejects matched aggregation schema default_average
+11/04/2019 21:57:38 :: creating database metric carbon.agents.8ee862c6604e-a.whitelistRejects (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 21:58:20 :: new metric test.bash.stats matched schema default
+11/04/2019 21:58:20 :: new metric test.bash.stats matched aggregation schema default_average
+11/04/2019 21:58:20 :: creating database metric test.bash.stats (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 22:08:11 :: new metric bib.fraud.rate matched schema default
+11/04/2019 22:08:11 :: new metric bib.fraud.rate matched aggregation schema default_average
+11/04/2019 22:08:11 :: creating database metric bib.fraud.rate (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 22:10:58 :: new metric bib.payments.amazon matched schema default
+11/04/2019 22:10:58 :: new metric bib.payments.amazon matched aggregation schema default_average
+11/04/2019 22:10:58 :: creating database metric bib.payments.amazon (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 22:11:16 :: new metric bib.payments.walmart matched schema default
+11/04/2019 22:11:16 :: new metric bib.payments.walmart matched aggregation schema default_average
+11/04/2019 22:11:16 :: creating database metric bib.payments.walmart (archive=[(10, 60480)] xff=0.3 agg=average)
+11/04/2019 22:35:00 :: new metric bib.payment.rate matched schema default
+11/04/2019 22:35:00 :: new metric bib.payment.rate matched aggregation schema default_average
+11/04/2019 22:35:00 :: creating database metric bib.payment.rate (archive=[(10, 60480)] xff=0.3 agg=average)
