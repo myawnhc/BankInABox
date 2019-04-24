@@ -1,5 +1,6 @@
 .idea/*
 data/granfana/granfana.db
+log/**
 RuleEngine.iml
 *.class
 target/**
