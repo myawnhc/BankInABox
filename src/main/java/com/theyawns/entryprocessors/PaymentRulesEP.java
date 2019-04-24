@@ -16,7 +16,7 @@ public class PaymentRulesEP implements EntryProcessor<String, Transaction>, Seri
 
     @Override
     public Object process(Map.Entry<String, Transaction> entry) {
-        System.out.println("Processing PaymentRulesEP");
+        //System.out.println("Processing PaymentRulesEP");
         Transaction txn = entry.getValue();
 
         // Run a credit limit check

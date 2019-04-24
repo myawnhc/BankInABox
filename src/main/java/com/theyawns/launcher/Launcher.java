@@ -15,6 +15,7 @@ import com.theyawns.pipelines.AdjustMerchantTransactionAverage;
 
 import java.io.Serializable;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Launcher {
 
@@ -69,6 +70,7 @@ public class Launcher {
 
     private static class AdjustMerchantAvgTask implements Runnable, Serializable {
         public void run() {
+            System.out.println("Runnable that should start Jet has been started");
             AdjustMerchantTransactionAverage amta = new AdjustMerchantTransactionAverage();
             amta.run();
         }
@@ -103,7 +105,9 @@ public class Launcher {
         // TODO: not sure there's any advantage to using IMDG executor service here
         // over plain Java
         AdjustMerchantAvgTask merchantAvgTask = new AdjustMerchantAvgTask();
-        main.distributedES.submit(merchantAvgTask);
+        //main.distributedES.submit(merchantAvgTask);
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.submit(merchantAvgTask);
 
         // This has no purpose other than monitoring the backlog during debug
         while (true) {

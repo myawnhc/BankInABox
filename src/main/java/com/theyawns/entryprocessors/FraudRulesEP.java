@@ -16,7 +16,7 @@ public class FraudRulesEP implements EntryProcessor<String, Transaction>, Serial
 
     @Override
     public Object process(Map.Entry<String, Transaction> entry) {
-        System.out.println("Processing FraudRulesEP");
+        //System.out.println("Processing FraudRulesEP");
         if (merchant == null) {
             throw new IllegalStateException("Merchant must be set prior to invoking EntryProcessor");
         }

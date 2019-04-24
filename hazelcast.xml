@@ -16,7 +16,10 @@
 
     <network>
         <join>
-            <multicast enabled="true"></multicast>
+            <multicast enabled="false"></multicast>
+            <tcp-ip enabled="true">
+                <interface>127.0.0.1</interface>
+            </tcp-ip>
         </join>
 
     </network>
@@ -28,6 +31,10 @@
          -->
     </properties>
 
+    <event-journal enabled="true">
+        <mapName>preAuth</mapName>
+        <capacity>1000000</capacity>
+    </event-journal>
 
     <!--
     <native-memory enabled="true" allocator-type="POOLED">

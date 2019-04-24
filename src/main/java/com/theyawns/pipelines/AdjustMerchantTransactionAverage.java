@@ -41,20 +41,23 @@ public class AdjustMerchantTransactionAverage implements Serializable {
         networkConfig.setPort(5710); // Group name defaults to Jet but port still defaults to 5701
         //hazelcastConfig.setManagementCenterConfig(mcc);
         jc.setHazelcastConfig(hazelcastConfig);
+        System.out.println("AdjustMerchantTransactionAverage.init() sets JetConfig to use port 5710");
 
     }
 
     public void run() {
-
+        System.out.println(">>>init");
         init();
+        System.out.println("<<<<init");
         Pipeline p = buildPipeline();
 
-        System.out.println("Starting Jet instance");
+        System.out.println("Starting Jet instance"); // TODO: should we connect to a running instance?
         JetInstance jet = Jet.newJetInstance(jc);
 
         try {
             Job job = jet.newJob(p);
             job.getConfig().setName("AdjustMerchantTxnAverage");
+            System.out.println("Running " + job.getConfig().getName());
             job.join();
         } finally {
             jet.shutdown();
@@ -62,6 +65,7 @@ public class AdjustMerchantTransactionAverage implements Serializable {
     }
 
     private Pipeline buildPipeline() {
+
         Pipeline p = Pipeline.create();
 
         // Stage 1: Draw transactions from the mapJournal associated with the preAuth map

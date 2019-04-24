@@ -3,13 +3,5 @@ log/**
 RuleEngine.iml
 *.class
 target/**
-target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
-target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
-target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
-target/classes/META-INF/RuleEngine.kotlin_module
-src/main/java/com/theyawns/accumulators/DeprecatedBooleanAccumulator.java
-src/main/java/com/theyawns/aggregators/BooleanAggregator.java
 src/main/java/com/theyawns/domain/payments/IMDGMain.java
-src/main/java/com/theyawns/function/DistributedToRulesetEvaluationResultFunction.java
 src/main/java/com/theyawns/ruleengine/IMDGRuleEngine.java
-target/maven-archiver/pom.properties
