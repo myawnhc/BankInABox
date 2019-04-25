@@ -9,6 +9,12 @@ import com.theyawns.domain.payments.Merchant;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.entryprocessors.FraudRulesEP;
 import com.theyawns.entryprocessors.PaymentRulesEP;
+import com.theyawns.sink.Graphite;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
 
 
 // Listener is armed by Launcher, instance should be the non-Jet IMDG cluster
@@ -25,6 +31,9 @@ public class TransactionMapListener implements
     private IMap<String, Transaction> rejectedForFraud;
     private IMap<String, Transaction> rejectedForCredit;
 
+
+    Graphite graphite;
+
     public TransactionMapListener(HazelcastInstance instance) {
         //hazelcast = instance;
         preAuthMap = instance.getMap("preAuth");
@@ -33,11 +42,24 @@ public class TransactionMapListener implements
         approved = instance.getMap("approved");
         rejectedForFraud = instance.getMap("rejectedForFraud");
         rejectedForCredit = instance.getMap("rejectedForCredit");
+
+        graphite = new Graphite();
     }
 
 
+    long counter=0;
+
     @Override
     public void entryAdded(EntryEvent<String, Transaction> entryEvent) {
+
+        // write out every so often
+        if( (++counter % 10)==0 ) {
+            try {
+                graphite.writeStats("bib.payments.amazon",preAuthMap.size());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         String transactionId = entryEvent.getKey();
         Transaction txn = entryEvent.getValue();
@@ -71,4 +93,5 @@ public class TransactionMapListener implements
         }
 
     }
+
 }
