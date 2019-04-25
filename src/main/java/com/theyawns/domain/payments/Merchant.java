@@ -24,7 +24,12 @@ public class Merchant implements Serializable {
         location = Location.getRandom();
     }
 
+    // Updated by Jet
+    public Double getAvgTxnAmount() { return avgTxnAmount; }
+    public void setAvgTxnAmount(Double newValue) { avgTxnAmount = newValue; }
+
     public String getId() { return merchantID; }
+    public Merchant getObject() { return this; }
 
     // Stuff related to average price for merchant.
 
