@@ -75,7 +75,7 @@ public class AdjustMerchantTransactionAverage implements Serializable {
         StreamStage<Transaction> txns = p.drawFrom(Sources.<Transaction, String, Transaction>remoteMapJournal("preAuth", ccfg, mapPutEvents(),
                 mapEventNewValue(), JournalInitialPosition.START_FROM_OLDEST) )
                 .withIngestionTimestamps()
-                .setName("Draw from preAuth map");
+                .setName("Draw Transactions from preAuth map");
 
         // Have a very large window to improve accuracy over time, but slide over short intervals to get initial updates flowing earlier
         WindowDefinition window = WindowDefinition.sliding(100000, 1000);
@@ -106,7 +106,7 @@ public class AdjustMerchantTransactionAverage implements Serializable {
                     Merchant m = map.get(kwr.getKey());
                     m.setAvgTxnAmount(kwr.getValue());
                     return m;
-                } );
+                } ).setName("Retrieve merchant record from IMDG and update average txn amt");
 
         updatedMerchants.drainTo(Sinks.remoteMapWithMerging("merchantMap",
                 clientConfig,
@@ -116,7 +116,7 @@ public class AdjustMerchantTransactionAverage implements Serializable {
                     System.out.println("Merchant " + o.getId() + " avg updated from " +
                             o.getAvgTxnAmount() + " to " + n.getAvgTxnAmount());
                     return n;
-                })).setName("Merge updated average to IMDG merchantMap");
+                })).setName("Merge updated Merchant record back to IMDG merchantMap");
         // TODO: merge values back into merchant map
 
         //merchantAverages.drainTo(Sinks.logger());
