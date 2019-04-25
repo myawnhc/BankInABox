@@ -195,3 +195,40 @@ t=2019-04-24T13:32:09+0000 lvl=info msg="stopped http server" logger=http.server
 t=2019-04-24T13:32:09+0000 lvl=info msg="Stopped Stream Manager"
 t=2019-04-24T13:32:09+0000 lvl=info msg="Stopped CleanUpService" logger=cleanup reason="context canceled"
 t=2019-04-24T13:32:09+0000 lvl=info msg="Stopped Alerting" logger=alerting.engine reason="context canceled"
+t=2019-04-25T14:28:10+0000 lvl=info msg="Starting Grafana" logger=server version=4.6.1 commit=cac8b97 compiled=2017-11-01T10:27:12+0000
+t=2019-04-25T14:28:10+0000 lvl=info msg="Config loaded from" logger=settings file=/opt/grafana/conf/defaults.ini
+t=2019-04-25T14:28:10+0000 lvl=info msg="Config loaded from" logger=settings file=/opt/grafana/conf/custom.ini
+t=2019-04-25T14:28:10+0000 lvl=info msg="Path Home" logger=settings path=/opt/grafana
+t=2019-04-25T14:28:10+0000 lvl=info msg="Path Data" logger=settings path=/opt/grafana/data
+t=2019-04-25T14:28:10+0000 lvl=info msg="Path Logs" logger=settings path=/opt/grafana/data/log
+t=2019-04-25T14:28:10+0000 lvl=info msg="Path Plugins" logger=settings path=/opt/grafana/data/plugins
+t=2019-04-25T14:28:10+0000 lvl=info msg="App mode production" logger=settings
+t=2019-04-25T14:28:10+0000 lvl=info msg="Initializing DB" logger=sqlstore dbtype=sqlite3
+t=2019-04-25T14:28:10+0000 lvl=info msg="Starting DB migration" logger=migrator
+t=2019-04-25T14:28:10+0000 lvl=info msg="Executing migration" logger=migrator id="copy data account to org"
+t=2019-04-25T14:28:10+0000 lvl=info msg="Skipping migration condition not fulfilled" logger=migrator id="copy data account to org"
+t=2019-04-25T14:28:10+0000 lvl=info msg="Executing migration" logger=migrator id="copy data account_user to org_user"
+t=2019-04-25T14:28:10+0000 lvl=info msg="Skipping migration condition not fulfilled" logger=migrator id="copy data account_user to org_user"
+t=2019-04-25T14:28:10+0000 lvl=info msg="Starting plugin search" logger=plugins
+t=2019-04-25T14:28:10+0000 lvl=warn msg="Plugin dir does not exist" logger=plugins dir=/opt/grafana/data/plugins
+t=2019-04-25T14:28:10+0000 lvl=info msg="Plugin dir created" logger=plugins dir=/opt/grafana/data/plugins
+t=2019-04-25T14:28:10+0000 lvl=info msg="Initializing Alerting" logger=alerting.engine
+t=2019-04-25T14:28:10+0000 lvl=info msg="Initializing CleanUpService" logger=cleanup
+t=2019-04-25T14:28:10+0000 lvl=info msg="Initializing Stream Manager"
+t=2019-04-25T14:28:10+0000 lvl=info msg="Initializing HTTP Server" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+t=2019-04-25T14:28:13+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/api/datasources/proxy/1/render status=401 remote_addr=172.19.0.1 time_ms=18 size=26 referer="http://localhost/dashboard/db/bank-in-a-box?refresh=5s&orgId=1"
+t=2019-04-25T14:28:13+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/api/datasources/proxy/1/render status=401 remote_addr=172.19.0.1 time_ms=22 size=26 referer="http://localhost/dashboard/db/bank-in-a-box?refresh=5s&orgId=1"
+t=2019-04-25T14:28:13+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/annotations status=401 remote_addr=172.19.0.1 time_ms=16 size=26 referer="http://localhost/dashboard/db/bank-in-a-box?refresh=5s&orgId=1"
+t=2019-04-25T14:28:13+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/api/datasources/proxy/1/render status=401 remote_addr=172.19.0.1 time_ms=26 size=26 referer="http://localhost/dashboard/db/bank-in-a-box?refresh=5s&orgId=1"
+t=2019-04-25T14:28:20+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=POST path=/tags/tagMultiSeries status=404 remote_addr=127.0.0.1 time_ms=8 size=8772 referer=
+t=2019-04-25T14:28:21+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-25T14:28:33+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=28 size=82 referer=
+t=2019-04-25T14:28:45+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=30 size=82 referer=
+t=2019-04-25T14:28:45+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=404 remote_addr=127.0.0.1 time_ms=24 size=54 referer=
+t=2019-04-25T14:28:57+0000 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=127.0.0.1 time_ms=26 size=82 referer=
+t=2019-04-25T14:29:02+0000 lvl=info msg="Shutdown started" logger=server code=0 reason="system signal: terminated"
+t=2019-04-25T14:29:02+0000 lvl=info msg="stopped http server" logger=http.server
+t=2019-04-25T14:29:02+0000 lvl=info msg="Stopped Stream Manager"
+t=2019-04-25T14:29:02+0000 lvl=info msg="Stopped CleanUpService" logger=cleanup reason="context canceled"
+t=2019-04-25T14:29:02+0000 lvl=info msg="Stopped Alerting" logger=alerting.engine reason="context canceled"
+t=2019-04-25T14:29:02+0000 lvl=info msg="Shutdown completed" logger=server reason="context canceled"
