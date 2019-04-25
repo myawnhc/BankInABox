@@ -3,7 +3,7 @@ services:
   grafana_graphite:
     build: .
     image: hazelcast/docker-grafana-graphite 
-    container_name: grafana-dashboard
+    container_name: bankinabox-dashboard
     ports:
       - '80:80'
       - '81:81'
