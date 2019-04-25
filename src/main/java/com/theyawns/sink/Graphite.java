@@ -28,7 +28,7 @@ public class Graphite {
         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(graphiteSocket.getOutputStream()));
         bufferedWriter.write(writeTo);
         bufferedWriter.flush();
-        System.out.println(writeTo);
+        //System.out.println(writeTo);
     }
 
 }
