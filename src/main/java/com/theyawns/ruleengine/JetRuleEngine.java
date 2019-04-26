@@ -19,6 +19,7 @@ import static com.hazelcast.jet.Traversers.traverseIterator;
 import static com.hazelcast.jet.Util.mapEventNewValue;
 import static com.hazelcast.jet.Util.mapPutEvents;
 
+@Deprecated
 public class JetRuleEngine<T extends HasID> extends BaseRuleEngine<T> {
 
     private JetInstance jet;

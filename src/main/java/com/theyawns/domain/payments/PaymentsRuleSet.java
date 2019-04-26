@@ -14,6 +14,7 @@ import java.util.HashSet;
  *  TODO: Account Transaction History map will be needed for as-yet-uncoded rules
  *
  */
+@Deprecated
 public class PaymentsRuleSet extends RuleSet<Transaction> implements Serializable {
 
     //private HazelcastInstance hazelcast;

@@ -17,7 +17,6 @@ public final class ResultAggregator<T extends HasID> implements Serializable {
     // * @param <A> the type of the accumulator             ResultAccumulator subclass (accumulates RuleEvaluationResults)
     // * @param <R> the type of the aggregation result      was going to vary (e.g., Boolean), but now think will always wrap as RuleSetEvaluationResult
 
-    // TODO: this may move to a BooleanResultAggregator subclass
     public static <S extends HasID> AggregateOperation1<RuleEvaluationResult<S, Boolean>, BooleanResultAccumulator<S>, RuleSetEvaluationResult<S, Boolean>> anyTrue(
             DistributedToRuleEvaluationResultFunction<S, Boolean> getResultFn) {
         return AggregateOperation
@@ -39,7 +38,4 @@ public final class ResultAggregator<T extends HasID> implements Serializable {
     }
 }
 
-// TODO: when above working reliably, implement other aggregation operations:
-//    allTrue, allFalse, tied,
-//    anyTrue, anyFalse
-//    exceedsThreshold  (percentage or count?  true or false, or one for each?)
+// TODO: implement other aggregation operations: allFalse, anyFalse, majorityTrue, majorityFalse

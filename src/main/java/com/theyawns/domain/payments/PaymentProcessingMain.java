@@ -7,6 +7,7 @@ import com.hazelcast.jet.Jet;
 import com.hazelcast.jet.JetInstance;
 import com.hazelcast.jet.config.JetConfig;
 
+@Deprecated
 public class PaymentProcessingMain {
 
     public static final String IMDG_HOST = "localhost:5701";

@@ -89542,3 +89542,4839 @@ Output:
 ✔ Dashboard flight-telemetry exported successfully.
 ✔ 1 dashboards exported successfully.
 ✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8284}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8285}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8286}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8287}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8288}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8289}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8290}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8291}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8292}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8293}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8294}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8295}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8296}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8297}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8298}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8299}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8300}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8301}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8302}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8303}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8304}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8305}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8306}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8307}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8308}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8309}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8310}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8311}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8312}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8313}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8314}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8315}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8316}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8317}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8318}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8319}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8320}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8321}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8322}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8323}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8324}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8325}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8326}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8327}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8328}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8329}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8330}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8331}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8332}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8333}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8334}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8335}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8336}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8337}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8338}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8339}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8340}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8341}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8342}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8343}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8344}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8345}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8346}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8347}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8348}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8349}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8350}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8351}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8352}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8353}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8354}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8355}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8356}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8357}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8358}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8359}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8360}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8361}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8362}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8363}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8364}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8365}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8366}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8367}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8368}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8369}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8370}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8371}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8372}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8373}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8374}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8375}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8376}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8377}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8378}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8379}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8380}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8381}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8382}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8383}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8384}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8385}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8386}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8387}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8388}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8389}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8390}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8391}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8392}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8393}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8394}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8395}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8396}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8397}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8398}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8399}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8400}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8401}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8402}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8403}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8404}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8405}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8406}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8407}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8408}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8409}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8410}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8411}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8412}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8413}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8414}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8415}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8416}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8417}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8418}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8419}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8420}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8421}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8422}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8423}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8424}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8425}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8426}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8427}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8428}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8429}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8430}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8431}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8432}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8433}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8434}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8435}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8436}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8437}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8438}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8439}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8440}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8441}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8442}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8443}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8444}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8445}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8446}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8447}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8448}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8449}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8450}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8451}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8452}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8453}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8454}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8455}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8456}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8457}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8458}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8459}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8460}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8461}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8462}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8463}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8464}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8465}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8466}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8467}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8468}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8469}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8470}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8471}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8472}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8473}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8474}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8475}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8476}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8477}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8478}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8479}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8480}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8481}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8482}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8483}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8484}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8485}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8486}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8487}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8488}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8489}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8490}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8491}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8492}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8493}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8494}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8495}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8496}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8497}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8498}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8499}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8500}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8501}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8502}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8503}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8504}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8505}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8506}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8507}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8508}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8509}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8510}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8511}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8512}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8513}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8514}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8515}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8516}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8517}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8518}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8519}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8520}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8521}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8522}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8523}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8524}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8525}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8526}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8527}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8528}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8529}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8530}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8531}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8532}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8533}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8534}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8535}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8536}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8537}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8538}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8539}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8540}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8541}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8542}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8543}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8544}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8545}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8546}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8547}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8548}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8549}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8550}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8551}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8552}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8553}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8554}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8555}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8556}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8557}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8558}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8559}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8560}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8561}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8562}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8563}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8564}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8565}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8566}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8567}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8568}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8569}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8570}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8571}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8572}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8573}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8574}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8575}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8576}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8577}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8578}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8579}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8580}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8581}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8582}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8583}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8584}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8585}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8586}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8587}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8588}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8589}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8590}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8591}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8592}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8593}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8594}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8595}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8596}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8597}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8598}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8599}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8600}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8601}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8602}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8603}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8604}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8605}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8606}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8607}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8608}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8609}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8610}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8611}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8612}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8613}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8614}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8615}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8616}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8617}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8618}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8619}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8620}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8621}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8622}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8623}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8624}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8625}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8626}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8627}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8628}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8629}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8630}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8631}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8632}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8633}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8634}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8635}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8636}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8637}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8638}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8639}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8640}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8641}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8642}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8643}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8644}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8645}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8646}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8647}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8648}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8649}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8650}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8651}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8652}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8653}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8654}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8655}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8656}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8657}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8658}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8659}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8660}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8661}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8662}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8663}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8664}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8665}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8666}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8667}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8668}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8669}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8670}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8671}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8672}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8673}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8674}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8675}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8676}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8677}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8678}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8679}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8680}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8681}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8682}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8683}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8684}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8685}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.
+Output:
+{"id":1,"message":"Datasource updated","name":"Local Graphite"}
+✔ Datasource local-graphite exported successfully.
+✔ 1 datasources exported successfully.
+Output:
+{"message":"A dashboard with the same name already exists","status":"name-exists"}
+✘ Dashboard Jet export failed.
+Output:
+{"slug":"flight-telemetry","status":"success","version":8686}
+✔ Dashboard flight-telemetry exported successfully.
+✔ 1 dashboards exported successfully.
+✘ 1 dashboards export failed.

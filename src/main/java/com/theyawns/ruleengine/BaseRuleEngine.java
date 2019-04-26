@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+@Deprecated
 public class BaseRuleEngine<T extends HasID>  implements RuleEngine<T> {
 
     private HazelcastInstance hazelcast;

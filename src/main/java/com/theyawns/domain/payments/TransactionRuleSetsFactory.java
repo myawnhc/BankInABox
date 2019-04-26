@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+@Deprecated
 public class TransactionRuleSetsFactory implements RuleSetFactory<Transaction>, Serializable {
 
 

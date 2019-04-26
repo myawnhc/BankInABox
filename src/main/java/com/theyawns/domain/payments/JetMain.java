@@ -11,6 +11,7 @@ import com.hazelcast.jet.config.JetConfig;
 import com.theyawns.ruleengine.JetRuleEngine;
 import com.theyawns.ruleengine.RuleSetFactory;
 
+@Deprecated
 public class JetMain {
 
     private static transient boolean active = false;

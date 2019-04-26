@@ -11,7 +11,6 @@ import com.theyawns.ruleengine.RuleSetEvaluationResult;
 import java.util.List;
 
 // Aggregate a micro-batch of RuleEvaluationResults (all results for a particular transaction)
-
 public class AggregationJob {
 
     // TODO: not sure how this runs
