@@ -44,14 +44,12 @@ public class AdjustMerchantTransactionAverage implements Serializable {
         networkConfig.setPort(5710); // Group name defaults to Jet but port still defaults to 5701
         //hazelcastConfig.setManagementCenterConfig(mcc);
         jc.setHazelcastConfig(hazelcastConfig);
-        System.out.println("AdjustMerchantTransactionAverage.init() sets JetConfig to use port 5710");
+        //System.out.println("AdjustMerchantTransactionAverage.init() sets JetConfig to use port 5710");
 
     }
 
     public void run() {
-        System.out.println(">>>init");
         init();
-        System.out.println("<<<<init");
         Pipeline p = buildPipeline();
 
         System.out.println("Starting Jet instance"); // TODO: should we connect to a running instance?
@@ -108,18 +106,23 @@ public class AdjustMerchantTransactionAverage implements Serializable {
                     return m;
                 } ).setName("Retrieve merchant record from IMDG and update average txn amt");
 
-        updatedMerchants.drainTo(Sinks.remoteMapWithMerging("merchantMap",
+        // some values of NaN, positive or negative infinity seen ... maybe this is if there
+        // are no txns for merchant during the window interval?  At any rate, should filter them
+        StreamStage<Merchant> filteredMerchants = updatedMerchants.filter( m -> {
+            return !m.getAvgTxnAmount().isInfinite() && !m.getAvgTxnAmount().isNaN();
+        }).setName("Filter out-of-range results");
+
+        filteredMerchants.drainTo(Sinks.remoteMapWithMerging("merchantMap",
                 clientConfig,
                 /* toKeyFn */ Merchant::getId,
                 /* toValueFn */ Merchant::getObject,
                 /* mergeFn */ (Merchant o, Merchant n) -> {
-                    System.out.println("Merchant " + o.getId() + " avg updated from " +
-                            o.getAvgTxnAmount() + " to " + n.getAvgTxnAmount());
+                    if (Math.abs(o.getAvgTxnAmount() - n.getAvgTxnAmount()) > 0.001) {
+                        System.out.printf("Merchant %s avg updated from %.3f to %.3f\n", o.getId(),
+                                o.getAvgTxnAmount(), n.getAvgTxnAmount());
+                    }
                     return n;
                 })).setName("Merge updated Merchant record back to IMDG merchantMap");
-        // TODO: merge values back into merchant map
-
-        //merchantAverages.drainTo(Sinks.logger());
 
         return p;
 

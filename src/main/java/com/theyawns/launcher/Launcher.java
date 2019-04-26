@@ -11,6 +11,7 @@ import com.hazelcast.jet.config.JetConfig;
 import com.theyawns.domain.payments.CreditLimitRule;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.listeners.TransactionMapListener;
+import com.theyawns.perfmon.PerfMonitor;
 import com.theyawns.pipelines.AdjustMerchantTransactionAverage;
 
 import java.io.Serializable;
@@ -18,6 +19,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Launcher {
+
+    // TODO: control this from command line switch or other mechanism not requiring a rebuild!
+    public static final Boolean COLLECT_PERFORMANCE_STATS = true;
 
     public static final String IMDG_HOST = "localhost:5701";
     protected ClientConfig ccfg;
@@ -101,6 +105,13 @@ public class Launcher {
         preAuthMap.addEntryListener(new TransactionMapListener(main.hazelcast),
                 true);
 
+        // Start performance monitoring.  Just based on laptop performance 'feel', seems this
+        // is fairly intrusive and probably should not be on by default.
+        if (COLLECT_PERFORMANCE_STATS) {
+            PerfMonitor.setRingBuffer(main.hazelcast.getRingbuffer("tpsResults"));
+            PerfMonitor.startTimers();
+        }
+
         // Start up the various Jet pipelines
         // TODO: not sure there's any advantage to using IMDG executor service here
         // over plain Java
@@ -112,15 +123,12 @@ public class Launcher {
         // This has no purpose other than monitoring the backlog during debug
         while (true) {
             try {
-                Thread.sleep(10000);
+                Thread.sleep(30000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("PreAuth size " + preAuthMap.size());  // should be non-zero
+            if (preAuthMap.size() > 1)
+                System.out.println("Transaction backlog (preAuth map size) " + preAuthMap.size());  // should be non-zero
         }
-
-        // TODO: start performance monitor
-
-        // TODO: start transaction generator
     }
 }

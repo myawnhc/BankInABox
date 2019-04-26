@@ -9,12 +9,10 @@ import com.theyawns.domain.payments.Merchant;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.entryprocessors.FraudRulesEP;
 import com.theyawns.entryprocessors.PaymentRulesEP;
+import com.theyawns.perfmon.PerfMonitor;
 import com.theyawns.sink.Graphite;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.net.Socket;
 
 
 // Listener is armed by Launcher, instance should be the non-Jet IMDG cluster
@@ -63,6 +61,7 @@ public class TransactionMapListener implements
 
         String transactionId = entryEvent.getKey();
         Transaction txn = entryEvent.getValue();
+        txn.processingTime.start(); // Start clock for processing time latency metric
         Account account = accountMap.get(txn.getAccountNumber());
         Merchant merchant = merchantMap.get(txn.getMerchantId());
 
@@ -78,20 +77,23 @@ public class TransactionMapListener implements
         // Doesn't actually map to the high-medium-low values from the EP, but
         // assumes we'd be averaging over several rule results
         if (risk > 80) {
-            preAuthMap.remove(txn);
+            preAuthMap.remove(txn.getID());
             rejectedForFraud.put(transactionId, txn);
+            txn.processingTime.stop();
+            PerfMonitor.recordTransaction(txn); // may move this to a map listener on rejected so can capture end-to-end time
             return;
         }
 
         //System.out.println("Executing payment rules for " + transactionId);
         Boolean passed = (Boolean) preAuthMap.executeOnKey(transactionId, paymentRulesEP);
-        preAuthMap.remove(txn);
+        preAuthMap.remove(txn.getID());
         if (passed) {
             approved.put(transactionId, txn);
         } else {
             rejectedForCredit.put(transactionId, txn);
         }
-
+        txn.processingTime.stop();
+        PerfMonitor.recordTransaction(txn); // may move this to map listener on result so can capture end-to-end time
     }
 
 }

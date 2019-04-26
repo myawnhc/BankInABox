@@ -1,5 +1,6 @@
 package com.theyawns.domain.payments;
 
+import com.theyawns.perfmon.LatencyMetric;
 import com.theyawns.ruleengine.HasID;
 
 import java.io.Serializable;
@@ -15,12 +16,18 @@ public class Transaction implements Serializable, HasID {
     private Double amount;
     private Location location; // Should this be a separate object, enrichment source?
 
-    public int fraudResult = -1;
-    public Boolean paymentResult;
+    private int fraudResult = -1;
+    private Boolean paymentResult;
+
+    // Being a little sloppy with encapsulation, will allow direct access to these
+    public LatencyMetric processingTime;
+    public LatencyMetric endToEndTime;
 
     public Transaction(int num) {
         this.transactionId = ""+num;
         timestamp = System.currentTimeMillis();
+        processingTime = new LatencyMetric();
+        endToEndTime = new LatencyMetric();
     }
 
     public Transaction(Transaction copyfrom) {

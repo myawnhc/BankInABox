@@ -1,6 +1,6 @@
 .idea/*
-data/granfana/granfana.db
 log/**
+data/whisper/**
 RuleEngine.iml
 *.class
 target/**

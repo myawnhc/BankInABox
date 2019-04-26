@@ -80,7 +80,7 @@ public class TransactionGenerator {
                 // TODO: generate historical transactions, populate historyMap
 
                 Transaction t = helper.generateTransactionForAccount(a, txnnum++);
-
+                t.endToEndTime.start(); // Start clock running for End-to-End latency metric
                 preAuthMap.set(t.getID(), t);
 
                 // TODO: add entry listener on resultsMap
@@ -95,8 +95,8 @@ public class TransactionGenerator {
                     }
                 }
 
-                // Remove at scale, but on laptop combined workload is making
-                // IDE unresponsive.
+                // Sleep interval of 5 or less and laptop becomes unresponsive. Can remove this when running
+                // on a real cluster.
                 try {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
