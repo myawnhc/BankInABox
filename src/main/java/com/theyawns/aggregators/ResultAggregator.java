@@ -10,6 +10,11 @@ import com.theyawns.ruleengine.RuleSetEvaluationResult;
 
 import java.io.Serializable;
 
+/** A Jet aggregation that operates on inputs of type RuleEvaluationResult.
+ * The aggregated object will be of type RuleSetEvaluationResult.
+ *
+ * @param <T> The type of items in the stream
+ */
 public final class ResultAggregator<T extends HasID> implements Serializable {
 
     // Parameter Types from AggregateOperation1:

@@ -10,7 +10,12 @@ import com.theyawns.ruleengine.RuleSetEvaluationResult;
 
 import java.util.List;
 
-// Aggregate a micro-batch of RuleEvaluationResults (all results for a particular transaction)
+/** Jet job to aggregate a set of RuleEvaluationResults, returning a RuleSetEvaluationResult.
+ *
+ * This is not currently in use in the main retail banking demo, but I anticipate it will be useful for some
+ * side projects I'd like to create running against the same basic setup.
+ *
+ */
 public class AggregationJob {
 
     // TODO: not sure how this runs

@@ -51,16 +51,15 @@
         <binary>true</binary>
         <value-collection-type>LIST</value-collection-type>
     </multimap>
-
+    -->
 
     <serialization>
         <data-serializable-factories>
             <data-serializable-factory factory-id="101">
-                com.hazelcast.certification.process.impl.executorService.IDSFactory
+                com.theyawns.IDSFactory
             </data-serializable-factory>
         </data-serializable-factories>
     </serialization>
-    -->
 
     <license-key>
     </license-key>

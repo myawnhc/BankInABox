@@ -6,6 +6,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Random;
 
+/** A 'fake' location class to be used for some fraud detection rules.  The class encapsulates the
+ *  idea that some cities are close to others without the need to create a full-blown GIS subsystem.
+ */
 public class Location implements Serializable {
 
     private static LinkedHashMap<String,Location> allLocations = new LinkedHashMap<>();

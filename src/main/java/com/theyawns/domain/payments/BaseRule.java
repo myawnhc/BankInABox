@@ -8,6 +8,7 @@ import com.hazelcast.jet.Jet;
 import com.hazelcast.jet.JetInstance;
 import com.hazelcast.jet.Job;
 import com.hazelcast.jet.config.JetConfig;
+import com.hazelcast.jet.function.PredicateEx;
 import com.hazelcast.jet.pipeline.*;
 
 import java.io.Serializable;
@@ -18,8 +19,9 @@ import java.util.Set;
 import static com.hazelcast.jet.Util.mapEventNewValue;
 import static com.hazelcast.jet.Util.mapPutEvents;
 
-//import org.python.core.*;
-//import org.python.modules.cPickle;
+/** Base class for rules implemented in a Jet-centric RuleEngine.
+ *  As the demo design evolved, this class is no longer part of the main processing flow.
+ */
 
 public abstract class BaseRule implements Serializable {
 
@@ -29,6 +31,8 @@ public abstract class BaseRule implements Serializable {
 
     protected static final int SINK_PORT = 2004;
     protected static String SINK_HOST;
+
+    private PredicateEx<Transaction> filter = (PredicateEx<Transaction>) transaction -> true;
 
     static {
         System.setProperty("hazelcast.multicast.group", "228.19.18.20");
@@ -55,22 +59,29 @@ public abstract class BaseRule implements Serializable {
 
     }
 
+    public void setFilter(PredicateEx<Transaction> filter) {
+        this.filter = filter;
+    }
+
     protected StreamStage<TransactionWithRules> getEnrichedJournal(Pipeline p) {
-        StreamSourceStage<Transaction> txns = p.drawFrom(Sources.remoteMapJournal("preAuth", ccfg, mapPutEvents(),
-                mapEventNewValue(), JournalInitialPosition.START_FROM_OLDEST) );
+        StreamStage<Transaction> txns = p.<Transaction>drawFrom(Sources.remoteMapJournal("preAuth", ccfg, mapPutEvents(),
+                mapEventNewValue(), JournalInitialPosition.START_FROM_OLDEST) ).withIngestionTimestamps();
+
+        StreamStage<Transaction> filtered = txns.filter(filter).setName("Filter");
 
         StreamStage<TransactionWithRules> enriched =
-                txns.withoutTimestamps()
+                filtered
                         .setName("draw from IMDG authMap")
                         .mapUsingContext(getJetContext(), (JetInstance jet, Transaction t) -> {
-                    List<Job> activeJobs = jet.getJobs();
-                    Set<String> rules = new HashSet<>();
-                    for (Job j : activeJobs) {
-                        rules.add(j.getName());
-                    }
-                    //System.out.println("Adding " + activeJobs.size() + " rule ids to transaction " + t.getID() + "( acct " + t.getAccountNumber() + ")");
-                    return new TransactionWithRules(t, rules);
-                }).setName("Enrich with currently active rule info");
+                            t.processingTime.start();
+                            List<Job> activeJobs = jet.getJobs();
+                            Set<String> rules = new HashSet<>();
+                            for (Job j : activeJobs) {
+                                rules.add(j.getName());
+                            }
+                            //System.out.println("Adding " + activeJobs.size() + " rule ids to transaction " + t.getID() + "( acct " + t.getAccountNumber() + ")");
+                            return new TransactionWithRules(t, rules);
+                        }).setName("Enrich with currently active rule info");
         return enriched;
     }
 

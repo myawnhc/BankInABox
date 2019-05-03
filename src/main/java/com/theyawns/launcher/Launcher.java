@@ -108,7 +108,8 @@ public class Launcher {
         // Start performance monitoring.  Just based on laptop performance 'feel', seems this
         // is fairly intrusive and probably should not be on by default.
         if (COLLECT_PERFORMANCE_STATS) {
-            PerfMonitor.setRingBuffer(main.hazelcast.getRingbuffer("tpsResults"));
+            PerfMonitor.setRingBuffers(main.hazelcast.getRingbuffer("JetTPSResults"),
+                                       main.hazelcast.getRingbuffer("IMDGTPSResults"));
             PerfMonitor.startTimers();
         }
 

@@ -4,6 +4,17 @@ import com.theyawns.ruleengine.HasID;
 import com.theyawns.ruleengine.RuleEvaluationResult;
 import com.theyawns.ruleengine.RuleSetEvaluationResult;
 
+/** Jet accumulator to work with ResultAccumulator instances whose parameterized result type is Boolean.
+ *
+ * This class is not used in the main flow of the banking demo, but is still used by some side projects
+ * that run parallel rules on the IMDG and Jet clusters independently.
+ *
+ * @param <T> the type of items in the stream.  In all current usages this is Transaction, but the
+ *           rule engine related classes in this demo were intended to be reused in other domains where
+ *           the stream type could vary.
+ *
+ * @see com.theyawns.accumulators.ResultAccumulator
+ */
 public class BooleanResultAccumulator<T extends HasID> extends ResultAccumulator<T, Boolean> {
 
 

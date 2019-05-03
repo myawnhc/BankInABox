@@ -80,7 +80,7 @@ public class TransactionMapListener implements
             preAuthMap.remove(txn.getID());
             rejectedForFraud.put(transactionId, txn);
             txn.processingTime.stop();
-            PerfMonitor.recordTransaction(txn); // may move this to a map listener on rejected so can capture end-to-end time
+            PerfMonitor.recordTransaction("IMDG", txn); // may move this to a map listener on rejected so can capture end-to-end time
             return;
         }
 
@@ -93,7 +93,7 @@ public class TransactionMapListener implements
             rejectedForCredit.put(transactionId, txn);
         }
         txn.processingTime.stop();
-        PerfMonitor.recordTransaction(txn); // may move this to map listener on result so can capture end-to-end time
+        PerfMonitor.recordTransaction("IMDG", txn); // may move this to map listener on result so can capture end-to-end time
     }
 
 }

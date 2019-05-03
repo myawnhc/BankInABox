@@ -10,8 +10,6 @@ public class LatencyMetric implements Serializable {
     public void start() { start = System.currentTimeMillis(); }
     public void stop() {
         stop = System.currentTimeMillis();
-        // TODO: increment TPS
-        // TODO: post elapsed
     }
     public long elapsed() { return stop - start; }
 }

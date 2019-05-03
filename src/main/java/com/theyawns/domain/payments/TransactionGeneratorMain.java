@@ -37,8 +37,9 @@ public class TransactionGeneratorMain {
         tgen.init(hazelcast);
         tgen.start();
 
-        ResultMapMonitor tmon = new ResultMapMonitor(hazelcast);
-        new Thread(tmon).start();
+        // Moved to DualLauncher, add to Launcher if desired there also
+//        ResultMapMonitor tmon = new ResultMapMonitor(hazelcast);
+//        new Thread(tmon).start();
 
 
         // Currently generator will self-stop after creating 1 million transactions.

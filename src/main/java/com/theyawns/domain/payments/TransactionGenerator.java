@@ -3,6 +3,7 @@ package com.theyawns.domain.payments;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
 import com.hazelcast.core.IQueue;
+import com.theyawns.Constants;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,7 +11,6 @@ import java.util.concurrent.*;
 
 public class TransactionGenerator {
 
-    // Initialize with a Queue?
     private transient boolean active = false;
     private int acctNum;
     private int txnnum;
@@ -32,10 +32,9 @@ public class TransactionGenerator {
 
     public void init(HazelcastInstance hz) {
         hazelcast = hz;
-        accountIMap = hz.getMap("accountMap");
-        // TODO: history IMap (future, for use by fraud detection rules)
-        preAuthMap = hz.getMap("preAuth");
-        merchantMap = hz.getMap("merchantMap");
+        accountIMap = hz.getMap(Constants.MAP_ACCOUNT);
+        preAuthMap = hz.getMap(Constants.MAP_PREAUTH);
+        merchantMap = hz.getMap(Constants.MAP_MERCHANT);
         //executor = hz.getExecutorService("dataLoader");
         executor = Executors.newSingleThreadScheduledExecutor();
     }
@@ -117,8 +116,8 @@ public class TransactionGenerator {
     }
 
     // Not in use - was previously set by timer, now we exit after 1 million transactions generated
-    public void stop() {
-        active = false;
-        //System.out.println("Stopping");
-    }
+//    public void stop() {
+//        active = false;
+//        //System.out.println("Stopping");
+//    }
 }

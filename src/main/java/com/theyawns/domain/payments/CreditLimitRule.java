@@ -14,6 +14,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/** Implementation of a Credit Limit check as a Jet pipeline.
+ *  The same basic functionality is implemented as an IMDG EntryProcessor in entryprocessors.CreditLimitCheck.
+ *
+ */
 public class CreditLimitRule extends BaseRule implements Serializable {
 
     public static final String RULE_NAME = "CreditLimitRule";
@@ -63,12 +67,19 @@ public class CreditLimitRule extends BaseRule implements Serializable {
                 (List<RuleEvaluationResult> o, List<RuleEvaluationResult> n) -> {
                     System.out.println("Merging result to resultsMap");
                     o.addAll(n);
+                    // following lines just for performance statistics collection
+                    Transaction t = (Transaction) n.get(0).getItem();
+                    t.processingTime.stop();
+//                    // Nope.  We're running in a different JVM than the IMDG monitor which is actually
+//                    // collecting, so this is never being seen in the results.
+//                    PerfMonitor.recordTransaction("Jet", t);
+                    // end perf collection
                     return o;
                 })).setName("Drain to IMDG results map");
 
         // TODO: drain to Graphite/Grafana
 
-        result.drainTo(Sinks.logger());
+        //result.drainTo(Sinks.logger());
 
         return p;
     }

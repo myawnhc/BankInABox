@@ -7,6 +7,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/** A Jet accumulator class to accumulate instances of RuleEvaluationResult
+ *
+ * @param <T> the type of the stream item
+ * @param <R> the type of the result item
+ */
 public class ResultAccumulator<T extends HasID, R> implements Serializable {
 
     List<RuleEvaluationResult<T,R>> allResults = new ArrayList<>();
