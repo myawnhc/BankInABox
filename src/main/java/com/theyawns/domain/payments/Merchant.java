@@ -1,10 +1,17 @@
 package com.theyawns.domain.payments;
 
+import com.hazelcast.nio.ObjectDataInput;
+import com.hazelcast.nio.ObjectDataOutput;
+import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
+import com.theyawns.Constants;
+
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Random;
 
-// TODO: IdentifiedDataSerializable, at least
-public class Merchant implements Serializable {
+/* Must continue to support default Java Serializable until EntryProcessors implement IdentifiedDataSerializable */
+
+public class Merchant implements IdentifiedDataSerializable, Serializable {
 
     private String merchantID;
     private String merchantName;
@@ -24,11 +31,16 @@ public class Merchant implements Serializable {
         location = Location.getRandom();
     }
 
+    // For IDS Serialization only
+    public Merchant() {}
+
     // Updated by Jet
     public Double getAvgTxnAmount() { return avgTxnAmount; }
     public void setAvgTxnAmount(Double newValue) { avgTxnAmount = newValue; }
 
-    public String getId() { return merchantID; }
+
+
+    public String getMerchantId() { return merchantID; }
     public Merchant getObject() { return this; }
 
     // Stuff related to average price for merchant.
@@ -41,6 +53,8 @@ public class Merchant implements Serializable {
         double amount = random.nextGaussian() * stddev + avgTxnAmount;
         return amount;
     }
+
+
 
     public static enum RISK { LOW, MEDIUM, HIGH }
 
@@ -66,5 +80,33 @@ public class Merchant implements Serializable {
         }
         // should not happen
         return RISK.MEDIUM;
+    }
+
+    @Override
+    public int getFactoryId() {
+        return Constants.IDS_FACTORY_ID;
+    }
+
+    @Override
+    public int getId() {
+        return Constants.IDS_MERCHANT_ID;
+    }
+
+    @Override
+    public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
+        objectDataOutput.writeUTF(merchantID);
+        objectDataOutput.writeUTF(merchantName);
+        objectDataOutput.writeInt(reputation);
+        objectDataOutput.writeDouble(avgTxnAmount);
+        objectDataOutput.writeObject(location);
+    }
+
+    @Override
+    public void readData(ObjectDataInput objectDataInput) throws IOException {
+        merchantID = objectDataInput.readUTF();
+        merchantName = objectDataInput.readUTF();
+        reputation = objectDataInput.readInt();
+        avgTxnAmount = objectDataInput.readDouble();
+        location = objectDataInput.readObject(Location.class);
     }
 }

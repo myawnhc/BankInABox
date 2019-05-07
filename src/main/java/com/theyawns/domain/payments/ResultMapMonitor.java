@@ -46,7 +46,7 @@ public class ResultMapMonitor implements Runnable,
             else
                 rejected.put(transactionId, txn);
             txn.endToEndTime.stop();
-            PerfMonitor.recordTransaction("Jet", txn);
+            PerfMonitor.getInstance().recordTransaction("Jet", txn);
         }
     }
 

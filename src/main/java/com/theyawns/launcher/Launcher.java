@@ -1,13 +1,8 @@
 package com.theyawns.launcher;
 
 import com.hazelcast.client.HazelcastClient;
-import com.hazelcast.client.config.ClientConfig;
-import com.hazelcast.config.Config;
-import com.hazelcast.config.ManagementCenterConfig;
-import com.hazelcast.config.NetworkConfig;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
-import com.hazelcast.jet.config.JetConfig;
 import com.theyawns.domain.payments.CreditLimitRule;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.listeners.TransactionMapListener;
@@ -23,38 +18,38 @@ public class Launcher {
     // TODO: control this from command line switch or other mechanism not requiring a rebuild!
     public static final Boolean COLLECT_PERFORMANCE_STATS = true;
 
-    public static final String IMDG_HOST = "localhost:5701";
-    protected ClientConfig ccfg;
-    protected JetConfig jc;
+//    public static final String IMDG_HOST = "localhost:5701";
+//    protected ClientConfig ccfg;
+//    protected JetConfig jc;
 
-    //protected static final int SINK_PORT = 2004;
-    protected static String SINK_HOST;
+//    //protected static final int SINK_PORT = 2004;
+//    protected static String SINK_HOST;
 
     protected HazelcastInstance hazelcast;
     protected ExecutorService distributedES;
 
-    static {
-        System.setProperty("hazelcast.multicast.group", "228.19.18.20");
-        SINK_HOST = System.getProperty("SINK_HOST", "127.0.0.1");
-    }
+//    static {
+//        System.setProperty("hazelcast.multicast.group", "228.19.18.20");
+//        SINK_HOST = System.getProperty("SINK_HOST", "127.0.0.1");
+//    }
 
     protected void init() {
-        ManagementCenterConfig mcc = new ManagementCenterConfig();
-        mcc.setEnabled(true);
-        mcc.setUrl("http://localhost:8080/hazelcast-mancenter");
-
-        ccfg = new ClientConfig();
-        ccfg.getGroupConfig().setName("dev").setPassword("ignored");
-        ccfg.getNetworkConfig().addAddress(IMDG_HOST);
-
-        jc = new JetConfig();
-        Config hazelcastConfig = jc.getHazelcastConfig();
-        // Avoid collision between the external IMDG (remoteMap) and the internal IMDG
-        NetworkConfig networkConfig = hazelcastConfig.getNetworkConfig();
-        //networkConfig.getJoin().getMulticastConfig().setEnabled(false);
-        networkConfig.setPort(5710); // Group name defaults to Jet but port still defaults to 5701
-        //hazelcastConfig.setManagementCenterConfig(mcc);
-        jc.setHazelcastConfig(hazelcastConfig);
+//        ManagementCenterConfig mcc = new ManagementCenterConfig();
+//        mcc.setEnabled(true);
+//        mcc.setUrl("http://localhost:8080/hazelcast-mancenter");
+//
+//        ccfg = new ClientConfig();
+//        ccfg.getGroupConfig().setName("dev").setPassword("ignored");
+//        ccfg.getNetworkConfig().addAddress(IMDG_HOST);
+//
+//        jc = new JetConfig();
+//        Config hazelcastConfig = jc.getHazelcastConfig();
+//        // Avoid collision between the external IMDG (remoteMap) and the internal IMDG
+//        NetworkConfig networkConfig = hazelcastConfig.getNetworkConfig();
+//        //networkConfig.getJoin().getMulticastConfig().setEnabled(false);
+//        networkConfig.setPort(5710); // Group name defaults to Jet but port still defaults to 5701
+//        //hazelcastConfig.setManagementCenterConfig(mcc);
+//        jc.setHazelcastConfig(hazelcastConfig);
 
 //        Config config = new Config();
 //        config.getGroupConfig().setName("dev").setPassword("ignored");
@@ -108,9 +103,10 @@ public class Launcher {
         // Start performance monitoring.  Just based on laptop performance 'feel', seems this
         // is fairly intrusive and probably should not be on by default.
         if (COLLECT_PERFORMANCE_STATS) {
-            PerfMonitor.setRingBuffers(main.hazelcast.getRingbuffer("JetTPSResults"),
-                                       main.hazelcast.getRingbuffer("IMDGTPSResults"));
-            PerfMonitor.startTimers();
+            main.distributedES.submit(PerfMonitor.getInstance());
+//            PerfMonitor.setRingBuffers(main.hazelcast.getRingbuffer("JetTPSResults"),
+//                                       main.hazelcast.getRingbuffer("IMDGTPSResults"));
+//            PerfMonitor.startTimers();
         }
 
         // Start up the various Jet pipelines

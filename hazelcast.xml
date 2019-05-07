@@ -21,37 +21,16 @@
                 <interface>127.0.0.1</interface>
             </tcp-ip>
         </join>
-
     </network>
 
     <properties>
-        <!--
-        <property name="hazelcast.partition.count">1471</property>
-        <property name="hazelcast.operation.thread.count">12</property>
-         -->
+        <property name="hazelcast.map.entry.filtering.natural.event.types">true</property>
     </properties>
 
     <event-journal enabled="true">
         <mapName>preAuth</mapName>
         <capacity>1000000</capacity>
     </event-journal>
-
-    <!--
-    <native-memory enabled="true" allocator-type="POOLED">
-        <size value="10" unit="GIGABYTES"/>
-    </native-memory>
-
-
-    <map name="transactionHistory">
-        <in-memory-format>NATIVE</in-memory-format>
-        <backup-count>0</backup-count>
-    </map>
-
-    <multimap name="transactionHistory">
-        <binary>true</binary>
-        <value-collection-type>LIST</value-collection-type>
-    </multimap>
-    -->
 
     <serialization>
         <data-serializable-factories>
@@ -61,7 +40,6 @@
         </data-serializable-factories>
     </serialization>
 
-    <license-key>
-    </license-key>
+    <license-key/>
 
 </hazelcast>

@@ -1,13 +1,8 @@
 package com.theyawns.launcher;
 
 import com.hazelcast.client.HazelcastClient;
-import com.hazelcast.client.config.ClientConfig;
-import com.hazelcast.config.Config;
-import com.hazelcast.config.ManagementCenterConfig;
-import com.hazelcast.config.NetworkConfig;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
-import com.hazelcast.jet.config.JetConfig;
 import com.hazelcast.jet.function.PredicateEx;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.CreditLimitRule;
@@ -18,6 +13,7 @@ import com.theyawns.perfmon.PerfMonitor;
 
 import java.io.Serializable;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /** This is not the mainstream launcher.
  *
@@ -29,41 +25,50 @@ public class DualLauncher {
 
     public static final Boolean COLLECT_PERFORMANCE_STATS = true;
 
-    public static final String IMDG_HOST = "localhost:5701";
-    protected ClientConfig ccfg;
-    protected JetConfig jc;
+//    public static final String IMDG_HOST = "localhost:5701";
+//    protected ClientConfig ccfg;
+//    protected JetConfig jc;
 
-    //protected static final int SINK_PORT = 2004;
-    protected static String SINK_HOST;
+//    //protected static final int SINK_PORT = 2004;
+//    protected static String SINK_HOST;
 
     protected HazelcastInstance hazelcast;
-    protected ExecutorService distributedES;
+//    protected ExecutorService distributedES;
 
-    static {
-        System.setProperty("hazelcast.multicast.group", "228.19.18.20");
-        SINK_HOST = System.getProperty("SINK_HOST", "127.0.0.1");
-    }
+//    static {
+//        System.setProperty("hazelcast.multicast.group", "228.19.18.20");
+//        SINK_HOST = System.getProperty("SINK_HOST", "127.0.0.1");
+//    }
 
     protected void init() {
-        ManagementCenterConfig mcc = new ManagementCenterConfig();
-        mcc.setEnabled(true);
-        mcc.setUrl("http://localhost:8080/hazelcast-mancenter");
+//        ManagementCenterConfig mcc = new ManagementCenterConfig();
+//        mcc.setEnabled(true);
+//        mcc.setUrl("http://localhost:8080/hazelcast-mancenter");
 
-        ccfg = new ClientConfig();
-        ccfg.getGroupConfig().setName("dev").setPassword("ignored");
-        ccfg.getNetworkConfig().addAddress(IMDG_HOST);
+//        ccfg = new ClientConfig();
+//        ccfg.getGroupConfig().setName("dev").setPassword("ignored");
+//        ccfg.getNetworkConfig().addAddress(IMDG_HOST);
+//        ccfg.getSerializationConfig().addDataSerializableFactory(101, new IDSFactory());
 
-        jc = new JetConfig();
-        Config hazelcastConfig = jc.getHazelcastConfig();
-        // Avoid collision between the external IMDG (remoteMap) and the internal IMDG
-        NetworkConfig networkConfig = hazelcastConfig.getNetworkConfig();
-        //networkConfig.getJoin().getMulticastConfig().setEnabled(false);
-        networkConfig.setPort(5710); // Group name defaults to Jet but port still defaults to 5701
-        //hazelcastConfig.setManagementCenterConfig(mcc);
-        jc.setHazelcastConfig(hazelcastConfig);
+//        jc = new JetConfig();
+//        Config hazelcastConfig = jc.getHazelcastConfig();
+//        // Avoid collision between the external IMDG (remoteMap) and the internal IMDG
+//        NetworkConfig networkConfig = hazelcastConfig.getNetworkConfig();
+//        //networkConfig.getJoin().getMulticastConfig().setEnabled(false);
+//        networkConfig.setPort(5710); // Group name defaults to Jet but port still defaults to 5701
+//        //hazelcastConfig.setManagementCenterConfig(mcc);
+//
+//        EventJournalConfig ejc = new EventJournalConfig()
+//                .setMapName(Constants.MAP_PREAUTH)
+//                .setEnabled(true)
+//                .setCapacity(1000000);
+//        hazelcastConfig.addEventJournalConfig(ejc);
+//        hazelcastConfig.getSerializationConfig().addDataSerializableFactory(101, new IDSFactory());
+//
+//        jc.setHazelcastConfig(hazelcastConfig);
 
         hazelcast = HazelcastClient.newHazelcastClient();
-        distributedES = hazelcast.getExecutorService("execSvc");
+//        distributedES = hazelcast.getExecutorService("execSvc");
 
     }
 
@@ -97,7 +102,8 @@ public class DualLauncher {
 
         // This runs the Jet pipeline version of the rule.   Will fail if TxnGenMain not running.
         // Working OK, but disabling for now to focus on debugging the EntryProcessor
-        main.distributedES.submit(new CreditLimitRuleTask());
+        ExecutorService clrexec = Executors.newSingleThreadExecutor();
+        clrexec.submit(new CreditLimitRuleTask());
 
 
         // This runs the EntryProcessor version of the rule.   Not getting any hits.
@@ -112,9 +118,11 @@ public class DualLauncher {
         // Start performance monitoring.  Just based on laptop performance 'feel', seems this
         // is fairly intrusive and probably should not be on by default.
         if (COLLECT_PERFORMANCE_STATS) {
-            PerfMonitor.setRingBuffers(main.hazelcast.getRingbuffer("JetTPSResults"),
-                                       main.hazelcast.getRingbuffer("IMDGTPSResults"));
-            PerfMonitor.startTimers();
+            ExecutorService executor = Executors.newSingleThreadExecutor();
+            executor.submit(PerfMonitor.getInstance());
+//            PerfMonitor.setRingBuffers(main.hazelcast.getRingbuffer("JetTPSResults"),
+//                                       main.hazelcast.getRingbuffer("IMDGTPSResults"));
+//            PerfMonitor.startTimers();
         }
 
         // This has no purpose other than monitoring the backlog during debug

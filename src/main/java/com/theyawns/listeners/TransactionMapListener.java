@@ -79,8 +79,8 @@ public class TransactionMapListener implements
         if (risk > 80) {
             preAuthMap.remove(txn.getID());
             rejectedForFraud.put(transactionId, txn);
-            txn.processingTime.stop();
-            PerfMonitor.recordTransaction("IMDG", txn); // may move this to a map listener on rejected so can capture end-to-end time
+            txn.endToEndTime.stop();
+            PerfMonitor.getInstance().recordTransaction("IMDG", txn); // may move this to a map listener on rejected so can capture end-to-end time
             return;
         }
 
@@ -92,8 +92,8 @@ public class TransactionMapListener implements
         } else {
             rejectedForCredit.put(transactionId, txn);
         }
-        txn.processingTime.stop();
-        PerfMonitor.recordTransaction("IMDG", txn); // may move this to map listener on result so can capture end-to-end time
+        txn.endToEndTime.stop();
+        PerfMonitor.getInstance().recordTransaction("IMDG", txn); // may move this to map listener on result so can capture end-to-end time
     }
 
 }

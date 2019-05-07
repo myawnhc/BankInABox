@@ -1,5 +1,11 @@
 package com.theyawns.domain.payments;
 
+import com.hazelcast.nio.ObjectDataInput;
+import com.hazelcast.nio.ObjectDataOutput;
+import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
+import com.theyawns.Constants;
+
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -9,7 +15,9 @@ import java.util.Random;
 /** A 'fake' location class to be used for some fraud detection rules.  The class encapsulates the
  *  idea that some cities are close to others without the need to create a full-blown GIS subsystem.
  */
-public class Location implements Serializable {
+public class Location implements IdentifiedDataSerializable, Serializable {
+    /* Must continue to support default Java Serializable until EntryProcessors implement IdentifiedDataSerializable */
+
 
     private static LinkedHashMap<String,Location> allLocations = new LinkedHashMap<>();
 
@@ -18,11 +26,14 @@ public class Location implements Serializable {
     private String city;
     private List<String> closeCities;
 
-    private static Random random = new Random(33);
+    private transient static Random random = new Random(33);
 
     private Location(String city) {
         this.city = city;
     }
+
+    // For IDS Serialization only
+    public Location() {}
 
     public static Location getLocation(String name) {
         return allLocations.get(name);
@@ -33,7 +44,6 @@ public class Location implements Serializable {
         Location l = allLocations.values().toArray(new Location[allLocations.size()])[index];
         return l;
     }
-
 
     public Location setCloseCities(List<String> close) {
         this.closeCities = close;
@@ -85,5 +95,31 @@ public class Location implements Serializable {
         allLocations.put("Seattle", new Location("Seattle")
                 .setCloseCities(Arrays.asList("San Francisco", "Las Vegas", "Los Angeles")));
 
+    }
+
+    @Override
+    public int getFactoryId() {
+        return Constants.IDS_FACTORY_ID;
+    }
+
+    @Override
+    public int getId() {
+        return Constants.IDS_LOCATION;
+    }
+
+    @Override
+    public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
+        objectDataOutput.writeDouble(latitude);
+        objectDataOutput.writeDouble(longitude);
+        objectDataOutput.writeUTF(city);
+        objectDataOutput.writeUTFArray(closeCities.toArray(new String[20]));
+    }
+
+    @Override
+    public void readData(ObjectDataInput objectDataInput) throws IOException {
+        latitude = objectDataInput.readDouble();
+        longitude = objectDataInput.readDouble();
+        city = objectDataInput.readUTF();
+        closeCities = Arrays.asList(objectDataInput.readUTFArray());
     }
 }

@@ -14,7 +14,7 @@ public class TransactionGenerator {
     private transient boolean active = false;
     private int acctNum;
     private int txnnum;
-    private IQueue<Transaction> queue;
+    //private IQueue<Transaction> queue;
     private IMap<String,Account> accountIMap; // Key = Account ID
     private IMap<String,Transaction> preAuthMap; // Key = Transaction ID
     private IMap<String, List<Transaction>> historyMap; // Key = Account ID;
@@ -41,7 +41,7 @@ public class TransactionGenerator {
 
     @Deprecated
     public void init(IMap<String,Account> map, IQueue<Transaction> queue) {
-        this.queue = queue;
+        //this.queue = queue;
         this.accountIMap = map;
     }
 
@@ -55,7 +55,7 @@ public class TransactionGenerator {
         DistributedCallable<Integer> merchantGenTask = () -> {
             for (int i=0; i<10000; i++) {
                 Merchant m = helper.generateNewMerchant(i);
-                merchantMap.put(m.getId(), m);
+                merchantMap.put(m.getMerchantId(), m);
             }
             return merchantMap.size();
         };
@@ -96,16 +96,19 @@ public class TransactionGenerator {
 
                 // Sleep interval of 5 or less and laptop becomes unresponsive. Can remove this when running
                 // on a real cluster.
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+//                try {
+//                    Thread.sleep(10);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
             }
             System.out.println("Stopped transaction generation, pending size now " + preAuthMap.size() );
             return txnnum;
         };
+
         future = executor.submit(txnGenTask);
+
+
         try {
             int count = future.get();
             System.out.println("Generated " + count + " transactions");

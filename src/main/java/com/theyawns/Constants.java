@@ -15,6 +15,10 @@ public class Constants {
     public static final int IDS_FACTORY_ID = 101;
 
     public static final int IDS_ACCOUNT_ID     = 201;
-    public static final int IDS_MERCHANT_ID    = IDS_ACCOUNT_ID + 1;
-    public static final int IDS_TRANSACTION_ID = IDS_MERCHANT_ID + 1;
+    public static final int IDS_LATENCY_METRIC = 202;
+    public static final int IDS_LOCATION       = 203;
+    public static final int IDS_MERCHANT_ID    = 204;
+    public static final int IDS_TRANSACTION_ID = 205;
+    public static final int IDS_TXN_WITH_RULES = 206;
+    public static final int IDS_TXN_WITH_ACCT  = 207;
 }

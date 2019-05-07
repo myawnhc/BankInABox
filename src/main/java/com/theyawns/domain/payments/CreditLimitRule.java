@@ -7,6 +7,7 @@ import com.hazelcast.jet.pipeline.ContextFactory;
 import com.hazelcast.jet.pipeline.Pipeline;
 import com.hazelcast.jet.pipeline.Sinks;
 import com.hazelcast.jet.pipeline.StreamStage;
+import com.theyawns.IDSFactory;
 import com.theyawns.ruleengine.RuleEvaluationResult;
 
 import java.io.Serializable;
@@ -21,7 +22,7 @@ import java.util.List;
 public class CreditLimitRule extends BaseRule implements Serializable {
 
     public static final String RULE_NAME = "CreditLimitRule";
-    private IMap<String, List<RuleExecutionResult>> resultsMap;
+    //private IMap<String, List<RuleExecutionResult>> resultsMap;
 
     @Override
     Pipeline buildPipeline() {
@@ -35,6 +36,7 @@ public class CreditLimitRule extends BaseRule implements Serializable {
                     ClientConfig clientConfig = new ClientConfig();
                     clientConfig.getNetworkConfig().addAddress(JetMain.IMDG_HOST);
                     clientConfig.getGroupConfig().setName("dev").setPassword("ignored");
+                    clientConfig.getSerializationConfig().addDataSerializableFactory(101, new IDSFactory());
                     return Jet.newJetClient(clientConfig).getMap("accountMap");
                 });
 
@@ -49,7 +51,7 @@ public class CreditLimitRule extends BaseRule implements Serializable {
         StreamStage<RuleEvaluationResult<Transaction,Boolean>> result = txnsWithAccountInfo.map(txn -> {
             RuleEvaluationResult<Transaction,Boolean> rer = new RuleEvaluationResult<Transaction,Boolean>(txn, RULE_NAME);
             rer.setEvaluationResult(process(txn));
-            rer.setElapsed(System.currentTimeMillis() - txn.getIngestTime());
+            //rer.setElapsed(System.currentTimeMillis() - txn.getIngestTime());
             return rer;
         }).setName("Evaluate Credit Limit rule");
 
@@ -58,6 +60,7 @@ public class CreditLimitRule extends BaseRule implements Serializable {
         ClientConfig clientConfig = new ClientConfig();
         clientConfig.getNetworkConfig().addAddress(JetMain.IMDG_HOST);
         clientConfig.getGroupConfig().setName("dev").setPassword("ignored");
+        clientConfig.getSerializationConfig().addDataSerializableFactory(101, new IDSFactory());
 
         result.drainTo(Sinks.remoteMapWithMerging(
                 "resultMap",
@@ -68,11 +71,10 @@ public class CreditLimitRule extends BaseRule implements Serializable {
                     System.out.println("Merging result to resultsMap");
                     o.addAll(n);
                     // following lines just for performance statistics collection
-                    Transaction t = (Transaction) n.get(0).getItem();
+                    Transaction t = (Transaction) o.get(0).getItem();
                     t.processingTime.stop();
-//                    // Nope.  We're running in a different JVM than the IMDG monitor which is actually
-//                    // collecting, so this is never being seen in the results.
-//                    PerfMonitor.recordTransaction("Jet", t);
+                    // NO - double counts results if we call here
+                    //PerfMonitor.getInstance().recordTransaction("Jet", t);
                     // end perf collection
                     return o;
                 })).setName("Drain to IMDG results map");

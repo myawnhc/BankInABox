@@ -1,23 +1,27 @@
 package com.theyawns.domain.payments;
 
+import com.hazelcast.nio.ObjectDataInput;
+import com.hazelcast.nio.ObjectDataOutput;
+import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
+import com.theyawns.Constants;
 import com.theyawns.perfmon.LatencyMetric;
 import com.theyawns.ruleengine.HasID;
 
+import java.io.IOException;
 import java.io.Serializable;
 
-// TODO: IDS
-public class Transaction implements Serializable, HasID {
+public class Transaction implements IdentifiedDataSerializable, Serializable, HasID {
 
+    private String transactionId;
     private String acctNumber;      // TODO: this won't be part of object eventually - txn id keys
-    private String transactionId;   // 
     private String merchantId;
 
     //private long timestamp;
-    private Double amount;
+    private Double amount = 0.0;
     private Location location; // Should this be a separate object, enrichment source?
 
     private int fraudResult = -1;
-    private Boolean paymentResult;
+    private Boolean paymentResult = Boolean.TRUE;
 
     // Being a little sloppy with encapsulation, will allow direct access to these
     public LatencyMetric processingTime = new LatencyMetric();
@@ -40,8 +44,9 @@ public class Transaction implements Serializable, HasID {
         this.merchantId = copyfrom.merchantId;
         //this.timestamp = copyfrom.timestamp;
         this.amount = copyfrom.amount;
-        // results won't be copied
-
+        this.processingTime = copyfrom.processingTime;
+        this.endToEndTime = copyfrom.endToEndTime;
+        // result fields won't be copied
     }
 
     public String getID() {
@@ -82,38 +87,46 @@ public class Transaction implements Serializable, HasID {
         paymentResult = result;
     }
 
-    /**
-     * The time (at UTC) that the trnsaction was received
-     */
-//    private long requestTime;
-//    public long getRequestTime() { return requestTime; }
-//    public void setRequestTime(long requestTime) { this.requestTime = requestTime; }
-
-
     @Override
     public String toString() {
         return "Transaction " + transactionId;
     }
 
-    // IdentifiedDataSerializable implementation, not yet finished / enabled.
+    // IdentifiedDataSerializable implementation
 
-//    @Override
-//    public int getFactoryId() {
-//        return Constants.IDS_FACTORY_ID;
-//    }
-//
-//    @Override
-//    public int getId() {
-//        return Constants.IDS_TRANSACTION_ID;
-//    }
-//
-//    @Override
-//    public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
-//
-//    }
-//
-//    @Override
-//    public void readData(ObjectDataInput objectDataInput) throws IOException {
-//
-//    }
+    @Override
+    public int getFactoryId() {
+        return Constants.IDS_FACTORY_ID;
+    }
+
+    @Override
+    public int getId() {
+        return Constants.IDS_TRANSACTION_ID;
+    }
+
+    @Override
+    public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
+        objectDataOutput.writeUTF(transactionId);
+        objectDataOutput.writeUTF(acctNumber);
+        objectDataOutput.writeUTF(merchantId);
+        objectDataOutput.writeDouble(amount);
+        objectDataOutput.writeObject(location);
+        objectDataOutput.writeInt(fraudResult);
+        objectDataOutput.writeBoolean(paymentResult);
+        objectDataOutput.writeObject(processingTime);
+        objectDataOutput.writeObject(endToEndTime);
+    }
+
+    @Override
+    public void readData(ObjectDataInput objectDataInput) throws IOException {
+        transactionId = objectDataInput.readUTF();
+        acctNumber = objectDataInput.readUTF();
+        merchantId = objectDataInput.readUTF();
+        amount = objectDataInput.readDouble();
+        location = objectDataInput.readObject(Location.class);
+        fraudResult = objectDataInput.readInt();
+        paymentResult = objectDataInput.readBoolean();
+        processingTime = objectDataInput.readObject(LatencyMetric.class);
+        endToEndTime = objectDataInput.readObject(LatencyMetric.class);
+    }
 }

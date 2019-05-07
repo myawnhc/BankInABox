@@ -31,6 +31,9 @@ public class PaymentRulesEP implements EntryProcessor<String, Transaction>, Seri
         txn.setPaymentResult(clcOK);
         entry.setValue(txn);  // update the transaction in the map with the result
         //System.out.println("Payment rules complete");
+        txn.processingTime.stop();
+        // NO - double counts results if we call here
+        //PerfMonitor.getInstance().recordTransaction("IMDG", txn);
         return clcOK;
     }
 

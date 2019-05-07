@@ -1,9 +1,17 @@
 package com.theyawns.domain.payments;
 
+import com.hazelcast.nio.ObjectDataInput;
+import com.hazelcast.nio.ObjectDataOutput;
+import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
+import com.theyawns.Constants;
+
+import java.io.IOException;
 import java.io.Serializable;
 
-// TODO: Use IdentifiedDataSerializable
-public class Account implements Serializable {
+/* Must continue to support default Java Serializable until EntryProcessors implement IdentifiedDataSerializable */
+
+public class Account implements IdentifiedDataSerializable, Serializable {
+
 
     public enum AccountStatus { CURRENT, OVERDUE, CLOSED } // TODO
 
@@ -28,6 +36,9 @@ public class Account implements Serializable {
         this.status = copyfrom.status;
     }
 
+    // For IDS Serialization
+    public Account() {}
+
     public String getAccountNumber() { return accountNumber; }
 
     public void setBalance(Double balance) { this.balance = balance; }
@@ -51,4 +62,32 @@ public class Account implements Serializable {
         return "Acct " + accountNumber + " " + creditLimit + " " + balance + " " + status;
     }
 
+
+    @Override
+    public int getFactoryId() {
+        return Constants.IDS_FACTORY_ID;
+    }
+
+    @Override
+    public int getId() {
+        return Constants.IDS_ACCOUNT_ID;
+    }
+
+    @Override
+    public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
+        objectDataOutput.writeUTF(accountNumber);
+        objectDataOutput.writeDouble(creditLimit);
+        objectDataOutput.writeDouble(balance);
+        objectDataOutput.writeInt(status.ordinal());
+        objectDataOutput.writeObject(lastReportedLocation);
+    }
+
+    @Override
+    public void readData(ObjectDataInput objectDataInput) throws IOException {
+        accountNumber = objectDataInput.readUTF();
+        creditLimit = objectDataInput.readDouble();
+        balance = objectDataInput.readDouble();
+        status = AccountStatus.values()[objectDataInput.readInt()];
+        lastReportedLocation = objectDataInput.readObject(Location.class);
+    }
 }
