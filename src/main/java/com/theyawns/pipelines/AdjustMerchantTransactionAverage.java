@@ -1,9 +1,10 @@
 package com.theyawns.pipelines;
 
 import com.hazelcast.client.config.ClientConfig;
+import com.hazelcast.client.config.XmlClientConfigBuilder;
 import com.hazelcast.config.Config;
-import com.hazelcast.config.ManagementCenterConfig;
 import com.hazelcast.config.NetworkConfig;
+import com.hazelcast.config.XmlConfigBuilder;
 import com.hazelcast.core.IMap;
 import com.hazelcast.jet.Jet;
 import com.hazelcast.jet.JetInstance;
@@ -12,7 +13,7 @@ import com.hazelcast.jet.aggregate.AggregateOperations;
 import com.hazelcast.jet.config.JetConfig;
 import com.hazelcast.jet.datamodel.KeyedWindowResult;
 import com.hazelcast.jet.pipeline.*;
-import com.theyawns.domain.payments.JetMain;
+import com.theyawns.Constants;
 import com.theyawns.domain.payments.Merchant;
 import com.theyawns.domain.payments.Transaction;
 
@@ -23,37 +24,24 @@ import static com.hazelcast.jet.Util.mapPutEvents;
 
 public class AdjustMerchantTransactionAverage implements Serializable {
 
-    private ClientConfig ccfg;
-    private String IMDG_HOST = "localhost"; // TODO: properties files
-    private JetConfig jc;
+    private JetConfig jetConfig;
 
     protected void init() {
-        ManagementCenterConfig mcc = new ManagementCenterConfig();
-        mcc.setEnabled(true);
-        mcc.setUrl("http://localhost:8080/hazelcast-mancenter");
 
-        ccfg = new ClientConfig();
-        ccfg.getGroupConfig().setName("dev").setPassword("ignored");
-        ccfg.getNetworkConfig().addAddress(IMDG_HOST);
-
-        jc = new JetConfig();
-        Config hazelcastConfig = jc.getHazelcastConfig();
-        // Avoid collision between the external IMDG (remoteMap) and the internal IMDG
+        XmlConfigBuilder xccb = new XmlConfigBuilder(); // Reads hazelcast.xml
+        Config hazelcastConfig = xccb.build();
         NetworkConfig networkConfig = hazelcastConfig.getNetworkConfig();
-        //networkConfig.getJoin().getMulticastConfig().setEnabled(false);
-        networkConfig.setPort(5710); // Group name defaults to Jet but port still defaults to 5701
-        //hazelcastConfig.setManagementCenterConfig(mcc);
-        jc.setHazelcastConfig(hazelcastConfig);
-        //System.out.println("AdjustMerchantTransactionAverage.init() sets JetConfig to use port 5710");
+        networkConfig.setPort(5710); // Avoid collision between internal and external IMDG clusters
+        hazelcastConfig.getCPSubsystemConfig().setCPMemberCount(0); // no CP needed on internal cluster
 
+        jetConfig = new JetConfig();
+        jetConfig.setHazelcastConfig(hazelcastConfig);
     }
 
     public void run() {
         init();
         Pipeline p = buildPipeline();
-
-        System.out.println("Starting Jet instance"); // TODO: should we connect to a running instance?
-        JetInstance jet = Jet.newJetInstance(jc);
+        JetInstance jet = Jet.newJetInstance(jetConfig);
 
         try {
             Job job = jet.newJob(p);
@@ -67,68 +55,60 @@ public class AdjustMerchantTransactionAverage implements Serializable {
 
     private Pipeline buildPipeline() {
 
-        Pipeline p = Pipeline.create();
+        try {
 
-        // Stage 1: Draw transactions from the mapJournal associated with the preAuth map
-        StreamStage<Transaction> txns = p.drawFrom(Sources.<Transaction, String, Transaction>remoteMapJournal("preAuth", ccfg, mapPutEvents(),
-                mapEventNewValue(), JournalInitialPosition.START_FROM_OLDEST) )
-                .withIngestionTimestamps()
-                .setName("Draw Transactions from preAuth map");
+            XmlClientConfigBuilder xccb = new XmlClientConfigBuilder(); // Reads hazelcast-client.xml
+            ClientConfig clientConfig = xccb.build();
 
-        // Have a very large window to improve accuracy over time, but slide over short intervals to get initial updates flowing earlier
-        WindowDefinition window = WindowDefinition.sliding(100000, 1000);
+            Pipeline p = Pipeline.create();
 
-        StreamStage<KeyedWindowResult<String, Double>> merchantAverages = txns.window(window)
-                .groupingKey(Transaction::getMerchantId)
-                .aggregate(
-                        AggregateOperations.averagingDouble(
-                                Transaction::getAmount))
-                .setName("Aggregate average transaction amount by merchant");
+            // Stage 1: Draw transactions from the mapJournal associated with the preAuth map
+            StreamStage<Transaction> txns = p.drawFrom(Sources.<Transaction, String, Transaction>remoteMapJournal(Constants.MAP_PREAUTH, clientConfig, mapPutEvents(),
+                    mapEventNewValue(), JournalInitialPosition.START_FROM_OLDEST))
+                    .withIngestionTimestamps()
+                    .setName("Draw Transactions from preAuth map");
 
-        ClientConfig clientConfig = new ClientConfig();
-        clientConfig.getNetworkConfig().addAddress(JetMain.IMDG_HOST);
-        clientConfig.getGroupConfig().setName("dev").setPassword("ignored");
+            // Have a very large window to improve accuracy over time, but slide over short intervals to get initial updates flowing earlier
+            WindowDefinition window = WindowDefinition.sliding(100000, 1000);
 
-        ContextFactory<IMap<String, Merchant>> contextFactory =
-                ContextFactory.withCreateFn(x -> {
-                    ClientConfig ccfg = new ClientConfig();
-                    ccfg.getNetworkConfig().addAddress(JetMain.IMDG_HOST);
-                    ccfg.getGroupConfig().setName("dev").setPassword("ignored");
-                    return Jet.newJetClient(ccfg).getMap("merchantMap");
-                });
+            // PEEK here shows valid looking merchant ids
+            StreamStage<KeyedWindowResult<String, Double>> merchantAverages = txns.window(window)
+                    .groupingKey(Transaction::getMerchantId)
+                    .aggregate(
+                            AggregateOperations.averagingDouble(
+                                    Transaction::getAmount))
+                    .setName("Aggregate average transaction amount by merchant");
 
-        // arg0: ContextFactory<C> will give us a Merchant for KWR<MerchantID, Double>
-        // arg1: BiFunctionEx<C,T,R>  given Merchant, KWR<M,D>, emit Merchant with updated amt
-        StreamStage<Merchant> updatedMerchants = merchantAverages.mapUsingContext(contextFactory,
-                (map, kwr) -> {
-                    Merchant m = map.get(kwr.getKey());
-                    m.setAvgTxnAmount(kwr.getValue());
-                    return m;
-                } ).setName("Retrieve merchant record from IMDG and update average txn amt");
+            ContextFactory<IMap<String, Merchant>> contextFactory =
+                    ContextFactory.withCreateFn(x -> {
+                        return Jet.newJetClient(/*ccfg*/).getMap(Constants.MAP_MERCHANT);
+                    });
 
-        // some values of NaN, positive or negative infinity seen ... maybe this is if there
-        // are no txns for merchant during the window interval?  At any rate, should filter them
-        StreamStage<Merchant> filteredMerchants = updatedMerchants.filter( m -> {
-            return !m.getAvgTxnAmount().isInfinite() && !m.getAvgTxnAmount().isNaN();
-        }).setName("Filter out-of-range results");
+            // arg0: ContextFactory<C> will give us a Merchant for KWR<MerchantID, Double>
+            // arg1: BiFunctionEx<C,T,R>  given Merchant, KWR<M,D>, emit Merchant with updated amt
+            StreamStage<Merchant> updatedMerchants = merchantAverages.mapUsingContext(contextFactory,
+                    (map, kwr) -> {
+                        Merchant m = map.get(kwr.getKey());
+                        m.setAvgTxnAmount(kwr.getValue());
+                        return m;
+                    }).setName("Retrieve merchant record from IMDG and update average txn amt");
 
-        filteredMerchants.drainTo(Sinks.remoteMapWithMerging("merchantMap",
-                clientConfig,
-                /* toKeyFn */ Merchant::getId,
-                /* toValueFn */ Merchant::getObject,
-                /* mergeFn */ (Merchant o, Merchant n) -> {
-                    if (Math.abs(o.getAvgTxnAmount() - n.getAvgTxnAmount()) > 0.001) {
-                        System.out.printf("Merchant %s avg updated from %.3f to %.3f\n", o.getId(),
-                                o.getAvgTxnAmount(), n.getAvgTxnAmount());
-                    }
-                    return n;
-                })).setName("Merge updated Merchant record back to IMDG merchantMap");
+            updatedMerchants.drainTo(Sinks.remoteMapWithMerging("merchantMap",
+                    clientConfig,
+                    /* toKeyFn */ Merchant::getMerchantId,
+                    /* toValueFn */ Merchant::getObject,
+                    /* mergeFn */ (Merchant o, Merchant n) -> {
+                        if (Math.abs(o.getAvgTxnAmount() - n.getAvgTxnAmount()) > 0.001) {
+                            System.out.printf("Merchant %s avg updated from %.3f to %.3f\n", o.getId(),
+                                    o.getAvgTxnAmount(), n.getAvgTxnAmount());
+                        }
+                        return n;
+                    })).setName("Merge updated Merchant record back to IMDG merchantMap");
 
-        return p;
-
+            return p;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
-
-
-
-
 }

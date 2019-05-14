@@ -4,9 +4,14 @@ import com.hazelcast.map.EntryBackupProcessor;
 import com.hazelcast.map.EntryProcessor;
 import com.theyawns.domain.payments.Account;
 import com.theyawns.domain.payments.Transaction;
+import com.theyawns.launcher.BankInABoxProperties;
+import com.theyawns.perfmon.PerfMonitor;
 
 import java.io.Serializable;
 import java.util.Map;
+
+import static com.theyawns.perfmon.PerfMonitor.Platform;
+import static com.theyawns.perfmon.PerfMonitor.Scope;
 
 public class PaymentRulesEP implements EntryProcessor<String, Transaction>, Serializable {
 
@@ -16,10 +21,14 @@ public class PaymentRulesEP implements EntryProcessor<String, Transaction>, Seri
 
     @Override
     public Object process(Map.Entry<String, Transaction> entry) {
-        //System.out.println("Processing PaymentRulesEP");
         Transaction txn = entry.getValue();
+        //System.out.println("Processing PaymentRulesEP for " + txn.getID());
 
         // Run a credit limit check
+        if (BankInABoxProperties.COLLECT_LATENCY_STATS) {
+            PerfMonitor.getInstance().beginLatencyMeasurement(Platform.IMDG,
+                    Scope.Processing, "CreditLimitRule", txn.getID());
+        }
         CreditLimitCheck clc = new CreditLimitCheck();
         clc.setAccount(account);
         boolean clcOK = clc.process(txn);
@@ -29,10 +38,16 @@ public class PaymentRulesEP implements EntryProcessor<String, Transaction>, Seri
         // Aggregate the results of the rules to get overall payment status
         // Since we only have one rule implemented, this is trivial
         txn.setPaymentResult(clcOK);
+        //System.out.println("Payment rules complete, end IMDG processing and record");
+
+
+        //txn.processingTime.stop();
         entry.setValue(txn);  // update the transaction in the map with the result
-        //System.out.println("Payment rules complete");
-        txn.processingTime.stop();
-        // NO - double counts results if we call here
+        if (BankInABoxProperties.COLLECT_LATENCY_STATS) {
+            PerfMonitor.getInstance().endLatencyMeasurement(Platform.IMDG,
+                    Scope.Processing, "CreditLimitRule", txn.getID());
+        }
+        // Record now does TPS only, so call only at E2E completion
         //PerfMonitor.getInstance().recordTransaction("IMDG", txn);
         return clcOK;
     }

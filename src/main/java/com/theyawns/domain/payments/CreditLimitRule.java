@@ -7,7 +7,10 @@ import com.hazelcast.jet.pipeline.ContextFactory;
 import com.hazelcast.jet.pipeline.Pipeline;
 import com.hazelcast.jet.pipeline.Sinks;
 import com.hazelcast.jet.pipeline.StreamStage;
+import com.theyawns.Constants;
 import com.theyawns.IDSFactory;
+import com.theyawns.launcher.BankInABoxProperties;
+import com.theyawns.perfmon.PerfMonitor;
 import com.theyawns.ruleengine.RuleEvaluationResult;
 
 import java.io.Serializable;
@@ -44,6 +47,7 @@ public class CreditLimitRule extends BaseRule implements Serializable {
             Account acct = map.get(txn.getAccountNumber());
             TransactionWithAccountInfo twa = new TransactionWithAccountInfo(txn);
             twa.setAccountInfo(acct);
+            //System.out.println("CreditLimitRule: Enrich account info");
             return twa;
         }).setName("Enrich transactions with Account info");
 
@@ -52,6 +56,7 @@ public class CreditLimitRule extends BaseRule implements Serializable {
             RuleEvaluationResult<Transaction,Boolean> rer = new RuleEvaluationResult<Transaction,Boolean>(txn, RULE_NAME);
             rer.setEvaluationResult(process(txn));
             //rer.setElapsed(System.currentTimeMillis() - txn.getIngestTime());
+            //System.out.println("CreditLimitRule: map to result");  // OK this far
             return rer;
         }).setName("Evaluate Credit Limit rule");
 
@@ -62,22 +67,47 @@ public class CreditLimitRule extends BaseRule implements Serializable {
         clientConfig.getGroupConfig().setName("dev").setPassword("ignored");
         clientConfig.getSerializationConfig().addDataSerializableFactory(101, new IDSFactory());
 
-        result.drainTo(Sinks.remoteMapWithMerging(
-                "resultMap",
-                clientConfig,
-                (RuleEvaluationResult r) -> r.getItemId(),
-                (RuleEvaluationResult r) -> new ArrayList<>(Arrays.asList(r)),
-                (List<RuleEvaluationResult> o, List<RuleEvaluationResult> n) -> {
-                    System.out.println("Merging result to resultsMap");
-                    o.addAll(n);
-                    // following lines just for performance statistics collection
-                    Transaction t = (Transaction) o.get(0).getItem();
-                    t.processingTime.stop();
-                    // NO - double counts results if we call here
-                    //PerfMonitor.getInstance().recordTransaction("Jet", t);
-                    // end perf collection
-                    return o;
-                })).setName("Drain to IMDG results map");
+        // When done inline, get class not loaded, so pull out of lambda
+        boolean logPerf = BankInABoxProperties.COLLECT_LATENCY_STATS;
+
+        try {
+            result.drainTo(Sinks.remoteMapWithMerging(
+                    Constants.MAP_RESULT,
+                    clientConfig,
+                    (RuleEvaluationResult r) -> r.getItemId(),
+                    (RuleEvaluationResult r) -> new ArrayList<>(Arrays.asList(r)),
+                    (List<RuleEvaluationResult> o, List<RuleEvaluationResult> n) -> {
+                        //System.out.println("CreditLimitRule: Merging result to resultsMap"); // NEVER SEEN
+                        o.addAll(n);
+                        // following lines just for performance statistics collection
+                        Transaction t = (Transaction) o.get(0).getItem();
+                        //t.processingTime.stop();
+                        if (logPerf) {
+                            //System.out.println(">>> CreditLimitRule call end Jet Processing from drainTo");
+                            PerfMonitor.getInstance().endLatencyMeasurement(PerfMonitor.Platform.Jet,
+                                    PerfMonitor.Scope.Processing, "CreditLimitRule", t.getID());
+                            //PerfMonitor.getInstance().recordTransaction("Jet", t);
+                            //System.out.println("<<< CreditLimitRule call end Jet Processing from drainTo");
+                        } else {
+                            //System.out.println("CreditLimitRule omitted call to end Jet Processing due to hang");
+                        }
+                        // end perf collection
+                        return o;
+                    })).setName("Drain to IMDG results map");
+
+//            result.drainTo(Sinks.logger((rer) -> {
+//                if (logPerf) {
+//                    System.out.println(">>> call end Jet Processing from secondary drainTo");
+//                    PerfMonitor.getInstance().endLatencyMeasurement(PerfMonitor.Platform.Jet,
+//                            PerfMonitor.Scope.Processing, "CreditLimitRule", rer.getItemId());
+//                    //PerfMonitor.getInstance().recordTransaction("Jet", t);
+//                    System.out.println("<<< call end Jet Processing from secondary drainTo");
+//                }
+//                return null;
+//            }));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         // TODO: drain to Graphite/Grafana
 

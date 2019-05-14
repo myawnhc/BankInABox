@@ -8,6 +8,7 @@ import com.theyawns.Constants;
 import java.io.IOException;
 import java.io.Serializable;
 
+@Deprecated
 public class LatencyMetric implements IdentifiedDataSerializable, Serializable {
 
     private long start = -1;

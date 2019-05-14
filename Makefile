@@ -1,7 +1,7 @@
 # docker-grafana-graphite makefile
 
 # Environment Variables
-CONTAINER = grafana-dashboard
+CONTAINER = bankinabox-dashboard
 
 .PHONY: up
 

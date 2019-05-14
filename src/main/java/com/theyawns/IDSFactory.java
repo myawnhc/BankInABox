@@ -5,7 +5,9 @@ import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.theyawns.domain.payments.*;
 import com.theyawns.perfmon.LatencyMetric;
 
-public class IDSFactory implements DataSerializableFactory {
+import java.io.Serializable;
+
+public class IDSFactory implements DataSerializableFactory, Serializable {
 
     @Override
     public IdentifiedDataSerializable create(int id) {

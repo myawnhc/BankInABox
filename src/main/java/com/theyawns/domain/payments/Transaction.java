@@ -4,7 +4,6 @@ import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
 import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.theyawns.Constants;
-import com.theyawns.perfmon.LatencyMetric;
 import com.theyawns.ruleengine.HasID;
 
 import java.io.IOException;
@@ -24,8 +23,8 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
     private Boolean paymentResult = Boolean.TRUE;
 
     // Being a little sloppy with encapsulation, will allow direct access to these
-    public LatencyMetric processingTime = new LatencyMetric();
-    public LatencyMetric endToEndTime = new LatencyMetric();
+//    public LatencyMetric processingTime = new LatencyMetric();
+//    public LatencyMetric endToEndTime = new LatencyMetric();
 
     // No-arg constructor for use by serialization
     public Transaction() {
@@ -44,8 +43,8 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         this.merchantId = copyfrom.merchantId;
         //this.timestamp = copyfrom.timestamp;
         this.amount = copyfrom.amount;
-        this.processingTime = copyfrom.processingTime;
-        this.endToEndTime = copyfrom.endToEndTime;
+//        this.processingTime = copyfrom.processingTime;
+//        this.endToEndTime = copyfrom.endToEndTime;
         // result fields won't be copied
     }
 
@@ -113,8 +112,8 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         objectDataOutput.writeObject(location);
         objectDataOutput.writeInt(fraudResult);
         objectDataOutput.writeBoolean(paymentResult);
-        objectDataOutput.writeObject(processingTime);
-        objectDataOutput.writeObject(endToEndTime);
+//        objectDataOutput.writeObject(processingTime);
+//        objectDataOutput.writeObject(endToEndTime);
     }
 
     @Override
@@ -126,7 +125,7 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         location = objectDataInput.readObject(Location.class);
         fraudResult = objectDataInput.readInt();
         paymentResult = objectDataInput.readBoolean();
-        processingTime = objectDataInput.readObject(LatencyMetric.class);
-        endToEndTime = objectDataInput.readObject(LatencyMetric.class);
+//        processingTime = objectDataInput.readObject(LatencyMetric.class);
+//        endToEndTime = objectDataInput.readObject(LatencyMetric.class);
     }
 }

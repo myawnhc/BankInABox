@@ -17,7 +17,7 @@ public class JetMain {
     private static transient boolean active = false;
     private static final int RUN_DURATION_MINUTES = 1;
 
-    public static final String IMDG_HOST = "localhost:5701";
+    public static final String IMDG_HOST = "localhost";
 
 
     public static void main(String[] args) throws InterruptedException {

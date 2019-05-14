@@ -6,6 +6,7 @@ import com.hazelcast.core.IMap;
 import com.hazelcast.map.listener.EntryAddedListener;
 import com.hazelcast.map.listener.EntryUpdatedListener;
 import com.theyawns.Constants;
+import com.theyawns.launcher.BankInABoxProperties;
 import com.theyawns.perfmon.PerfMonitor;
 import com.theyawns.ruleengine.RuleEvaluationResult;
 
@@ -28,6 +29,12 @@ public class ResultMapMonitor implements Runnable,
 
     public void common(EntryEvent<String, List<RuleEvaluationResult<Transaction, Boolean>>> entryEvent) {
         String transactionId = entryEvent.getKey();
+        boolean logPerf = BankInABoxProperties.COLLECT_LATENCY_STATS;
+        if (false /*logPerf*/) {  // TODO: re-enable here or in CreditLimitRule when hang solved
+            // TODO: should not have hard-coded rule here
+            PerfMonitor.getInstance().endLatencyMeasurement(PerfMonitor.Platform.Jet,
+                    PerfMonitor.Scope.Processing, "CreditLimitRule",transactionId);
+        }
         List<RuleEvaluationResult<Transaction, Boolean>> resultList = entryEvent.getValue();
         // TODO: This cast should always work but still should add an instanceof or change RER member variable type
         TransactionWithRules txn = (TransactionWithRules) resultList.get(0).getItem();
@@ -45,8 +52,15 @@ public class ResultMapMonitor implements Runnable,
                 approved.put(transactionId, txn);
             else
                 rejected.put(transactionId, txn);
-            txn.endToEndTime.stop();
-            PerfMonitor.getInstance().recordTransaction("Jet", txn);
+            //txn.endToEndTime.stop();
+            if (logPerf) {
+                // TODO: should not have hard-coded rule here
+                PerfMonitor.getInstance().endLatencyMeasurement(PerfMonitor.Platform.Jet,
+                        PerfMonitor.Scope.EndToEnd, "CreditLimitRule", txn.getID());
+            }
+            if (BankInABoxProperties.COLLECT_TPS_STATS) {
+                PerfMonitor.getInstance().recordTransaction("Jet", txn);
+            }
         }
     }
 

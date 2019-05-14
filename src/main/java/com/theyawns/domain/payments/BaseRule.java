@@ -10,6 +10,8 @@ import com.hazelcast.jet.function.PredicateEx;
 import com.hazelcast.jet.pipeline.*;
 import com.theyawns.Constants;
 import com.theyawns.IDSFactory;
+import com.theyawns.launcher.BankInABoxProperties;
+import com.theyawns.perfmon.PerfMonitor;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -25,7 +27,7 @@ import static com.hazelcast.jet.Util.mapPutEvents;
 
 public abstract class BaseRule implements Serializable {
 
-    public static final String IMDG_HOST = "localhost:5701";
+    public static final String IMDG_HOST = "localhost";
     protected ClientConfig ccfg;
     protected JetConfig jc;
 
@@ -83,7 +85,14 @@ public abstract class BaseRule implements Serializable {
             StreamStage<TransactionWithRules> enriched =
                     filtered.mapUsingContext(getJetContext(), (JetInstance jet, Transaction t) -> {
                                 // This isn't working, we're starting a copy of the timer
-                                t.processingTime.start();
+                                //t.processingTime.start();
+                                // TODO: rule name should not be hard coded here!
+                                if (BankInABoxProperties.COLLECT_LATENCY_STATS) {
+                                    System.out.println(">>> call begin Jet Processing from BaseRule");
+                                    PerfMonitor.getInstance().beginLatencyMeasurement(PerfMonitor.Platform.Jet, PerfMonitor.Scope.Processing,
+                                            "CreditLimitRule", t.getID());
+                                    System.out.println("<<< call begin Jet Processing from BaseRule");
+                                }
                                 List<Job> activeJobs = jet.getJobs();
                                 Set<String> rules = new HashSet<>();
                                 for (Job j : activeJobs) {
@@ -112,7 +121,7 @@ public abstract class BaseRule implements Serializable {
         Pipeline p = buildPipeline();
 
         System.out.println("***********************************************");
-        System.out.println("Starting Jet instance");
+        System.out.println("BaseRule.run Starting Jet instance");
         SerializationConfig sc = jc.getHazelcastConfig().getSerializationConfig();
         System.out.println(sc);
         System.out.println("MJC: " + jc.getHazelcastConfig().getMapEventJournalConfig("preAuth"));

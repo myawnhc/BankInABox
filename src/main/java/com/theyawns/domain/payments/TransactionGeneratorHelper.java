@@ -2,6 +2,8 @@ package com.theyawns.domain.payments;
 
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
+import com.theyawns.Constants;
+import com.theyawns.launcher.BankInABoxProperties;
 
 import java.text.DecimalFormat;
 import java.util.Random;
@@ -13,12 +15,24 @@ public class TransactionGeneratorHelper {
     private Random merchantRandom;
     private Random txnAmountRandom;
     private Random locationRandom;
+    private Random accountRandom;
     private Random responseCodeRandom;
 
     private HazelcastInstance hazelcast;
 
-    DecimalFormat merchantFormat = new DecimalFormat("00000000");
+    IMap<String,Merchant> merchantMap;
 
+    private static final DecimalFormat merchantFormat = new DecimalFormat("00000000");       // 8 digit
+    private static final DecimalFormat accountFormat  = new DecimalFormat( "0000000000");    // 10 digit
+    private static final DecimalFormat txnFormat      = new DecimalFormat("00000000000000"); // 14 digit
+
+    public static String formatMerchantId(int id) {
+        return merchantFormat.format(id);
+    }
+
+    public static String formatAccountId(int id) {
+        return accountFormat.format(id);
+    }
 
     public TransactionGeneratorHelper(HazelcastInstance hazelcast) {
         this.hazelcast = hazelcast;
@@ -27,26 +41,28 @@ public class TransactionGeneratorHelper {
         merchantRandom = new Random(1);
         txnAmountRandom = new Random(100);
         locationRandom = new Random(42);
+        accountRandom = new Random(12345);
         //responseCodeRandom = new Random(10);
+
+        merchantMap = hazelcast.getMap(Constants.MAP_MERCHANT);
     }
 
     public Account generateNewAccount(int acctNum) {
-        Account acct = new Account(generateCreditCardNumber(acctNum));
+        String accountID = formatAccountId(acctNum);
+        Account acct = new Account(accountID);
         acct.setLastReportedLocation(Location.getRandom());
         return acct;
     }
 
     public Transaction generateTransactionForAccount(Account a, int txnNum) {
         Transaction t = new Transaction(txnNum);
-        //System.out.println("Account " + a);
         t.setAccountNumber(a.getAccountNumber());
 
-        int id = merchantRandom.nextInt(10000);
-        String merchantID = merchantFormat.format(id);
+        int id = merchantRandom.nextInt(BankInABoxProperties.MERCHANT_COUNT);
+        String merchantID = formatMerchantId(id);
         t.setMerchantId(merchantID);
 
         // Transaction amounts will be normally distributed around vendor average
-        IMap<String,Merchant> merchantMap = hazelcast.getMap("merchantMap");
         Merchant merchant = merchantMap.get(merchantID);
         t.setAmount(merchant.getRandomTransactionAmount());
 
@@ -131,28 +147,7 @@ public class TransactionGeneratorHelper {
 //        return transactions;
 //    }
 
-    // card number : 14-bits, 00000001, 000~30000000, totally 30 Million cards
-    public String generateCreditCardNumber(int id) {
-        StringBuilder buffer = new StringBuilder();
-        buffer.append("000000");
-        if (id < 10)
-            buffer.append("0000000" + id);
-        else if (id > 10 && id < 100)
-            buffer.append("000000" + id);
-        else if (id > 100 && id < 1000)
-            buffer.append("00000" + id);
-        else if (id > 1000 && id < 10000)
-            buffer.append("0000" + id);
-        else if (id > 10000 && id < 100000)
-            buffer.append("000" + id);
-        else if (id > 100000 && id < 1000000)
-            buffer.append("00" + id);
-        else if (id > 1000000 && id < 10000000)
-            buffer.append("0" + id);
-        else
-            buffer.append(id);
-        return buffer.toString();
-    }
+
 
 
 //    // last 90 days
@@ -163,60 +158,11 @@ public class TransactionGeneratorHelper {
 //        return offset + (long) (Math.random() * diff);
 //    }
 
-    public String generateTxnCode(int temp) {
-        if (temp < 10)
-            return "0000" + temp;
-        if (temp > 10 && temp < 100)
-            return "000" + temp;
-        if (temp == 100)
-            return "00" + temp;
-        return String.valueOf(temp);
-    }
 
-//    // 001-200
-//    public String generateCountryCode() {
-//        int number = countryCodeRandom.nextInt(200);
-//        if (number < 10)
-//            return "00" + number;
-//        if (number > 10 && number < 100)
-//            return "0" + number;
-//        return String.valueOf(number);
-//    }
-//
-//    // 95% 00 else random 2-bits
-//    public String generateResponseCode(int count) {
-//        if (count % 95 == 0)
-//            return String.valueOf(responseCodeRandom.nextInt(20));
-//
-//        return "00";
-//    }
 
     // 100-50000 random
     public Double generateTxnAmount() {
         return txnAmountRandom.nextDouble()*5000+1; // Range to $5000
     }
 
-//    // 0001-0500
-//    public String generateMerchantType() {
-//        int merchantType = merchantTypeRandom.nextInt(500);
-//        if (merchantType < 10)
-//            return "000" + merchantType;
-//        if (merchantType > 10 && merchantType < 100)
-//            return "00" + merchantType;
-//        return String.valueOf("0" + merchantType);
-//    }
-//
-//    // 00001-10000
-//    public String generateCityCode() {
-//        int temp = cityCodeRandom.nextInt(10000);
-//        if (temp < 10)
-//            return "0000" + temp;
-//        if (temp > 10 && temp < 100)
-//            return "000" + temp;
-//        if (temp > 100 && temp < 1000)
-//            return "00" + temp;
-//        if (temp > 1000 && temp < 10000)
-//            return "0" + temp;
-//        return String.valueOf(temp);
-//    }
 }

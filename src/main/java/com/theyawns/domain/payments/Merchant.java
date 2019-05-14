@@ -82,6 +82,10 @@ public class Merchant implements IdentifiedDataSerializable, Serializable {
         return RISK.MEDIUM;
     }
 
+    public String toString() {
+        return "Merchant " + merchantID + " avgTxn " + avgTxnAmount;
+    }
+
     @Override
     public int getFactoryId() {
         return Constants.IDS_FACTORY_ID;

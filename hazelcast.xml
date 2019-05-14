@@ -25,7 +25,12 @@
 
     <properties>
         <property name="hazelcast.map.entry.filtering.natural.event.types">true</property>
+        <property name="hazelcast.slow.operation.detector.stacktrace.logging.enabled">true</property>
     </properties>
+
+    <cp-subsystem>
+        <cp-member-count>3</cp-member-count>
+    </cp-subsystem>
 
     <event-journal enabled="true">
         <mapName>preAuth</mapName>

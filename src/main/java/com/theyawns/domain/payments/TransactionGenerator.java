@@ -1,126 +1,158 @@
 package com.theyawns.domain.payments;
 
+import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
-import com.hazelcast.core.IQueue;
+import com.hazelcast.logging.ILogger;
+import com.hazelcast.logging.Logger;
 import com.theyawns.Constants;
+import com.theyawns.launcher.BankInABoxProperties;
+import com.theyawns.perfmon.PerfMonitor;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.*;
+
+import static com.theyawns.perfmon.PerfMonitor.Platform;
+import static com.theyawns.perfmon.PerfMonitor.Scope;
 
 public class TransactionGenerator {
 
-    private transient boolean active = false;
-    private int acctNum;
+    private final static ILogger log = Logger.getLogger(TransactionGenerator.class);
+
     private int txnnum;
-    //private IQueue<Transaction> queue;
-    private IMap<String,Account> accountIMap; // Key = Account ID
+
+    private IMap<String,Account> accountMap; // Key = Account ID
     private IMap<String,Transaction> preAuthMap; // Key = Transaction ID
     private IMap<String, List<Transaction>> historyMap; // Key = Account ID;
     private IMap<String, Merchant> merchantMap;
 
     private HazelcastInstance hazelcast;
-    private ExecutorService executor;
+    private ExecutorService singleThreadExecutor;
+    private ExecutorService threadPoolExecutor;
 
-    // have value for # of concurrent transaction generator threads to run
-
-    // have some tracking of TPS generation rate and queue length ... perhaps back off when queue is full ?
-
-    // Maybe try to optimize - take queue size / 2, every so often check, if queue < 25% full, create another
-    // generator; if queue > 75% queue, stop a generator.
+    private TransactionGeneratorHelper helper;
+    private Random acctRandom;
 
     public void init(HazelcastInstance hz) {
         hazelcast = hz;
-        accountIMap = hz.getMap(Constants.MAP_ACCOUNT);
+        helper = new TransactionGeneratorHelper(hazelcast);
+        accountMap = hz.getMap(Constants.MAP_ACCOUNT);
         preAuthMap = hz.getMap(Constants.MAP_PREAUTH);
         merchantMap = hz.getMap(Constants.MAP_MERCHANT);
         //executor = hz.getExecutorService("dataLoader");
-        executor = Executors.newSingleThreadScheduledExecutor();
-    }
-
-    @Deprecated
-    public void init(IMap<String,Account> map, IQueue<Transaction> queue) {
-        //this.queue = queue;
-        this.accountIMap = map;
+        singleThreadExecutor = Executors.newSingleThreadExecutor();
+        threadPoolExecutor = Executors.newFixedThreadPool(BankInABoxProperties.TRANSACTION_THREADS);
+        acctRandom = new Random(37);
     }
 
     interface DistributedCallable<T> extends Callable<T>, Serializable {}
 
-    public void start() throws InterruptedException {
-        TransactionGeneratorHelper helper = new TransactionGeneratorHelper(hazelcast);
+    private class TransactionGenTask implements DistributedCallable<Integer> {
+        private int generatorID;
+        private int startingWith;
+        private int count;
 
-        System.out.println("Generating merchants");
-        // TODO: this and task below must be serializable
+        public TransactionGenTask(int genid, int startingWith, int count) {
+            this.generatorID = genid;
+            this.startingWith = startingWith;
+            this.count = count;
+        }
+
+        public Integer call() {
+            log.info("Transaction generator " + generatorID + " starting at " + startingWith + " for " + count);
+            for(int i = startingWith; i<startingWith+count;i++) {
+                int acctNum = acctRandom.nextInt(BankInABoxProperties.ACCOUNT_COUNT);
+                Account a = accountMap.get(TransactionGeneratorHelper.formatAccountId(acctNum));
+                Transaction t = helper.generateTransactionForAccount(a, txnnum++);
+                if (BankInABoxProperties.COLLECT_LATENCY_STATS) {
+                    PerfMonitor.getInstance().beginLatencyMeasurement(Platform.Either,
+                        Scope.EndToEnd, "CreditLimitRule", t.getID());
+                }
+                preAuthMap.set(t.getID(), t);
+            }
+            log.info("Transaction generator " + generatorID + " finished.");
+            return count;
+        }
+    }
+
+    public void start() throws InterruptedException {
+
+        log.info("Generating merchants");
         DistributedCallable<Integer> merchantGenTask = () -> {
-            for (int i=0; i<10000; i++) {
+            for (int i=0; i<BankInABoxProperties.MERCHANT_COUNT; i++) {
                 Merchant m = helper.generateNewMerchant(i);
                 merchantMap.put(m.getMerchantId(), m);
             }
             return merchantMap.size();
         };
         // Submit to executor and wait for completion
-        Future<Integer> future = executor.submit(merchantGenTask);
+        Future<Integer> future = singleThreadExecutor.submit(merchantGenTask);
         try {
             int count = future.get();
-            System.out.println("Generated " + count + " merchants");
+            log.info("Generated " + count + " merchants");
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
 
-
-        System.out.println("Generating accounts and transactions");
-        DistributedCallable<Integer> txnGenTask = () -> {
-            active = true;
-            while (active) {
-                Account a = helper.generateNewAccount(acctNum++);
-                accountIMap.put(a.getAccountNumber(), a);
-
-                // TODO: generate historical transactions, populate historyMap
-
-                Transaction t = helper.generateTransactionForAccount(a, txnnum++);
-                t.endToEndTime.start(); // Start clock running for End-to-End latency metric
-                preAuthMap.set(t.getID(), t);
-
-                // TODO: add entry listener on resultsMap
-
-                //queue.add(t);
-                if (txnnum % 10000 == 0) {
-                    System.out.println("Added " + txnnum + " transactions, pending size " + preAuthMap.size());
-                    if (txnnum >= 1000000) {
-                        // Memory constraint, let's not do more than 1 million.  Also, run timer was removed so this is the only constraint now.
-                        System.out.println("TxnGen stopping before timer expired due to size (1 million)");
-                        active = false;
-                    }
-                }
-
-                // Sleep interval of 5 or less and laptop becomes unresponsive. Can remove this when running
-                // on a real cluster.
-//                try {
-//                    Thread.sleep(10);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
+        System.out.println("Generating accounts");
+        DistributedCallable<Integer> accountGenTask = () -> {
+            for (int i=0; i<BankInABoxProperties.ACCOUNT_COUNT; i++) {
+                Account a = helper.generateNewAccount(i);
+                accountMap.put(a.getAccountNumber(), a);
+                // future: generate historical transactions, populate historyMap
             }
-            System.out.println("Stopped transaction generation, pending size now " + preAuthMap.size() );
-            return txnnum;
+            return accountMap.size();
         };
-
-        future = executor.submit(txnGenTask);
-
-
+        Future<Integer> acctFuture = singleThreadExecutor.submit(accountGenTask);
         try {
-            int count = future.get();
-            System.out.println("Generated " + count + " transactions");
+            int count = acctFuture.get();
+            log.info("Generated " + count + " accounts");
         } catch (ExecutionException e) {
             e.printStackTrace();
+        }
+
+        log.info("Generating transactions");
+        int threadCount = BankInABoxProperties.TRANSACTION_THREADS;
+        DistributedCallable<Integer>[] transactionGenerators = new DistributedCallable[threadCount];
+        Future<Integer>[] txnFutures = new Future[threadCount];
+        int start = 0;
+        int count = BankInABoxProperties.TRANSACTION_COUNT / BankInABoxProperties.TRANSACTION_THREADS;
+        for (int i=0; i<threadCount; i++) {
+            transactionGenerators[i] = new TransactionGenTask(i, start, count);
+            start += count;
+            txnFutures[i] = threadPoolExecutor.submit(transactionGenerators[i]);
+        }
+        threadPoolExecutor.shutdown();  // Accept no further submissions
+
+
+        boolean normalTermination = false;
+        int generated = 0;
+        try {
+            normalTermination = threadPoolExecutor.awaitTermination(1, TimeUnit.HOURS);
+            for (Future<Integer> f : txnFutures) {
+                generated += f.get();
+            }
+        } catch (InterruptedException e) {
+            log.info("Interrupted waiting for transaction generation");
+        } catch (ExecutionException e) {
+            log.info("Execution exception fetching results");
+            e.printStackTrace();
+        } finally {
+
+            log.info("Generated " + generated+ " transactions");
         }
         System.exit(0);
     }
 
-    // Not in use - was previously set by timer, now we exit after 1 million transactions generated
-//    public void stop() {
-//        active = false;
-//        //System.out.println("Stopping");
-//    }
+    public static void main(String[] args) throws InterruptedException {
+        HazelcastInstance hazelcast = HazelcastClient.newHazelcastClient();
+
+        TransactionGenerator tgen = new TransactionGenerator();
+        tgen.init(hazelcast);
+        tgen.start();
+
+    }
+
 }
