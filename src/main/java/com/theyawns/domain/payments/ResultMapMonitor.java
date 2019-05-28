@@ -12,6 +12,7 @@ import com.theyawns.ruleengine.RuleEvaluationResult;
 
 import java.util.List;
 
+/** Monitors results from Jet processing */
 public class ResultMapMonitor implements Runnable,
         EntryAddedListener<String, List<RuleEvaluationResult<Transaction, Boolean>>>,
         EntryUpdatedListener<String, List<RuleEvaluationResult<Transaction, Boolean>>> {

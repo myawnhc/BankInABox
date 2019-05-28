@@ -68,8 +68,8 @@ public class AdjustMerchantTransactionAverage implements Serializable {
                     .withIngestionTimestamps()
                     .setName("Draw Transactions from preAuth map");
 
-            // Have a very large window to improve accuracy over time, but slide over short intervals to get initial updates flowing earlier
-            WindowDefinition window = WindowDefinition.sliding(100000, 1000);
+            // Have a very large window to improve accuracy over time, but slide over shorter intervals to get initial updates flowing earlier
+            WindowDefinition window = WindowDefinition.sliding(100000, 5000);
 
             // PEEK here shows valid looking merchant ids
             StreamStage<KeyedWindowResult<String, Double>> merchantAverages = txns.window(window)
@@ -98,8 +98,9 @@ public class AdjustMerchantTransactionAverage implements Serializable {
                     /* toKeyFn */ Merchant::getMerchantId,
                     /* toValueFn */ Merchant::getObject,
                     /* mergeFn */ (Merchant o, Merchant n) -> {
-                        if (Math.abs(o.getAvgTxnAmount() - n.getAvgTxnAmount()) > 0.001) {
-                            System.out.printf("Merchant %s avg updated from %.3f to %.3f\n", o.getId(),
+                        // Don't change when average varies by less than 10 cents
+                        if (Math.abs(o.getAvgTxnAmount() - n.getAvgTxnAmount()) > 1.00) {
+                            System.out.printf("Merchant %s average transaction amount updated from %.3f to %.3f\n", o.getMerchantId(),
                                     o.getAvgTxnAmount(), n.getAvgTxnAmount());
                         }
                         return n;

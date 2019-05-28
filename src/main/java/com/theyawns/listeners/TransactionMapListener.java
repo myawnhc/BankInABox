@@ -1,11 +1,12 @@
 package com.theyawns.listeners;
 
-import com.hazelcast.core.EntryEvent;
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.IMap;
+import com.hazelcast.core.*;
+import com.hazelcast.crdt.pncounter.PNCounter;
 import com.hazelcast.map.listener.EntryAddedListener;
+import com.hazelcast.scheduledexecutor.IScheduledExecutorService;
 import com.theyawns.domain.payments.Account;
 import com.theyawns.domain.payments.Merchant;
+import com.theyawns.domain.payments.PumpGrafanaStats;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.entryprocessors.FraudRulesEP;
 import com.theyawns.entryprocessors.PaymentRulesEP;
@@ -14,6 +15,7 @@ import com.theyawns.perfmon.PerfMonitor;
 import com.theyawns.sink.Graphite;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 
 // Listener is armed by Launcher, instance should be the non-Jet IMDG cluster
@@ -21,6 +23,13 @@ import java.io.IOException;
 /** Listener to the preAuth map to run EntryProcessor for fraud detection */
 public class TransactionMapListener implements
         EntryAddedListener<String, Transaction> {
+
+    // Need constants for each fraud rule for counters
+    private static final int FRAUD_RULES_COUNT = 1;
+    private static final int MERC_AVG_TXN_INDEX = 0;
+
+    private static final int PAYMENT_RULES_COUNT = 1;
+    private static final int CREDIT_CHECK_INDEX = 0;
 
     //private HazelcastInstance hazelcast;
     private IMap<String, Transaction> preAuthMap;
@@ -30,6 +39,12 @@ public class TransactionMapListener implements
     private IMap<String, Transaction> rejectedForFraud;
     private IMap<String, Transaction> rejectedForCredit;
 
+    // Counters for Grafana dashboard
+    private PNCounter approvalCounter;
+    private PNCounter[] rejectedForFraudCounters;
+    private PNCounter[] rejectedForCreditCounters;
+    private PNCounter merchant1_10;
+    private PNCounter merchant11_20;
 
     Graphite graphite;
 
@@ -42,6 +57,16 @@ public class TransactionMapListener implements
         rejectedForFraud = instance.getMap("rejectedForFraud");
         rejectedForCredit = instance.getMap("rejectedForCredit");
 
+        // Would like this to be more configuration/table driven so that new rules can be
+        // added or disabled without rebuilding the software.
+        approvalCounter = instance.getPNCounter("approvalCounter");
+        rejectedForFraudCounters = new PNCounter[FRAUD_RULES_COUNT];
+        rejectedForFraudCounters[MERC_AVG_TXN_INDEX] = instance.getPNCounter("rejectedFraudAvgTxnAmt");
+        rejectedForCreditCounters = new PNCounter[PAYMENT_RULES_COUNT];
+        rejectedForCreditCounters[CREDIT_CHECK_INDEX] = instance.getPNCounter("rejectedPaymentCreditLimit");
+
+        merchant1_10 = instance.getPNCounter("merchant1_10");
+        merchant11_20 = instance.getPNCounter("merchant11_20");
         graphite = new Graphite();
     }
 
@@ -50,6 +75,10 @@ public class TransactionMapListener implements
 
     @Override
     public void entryAdded(EntryEvent<String, Transaction> entryEvent) {
+        // Just checking something for an unrelated question
+        //Object source = entryEvent.getSource();
+        //System.out.println("Source is " + source);
+
         //System.out.println("TransactionMapListener.entryAdded");
         // write out every so often
         if( (++counter % 10)==0 ) {
@@ -62,6 +91,14 @@ public class TransactionMapListener implements
 
         String transactionId = entryEvent.getKey();
         Transaction txn = entryEvent.getValue();
+
+        // Update counters for grafana's payment graph
+        // Changed ranges slightly as numbers were too close
+        int merchantNum = Integer.parseInt(txn.getMerchantId());
+        if (merchantNum >= 1 && merchantNum <= 9)
+            merchant1_10.getAndIncrement();
+        else if (merchantNum >= 10 && merchantNum <= 20)
+            merchant11_20.getAndIncrement();
 
         //txn.processingTime.start(); // Start clock for processing time latency metric
         Account account = accountMap.get(txn.getAccountNumber());
@@ -89,11 +126,13 @@ public class TransactionMapListener implements
 
         }
 
-        // Doesn't actually map to the high-medium-low values from the EP, but
-        // assumes we'd be averaging over several rule results
-        if (risk > 80) {
+        // Value of 80 here resulted in about .003% fraud rate, seems unrealistically low,
+        // so moving to medium risk.
+        //System.out.println("FraudRisk " + risk);
+        if (risk >= 60) {
             preAuthMap.remove(txn.getID());
             rejectedForFraud.put(transactionId, txn);
+            rejectedForFraudCounters[MERC_AVG_TXN_INDEX].getAndIncrement();
             //txn.endToEndTime.stop();
             if (false /*BankInABoxProperties.COLLECT_PERFORMANCE_STATS*/) {
                 // TODO: hard-coded name here is wrong .. .this is actually fraud rules, not credit
@@ -122,8 +161,12 @@ public class TransactionMapListener implements
         preAuthMap.remove(txn.getID());
         if (passed) {
             approved.put(transactionId, txn);
+            approvalCounter.getAndIncrement();
         } else {
             rejectedForCredit.put(transactionId, txn);
+            // TODO: either move this into the EP, or have EP return which rule[s] caused
+            // rejection and use here instead of hard coded value.
+            rejectedForCreditCounters[CREDIT_CHECK_INDEX].getAndIncrement();
         }
         if (BankInABoxProperties.COLLECT_LATENCY_STATS) {
             PerfMonitor.getInstance().endLatencyMeasurement(PerfMonitor.Platform.IMDG, PerfMonitor.Scope.Processing,
@@ -134,5 +177,4 @@ public class TransactionMapListener implements
             PerfMonitor.getInstance().recordTransaction("IMDG", txn); // may move this to a map listener on rejected so can capture end-to-end time
         }
     }
-
 }

@@ -31,4 +31,12 @@ public class Graphite {
         //System.out.println(writeTo);
     }
 
+    public void writeStats(String name, double value) throws IOException {
+        // graphite plain text socket: 'variable.name.to.plot value time-since-1970-seconds \n'
+        String writeTo = name+" " + value + " " + (System.currentTimeMillis()/ 1000) + " \n";
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(graphiteSocket.getOutputStream()));
+        bufferedWriter.write(writeTo);
+        bufferedWriter.flush();
+    }
+
 }

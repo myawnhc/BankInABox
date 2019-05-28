@@ -1,6 +1,7 @@
 .idea/*
 log/**
 data/whisper/**
+data/grafana/sessions/**
 RuleEngine.iml
 *.class
 target/**

@@ -32,6 +32,15 @@
         <cp-member-count>3</cp-member-count>
     </cp-subsystem>
 
+    <executor-service name="executor">
+        <pool-size>5</pool-size>
+        <statistics-enabled>true</statistics-enabled>
+    </executor-service>
+
+    <scheduled-executor-service name="scheduledExecutor">
+        <pool-size>5</pool-size>
+    </scheduled-executor-service>
+
     <event-journal enabled="true">
         <mapName>preAuth</mapName>
         <capacity>1000000</capacity>

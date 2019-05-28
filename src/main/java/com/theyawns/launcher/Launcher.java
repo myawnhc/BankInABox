@@ -1,10 +1,13 @@
 package com.theyawns.launcher;
 
 import com.hazelcast.client.HazelcastClient;
+import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
+import com.hazelcast.scheduledexecutor.IScheduledExecutorService;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.CreditLimitRule;
+import com.theyawns.domain.payments.PumpGrafanaStats;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.listeners.TransactionMapListener;
 import com.theyawns.perfmon.PerfMonitor;
@@ -13,16 +16,17 @@ import com.theyawns.pipelines.AdjustMerchantTransactionAverage;
 import java.io.Serializable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Launcher {
 
     protected HazelcastInstance hazelcast;
-    protected ExecutorService distributedES;
+    //protected ExecutorService distributedES;
 
 
     protected void init() {
         hazelcast = HazelcastClient.newHazelcastClient();
-        distributedES = hazelcast.getExecutorService("execSvc");
+        //distributedES = hazelcast.getExecutorService("executor");
 
     }
 
@@ -49,6 +53,8 @@ public class Launcher {
         return result;
     }
 
+
+
     public static void main(String[] args) {
         Launcher main = new Launcher();
         main.init();
@@ -73,6 +79,11 @@ public class Launcher {
         //main.distributedES.submit(merchantAvgTask);
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.submit(merchantAvgTask);
+
+        IScheduledExecutorService dses = main.hazelcast.getScheduledExecutorService("scheduledExecutor");
+        //ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
+        PumpGrafanaStats stats = new PumpGrafanaStats();
+        dses.scheduleAtFixedRate(stats, 10, 5, TimeUnit.SECONDS);
 
         // This has no purpose other than monitoring the backlog during debug
 //        while (true) {
