@@ -22,7 +22,10 @@ import static com.hazelcast.jet.Util.mapEventNewValue;
 import static com.hazelcast.jet.Util.mapPutEvents;
 
 /** Base class for rules implemented in a Jet-centric RuleEngine.
+ *
  *  As the demo design evolved, this class is no longer part of the main processing flow.
+ *  It is still used by the DualLauncher config which is primarily used to help develop
+ *  the PerfMonitor functionality
  */
 
 public abstract class BaseRule implements Serializable {
@@ -88,10 +91,8 @@ public abstract class BaseRule implements Serializable {
                                 //t.processingTime.start();
                                 // TODO: rule name should not be hard coded here!
                                 if (BankInABoxProperties.COLLECT_LATENCY_STATS) {
-                                    System.out.println(">>> call begin Jet Processing from BaseRule");
                                     PerfMonitor.getInstance().beginLatencyMeasurement(PerfMonitor.Platform.Jet, PerfMonitor.Scope.Processing,
                                             "CreditLimitRule", t.getID());
-                                    System.out.println("<<< call begin Jet Processing from BaseRule");
                                 }
                                 List<Job> activeJobs = jet.getJobs();
                                 Set<String> rules = new HashSet<>();

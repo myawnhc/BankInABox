@@ -1,4 +1,13 @@
 
+Latest notes (6/5/19)
+
+- Something is blocking, haven't yet identified the culprit
+    PerfMon.beginLM is logged to console about 33 times ... long pause ...
+    then another batch of about 33
+- Slow operations reported on PM.endLatencyMeasurement (PerfMonitor.java:139)
+- Failures also see in Raft due to missed hearbeats
+
+==== older
 Ideas on performance monitoring
 
 Would like to implement something that allows display of important performance status

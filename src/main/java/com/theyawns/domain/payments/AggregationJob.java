@@ -12,6 +12,9 @@ import java.util.List;
 
 /** Jet job to aggregate a set of RuleEvaluationResults, returning a RuleSetEvaluationResult.
  *
+ * Originally used when Fraud Detection rules were implemented as separate Jet pipelines; when all
+ * pipelines were complete the aggregation job would tally the results.
+ *
  * This is not currently in use in the main retail banking demo, but I anticipate it will be useful for some
  * side projects I'd like to create running against the same basic setup.
  *

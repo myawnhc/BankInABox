@@ -1,4 +1,4 @@
-2019-05-08,22:29:54.604 :: Failed CarbonLink query 'bib.payment.rate'
+2019-07-15,13:03:56.198 :: Failed CarbonLink query 'bib.payment.rate'
 Traceback (most recent call last):
   File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
     cached_datapoints = CarbonLink().query(metric)
@@ -11,7 +11,7 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
 error: [Errno 111] Connection refused
-2019-05-08,22:30:04.586 :: Failed CarbonLink query 'bib.payment.rate'
+2019-07-15,13:04:01.119 :: Failed CarbonLink query 'bib.payments.amazon'
 Traceback (most recent call last):
   File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
     cached_datapoints = CarbonLink().query(metric)
@@ -24,7 +24,7 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
 error: [Errno 111] Connection refused
-2019-05-08,22:30:09.613 :: Failed CarbonLink query 'bib.fraud.rate'
+2019-07-15,13:04:01.130 :: Failed CarbonLink query 'bib.payments.walmart'
 Traceback (most recent call last):
   File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
     cached_datapoints = CarbonLink().query(metric)
@@ -37,7 +37,7 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
 error: [Errno 111] Connection refused
-2019-05-08,22:30:14.603 :: Failed CarbonLink query 'bib.fraud.rate'
+2019-07-15,13:04:06.104 :: Failed CarbonLink query 'bib.payment.rate'
 Traceback (most recent call last):
   File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
     cached_datapoints = CarbonLink().query(metric)
@@ -50,7 +50,7 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
 error: [Errno 111] Connection refused
-2019-05-08,22:30:19.635 :: Failed CarbonLink query 'bib.fraud.rate'
+2019-07-15,13:04:11.109 :: Failed CarbonLink query 'bib.payments.amazon'
 Traceback (most recent call last):
   File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
     cached_datapoints = CarbonLink().query(metric)
@@ -63,7 +63,7 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
 error: [Errno 111] Connection refused
-2019-05-08,22:30:24.640 :: Failed CarbonLink query 'bib.payments.amazon'
+2019-07-15,13:04:11.121 :: Failed CarbonLink query 'bib.payments.walmart'
 Traceback (most recent call last):
   File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
     cached_datapoints = CarbonLink().query(metric)
@@ -76,7 +76,7 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
 error: [Errno 111] Connection refused
-2019-05-08,22:30:24.651 :: Failed CarbonLink query 'bib.payments.walmart'
+2019-07-15,13:04:16.123 :: Failed CarbonLink query 'bib.payments.amazon'
 Traceback (most recent call last):
   File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
     cached_datapoints = CarbonLink().query(metric)
@@ -89,7 +89,7 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
 error: [Errno 111] Connection refused
-2019-05-08,22:30:29.651 :: Failed CarbonLink query 'bib.payment.rate'
+2019-07-15,13:04:16.133 :: Failed CarbonLink query 'bib.payments.walmart'
 Traceback (most recent call last):
   File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
     cached_datapoints = CarbonLink().query(metric)
@@ -102,7 +102,7 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
 error: [Errno 111] Connection refused
-2019-05-08,22:30:34.619 :: Failed CarbonLink query 'bib.payment.rate'
+2019-07-15,13:04:21.120 :: Failed CarbonLink query 'bib.payment.rate'
 Traceback (most recent call last):
   File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
     cached_datapoints = CarbonLink().query(metric)
@@ -115,7 +115,7 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
 error: [Errno 111] Connection refused
-2019-05-08,22:30:39.627 :: Failed CarbonLink query 'bib.payment.rate'
+2019-07-15,13:04:26.126 :: Failed CarbonLink query 'bib.fraud.rate'
 Traceback (most recent call last):
   File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
     cached_datapoints = CarbonLink().query(metric)
@@ -128,7 +128,7 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
 error: [Errno 111] Connection refused
-2019-05-08,22:30:49.646 :: Failed CarbonLink query 'bib.fraud.rate'
+2019-07-15,13:04:31.140 :: Failed CarbonLink query 'bib.payments.amazon'
 Traceback (most recent call last):
   File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
     cached_datapoints = CarbonLink().query(metric)
@@ -141,7 +141,7 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
 error: [Errno 111] Connection refused
-2019-05-08,22:30:59.671 :: Failed CarbonLink query 'bib.payments.amazon'
+2019-07-15,13:04:31.152 :: Failed CarbonLink query 'bib.payments.walmart'
 Traceback (most recent call last):
   File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
     cached_datapoints = CarbonLink().query(metric)
@@ -154,7 +154,7 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
 error: [Errno 111] Connection refused
-2019-05-08,22:30:59.685 :: Failed CarbonLink query 'bib.payments.walmart'
+2019-07-15,13:04:36.122 :: Failed CarbonLink query 'bib.payment.rate'
 Traceback (most recent call last):
   File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
     cached_datapoints = CarbonLink().query(metric)
@@ -167,7 +167,7 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
 error: [Errno 111] Connection refused
-2019-05-08,23:02:38.178 :: Failed CarbonLink query 'bib.payments.amazon'
+2019-07-15,13:05:32.401 :: Failed CarbonLink query 'bib.fraud.rate'
 Traceback (most recent call last):
   File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
     cached_datapoints = CarbonLink().query(metric)
@@ -180,7 +180,7 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
 error: [Errno 111] Connection refused
-2019-05-08,23:02:38.193 :: Failed CarbonLink query 'bib.payments.walmart'
+2019-07-15,13:05:57.763 :: Failed CarbonLink query 'bib.fraud.rate'
 Traceback (most recent call last):
   File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
     cached_datapoints = CarbonLink().query(metric)
@@ -193,7 +193,7 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
 error: [Errno 111] Connection refused
-2019-05-08,23:19:57.251 :: Failed CarbonLink query 'bib.payments.amazon'
+2019-07-15,13:07:34.626 :: Failed CarbonLink query 'bib.fraud.rate'
 Traceback (most recent call last):
   File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
     cached_datapoints = CarbonLink().query(metric)
@@ -206,7 +206,2581 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
 error: [Errno 111] Connection refused
-2019-05-08,23:19:57.262 :: Failed CarbonLink query 'bib.payments.walmart'
+2019-07-15,13:07:39.256 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:07:39.267 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:07:44.257 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:07:49.286 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:07:59.282 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:07:59.297 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:08:04.290 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:08:25.161 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:08:26.173 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:08:31.190 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:08:36.185 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:08:36.206 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:08:41.182 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:08:41.204 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:09:08.149 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:10:20.137 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:10:24.723 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:10:25.846 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:10:30.755 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:10:40.751 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:10:40.764 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:10:50.770 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:10:55.773 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:11:00.785 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:11:00.801 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:11:05.774 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:11:15.790 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:11:20.798 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:11:25.799 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:11:25.818 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:11:30.798 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:11:35.781 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:11:35.794 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:11:40.799 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:11:40.815 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:11:55.803 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:12:00.815 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:12:05.792 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:12:15.809 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:12:15.827 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:12:20.802 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:12:25.803 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:12:35.796 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:12:35.810 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:12:40.797 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:12:45.802 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:12:50.812 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:12:50.825 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:12:55.824 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:13:10.807 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:13:10.822 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:13:20.829 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:16:38.402 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:16:43.128 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:16:43.142 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:16:53.136 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:16:58.188 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:16:58.209 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:17:03.154 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:17:08.139 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:17:08.153 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:17:13.150 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:17:28.160 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:17:43.153 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:17:48.158 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:17:48.167 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:17:53.167 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:18:08.162 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:18:08.170 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:18:13.167 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:18:23.181 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:18:23.189 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:18:33.196 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:18:38.180 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:18:38.191 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:18:43.185 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:18:43.195 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:18:53.199 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:18:58.206 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:19:03.209 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:19:03.219 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:19:18.203 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:19:28.218 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:19:28.227 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:19:33.225 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:19:33.235 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:19:43.224 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:19:43.232 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:19:48.215 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:19:48.222 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:19:53.223 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:19:53.230 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:20:08.217 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:20:13.221 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:20:18.236 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:20:23.241 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:20:23.249 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:20:33.248 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:20:38.232 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:20:43.243 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:20:43.254 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:22:11.266 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:22:11.291 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:22:11.304 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:22:24.843 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:22:36.774 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:22:44.712 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:22:45.128 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:22:52.177 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:22:52.186 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:24:08.419 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:47:51.483 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:47:55.153 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:48:05.139 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:48:05.147 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:48:10.149 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:51:19.430 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,13:55:38.742 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:17:38.627 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:17:43.159 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:17:43.170 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:17:48.164 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:17:48.178 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:17:53.162 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:17:58.161 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:17:58.176 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:18:03.152 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:18:08.151 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:18:13.161 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:18:13.175 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:19:57.976 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:19:57.990 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:19:59.222 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:19:59.233 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:28:39.161 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:28:44.173 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:28:54.187 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:29:04.178 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:29:09.184 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:29:09.193 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:29:14.195 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:29:24.213 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:29:29.221 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:29:29.232 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:29:34.200 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:29:34.210 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:29:44.207 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:29:54.227 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:29:54.237 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:30:04.209 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:30:09.219 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:30:14.225 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:30:19.230 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:30:24.238 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:30:29.248 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:30:34.235 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:30:39.244 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:30:44.248 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:30:49.251 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:30:54.260 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:30:59.271 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:31:09.257 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:31:09.267 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:31:14.262 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:31:29.289 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:31:29.298 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:31:39.283 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:31:49.294 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:31:54.303 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:31:59.312 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:32:04.292 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:32:04.303 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:32:09.303 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:32:14.311 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:32:14.322 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:32:19.325 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:32:24.332 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:32:29.326 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:39:08.164 :: Failed CarbonLink query 'bib.fraud.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:39:08.217 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:39:08.242 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:39:09.201 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:39:09.226 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:39:14.197 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:39:19.193 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:39:24.202 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:39:24.214 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:39:34.196 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:39:34.209 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:39:44.217 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:39:44.236 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:39:49.221 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:40:01.549 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:40:18.858 :: Failed CarbonLink query 'bib.payment.rate'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:40:23.776 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:40:23.798 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:40:28.783 :: Failed CarbonLink query 'bib.payments.amazon'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:40:28.799 :: Failed CarbonLink query 'bib.payments.walmart'
+Traceback (most recent call last):
+  File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
+    cached_datapoints = CarbonLink().query(metric)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 99, in query
+    results = self.send_request(request)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 132, in send_request
+    conn = self.get_connection(host)
+  File "/opt/graphite/webapp/graphite/carbonlink.py", line 89, in get_connection
+    connection.connect((server, port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+2019-07-15,15:41:09.866 :: Failed CarbonLink query 'bib.payment.rate'
 Traceback (most recent call last):
   File "/opt/graphite/webapp/graphite/readers/utils.py", line 110, in merge_with_carbonlink
     cached_datapoints = CarbonLink().query(metric)

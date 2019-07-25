@@ -9,6 +9,7 @@ import com.theyawns.sink.Graphite;
 import java.io.IOException;
 import java.io.Serializable;
 
+/** Runnable task that pumps stats from several IMaps to Graphite / Grafana */
 public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstanceAware, NamedTask {
 
     private transient HazelcastInstance hazelcast;

@@ -12,7 +12,11 @@ import com.theyawns.ruleengine.RuleEvaluationResult;
 
 import java.util.List;
 
-/** Monitors results from Jet processing */
+/** Monitors results from Jet processing
+ *
+ * Not used in mainline Bank in a Box demo
+ * Used by DualLauncher / PerfMonitor experimental code
+ */
 public class ResultMapMonitor implements Runnable,
         EntryAddedListener<String, List<RuleEvaluationResult<Transaction, Boolean>>>,
         EntryUpdatedListener<String, List<RuleEvaluationResult<Transaction, Boolean>>> {
@@ -31,7 +35,7 @@ public class ResultMapMonitor implements Runnable,
     public void common(EntryEvent<String, List<RuleEvaluationResult<Transaction, Boolean>>> entryEvent) {
         String transactionId = entryEvent.getKey();
         boolean logPerf = BankInABoxProperties.COLLECT_LATENCY_STATS;
-        if (false /*logPerf*/) {  // TODO: re-enable here or in CreditLimitRule when hang solved
+        if (logPerf) {
             // TODO: should not have hard-coded rule here
             PerfMonitor.getInstance().endLatencyMeasurement(PerfMonitor.Platform.Jet,
                     PerfMonitor.Scope.Processing, "CreditLimitRule",transactionId);

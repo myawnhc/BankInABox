@@ -49,7 +49,14 @@ public class PerfMonitor implements Runnable {
         public static final PerfMonitor instance = new PerfMonitor();
     }
 
-    private PerfMonitor() { init(); }
+    private PerfMonitor() {
+        try {
+            init();
+        } catch (Exception e) {
+            // getting exception in initializer after we've been running for a while ...
+            e.printStackTrace();
+        }
+    }
 
     public static PerfMonitor getInstance() {
         return PerfMonitorHolder.instance;
@@ -124,7 +131,7 @@ public class PerfMonitor implements Runnable {
     }
 
     public void beginLatencyMeasurement(TransactionKey key) {
-        System.out.println("PerfMon.beginLM: " + key);
+        System.out.println("PerfMon.beginLM for key: " + key);
         operationsInProcess.set(key, System.currentTimeMillis());
     }
 
@@ -135,7 +142,7 @@ public class PerfMonitor implements Runnable {
     }
 
     public void endLatencyMeasurement(TransactionKey key) {
-        System.out.println("PerfMon.endLM:   " + key);
+        System.out.println("PerfMon.endLM for key:   " + key);
         Long start = operationsInProcess.remove(key); // Slow operation
         if (start == null) {
             start = operationsInProcess.remove(key.platformGenericForm());
@@ -189,6 +196,12 @@ public class PerfMonitor implements Runnable {
     }
 
     public void drawProcessingHistograms() {
+        // DEBUG
+        System.out.println("=== Transactions still pending ===");
+        for (TransactionKey tk : operationsInProcess.keySet()) {
+            System.out.println("  " + tk);
+        }
+        System.out.println("==================================");
         Set<BucketKey> allKeys = latencies.keySet();
         //System.out.println("PerfMon.draw: latencies keyset size " + allKeys.size());
         LinkedHashSet<BucketKey> sorted = new LinkedHashSet<>(allKeys.size());
@@ -268,16 +281,15 @@ public class PerfMonitor implements Runnable {
         operationsInProcess = hazelcast.getMap("operationsInProgress");
         latencies = hazelcast.getMap("latencies");
 
-        // TODO: get these from the CP subsystem
-        jetTotalProcessingTime = hazelcast.getAtomicLong("jetProcessingTime");
-        jetTotalEndToEndTime = hazelcast.getAtomicLong("jetEndToEndTime");
-        imdgTotalProcessingTime = hazelcast.getAtomicLong("imdgProcessingTime");
-        imdgTotalEndToEndTime = hazelcast.getAtomicLong("imdgEndToEndTime");
-
         collectExecSvc = hazelcast.getScheduledExecutorService("perfmon_collect");
         outputExecSvc  = hazelcast.getScheduledExecutorService("perfmon_output");
 
         CPSubsystem cp = hazelcast.getCPSubsystem();
+        jetTotalProcessingTime = cp.getAtomicLong("jetProcessingTime");
+        jetTotalEndToEndTime = cp.getAtomicLong("jetEndToEndTime");
+        imdgTotalProcessingTime = cp.getAtomicLong("imdgProcessingTime");
+        imdgTotalEndToEndTime = cp.getAtomicLong("imdgEndToEndTime");
+
         outputSemaphore = cp.getSemaphore("outputSemaphore");
         outputSemaphore.init(1);
         collectSemaphore = cp.getSemaphore("collectSemaphore");

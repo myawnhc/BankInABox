@@ -13,6 +13,10 @@ import java.io.Serializable;
 /** A Jet aggregation that operates on inputs of type RuleEvaluationResult.
  * The aggregated object will be of type RuleSetEvaluationResult.
  *
+ * Not in active use in main BankInABox flow; used by AggregationJob in domain.payments which is
+ * not currently used; however it hasn't been deprecated because it may be useful in some
+ * future scenarios that could be added to the demo.
+ *
  * @param <T> The type of items in the stream
  */
 public final class ResultAggregator<T extends HasID> implements Serializable {

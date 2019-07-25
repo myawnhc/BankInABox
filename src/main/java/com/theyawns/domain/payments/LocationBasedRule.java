@@ -6,7 +6,7 @@ import com.hazelcast.jet.pipeline.StreamStage;
 
 //import org.python.core.*;
 
-// Not in use - deprecate or remove
+@Deprecated
 public class LocationBasedRule extends BaseRule {
 
     private static final String RESULT_MAP = "LocationBasedRule";

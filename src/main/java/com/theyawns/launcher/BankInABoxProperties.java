@@ -12,8 +12,8 @@ public class BankInABoxProperties {
 
     private final static ILogger log = Logger.getLogger(BankInABoxProperties.class);
 
-    public static boolean COLLECT_TPS_STATS     = true;
-    public static boolean COLLECT_LATENCY_STATS = true;
+    public static boolean COLLECT_TPS_STATS     = false;
+    public static boolean COLLECT_LATENCY_STATS = false;
 
     public static int TRANSACTION_THREADS = 5;
     public static int TRANSACTION_COUNT   = 50000;

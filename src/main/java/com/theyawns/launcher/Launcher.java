@@ -1,9 +1,10 @@
 package com.theyawns.launcher;
 
 import com.hazelcast.client.HazelcastClient;
-import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
+import com.hazelcast.logging.ILogger;
+import com.hazelcast.logging.Logger;
 import com.hazelcast.scheduledexecutor.IScheduledExecutorService;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.CreditLimitRule;
@@ -16,12 +17,14 @@ import com.theyawns.pipelines.AdjustMerchantTransactionAverage;
 import java.io.Serializable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.TimeUnit;
 
 public class Launcher {
 
     protected HazelcastInstance hazelcast;
     //protected ExecutorService distributedES;
+    private final static ILogger log = Logger.getLogger(Launcher.class);
 
 
     protected void init() {
@@ -47,6 +50,7 @@ public class Launcher {
         }
     }
 
+    // Used only when run via DualLauncher
     public static boolean isEven(String txnId) {
         int numericID = Integer.parseInt(txnId);
         boolean result =  (numericID % 2) == 0;
@@ -83,7 +87,11 @@ public class Launcher {
         IScheduledExecutorService dses = main.hazelcast.getScheduledExecutorService("scheduledExecutor");
         //ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
         PumpGrafanaStats stats = new PumpGrafanaStats();
-        dses.scheduleAtFixedRate(stats, 10, 5, TimeUnit.SECONDS);
+        try {
+            dses.scheduleAtFixedRate(stats, 10, 5, TimeUnit.SECONDS);
+        } catch (RejectedExecutionException ree) {
+            log.info("PumpGrafanaStats has fallen behind, skipping execution cycle");
+        }
 
         // This has no purpose other than monitoring the backlog during debug
 //        while (true) {

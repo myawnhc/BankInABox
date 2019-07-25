@@ -15,7 +15,7 @@ public class Merchant implements IdentifiedDataSerializable, Serializable {
 
     private String merchantID;
     private String merchantName;
-    private int reputation;   // range 1-10
+    private int reputation;   // range 1-10; not in use; may remove or deprecate
     private double avgTxnAmount;
     private Location location;
 
@@ -47,7 +47,7 @@ public class Merchant implements IdentifiedDataSerializable, Serializable {
 
     static final int[] pricePoints = new int[] { 10, 25, 50, 100, 500, 1000 };
 
-    // Not truly random .. will be normally distributed around
+    // Not truly random .. will be normally distributed around average
     public double getRandomTransactionAmount() {
         int stddev = (int) avgTxnAmount / 5;
         double amount = random.nextGaussian() * stddev + avgTxnAmount;

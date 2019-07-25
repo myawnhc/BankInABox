@@ -33,6 +33,7 @@ public class AdjustMerchantTransactionAverage implements Serializable {
         NetworkConfig networkConfig = hazelcastConfig.getNetworkConfig();
         networkConfig.setPort(5710); // Avoid collision between internal and external IMDG clusters
         hazelcastConfig.getCPSubsystemConfig().setCPMemberCount(0); // no CP needed on internal cluster
+        hazelcastConfig.getGroupConfig().setName("jet-dev"); // try not to confuse mancenter
 
         jetConfig = new JetConfig();
         jetConfig.setHazelcastConfig(hazelcastConfig);
@@ -98,7 +99,7 @@ public class AdjustMerchantTransactionAverage implements Serializable {
                     /* toKeyFn */ Merchant::getMerchantId,
                     /* toValueFn */ Merchant::getObject,
                     /* mergeFn */ (Merchant o, Merchant n) -> {
-                        // Don't change when average varies by less than 10 cents
+                        // Don't change when average varies by less than one dollar
                         if (Math.abs(o.getAvgTxnAmount() - n.getAvgTxnAmount()) > 1.00) {
                             System.out.printf("Merchant %s average transaction amount updated from %.3f to %.3f\n", o.getMerchantId(),
                                     o.getAvgTxnAmount(), n.getAvgTxnAmount());
@@ -107,7 +108,7 @@ public class AdjustMerchantTransactionAverage implements Serializable {
                     })).setName("Merge updated Merchant record back to IMDG merchantMap");
 
             return p;
-        } catch (Exception e) {
+        } catch (Throwable e) {
             e.printStackTrace();
             return null;
         }

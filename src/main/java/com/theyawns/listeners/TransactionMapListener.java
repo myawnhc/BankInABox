@@ -1,12 +1,14 @@
 package com.theyawns.listeners;
 
-import com.hazelcast.core.*;
+import com.hazelcast.core.EntryEvent;
+import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.core.IMap;
 import com.hazelcast.crdt.pncounter.PNCounter;
+import com.hazelcast.logging.ILogger;
+import com.hazelcast.logging.Logger;
 import com.hazelcast.map.listener.EntryAddedListener;
-import com.hazelcast.scheduledexecutor.IScheduledExecutorService;
 import com.theyawns.domain.payments.Account;
 import com.theyawns.domain.payments.Merchant;
-import com.theyawns.domain.payments.PumpGrafanaStats;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.entryprocessors.FraudRulesEP;
 import com.theyawns.entryprocessors.PaymentRulesEP;
@@ -14,8 +16,7 @@ import com.theyawns.launcher.BankInABoxProperties;
 import com.theyawns.perfmon.PerfMonitor;
 import com.theyawns.sink.Graphite;
 
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.RejectedExecutionException;
 
 
 // Listener is armed by Launcher, instance should be the non-Jet IMDG cluster
@@ -23,6 +24,8 @@ import java.util.concurrent.TimeUnit;
 /** Listener to the preAuth map to run EntryProcessor for fraud detection */
 public class TransactionMapListener implements
         EntryAddedListener<String, Transaction> {
+
+    private final static ILogger log = Logger.getLogger(TransactionMapListener.class);
 
     // Need constants for each fraud rule for counters
     private static final int FRAUD_RULES_COUNT = 1;
@@ -81,13 +84,13 @@ public class TransactionMapListener implements
 
         //System.out.println("TransactionMapListener.entryAdded");
         // write out every so often
-        if( (++counter % 10)==0 ) {
-            try {
-                graphite.writeStats("bib.payments.amazon",preAuthMap.size());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+//        if( (++counter % 10)==0 ) {
+//            try {
+//                graphite.writeStats("bib.payments.amazon",preAuthMap.size());
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
 
         String transactionId = entryEvent.getKey();
         Transaction txn = entryEvent.getValue();
@@ -112,7 +115,12 @@ public class TransactionMapListener implements
         fraudRulesEP.setMerchant(merchant);
 
         //System.out.println("Executing fraud rules for " + transactionId);
-        Integer risk = (Integer) preAuthMap.executeOnKey(transactionId, fraudRulesEP);
+        Integer risk = Merchant.RISK.LOW.ordinal();
+        try {
+            risk = (Integer) preAuthMap.executeOnKey(transactionId, fraudRulesEP);
+        } catch (RejectedExecutionException ree) {
+            log.info("Rejected execution for fraud rules - have fallen behind");
+        }
 
         // EP will update the transaction, but we are continuing to use the local version!
         // Don't want to keep putting new transactions in the map just to update the times,
@@ -157,7 +165,12 @@ public class TransactionMapListener implements
         paymentRulesEP.setAccount(account);
 
         //System.out.println("Executing payment rules for " + transactionId);
-        Boolean passed = (Boolean) preAuthMap.executeOnKey(transactionId, paymentRulesEP);
+        Boolean passed = true;
+        try {
+            passed = (Boolean) preAuthMap.executeOnKey(transactionId, paymentRulesEP);
+        } catch (RejectedExecutionException ree) {
+            log.info("Rejected execution for payment rules - have fallen behind");
+        }
         preAuthMap.remove(txn.getID());
         if (passed) {
             approved.put(transactionId, txn);

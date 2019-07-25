@@ -70,14 +70,6 @@ public class PaymentsRuleSet extends RuleSet<Transaction> implements Serializabl
         return ContextFactory.withCreateFn(jet -> { return Jet.newJetClient(); } );
     }
 
-
-//    @Override
-//    public AggregateOperation1<Transaction, ResultAccumulator, RuleSetEvaluationResult> getAggregator() {
-//        //return ResultAggregator::anyTrue;
-//        //return AggregatorProvider;
-//        return null;
-//    }
-
     class CreditLimitRule extends AbstractRule<Transaction,Boolean> {
 
         CreditLimitRule(RuleSet set) {

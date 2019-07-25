@@ -10,10 +10,10 @@ import java.io.Serializable;
 
 /* Must continue to support default Java Serializable until EntryProcessors implement IdentifiedDataSerializable */
 
+/** Simple account type for use with Bank in a Box demo app */
 public class Account implements IdentifiedDataSerializable, Serializable {
 
-
-    public enum AccountStatus { CURRENT, OVERDUE, CLOSED } // TODO
+    public enum AccountStatus { CURRENT, OVERDUE, CLOSED } // TODO: This is not currently used
 
     protected String accountNumber;
     private Double creditLimit;
@@ -36,7 +36,7 @@ public class Account implements IdentifiedDataSerializable, Serializable {
         this.status = copyfrom.status;
     }
 
-    // For IDS Serialization
+    // no arg constructor needed for IDS Serialization
     public Account() {}
 
     public String getAccountNumber() { return accountNumber; }

@@ -14,6 +14,8 @@ import java.util.Random;
 
 /** A 'fake' location class to be used for some fraud detection rules.  The class encapsulates the
  *  idea that some cities are close to others without the need to create a full-blown GIS subsystem.
+ *
+ *  Plan to deprecate this in favor of a Location system based on GeoHash
  */
 public class Location implements IdentifiedDataSerializable, Serializable {
     /* Must continue to support default Java Serializable until EntryProcessors implement IdentifiedDataSerializable */

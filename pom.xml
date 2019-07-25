@@ -11,7 +11,7 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <jet.version>3.1-SNAPSHOT</jet.version>
+        <jet.version>3.1</jet.version>
     </properties>
 
     <repositories>
@@ -20,7 +20,7 @@
             <name>Hazelcast Private Repository</name>
             <url>https://repository.hazelcast.com/release/</url>
         </repository>
-        <!-- added to get Jet 3.0 prerelease, won't be needed > 3.0 release  -->
+        <!-- added to get Jet 3.0 prerelease, won't be needed > 3.0 release
         <repository>
             <id>snapshot-repository</id>
             <name>Maven2 Snapshot Repository</name>
@@ -30,7 +30,7 @@
                 <updatePolicy>daily</updatePolicy>
             </snapshots>
         </repository>
-        <!-- end added bit -->
+        end added bit -->
     </repositories>
 
     <dependencies>
@@ -43,11 +43,13 @@
         -->
 
         <dependency>
-            <groupId>com.hazelcast</groupId>
+            <groupId>com.hazelcast.jet</groupId>
             <artifactId>hazelcast-jet</artifactId>
             <version>${jet.version}</version>
+            <!--
 	        <scope>system</scope>
             <systemPath>${project.basedir}/lib/hazelcast-jet-3.0.jar</systemPath>
+            -->
         </dependency>
         <!--
         <dependency>

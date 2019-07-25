@@ -3,7 +3,7 @@ package com.theyawns.ruleengine;
 import java.io.Serializable;
 
 // TODO: IdentifiedDataSerializable
-// TODO: might become ? extends ResultType if we want to introduce a ResultType hierarchy
+// TODO: R might become R extends ResultType if we want to introduce a ResultType hierarchy
 
 /** This is the result of evaluating a single rule.
  *  It is parameterized by the type of result the rule will return; for example, there may be rules that
