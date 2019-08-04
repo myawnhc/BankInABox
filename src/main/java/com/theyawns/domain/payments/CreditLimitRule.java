@@ -24,6 +24,8 @@ import java.util.List;
  */
 public class CreditLimitRule extends BaseRule implements Serializable {
 
+    public static final String IMDG_HOST = "localhost";
+
     public static final String RULE_NAME = "CreditLimitRule";
     //private IMap<String, List<RuleExecutionResult>> resultsMap;
 
@@ -37,7 +39,7 @@ public class CreditLimitRule extends BaseRule implements Serializable {
         ContextFactory<IMap<String, Account>> contextFactory =
                 ContextFactory.withCreateFn(x -> {
                     ClientConfig clientConfig = new ClientConfig();
-                    clientConfig.getNetworkConfig().addAddress(JetMain.IMDG_HOST);
+                    clientConfig.getNetworkConfig().addAddress(IMDG_HOST);
                     clientConfig.getGroupConfig().setName("dev").setPassword("ignored");
                     clientConfig.getSerializationConfig().addDataSerializableFactory(101, new IDSFactory());
                     return Jet.newJetClient(clientConfig).getMap("accountMap");
@@ -63,7 +65,7 @@ public class CreditLimitRule extends BaseRule implements Serializable {
         // Also common to all rules, try to move to base
         // Drain to remote (IMDG) results map, merging with any previous results
         ClientConfig clientConfig = new ClientConfig();
-        clientConfig.getNetworkConfig().addAddress(JetMain.IMDG_HOST);
+        clientConfig.getNetworkConfig().addAddress(IMDG_HOST);
         clientConfig.getGroupConfig().setName("dev").setPassword("ignored");
         clientConfig.getSerializationConfig().addDataSerializableFactory(101, new IDSFactory());
 

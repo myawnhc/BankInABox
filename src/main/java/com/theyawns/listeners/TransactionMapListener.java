@@ -22,6 +22,7 @@ import java.util.concurrent.RejectedExecutionException;
 // Listener is armed by Launcher, instance should be the non-Jet IMDG cluster
 
 /** Listener to the preAuth map to run EntryProcessor for fraud detection */
+@Deprecated   // Moving to PreauthMapListener
 public class TransactionMapListener implements
         EntryAddedListener<String, Transaction> {
 

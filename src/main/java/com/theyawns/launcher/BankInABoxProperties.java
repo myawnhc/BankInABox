@@ -16,7 +16,7 @@ public class BankInABoxProperties {
     public static boolean COLLECT_LATENCY_STATS = false;
 
     public static int TRANSACTION_THREADS = 5;
-    public static int TRANSACTION_COUNT   = 50000;
+    public static int TRANSACTION_COUNT   = 500000;
     public static int MERCHANT_COUNT      = 151;
     public static int ACCOUNT_COUNT       = 1001;
 
