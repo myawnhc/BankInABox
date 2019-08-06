@@ -1,9 +1,6 @@
 package com.theyawns.listeners;
 
-import com.hazelcast.core.EntryEvent;
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.IMap;
-import com.hazelcast.core.IQueue;
+import com.hazelcast.core.*;
 import com.hazelcast.crdt.pncounter.PNCounter;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
@@ -24,6 +21,7 @@ public class PreauthMapListener implements
     private IMap<String, Merchant> merchantMap;
 
     // Queues to pass to RuleExecutors -- TODO: replace these with a single ReliableTopic
+    //private ITopic<Transaction> preAuthTopic;
     private IQueue<Transaction> locationRulesQueue;
     private IQueue<Transaction> merchantRulesQueue;
     private IQueue<Transaction> paymentRulesQueue;
@@ -37,6 +35,7 @@ public class PreauthMapListener implements
         //hazelcast = instance;
         preAuthMap = instance.getMap(Constants.MAP_PREAUTH);
         merchantMap = instance.getMap(Constants.MAP_MERCHANT);
+        //preAuthTopic = instance.getReliableTopic(Constants.TOPIC_PREAUTH);
         locationRulesQueue = instance.getQueue(Constants.QUEUE_LOCATION);
         merchantRulesQueue = instance.getQueue(Constants.QUEUE_MERCHANT);
         paymentRulesQueue = instance.getQueue(Constants.QUEUE_CREDITRULES);
@@ -81,6 +80,7 @@ public class PreauthMapListener implements
         //       OR reenable other Qs when they are needed
         //getPaymentRulesQueue(txn).add(txn);
         getLocationRulesQueue(txn).add(txn);
+        //preAuthTopic.publish(txn);
         //getMerchantRulesQueue(txn).add(txn);
 
         //System.out.println("PreauthMapListener distributed transaction to queues");

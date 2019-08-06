@@ -5,18 +5,20 @@ import com.theyawns.rules.TransactionEvaluationResult;
 
 import java.io.Serializable;
 
-public class RuleSetEvaluationResult<R> implements Serializable {
+public class RuleSetEvaluationResult<T,R> implements Serializable {
 
     private long startTime;
     private long stopTime;
 
+    private T item;
     private R result;
     private TransactionFinalStatus ruleSetOutcome;
     private String reason;
 
     private RuleSet ruleSet;
 
-    public RuleSetEvaluationResult(RuleSet ruleSet) {
+    public RuleSetEvaluationResult(T item, RuleSet ruleSet) {
+        this.item = item;
         this.ruleSet = ruleSet;
         startTime = System.nanoTime();
     }
@@ -33,6 +35,8 @@ public class RuleSetEvaluationResult<R> implements Serializable {
     public R getResult() {
         return result;
     }
+
+    public T getItem() { return item; }
 
     public void setRuleSetOutcome(TransactionFinalStatus passFail) {
         setRuleSetOutcome(passFail, null);

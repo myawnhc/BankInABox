@@ -32,7 +32,7 @@ public class LocationBasedRuleSet extends AbstractRuleSet<Transaction,Double> im
     }
 
     @Override
-    public RuleSetEvaluationResult<Double> apply(Transaction transaction) {
+    public RuleSetEvaluationResult<Transaction,Double> apply(Transaction transaction) {
         //System.out.println("LocationBasedRuleSet.apply()");
         // Process rules.  With this simple rule we can aggregate as we go; more complex rules might
         // need a separate pass over the RERs to produce the RSER.
@@ -47,7 +47,7 @@ public class LocationBasedRuleSet extends AbstractRuleSet<Transaction,Double> im
 
         // Aggregate the results into a RuleSetEvaluationResult.
 
-        RuleSetEvaluationResult rser = new RuleSetEvaluationResult(this);
+        RuleSetEvaluationResult rser = new RuleSetEvaluationResult(transaction,this);
         rser.setResult(aggregatedResult);
 
         // What value is the threshold for pass/fail?  Will be part of the design of each ruleset, so

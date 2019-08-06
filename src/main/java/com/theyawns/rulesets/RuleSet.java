@@ -8,7 +8,7 @@ import java.util.function.Function;
 // T - type of item to apply rules to, e.g., Transaction
 // R - type of final result from the ruleset, currently either Double (fraud rules)
 //     or Boolean (credit rules)
-public interface RuleSet<T,R> extends Function<T, RuleSetEvaluationResult<R>> {
+public interface RuleSet<T,R> extends Function<T, RuleSetEvaluationResult<T,R>> {
 
     void add(Rule<T,R> rule);
     String getName();

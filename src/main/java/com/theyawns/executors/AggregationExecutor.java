@@ -61,7 +61,7 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
                 //System.out.println("AggregationExecutor processing " + ter);
 
                 boolean rejected = false;
-                List<RuleSetEvaluationResult<?>> results = ter.getResults();
+                List<RuleSetEvaluationResult<Transaction,?>> results = ter.getResults();
 
                 // Loop over results (even though at this stage we'll only have one)
                 // Any reject will break us out of the loop, if we process all without a reject, then we approve.

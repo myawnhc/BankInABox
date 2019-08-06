@@ -96,12 +96,14 @@ public class Launcher {
             executor.submit(PerfMonitor.getInstance());
         }
 
+        ///////////////////////////////////////
         // Start up the various Jet pipelines
+        ///////////////////////////////////////
         // TODO: not sure there's any advantage to using IMDG executor service here
         // over plain Java
         AdjustMerchantAvgTask merchantAvgTask = new AdjustMerchantAvgTask();
         //main.distributedES.submit(merchantAvgTask);
-        // This is a Jet job so doesn't run in the IMDG cluster ...
+        // This is a Jet job so doesn't need to run in the IMDG cluster ...
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.submit(merchantAvgTask);
 
@@ -123,9 +125,7 @@ public class Launcher {
         RuleSetExecutor locationBasedRuleExecutor = new RuleSetExecutor(Constants.QUEUE_LOCATION,
                 new LocationBasedRuleSet(), Constants.MAP_PPFD_RESULTS);
         Set<Member> members = main.hazelcast.getCluster().getMembers();
-        main.distributedES.executeOnAllMembers(locationBasedRuleExecutor); // 3 will start
-        //main.distributedES.executeOnAllMembers(locationBasedRuleExecutor); // now 6 will start
-        //main.distributedES.executeOnAllMembers(locationBasedRuleExecutor); // now 9 will start
+        main.distributedES.executeOnAllMembers(locationBasedRuleExecutor);
 
         System.out.println("Submitted RuleSetExecutor to distributed executor service");
 

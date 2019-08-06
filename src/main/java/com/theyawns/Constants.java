@@ -12,9 +12,12 @@ public class Constants {
     public static final String MAP_REJECTED_FRAUD  = "rejectedForFraud";
 
     public static final String MAP_PPFD_RESULTS    = "ppfdResultMap";
+
+    public static final String TOPIC_PREAUTH       = "preAuthTopic";
     public static final String QUEUE_LOCATION      = "locationRulesQ";
     public static final String QUEUE_MERCHANT      = "merchantRulesQ";
     public static final String QUEUE_CREDITRULES   = "creditRulesQ";
+
     public static final String QUEUE_COMPLETIONS   = "resultsCompleteQ";
 
     public static final String PN_COUNT_WALMART    = "pnCounterWalmart";

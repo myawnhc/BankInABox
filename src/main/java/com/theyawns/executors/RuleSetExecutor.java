@@ -1,9 +1,6 @@
 package com.theyawns.executors;
 
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.HazelcastInstanceAware;
-import com.hazelcast.core.IMap;
-import com.hazelcast.core.IQueue;
+import com.hazelcast.core.*;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.rules.TransactionEvaluationResult;
@@ -11,20 +8,28 @@ import com.theyawns.rulesets.RuleSet;
 import com.theyawns.rulesets.RuleSetEvaluationResult;
 
 import java.io.Serializable;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.function.Supplier;
 
-// TODO: as currently implemented this might be more accurately named RuleSetExecutor
-public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastInstanceAware {
+public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastInstanceAware,
+        MessageListener<T> {
 
     private HazelcastInstance hazelcast;
 
+    private String preAuthTopic;
     private String transactionsInQueue;
     private String resultsOutMap;
     private String completionQueueName = Constants.QUEUE_COMPLETIONS;
 
+    private ITopic<T> topic;
     private IQueue<T> input;
     private RuleSet<T,R> ruleSet;
     private IMap<String, TransactionEvaluationResult> resultMap;
     private IQueue<String> completedTransactionsQueue;
+
+    //private transient ExecutorService jvmExecutor;
 
     private long counter = 0;
 
@@ -38,43 +43,61 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
      */
     public RuleSetExecutor(String readFrom, RuleSet<T,R> apply, String resultMap) {
         System.out.println("RuleSetExecutor.<init>");
-        transactionsInQueue = readFrom;
+        this.transactionsInQueue = readFrom;
+        //preAuthTopic = readFrom;
         this.ruleSet = apply;
         resultsOutMap = resultMap;
     }
 
     @Override
     public void run() {
+        //jvmExecutor = Executors.newFixedThreadPool(10);
         long startTime = System.nanoTime();
-        System.out.println("RuleSetExecutor.run()");
         while (true) {
             try {
-                // TODO future: if RuleSetExecutor is to stay generic, need to make our class signature <T extends HasID>,
-                // and similarly use a generic superclass of TransactionEvaluationResult to assign the final result.
-                Transaction txn = (Transaction) input.take();
-                RuleSetEvaluationResult<R> rser = ruleSet.apply((T)txn);
-                TransactionEvaluationResult ter = resultMap.get(txn.getID());
-                //System.out.println("RuleSetExecutor sees RSER " + rser);
-                if (ter == null) {
-                    ter = new TransactionEvaluationResult(txn, rser);
-                } else {
-                    ter.addResult(rser);
-                }
-                resultMap.put(txn.getID(), ter);
-                //System.out.println("RuleSetExecutor writes result to map for " + txn.getID());
-                if (ter.checkForCompletion()) {
-                    completedTransactionsQueue.offer(txn.getID());
-                }
+                T t = supplyTransaction();
+                // Making supply step async is runaway thread creation :-)
+                CompletableFuture.completedFuture(t)
+                        .<RuleSetEvaluationResult<T,R>>thenApplyAsync(ruleSet::apply)
+                        .thenAcceptAsync(this::consumeResult);
+
                 counter++;
-                if ((counter % 1000) == 0) {
+                if ((counter % 10000) == 0) {
                     double seconds = (System.nanoTime() - startTime) / 1_000_000_000;
                     double tps = counter / seconds;
                     System.out.println("RuleSetExecutor has handled " + counter + " transactions in " + seconds + " seconds, rate ~ " + (int) tps + " TPS");
                 }
 
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
+                System.exit(-1);
             }
+        }
+    }
+
+    // conforms to Supplier<U>
+    private T supplyTransaction() {
+        try {
+            return input.take();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private void consumeResult(RuleSetEvaluationResult<T,R> rser) {
+        Transaction txn = (Transaction) rser.getItem();
+        TransactionEvaluationResult ter = resultMap.get(txn.getID());
+        //System.out.println("RuleSetExecutor sees RSER " + rser);
+        if (ter == null) {
+            ter = new TransactionEvaluationResult(txn, (RuleSetEvaluationResult<Transaction, ?>) rser);
+        } else {
+            ter.addResult((RuleSetEvaluationResult<Transaction, ?>) rser);
+        }
+        resultMap.put(txn.getID(), ter);
+        //System.out.println("RuleSetExecutor writes result to map for " + txn.getID());
+        if (ter.checkForCompletion()) {
+            completedTransactionsQueue.offer(txn.getID());
         }
     }
 
@@ -83,7 +106,27 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
         System.out.println("RuleSetExecutor.setHazecastInstance");
         this.hazelcast = hazelcastInstance;
         this.input = hazelcast.getQueue(transactionsInQueue);
+        //this.topic = hazelcast.getReliableTopic(preAuthTopic);
+        //topic.addMessageListener(this);
         this.resultMap = hazelcast.getMap(resultsOutMap);
         this.completedTransactionsQueue = hazelcast.getQueue(completionQueueName);
+    }
+
+    // MessageListener interface for Topic - unused for now
+    @Override
+    public void onMessage(Message<T> message) {
+        long startTime = System.nanoTime();
+        System.out.println("RuleSetExecutor.onMessage()");
+        T txn = message.getMessageObject();
+        CompletableFuture.completedFuture(txn)
+                .<RuleSetEvaluationResult<T,R>>thenApplyAsync(ruleSet::apply)
+                .thenAcceptAsync(this::consumeResult);
+
+        counter++;
+        if ((counter % 10000) == 0) {
+            double seconds = (System.nanoTime() - startTime) / 1_000_000_000;
+            double tps = counter / seconds;
+            System.out.println("RuleSetExecutor has handled " + counter + " transactions in " + seconds + " seconds, rate ~ " + (int) tps + " TPS");
+        }
     }
 }

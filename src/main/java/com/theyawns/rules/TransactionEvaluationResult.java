@@ -19,12 +19,12 @@ public class TransactionEvaluationResult implements Serializable {
     private long stopTime;
 
     private Transaction transaction;
-    private List<RuleSetEvaluationResult<?>> results;
+    private List<RuleSetEvaluationResult<Transaction,?>> results;
 
     private RuleSet rejectingRuleSet;
     private String  rejectingReason;
 
-    public TransactionEvaluationResult(Transaction transaction, RuleSetEvaluationResult<?> rser) {
+    public TransactionEvaluationResult(Transaction transaction, RuleSetEvaluationResult<Transaction,?> rser) {
         //System.out.println("TransactionEvaluationResult.<init>");
         this.startTime = System.nanoTime();
         this.transaction = transaction;
@@ -32,12 +32,14 @@ public class TransactionEvaluationResult implements Serializable {
         addResult(rser);
     }
 
-    public void addResult(RuleSetEvaluationResult<?> rser) {
+    public void addResult(RuleSetEvaluationResult<Transaction,?> rser) {
         results.add(rser);
         //checkForCompletion();
     }
 
-    public List<RuleSetEvaluationResult<?>> getResults() {
+    public Transaction getTransaction() { return transaction; }
+
+    public List<RuleSetEvaluationResult<Transaction,?>> getResults() {
         return results;
     }
 
