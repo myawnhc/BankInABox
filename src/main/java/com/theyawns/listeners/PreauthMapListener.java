@@ -7,6 +7,7 @@ import com.hazelcast.logging.Logger;
 import com.hazelcast.map.listener.EntryAddedListener;
 
 import com.theyawns.Constants;
+import com.theyawns.domain.payments.Account;
 import com.theyawns.domain.payments.Merchant;
 import com.theyawns.domain.payments.Transaction;
 
@@ -19,6 +20,7 @@ public class PreauthMapListener implements
     //private HazelcastInstance hazelcast;
     private IMap<String, Transaction> preAuthMap;
     private IMap<String, Merchant> merchantMap;
+    private IMap<String, Account> accountMap;  // not used here but getting ref triggers eager load
 
     // Queues to pass to RuleExecutors -- TODO: replace these with a single ReliableTopic
     //private ITopic<Transaction> preAuthTopic;
@@ -35,6 +37,7 @@ public class PreauthMapListener implements
         //hazelcast = instance;
         preAuthMap = instance.getMap(Constants.MAP_PREAUTH);
         merchantMap = instance.getMap(Constants.MAP_MERCHANT);
+        accountMap = instance.getMap(Constants.MAP_ACCOUNT);
         //preAuthTopic = instance.getReliableTopic(Constants.TOPIC_PREAUTH);
         locationRulesQueue = instance.getQueue(Constants.QUEUE_LOCATION);
         merchantRulesQueue = instance.getQueue(Constants.QUEUE_MERCHANT);

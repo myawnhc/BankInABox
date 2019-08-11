@@ -26,6 +26,8 @@ public class AdjustMerchantTransactionAverage implements Serializable {
 
     private JetConfig jetConfig;
 
+    private String uuid;
+
     protected void init() {
 
         XmlConfigBuilder xccb = new XmlConfigBuilder(); // Reads hazelcast.xml
@@ -41,8 +43,9 @@ public class AdjustMerchantTransactionAverage implements Serializable {
 
     public void run() {
         init();
-        Pipeline p = buildPipeline();
         JetInstance jet = Jet.newJetInstance(jetConfig);
+        uuid = jet.getCluster().getLocalMember().getUuid();
+        Pipeline p = buildPipeline();
 
         try {
             Job job = jet.newJob(p);
@@ -58,8 +61,9 @@ public class AdjustMerchantTransactionAverage implements Serializable {
 
         try {
 
-            XmlClientConfigBuilder xccb = new XmlClientConfigBuilder(); // Reads hazelcast-client.xml
-            ClientConfig clientConfig = xccb.build();
+            ClientConfig clientConfig = new XmlClientConfigBuilder().build();
+            // Need way to make instance name unique.  UUID isn't it.  Maybe use a PNCounter.
+            //clientConfig.setInstanceName(("Jet-AMTA-" + uuid));
 
             Pipeline p = Pipeline.create();
 
@@ -99,11 +103,11 @@ public class AdjustMerchantTransactionAverage implements Serializable {
                     /* toKeyFn */ Merchant::getMerchantId,
                     /* toValueFn */ Merchant::getObject,
                     /* mergeFn */ (Merchant o, Merchant n) -> {
-                        // Don't change when average varies by less than one dollar
-                        if (Math.abs(o.getAvgTxnAmount() - n.getAvgTxnAmount()) > 1.00) {
-                            System.out.printf("Merchant %s average transaction amount updated from %.3f to %.3f\n", o.getMerchantId(),
-                                    o.getAvgTxnAmount(), n.getAvgTxnAmount());
-                        }
+                        // Don't log when average varies by less than one dollar
+//                        if (Math.abs(o.getAvgTxnAmount() - n.getAvgTxnAmount()) > 1.00) {
+//                            System.out.printf("Merchant %s average transaction amount updated from %.3f to %.3f\n", o.getMerchantId(),
+//                                    o.getAvgTxnAmount(), n.getAvgTxnAmount());
+//                        }
                         return n;
                     })).setName("Merge updated Merchant record back to IMDG merchantMap");
 

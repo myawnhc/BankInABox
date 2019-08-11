@@ -79,39 +79,39 @@ public class TransactionGenerator {
 
     public void start() throws InterruptedException {
 
-        log.info("Generating merchants");
-        DistributedCallable<Integer> merchantGenTask = () -> {
-            for (int i=0; i<BankInABoxProperties.MERCHANT_COUNT; i++) {
-                Merchant m = helper.generateNewMerchant(i);
-                merchantMap.put(m.getMerchantId(), m);
-            }
-            return merchantMap.size();
-        };
-        // Submit to executor and wait for completion
-        Future<Integer> future = singleThreadExecutor.submit(merchantGenTask);
-        try {
-            int count = future.get();
-            log.info("Generated " + count + " merchants");
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+//        log.info("Generating merchants");
+//        DistributedCallable<Integer> merchantGenTask = () -> {
+//            for (int i=0; i<BankInABoxProperties.MERCHANT_COUNT; i++) {
+//                Merchant m = helper.generateNewMerchant(i);
+//                merchantMap.put(m.getMerchantId(), m);
+//            }
+//            return merchantMap.size();
+//        };
+//        // Submit to executor and wait for completion
+//        Future<Integer> future = singleThreadExecutor.submit(merchantGenTask);
+//        try {
+//            int count = future.get();
+//            log.info("Generated " + count + " merchants");
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        }
 
-        System.out.println("Generating accounts");
-        DistributedCallable<Integer> accountGenTask = () -> {
-            for (int i=0; i<BankInABoxProperties.ACCOUNT_COUNT; i++) {
-                Account a = helper.generateNewAccount(i);
-                accountMap.put(a.getAccountNumber(), a);
-                // future: generate historical transactions, populate historyMap
-            }
-            return accountMap.size();
-        };
-        Future<Integer> acctFuture = singleThreadExecutor.submit(accountGenTask);
-        try {
-            int count = acctFuture.get();
-            log.info("Generated " + count + " accounts");
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+//        System.out.println("Generating accounts");
+//        DistributedCallable<Integer> accountGenTask = () -> {
+//            for (int i=0; i<BankInABoxProperties.ACCOUNT_COUNT; i++) {
+//                Account a = helper.generateNewAccount(i);
+//                accountMap.put(a.getAccountNumber(), a);
+//                // future: generate historical transactions, populate historyMap
+//            }
+//            return accountMap.size();
+//        };
+//        Future<Integer> acctFuture = singleThreadExecutor.submit(accountGenTask);
+//        try {
+//            int count = acctFuture.get();
+//            log.info("Generated " + count + " accounts");
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        }
 
         log.info("Generating transactions");
         int threadCount = BankInABoxProperties.TRANSACTION_THREADS;

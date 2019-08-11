@@ -15,11 +15,12 @@ public class Account implements IdentifiedDataSerializable, Serializable {
 
     public enum AccountStatus { CURRENT, OVERDUE, CLOSED } // TODO: This is not currently used
 
-    protected String accountNumber;
-    private Double creditLimit;
-    private Double balance;
-    private AccountStatus status;
-    private Location lastReportedLocation;
+    protected String accountNumber = "*invalid*";
+    private Double creditLimit = 0.0;
+    private Double balance = 0.0;
+    private AccountStatus status = AccountStatus.CURRENT;
+    //private Location lastReportedLocation;
+    private String lastReportedLocation = "unknown";
 
 
     public Account(String acctNo) {
@@ -40,6 +41,7 @@ public class Account implements IdentifiedDataSerializable, Serializable {
     public Account() {}
 
     public String getAccountNumber() { return accountNumber; }
+    public void setAccountNumber(String acctNo) { this.accountNumber = acctNo; } // used by JDBC
 
     public void setBalance(Double balance) { this.balance = balance; }
     public Double getBalance() {
@@ -55,8 +57,8 @@ public class Account implements IdentifiedDataSerializable, Serializable {
     public void setAccountStatus(AccountStatus status) { this.status = status; }
     public AccountStatus getAccountStatus() { return status; }
 
-    public void setLastReportedLocation(Location location) { this.lastReportedLocation = location; }
-    public Location getLastReportedLocation() { return lastReportedLocation; }
+    public void setLastReportedLocation(String location) { this.lastReportedLocation = location; }
+    public String getLastReportedLocation() { return lastReportedLocation; }
 
     public String toString() {
         return "Acct " + accountNumber + " " + creditLimit + " " + balance + " " + status;
@@ -79,7 +81,7 @@ public class Account implements IdentifiedDataSerializable, Serializable {
         objectDataOutput.writeDouble(creditLimit);
         objectDataOutput.writeDouble(balance);
         objectDataOutput.writeInt(status.ordinal());
-        objectDataOutput.writeObject(lastReportedLocation);
+        objectDataOutput.writeUTF(lastReportedLocation);
     }
 
     @Override
@@ -88,6 +90,6 @@ public class Account implements IdentifiedDataSerializable, Serializable {
         creditLimit = objectDataInput.readDouble();
         balance = objectDataInput.readDouble();
         status = AccountStatus.values()[objectDataInput.readInt()];
-        lastReportedLocation = objectDataInput.readObject(Location.class);
+        lastReportedLocation = objectDataInput.readUTF();
     }
 }

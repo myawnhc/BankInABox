@@ -16,7 +16,7 @@
 
     <network>
         <join>
-            <multicast enabled="false"></multicast>
+            <multicast enabled="false"/>
             <tcp-ip enabled="true">
                 <interface>127.0.0.1</interface>
             </tcp-ip>
@@ -33,7 +33,7 @@
     </cp-subsystem>
 
     <executor-service name="executor">
-        <pool-size>5</pool-size>
+        <pool-size>20</pool-size>
         <statistics-enabled>true</statistics-enabled>
     </executor-service>
 
@@ -53,6 +53,54 @@
             </data-serializable-factory>
         </data-serializable-factories>
     </serialization>
+
+    <map name="merchantMap">
+        <map-store enabled="true" initial-mode="EAGER">
+            <class-name>com.theyawns.domain.payments.database.MerchantTable</class-name>
+        </map-store>
+    </map>
+
+    <map name="accountMap">
+        <map-store enabled="true" initial-mode="EAGER">
+            <class-name>com.theyawns.domain.payments.database.AccountTable</class-name>
+        </map-store>
+    </map>
+
+    <map name="preAuth">
+        <!-- Nothing should take longer than 5 minutes from ingest until disposition, smo max idle should
+             be sufficient to keep our map size manageable; max-size set as a backstop -->
+        <time-to-live-seconds>0</time-to-live-seconds>
+        <max-idle-seconds>300</max-idle-seconds>
+        <eviction-policy>LRU</eviction-policy>
+        <max-size policy="PER_NODE">10000</max-size>
+        <map-store enabled="false" initial-mode="LAZY">
+            <class-name>com.theyawns.domain.payments.database.TransactionTable</class-name>
+        </map-store>
+    </map>
+
+    <map name="approved">
+        <!-- In a real app we'd flush these to disk at some point, but here we just expire them -->
+        <time-to-live-seconds>0</time-to-live-seconds>
+        <max-idle-seconds>300</max-idle-seconds>
+        <eviction-policy>LRU</eviction-policy>
+        <max-size policy="PER_NODE">10000</max-size>
+    </map>
+
+    <map name="rejectedForCredit">
+        <!-- In a real app we'd flush these to disk at some point, but here we just expire them -->
+        <time-to-live-seconds>0</time-to-live-seconds>
+        <max-idle-seconds>300</max-idle-seconds>
+        <eviction-policy>LRU</eviction-policy>
+        <max-size policy="PER_NODE">10000</max-size>
+    </map>
+
+    <map name="rejectedForFraud">
+        <!-- In a real app we'd flush these to disk at some point, but here we just expire them -->
+        <time-to-live-seconds>0</time-to-live-seconds>
+        <max-idle-seconds>300</max-idle-seconds>
+        <eviction-policy>LRU</eviction-policy>
+        <max-size policy="PER_NODE">10000</max-size>
+    </map>
 
     <license-key/>
 

@@ -9,9 +9,6 @@ import com.theyawns.rulesets.RuleSetEvaluationResult;
 
 import java.io.Serializable;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.function.Supplier;
 
 public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastInstanceAware,
         MessageListener<T> {
@@ -90,9 +87,9 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
         TransactionEvaluationResult ter = resultMap.get(txn.getID());
         //System.out.println("RuleSetExecutor sees RSER " + rser);
         if (ter == null) {
-            ter = new TransactionEvaluationResult(txn, (RuleSetEvaluationResult<Transaction, ?>) rser);
+            ter = new TransactionEvaluationResult(txn, (RuleSetEvaluationResult<Transaction, R>) rser);
         } else {
-            ter.addResult((RuleSetEvaluationResult<Transaction, ?>) rser);
+            ter.addResult((RuleSetEvaluationResult<Transaction, R>) rser);
         }
         resultMap.put(txn.getID(), ter);
         //System.out.println("RuleSetExecutor writes result to map for " + txn.getID());

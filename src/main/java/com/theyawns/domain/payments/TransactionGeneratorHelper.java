@@ -50,7 +50,7 @@ public class TransactionGeneratorHelper {
     public Account generateNewAccount(int acctNum) {
         String accountID = formatAccountId(acctNum);
         Account acct = new Account(accountID);
-        acct.setLastReportedLocation(Location.getRandom());
+        //acct.setLastReportedLocation(Location.getRandom());
         return acct;
     }
 
@@ -67,16 +67,16 @@ public class TransactionGeneratorHelper {
         t.setAmount(merchant.getRandomTransactionAmount());
 
         // 75% of transactions will be in same city as last reported location
-        int value = locationRandom.nextInt(100);
-        if (value < 75) {
-            t.setLocation(a.getLastReportedLocation());
-        }
-        // 20% will be in a close-by city
-        else if (value < 95) {
-            t.setLocation(a.getLastReportedLocation().getCloseCity());
-        }
-        // 5% will be random
-        else t.setLocation(Location.getRandom());
+//        int value = locationRandom.nextInt(100);
+//        if (value < 75) {
+//            t.setLocation(a.getLastReportedLocation());
+//        }
+//        // 20% will be in a close-by city
+//        else if (value < 95) {
+//            t.setLocation(a.getLastReportedLocation().getCloseCity());
+//        }
+//        // 5% will be random
+//        else t.setLocation(Location.getRandom());
 
         return t;
     }

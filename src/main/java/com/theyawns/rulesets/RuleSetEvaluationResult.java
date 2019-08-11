@@ -15,16 +15,18 @@ public class RuleSetEvaluationResult<T,R> implements Serializable {
     private TransactionFinalStatus ruleSetOutcome;
     private String reason;
 
-    private RuleSet ruleSet;
+    //private transient RuleSet ruleSet;
+    private String ruleSetName;
 
-    public RuleSetEvaluationResult(T item, RuleSet ruleSet) {
+    public RuleSetEvaluationResult(T item, String ruleSetName) {
         this.item = item;
-        this.ruleSet = ruleSet;
+        //this.ruleSet = ruleSet;
+        this.ruleSetName = ruleSetName;
         startTime = System.nanoTime();
     }
 
-    public RuleSet getRuleSet() {
-        return ruleSet;
+    public String getRuleSetName() {
+        return ruleSetName;
     }
 
     public void setResult(R result) {

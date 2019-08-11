@@ -5,6 +5,8 @@ import com.hazelcast.core.HazelcastInstanceAware;
 import com.hazelcast.core.IMap;
 import com.hazelcast.core.IQueue;
 import com.hazelcast.crdt.pncounter.PNCounter;
+import com.hazelcast.logging.ILogger;
+import com.hazelcast.logging.Logger;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.launcher.Launcher;
@@ -19,13 +21,13 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 public class AggregationExecutor implements Runnable, Serializable, HazelcastInstanceAware {
 
-    private HazelcastInstance hazelcast;
+    private final static ILogger log = Logger.getLogger(AggregationExecutor.class);
 
-//    private String queueName;
-//    private String mapName;
+    private HazelcastInstance hazelcast;
 
     private IQueue<String> completedTransactionIDs;
     private IMap<String, TransactionEvaluationResult> resultMap;
@@ -38,7 +40,6 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
     private PNCounter approvalCounter;
     private PNCounter rejectedForFraudCounter;
     private PNCounter rejectedForCreditCounter;
-    //private PNCounter[] rejectedByRuleCounters;
 
     // TODO: may need this to be an IMap ... aggregator can move due to node failure
     private Map<String, PNCounter> rejectedByRuleCounters = new HashMap<>();
@@ -51,65 +52,28 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
 
     @Override
     public void run() {
-        System.out.println("AggregationExecutor.run()");
+        log.info("AggregationExecutor.run()");
         long startTime = System.nanoTime();
         while (true) {
             try {
+                long startInner = System.nanoTime();
                 String txnId = completedTransactionIDs.take();
+                double ms = (System.nanoTime() - startInner) / 1_000_000;
                 TransactionEvaluationResult ter = resultMap.get(txnId);
-                // TODO: verify non null
-                //System.out.println("AggregationExecutor processing " + ter);
 
-                boolean rejected = false;
-                List<RuleSetEvaluationResult<Transaction,?>> results = ter.getResults();
+                // TODO: may break processResults into more fine-grained steps
+                CompletableFuture.completedFuture(ter)
+                        .thenApplyAsync(this::processResults)   // update counters and/or maps
+                        .thenAcceptAsync(this::cleanupMaps);   // delete txn from preAuth and PPFD Results
 
-                // Loop over results (even though at this stage we'll only have one)
-                // Any reject will break us out of the loop, if we process all without a reject, then we approve.
-                for (RuleSetEvaluationResult rser : results) {
-                    switch (rser.getRuleSetOutcome()) {
-                        case RejectedForFraud:
-                            rejected = true;
-                            if (Launcher.getRunMode() == RunMode.Benchmark) {
-                                // Keeping in long-running demo will lead to OOME
-                                rejectedForFraudMap.put(txnId, ter);
-                            } else {
-                                // Keeping in long-running demo will lead to OOME
-                                rejectedForFraudCounter.getAndIncrement();
-                                incrementRejectCountForRule(rser);
-                            }
-                            break;
-                        case RejectedForCredit:
-                            rejected = true;
-                            if (Launcher.getRunMode() == RunMode.Benchmark) {
-                                rejectedForCreditMap.put(txnId, ter);
-                            } else {
-                                rejectedForCreditCounter.getAndIncrement();
-                                incrementRejectCountForRule(rser);
-                            }
-                            break;
-                        case Approved:
-                            ; // do nothing
 
-                    }
-                }
-                if (!rejected) {
-                    if (Launcher.getRunMode() == RunMode.Benchmark) {
-                        // Keeping in long-running demo will lead to OOME
-                        approvedMap.put(txnId, ter);
-                    } else {
-                        approvalCounter.getAndIncrement();
-                    }
-                    //System.out.println("Approved " + txnId);
-
-                }
-
-                preAuthMap.delete(txnId);
                 counter++;
                 if ((counter % 1000) == 0) {
                     double seconds = (System.nanoTime() - startTime) / 1_000_000_000;
                     double tps = counter / seconds;
-                    System.out.println("AggregationExecutor has handled " + counter + " transactions in " + seconds + " seconds, rate ~ " + (int) tps + " TPS");
+                    log.info("AggregationExecutor has handled " + counter + " transactions in " + seconds + " seconds, rate ~ " + (int) tps + " TPS");
                 }
+
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -118,8 +82,64 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
         }
     }
 
+    private void cleanupMaps(String txnId) {
+        preAuthMap.delete(txnId);
+        resultMap.delete(txnId);
+    }
+
+    private String processResults(TransactionEvaluationResult ter) {
+        boolean rejected = false;
+        List<RuleSetEvaluationResult<Transaction,?>> results = ter.getResults();
+        String txnId = ter.getTransaction().getID();
+
+        // Loop over results (even though at this stage we'll only have one)
+        // Any reject will break us out of the loop, if we process all without a reject, then we approve.
+        for (RuleSetEvaluationResult rser : results) {
+            switch (rser.getRuleSetOutcome()) {
+                case RejectedForFraud:
+                    rejected = true;
+                    ter.setRejectingRuleSet(rser.getRuleSetName());
+                    ter.setRejectingReason(rser.getOutcomeReason());
+                    if (Launcher.getRunMode() == RunMode.Demo) {
+                        // Benchmark doesn't care about the dashboard
+                        rejectedForFraudCounter.getAndIncrement();
+                        incrementRejectCountForRule(rser);
+                    }
+                    // This map now has eviction to allow long-running demo
+                    rejectedForFraudMap.put(txnId, ter);
+                    break;
+                case RejectedForCredit:
+                    rejected = true;
+                    ter.setRejectingRuleSet(rser.getRuleSetName());
+                    ter.setRejectingReason(rser.getOutcomeReason());
+                    if (Launcher.getRunMode() == RunMode.Demo) {
+                        // Benchmark doesn't care about the dashboard
+                        rejectedForCreditCounter.getAndIncrement();
+                        incrementRejectCountForRule(rser);
+                    }
+                    // This map now has eviction to allow long-running demo
+                    rejectedForCreditMap.put(txnId, ter);
+                    break;
+                case Approved:
+                    ;
+
+            }
+        }
+        if (!rejected) {
+            // This map now has eviction to allow long-running demo
+            approvedMap.put(txnId, ter);
+            if (Launcher.getRunMode() == RunMode.Demo) {
+                // Benchmark doesn't care about the dashboard
+                approvalCounter.getAndIncrement();
+            }
+            //System.out.println("Approved " + txnId);
+
+        }
+        return txnId;
+    }
+
     private void incrementRejectCountForRule(RuleSetEvaluationResult rser) {
-        String rsName = rser.getRuleSet().getQualifiedName();
+        String rsName = rser.getRuleSetName();
         PNCounter pnc = rejectedByRuleCounters.get(rsName);
         if (pnc == null) {
             pnc = hazelcast.getPNCounter(rsName);
@@ -130,7 +150,6 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
 
     @Override
     public void setHazelcastInstance(HazelcastInstance hazelcastInstance) {
-        System.out.println("AggregatonExecutor.setHazecastInstance " + hazelcastInstance);
         this.hazelcast = hazelcastInstance;
         this.resultMap = hazelcast.getMap(Constants.MAP_PPFD_RESULTS);
         this.preAuthMap = hazelcast.getMap(Constants.MAP_PREAUTH);

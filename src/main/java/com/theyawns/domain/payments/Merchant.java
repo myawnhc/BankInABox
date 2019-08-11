@@ -13,11 +13,14 @@ import java.util.Random;
 
 public class Merchant implements IdentifiedDataSerializable, Serializable {
 
+    // NOTE: Any changes to these 5 fields will require changes to Serialization (in this file) and
+    // database code in MerchantTable
     private String merchantID;
     private String merchantName;
     private int reputation;   // range 1-10; not in use; may remove or deprecate
     private double avgTxnAmount;
-    private Location location;
+    //private Location location;
+    private String location;
 
     private Random random = new Random();
 
@@ -28,7 +31,7 @@ public class Merchant implements IdentifiedDataSerializable, Serializable {
         avgTxnAmount = pricePoints[random.nextInt(4)];
         // Randomly assign a reputation risk category
         reputation = random.nextInt(10);
-        location = Location.getRandom();
+        //location = Location.getRandom();
     }
 
     // For IDS Serialization only
@@ -38,10 +41,20 @@ public class Merchant implements IdentifiedDataSerializable, Serializable {
     public Double getAvgTxnAmount() { return avgTxnAmount; }
     public void setAvgTxnAmount(Double newValue) { avgTxnAmount = newValue; }
 
-
-
     public String getMerchantId() { return merchantID; }
+    public void setMerchantID(String id) { merchantID = id; } // used by JDBC
+
     public Merchant getObject() { return this; }
+
+    public String getMerchantName() { return merchantName; }
+    public void setMerchantName(String name) { merchantName = name; }
+
+    public int getReputation() { return reputation; }
+    public void setReputation(int reputation) { this.reputation = reputation; }
+
+    // Current Location object is obsolete; new Location will be representable as simple geohash string
+    public String getLocation() { return location; }
+    public void setLocation(String geohash) { location = geohash; }
 
     // Stuff related to average price for merchant.
 
@@ -92,6 +105,7 @@ public class Merchant implements IdentifiedDataSerializable, Serializable {
     }
 
     @Override
+    /** WARNING - this is the serialization id, not the merchant ID! */
     public int getId() {
         return Constants.IDS_MERCHANT_ID;
     }
@@ -102,7 +116,8 @@ public class Merchant implements IdentifiedDataSerializable, Serializable {
         objectDataOutput.writeUTF(merchantName);
         objectDataOutput.writeInt(reputation);
         objectDataOutput.writeDouble(avgTxnAmount);
-        objectDataOutput.writeObject(location);
+        //objectDataOutput.writeObject(location);
+        objectDataOutput.writeUTF(location);
     }
 
     @Override
@@ -111,6 +126,7 @@ public class Merchant implements IdentifiedDataSerializable, Serializable {
         merchantName = objectDataInput.readUTF();
         reputation = objectDataInput.readInt();
         avgTxnAmount = objectDataInput.readDouble();
-        location = objectDataInput.readObject(Location.class);
+        //location = objectDataInput.readObject(Location.class);
+        location = objectDataInput.readUTF();
     }
 }

@@ -21,7 +21,7 @@ public class TransactionEvaluationResult implements Serializable {
     private Transaction transaction;
     private List<RuleSetEvaluationResult<Transaction,?>> results;
 
-    private RuleSet rejectingRuleSet;
+    private String rejectingRuleSet;
     private String  rejectingReason;
 
     public TransactionEvaluationResult(Transaction transaction, RuleSetEvaluationResult<Transaction,?> rser) {
@@ -42,6 +42,9 @@ public class TransactionEvaluationResult implements Serializable {
     public List<RuleSetEvaluationResult<Transaction,?>> getResults() {
         return results;
     }
+
+    public void setRejectingRuleSet(String rsName) { rejectingRuleSet = rsName; }
+    public void setRejectingReason(String s) { rejectingReason = s; }
 
     public boolean checkForCompletion() {
         // is the number of rulesets going to be treated as hard coded?

@@ -41,13 +41,11 @@ public class LocationBasedRuleSet extends AbstractRuleSet<Transaction,Double> im
             RuleEvaluationResult<Double> rer = rule.apply(transaction);
             ruleResults.add(rer);
             aggregatedResult += rer.getResult();
-
-
         }
 
         // Aggregate the results into a RuleSetEvaluationResult.
 
-        RuleSetEvaluationResult rser = new RuleSetEvaluationResult(transaction,this);
+        RuleSetEvaluationResult rser = new RuleSetEvaluationResult(transaction, getQualifiedName());
         rser.setResult(aggregatedResult);
 
         // What value is the threshold for pass/fail?  Will be part of the design of each ruleset, so

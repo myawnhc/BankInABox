@@ -56,7 +56,7 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
                     continue;   // Will be handled individually
                 // What remains are the ruleset-specific rejections
                 rejectionByRule.put(dobj.getName(), pnc);
-                System.out.println("Found rule-specific counter " + dobj.getName());
+                //System.out.println("Found rule-specific counter " + dobj.getName());
             }
         }
     }
@@ -81,8 +81,8 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
         try {
 
             graphite.writeStats("bib.fraud.rate", fraudRate);
-            System.out.printf("  Fraud rate = %f + %f + %f = %f / %f = %f\n",
-                    approved, rejectedCredit, rejectedFraud, total, rejectedFraud, fraudRate);
+//            System.out.printf("  Fraud rate = %f + %f + %f = %f / %f = %f\n",
+//                    approved, rejectedCredit, rejectedFraud, total, rejectedFraud, fraudRate);
             graphite.writeStats("bib.payment.rate", approved - previouslyReportedApprovals);
             previouslyReportedApprovals = (int) approved;
             graphite.writeStats("bib.payments.amazon", amazon.get());

@@ -17,7 +17,7 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
 
     //private long timestamp;
     private Double amount = 0.0;
-    private Location location; // Should this be a separate object, enrichment source?
+    private String location; // Should this be a separate object, enrichment source?
 
     private int fraudResult = -1;
     private Boolean paymentResult = Boolean.TRUE;
@@ -31,6 +31,11 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         //timestamp = System.currentTimeMillis();
     }
 
+    public Transaction(String txnId) {
+        this.transactionId = txnId;
+    }
+
+    @Deprecated
     public Transaction(int num) {
         this();
         this.transactionId = ""+num;
@@ -51,6 +56,7 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
     public String getID() {
         return transactionId;
     }
+    public void setID(String id) { transactionId = id; }
 
     public void setAccountNumber(String acct) { this.acctNumber = acct; }
     public String getAccountNumber() {
@@ -67,8 +73,8 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
     }
     public String getMerchantId() { return merchantId; }
 
-    public void setLocation(Location l) { this.location = l; }
-    public Location getLocation() { return location; }
+    public void setLocation(String l) { this.location = l; }
+    public String getLocation() { return location; }
 
     public void setFraudResult(int result) {
         fraudResult = result;
@@ -109,7 +115,7 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         objectDataOutput.writeUTF(acctNumber);
         objectDataOutput.writeUTF(merchantId);
         objectDataOutput.writeDouble(amount);
-        objectDataOutput.writeObject(location);
+        objectDataOutput.writeUTF(location);
         objectDataOutput.writeInt(fraudResult);
         objectDataOutput.writeBoolean(paymentResult);
 //        objectDataOutput.writeObject(processingTime);
@@ -122,7 +128,7 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         acctNumber = objectDataInput.readUTF();
         merchantId = objectDataInput.readUTF();
         amount = objectDataInput.readDouble();
-        location = objectDataInput.readObject(Location.class);
+        location = objectDataInput.readUTF();
         fraudResult = objectDataInput.readInt();
         paymentResult = objectDataInput.readBoolean();
 //        processingTime = objectDataInput.readObject(LatencyMetric.class);

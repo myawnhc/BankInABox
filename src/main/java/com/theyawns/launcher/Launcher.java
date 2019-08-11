@@ -1,15 +1,15 @@
 package com.theyawns.launcher;
 
 import com.hazelcast.client.HazelcastClient;
+import com.hazelcast.client.config.ClientConfig;
+import com.hazelcast.client.config.XmlClientConfigBuilder;
 import com.hazelcast.core.*;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
 import com.hazelcast.scheduledexecutor.DuplicateTaskException;
 import com.hazelcast.scheduledexecutor.IScheduledExecutorService;
 import com.theyawns.Constants;
-import com.theyawns.domain.payments.CreditLimitRule;
-import com.theyawns.domain.payments.PumpGrafanaStats;
-import com.theyawns.domain.payments.Transaction;
+import com.theyawns.domain.payments.*;
 import com.theyawns.executors.AggregationExecutor;
 import com.theyawns.executors.RuleSetExecutor;
 import com.theyawns.listeners.PreauthMapListener;
@@ -30,17 +30,21 @@ public class Launcher {
     protected HazelcastInstance hazelcast;
     protected IExecutorService distributedES;
     private final static ILogger log = Logger.getLogger(Launcher.class);
-    private static RunMode runMode = RunMode.Benchmark;
+    private static RunMode runMode = RunMode.Demo;
 
-//    private IQueue<Transaction> locationRulesQueue;
-//    private IQueue<Transaction> merchantRulesQueue;
-//    private IQueue<Transaction> paymentRulesQueue;
+    // Only here for triggering eager cache load
+    private IMap<String, Merchant> merchantMap;
+    private IMap<String, Account> accountMap;
 
     private IMap<String, TransactionEvaluationResult> resultMap;
 
     protected void init() {
-        hazelcast = HazelcastClient.newHazelcastClient();
+        ClientConfig cc = new XmlClientConfigBuilder().build();
+        cc.setInstanceName("Launcher");
+        hazelcast = HazelcastClient.newHazelcastClient(cc);
         distributedES = hazelcast.getExecutorService("executor");
+        merchantMap = hazelcast.getMap(Constants.MAP_MERCHANT);
+        accountMap = hazelcast.getMap(Constants.MAP_ACCOUNT);
 //        locationRulesQueue = hazelcast.getQueue(Constants.QUEUE_LOCATION);
 //        merchantRulesQueue = hazelcast.getQueue(Constants.QUEUE_MERCHANT);
 //        paymentRulesQueue  = hazelcast.getQueue(Constants.QUEUE_CREDITRULES);
@@ -74,19 +78,11 @@ public class Launcher {
         return result;
     }
 
-
-
     public static void main(String[] args) {
         Launcher main = new Launcher();
         main.init();
 
         IMap<String, Transaction> preAuthMap = main.hazelcast.getMap(Constants.MAP_PREAUTH);
-        System.out.println("initial PreAuth size " + preAuthMap.size());
-
-        // Fraud and/or payment rules are invoked by the MapListener
-        // TODO: Remove this when new workflow via PreauthMapListener is fully implemented
-//        preAuthMap.addEntryListener(new TransactionMapListener(main.hazelcast),
-//                true);
 
         preAuthMap.addEntryListener(new PreauthMapListener(main.hazelcast), true);
 
@@ -124,16 +120,22 @@ public class Launcher {
 
         RuleSetExecutor locationBasedRuleExecutor = new RuleSetExecutor(Constants.QUEUE_LOCATION,
                 new LocationBasedRuleSet(), Constants.MAP_PPFD_RESULTS);
-        Set<Member> members = main.hazelcast.getCluster().getMembers();
+        //Set<Member> members = main.hazelcast.getCluster().getMembers();
         main.distributedES.executeOnAllMembers(locationBasedRuleExecutor);
-
-        System.out.println("Submitted RuleSetExecutor to distributed executor service");
+        System.out.println("Submitted RuleSetExecutor for location rules to distributed executor service (all members)");
 
         // TODO: add executors for Merchant rules, Credit rules
 
         AggregationExecutor aggregator = new AggregationExecutor();
         main.distributedES.executeOnAllMembers(aggregator);
-        System.out.println("Submitted AggregationExecutor to distributed executor service");
+        System.out.println("Submitted AggregationExecutor to distributed executor service (all members)");
+
+        try {
+            main.merchantMap.get("1");
+            main.accountMap.get("1"); // invalid key, done just to trigger MapLoader to begin caching the map
+        } catch (Exception e) {
+            ; // ignore
+        }
 
 
         // This has no purpose other than monitoring the backlog during debug
