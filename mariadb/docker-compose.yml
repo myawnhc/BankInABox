@@ -1,0 +1,13 @@
+version: '2'
+services:
+  mariadb:
+    build: .
+    image: "mariadb-bankinabox-image"
+    container_name: bankinabox-database
+    environment:
+      - MYSQL_DATABASE=BankInABox
+      - MYSQL_ROOT_PASSWORD=admin
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./data/backup:/data/backup
