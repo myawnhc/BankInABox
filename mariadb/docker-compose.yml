@@ -2,7 +2,7 @@ version: '2'
 services:
   mariadb:
     build: .
-    image: "mariadb-bankinabox-image"
+    image: "myawn/mariadb-bankinabox-image"
     container_name: bankinabox-database
     environment:
       - MYSQL_DATABASE=BankInABox

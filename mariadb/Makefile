@@ -1,7 +1,7 @@
 # mariadb makefile
 
 # Environment Variables
-IMAGE = mariadb-bankinabox-image
+IMAGE = myawn/mariadb-bankinabox-image
 CONTAINER = bankinabox-database
 
 .PHONY: up

@@ -8902,3 +8902,237 @@
 20/08/2019 22:42:16 :: [console] Sorted 14 cache queues in 0.000031 seconds
 20/08/2019 22:42:17 :: [tagdb] Tagging stats.counters.statsd.metrics_received.rate
 20/08/2019 22:42:17 :: [tagdb] Error tagging stats.counters.statsd.metrics_received.rate: Error response 404 from http://127.0.0.1:80/tags/tagMultiSeries
+20/08/2019 22:42:25 :: [listener] MetricLineReceiver connection with 127.0.0.1:48244 established
+20/08/2019 22:42:25 :: [listener] MetricLineReceiver connection with 127.0.0.1:48244 closed cleanly
+20/08/2019 22:42:26 :: [listener] MetricLineReceiver connection with 127.0.0.1:48246 established
+20/08/2019 22:42:26 :: [listener] MetricLineReceiver connection with 127.0.0.1:48246 closed cleanly
+20/08/2019 22:42:26 :: [console] Queue consumed in 10.028190 seconds
+20/08/2019 22:42:26 :: [console] Sorted 14 cache queues in 0.000061 seconds
+20/08/2019 22:42:36 :: [listener] MetricLineReceiver connection with 127.0.0.1:48258 established
+20/08/2019 22:42:36 :: [listener] MetricLineReceiver connection with 127.0.0.1:48258 closed cleanly
+20/08/2019 22:42:36 :: [console] Queue consumed in 9.096594 seconds
+20/08/2019 22:42:36 :: [console] Sorted 14 cache queues in 0.000029 seconds
+20/08/2019 22:42:46 :: [listener] MetricLineReceiver connection with 127.0.0.1:48270 established
+20/08/2019 22:42:46 :: [listener] MetricLineReceiver connection with 127.0.0.1:48270 closed cleanly
+20/08/2019 22:42:46 :: [console] Queue consumed in 10.059312 seconds
+20/08/2019 22:42:46 :: [console] Sorted 14 cache queues in 0.000045 seconds
+20/08/2019 22:42:55 :: [listener] MetricLineReceiver connection with 127.0.0.1:48278 established
+20/08/2019 22:42:55 :: [listener] MetricLineReceiver connection with 127.0.0.1:48278 closed cleanly
+20/08/2019 22:42:56 :: [listener] MetricLineReceiver connection with 127.0.0.1:48280 established
+20/08/2019 22:42:56 :: [listener] MetricLineReceiver connection with 127.0.0.1:48280 closed cleanly
+20/08/2019 22:42:56 :: [console] Queue consumed in 10.037731 seconds
+20/08/2019 22:42:56 :: [console] Sorted 14 cache queues in 0.000033 seconds
+20/08/2019 22:42:57 :: [console] Queue consumed in 1.060435 seconds
+20/08/2019 22:42:57 :: [console] Sorted 18 cache queues in 0.000037 seconds
+20/08/2019 22:43:06 :: [listener] MetricLineReceiver connection with 127.0.0.1:48286 established
+20/08/2019 22:43:06 :: [listener] MetricLineReceiver connection with 127.0.0.1:48286 closed cleanly
+20/08/2019 22:43:06 :: [console] Queue consumed in 9.083612 seconds
+20/08/2019 22:43:06 :: [console] Sorted 14 cache queues in 0.000027 seconds
+20/08/2019 22:43:16 :: [listener] MetricLineReceiver connection with 127.0.0.1:48298 established
+20/08/2019 22:43:16 :: [listener] MetricLineReceiver connection with 127.0.0.1:48298 closed cleanly
+20/08/2019 22:43:16 :: [console] Queue consumed in 10.093470 seconds
+20/08/2019 22:43:16 :: [console] Sorted 14 cache queues in 0.000037 seconds
+20/08/2019 22:43:16 :: [tagdb] Tagging stats.statsd.numStats
+20/08/2019 22:43:16 :: [tagdb] Error tagging stats.statsd.numStats: Error response 404 from http://127.0.0.1:80/tags/tagMultiSeries
+20/08/2019 22:43:25 :: [listener] MetricLineReceiver connection with 127.0.0.1:48312 established
+20/08/2019 22:43:25 :: [listener] MetricLineReceiver connection with 127.0.0.1:48312 closed cleanly
+20/08/2019 22:43:26 :: [listener] MetricLineReceiver connection with 127.0.0.1:48314 established
+20/08/2019 22:43:26 :: [listener] MetricLineReceiver connection with 127.0.0.1:48314 closed cleanly
+20/08/2019 22:43:26 :: [console] Queue consumed in 10.047542 seconds
+20/08/2019 22:43:26 :: [console] Sorted 14 cache queues in 0.000049 seconds
+20/08/2019 22:43:36 :: [listener] MetricLineReceiver connection with 127.0.0.1:48326 established
+20/08/2019 22:43:36 :: [listener] MetricLineReceiver connection with 127.0.0.1:48326 closed cleanly
+20/08/2019 22:43:36 :: [console] Queue consumed in 10.103189 seconds
+20/08/2019 22:43:36 :: [console] Sorted 14 cache queues in 0.000046 seconds
+20/08/2019 22:43:46 :: [listener] MetricLineReceiver connection with 127.0.0.1:48338 established
+20/08/2019 22:43:46 :: [listener] MetricLineReceiver connection with 127.0.0.1:48338 closed cleanly
+20/08/2019 22:43:46 :: [console] Queue consumed in 10.091488 seconds
+20/08/2019 22:43:46 :: [console] Sorted 14 cache queues in 0.000041 seconds
+20/08/2019 22:43:55 :: [listener] MetricLineReceiver connection with 127.0.0.1:48340 established
+20/08/2019 22:43:55 :: [listener] MetricLineReceiver connection with 127.0.0.1:48340 closed cleanly
+20/08/2019 22:43:56 :: [listener] MetricLineReceiver connection with 127.0.0.1:48342 established
+20/08/2019 22:43:56 :: [listener] MetricLineReceiver connection with 127.0.0.1:48342 closed cleanly
+20/08/2019 22:43:56 :: [console] Queue consumed in 10.029807 seconds
+20/08/2019 22:43:56 :: [console] Sorted 14 cache queues in 0.000026 seconds
+20/08/2019 22:43:57 :: [console] Queue consumed in 1.035433 seconds
+20/08/2019 22:43:57 :: [console] Sorted 18 cache queues in 0.000030 seconds
+20/08/2019 22:44:06 :: [listener] MetricLineReceiver connection with 127.0.0.1:48354 established
+20/08/2019 22:44:06 :: [listener] MetricLineReceiver connection with 127.0.0.1:48354 closed cleanly
+20/08/2019 22:44:06 :: [console] Queue consumed in 9.061077 seconds
+20/08/2019 22:44:06 :: [console] Sorted 14 cache queues in 0.000028 seconds
+20/08/2019 22:44:16 :: [listener] MetricLineReceiver connection with 127.0.0.1:48366 established
+20/08/2019 22:44:16 :: [listener] MetricLineReceiver connection with 127.0.0.1:48366 closed cleanly
+20/08/2019 22:44:16 :: [console] Queue consumed in 10.071915 seconds
+20/08/2019 22:44:16 :: [console] Sorted 14 cache queues in 0.000069 seconds
+20/08/2019 22:44:17 :: [tagdb] Tagging stats.statsd.graphiteStats.flush_length
+20/08/2019 22:44:17 :: [tagdb] Error tagging stats.statsd.graphiteStats.flush_length: Error response 404 from http://127.0.0.1:80/tags/tagMultiSeries
+20/08/2019 22:44:25 :: [listener] MetricLineReceiver connection with 127.0.0.1:48380 established
+20/08/2019 22:44:25 :: [listener] MetricLineReceiver connection with 127.0.0.1:48380 closed cleanly
+20/08/2019 22:44:26 :: [listener] MetricLineReceiver connection with 127.0.0.1:48382 established
+20/08/2019 22:44:26 :: [listener] MetricLineReceiver connection with 127.0.0.1:48382 closed cleanly
+20/08/2019 22:44:26 :: [console] Queue consumed in 10.044700 seconds
+20/08/2019 22:44:26 :: [console] Sorted 14 cache queues in 0.000028 seconds
+20/08/2019 22:44:36 :: [listener] MetricLineReceiver connection with 127.0.0.1:48394 established
+20/08/2019 22:44:36 :: [listener] MetricLineReceiver connection with 127.0.0.1:48394 closed cleanly
+20/08/2019 22:44:36 :: [console] Queue consumed in 10.058209 seconds
+20/08/2019 22:44:36 :: [console] Sorted 14 cache queues in 0.000043 seconds
+20/08/2019 22:44:46 :: [listener] MetricLineReceiver connection with 127.0.0.1:48400 established
+20/08/2019 22:44:46 :: [listener] MetricLineReceiver connection with 127.0.0.1:48400 closed cleanly
+20/08/2019 22:44:46 :: [console] Queue consumed in 9.083867 seconds
+20/08/2019 22:44:46 :: [console] Sorted 14 cache queues in 0.000042 seconds
+20/08/2019 22:44:55 :: [listener] MetricLineReceiver connection with 127.0.0.1:48408 established
+20/08/2019 22:44:55 :: [listener] MetricLineReceiver connection with 127.0.0.1:48408 closed cleanly
+20/08/2019 22:44:56 :: [listener] MetricLineReceiver connection with 127.0.0.1:48410 established
+20/08/2019 22:44:56 :: [listener] MetricLineReceiver connection with 127.0.0.1:48410 closed cleanly
+20/08/2019 22:44:56 :: [console] Queue consumed in 10.047668 seconds
+20/08/2019 22:44:56 :: [console] Sorted 14 cache queues in 0.000070 seconds
+20/08/2019 22:44:58 :: [console] Queue consumed in 2.053614 seconds
+20/08/2019 22:44:58 :: [console] Sorted 18 cache queues in 0.000027 seconds
+20/08/2019 22:45:06 :: [listener] MetricLineReceiver connection with 127.0.0.1:48422 established
+20/08/2019 22:45:06 :: [listener] MetricLineReceiver connection with 127.0.0.1:48422 closed cleanly
+20/08/2019 22:45:06 :: [console] Queue consumed in 8.081097 seconds
+20/08/2019 22:45:06 :: [console] Sorted 14 cache queues in 0.000108 seconds
+20/08/2019 22:45:16 :: [listener] MetricLineReceiver connection with 127.0.0.1:48434 established
+20/08/2019 22:45:16 :: [listener] MetricLineReceiver connection with 127.0.0.1:48434 closed cleanly
+20/08/2019 22:45:16 :: [console] Queue consumed in 10.076815 seconds
+20/08/2019 22:45:16 :: [console] Sorted 14 cache queues in 0.000044 seconds
+20/08/2019 22:45:16 :: [tagdb] Tagging stats.statsd.graphiteStats.calculationtime
+20/08/2019 22:45:16 :: [tagdb] Error tagging stats.statsd.graphiteStats.calculationtime: Error response 404 from http://127.0.0.1:80/tags/tagMultiSeries
+20/08/2019 22:45:25 :: [listener] MetricLineReceiver connection with 127.0.0.1:48448 established
+20/08/2019 22:45:25 :: [listener] MetricLineReceiver connection with 127.0.0.1:48448 closed cleanly
+20/08/2019 22:45:26 :: [listener] MetricLineReceiver connection with 127.0.0.1:48450 established
+20/08/2019 22:45:26 :: [listener] MetricLineReceiver connection with 127.0.0.1:48450 closed cleanly
+20/08/2019 22:45:26 :: [console] Queue consumed in 10.049197 seconds
+20/08/2019 22:45:26 :: [console] Sorted 14 cache queues in 0.000116 seconds
+20/08/2019 22:45:36 :: [listener] MetricLineReceiver connection with 127.0.0.1:48462 established
+20/08/2019 22:45:36 :: [listener] MetricLineReceiver connection with 127.0.0.1:48462 closed cleanly
+20/08/2019 22:45:36 :: [console] Queue consumed in 10.069863 seconds
+20/08/2019 22:45:36 :: [console] Sorted 14 cache queues in 0.000054 seconds
+20/08/2019 22:45:46 :: [listener] MetricLineReceiver connection with 127.0.0.1:48470 established
+20/08/2019 22:45:46 :: [listener] MetricLineReceiver connection with 127.0.0.1:48470 closed cleanly
+20/08/2019 22:45:46 :: [console] Queue consumed in 10.058048 seconds
+20/08/2019 22:45:46 :: [console] Sorted 14 cache queues in 0.000037 seconds
+20/08/2019 22:45:55 :: [listener] MetricLineReceiver connection with 127.0.0.1:48476 established
+20/08/2019 22:45:55 :: [listener] MetricLineReceiver connection with 127.0.0.1:48476 closed cleanly
+20/08/2019 22:45:56 :: [listener] MetricLineReceiver connection with 127.0.0.1:48478 established
+20/08/2019 22:45:56 :: [listener] MetricLineReceiver connection with 127.0.0.1:48478 closed cleanly
+20/08/2019 22:45:56 :: [console] Queue consumed in 10.033056 seconds
+20/08/2019 22:45:56 :: [console] Sorted 14 cache queues in 0.000027 seconds
+20/08/2019 22:45:57 :: [console] Queue consumed in 1.042116 seconds
+20/08/2019 22:45:57 :: [console] Sorted 18 cache queues in 0.000030 seconds
+20/08/2019 22:46:06 :: [listener] MetricLineReceiver connection with 127.0.0.1:48490 established
+20/08/2019 22:46:06 :: [listener] MetricLineReceiver connection with 127.0.0.1:48490 closed cleanly
+20/08/2019 22:46:06 :: [console] Queue consumed in 9.065143 seconds
+20/08/2019 22:46:06 :: [console] Sorted 14 cache queues in 0.000049 seconds
+20/08/2019 22:46:16 :: [listener] MetricLineReceiver connection with 127.0.0.1:48502 established
+20/08/2019 22:46:16 :: [listener] MetricLineReceiver connection with 127.0.0.1:48502 closed cleanly
+20/08/2019 22:46:16 :: [console] Queue consumed in 10.072955 seconds
+20/08/2019 22:46:16 :: [console] Sorted 14 cache queues in 0.000077 seconds
+20/08/2019 22:46:16 :: [tagdb] Tagging stats.gauges.statsd.timestamp_lag
+20/08/2019 22:46:16 :: [tagdb] Error tagging stats.gauges.statsd.timestamp_lag: Error response 404 from http://127.0.0.1:80/tags/tagMultiSeries
+20/08/2019 22:46:25 :: [listener] MetricLineReceiver connection with 127.0.0.1:48516 established
+20/08/2019 22:46:25 :: [listener] MetricLineReceiver connection with 127.0.0.1:48516 closed cleanly
+20/08/2019 22:46:26 :: [listener] MetricLineReceiver connection with 127.0.0.1:48518 established
+20/08/2019 22:46:26 :: [listener] MetricLineReceiver connection with 127.0.0.1:48518 closed cleanly
+20/08/2019 22:46:26 :: [console] Queue consumed in 10.037015 seconds
+20/08/2019 22:46:26 :: [console] Sorted 14 cache queues in 0.000054 seconds
+20/08/2019 22:46:36 :: [listener] MetricLineReceiver connection with 127.0.0.1:48530 established
+20/08/2019 22:46:36 :: [listener] MetricLineReceiver connection with 127.0.0.1:48530 closed cleanly
+20/08/2019 22:46:36 :: [console] Queue consumed in 10.067553 seconds
+20/08/2019 22:46:36 :: [console] Sorted 14 cache queues in 0.000055 seconds
+20/08/2019 22:46:46 :: [listener] MetricLineReceiver connection with 127.0.0.1:48542 established
+20/08/2019 22:46:46 :: [listener] MetricLineReceiver connection with 127.0.0.1:48542 closed cleanly
+20/08/2019 22:46:46 :: [console] Queue consumed in 10.070921 seconds
+20/08/2019 22:46:46 :: [console] Sorted 14 cache queues in 0.000112 seconds
+20/08/2019 22:46:55 :: [listener] MetricLineReceiver connection with 127.0.0.1:48544 established
+20/08/2019 22:46:55 :: [listener] MetricLineReceiver connection with 127.0.0.1:48544 closed cleanly
+20/08/2019 22:46:56 :: [listener] MetricLineReceiver connection with 127.0.0.1:48546 established
+20/08/2019 22:46:56 :: [listener] MetricLineReceiver connection with 127.0.0.1:48546 closed cleanly
+20/08/2019 22:46:56 :: [console] Queue consumed in 10.036021 seconds
+20/08/2019 22:46:56 :: [console] Sorted 14 cache queues in 0.000023 seconds
+20/08/2019 22:46:57 :: [console] Queue consumed in 1.050885 seconds
+20/08/2019 22:46:57 :: [console] Sorted 18 cache queues in 0.000028 seconds
+20/08/2019 22:47:06 :: [listener] MetricLineReceiver connection with 127.0.0.1:48558 established
+20/08/2019 22:47:06 :: [listener] MetricLineReceiver connection with 127.0.0.1:48558 closed cleanly
+20/08/2019 22:47:06 :: [console] Queue consumed in 8.103213 seconds
+20/08/2019 22:47:06 :: [console] Sorted 14 cache queues in 0.000036 seconds
+20/08/2019 22:47:16 :: [listener] MetricLineReceiver connection with 127.0.0.1:48570 established
+20/08/2019 22:47:16 :: [listener] MetricLineReceiver connection with 127.0.0.1:48570 closed cleanly
+20/08/2019 22:47:16 :: [console] Queue consumed in 10.061933 seconds
+20/08/2019 22:47:16 :: [console] Sorted 14 cache queues in 0.000075 seconds
+20/08/2019 22:47:16 :: [tagdb] Tagging stats.statsd.graphiteStats.last_flush
+20/08/2019 22:47:16 :: [tagdb] Error tagging stats.statsd.graphiteStats.last_flush: Error response 404 from http://127.0.0.1:80/tags/tagMultiSeries
+20/08/2019 22:47:25 :: [listener] MetricLineReceiver connection with 127.0.0.1:48584 established
+20/08/2019 22:47:25 :: [listener] MetricLineReceiver connection with 127.0.0.1:48584 closed cleanly
+20/08/2019 22:47:26 :: [listener] MetricLineReceiver connection with 127.0.0.1:48586 established
+20/08/2019 22:47:26 :: [listener] MetricLineReceiver connection with 127.0.0.1:48586 closed cleanly
+20/08/2019 22:47:26 :: [console] Queue consumed in 10.029592 seconds
+20/08/2019 22:47:26 :: [console] Sorted 14 cache queues in 0.000055 seconds
+20/08/2019 22:47:36 :: [listener] MetricLineReceiver connection with 127.0.0.1:48598 established
+20/08/2019 22:47:36 :: [listener] MetricLineReceiver connection with 127.0.0.1:48598 closed cleanly
+20/08/2019 22:47:36 :: [console] Queue consumed in 10.074582 seconds
+20/08/2019 22:47:36 :: [console] Sorted 14 cache queues in 0.000125 seconds
+20/08/2019 22:47:46 :: [listener] MetricLineReceiver connection with 127.0.0.1:48610 established
+20/08/2019 22:47:46 :: [listener] MetricLineReceiver connection with 127.0.0.1:48610 closed cleanly
+20/08/2019 22:47:46 :: [console] Queue consumed in 10.106646 seconds
+20/08/2019 22:47:46 :: [console] Sorted 14 cache queues in 0.000074 seconds
+20/08/2019 22:47:55 :: [listener] MetricLineReceiver connection with 127.0.0.1:48612 established
+20/08/2019 22:47:55 :: [listener] MetricLineReceiver connection with 127.0.0.1:48612 closed cleanly
+20/08/2019 22:47:56 :: [listener] MetricLineReceiver connection with 127.0.0.1:48614 established
+20/08/2019 22:47:56 :: [listener] MetricLineReceiver connection with 127.0.0.1:48614 closed cleanly
+20/08/2019 22:47:56 :: [console] Queue consumed in 10.019261 seconds
+20/08/2019 22:47:56 :: [console] Sorted 14 cache queues in 0.000025 seconds
+20/08/2019 22:47:57 :: [console] Queue consumed in 1.036458 seconds
+20/08/2019 22:47:57 :: [console] Sorted 18 cache queues in 0.000032 seconds
+20/08/2019 22:48:06 :: [listener] MetricLineReceiver connection with 127.0.0.1:48626 established
+20/08/2019 22:48:06 :: [listener] MetricLineReceiver connection with 127.0.0.1:48626 closed cleanly
+20/08/2019 22:48:06 :: [console] Queue consumed in 9.060149 seconds
+20/08/2019 22:48:06 :: [console] Sorted 14 cache queues in 0.000053 seconds
+20/08/2019 22:48:06 :: [tagdb] Tagging stats.statsd.graphiteStats.last_exception
+20/08/2019 22:48:06 :: [tagdb] Error tagging stats.statsd.graphiteStats.last_exception: Error response 404 from http://127.0.0.1:80/tags/tagMultiSeries
+20/08/2019 22:48:16 :: [listener] MetricLineReceiver connection with 127.0.0.1:48640 established
+20/08/2019 22:48:16 :: [listener] MetricLineReceiver connection with 127.0.0.1:48640 closed cleanly
+20/08/2019 22:48:16 :: [console] Queue consumed in 10.059152 seconds
+20/08/2019 22:48:16 :: [console] Sorted 14 cache queues in 0.000022 seconds
+20/08/2019 22:48:25 :: [listener] MetricLineReceiver connection with 127.0.0.1:48652 established
+20/08/2019 22:48:25 :: [listener] MetricLineReceiver connection with 127.0.0.1:48652 closed cleanly
+20/08/2019 22:48:26 :: [listener] MetricLineReceiver connection with 127.0.0.1:48654 established
+20/08/2019 22:48:26 :: [listener] MetricLineReceiver connection with 127.0.0.1:48654 closed cleanly
+20/08/2019 22:48:26 :: [console] Queue consumed in 10.018323 seconds
+20/08/2019 22:48:26 :: [console] Sorted 14 cache queues in 0.000075 seconds
+20/08/2019 22:48:36 :: [listener] MetricLineReceiver connection with 127.0.0.1:48666 established
+20/08/2019 22:48:36 :: [listener] MetricLineReceiver connection with 127.0.0.1:48666 closed cleanly
+20/08/2019 22:48:36 :: [console] Queue consumed in 10.081718 seconds
+20/08/2019 22:48:36 :: [console] Sorted 14 cache queues in 0.000072 seconds
+20/08/2019 22:48:46 :: [listener] MetricLineReceiver connection with 127.0.0.1:48678 established
+20/08/2019 22:48:46 :: [listener] MetricLineReceiver connection with 127.0.0.1:48678 closed cleanly
+20/08/2019 22:48:46 :: [console] Queue consumed in 10.066732 seconds
+20/08/2019 22:48:46 :: [console] Sorted 14 cache queues in 0.000078 seconds
+20/08/2019 22:48:55 :: [listener] MetricLineReceiver connection with 127.0.0.1:48680 established
+20/08/2019 22:48:55 :: [listener] MetricLineReceiver connection with 127.0.0.1:48680 closed cleanly
+20/08/2019 22:48:56 :: [listener] MetricLineReceiver connection with 127.0.0.1:48682 established
+20/08/2019 22:48:56 :: [listener] MetricLineReceiver connection with 127.0.0.1:48682 closed cleanly
+20/08/2019 22:48:56 :: [console] Queue consumed in 10.027714 seconds
+20/08/2019 22:48:56 :: [console] Sorted 14 cache queues in 0.000027 seconds
+20/08/2019 22:48:57 :: [console] Queue consumed in 1.026651 seconds
+20/08/2019 22:48:57 :: [console] Sorted 18 cache queues in 0.000057 seconds
+20/08/2019 22:49:06 :: [listener] MetricLineReceiver connection with 127.0.0.1:48694 established
+20/08/2019 22:49:06 :: [listener] MetricLineReceiver connection with 127.0.0.1:48694 closed cleanly
+20/08/2019 22:49:06 :: [console] Queue consumed in 9.069230 seconds
+20/08/2019 22:49:06 :: [console] Sorted 14 cache queues in 0.000073 seconds
+20/08/2019 22:49:06 :: [tagdb] Tagging stats.counters.statsd.metrics_received.rate
+20/08/2019 22:49:06 :: [tagdb] Error tagging stats.counters.statsd.metrics_received.rate: Error response 404 from http://127.0.0.1:80/tags/tagMultiSeries
+20/08/2019 22:49:16 :: [listener] MetricLineReceiver connection with 127.0.0.1:48708 established
+20/08/2019 22:49:16 :: [listener] MetricLineReceiver connection with 127.0.0.1:48708 closed cleanly
+20/08/2019 22:49:16 :: [console] Queue consumed in 10.071267 seconds
+20/08/2019 22:49:16 :: [console] Sorted 14 cache queues in 0.000074 seconds
+20/08/2019 22:49:25 :: [listener] MetricLineReceiver connection with 127.0.0.1:48720 established
+20/08/2019 22:49:25 :: [listener] MetricLineReceiver connection with 127.0.0.1:48720 closed cleanly
+20/08/2019 22:49:26 :: [listener] MetricLineReceiver connection with 127.0.0.1:48722 established
+20/08/2019 22:49:26 :: [listener] MetricLineReceiver connection with 127.0.0.1:48722 closed cleanly
+20/08/2019 22:49:26 :: [console] Queue consumed in 10.027956 seconds
+20/08/2019 22:49:26 :: [console] Sorted 14 cache queues in 0.000074 seconds
+20/08/2019 22:49:36 :: [listener] MetricLineReceiver connection with 127.0.0.1:48734 established
+20/08/2019 22:49:36 :: [listener] MetricLineReceiver connection with 127.0.0.1:48734 closed cleanly
+20/08/2019 22:49:36 :: [console] Queue consumed in 10.067918 seconds
+20/08/2019 22:49:36 :: [console] Sorted 14 cache queues in 0.000071 seconds
