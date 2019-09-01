@@ -18,7 +18,8 @@
         <join>
             <multicast enabled="false"/>
             <tcp-ip enabled="true">
-                <interface>127.0.0.1</interface>
+                <!-- Must be passed via -Dip4.addr on command line -->
+                <interface>${ip4.addr}</interface>
             </tcp-ip>
         </join>
     </network>
