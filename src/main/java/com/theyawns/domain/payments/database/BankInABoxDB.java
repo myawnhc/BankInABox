@@ -2,6 +2,8 @@ package com.theyawns.domain.payments.database;
 
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
+import com.theyawns.launcher.BankInABoxProperties;
+
 import java.sql.*;
 
 public class BankInABoxDB {
@@ -15,9 +17,13 @@ public class BankInABoxDB {
     protected void establishConnection()  {
         try {
             // Register the driver, we don't need to actually assign the class to anything
-            Class.forName("org.mariadb.jdbc.Driver");
+            Class.forName(BankInABoxProperties.JDBC_DRIVER_CLASS);
+                    //"org.mariadb.jdbc.Driver");
+            String jdbcURL = "jdbc:" + BankInABoxProperties.JDBC_PROTOCOL + "//" +
+                    BankInABoxProperties.JDBC_HOST + ":" + BankInABoxProperties.JDBC_PORT + "/";
+            System.out.println("JDBC URL is " + jdbcURL);
             conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/", "root", "");
+                    jdbcURL, BankInABoxProperties.JDBC_USER, BankInABoxProperties.JDBC_PASS);
             log.info("Established connection to MySQL/MariaDB server");
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();

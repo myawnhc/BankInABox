@@ -20,6 +20,14 @@ public class BankInABoxProperties {
     public static int MERCHANT_COUNT      = 151;
     public static int ACCOUNT_COUNT       = 1001;
 
+    public static String JDBC_DRIVER_CLASS;
+    public static String JDBC_DB_NAME;
+    public static String JDBC_PROTOCOL;
+    public static String JDBC_HOST;
+    public static String JDBC_PORT;
+    public static String JDBC_USER;
+    public static String JDBC_PASS;
+
     static {
         loadProperties();
     }
@@ -83,6 +91,14 @@ public class BankInABoxProperties {
             log.info("Missing TxnGen_Account_Count for TransactionGenerator.");
         }
         ACCOUNT_COUNT = Integer.parseInt(temp);
+
+        JDBC_DRIVER_CLASS = properties.getProperty("JDBC_DRIVER_CLASS");
+        JDBC_DB_NAME = properties.getProperty("JDBC_DB_NAME");
+        JDBC_PROTOCOL = properties.getProperty("JDBC_PROTOCOL");
+        JDBC_HOST = properties.getProperty("JDBC_HOST");
+        JDBC_PORT = properties.getProperty("JDBC_PORT");
+        JDBC_USER = properties.getProperty("JDBC_USER");
+        JDBC_PASS = properties.getProperty("JDBC_PASS");
 
     }
 }
