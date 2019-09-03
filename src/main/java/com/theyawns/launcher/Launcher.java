@@ -17,6 +17,7 @@ import com.theyawns.perfmon.PerfMonitor;
 import com.theyawns.pipelines.AdjustMerchantTransactionAverage;
 import com.theyawns.rules.TransactionEvaluationResult;
 import com.theyawns.rulesets.LocationBasedRuleSet;
+import com.theyawns.rulesets.MerchantRuleSet;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -124,7 +125,12 @@ public class Launcher {
         main.distributedES.executeOnAllMembers(locationBasedRuleExecutor);
         System.out.println("Submitted RuleSetExecutor for location rules to distributed executor service (all members)");
 
-        // TODO: add executors for Merchant rules, Credit rules
+        RuleSetExecutor merchantRuleSetExecutor = new RuleSetExecutor(Constants.QUEUE_MERCHANT,
+                new MerchantRuleSet(), Constants.MAP_PPFD_RESULTS);
+        main.distributedES.executeOnAllMembers(merchantRuleSetExecutor);
+        System.out.println("Submitted RuleSetExecutor for merchant rules to distributed executor service (all members)");
+
+        // TODO: add executors for Credit rules, any others
 
         AggregationExecutor aggregator = new AggregationExecutor();
         main.distributedES.executeOnAllMembers(aggregator);
@@ -132,7 +138,7 @@ public class Launcher {
 
         try {
             main.merchantMap.get("1");
-            main.accountMap.get("1"); // invalid key, done just to trigger MapLoader to begin caching the map
+            main.accountMap.get("1"); // invalid key, done just to trigger MapLoader to begin caching the maps
         } catch (Exception e) {
             ; // ignore
         }

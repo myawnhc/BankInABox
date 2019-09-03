@@ -19,7 +19,7 @@ public class BankInABoxDB {
             // Register the driver, we don't need to actually assign the class to anything
             Class.forName(BankInABoxProperties.JDBC_DRIVER_CLASS);
                     //"org.mariadb.jdbc.Driver");
-            String jdbcURL = "jdbc:" + BankInABoxProperties.JDBC_PROTOCOL + "//" +
+            String jdbcURL = "jdbc:" + BankInABoxProperties.JDBC_PROTOCOL + "://" +
                     BankInABoxProperties.JDBC_HOST + ":" + BankInABoxProperties.JDBC_PORT + "/";
             System.out.println("JDBC URL is " + jdbcURL);
             conn = DriverManager.getConnection(
