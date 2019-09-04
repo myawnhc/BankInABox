@@ -31,7 +31,7 @@ public class MerchantRuleSet extends AbstractRuleSet<Transaction,Double> impleme
 
     @Override
     public RuleSetEvaluationResult<Transaction, Double> apply(Transaction transaction) {
-        System.out.println("MerchantRuleSet.apply()");
+        //System.out.println("MerchantRuleSet.apply()");
         // Process rules.  With this simple rule we can aggregate as we go; more complex rules might
         // need a separate pass over the RERs to produce the RSER.
 

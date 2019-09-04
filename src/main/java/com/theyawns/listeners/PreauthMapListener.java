@@ -79,13 +79,15 @@ public class PreauthMapListener implements
         else if (merchantNum >= 10 && merchantNum <= 20)
             merchant_txn_count_walmart.getAndIncrement();
 
+        // Keep this in sync with the number of rulesets that are active -
+        txn.setRuleSetsToApply(2);
+        preAuthMap.put(txn.getID(), txn);
+
         // TODO: Replace Queues with a ReliableTopic
-        //       OR reenable other Qs when they are needed
         //getPaymentRulesQueue(txn).add(txn);
         getLocationRulesQueue(txn).add(txn);
+        getMerchantRulesQueue(txn).add(txn);
         //preAuthTopic.publish(txn);
-        //getMerchantRulesQueue(txn).add(txn);
-
         //System.out.println("PreauthMapListener distributed transaction to queues");
 
     }

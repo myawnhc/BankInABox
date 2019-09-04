@@ -47,9 +47,10 @@ public class TransactionEvaluationResult implements Serializable {
     public void setRejectingReason(String s) { rejectingReason = s; }
 
     public boolean checkForCompletion() {
-        // is the number of rulesets going to be treated as hard coded?
-        // TODO: since only location ruleset initially active, our first result is also our last, for now
-        boolean complete = true;
-        return complete;
+        int ruleSetsExpected = transaction.getRuleSetsToApply();
+        int ruleSetsCompleted = results.size();
+        // we should probably throw an error if we got more results than expected
+        //System.out.println("TER.checkForCompletion expects " + ruleSetsExpected + " has " + ruleSetsCompleted);
+        return ruleSetsCompleted >= ruleSetsExpected;
     }
 }

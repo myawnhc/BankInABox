@@ -21,6 +21,7 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
 
     private int fraudResult = -1;
     private Boolean paymentResult = Boolean.TRUE;
+    private int ruleSetsToApply;
 
     // Being a little sloppy with encapsulation, will allow direct access to these
 //    public LatencyMetric processingTime = new LatencyMetric();
@@ -79,7 +80,6 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
     public void setFraudResult(int result) {
         fraudResult = result;
     }
-
     public int getFraudResult() {
         return fraudResult;
     }
@@ -87,10 +87,12 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
     public Boolean getPaymentResult() {
         return paymentResult;
     }
-
     public void setPaymentResult(boolean result) {
         paymentResult = result;
     }
+
+    public void setRuleSetsToApply(int count) { ruleSetsToApply = count; }
+    public int getRuleSetsToApply() { return ruleSetsToApply; }
 
     @Override
     public String toString() {
@@ -118,6 +120,7 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         objectDataOutput.writeUTF(location);
         objectDataOutput.writeInt(fraudResult);
         objectDataOutput.writeBoolean(paymentResult);
+        objectDataOutput.writeInt(ruleSetsToApply);
 //        objectDataOutput.writeObject(processingTime);
 //        objectDataOutput.writeObject(endToEndTime);
     }
@@ -131,6 +134,7 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         location = objectDataInput.readUTF();
         fraudResult = objectDataInput.readInt();
         paymentResult = objectDataInput.readBoolean();
+        ruleSetsToApply = objectDataInput.readInt();
 //        processingTime = objectDataInput.readObject(LatencyMetric.class);
 //        endToEndTime = objectDataInput.readObject(LatencyMetric.class);
     }
