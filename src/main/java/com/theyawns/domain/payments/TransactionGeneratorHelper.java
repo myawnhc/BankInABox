@@ -8,6 +8,7 @@ import com.theyawns.launcher.BankInABoxProperties;
 import java.text.DecimalFormat;
 import java.util.Random;
 
+@Deprecated // data is now pre-generated and stored to database
 public class TransactionGeneratorHelper {
 
     private Random countryCodeRandom;

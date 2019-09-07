@@ -78,7 +78,7 @@ public class AccountTable extends AbstractTable
         return count;
     }
 
-    public void createAccountTable()  {
+    public synchronized void createAccountTable()  {
         try {
             createStatement = conn.prepareStatement(createTableString);
             createStatement.executeUpdate();
@@ -90,7 +90,7 @@ public class AccountTable extends AbstractTable
         }
     }
 
-    public void writeToDatabase(Account a) {
+    public synchronized void writeToDatabase(Account a) {
         try {
             if (insertStatement == null) {
                 insertStatement = conn.prepareStatement(insertTemplate);
@@ -107,7 +107,7 @@ public class AccountTable extends AbstractTable
         }
     }
 
-    public Account readFromDatabase(String id) {
+    public synchronized Account readFromDatabase(String id) {
         if (id == null) {
             log.warning("AccountTable.readFromDatabase(): Passed null id, returning null");
             return null;
@@ -167,8 +167,8 @@ public class AccountTable extends AbstractTable
     }
 
     @Override
-    public Iterable<String> loadAllKeys() {
-        log.info("**************************** MapLoader.loadAllKeys() on accountMap");
+    public synchronized Iterable<String> loadAllKeys() {
+        log.info("loadAllKeys() on accountMap");
         if (conn == null)
             establishConnection();
         int size = BankInABoxProperties.ACCOUNT_COUNT;

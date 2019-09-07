@@ -96,7 +96,7 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
 
     @Override
     public String toString() {
-        return "Transaction " + transactionId;
+        return "Transaction " + transactionId + " account " + acctNumber + " merchant " + merchantId + " amount " + amount;
     }
 
     // IdentifiedDataSerializable implementation

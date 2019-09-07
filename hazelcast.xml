@@ -56,13 +56,13 @@
     </serialization>
 
     <map name="merchantMap">
-        <map-store enabled="true" initial-mode="EAGER">
+        <map-store enabled="true" initial-mode="LAZY">
             <class-name>com.theyawns.domain.payments.database.MerchantTable</class-name>
         </map-store>
     </map>
 
     <map name="accountMap">
-        <map-store enabled="true" initial-mode="EAGER">
+        <map-store enabled="true" initial-mode="LAZY">
             <class-name>com.theyawns.domain.payments.database.AccountTable</class-name>
         </map-store>
     </map>
@@ -73,8 +73,8 @@
         <time-to-live-seconds>0</time-to-live-seconds>
         <max-idle-seconds>300</max-idle-seconds>
         <eviction-policy>LRU</eviction-policy>
-        <max-size policy="PER_NODE">10000</max-size>
-        <map-store enabled="false" initial-mode="LAZY">
+        <max-size policy="PER_NODE">200000</max-size>
+        <map-store enabled="true" initial-mode="LAZY">
             <class-name>com.theyawns.domain.payments.database.TransactionTable</class-name>
         </map-store>
     </map>

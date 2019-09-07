@@ -6,6 +6,7 @@ import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
 import com.hazelcast.map.listener.EntryAddedListener;
 
+import com.hazelcast.map.listener.EntryLoadedListener;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Account;
 import com.theyawns.domain.payments.Merchant;
@@ -13,7 +14,8 @@ import com.theyawns.domain.payments.Transaction;
 
 
 public class PreauthMapListener implements
-        EntryAddedListener<String, Transaction> {
+        EntryAddedListener<String, Transaction>,
+        EntryLoadedListener<String, Transaction> {
 
     private final static ILogger log = Logger.getLogger(PreauthMapListener.class);
 
@@ -58,6 +60,10 @@ public class PreauthMapListener implements
         return paymentRulesQueue;
     }
 
+    @Override
+    public void entryLoaded(EntryEvent<String, Transaction> entryEvent) {
+        entryAdded(entryEvent);
+    }
 
     @Override
     public void entryAdded(EntryEvent<String, Transaction> entryEvent) {
@@ -69,9 +75,8 @@ public class PreauthMapListener implements
         // some other scheme
 
         Transaction txn = entryEvent.getValue();
-        Merchant merchant = merchantMap.get(txn.getMerchantId());
         // TODO: add averarge transaction volume to merchants, use to scale
-        //       transactions appropriate.   Until that is in place, we fudge the
+        //       transactions appropriately.   Until that is in place, we fudge the
         //       numbers by using multiple merchants to represent the big two
         int merchantNum = Integer.parseInt(txn.getMerchantId());
         if (merchantNum >= 1 && merchantNum <= 9)

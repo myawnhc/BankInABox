@@ -3,9 +3,7 @@ package com.theyawns.domain.payments.database;
 import com.hazelcast.core.MapLoader;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
-import com.theyawns.domain.payments.Location;
-import com.theyawns.domain.payments.Merchant;
-import com.theyawns.domain.payments.Transaction;
+import com.theyawns.domain.payments.*;
 import com.theyawns.launcher.BankInABoxProperties;
 
 import java.sql.PreparedStatement;
@@ -20,6 +18,8 @@ public class TransactionTable extends AbstractTable
 
     private final static ILogger log = Logger.getLogger(TransactionTable.class);
 
+    private static final DecimalFormat merchantFormat = new DecimalFormat("00000000");       // 8 digit
+    private static final DecimalFormat accountFormat  = new DecimalFormat( "0000000000");    // 10 digit
     private static final DecimalFormat txnFormat      = new DecimalFormat("00000000000000"); // 14 digit
 
     // Index positions
@@ -65,14 +65,29 @@ public class TransactionTable extends AbstractTable
     }
 
     public int generateAndStoreMultiple(int count) {
+        Random acctRandom = new Random(123);
+        Random merchantRandom = new Random(456);
+        //AccountTable aTable = new AccountTable();
+        MerchantTable mTable = new MerchantTable();
         for (int i = 0; i < count; i++) {
-            Transaction t = generate(i);
+            Transaction t = new Transaction(txnFormat.format(i));
+            int acctNum = acctRandom.nextInt(BankInABoxProperties.ACCOUNT_COUNT);
+            String acctId = accountFormat.format(acctNum);
+            int merchantNum = merchantRandom.nextInt(BankInABoxProperties.MERCHANT_COUNT);
+            String merchantId = merchantFormat.format(merchantNum);
+            t.setAccountNumber(acctId);
+            t.setMerchantId(merchantId);
+            Merchant merchant = mTable.load(merchantId);
+            Double txnAmount = merchant.getRandomTransactionAmount(); // Distributed normally around avg txn amount
+            t.setAmount(txnAmount);
+            // TODO: set a geohash location value
+            t.setLocation("");
             writeToDatabase(t);
         }
         return count;
     }
 
-    public void createTransactionTable()  {
+    public synchronized void createTransactionTable()  {
         try {
             createStatement = conn.prepareStatement(createTableString);
             createStatement.executeUpdate();
@@ -84,7 +99,7 @@ public class TransactionTable extends AbstractTable
         }
     }
 
-    public void writeToDatabase(Transaction t) {
+    public synchronized void writeToDatabase(Transaction t) {
         try {
             if (insertStatement == null) {
                 insertStatement = conn.prepareStatement(insertTemplate);
@@ -101,7 +116,7 @@ public class TransactionTable extends AbstractTable
         }
     }
 
-    public Transaction readFromDatabase(String id) {
+    public synchronized Transaction readFromDatabase(String id) {
         if (id == null) {
             log.warning("TransactionTable.readFromDatabase(): Passed null id, returning null");
             return null;
@@ -125,6 +140,7 @@ public class TransactionTable extends AbstractTable
                 t.setAmount(rs.getDouble(AMOUNT));
                 t.setLocation(rs.getString(LOCATION));
             }
+            //System.out.println(t);
             return t;
         } catch (SQLException e) {
             log.info("Error in " + selectStatement.toString() + " --> " + e.getMessage());
@@ -135,13 +151,10 @@ public class TransactionTable extends AbstractTable
     }
 
     // MapLoader interface
-    // TODO: Probably won't use MapLoader for transactions, delete if unneeded
 
     @Override
     public Transaction load(String s) {
         //log.info("TransactionTable.load " + s);
-        if (true)
-        throw new IllegalStateException("Should not be loading transaction table!");
         if (conn == null)
             establishConnection();
         return readFromDatabase(s);
@@ -159,12 +172,14 @@ public class TransactionTable extends AbstractTable
             Transaction t = load(key);
             results.put(key, t);
         });
-
+        if (results.size() != collection.size()) {
+            log.warning(("TransactionTable loadAll: " + collection.size() + " items requested but only " + results.size() + " were found."));
+        }
         return results;
     }
 
     @Override
-    public Iterable<String> loadAllKeys() {
+    public synchronized Iterable<String> loadAllKeys() {
         log.info("TransactionTable.loadAllKeys()");
         if (conn == null)
             establishConnection();
@@ -183,5 +198,4 @@ public class TransactionTable extends AbstractTable
         log.info("MapLoader.loadAllKeys() on Transaction table returning " + allKeys.size() + " keys");
         return allKeys;
     }
-
 }

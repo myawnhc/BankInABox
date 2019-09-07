@@ -17,6 +17,7 @@ import java.util.concurrent.*;
 import static com.theyawns.perfmon.PerfMonitor.Platform;
 import static com.theyawns.perfmon.PerfMonitor.Scope;
 
+@Deprecated // Data is now pre-generated and stored to database
 public class TransactionGenerator {
 
     private final static ILogger log = Logger.getLogger(TransactionGenerator.class);

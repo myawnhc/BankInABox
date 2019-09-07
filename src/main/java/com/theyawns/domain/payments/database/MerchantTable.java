@@ -70,7 +70,7 @@ public class MerchantTable extends AbstractTable
         return count;
     }
 
-    public void createMerchantTable()  {
+    public synchronized void createMerchantTable()  {
         try {
             createStatement = conn.prepareStatement(createTableString);
             createStatement.executeUpdate();
@@ -82,7 +82,7 @@ public class MerchantTable extends AbstractTable
         }
     }
 
-    public void writeToDatabase(Merchant m) {
+    public synchronized void writeToDatabase(Merchant m) {
         try {
             if (insertStatement == null) {
                 insertStatement = conn.prepareStatement(insertTemplate);
@@ -99,7 +99,7 @@ public class MerchantTable extends AbstractTable
         }
     }
 
-    public Merchant readFromDatabase(String id) {
+    private synchronized Merchant readFromDatabase(String id) {
         if (id == null) {
             log.warning("MerchantTable.readFromDatabase(): Passed null id, returning null");
             return null;
@@ -125,7 +125,7 @@ public class MerchantTable extends AbstractTable
             }
             return m;
         } catch (SQLException e) {
-            log.info("Error in " + selectStatement.toString() + " --> " + e.getMessage());
+            log.severe("Error in " + selectStatement.toString() + " --> " + e.getMessage());
             //e.printStackTrace();
             //System.exit(-1);
             return null;
@@ -143,7 +143,7 @@ public class MerchantTable extends AbstractTable
 
     @Override
     public Map<String, Merchant> loadAll(Collection<String> collection) {
-        //log.info("MerchantTable.loadAll() with " + collection.size() + " keys");
+        log.info("MerchantTable.loadAll() with " + collection.size() + " keys");
         if (conn == null)
             establishConnection();
         Map<String,Merchant> results = new HashMap<>(collection.size());
@@ -158,8 +158,8 @@ public class MerchantTable extends AbstractTable
     }
 
     @Override
-    public Iterable<String> loadAllKeys() {
-        //log.info("MapLoader.loadAllKeys() on merchantMap");
+    public synchronized Iterable<String> loadAllKeys() {
+        log.info("MapLoader.loadAllKeys() on merchantMap");
         if (conn == null)
             establishConnection();
         int size = BankInABoxProperties.MERCHANT_COUNT;

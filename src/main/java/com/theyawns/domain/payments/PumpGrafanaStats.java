@@ -93,11 +93,13 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
                     graphite.writeStats("bib.rejectedby." + counter.getName(), counter.get());
                 }
             } else {
-                System.out.println("Skipping rule specific counters because " + rejectionByRule == null ? "null" : "empty");
+                System.out.println("Skipping rule specific counters because " + ((rejectionByRule == null) ? "null" : "empty"));
             }
 
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("** Reinitializing Graphite");
+            graphite = new Graphite();
         }
         //System.out.println("PumpGrafanaStats complete");
     }

@@ -14,7 +14,7 @@ public class BankInABoxDB {
     private static final String createDatabaseString = "create database BankInABox";
     private static final String dropDatabaseString   = "drop database if exists BankInABox";
 
-    protected void establishConnection()  {
+    protected synchronized void establishConnection()  {
         try {
             // Register the driver, we don't need to actually assign the class to anything
             Class.forName(BankInABoxProperties.JDBC_DRIVER_CLASS);
@@ -31,7 +31,7 @@ public class BankInABoxDB {
         }
     }
 
-    protected void createDatabase() {
+    protected synchronized void createDatabase() {
         if (conn == null) {
             throw new IllegalStateException("Must establish connection before creating the database!");
         }

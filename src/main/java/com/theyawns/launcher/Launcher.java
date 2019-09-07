@@ -10,6 +10,7 @@ import com.hazelcast.scheduledexecutor.DuplicateTaskException;
 import com.hazelcast.scheduledexecutor.IScheduledExecutorService;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.*;
+import com.theyawns.domain.payments.database.LazyPreAuthLoader;
 import com.theyawns.executors.AggregationExecutor;
 import com.theyawns.executors.RuleSetExecutor;
 import com.theyawns.listeners.PreauthMapListener;
@@ -43,9 +44,10 @@ public class Launcher {
         ClientConfig cc = new XmlClientConfigBuilder().build();
         cc.setInstanceName("Launcher");
         hazelcast = HazelcastClient.newHazelcastClient(cc);
+        log.info("Getting distributed executor service");
         distributedES = hazelcast.getExecutorService("executor");
-        merchantMap = hazelcast.getMap(Constants.MAP_MERCHANT);
-        accountMap = hazelcast.getMap(Constants.MAP_ACCOUNT);
+
+        log.info("init() complete");
 //        locationRulesQueue = hazelcast.getQueue(Constants.QUEUE_LOCATION);
 //        merchantRulesQueue = hazelcast.getQueue(Constants.QUEUE_MERCHANT);
 //        paymentRulesQueue  = hazelcast.getQueue(Constants.QUEUE_CREDITRULES);
@@ -83,7 +85,13 @@ public class Launcher {
         Launcher main = new Launcher();
         main.init();
 
+        log.info("Getting preAuth map [lazy]");
         IMap<String, Transaction> preAuthMap = main.hazelcast.getMap(Constants.MAP_PREAUTH);
+        log.info("Getting merchant map");  // Eager load will hang here ...
+        main.merchantMap = main.hazelcast.getMap(Constants.MAP_MERCHANT);
+        log.info("Getting account map");
+        main.accountMap = main.hazelcast.getMap(Constants.MAP_ACCOUNT);
+        log.info("Maps initialized");
 
         preAuthMap.addEntryListener(new PreauthMapListener(main.hazelcast), true);
 
@@ -102,7 +110,7 @@ public class Launcher {
         //main.distributedES.submit(merchantAvgTask);
         // This is a Jet job so doesn't need to run in the IMDG cluster ...
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        executor.submit(merchantAvgTask);
+        // TODO:  executor.submit(merchantAvgTask);
 
         IScheduledExecutorService dses = main.hazelcast.getScheduledExecutorService("scheduledExecutor");
         //ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
@@ -136,23 +144,48 @@ public class Launcher {
         main.distributedES.executeOnAllMembers(aggregator);
         System.out.println("Submitted AggregationExecutor to distributed executor service (all members)");
 
-        try {
-            main.merchantMap.get("1");
-            main.accountMap.get("1"); // invalid key, done just to trigger MapLoader to begin caching the maps
-        } catch (Exception e) {
-            ; // ignore
+//        log.info("")
+//        try {
+//            main.merchantMap.get("1");
+//            main.accountMap.get("1"); // invalid key, done just to trigger MapLoader to begin caching the maps
+//        } catch (Exception e) {
+//            ; // ignore
+//        }
+
+        log.info("Waiting for pre-loads (Account and Merchant tables)");
+        while (true) {
+            // Wait until preload of Merchant and Account maps are done before starting load into preAuth
+            log.info(main.merchantMap.size() + " of " + BankInABoxProperties.MERCHANT_COUNT + " merchants"); // Lazy load will hang here
+            log.info(main.accountMap.size() + " of " + BankInABoxProperties.ACCOUNT_COUNT + " accounts");
+            if (main.merchantMap.size() >= BankInABoxProperties.MERCHANT_COUNT &&
+                main.accountMap.size() >= BankInABoxProperties.ACCOUNT_COUNT)
+                break;
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
         }
+        log.info("Beginning transaction load");
+        LazyPreAuthLoader loader = new LazyPreAuthLoader();
+        //loader.run();
+        main.distributedES.submit(loader);
+        //log.info("All transactions loaded to preAuth");
 
 
         // This has no purpose other than monitoring the backlog during debug
-//        while (true) {
-//            try {
-//                Thread.sleep(30000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            if (preAuthMap.size() > 1)
-//                System.out.println("Transaction backlog (preAuth map size) " + preAuthMap.size());  // should be non-zero
-//        }
+        while (true) {
+            try {
+                Thread.sleep(30000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("Transaction backlog (preAuth map size) " + preAuthMap.size());
+            if (preAuthMap.size() == 0) {
+                System.out.println("All transactions processed, exiting");
+                System.exit(0);
+            }
+        }
     }
 }
