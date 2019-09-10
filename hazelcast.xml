@@ -27,6 +27,7 @@
     <properties>
         <property name="hazelcast.map.entry.filtering.natural.event.types">true</property>
         <property name="hazelcast.slow.operation.detector.stacktrace.logging.enabled">true</property>
+        <property name="hazelcast.initial.min.cluster.size">3</property>
     </properties>
 
     <cp-subsystem>
@@ -56,13 +57,13 @@
     </serialization>
 
     <map name="merchantMap">
-        <map-store enabled="true" initial-mode="LAZY">
+        <map-store enabled="true" initial-mode="EAGER">
             <class-name>com.theyawns.domain.payments.database.MerchantTable</class-name>
         </map-store>
     </map>
 
     <map name="accountMap">
-        <map-store enabled="true" initial-mode="LAZY">
+        <map-store enabled="true" initial-mode="EAGER">
             <class-name>com.theyawns.domain.payments.database.AccountTable</class-name>
         </map-store>
     </map>

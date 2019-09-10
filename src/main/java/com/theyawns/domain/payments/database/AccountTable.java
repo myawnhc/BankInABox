@@ -144,14 +144,14 @@ public class AccountTable extends AbstractTable
     // MapLoader interface
 
     @Override
-    public Account load(String s) {
+    public synchronized Account load(String s) {
         if (conn == null)
             establishConnection();
         return readFromDatabase(s);
     }
 
     @Override
-    public Map<String, Account> loadAll(Collection<String> collection) {
+    public synchronized Map<String, Account> loadAll(Collection<String> collection) {
         log.info("AccountTable.loadAll() with " + collection.size() + " keys");
         if (conn == null)
             establishConnection();

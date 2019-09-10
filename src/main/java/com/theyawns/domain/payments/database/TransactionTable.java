@@ -153,7 +153,7 @@ public class TransactionTable extends AbstractTable
     // MapLoader interface
 
     @Override
-    public Transaction load(String s) {
+    public synchronized Transaction load(String s) {
         //log.info("TransactionTable.load " + s);
         if (conn == null)
             establishConnection();
@@ -161,7 +161,7 @@ public class TransactionTable extends AbstractTable
     }
 
     @Override
-    public Map<String, Transaction> loadAll(Collection<String> collection) {
+    public synchronized Map<String, Transaction> loadAll(Collection<String> collection) {
         log.info("TransactionTable.loadAll() with " + collection.size() + " keys");
         if (conn == null)
             establishConnection();
