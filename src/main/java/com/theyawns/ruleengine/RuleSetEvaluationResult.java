@@ -20,7 +20,7 @@ public class RuleSetEvaluationResult<T extends HasID, R> implements Serializable
     // the item key is available through the map's key and doesn't have to be part of the map value.
     public void setItem(T item) {
         this.item = item;
-        itemKey = item.getID();
+        itemKey = item.getItemID();
     }
 
     public void setEvaluationResult(R v) {

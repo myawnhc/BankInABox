@@ -13,61 +13,85 @@ import com.theyawns.rules.RuleEvaluationResult;
 import com.theyawns.rules.TxnAmtWithinMerchantAvgRange;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-public class MerchantRuleSet extends AbstractRuleSet<Transaction,Double> implements Serializable, HazelcastInstanceAware {
+public class MerchantRuleSet extends AbstractRuleSet<Transaction,Merchant.RISK> implements Serializable, HazelcastInstanceAware {
 
     private static final String RULESET_NAME = "Merchant Rules";
-    private List<RuleEvaluationResult<Double>> ruleResults;
+    private List<RuleEvaluationResult<Merchant.RISK>> ruleResults;
     private transient HazelcastInstance hazelcast;
-    private IMap<String, Merchant> merchantMap;
-
+    //private IMap<String, Merchant> merchantMap;
 
     public MerchantRuleSet() {
         super(RULESET_NAME, RuleCategory.FraudRules);
-        rules.add(new TxnAmtWithinMerchantAvgRange(this));
+        super.add(new TxnAmtWithinMerchantAvgRange(this));
+        ruleResults = new ArrayList<>(1);
     }
 
     @Override
-    public RuleSetEvaluationResult<Transaction, Double> apply(Transaction transaction) {
+    public RuleSetEvaluationResult<Transaction, Merchant.RISK> apply(Transaction transaction) {
         //System.out.println("MerchantRuleSet.apply()");
+
         // Process rules.  With this simple rule we can aggregate as we go; more complex rules might
         // need a separate pass over the RERs to produce the RSER.
 
-        // Not a big efficiency, but we'll take every little edge ... get the merchant just once rather than
-        // fetching it for every rule evaluation
-        Merchant m = merchantMap.get(transaction.getMerchantId());
-        double aggregatedResult = 0.0;
-        for (Rule<Transaction,Double> rule : super.rules) {
-            RuleEvaluationResult<Double> rer = rule.apply(transaction);
-            ruleResults.add(rer);
-            aggregatedResult += rer.getResult();
+        // Each rule returns a High, Medium or Low risk score
+        // We will reject on a single High or multiple mediums.
+        int mediumRiskCount = 0;
+        Merchant.RISK aggregatedRisk = Merchant.RISK.LOW;
+        for (Rule<Transaction,Merchant.RISK> rule : super.rules) {
+            RuleEvaluationResult<Merchant.RISK> rer;
+            try {
+                rer = rule.apply(transaction);
+                if (rer == null) {
+                    System.out.println("Null result from " + rule.getName());
+                    throw new IllegalStateException("Null result from " + rule.getName());
+                }
+                ruleResults.add(rer);
+                if (rer.getResult() == Merchant.RISK.HIGH) {
+                    aggregatedRisk = Merchant.RISK.HIGH;
+                    break;   // NO need to keep looking
+                } else if (rer.getResult() == Merchant.RISK.MEDIUM) {
+                    mediumRiskCount++;
+                    if (mediumRiskCount > 1) {
+                        aggregatedRisk = Merchant.RISK.HIGH;
+                    } else {
+                        aggregatedRisk = Merchant.RISK.MEDIUM;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            // TODO: make have finally clause with result that adds some error-indicative result
+            // to the RSER so we don't leave transaction in some pending-resolution state.
         }
 
-        // Aggregate the results into a RuleSetEvaluationResult.
+        // Aggregate the individual rule results into a RuleSetEvaluationResult.
 
         RuleSetEvaluationResult rser = new RuleSetEvaluationResult(transaction, getQualifiedName());
-        rser.setResult(aggregatedResult);
+        rser.setResult(aggregatedRisk);
 
-        // What value is the threshold for pass/fail?  Will be part of the design of each ruleset, so
-        // definitely an implementation detail of the individual rulesets.
-        // Our median reject rates of 0.1 + 0.2 + 0.3 + 0.4 + 0.5 = 1.5
-        // For an initial starting point lets say < 1.0 is a reject
-        if (aggregatedResult <= 1.0)
-            rser.setRuleSetOutcome(TransactionFinalStatus.RejectedForFraud, "Sum of results exceeds threshold");
+        // Merchant rules are using Merchant.RISK as outcome
+        if (aggregatedRisk == Merchant.RISK.HIGH)
+            rser.setRuleSetOutcome(TransactionFinalStatus.RejectedForFraud, "Rated as high risk by merchant rules");
         else
             rser.setRuleSetOutcome(TransactionFinalStatus.Approved);
-
 
         return rser;
     }
 
-    // TODO: push up to AbstractRuleSet along with HazelcastInstanceAware interface
+    // TODO: push up to AbstractRuleSet along with HazelcastInstanceAware interface and field
     @Override
     public void setHazelcastInstance(HazelcastInstance hazelcastInstance) {
-        System.out.println("Setting HazelcastInstance for MerchantRuleSet");
+        //System.out.println("Setting HazelcastInstance for MerchantRuleSet");
         this.hazelcast = hazelcastInstance;
-        merchantMap = hazelcast.getMap(Constants.MAP_MERCHANT);
+        //merchantMap = hazelcast.getMap(Constants.MAP_MERCHANT);
+        // Some, but not all, rules need HazelcastInstance, they need to be marked acccordingly
+        for (Rule r : getRules()) {
+            if (r instanceof HazelcastInstanceAware) {
+                ((HazelcastInstanceAware) r).setHazelcastInstance(hazelcastInstance);
+            }
+        }
     }
 }

@@ -32,7 +32,7 @@ public class LazyPreAuthLoader implements Runnable, Serializable, HazelcastInsta
         long finish = System.nanoTime();
         long elapsedMillis = (finish - start) / 1000000;
         System.out.println("Loaded " + totalToLoad + " transactions in " + elapsedMillis + " ms");
-        client.shutdown();
+        //client.shutdown();   No; this "client" code is running on a member
     }
 
     public static void main(String[] args) {

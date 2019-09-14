@@ -34,7 +34,7 @@ public class RuleTask<T extends HasID> implements Runnable, Serializable {
     }
 
     public static String getItemID(RuleTask task) {
-        return task.item.getID();
+        return task.item.getItemID();
     }
 
     public T getStreamItem() { return item; }

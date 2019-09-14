@@ -33,7 +33,7 @@ public class DualLauncher {
     private static class CreditLimitRuleTask implements Runnable, Serializable {
         public void run() {
             Thread.currentThread().setName("Jet-CreditLimitRuleTask");
-            PredicateEx<Transaction> filter = (PredicateEx<Transaction>) transaction -> isOdd(transaction.getID());
+            PredicateEx<Transaction> filter = (PredicateEx<Transaction>) transaction -> isOdd(transaction.getItemID());
 
             CreditLimitRule creditLimitRule = new CreditLimitRule();
             creditLimitRule.setFilter(filter);
@@ -72,7 +72,7 @@ public class DualLauncher {
 
         // Run entry listener only on even number transactions
         preAuthMap.addEntryListener(new TransactionMapListener(main.hazelcast),
-                entry -> (isEven(entry.getValue().getID())), true);
+                entry -> (isEven(entry.getValue().getItemID())), true);
 
         // Start performance monitoring.  Just based on laptop performance 'feel', seems this
         // is fairly intrusive and probably should not be on by default.

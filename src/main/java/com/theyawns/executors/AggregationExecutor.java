@@ -11,11 +11,8 @@ import com.theyawns.Constants;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.launcher.Launcher;
 import com.theyawns.launcher.RunMode;
-import com.theyawns.rules.RuleCategory;
 import com.theyawns.rules.TransactionEvaluationResult;
-import com.theyawns.rulesets.RuleSet;
 import com.theyawns.rulesets.RuleSetEvaluationResult;
-import com.theyawns.rulesets.RuleSets;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -68,7 +65,7 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
 
 
                 counter++;
-                if ((counter % 1000) == 0) {
+                if ((counter % 10000) == 0) {
                     double seconds = (System.nanoTime() - startTime) / 1_000_000_000;
                     double tps = counter / seconds;
                     log.info("AggregationExecutor has handled " + counter + " transactions in " + seconds + " seconds, rate ~ " + (int) tps + " TPS");
@@ -90,7 +87,7 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
     private String processResults(TransactionEvaluationResult ter) {
         boolean rejected = false;
         List<RuleSetEvaluationResult<Transaction,?>> results = ter.getResults();
-        String txnId = ter.getTransaction().getID();
+        String txnId = ter.getTransaction().getItemID();
 
         // Loop over results (even though at this stage we'll only have one)
         // Any reject will break us out of the loop, if we process all without a reject, then we approve.

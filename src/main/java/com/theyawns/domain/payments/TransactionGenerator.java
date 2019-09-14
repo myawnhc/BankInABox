@@ -69,9 +69,9 @@ public class TransactionGenerator {
                 Transaction t = helper.generateTransactionForAccount(a, txnnum++);
                 if (BankInABoxProperties.COLLECT_LATENCY_STATS) {
                     PerfMonitor.getInstance().beginLatencyMeasurement(Platform.Either,
-                        Scope.EndToEnd, "CreditLimitRule", t.getID());
+                        Scope.EndToEnd, "CreditLimitRule", t.getItemID());
                 }
-                preAuthMap.set(t.getID(), t);
+                preAuthMap.set(t.getItemID(), t);
             }
             log.info("Transaction generator " + generatorID + " finished.");
             return count;

@@ -15,8 +15,8 @@ import java.util.List;
 
 public class TransactionEvaluationResult implements Serializable {
 
-    private long startTime;
-    private long stopTime;
+    private long startTime; // TODO
+    private long stopTime;  // TODO
 
     private Transaction transaction;
     private List<RuleSetEvaluationResult<Transaction,?>> results;
@@ -29,12 +29,11 @@ public class TransactionEvaluationResult implements Serializable {
         this.startTime = System.nanoTime();
         this.transaction = transaction;
         results = new ArrayList<>();
-        addResult(rser);
+        results.add(rser);
     }
 
-    public void addResult(RuleSetEvaluationResult<Transaction,?> rser) {
+    public void additionalResult(RuleSetEvaluationResult<Transaction,?> rser) {
         results.add(rser);
-        //checkForCompletion();
     }
 
     public Transaction getTransaction() { return transaction; }

@@ -61,7 +61,7 @@ public class ResultMapMonitor implements Runnable,
             if (logPerf) {
                 // TODO: should not have hard-coded rule here
                 PerfMonitor.getInstance().endLatencyMeasurement(PerfMonitor.Platform.Jet,
-                        PerfMonitor.Scope.EndToEnd, "CreditLimitRule", txn.getID());
+                        PerfMonitor.Scope.EndToEnd, "CreditLimitRule", txn.getItemID());
             }
             if (BankInABoxProperties.COLLECT_TPS_STATS) {
                 PerfMonitor.getInstance().recordTransaction("Jet", txn);

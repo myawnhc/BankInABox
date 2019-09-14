@@ -130,7 +130,7 @@ public class TransactionMapListener implements
         if (false /*BankInABoxProperties.COLLECT_PERFORMANCE_STATS*/) {
             // TODO: hard-coded name here is wrong .. .this is actually fraud rules, not credit
             PerfMonitor.getInstance().endLatencyMeasurement(PerfMonitor.Platform.IMDG, PerfMonitor.Scope.Processing,
-                    "CreditLimitRule", txn.getID());
+                    "CreditLimitRule", txn.getItemID());
             //PerfMonitor.getInstance().recordTransaction("IMDG", txn); // may move this to a map listener on rejected so can capture end-to-end time
 
         }
@@ -139,14 +139,14 @@ public class TransactionMapListener implements
         // so moving to medium risk.
         //System.out.println("FraudRisk " + risk);
         if (risk >= 60) {
-            preAuthMap.remove(txn.getID());
+            preAuthMap.remove(txn.getItemID());
             rejectedForFraud.put(transactionId, txn);
             rejectedForFraudCounters[MERC_AVG_TXN_INDEX].getAndIncrement();
             //txn.endToEndTime.stop();
             if (false /*BankInABoxProperties.COLLECT_PERFORMANCE_STATS*/) {
                 // TODO: hard-coded name here is wrong .. .this is actually fraud rules, not credit
                 PerfMonitor.getInstance().endLatencyMeasurement(PerfMonitor.Platform.IMDG, PerfMonitor.Scope.EndToEnd,
-                        "CreditLimitRule", txn.getID());
+                        "CreditLimitRule", txn.getItemID());
                 PerfMonitor.getInstance().recordTransaction("IMDG", txn); // may move this to a map listener on rejected so can capture end-to-end time
 
             }
@@ -159,7 +159,7 @@ public class TransactionMapListener implements
 
         if (BankInABoxProperties.COLLECT_LATENCY_STATS) {
             PerfMonitor.getInstance().beginLatencyMeasurement(PerfMonitor.Platform.IMDG, PerfMonitor.Scope.Processing,
-                    "CreditLimitRule", txn.getID());
+                    "CreditLimitRule", txn.getItemID());
         }
 
         PaymentRulesEP paymentRulesEP = new PaymentRulesEP();
@@ -172,7 +172,7 @@ public class TransactionMapListener implements
         } catch (RejectedExecutionException ree) {
             log.info("Rejected execution for payment rules - have fallen behind");
         }
-        preAuthMap.remove(txn.getID());
+        preAuthMap.remove(txn.getItemID());
         if (passed) {
             approved.put(transactionId, txn);
             approvalCounter.getAndIncrement();
@@ -184,9 +184,9 @@ public class TransactionMapListener implements
         }
         if (BankInABoxProperties.COLLECT_LATENCY_STATS) {
             PerfMonitor.getInstance().endLatencyMeasurement(PerfMonitor.Platform.IMDG, PerfMonitor.Scope.Processing,
-                    "CreditLimitRule", txn.getID());
+                    "CreditLimitRule", txn.getItemID());
             PerfMonitor.getInstance().endLatencyMeasurement(PerfMonitor.Platform.IMDG, PerfMonitor.Scope.EndToEnd,
-                    "CreditLimitRule", txn.getID());
+                    "CreditLimitRule", txn.getItemID());
         } if (BankInABoxProperties.COLLECT_TPS_STATS) {
             PerfMonitor.getInstance().recordTransaction("IMDG", txn); // may move this to a map listener on rejected so can capture end-to-end time
         }

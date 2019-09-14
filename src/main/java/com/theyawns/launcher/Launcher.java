@@ -121,7 +121,7 @@ public class Launcher {
             } catch (DuplicateTaskException dte) {
                 ; // OK to ignore
             } catch (RejectedExecutionException ree) {
-                log.info("PumpGrafanaStats has fallen behind, skipping execution cycle");
+                log.info("PumpGrafanaStats scheduled execution rejected");
             }
         }
 

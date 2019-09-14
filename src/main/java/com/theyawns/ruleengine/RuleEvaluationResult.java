@@ -47,7 +47,7 @@ public class RuleEvaluationResult<T extends HasID, R> implements Serializable {
 
     // Methods for grouping keys
     public T getItem() { return item; }
-    public String getItemId() { return item.getID(); }
+    public String getItemId() { return item.getItemID(); }
 
     // might not need these methods
     public RuleEvaluationResult<T,R> getValue() {

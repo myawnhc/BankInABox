@@ -92,7 +92,7 @@ public abstract class BaseRule implements Serializable {
                                 // TODO: rule name should not be hard coded here!
                                 if (BankInABoxProperties.COLLECT_LATENCY_STATS) {
                                     PerfMonitor.getInstance().beginLatencyMeasurement(PerfMonitor.Platform.Jet, PerfMonitor.Scope.Processing,
-                                            "CreditLimitRule", t.getID());
+                                            "CreditLimitRule", t.getItemID());
                                 }
                                 List<Job> activeJobs = jet.getJobs();
                                 Set<String> rules = new HashSet<>();

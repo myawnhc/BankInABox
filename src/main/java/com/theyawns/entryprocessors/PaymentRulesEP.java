@@ -27,7 +27,7 @@ public class PaymentRulesEP implements EntryProcessor<String, Transaction>, Seri
         // Run a credit limit check
         if (BankInABoxProperties.COLLECT_LATENCY_STATS) {
             PerfMonitor.getInstance().beginLatencyMeasurement(Platform.IMDG,
-                    Scope.Processing, "CreditLimitRule", txn.getID());
+                    Scope.Processing, "CreditLimitRule", txn.getItemID());
         }
         CreditLimitCheck clc = new CreditLimitCheck();
         clc.setAccount(account);
@@ -45,7 +45,7 @@ public class PaymentRulesEP implements EntryProcessor<String, Transaction>, Seri
         entry.setValue(txn);  // update the transaction in the map with the result
         if (BankInABoxProperties.COLLECT_LATENCY_STATS) {
             PerfMonitor.getInstance().endLatencyMeasurement(Platform.IMDG,
-                    Scope.Processing, "CreditLimitRule", txn.getID());
+                    Scope.Processing, "CreditLimitRule", txn.getItemID());
         }
         // Record now does TPS only, so call only at E2E completion
         //PerfMonitor.getInstance().recordTransaction("IMDG", txn);

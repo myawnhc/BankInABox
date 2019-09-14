@@ -87,7 +87,7 @@ public class CreditLimitRule extends BaseRule implements Serializable {
                         if (logPerf) {
                             //System.out.println(">>> CreditLimitRule call end Jet Processing from drainTo");
                             PerfMonitor.getInstance().endLatencyMeasurement(PerfMonitor.Platform.Jet,
-                                    PerfMonitor.Scope.Processing, "CreditLimitRule", t.getID());
+                                    PerfMonitor.Scope.Processing, "CreditLimitRule", t.getItemID());
                             //PerfMonitor.getInstance().recordTransaction("Jet", t);
                             //System.out.println("<<< CreditLimitRule call end Jet Processing from drainTo");
                         } else {

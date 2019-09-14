@@ -28,7 +28,7 @@ public class LocationBasedRuleSet extends AbstractRuleSet<Transaction,Double> im
         super.add(r3);
         super.add(r4);
         super.add(r5);
-        ruleResults = new ArrayList<RuleEvaluationResult<Double>>(5);
+        ruleResults = new ArrayList<>(5);
     }
 
     @Override
@@ -39,6 +39,10 @@ public class LocationBasedRuleSet extends AbstractRuleSet<Transaction,Double> im
         double aggregatedResult = 0.0;
         for (Rule<Transaction,Double> rule : super.rules) {
             RuleEvaluationResult<Double> rer = rule.apply(transaction);
+            if (rer == null) {
+                System.out.println("Null result from " + rule.getName());
+                throw new IllegalStateException("Null result from " + rule.getName());
+            }
             ruleResults.add(rer);
             aggregatedResult += rer.getResult();
         }

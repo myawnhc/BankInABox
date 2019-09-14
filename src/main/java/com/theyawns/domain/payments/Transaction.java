@@ -54,10 +54,10 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         // result fields won't be copied
     }
 
-    public String getID() {
+    public String getItemID() {
         return transactionId;
     }
-    public void setID(String id) { transactionId = id; }
+    public void setItemID(String id) { transactionId = id; }
 
     public void setAccountNumber(String acct) { this.acctNumber = acct; }
     public String getAccountNumber() {

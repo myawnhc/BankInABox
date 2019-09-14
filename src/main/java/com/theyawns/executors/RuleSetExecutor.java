@@ -4,6 +4,7 @@ import com.hazelcast.core.*;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.rules.TransactionEvaluationResult;
+import com.theyawns.rulesets.LocationBasedRuleSet;
 import com.theyawns.rulesets.RuleSet;
 import com.theyawns.rulesets.RuleSetEvaluationResult;
 
@@ -62,7 +63,7 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
                 if ((counter % 10000) == 0) {
                     double seconds = (System.nanoTime() - startTime) / 1_000_000_000;
                     double tps = counter / seconds;
-                    System.out.println("RuleSetExecutor has handled " + counter + " transactions in " + seconds + " seconds, rate ~ " + (int) tps + " TPS");
+                    System.out.println("RuleSetExecutor " + ruleSet.getName() + " has handled " + counter + " transactions in " + seconds + " seconds, rate ~ " + (int) tps + " TPS");
                 }
 
             } catch (Exception e) {
@@ -82,19 +83,44 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
         }
     }
 
+    // These counters are all temporary while tuning throughput
+    private int firstResults = 0;
+    private int additionalResults = 0;
+    private int locationFirst = 0;
+    private int merchantFirst = 0;
+    private int locationSecond = 0;
+    private int merchantSecond = 0;
+
     private void consumeResult(RuleSetEvaluationResult<T,R> rser) {
         Transaction txn = (Transaction) rser.getItem();
-        TransactionEvaluationResult ter = resultMap.get(txn.getID());
-        //System.out.println("RuleSetExecutor sees RSER " + rser);
+        TransactionEvaluationResult ter = resultMap.get(txn.getItemID());
+
+        // Trying to understand ordering, and what left hanging at end ...
+
         if (ter == null) {
+            firstResults++;
+            if (ruleSet instanceof LocationBasedRuleSet)
+                locationFirst++;
+            else
+                merchantFirst++;
             ter = new TransactionEvaluationResult(txn, (RuleSetEvaluationResult<Transaction, R>) rser);
         } else {
-            ter.addResult((RuleSetEvaluationResult<Transaction, R>) rser);
+            additionalResults++;
+            if (ruleSet instanceof  LocationBasedRuleSet)
+                locationSecond++;
+            else
+                merchantSecond++;
+            ter.additionalResult((RuleSetEvaluationResult<Transaction, R>) rser);
         }
-        resultMap.put(txn.getID(), ter);
+        if (firstResults % 10000 == 0) {
+            System.out.println("RuleSetExecutor.consumeResults(): First results " + firstResults + " additional results " + additionalResults);
+            System.out.println("LocationFirst " + locationFirst + " locationSecond " + locationSecond);
+            System.out.println("MerchantFrist " + merchantFirst + " merchantSecond " + merchantSecond);
+        }
+        resultMap.put(txn.getItemID(), ter);
         //System.out.println("RuleSetExecutor writes result to map for " + txn.getID());
         if (ter.checkForCompletion()) {
-            completedTransactionsQueue.offer(txn.getID());
+            completedTransactionsQueue.offer(txn.getItemID());
         }
     }
 
@@ -107,6 +133,10 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
         //topic.addMessageListener(this);
         this.resultMap = hazelcast.getMap(resultsOutMap);
         this.completedTransactionsQueue = hazelcast.getQueue(completionQueueName);
+
+        if (ruleSet instanceof HazelcastInstanceAware) {
+            ((HazelcastInstanceAware) ruleSet).setHazelcastInstance(hazelcastInstance);
+        }
     }
 
     // MessageListener interface for Topic - unused for now

@@ -104,7 +104,7 @@ public class TransactionTable extends AbstractTable
             if (insertStatement == null) {
                 insertStatement = conn.prepareStatement(insertTemplate);
             }
-            insertStatement.setString(ID, t.getID());
+            insertStatement.setString(ID, t.getItemID());
             insertStatement.setString(ACCT_NUMBER, t.getAccountNumber());
             insertStatement.setString(MERCHANT_ID, t.getMerchantId());
             insertStatement.setDouble(AMOUNT, t.getAmount());
@@ -134,7 +134,7 @@ public class TransactionTable extends AbstractTable
                 return null;
             }
             while (rs.next()) {
-                t.setID(rs.getString(ID));
+                t.setItemID(rs.getString(ID));
                 t.setAccountNumber(rs.getString(ACCT_NUMBER));
                 t.setMerchantId(rs.getString(MERCHANT_ID));
                 t.setAmount(rs.getDouble(AMOUNT));
