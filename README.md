@@ -6,14 +6,12 @@ set of rules and then an aggregation of the rule results into an overall pass/fa
 Two rulesets are currently in place; one for Location based rules and one for Merchant based
 rules.  
 
-###One-time setup:
+### One-time setup:
 
-####MariaDB
+#### MariaDB
 When running, the demo operates all in-memory, but the data is originally loaded from a MariaDB database.  You'll need 
 to set up MariaDB as a service on the system where the demo will run, and do a one-time generation of test data 
 into the database.
-
-The java database client is included in the project under the /lib directory.
 
 The database server needs to be downloaded and started.
 
@@ -33,7 +31,7 @@ top-level BankInABox directory
 
 The preloader takes about 3-5 minutes to generate data.  One complete, your system is now set up to run the demo. 
 
-###To run:
+### To run:
 First, start at least 3 IMDG Cluster nodes using the script runCluster.sh
 ```bash
 ./runCluster.sh
@@ -79,6 +77,12 @@ calculates updated average transaction amounts per merchant.   The Jet Managemen
 modified to connect to port 5710 rather than default 5701, so that Jet and IMDG can run on the same server without 
 collision.
 
-(This demo will eventually be containerized with Docker and possibly Kubernetes, and at that time port assignments 
-will be set up so that no user intervention is needed). 
+## Kubernetes
+
+### Build
+To build for Kubernetes, activate the `kubernetes` build profile.
+
+```
+mvn install -Pkubernetes
+```
 

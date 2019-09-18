@@ -1,12 +1,10 @@
 .classpath
-.idea/*
+.idea
 .project
 .settings
-log/**
-data/whisper/**
-data/grafana/sessions/**
+data
+log
 RuleEngine.iml
-*.class
-target/**
+target
 src/main/java/com/theyawns/domain/payments/IMDGMain.java
 src/main/java/com/theyawns/ruleengine/IMDGRuleEngine.java
