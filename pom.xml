@@ -10,16 +10,20 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<docker.image.prefix>hazelcast-demos</docker.image.prefix>
-		<docker.image.name>bankinabox</docker.image.name>
+		<docker.image.prefix>bankinabox</docker.image.prefix>
 		<dockerfile-maven-plugin.version>1.4.12</dockerfile-maven-plugin.version>
 		<hazelcast-jet.version>3.1</hazelcast-jet.version>
 		<hazelcast-kubernetes.version>1.5.1</hazelcast-kubernetes.version>
+		<java.version>11</java.version>
 		<mariadb-java-client.version>2.4.4</mariadb-java-client.version>
+		<maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<modules>
 		<module>the-bank</module>
+		<module>docker-server</module>
 	</modules>
 
 	<dependencies>
@@ -45,10 +49,11 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
+				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
 					<encoding>UTF-8</encoding>
-					<release>11</release>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -56,12 +61,39 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>${maven-assembly-plugin.version}</version>
+					<configuration>
+						<appendAssemblyId>false</appendAssemblyId>
+						<archive>
+							<manifest>
+								<mainClass>${my.main.class}</mainClass>
+							</manifest>
+						</archive>
+						<attach>false</attach>
+						<descriptorRefs>
+							<descriptorRef>jar-with-dependencies</descriptorRef>
+						</descriptorRefs>
+						<!-- Deliberately overwrite so only one Jar in target folder -->
+						<finalName>${project.artifactId}-${project.version}</finalName>
+					</configuration>
+					<executions>
+						<execution>
+							<phase>package</phase>
+							<goals>
+								<goal>single</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
 					<groupId>com.spotify</groupId>
 					<artifactId>dockerfile-maven-plugin</artifactId>
 					<version>${dockerfile-maven-plugin.version}</version>
 					<configuration>
 						<buildArgs>
-							<JAR_FILE>${project.artifactId}.jar</JAR_FILE>
+							<JAR_FILE>${project.artifactId}-${project.version}.jar</JAR_FILE>
 						</buildArgs>
 						<dockerfile>Dockerfile</dockerfile>
 						<pullNewerImage>false</pullNewerImage>

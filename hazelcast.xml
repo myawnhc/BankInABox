@@ -7,7 +7,7 @@
         >
 
     <group>
-        <name>dev</name>
+        <name>BankInABox</name>
     </group>
 
     <management-center enabled="true">
@@ -17,9 +17,9 @@
     <network>
         <join>
             <multicast enabled="false"/>
-            <tcp-ip enabled="true">
+            <tcp-ip enabled="${hz.tcp.enabled}">
                 <!-- Must be passed via -Dip4.addr on command line -->
-                <interface>${ip4.addr}</interface>
+                <interface>${hz.ip4.addr}</interface>
             </tcp-ip>
         </join>
     </network>

@@ -20,6 +20,7 @@ public class ClusterMember {
 
     public static void main(String[] args)
     {
+    	new KubernetesCheck();
         ClusterMember member = new ClusterMember();
         String groupname = member.hz.getConfig().getGroupConfig().getName();
         Map<Integer,String> factories = member.hz.getConfig().getSerializationConfig().getDataSerializableFactoryClasses();

@@ -20,10 +20,11 @@
                   xmlns="http://www.hazelcast.com/schema/client-config">
 
     <group>
-        <name>dev</name>
+        <name>BankInABox</name>
     </group>
 
     <properties>
+        <property name="hazelcast.client.statistics.enable">true</property>
         <property name="hazelcast.map.entry.filtering.natural.event.types">true</property>
     </properties>
 
