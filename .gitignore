@@ -1,4 +1,7 @@
+.classpath
 .idea/*
+.project
+.settings
 log/**
 data/whisper/**
 data/grafana/sessions/**
