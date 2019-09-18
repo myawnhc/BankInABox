@@ -1,0 +1,1 @@
+mysql -u root -padmin BankInABox < /data/backup/bib_dump.sql
