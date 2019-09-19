@@ -11,7 +11,7 @@
     </group>
 
     <management-center enabled="true">
-        http://localhost:8080/hazelcast-mancenter
+        http://${hz.management.center}:8080/hazelcast-mancenter
     </management-center>
 
     <network>
@@ -21,7 +21,13 @@
                 <!-- Must be passed via -Dip4.addr on command line -->
                 <interface>${hz.ip4.addr}</interface>
             </tcp-ip>
+            <kubernetes enabled="${hz.kubernetes.enabled}">
+                <service-dns>${hz.service.dns}</service-dns>
+            </kubernetes>
         </join>
+	<rest-api enabled="true">
+            <endpoint-group name="HEALTH_CHECK" enabled="true"/>
+        </rest-api>
     </network>
 
     <properties>
