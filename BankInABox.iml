@@ -10,8 +10,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.mariadb.jdbc:mariadb-java-client:2.4.3" level="project" />
+    <orderEntry type="library" name="Maven: com.hazelcast:hazelcast-kubernetes:1.5.1" level="project" />
     <orderEntry type="library" name="Maven: com.hazelcast.jet:hazelcast-jet:3.1" level="project" />
-    <orderEntry type="library" name="Maven: org.mariadb.jdbc:mariadb-java-client:2.4.3" level="project" />
+    <orderEntry type="library" name="Maven: org.mariadb.jdbc:mariadb-java-client:2.4.4" level="project" />
   </component>
 </module>
