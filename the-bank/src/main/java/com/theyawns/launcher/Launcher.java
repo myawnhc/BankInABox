@@ -48,10 +48,6 @@ public class Launcher {
         distributedES = hazelcast.getExecutorService("executor");
 
         log.info("init() complete");
-//        locationRulesQueue = hazelcast.getQueue(Constants.QUEUE_LOCATION);
-//        merchantRulesQueue = hazelcast.getQueue(Constants.QUEUE_MERCHANT);
-//        paymentRulesQueue  = hazelcast.getQueue(Constants.QUEUE_CREDITRULES);
-//        resultMap = hazelcast.getMap(Constants.MAP_PPFD_RESULTS);
     }
 
     public static RunMode getRunMode() { return runMode; }
@@ -87,7 +83,7 @@ public class Launcher {
 
         log.info("Getting preAuth map [lazy]");
         IMap<String, Transaction> preAuthMap = main.hazelcast.getMap(Constants.MAP_PREAUTH);
-        log.info("Getting merchant map");  // Eager load will hang here ...
+        log.info("Getting merchant map");
         main.merchantMap = main.hazelcast.getMap(Constants.MAP_MERCHANT);
         log.info("Getting account map");
         main.accountMap = main.hazelcast.getMap(Constants.MAP_ACCOUNT);
@@ -110,7 +106,7 @@ public class Launcher {
         //main.distributedES.submit(merchantAvgTask);
         // This is a Jet job so doesn't need to run in the IMDG cluster ...
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        // TODO:  executor.submit(merchantAvgTask);
+        executor.submit(merchantAvgTask);
 
         IScheduledExecutorService dses = main.hazelcast.getScheduledExecutorService("scheduledExecutor");
         //ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
@@ -144,18 +140,18 @@ public class Launcher {
         main.distributedES.executeOnAllMembers(aggregator);
         System.out.println("Submitted AggregationExecutor to distributed executor service (all members)");
 
-//        log.info("")
-//        try {
-//            main.merchantMap.get("1");
-//            main.accountMap.get("1"); // invalid key, done just to trigger MapLoader to begin caching the maps
-//        } catch (Exception e) {
-//            ; // ignore
-//        }
+        log.info("Trigger eager load on merchant and account tables ");
+        try {
+            main.merchantMap.get("1");
+            main.accountMap.get("1"); // invalid key, done just to trigger MapLoader to begin caching the maps
+        } catch (Exception e) {
+            ; // ignore
+        }
 
         log.info("Waiting for pre-loads (Account and Merchant tables)");
         while (true) {
             // Wait until preload of Merchant and Account maps are done before starting load into preAuth
-            log.info(main.merchantMap.size() + " of " + BankInABoxProperties.MERCHANT_COUNT + " merchants"); // Lazy load will hang here
+            log.info(main.merchantMap.size() + " of " + BankInABoxProperties.MERCHANT_COUNT + " merchants");
             log.info(main.accountMap.size() + " of " + BankInABoxProperties.ACCOUNT_COUNT + " accounts");
             if (main.merchantMap.size() >= BankInABoxProperties.MERCHANT_COUNT &&
                 main.accountMap.size() >= BankInABoxProperties.ACCOUNT_COUNT)
@@ -165,12 +161,17 @@ public class Launcher {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
         }
         log.info("Beginning transaction load");
         LazyPreAuthLoader loader = new LazyPreAuthLoader();
         //loader.run();
-        main.distributedES.submit(loader);
+        try {
+            main.distributedES.submit(loader);
+        } catch (Throwable t) {
+            log.severe("Submitted LazyPreAuthLoader failed:");
+            t.printStackTrace();
+        }
+        //log.info("Back in Launcher after starting preAuth load"); // TODO: confirm we aren't waiting for completion
         //log.info("All transactions loaded to preAuth");
 
 

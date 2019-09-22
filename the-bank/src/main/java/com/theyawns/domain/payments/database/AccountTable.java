@@ -152,7 +152,7 @@ public class AccountTable extends AbstractTable
 
     @Override
     public synchronized Map<String, Account> loadAll(Collection<String> collection) {
-        log.info("AccountTable.loadAll() with " + collection.size() + " keys");
+        //log.info("AccountTable.loadAll() with " + collection.size() + " keys");
         if (conn == null)
             establishConnection();
         Map<String,Account> results = new HashMap<>(collection.size());
@@ -168,7 +168,7 @@ public class AccountTable extends AbstractTable
 
     @Override
     public synchronized Iterable<String> loadAllKeys() {
-        log.info("loadAllKeys() on accountMap");
+        //log.info("loadAllKeys() on accountMap");
         if (conn == null)
             establishConnection();
         int size = BankInABoxProperties.ACCOUNT_COUNT;

@@ -100,7 +100,7 @@ public class MerchantTable extends AbstractTable
     }
 
     private synchronized Merchant readFromDatabase(String id) {
-        log.info("MerchantTable.readFromDatabase(" + id + ")");
+        //log.info("MerchantTable.readFromDatabase(" + id + ")");
         if (id == null) {
             log.warning("MerchantTable.readFromDatabase(): Passed null id, returning null");
             return null;
@@ -137,7 +137,7 @@ public class MerchantTable extends AbstractTable
 
     @Override
     public synchronized Merchant load(String s) {
-        log.info("MerchantTable.load(" + s + ")");
+        //log.info("MerchantTable.load(" + s + ")");
         if (conn == null)
             establishConnection();
         return readFromDatabase(s);
@@ -145,7 +145,7 @@ public class MerchantTable extends AbstractTable
 
     @Override
     public synchronized Map<String, Merchant> loadAll(Collection<String> collection) {
-        log.info("MerchantTable.loadAll() with " + collection.size() + " keys");
+        //log.info("MerchantTable.loadAll() with " + collection.size() + " keys");
         if (conn == null)
             establishConnection();
         Map<String,Merchant> results = new HashMap<>(collection.size());
@@ -161,7 +161,7 @@ public class MerchantTable extends AbstractTable
 
     @Override
     public synchronized Iterable<String> loadAllKeys() {
-        log.info("MerchantTable.loadAllKeys()");
+        //log.info("MerchantTable.loadAllKeys()");
         if (conn == null)
             establishConnection();
         int size = BankInABoxProperties.MERCHANT_COUNT;

@@ -27,7 +27,9 @@
     <properties>
         <property name="hazelcast.map.entry.filtering.natural.event.types">true</property>
         <property name="hazelcast.slow.operation.detector.stacktrace.logging.enabled">true</property>
+        <!-- removing min cluster since we reuse this config for Jet single-node cluster
         <property name="hazelcast.initial.min.cluster.size">3</property>
+        -->
     </properties>
 
     <cp-subsystem>
@@ -75,9 +77,11 @@
         <max-idle-seconds>300</max-idle-seconds>
         <eviction-policy>LRU</eviction-policy>
         <max-size policy="PER_NODE">200000</max-size>
+        <!--
         <map-store enabled="true" initial-mode="LAZY">
             <class-name>com.theyawns.domain.payments.database.TransactionTable</class-name>
         </map-store>
+        -->
     </map>
 
     <map name="approved">

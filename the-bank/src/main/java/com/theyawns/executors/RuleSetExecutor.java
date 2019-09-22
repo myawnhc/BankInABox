@@ -112,11 +112,11 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
                 merchantSecond++;
             ter.additionalResult((RuleSetEvaluationResult<Transaction, R>) rser);
         }
-        if (firstResults % 10000 == 0) {
-            System.out.println("RuleSetExecutor.consumeResults(): First results " + firstResults + " additional results " + additionalResults);
-            System.out.println("LocationFirst " + locationFirst + " locationSecond " + locationSecond);
-            System.out.println("MerchantFrist " + merchantFirst + " merchantSecond " + merchantSecond);
-        }
+//        if (firstResults % 10000 == 0) {
+//            System.out.println("RuleSetExecutor.consumeResults(): First results " + firstResults + " additional results " + additionalResults);
+//            System.out.println("LocationFirst " + locationFirst + " locationSecond " + locationSecond);
+//            System.out.println("MerchantFrist " + merchantFirst + " merchantSecond " + merchantSecond);
+//        }
         resultMap.put(txn.getItemID(), ter);
         //System.out.println("RuleSetExecutor writes result to map for " + txn.getID());
         if (ter.checkForCompletion()) {

@@ -78,7 +78,7 @@ public class PreauthMapListener implements
         // TODO: add averarge transaction volume to merchants, use to scale
         //       transactions appropriately.   Until that is in place, we fudge the
         //       numbers by using multiple merchants to represent the big two
-        int merchantNum = Integer.parseInt(txn.getMerchantId());
+        int merchantNum = Integer.parseInt(txn.getMerchantId());  // TODO: see a rare number format exception here - null merchant id
         if (merchantNum >= 1 && merchantNum <= 9)
             merchant_txn_count_amazon.getAndIncrement();
         else if (merchantNum >= 10 && merchantNum <= 20)

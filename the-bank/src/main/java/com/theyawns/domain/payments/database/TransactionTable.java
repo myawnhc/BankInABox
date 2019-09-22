@@ -22,6 +22,8 @@ public class TransactionTable extends AbstractTable
     private static final DecimalFormat accountFormat  = new DecimalFormat( "0000000000");    // 10 digit
     private static final DecimalFormat txnFormat      = new DecimalFormat("00000000000000"); // 14 digit
 
+    private static int numberOfEntries;
+
     // Index positions
     private static final int ID = 1;
     private static final int ACCT_NUMBER = 2;
@@ -48,26 +50,35 @@ public class TransactionTable extends AbstractTable
 
     private static final String selectKeysString = "select id from transaction";
 
+    private static final String tableSizeQuery = "select count(*) from transaction";
+
     private PreparedStatement createStatement;
     private PreparedStatement insertStatement;
     private PreparedStatement selectStatement;
+    private PreparedStatement tableSizeQueryStatement;
 
-    private Transaction generate(int id) {
-        try {
-            Transaction t = new Transaction(txnFormat.format(id));
-            return t;
-        } catch (Throwable t) {
-            t.printStackTrace();
-            System.exit(-1);
-
-            return null;
-        }
+    @Override
+    public void establishConnection() {
+        super.establishConnection();
+        System.out.println("Getting Txn table size for offset calculations");
+        numberOfEntries = getTableSize();
     }
+
+//    private Transaction generate(int id) {
+//        try {
+//            Transaction t = new Transaction(txnFormat.format(id));
+//            return t;
+//        } catch (Throwable t) {
+//            t.printStackTrace();
+//            System.exit(-1);
+//
+//            return null;
+//        }
+//    }
 
     public int generateAndStoreMultiple(int count) {
         Random acctRandom = new Random(123);
         Random merchantRandom = new Random(456);
-        //AccountTable aTable = new AccountTable();
         MerchantTable mTable = new MerchantTable();
         for (int i = 0; i < count; i++) {
             Transaction t = new Transaction(txnFormat.format(i));
@@ -116,12 +127,38 @@ public class TransactionTable extends AbstractTable
         }
     }
 
+    private static int passesThroughTransactionFile = 0;
+    private static int offset = 0;
+
     public synchronized Transaction readFromDatabase(String id) {
-        if (id == null) {
-            log.warning("TransactionTable.readFromDatabase(): Passed null id, returning null");
-            return null;
-        }
+
         try {
+            if (id == null) {
+                log.warning("TransactionTable.readFromDatabase(): Passed null id, returning null");
+                return null;
+            }
+
+            int txnNum = Integer.parseInt(id);
+            //System.out.println("id, numtries " + txnNum + " " + numberOfEntries);
+
+            // First transaction id is one; so offset of 0 indicates we've hit last transaction and must roll over
+            int txnOffset = txnNum % numberOfEntries;
+            if (txnOffset == 0) {
+                passesThroughTransactionFile++;
+                offset += numberOfEntries;
+                System.out.println("Finished pass " + passesThroughTransactionFile + " through transaction file, offset now " + offset);
+
+            } else {
+                if (passesThroughTransactionFile > 0) {
+                    if (txnNum == 0 || txnNum == 1) {
+                        System.out.println("Pass " + passesThroughTransactionFile + 1 + " id " + txnNum + " adjusted to " + ( txnNum - offset) + " for database read");
+                    }
+                    txnNum -= offset;
+                    id = txnFormat.format(txnNum);
+
+                }
+            }
+
             if (selectStatement == null) {
                 selectStatement = conn.prepareStatement(selectTemplate);
             }
@@ -134,7 +171,9 @@ public class TransactionTable extends AbstractTable
                 return null;
             }
             while (rs.next()) {
-                t.setItemID(rs.getString(ID));
+                // We set the requested ID, rather than the ID from the resultset, due to the fact that we'll
+                // rewind and reuse the dataset multiple times if the demo is long-running.
+                t.setItemID(id);
                 t.setAccountNumber(rs.getString(ACCT_NUMBER));
                 t.setMerchantId(rs.getString(MERCHANT_ID));
                 t.setAmount(rs.getDouble(AMOUNT));
@@ -147,7 +186,28 @@ public class TransactionTable extends AbstractTable
             //e.printStackTrace();
             //System.exit(-1);
             return null;
+        } catch (Throwable t) {
+            t.printStackTrace();
+            return null;
         }
+    }
+
+    public synchronized int getTableSize() {
+        try {
+            tableSizeQueryStatement = conn.prepareStatement(tableSizeQuery);
+            ResultSet rs = tableSizeQueryStatement.executeQuery();
+
+            if (rs.next()) {
+                int size = rs.getInt(1);
+                tableSizeQueryStatement.close();
+                return size;
+            }
+
+        } catch (SQLException se) {
+            se.printStackTrace();
+            System.exit(-1);
+        }
+        return 0;
     }
 
     // MapLoader interface
@@ -162,7 +222,7 @@ public class TransactionTable extends AbstractTable
 
     @Override
     public synchronized Map<String, Transaction> loadAll(Collection<String> collection) {
-        log.info("TransactionTable.loadAll() with " + collection.size() + " keys");
+        //log.info("TransactionTable.loadAll() with " + collection.size() + " keys");
         if (conn == null)
             establishConnection();
         Map<String,Transaction> results = new HashMap<>(collection.size());

@@ -28,6 +28,11 @@ public class BankInABoxProperties {
     public static String JDBC_USER;
     public static String JDBC_PASS;
 
+    public static int PREAUTH_CHUNK_SIZE;
+    public static int PREAUTH_HIGH_LIMIT;
+    public static int PREAUTH_LOW_LIMIT;
+    public static int PREAUTH_CHECK_INTERVAL;
+
     static {
         loadProperties();
     }
@@ -99,6 +104,15 @@ public class BankInABoxProperties {
         JDBC_PORT = properties.getProperty("JDBC_PORT");
         JDBC_USER = properties.getProperty("JDBC_USER");
         JDBC_PASS = properties.getProperty("JDBC_PASS");
+
+        temp = properties.getProperty("PreAuth_Chunk_Size");
+        PREAUTH_CHUNK_SIZE = Integer.parseInt(temp);
+        temp = properties.getProperty("PreAuth_High_Limit");
+        PREAUTH_HIGH_LIMIT = Integer.parseInt(temp);
+        temp = properties.getProperty("PreAuth_Low_Limit");
+        PREAUTH_LOW_LIMIT = Integer.parseInt(temp);
+        temp = properties.getProperty("PreAuth_Check_Interval");
+        PREAUTH_CHECK_INTERVAL = Integer.parseInt(temp);
 
     }
 }
