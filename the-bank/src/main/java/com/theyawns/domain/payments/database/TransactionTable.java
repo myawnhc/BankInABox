@@ -60,7 +60,7 @@ public class TransactionTable extends AbstractTable
     @Override
     public void establishConnection() {
         super.establishConnection();
-        System.out.println("Getting Txn table size for offset calculations");
+        log.info("Getting Txn table size for offset calculations");
         numberOfEntries = getTableSize();
     }
 
@@ -132,6 +132,8 @@ public class TransactionTable extends AbstractTable
 
     public synchronized Transaction readFromDatabase(String id) {
 
+        String originalId = id;
+
         try {
             if (id == null) {
                 log.warning("TransactionTable.readFromDatabase(): Passed null id, returning null");
@@ -139,19 +141,19 @@ public class TransactionTable extends AbstractTable
             }
 
             int txnNum = Integer.parseInt(id);
-            //System.out.println("id, numtries " + txnNum + " " + numberOfEntries);
+            //log.info("id, txnnum, numentries " + id + " " + txnNum + " " + numberOfEntries);
 
             // First transaction id is one; so offset of 0 indicates we've hit last transaction and must roll over
             int txnOffset = txnNum % numberOfEntries;
-            if (txnOffset == 0) {
+            if (txnNum > 0 && txnOffset == 0) {
                 passesThroughTransactionFile++;
                 offset += numberOfEntries;
-                System.out.println("Finished pass " + passesThroughTransactionFile + " through transaction file, offset now " + offset);
+                log.info("Finished pass " + passesThroughTransactionFile + " through transaction file, offset now " + offset);
 
             } else {
                 if (passesThroughTransactionFile > 0) {
                     if (txnNum == 0 || txnNum == 1) {
-                        System.out.println("Pass " + passesThroughTransactionFile + 1 + " id " + txnNum + " adjusted to " + ( txnNum - offset) + " for database read");
+                        log.info("Pass " + passesThroughTransactionFile + 1 + " id " + txnNum + " adjusted to " + ( txnNum - offset) + " for database read");
                     }
                     txnNum -= offset;
                     id = txnFormat.format(txnNum);
@@ -170,19 +172,24 @@ public class TransactionTable extends AbstractTable
                 log.warning("TransactionTable.readFromDatabase(): Null resultSet trying to read Transaction " + id);
                 return null;
             }
-            while (rs.next()) {
+            if (rs.first()) {
                 // We set the requested ID, rather than the ID from the resultset, due to the fact that we'll
                 // rewind and reuse the dataset multiple times if the demo is long-running.
-                t.setItemID(id);
+                t.setItemID(originalId);
                 t.setAccountNumber(rs.getString(ACCT_NUMBER));
                 t.setMerchantId(rs.getString(MERCHANT_ID));
                 t.setAmount(rs.getDouble(AMOUNT));
                 t.setLocation(rs.getString(LOCATION));
+            } else {
+                log.warning("TransactionTable.readFromDatabase: no entry for key " + id);
             }
-            //System.out.println(t);
+            if (txnNum >= 499995 && txnNum <= 500005) {
+                log.info("TransactionTable.read " + txnNum + ": " + t);
+            }
+            //log.finest("TransactionTable.readFromDatabase: " + t);
             return t;
         } catch (SQLException e) {
-            log.info("Error in " + selectStatement.toString() + " --> " + e.getMessage());
+            log.severe("Error in " + selectStatement.toString() + " --> " + e.getMessage());
             //e.printStackTrace();
             //System.exit(-1);
             return null;

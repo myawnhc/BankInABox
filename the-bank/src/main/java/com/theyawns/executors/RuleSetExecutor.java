@@ -95,6 +95,11 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
         Transaction txn = (Transaction) rser.getItem();
         TransactionEvaluationResult ter = resultMap.get(txn.getItemID());
 
+        String key = txn.getItemID();
+        if ((key.compareTo("00000000499995") >= 0) && key.compareTo("00000000500005") <= 0) {
+            System.out.println("RuleSetExecutor.consumeResult, rs " + ruleSet.getName() + "  key " + key + " value " + txn);
+        }
+
         // Trying to understand ordering, and what left hanging at end ...
 
         if (ter == null) {

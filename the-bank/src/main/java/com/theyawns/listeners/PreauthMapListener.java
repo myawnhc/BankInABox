@@ -74,19 +74,30 @@ public class PreauthMapListener implements
         // easily scale this up by using round-robin, modulo the transaction id, or
         // some other scheme
 
+        //log.finest("entryAdded key " + entryEvent.getKey() + " value " + entryEvent.getValue());
         Transaction txn = entryEvent.getValue();
         // TODO: add averarge transaction volume to merchants, use to scale
         //       transactions appropriately.   Until that is in place, we fudge the
         //       numbers by using multiple merchants to represent the big two
-        int merchantNum = Integer.parseInt(txn.getMerchantId());  // TODO: see a rare number format exception here - null merchant id
+        int merchantNum = 1;
+        try {
+            merchantNum = Integer.parseInt(txn.getMerchantId());  // TODO: see a rare number format exception here - null merchant id
+        } catch (NumberFormatException nfe) {
+            log.warning(("Number format exception parsing merchant: " + txn));
+        }
         if (merchantNum >= 1 && merchantNum <= 9)
-            merchant_txn_count_amazon.getAndIncrement();
-        else if (merchantNum >= 10 && merchantNum <= 20)
-            merchant_txn_count_walmart.getAndIncrement();
+                merchant_txn_count_amazon.getAndIncrement();
+            else if (merchantNum >= 10 && merchantNum <= 20)
+                merchant_txn_count_walmart.getAndIncrement();
+
+        String key = txn.getItemID();
+        if ((key.compareTo("00000000499995") >= 0) && key.compareTo("00000000500005") <= 0) {
+            log.info("PreAuthMapListener sees key " + key + " value " + txn);
+        }
 
         // Keep this in sync with the number of rulesets that are active -
-        txn.setRuleSetsToApply(2);
-        preAuthMap.put(txn.getItemID(), txn);
+        txn.setRuleSetsToApply(2); // TODO: this should be determined in some way, not hard-coded
+        preAuthMap.put(txn.getItemID(), txn); // rewrite the transaction so that the ruleset field is set in the map
 
         // TODO: Replace Queues with a ReliableTopic
         //getPaymentRulesQueue(txn).add(txn);

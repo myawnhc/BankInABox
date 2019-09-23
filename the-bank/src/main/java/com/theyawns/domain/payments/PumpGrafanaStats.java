@@ -21,7 +21,6 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
     private transient PNCounter approvalCounter;
     private transient PNCounter rejectedForFraud;
     private transient PNCounter rejectedForCredit;
-    // Suspect these get dropped when we start showing reject rates by rule
     private transient PNCounter walmart;
     private transient PNCounter amazon;
 
@@ -33,7 +32,6 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
     private static int previouslyReportedApprovals = 0;
 
     private void init() {
-
         approvalCounter = hazelcast.getPNCounter(Constants.PN_COUNT_APPROVED);
         rejectedForCredit = hazelcast.getPNCounter(Constants.PN_COUNT_REJ_CREDIT);
         rejectedForFraud = hazelcast.getPNCounter(Constants.PN_COUNT_REJ_FRAUD);

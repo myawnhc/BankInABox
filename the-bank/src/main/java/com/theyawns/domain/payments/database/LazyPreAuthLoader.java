@@ -34,7 +34,7 @@ public class LazyPreAuthLoader implements Runnable, Serializable, HazelcastInsta
     public void run() {
 //        long startTime = System.nanoTime();
 //        int startCount = preAuthMap.size();
-        int nextTransactionToLoad = 1;
+        int nextTransactionToLoad = 0;
         int chunkSize = BankInABoxProperties.PREAUTH_CHUNK_SIZE;
 
         TransactionTable table = new TransactionTable();
@@ -74,12 +74,17 @@ public class LazyPreAuthLoader implements Runnable, Serializable, HazelcastInsta
             //System.out.println("  Loaded " + keys.size() + " keys into Java HashMap resulting in " + transactions.entrySet().size() + " entries");
             for (String key : keys) {
                 Transaction t = transactions.get(key);
+                //System.out.println("loaded " + t);
                 if (key == null)
                     System.out.println(" ERROR: Null key");
                 else if (t == null)
                     System.out.println(" ERROR: Null entry for key " + key);
                 else
                     preAuthMap.put(key, t);
+
+                if ((key.compareTo("00000000499995") >= 0) && key.compareTo("00000000500005") <= 0) {
+                    System.out.println("LazyPreAuthLoader put key " + key + " value " + t);
+                }
             }
             System.out.println("  " + transactions.size() + " new transactions loaded to IMap, preAuth size now " + preAuthMap.size());
 
