@@ -4,21 +4,24 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: pod-hazelcast-server
+  labels:
+    app: bankinabox-hazelcast-server
+  name: bankinabox-hazelcast-server
+  namespace: default
 spec:
   replicas: 3
   serviceName: bankinabox-hazelcast-server
   selector:
     matchLabels:
-      app: pod-hazelcast-server
+      app: bankinabox-hazelcast-server
   template:
     metadata:
       labels:
-        app: pod-hazelcast-server
+        app: bankinabox-hazelcast-server
     spec:
       containers:
-        - image: bankinabox/hazelcast-server
-          imagePullPolicy: Never
+        - image: "gcr.io/hazelcast-33/bankinabox/hazelcast-server:latest"
+          imagePullPolicy: IfNotPresent
           livenessProbe:
             httpGet:
               path: /hazelcast/health/node-state
@@ -35,11 +38,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: bankinabox-hazelcast-server
+  name: bankinabox-hazelcast-server-service
 spec:
   clusterIP: None
   selector:
-    app: pod-hazelcast-server
+    app: bankinabox-hazelcast-server
   ports:
   - protocol: TCP
     port: 5701

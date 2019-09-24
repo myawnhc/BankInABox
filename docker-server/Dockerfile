@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11
+FROM library/openjdk:11-jre-slim
 
 ARG JAR_FILE
 COPY target/${JAR_FILE} application.jar
@@ -12,8 +12,9 @@ ENV HZ_KUBERNETES_ENABLED "true"
 ENV HZ_TCP_ENABLED "false"
 
 ENV JAVA_ARGS ""
+ENV JAVA_ARGS "$JAVA_ARGS -Dhz.ip4.addr=$HZ_IP4_ADDR"
 ENV JAVA_ARGS "$JAVA_ARGS -Dhz.kubernetes.enabled=$HZ_KUBERNETES_ENABLED"
 ENV JAVA_ARGS "$JAVA_ARGS -Dhz.tcp.enabled=$HZ_TCP_ENABLED"
-ENV JAVA_ARGS "$JAVA_ARGS -Dhz.ip4.addr=$HZ_IP4_ADDR"
 
+# No default for namespace
 ENTRYPOINT exec java $JAVA_MODS $JAVA_ARGS -jar application.jar

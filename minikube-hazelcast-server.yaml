@@ -1,0 +1,50 @@
+---
+# =========================================================
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: bankinabox-hazelcast-server
+  name: bankinabox-hazelcast-server
+  namespace: default
+spec:
+  replicas: 3
+  serviceName: bankinabox-hazelcast-server
+  selector:
+    matchLabels:
+      app: bankinabox-hazelcast-server
+  template:
+    metadata:
+      labels:
+        app: bankinabox-hazelcast-server
+    spec:
+      containers:
+        - image: "bankinabox/hazelcast-server"
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            httpGet:
+              path: /hazelcast/health/node-state
+              port: 5701
+          name: container-hazelcast-server
+          readinessProbe:
+            httpGet:
+              path: /hazelcast/health/node-state
+              port: 5701
+            initialDelaySeconds: 30
+---
+# =========================================================
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bankinabox-hazelcast-server-service
+spec:
+  clusterIP: None
+  selector:
+    app: bankinabox-hazelcast-server
+  ports:
+  - protocol: TCP
+    port: 5701
+    targetPort: 5701
+---
