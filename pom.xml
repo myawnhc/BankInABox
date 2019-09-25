@@ -23,6 +23,7 @@
 
 	<modules>
 		<module>the-bank</module>
+		<module>docker-preloader</module>
 		<module>docker-server</module>
 	</modules>
 
