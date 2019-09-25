@@ -1,8 +1,14 @@
-package com.theyawns.launcher;
+package com.theyawns.util;
 
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
 
+/**
+ * <p>This class sets/overrides Java system properties that may
+ * be in Hazelcast config files, so should be called before these
+ * Hazelcast config files are used.
+ * </p>
+ */
 public class KubernetesCheck {
 	
     private final static ILogger log = Logger.getLogger(KubernetesCheck.class);
@@ -35,7 +41,7 @@ public class KubernetesCheck {
 	 * running in Kubernetes. Same for "@{code hz.kubernetyes.enabled}".
 	 * </p>
 	 */
-	KubernetesCheck() {
+	public KubernetesCheck() {
 		if (log.isInfoEnabled()) {
 			System.getProperties().keySet()
 			.stream()
