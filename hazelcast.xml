@@ -7,7 +7,7 @@
         >
 
     <group>
-        <name>BankInABox</name>
+        <name>${hz.groupName}</name>
     </group>
 
     <management-center enabled="true">

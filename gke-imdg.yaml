@@ -35,6 +35,28 @@ spec:
 ---
 # =========================================================
 ---
+apiVersion: "autoscaling/v2beta1"
+kind: "HorizontalPodAutoscaler"
+metadata:
+  name: bankinabox-hazelcast-server
+  namespace: "default"
+  labels:
+    app: bankinabox-hazelcast-server
+spec:
+  scaleTargetRef:
+    kind: "Deployment"
+    name: bankinabox-hazelcast-server
+    apiVersion: "apps/v1"
+  minReplicas: 3
+  maxReplicas: 5
+  metrics:
+  - type: "Resource"
+    resource:
+      name: "cpu"
+      targetAverageUtilization: 80
+---
+# =========================================================
+---
 apiVersion: v1
 kind: Service
 metadata:

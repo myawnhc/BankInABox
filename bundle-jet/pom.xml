@@ -10,13 +10,13 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>docker-server</artifactId>
+	<artifactId>bundle-jet</artifactId>
 
-	<description>Builds a Docker image of the bundled Hazelcast server</description>
+	<description>An executable Jar file and optional Docker image for Jet</description>
 
 	<properties>
-		<docker.image.name>hazelcast-server</docker.image.name>
-		<my.main.class>com.theyawns.launcher.ClusterMember</my.main.class>
+		<docker.image.name>jet</docker.image.name>
+		<my.main.class>com.theyawns.launcher.JetMain</my.main.class>
 	</properties>
 
 	<dependencies>

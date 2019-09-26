@@ -23,8 +23,10 @@
 
 	<modules>
 		<module>the-bank</module>
-		<module>docker-preloader</module>
-		<module>docker-server</module>
+		<module>bundle-imdg</module>
+		<module>bundle-jet</module>
+		<module>bundle-launcher</module>
+		<module>bundle-preloader</module>
 	</modules>
 
 	<dependencies>
@@ -126,7 +128,7 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>kubernetes</id>
+			<id>docker</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
 			</activation>

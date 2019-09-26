@@ -10,9 +10,9 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>docker-preloader</artifactId>
+	<artifactId>bundle-preloader</artifactId>
 
-	<description>Builds a Docker image of the database pre-loader</description>
+	<description>An executable Jar file and optional Docker image for the database pre-loader</description>
 
 	<properties>
 		<docker.image.name>preloader</docker.image.name>

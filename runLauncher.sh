@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-MAVEN_REPOSITORY=${HOME}/.m2/repository
-CLASSPATH=${MAVEN_REPOSITORY}/com/hazelcast/jet/hazelcast-jet/3.1/hazelcast-jet-3.1.jar
+JAVA_MODS="--add-modules java.se --add-exports java.base/jdk.internal.ref=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.management/sun.management=ALL-UNNAMED --add-opens jdk.management/com.sun.management.internal=ALL-UNNAMED"
 
-java -Dip4.addr=localhost -Xms8g -Xmx8g -classpath "./src/main/resources:${CLASSPATH}:./target/BankInABox-1.0-SNAPSHOT.jar" com.theyawns.launcher.Launcher
+java $JAVA_MODS -Dip4.addr=localhost -Xms8g -Xmx8g -jar bundle-launcher/target/bundle-launcher-1.0-SNAPSHOT.jar

@@ -20,7 +20,7 @@
                   xmlns="http://www.hazelcast.com/schema/client-config">
 
     <group>
-        <name>BankInABox</name>
+       <name>${hz.groupName}</name>
     </group>
 
     <properties>

@@ -4,17 +4,17 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: pod-hazelcast-management-center
+  name: pod-management-center
 spec:
   replicas: 1
-  serviceName: bankinabox-hazelcast-management-center-service
+  serviceName: bankinabox-management-center-service
   selector:
     matchLabels:
-      app: pod-hazelcast-management-center
+      app: pod-management-center
   template:
     metadata:
       labels:
-        app: pod-hazelcast-management-center
+        app: pod-management-center
     spec:
       containers:
         - env:
@@ -38,13 +38,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: bankinabox-hazelcast-management-center-service
+  name: bankinabox-management-center-service
 spec:
   ports:
     - protocol: TCP
       port: 8080
       targetPort: 8080
   selector:
-    app: pod-hazelcast-management-center
+    app: pod-management-center
   type: LoadBalancer
 ---
