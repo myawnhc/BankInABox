@@ -70,6 +70,11 @@
         </map-store>
     </map>
 
+    <map name="ppfdResultMap">
+        <eviction-policy>LRU</eviction-policy>
+        <max-size policy="PER_NODE">25000</max-size>
+    </map>
+
     <map name="preAuth">
         <!-- Nothing should take longer than 5 minutes from ingest until disposition, smo max idle should
              be sufficient to keep our map size manageable; max-size set as a backstop -->
