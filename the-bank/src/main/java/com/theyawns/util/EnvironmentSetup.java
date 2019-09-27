@@ -9,11 +9,13 @@ import com.hazelcast.logging.Logger;
  * Hazelcast config files are used.
  * </p>
  */
-public class KubernetesCheck {
+public class EnvironmentSetup {
 	
-    private final static ILogger log = Logger.getLogger(KubernetesCheck.class);
+    private final static ILogger log = Logger.getLogger(EnvironmentSetup.class);
 
     private static final String[] PROPERTIES = {
+    		"hz.groupName",
+    		"hz.is.imdg",
     		"hz.kubernetes.enabled",
     		"hz.management.center",
     		"hz.service.dns",
@@ -21,16 +23,20 @@ public class KubernetesCheck {
     };
     
     // Reference array, so all are logged
-    private static final String KUBERNETES_ENABLED = PROPERTIES[0];
-    private static final String MANAGEMENT_CENTER = PROPERTIES[1];
-    private static final String SERVICE_NAME = PROPERTIES[2];
-    private static final String TCP_ENABLED = PROPERTIES[3];
+    private static final String GROUP_NAME = PROPERTIES[0];
+    private static final String IS_IMDG = PROPERTIES[1];
+    private static final String KUBERNETES_ENABLED = PROPERTIES[2];
+    private static final String MANAGEMENT_CENTER = PROPERTIES[3];
+    private static final String SERVICE_NAME = PROPERTIES[4];
+    private static final String TCP_ENABLED = PROPERTIES[5];
 
     private static final String MANAGEMENT_CENTER_SERVICE
-    	= "bankinabox-hazelcast-management-center-service";
+    	= "bankinabox-management-center-service";
     private static final String NAMESPACE = "default.svc.cluster.local";
-    private static final String SERVER_SERVICE
-    	= "bankinabox-hazelcast-server-service" + "." + NAMESPACE;
+    private static final String IMDG_SERVICE
+    	= "bankinabox-imdg-service" + "." + NAMESPACE;
+    private static final String JET_SERVICE
+	= "bankinabox-jet-service" + "." + NAMESPACE;
     
 	/**
 	 * <p>Determine if we are in Kubernetes or not, and should
@@ -41,7 +47,7 @@ public class KubernetesCheck {
 	 * running in Kubernetes. Same for "@{code hz.kubernetyes.enabled}".
 	 * </p>
 	 */
-	public KubernetesCheck() {
+	public EnvironmentSetup() {
 		if (log.isInfoEnabled()) {
 			System.getProperties().keySet()
 			.stream()
@@ -50,18 +56,32 @@ public class KubernetesCheck {
 			.forEach(key -> log.info("'" + key + "'=='" + System.getProperty(key.toString()) + "'"));
 		}
 
-		System.setProperty(TCP_ENABLED, 
-				System.getProperty(TCP_ENABLED, "true")
+		System.setProperty(IS_IMDG, 
+				System.getProperty(IS_IMDG, "true")
 				);
 		System.setProperty(KUBERNETES_ENABLED, 
 				System.getProperty(KUBERNETES_ENABLED, "false")
 				);
+		System.setProperty(TCP_ENABLED, 
+				System.getProperty(TCP_ENABLED, "true")
+				);
+
+		if (System.getProperty(IS_IMDG).equalsIgnoreCase("true")) {
+			System.setProperty(GROUP_NAME, "BankInABox");
+		} else {
+			System.setProperty(GROUP_NAME, "JetInABox");
+		}
 
 		if (System.getProperty(KUBERNETES_ENABLED).equalsIgnoreCase("true")) {
 			System.setProperty(MANAGEMENT_CENTER,
 					MANAGEMENT_CENTER_SERVICE);
-			System.setProperty(SERVICE_NAME,
-					SERVER_SERVICE);
+			if (System.getProperty(IS_IMDG).equalsIgnoreCase("true")) {
+				System.setProperty(SERVICE_NAME,
+						IMDG_SERVICE);				
+			} else {
+				System.setProperty(SERVICE_NAME,
+						JET_SERVICE);				
+			}
 			
 			if (System.getProperty(TCP_ENABLED).equalsIgnoreCase("true")) {
 				log.severe("TCP and Kubernetes discovery are both enabled.");
