@@ -7,14 +7,14 @@ COPY target/classes/hazelcast-client.xml hazelcast-client.xml
 
 ENV JAVA_MODS "--add-modules java.se --add-exports java.base/jdk.internal.ref=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.management/sun.management=ALL-UNNAMED --add-opens jdk.management/com.sun.management.internal=ALL-UNNAMED"
 
-ENV HZ_GROUP_NAME "BankInABox"
+ENV HZ_IS_IMDG ""
 ENV HZ_IP4_ADDR "none"
 ENV HZ_KUBERNETES_ENABLED "true"
 ENV HZ_TCP_ENABLED "false"
 
 ENV JAVA_ARGS ""
-ENV JAVA_ARGS "$JAVA_ARGS -Dhz.groupName=$HZ_GROUP_NAME"
 ENV JAVA_ARGS "$JAVA_ARGS -Dhz.ip4.addr=$HZ_IP4_ADDR"
+ENV JAVA_ARGS "$JAVA_ARGS -Dhz.is.imdg=$HZ_IS_IMDG"
 ENV JAVA_ARGS "$JAVA_ARGS -Dhz.kubernetes.enabled=$HZ_KUBERNETES_ENABLED"
 ENV JAVA_ARGS "$JAVA_ARGS -Dhz.tcp.enabled=$HZ_TCP_ENABLED"
 

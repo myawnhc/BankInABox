@@ -5,22 +5,22 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   labels:
-    app: bankinabox-hazelcast-server
-  name: bankinabox-hazelcast-server
+    app: bankinabox-imdg
+  name: bankinabox-imdg
   namespace: default
 spec:
   replicas: 3
-  serviceName: bankinabox-hazelcast-server
+  serviceName: bankinabox-imdg
   selector:
     matchLabels:
-      app: bankinabox-hazelcast-server
+      app: bankinabox-imdg
   template:
     metadata:
       labels:
-        app: bankinabox-hazelcast-server
+        app: bankinabox-imdg
     spec:
       containers:
-        - image: "bankinabox/hazelcast-server"
+        - image: "bankinabox/imdg"
           imagePullPolicy: IfNotPresent
           livenessProbe:
             httpGet:
@@ -38,11 +38,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: bankinabox-hazelcast-server-service
+  name: bankinabox-imdg-service
 spec:
   clusterIP: None
   selector:
-    app: bankinabox-hazelcast-server
+    app: bankinabox-imdg
   ports:
   - protocol: TCP
     port: 5701
