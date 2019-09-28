@@ -72,6 +72,9 @@
 							<manifest>
 								<mainClass>${my.main.class}</mainClass>
 							</manifest>
+							<manifestEntries>
+								<Build-Timestamp>${maven.build.timestamp}</Build-Timestamp>
+							</manifestEntries>
 						</archive>
 						<attach>false</attach>
 						<descriptorRefs>

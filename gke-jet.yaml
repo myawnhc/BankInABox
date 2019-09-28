@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - image: "gcr.io/hazelcast-33/bankinabox/jet:latest"
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           livenessProbe:
             httpGet:
               path: /hazelcast/health/node-state

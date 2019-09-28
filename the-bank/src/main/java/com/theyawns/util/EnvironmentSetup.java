@@ -1,5 +1,11 @@
 package com.theyawns.util;
 
+import java.io.InputStream;
+import java.net.URL;
+import java.util.Enumeration;
+import java.util.jar.Attributes;
+import java.util.jar.Manifest;
+
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
 
@@ -112,10 +118,29 @@ public class EnvironmentSetup {
 		}
 
 		if (log.isInfoEnabled()) {
+			log.info("*****************************");
+			log.info("<< MANIFEST.MF >>");
+			try {
+				Enumeration<URL> enumeration
+					= EnvironmentSetup.class.getClassLoader().getResources("META-INF/MANIFEST.MF");
+				if (!enumeration.hasMoreElements()) {
+					log.severe("No enumeration for manifest");
+				} else {
+					URL url = enumeration.nextElement();
+					try (InputStream inputStream = url.openStream()) {
+						Manifest manifest = new Manifest(inputStream);
+						Attributes attributes = manifest.getMainAttributes();
+						attributes.entrySet().stream().forEach(e -> log.info(e.toString()));
+					}
+				}
+			} catch (Exception e) {
+				log.severe(e.getMessage());
+			}
+			log.info("<< PROPERTIES >>");
 			for (String property : PROPERTIES) {
 				log.info("Set '" + property + "'=='" + System.getProperty(property) + "'");
 			}
+			log.info("*****************************");
 		}
 	}
-
 }
