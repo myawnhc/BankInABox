@@ -25,12 +25,12 @@ spec:
           livenessProbe:
             httpGet:
               path: /hazelcast/health/node-state
-              port: 5710
+              port: 5701
           name: container-hazelcast-server
           readinessProbe:
             httpGet:
               path: /hazelcast/health/node-state
-              port: 5710
+              port: 5701
             initialDelaySeconds: 30
 ---
 # =========================================================
@@ -45,6 +45,6 @@ spec:
     app: bankinabox-jet
   ports:
   - protocol: TCP
-    port: 5710
-    targetPort: 5710
+    port: 5701
+    targetPort: 5701
 ---

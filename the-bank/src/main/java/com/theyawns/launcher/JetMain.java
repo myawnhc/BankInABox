@@ -20,7 +20,10 @@ public class JetMain {
         XmlConfigBuilder xccb = new XmlConfigBuilder(); // Reads hazelcast.xml
         Config hazelcastConfig = xccb.build();
         NetworkConfig networkConfig = hazelcastConfig.getNetworkConfig();
-        networkConfig.setPort(5710); // Avoid collision between internal and external IMDG clusters
+        //TODO Use 5710 in Kubernetes also
+        if (!System.getProperty("hz.kubernetes.enabled").equalsIgnoreCase("true")) {
+            networkConfig.setPort(5710); // Avoid collision between internal and external IMDG clusters
+        }
         hazelcastConfig.getCPSubsystemConfig().setCPMemberCount(0); // no CP needed on internal cluster
         jetConfig = new JetConfig();
         jetConfig.setHazelcastConfig(hazelcastConfig);

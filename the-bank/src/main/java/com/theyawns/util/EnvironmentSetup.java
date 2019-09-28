@@ -36,7 +36,7 @@ public class EnvironmentSetup {
     private static final String IMDG_SERVICE
     	= "bankinabox-imdg-service" + "." + NAMESPACE;
     private static final String JET_SERVICE
-	= "bankinabox-jet-service" + "." + NAMESPACE;
+    	= "bankinabox-jet-service" + "." + NAMESPACE;
     
 	/**
 	 * <p>Determine if we are in Kubernetes or not, and should
