@@ -32,9 +32,9 @@ top-level BankInABox directory
 The preloader takes about 3-5 minutes to generate data.  One complete, your system is now set up to run the demo. 
 
 ### To run:
-First, start at least 3 IMDG Cluster nodes using the script runCluster.sh
+First, start at least 3 IMDG Cluster nodes using the script runImdg.sh
 ```bash
-./runCluster.sh
+./runImdg.sh
 ```
 
 Three nodes are required because the demo uses some features of the CP subsystem that requires 3 nodes to operate.
@@ -76,13 +76,3 @@ Jet Management Center can be used to monitor the Jet pipeline job.  The pipeline
 calculates updated average transaction amounts per merchant.   The Jet Management Center startup script needs to be 
 modified to connect to port 5710 rather than default 5701, so that Jet and IMDG can run on the same server without 
 collision.
-
-## Kubernetes
-
-### Build
-To build for Kubernetes, activate the `kubernetes` build profile.
-
-```
-mvn install -Pkubernetes
-```
-
