@@ -19,6 +19,7 @@ public class EnvironmentSetup {
     		"hz.kubernetes.enabled",
     		"hz.management.center",
     		"hz.service.dns",
+    		"hz.service.port",
     		"hz.tcp.enabled",
     };
     
@@ -28,13 +29,16 @@ public class EnvironmentSetup {
     private static final String KUBERNETES_ENABLED = PROPERTIES[2];
     private static final String MANAGEMENT_CENTER = PROPERTIES[3];
     private static final String SERVICE_NAME = PROPERTIES[4];
-    private static final String TCP_ENABLED = PROPERTIES[5];
+    private static final String SERVICE_PORT = PROPERTIES[5];
+    private static final String TCP_ENABLED = PROPERTIES[6];
 
     private static final String MANAGEMENT_CENTER_SERVICE
     	= "bankinabox-management-center-service";
     private static final String NAMESPACE = "default.svc.cluster.local";
+    private static final String IMDG_PORT = "5710";
     private static final String IMDG_SERVICE
     	= "bankinabox-imdg-service" + "." + NAMESPACE;
+    private static final String JET_PORT = "5710";
     private static final String JET_SERVICE
     	= "bankinabox-jet-service" + "." + NAMESPACE;
     
@@ -76,11 +80,11 @@ public class EnvironmentSetup {
 			System.setProperty(MANAGEMENT_CENTER,
 					MANAGEMENT_CENTER_SERVICE);
 			if (System.getProperty(IS_IMDG).equalsIgnoreCase("true")) {
-				System.setProperty(SERVICE_NAME,
-						IMDG_SERVICE);				
+				System.setProperty(SERVICE_PORT, IMDG_PORT);
+				System.setProperty(SERVICE_NAME, IMDG_SERVICE);				
 			} else {
-				System.setProperty(SERVICE_NAME,
-						JET_SERVICE);				
+				System.setProperty(SERVICE_PORT, JET_PORT);
+				System.setProperty(SERVICE_NAME, JET_SERVICE);				
 			}
 			
 			if (System.getProperty(TCP_ENABLED).equalsIgnoreCase("true")) {

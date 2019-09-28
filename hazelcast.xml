@@ -23,6 +23,7 @@
             </tcp-ip>
             <kubernetes enabled="${hz.kubernetes.enabled}">
                 <service-dns>${hz.service.dns}</service-dns>
+                <service-port>${hz.service.port}</service-port>
             </kubernetes>
         </join>
 	<rest-api enabled="true">
