@@ -21,9 +21,9 @@
 	<build>
 		<resources>
 			<resource>
-				<directory>..</directory>
+				<directory>../mariadb/scripts</directory>
 				<includes>
-					<include>hazelcast.xml</include>
+					<include>*.sql</include>
 				</includes>
 			</resource>
 		</resources>

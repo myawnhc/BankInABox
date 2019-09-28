@@ -1,3 +1,40 @@
 ---
 # =========================================================
 ---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: bankinabox-maria
+  name: bankinabox-maria
+  namespace: default
+spec:
+  replicas: 1
+  serviceName: bankinabox-maria
+  selector:
+    matchLabels:
+      app: bankinabox-maria
+  template:
+    metadata:
+      labels:
+        app: bankinabox-maria
+    spec:
+      containers:
+        - image: "bankinabox/maria"
+          imagePullPolicy: IfNotPresent
+          name: container-hazelcast-server
+---
+# =========================================================
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bankinabox-maria-service
+spec:
+  clusterIP: None
+  selector:
+    app: bankinabox-maria
+  ports:
+  - port: 3306
+    targetPort: 3306
+---
