@@ -41,7 +41,7 @@ public class EnvironmentSetup {
     private static final String MANAGEMENT_CENTER_SERVICE
     	= "bankinabox-management-center-service";
     private static final String NAMESPACE = "default.svc.cluster.local";
-    private static final String IMDG_PORT = "5710";
+    private static final String IMDG_PORT = "5701";
     private static final String IMDG_SERVICE
     	= "bankinabox-imdg-service" + "." + NAMESPACE;
     private static final String JET_PORT = "5710";

@@ -23,9 +23,11 @@
 
 	<modules>
 		<module>the-bank</module>
+		<module>bundle-grafana</module>
 		<module>bundle-imdg</module>
 		<module>bundle-jet</module>
 		<module>bundle-launcher</module>
+		<module>bundle-maria</module>
 		<module>bundle-preloader</module>
 	</modules>
 
