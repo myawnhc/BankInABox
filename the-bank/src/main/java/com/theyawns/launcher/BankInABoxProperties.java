@@ -2,6 +2,7 @@ package com.theyawns.launcher;
 
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
+import com.theyawns.util.EnvironmentSetup;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -95,10 +96,20 @@ public class BankInABoxProperties {
         JDBC_DRIVER_CLASS = properties.getProperty("JDBC_DRIVER_CLASS");
         JDBC_DB_NAME = properties.getProperty("JDBC_DB_NAME");
         JDBC_PROTOCOL = properties.getProperty("JDBC_PROTOCOL");
-        JDBC_HOST = properties.getProperty("JDBC_HOST");
-        JDBC_PORT = properties.getProperty("JDBC_PORT");
-        JDBC_USER = properties.getProperty("JDBC_USER");
-        JDBC_PASS = properties.getProperty("JDBC_PASS");
+        
+        if (System.getProperty(EnvironmentSetup.KUBERNETES_ENABLED).equalsIgnoreCase("true")) {
+            JDBC_HOST = EnvironmentSetup.MARIA_SERVICE;
+        	log.info("Change from JDBC host: '" + properties.getProperty("JDBC_HOST") + 
+        			"' to '" + JDBC_HOST + "'. Plus set port, username, password.");
+            JDBC_PORT = "3306";
+            JDBC_USER = "root";
+            JDBC_PASS = "root";            
+        } else {
+            JDBC_HOST = properties.getProperty("JDBC_HOST");
+            JDBC_PORT = properties.getProperty("JDBC_PORT");
+            JDBC_USER = properties.getProperty("JDBC_USER");
+            JDBC_PASS = properties.getProperty("JDBC_PASS");
+        }
 
     }
 }

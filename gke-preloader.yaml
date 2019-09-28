@@ -1,3 +1,30 @@
 ---
 # =========================================================
 ---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: bankinabox-preloader
+  name: bankinabox-preloader
+  namespace: default
+spec:
+  replicas: 1
+  serviceName: bankinabox-preloader
+  selector:
+    matchLabels:
+      app: bankinabox-preloader
+  template:
+    metadata:
+      labels:
+        app: bankinabox-preloader
+    spec:
+      initContainers:
+        - name: wait-for-database
+          image: busybox
+          command: ['sh', '-c', 'sleep 30']
+      containers:
+        - image: "gcr.io/hazelcast-33/bankinabox/preloader"
+          imagePullPolicy: Always
+          name: container-preloader
+---

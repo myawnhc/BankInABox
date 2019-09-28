@@ -1,4 +1,4 @@
-create table MERCHANT (
+create table merchant (
   id             char(8)     not null,
   name           varchar(32),
   reputation     smallint,

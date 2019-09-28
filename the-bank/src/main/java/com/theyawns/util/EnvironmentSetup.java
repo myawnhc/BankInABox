@@ -20,23 +20,27 @@ public class EnvironmentSetup {
     private final static ILogger log = Logger.getLogger(EnvironmentSetup.class);
 
     private static final String[] PROPERTIES = {
+    		"hz.grafana",
     		"hz.groupName",
     		"hz.is.imdg",
     		"hz.kubernetes.enabled",
     		"hz.management.center",
+    		"hz.maria",
     		"hz.service.dns",
     		"hz.service.port",
     		"hz.tcp.enabled",
     };
     
     // Reference array, so all are logged
-    private static final String GROUP_NAME = PROPERTIES[0];
-    private static final String IS_IMDG = PROPERTIES[1];
-    private static final String KUBERNETES_ENABLED = PROPERTIES[2];
-    private static final String MANAGEMENT_CENTER = PROPERTIES[3];
-    private static final String SERVICE_NAME = PROPERTIES[4];
-    private static final String SERVICE_PORT = PROPERTIES[5];
-    private static final String TCP_ENABLED = PROPERTIES[6];
+    private static final String GRAFANA = PROPERTIES[0];
+    private static final String GROUP_NAME = PROPERTIES[1];
+    private static final String IS_IMDG = PROPERTIES[2];
+    public  static final String KUBERNETES_ENABLED = PROPERTIES[3];
+    private static final String MANAGEMENT_CENTER = PROPERTIES[4];
+    private static final String MARIA = PROPERTIES[5];
+    private static final String SERVICE_NAME = PROPERTIES[6];
+    private static final String SERVICE_PORT = PROPERTIES[7];
+    private static final String TCP_ENABLED = PROPERTIES[8];
 
     private static final String MANAGEMENT_CENTER_SERVICE
     	= "bankinabox-management-center-service";
@@ -47,6 +51,8 @@ public class EnvironmentSetup {
     private static final String JET_PORT = "5710";
     private static final String JET_SERVICE
     	= "bankinabox-jet-service" + "." + NAMESPACE;
+    public  static final String MARIA_SERVICE
+		= "bankinabox-maria-service" + "." + NAMESPACE;
     
 	/**
 	 * <p>Determine if we are in Kubernetes or not, and should
@@ -85,6 +91,7 @@ public class EnvironmentSetup {
 		if (System.getProperty(KUBERNETES_ENABLED).equalsIgnoreCase("true")) {
 			System.setProperty(MANAGEMENT_CENTER,
 					MANAGEMENT_CENTER_SERVICE);
+			System.setProperty(MARIA, MARIA_SERVICE);
 			if (System.getProperty(IS_IMDG).equalsIgnoreCase("true")) {
 				System.setProperty(SERVICE_PORT, IMDG_PORT);
 				System.setProperty(SERVICE_NAME, IMDG_SERVICE);				
