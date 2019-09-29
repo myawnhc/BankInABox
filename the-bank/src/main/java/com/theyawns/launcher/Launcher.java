@@ -93,6 +93,9 @@ public class Launcher {
     }
 
     public static void main(String[] args) {
+        System.out.println("________________________");
+        System.out.println("Start: " + new java.util.Date());
+        System.out.println("________________________");
         Launcher main = new Launcher();
         main.init();
 
@@ -125,6 +128,9 @@ public class Launcher {
 
         IScheduledExecutorService dses = main.hazelcast.getScheduledExecutorService("scheduledExecutor");
         //ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
+        System.out.println("________________________");
+        System.out.println("RUN MODE" + getRunMode());
+        System.out.println("________________________");
         if (getRunMode() == RunMode.Demo) {
             PumpGrafanaStats stats = new PumpGrafanaStats();
             try {
@@ -195,6 +201,9 @@ public class Launcher {
             System.out.println("Transaction backlog (preAuth map size) " + preAuthMap.size());
             if (preAuthMap.size() == 0) {
                 System.out.println("All transactions processed, exiting");
+                System.out.println("________________________");
+                System.out.println("End: " + new java.util.Date());
+                System.out.println("________________________");
                 System.exit(0);
             }
         }
