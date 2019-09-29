@@ -21,10 +21,7 @@
 	<build>
 		<resources>
 			<resource>
-				<directory>..</directory>
-				<includes>
-					<include>hazelcast.xml</include>
-				</includes>
+				<directory>src/main/resources</directory>
 			</resource>
 		</resources>
 
