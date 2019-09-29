@@ -11,7 +11,7 @@ import java.util.Properties;
 
 public class BankInABoxProperties {
 
-    private final static ILogger log = Logger.getLogger(BankInABoxProperties.class);
+    private static final ILogger log = Logger.getLogger(BankInABoxProperties.class);
 
     public static boolean COLLECT_TPS_STATS     = false;
     public static boolean COLLECT_LATENCY_STATS = false;

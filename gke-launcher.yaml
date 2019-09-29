@@ -1,3 +1,23 @@
 ---
 # =========================================================
 ---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  labels:
+    app: bankinabox-launcher
+  name: bankinabox-launcher
+  namespace: default
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        app: bankinabox-launcher
+    spec:
+      containers:
+        - image: "gcr.io/hazelcast-33/bankinabox/launcher"
+          imagePullPolicy: Always
+          name: container-launcher
+      restartPolicy: Never
+---

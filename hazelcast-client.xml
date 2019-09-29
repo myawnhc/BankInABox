@@ -34,6 +34,10 @@
             <address>127.0.0.1:5702</address>
             <address>127.0.0.1:5703</address>
         </cluster-members>
+        <kubernetes enabled="${hz.kubernetes.enabled}">
+            <service-dns>${hz.service.dns}</service-dns>
+            <service-port>${hz.service.port}</service-port>
+        </kubernetes>
     </network>
 
     <serialization>

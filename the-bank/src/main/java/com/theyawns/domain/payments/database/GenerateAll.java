@@ -66,6 +66,6 @@ public class GenerateAll {
             e.printStackTrace();
         }
         log.info("All complete.");
-
+        System.exit(0);
     }
 }

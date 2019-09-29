@@ -5,16 +5,30 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 
+import com.hazelcast.logging.ILogger;
+import com.hazelcast.logging.Logger;
+import com.theyawns.util.EnvironmentSetup;
+
 public class Graphite {
+    private static final ILogger log = Logger.getLogger(Graphite.class);
+    private static final int PORT=2003;
     //graphite socket
-    private static String HOST="localhost";
-    private static int PORT=2003;
     Socket graphiteSocket;
 
     public Graphite(){
         // create graphite socket
         try {
-            graphiteSocket = new Socket(HOST,PORT);
+        	String host = System.getProperty(EnvironmentSetup.GRAFANA);
+        	
+        	if (host!=null && host.length() > 0) {
+        		log.info("'" + EnvironmentSetup.GRAFANA + "'=='" + host + "'");
+        	} else {
+        		log.info("'" + EnvironmentSetup.GRAFANA + "'=='" + host
+        				+ "', using localhost for Graphite.");
+        		host = "localhost";
+        	}
+        	
+            graphiteSocket = new Socket(host,PORT);
         } catch (IOException e) {
             e.printStackTrace();
         }

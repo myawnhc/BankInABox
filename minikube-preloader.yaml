@@ -1,19 +1,15 @@
 ---
 # =========================================================
 ---
-apiVersion: apps/v1
-kind: StatefulSet
+apiVersion: batch/v1
+kind: Job
 metadata:
   labels:
     app: bankinabox-preloader
   name: bankinabox-preloader
   namespace: default
 spec:
-  replicas: 1
-  serviceName: bankinabox-preloader
-  selector:
-    matchLabels:
-      app: bankinabox-preloader
+  backoffLimit: 0
   template:
     metadata:
       labels:
@@ -27,4 +23,5 @@ spec:
         - image: "bankinabox/preloader"
           imagePullPolicy: IfNotPresent
           name: container-preloader
+      restartPolicy: Never
 ---

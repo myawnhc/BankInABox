@@ -17,7 +17,7 @@ import com.hazelcast.logging.Logger;
  */
 public class EnvironmentSetup {
 	
-    private final static ILogger log = Logger.getLogger(EnvironmentSetup.class);
+    private static final ILogger log = Logger.getLogger(EnvironmentSetup.class);
 
     private static final String[] PROPERTIES = {
     		"hz.grafana",
@@ -32,7 +32,7 @@ public class EnvironmentSetup {
     };
     
     // Reference array, so all are logged
-    private static final String GRAFANA = PROPERTIES[0];
+    public  static final String GRAFANA = PROPERTIES[0];
     private static final String GROUP_NAME = PROPERTIES[1];
     private static final String IS_IMDG = PROPERTIES[2];
     public  static final String KUBERNETES_ENABLED = PROPERTIES[3];
@@ -42,9 +42,11 @@ public class EnvironmentSetup {
     private static final String SERVICE_PORT = PROPERTIES[7];
     private static final String TCP_ENABLED = PROPERTIES[8];
 
-    private static final String MANAGEMENT_CENTER_SERVICE
-    	= "bankinabox-management-center-service";
     private static final String NAMESPACE = "default.svc.cluster.local";
+    private static final String GRAFANA_SERVICE
+		= "bankinabox-grafana-service" + "." + NAMESPACE;
+    private static final String MANAGEMENT_CENTER_SERVICE
+    	= "bankinabox-management-center-service" + "." + NAMESPACE;
     private static final String IMDG_PORT = "5701";
     private static final String IMDG_SERVICE
     	= "bankinabox-imdg-service" + "." + NAMESPACE;
@@ -89,6 +91,8 @@ public class EnvironmentSetup {
 		}
 
 		if (System.getProperty(KUBERNETES_ENABLED).equalsIgnoreCase("true")) {
+			System.setProperty(GRAFANA,
+					GRAFANA_SERVICE);
 			System.setProperty(MANAGEMENT_CENTER,
 					MANAGEMENT_CENTER_SERVICE);
 			System.setProperty(MARIA, MARIA_SERVICE);
@@ -108,6 +112,8 @@ public class EnvironmentSetup {
 				}
 			}
 		} else {
+			System.setProperty(GRAFANA,
+					"localhost");
 			System.setProperty(MANAGEMENT_CENTER,
 					"localhost");
 			System.setProperty(SERVICE_NAME,

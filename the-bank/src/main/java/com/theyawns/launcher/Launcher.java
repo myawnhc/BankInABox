@@ -19,8 +19,10 @@ import com.theyawns.pipelines.AdjustMerchantTransactionAverage;
 import com.theyawns.rules.TransactionEvaluationResult;
 import com.theyawns.rulesets.LocationBasedRuleSet;
 import com.theyawns.rulesets.MerchantRuleSet;
+import com.theyawns.util.EnvironmentSetup;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -41,7 +43,16 @@ public class Launcher {
     private IMap<String, TransactionEvaluationResult> resultMap;
 
     protected void init() {
+    	new EnvironmentSetup();
         ClientConfig cc = new XmlClientConfigBuilder().build();
+        
+        // Clients only have one discovery mechanism
+        if (cc.getNetworkConfig().getKubernetesConfig().isEnabled()
+        		&& cc.getNetworkConfig().getAddresses().size() > 0) {
+        	log.info("Remove listed server addresses in favour of Kubernetes discovery.");
+        	cc.getNetworkConfig().setAddresses(new ArrayList<>());
+        }
+        
         cc.setInstanceName("Launcher");
         hazelcast = HazelcastClient.newHazelcastClient(cc);
         log.info("Getting distributed executor service");
