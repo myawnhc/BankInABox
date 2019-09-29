@@ -4,17 +4,17 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: pod-management-center
+  name: bankinabox-management-center
 spec:
   replicas: 1
   serviceName: bankinabox-management-center-service
   selector:
     matchLabels:
-      app: pod-management-center
+      app: bankinabox-management-center
   template:
     metadata:
       labels:
-        app: pod-management-center
+        app: bankinabox-management-center
     spec:
       containers:
         - env:
@@ -45,6 +45,6 @@ spec:
       port: 8080
       targetPort: 8080
   selector:
-    app: pod-management-center
+    app: bankinabox-management-center
   type: LoadBalancer
 ---
