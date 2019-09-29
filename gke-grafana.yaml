@@ -29,8 +29,12 @@ metadata:
   name: bankinabox-grafana-service
 spec:
   ports:
-    - port: 80
+    - name: grafana
+      port: 80
       targetPort: 80
+    - name: graphite
+      port: 2003
+      targetPort: 2003
   selector:
     app: bankinabox-grafana
   type: LoadBalancer
