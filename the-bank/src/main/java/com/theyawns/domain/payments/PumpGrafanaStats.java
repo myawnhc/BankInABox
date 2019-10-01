@@ -85,6 +85,7 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
             previouslyReportedApprovals = (int) approved;
             graphite.writeStats("bib.payments.amazon", amazon.get());
             graphite.writeStats("bib.payments.walmart", walmart.get());
+            graphite.writeStats("bib.payments.all", total);
             //System.out.printf("  Payments by merchant %d %d\n", merchant1_10.get(), merchant11_20.get() );
             if (rejectionByRule != null && rejectionByRule.size() > 0) {
                 for (PNCounter counter : rejectionByRule.values()) {
