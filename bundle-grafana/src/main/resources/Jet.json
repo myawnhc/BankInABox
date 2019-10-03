@@ -65,7 +65,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "fill": 1,
           "height": "250",
           "id": 1,
@@ -147,7 +147,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "fill": 1,
           "height": "250",
           "id": 2,
@@ -228,7 +228,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "fill": 1,
           "height": "250",
           "id": 3,
@@ -306,7 +306,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "fill": 1,
           "height": "250",
           "id": 4,
@@ -388,7 +388,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "fill": 1,
           "height": "250",
           "id": 5,
@@ -474,7 +474,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "fill": 1,
           "height": "250",
           "id": 6,
@@ -568,7 +568,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "fill": 1,
           "height": "250",
           "id": 7,
@@ -658,7 +658,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "fill": 1,
           "height": "250",
           "id": 8,
@@ -748,7 +748,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "fill": 1,
           "height": "250",
           "id": 9,
@@ -834,7 +834,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "format": "none",
           "gauge": {
             "maxValue": 100,
@@ -908,7 +908,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "format": "none",
           "gauge": {
             "maxValue": 100,
@@ -982,7 +982,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "format": "none",
           "gauge": {
             "maxValue": 100,
@@ -1056,7 +1056,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "format": "none",
           "gauge": {
             "maxValue": 100,
@@ -1138,7 +1138,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "fill": 1,
           "height": "250",
           "id": 14,
@@ -1220,7 +1220,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "fill": 1,
           "height": "250",
           "id": 15,
@@ -1303,7 +1303,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "fill": 1,
           "height": "250",
           "id": 16,
@@ -1397,7 +1397,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "fill": 1,
           "height": "250",
           "id": 17,
@@ -1479,7 +1479,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "format": "none",
           "gauge": {
             "maxValue": 100,
@@ -1553,7 +1553,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "format": "none",
           "gauge": {
             "maxValue": 100,
@@ -1627,7 +1627,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "format": "none",
           "gauge": {
             "maxValue": 100,
@@ -1701,7 +1701,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "format": "none",
           "gauge": {
             "maxValue": 100,
@@ -1783,7 +1783,7 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "${DS_LOCAL_GRAPHITE}",
+        "datasource": "Local Graphite",
         "hide": 0,
         "includeAll": false,
         "label": null,
@@ -1803,7 +1803,7 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "${DS_LOCAL_GRAPHITE}",
+        "datasource": "Local Graphite",
         "hide": 0,
         "includeAll": false,
         "label": null,
