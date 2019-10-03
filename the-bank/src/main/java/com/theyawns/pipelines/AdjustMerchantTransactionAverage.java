@@ -32,8 +32,9 @@ import static com.hazelcast.jet.Util.mapPutEvents;
  * Jet cluster that has an IMDG client to pull from IMDG cluster.
  */
 public class AdjustMerchantTransactionAverage implements Serializable {
+	private static final long serialVersionUID = 1L;
 
-    private final static ILogger log = Logger.getLogger(AdjustMerchantTransactionAverage.class);
+	private final static ILogger log = Logger.getLogger(AdjustMerchantTransactionAverage.class);
 
 	private ClientConfig imdgClientConfig;
     private ClientConfig jetClientConfig;
