@@ -11,64 +11,100 @@ import com.hazelcast.jet.JetInstance;
 import com.hazelcast.jet.Job;
 import com.hazelcast.jet.aggregate.AggregateOperations;
 import com.hazelcast.jet.config.JetConfig;
+import com.hazelcast.jet.config.JobConfig;
 import com.hazelcast.jet.datamodel.KeyedWindowResult;
 import com.hazelcast.jet.pipeline.*;
+import com.hazelcast.logging.ILogger;
+import com.hazelcast.logging.Logger;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Merchant;
 import com.theyawns.domain.payments.Transaction;
+import com.theyawns.launcher.Launcher;
+import com.theyawns.util.EnvironmentSetup;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import static com.hazelcast.jet.Util.mapEventNewValue;
 import static com.hazelcast.jet.Util.mapPutEvents;
 
+/* Create a Jet client to the Jet cluster. Submit a job to the
+ * Jet cluster that has an IMDG client to pull from IMDG cluster.
+ */
 public class AdjustMerchantTransactionAverage implements Serializable {
 
-    private JetConfig jetConfig;
+    private final static ILogger log = Logger.getLogger(AdjustMerchantTransactionAverage.class);
 
-    private String uuid;
+	private ClientConfig imdgClientConfig;
+    private ClientConfig jetClientConfig;
 
     protected void init() {
+    	this.imdgClientConfig = new XmlClientConfigBuilder().build();
+    	this.jetClientConfig = new XmlClientConfigBuilder().build();
 
-        XmlConfigBuilder xccb = new XmlConfigBuilder(); // Reads hazelcast.xml
-        Config hazelcastConfig = xccb.build();
-        NetworkConfig networkConfig = hazelcastConfig.getNetworkConfig();
-        networkConfig.setPort(5710); // Avoid collision between internal and external IMDG clusters
-        hazelcastConfig.getCPSubsystemConfig().setCPMemberCount(0); // no CP needed on internal cluster
-        hazelcastConfig.getGroupConfig().setName("jet-dev"); // try not to confuse mancenter
-
-        jetConfig = new JetConfig();
-        jetConfig.setHazelcastConfig(hazelcastConfig);
+    	// IMDG
+        if (this.imdgClientConfig.getNetworkConfig().getKubernetesConfig().isEnabled()
+        		&& this.imdgClientConfig.getNetworkConfig().getAddresses().size() > 0) {
+        	log.info("IMDG Remove listed server addresses in favour of Kubernetes discovery.");
+        	this.imdgClientConfig.getNetworkConfig().setAddresses(new ArrayList<>());
+        	this.imdgClientConfig.getGroupConfig().setName("BankInABox");
+        	
+        	this.imdgClientConfig.getNetworkConfig()
+        	.getKubernetesConfig().setProperty("service-dns", EnvironmentSetup.IMDG_SERVICE);
+        	this.imdgClientConfig.getNetworkConfig()
+        	.getKubernetesConfig().setProperty("service-port", EnvironmentSetup.IMDG_PORT);
+        	
+        	log.info("IMDG Kubernetes config " + this.imdgClientConfig.getNetworkConfig().getKubernetesConfig());
+        }
+        
+    	// Jet
+        if (this.jetClientConfig.getNetworkConfig().getKubernetesConfig().isEnabled()
+        		&& this.jetClientConfig.getNetworkConfig().getAddresses().size() > 0) {
+        	log.info("Jet Remove listed server addresses in favour of Kubernetes discovery.");
+        	this.jetClientConfig.getNetworkConfig().setAddresses(new ArrayList<>());
+        	this.jetClientConfig.getGroupConfig().setName("JetInABox");
+        	
+        	this.jetClientConfig.getNetworkConfig()
+        	.getKubernetesConfig().setProperty("service-dns", EnvironmentSetup.JET_SERVICE);
+        	this.jetClientConfig.getNetworkConfig()
+        	.getKubernetesConfig().setProperty("service-port", EnvironmentSetup.JET_PORT);
+        	
+        	log.info("Jet Kubernetes config " + this.imdgClientConfig.getNetworkConfig().getKubernetesConfig());
+        }
     }
 
     public void run() {
-        init();
-        JetInstance jet = Jet.newJetInstance(jetConfig);
-        uuid = jet.getCluster().getLocalMember().getUuid();
-        Pipeline p = buildPipeline();
+        this.init();
+        JetInstance jet = null;
 
         try {
-            Job job = jet.newJob(p);
-            job.getConfig().setName("AdjustMerchantTxnAverage");
-            System.out.println("Running " + job.getConfig().getName());
-            job.join();
+            Pipeline pipeline = buildPipeline();
+        	System.out.println("Connect to Jet cluster temporarily");
+        	jet = Jet.newJetClient(this.jetClientConfig);
+        	System.out.println("Connected to Jet cluster temporarily as " + jet.getName());
+        	JobConfig jobConfig = new JobConfig();
+            jobConfig.setName("AdjustMerchantTxnAverage");
+            System.out.println("Launching " + jobConfig);
+            Job job = jet.newJob(pipeline, jobConfig);
+            System.out.println("Launch " + job.getName() + ", status==" + job.getStatus());
+        } catch (Exception e) {
+        	System.out.println(this.getClass().getName() + " EXCEPTION " + e.getMessage());
+        	e.printStackTrace(System.out);
         } finally {
-            jet.shutdown();
+        	if (jet != null) {
+        		System.out.println("Disconnect from Jet " + jet.getName());
+                jet.shutdown();
+        	}
         }
     }
 
     private Pipeline buildPipeline() {
 
         try {
-
-            ClientConfig clientConfig = new XmlClientConfigBuilder().build();
-            // Need way to make instance name unique.  UUID isn't it.  Maybe use a PNCounter.
-            //clientConfig.setInstanceName(("Jet-AMTA-" + uuid));
-
             Pipeline p = Pipeline.create();
 
             // Stage 1: Draw transactions from the mapJournal associated with the preAuth map
-            StreamStage<Transaction> txns = p.drawFrom(Sources.<Transaction, String, Transaction>remoteMapJournal(Constants.MAP_PREAUTH, clientConfig, mapPutEvents(),
+            StreamStage<Transaction> txns = p.drawFrom(Sources.<Transaction, String, Transaction>remoteMapJournal(Constants.MAP_PREAUTH, imdgClientConfig, mapPutEvents(),
                     mapEventNewValue(), JournalInitialPosition.START_FROM_OLDEST))
                     .withIngestionTimestamps()
                     .setName("Draw Transactions from preAuth map");
@@ -99,7 +135,7 @@ public class AdjustMerchantTransactionAverage implements Serializable {
                     }).setName("Retrieve merchant record from IMDG and update average txn amt");
 
             updatedMerchants.drainTo(Sinks.remoteMapWithMerging("merchantMap",
-                    clientConfig,
+                    imdgClientConfig,
                     /* toKeyFn */ Merchant::getMerchantId,
                     /* toValueFn */ Merchant::getObject,
                     /* mergeFn */ (Merchant o, Merchant n) -> {

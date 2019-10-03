@@ -47,11 +47,11 @@ public class EnvironmentSetup {
 		= "bankinabox-grafana-service" + "." + NAMESPACE;
     private static final String MANAGEMENT_CENTER_SERVICE
     	= "bankinabox-management-center-service" + "." + NAMESPACE;
-    private static final String IMDG_PORT = "5701";
-    private static final String IMDG_SERVICE
+    public  static final String IMDG_PORT = "5701";
+    public  static final String IMDG_SERVICE
     	= "bankinabox-imdg-service" + "." + NAMESPACE;
-    private static final String JET_PORT = "5710";
-    private static final String JET_SERVICE
+    public  static final String JET_PORT = "5710";
+    public  static final String JET_SERVICE
     	= "bankinabox-jet-service" + "." + NAMESPACE;
     public  static final String MARIA_SERVICE
 		= "bankinabox-maria-service" + "." + NAMESPACE;

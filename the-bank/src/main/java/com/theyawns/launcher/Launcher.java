@@ -124,7 +124,7 @@ public class Launcher {
         //main.distributedES.submit(merchantAvgTask);
         // This is a Jet job so doesn't need to run in the IMDG cluster ...
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        // TODO:  executor.submit(merchantAvgTask);
+        executor.submit(merchantAvgTask);
 
         IScheduledExecutorService dses = main.hazelcast.getScheduledExecutorService("scheduledExecutor");
         //ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
