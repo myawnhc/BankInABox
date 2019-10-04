@@ -1,4 +1,4 @@
-create table ACCOUNT (
+create table account (
   acct_number    char(10)     not null,
   credit_limit   float,
   balance        float,

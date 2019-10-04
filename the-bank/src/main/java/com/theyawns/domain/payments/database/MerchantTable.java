@@ -28,7 +28,7 @@ public class MerchantTable extends AbstractTable
     private static final int LOCATION = 5;
 
     private static final String createTableString =
-            "create table MERCHANT ( " +
+            "create table merchant ( " +
                     "id             char(8)     not null, " +
                     "name           varchar(32), " +
                     "reputation     smallint, " +
@@ -42,7 +42,7 @@ public class MerchantTable extends AbstractTable
                     " values (?, ?, ?, ?, ?)";
 
     private static final String selectTemplate =
-            "select id, name, reputation, avg_txn_amount, location from MERCHANT where id = ?";
+            "select id, name, reputation, avg_txn_amount, location from merchant where id = ?";
 
     private static final String selectKeysString = "select id from merchant";
 

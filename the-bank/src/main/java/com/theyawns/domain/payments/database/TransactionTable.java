@@ -30,7 +30,7 @@ public class TransactionTable extends AbstractTable
     private static final int LOCATION = 5;
 
     private static final String createTableString =
-            "create table TRANSACTION ( " +
+            "create table transaction ( " +
                     "id             char(14)     not null, " +
                     "acct_number    varchar(10), " +         // foreign key but not marking as such
                     "merchant_id    varchar(8), " +          // foreign key but not marking as such
@@ -44,7 +44,7 @@ public class TransactionTable extends AbstractTable
                     " values (?, ?, ?, ?, ?)";
 
     private static final String selectTemplate =
-            "select id, acct_number, merchant_id, amount, location from TRANSACTION where id = ?";
+            "select id, acct_number, merchant_id, amount, location from transaction where id = ?";
 
     private static final String selectKeysString = "select id from transaction";
 

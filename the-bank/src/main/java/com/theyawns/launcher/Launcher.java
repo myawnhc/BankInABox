@@ -19,8 +19,10 @@ import com.theyawns.pipelines.AdjustMerchantTransactionAverage;
 import com.theyawns.rules.TransactionEvaluationResult;
 import com.theyawns.rulesets.LocationBasedRuleSet;
 import com.theyawns.rulesets.MerchantRuleSet;
+import com.theyawns.util.EnvironmentSetup;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -41,7 +43,16 @@ public class Launcher {
     private IMap<String, TransactionEvaluationResult> resultMap;
 
     protected void init() {
+    	new EnvironmentSetup();
         ClientConfig cc = new XmlClientConfigBuilder().build();
+        
+        // Clients only have one discovery mechanism
+        if (cc.getNetworkConfig().getKubernetesConfig().isEnabled()
+        		&& cc.getNetworkConfig().getAddresses().size() > 0) {
+        	log.info("Remove listed server addresses in favour of Kubernetes discovery.");
+        	cc.getNetworkConfig().setAddresses(new ArrayList<>());
+        }
+        
         cc.setInstanceName("Launcher");
         hazelcast = HazelcastClient.newHazelcastClient(cc);
         log.info("Getting distributed executor service");
@@ -82,6 +93,9 @@ public class Launcher {
     }
 
     public static void main(String[] args) {
+        System.out.println("________________________");
+        System.out.println("Start: " + new java.util.Date());
+        System.out.println("________________________");
         Launcher main = new Launcher();
         main.init();
 
@@ -110,10 +124,13 @@ public class Launcher {
         //main.distributedES.submit(merchantAvgTask);
         // This is a Jet job so doesn't need to run in the IMDG cluster ...
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        // TODO:  executor.submit(merchantAvgTask);
+        executor.submit(merchantAvgTask);
 
         IScheduledExecutorService dses = main.hazelcast.getScheduledExecutorService("scheduledExecutor");
         //ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
+        System.out.println("________________________");
+        System.out.println("RUN MODE" + getRunMode());
+        System.out.println("________________________");
         if (getRunMode() == RunMode.Demo) {
             PumpGrafanaStats stats = new PumpGrafanaStats();
             try {
@@ -184,6 +201,9 @@ public class Launcher {
             System.out.println("Transaction backlog (preAuth map size) " + preAuthMap.size());
             if (preAuthMap.size() == 0) {
                 System.out.println("All transactions processed, exiting");
+                System.out.println("________________________");
+                System.out.println("End: " + new java.util.Date());
+                System.out.println("________________________");
                 System.exit(0);
             }
         }

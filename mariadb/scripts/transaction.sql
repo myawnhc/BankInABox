@@ -1,4 +1,4 @@
-create table TRANSACTION (
+create table transaction (
   id             char(14)     not null,
   acct_number    varchar(10),
   merchant_id    varchar(8),
