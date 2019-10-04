@@ -4,6 +4,7 @@
 .settings
 data
 log
+BankInABox.iml
 RuleEngine.iml
 target
 src/main/java/com/theyawns/domain/payments/IMDGMain.java

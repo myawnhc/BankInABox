@@ -39,9 +39,14 @@ public class AdjustMerchantTransactionAverage implements Serializable {
 	private ClientConfig imdgClientConfig;
     private ClientConfig jetClientConfig;
 
+    private JetConfig jetConfig;
+
     protected void init() {
     	this.imdgClientConfig = new XmlClientConfigBuilder().build();
     	this.jetClientConfig = new XmlClientConfigBuilder().build();
+
+    	// This is just temporary until we move to client-server Jet usage
+    	this.jetConfig = new JetConfig();
 
     	// IMDG
         if (this.imdgClientConfig.getNetworkConfig().getKubernetesConfig().isEnabled()
@@ -81,7 +86,13 @@ public class AdjustMerchantTransactionAverage implements Serializable {
         try {
             Pipeline pipeline = buildPipeline();
         	System.out.println("Connect to Jet cluster temporarily");
-        	jet = Jet.newJetClient(this.jetClientConfig);
+
+        	// NOTE: Prefer to operate in client-server mode, but this is failing with exception:
+            // unable to find server hz.impl.jetService.  Until resolved, falling back to embedded.
+        	// TODO: jet = Jet.newJetClient(this.jetClientConfig);
+            jet = Jet.newJetInstance(jetConfig);
+
+
         	System.out.println("Connected to Jet cluster temporarily as " + jet.getName());
         	JobConfig jobConfig = new JobConfig();
             jobConfig.setName("AdjustMerchantTxnAverage");
