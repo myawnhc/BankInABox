@@ -62,7 +62,7 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
     // Runs at intervals
     @Override
     public void run() {
-        //System.out.println("PumpGrafanaStats active");
+    	System.out.println("PumpGrafanaStats active");
         if (!initialized)
             init();
 
@@ -77,7 +77,7 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
         if (total > 0)
             fraudRate = rejectedFraud / total;
         try {
-
+        	System.out.println(this.getClass().getName() + ".run()");
             graphite.writeStats("bib.fraud.rate", fraudRate);
 //            System.out.printf("  Fraud rate = %f + %f + %f = %f / %f = %f\n",
 //                    approved, rejectedCredit, rejectedFraud, total, rejectedFraud, fraudRate);

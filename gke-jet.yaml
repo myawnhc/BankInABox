@@ -1,0 +1,54 @@
+---
+# =========================================================
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: bankinabox-jet
+  name: bankinabox-jet
+  namespace: default
+spec:
+  replicas: 3
+  serviceName: bankinabox-jet
+  selector:
+    matchLabels:
+      app: bankinabox-jet
+  template:
+    metadata:
+      labels:
+        app: bankinabox-jet
+    spec:
+      containers:
+        - image: "gcr.io/hazelcast-33/bankinabox/jet:latest"
+          imagePullPolicy: Always
+          livenessProbe:
+            httpGet:
+              path: /hazelcast/health/node-state
+              port: 5710
+          name: container-hazelcast-server
+          readinessProbe:
+            httpGet:
+              path: /hazelcast/health/node-state
+              port: 5710
+            initialDelaySeconds: 30
+---
+# =========================================================
+---
+# No Autoscaler for Jet, not yet anyway
+---
+# =========================================================
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bankinabox-jet-service
+spec:
+  clusterIP: None
+  selector:
+    app: bankinabox-jet
+  ports:
+  - protocol: TCP
+    port: 5710
+    targetPort: 5710
+---

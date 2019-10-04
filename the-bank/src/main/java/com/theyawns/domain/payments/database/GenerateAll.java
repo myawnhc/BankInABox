@@ -5,6 +5,7 @@ import com.hazelcast.logging.Logger;
 import com.theyawns.domain.payments.Merchant;
 import com.theyawns.domain.payments.TransactionGenerator;
 import com.theyawns.launcher.BankInABoxProperties;
+import com.theyawns.util.EnvironmentSetup;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.CompletableFuture;
@@ -18,7 +19,8 @@ public class GenerateAll {
     private final static ILogger log = Logger.getLogger(GenerateAll.class);
 
     public static void main(String[] args) {
-        BankInABoxDB database = new BankInABoxDB();
+    	new EnvironmentSetup();
+    	BankInABoxDB database = new BankInABoxDB();
         database.establishConnection(); // connects to server, in a non-db-specific way
         database.createDatabase();
 
@@ -64,6 +66,6 @@ public class GenerateAll {
             e.printStackTrace();
         }
         log.info("All complete.");
-
+        System.exit(0);
     }
 }

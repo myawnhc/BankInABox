@@ -7,21 +7,28 @@
         >
 
     <group>
-        <name>dev</name>
+        <name>${hz.groupName}</name>
     </group>
 
     <management-center enabled="true">
-        http://localhost:8080/hazelcast-mancenter
+        http://${hz.management.center}:8080/hazelcast-mancenter
     </management-center>
 
     <network>
         <join>
             <multicast enabled="false"/>
-            <tcp-ip enabled="true">
+            <tcp-ip enabled="${hz.tcp.enabled}">
                 <!-- Must be passed via -Dip4.addr on command line -->
-                <interface>${ip4.addr}</interface>
+                <interface>${hz.ip4.addr}</interface>
             </tcp-ip>
+            <kubernetes enabled="${hz.kubernetes.enabled}">
+                <service-dns>${hz.service.dns}</service-dns>
+                <service-port>${hz.service.port}</service-port>
+            </kubernetes>
         </join>
+	<rest-api enabled="true">
+            <endpoint-group name="HEALTH_CHECK" enabled="true"/>
+        </rest-api>
     </network>
 
     <properties>

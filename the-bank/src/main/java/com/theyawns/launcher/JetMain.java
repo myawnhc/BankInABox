@@ -5,13 +5,16 @@ import com.hazelcast.config.NetworkConfig;
 import com.hazelcast.config.XmlConfigBuilder;
 import com.hazelcast.jet.Jet;
 import com.hazelcast.jet.JetInstance;
-import com.hazelcast.jet.Job;
 import com.hazelcast.jet.config.JetConfig;
-import com.hazelcast.jet.pipeline.Pipeline;
+import com.hazelcast.logging.ILogger;
+import com.hazelcast.logging.Logger;
+import com.theyawns.util.EnvironmentSetup;
 
 public class JetMain {
-
+    private static final ILogger log = Logger.getLogger(JetMain.class);
+    		
     private JetConfig jetConfig;
+	private JetInstance  jetInstance;
 
     protected void init() {
         XmlConfigBuilder xccb = new XmlConfigBuilder(); // Reads hazelcast.xml
@@ -19,14 +22,20 @@ public class JetMain {
         NetworkConfig networkConfig = hazelcastConfig.getNetworkConfig();
         networkConfig.setPort(5710); // Avoid collision between internal and external IMDG clusters
         hazelcastConfig.getCPSubsystemConfig().setCPMemberCount(0); // no CP needed on internal cluster
-        hazelcastConfig.getGroupConfig().setName("jet-dev"); // try not to confuse mancenter
-
         jetConfig = new JetConfig();
         jetConfig.setHazelcastConfig(hazelcastConfig);
     }
 
     public void run() {
         init();
-        JetInstance jet = Jet.newJetInstance(jetConfig);
+        this.jetInstance = Jet.newJetInstance(jetConfig);
+    	log.info(String.format("Member '%s' started", this.jetInstance.getName()));
+    }
+    
+    public static void main(String[] args)
+    {
+    	new EnvironmentSetup();
+    	JetMain jetMain = new JetMain();
+    	jetMain.run();
     }
 }

@@ -1,0 +1,41 @@
+---
+# =========================================================
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: bankinabox-grafana
+spec:
+  replicas: 1
+  serviceName: bankinabox-grafana-service
+  selector:
+    matchLabels:
+      app: bankinabox-grafana
+  template:
+    metadata:
+      labels:
+        app: bankinabox-grafana
+    spec:
+      containers:
+        - image: "bankinabox/grafana:latest"
+          imagePullPolicy: IfNotPresent
+          name: container-hazelcast-grafana
+---
+# =========================================================
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bankinabox-grafana-service
+spec:
+  ports:
+    - name: grafana
+      port: 80
+      targetPort: 80
+    - name: graphite
+      port: 2003
+      targetPort: 2003
+  selector:
+    app: bankinabox-grafana
+  type: LoadBalancer
+---

@@ -36,7 +36,7 @@ public class AccountTable extends AbstractTable
     private static final int LOCATION = 5;
 
     private static final String createTableString =
-            "create table ACCOUNT ( " +
+            "create table account ( " +
                     "acct_number    char(10)     not null, " +
                     "credit_limit   float, " +
                     "balance        float, " +
@@ -46,13 +46,13 @@ public class AccountTable extends AbstractTable
                     ")";
 
     private static final String insertTemplate =
-            "insert into ACCOUNT (acct_number, credit_limit, balance, acct_status, location) " +
+            "insert into account (acct_number, credit_limit, balance, acct_status, location) " +
                     " values (?, ?, ?, ?, ?)";
 
     private static final String selectTemplate =
-            "select acct_number, credit_limit, balance, acct_status, location from ACCOUNT where acct_number = ?";
+            "select acct_number, credit_limit, balance, acct_status, location from account where acct_number = ?";
 
-    private static final String selectKeysString = "select ACCT_NUMBER from ACCOUNT";
+    private static final String selectKeysString = "select acct_number from account";
 
     private PreparedStatement createStatement;
     private PreparedStatement insertStatement;

@@ -19,8 +19,10 @@ import com.theyawns.pipelines.AdjustMerchantTransactionAverage;
 import com.theyawns.rules.TransactionEvaluationResult;
 import com.theyawns.rulesets.LocationBasedRuleSet;
 import com.theyawns.rulesets.MerchantRuleSet;
+import com.theyawns.util.EnvironmentSetup;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -33,7 +35,6 @@ public class Launcher {
     protected IExecutorService distributedES;
     private final static ILogger log = Logger.getLogger(Launcher.class);
     private static RunMode runMode = RunMode.Demo;
-    private ExecutorService localES;  // useful for debugging (breakpoints will be hit on client rather than on server)
 
     // Only here for triggering eager cache load
     private IMap<String, Merchant> merchantMap;
@@ -42,13 +43,26 @@ public class Launcher {
     private IMap<String, TransactionEvaluationResult> resultMap;
 
     protected void init() {
+    	new EnvironmentSetup();
         ClientConfig cc = new XmlClientConfigBuilder().build();
+        
+        // Clients only have one discovery mechanism
+        if (cc.getNetworkConfig().getKubernetesConfig().isEnabled()
+        		&& cc.getNetworkConfig().getAddresses().size() > 0) {
+        	log.info("Remove listed server addresses in favour of Kubernetes discovery.");
+        	cc.getNetworkConfig().setAddresses(new ArrayList<>());
+        }
+        
         cc.setInstanceName("Launcher");
         hazelcast = HazelcastClient.newHazelcastClient(cc);
         log.info("Getting distributed executor service");
         distributedES = hazelcast.getExecutorService("executor");
-        localES = Executors.newSingleThreadExecutor();
+
         log.info("init() complete");
+//        locationRulesQueue = hazelcast.getQueue(Constants.QUEUE_LOCATION);
+//        merchantRulesQueue = hazelcast.getQueue(Constants.QUEUE_MERCHANT);
+//        paymentRulesQueue  = hazelcast.getQueue(Constants.QUEUE_CREDITRULES);
+//        resultMap = hazelcast.getMap(Constants.MAP_PPFD_RESULTS);
     }
 
     public static RunMode getRunMode() { return runMode; }
@@ -67,12 +81,7 @@ public class Launcher {
         public void run() {
             System.out.println("AdjustMerchangeAvgTask Runnable has been started");
             AdjustMerchantTransactionAverage amta = new AdjustMerchantTransactionAverage();
-            try {
-                amta.run();
-            } catch (Exception e) {
-                log.warning("Problem in AdjustMerchantTransactionAverage task execution");
-                e.printStackTrace();
-            }
+            amta.run();
         }
     }
 
@@ -84,12 +93,17 @@ public class Launcher {
     }
 
     public static void main(String[] args) {
+        System.out.println("________________________");
+        System.out.println("Start: " + new java.util.Date());
+        System.out.println("________________________");
         Launcher main = new Launcher();
         main.init();
 
+        log.info("Getting preAuth map [lazy]");
         IMap<String, Transaction> preAuthMap = main.hazelcast.getMap(Constants.MAP_PREAUTH);
-        log.info("Getting eagerly-loaded maps (Merchant and Account)");
+        log.info("Getting merchant map");  // Eager load will hang here ...
         main.merchantMap = main.hazelcast.getMap(Constants.MAP_MERCHANT);
+        log.info("Getting account map");
         main.accountMap = main.hazelcast.getMap(Constants.MAP_ACCOUNT);
         log.info("Maps initialized");
 
@@ -97,7 +111,7 @@ public class Launcher {
 
         if (BankInABoxProperties.COLLECT_LATENCY_STATS || BankInABoxProperties.COLLECT_TPS_STATS) {
             ExecutorService executor = Executors.newCachedThreadPool();
-            log.info("Launcher initiating PerfMonitor via non-HZ executor service");
+            System.out.println("Launcher initiating PerfMonitor via non-HZ executor service");
             executor.submit(PerfMonitor.getInstance());
         }
 
@@ -110,21 +124,19 @@ public class Launcher {
         //main.distributedES.submit(merchantAvgTask);
         // This is a Jet job so doesn't need to run in the IMDG cluster ...
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        try {
-            executor.submit(merchantAvgTask);
-        } catch (RejectedExecutionException e) {
-            log.severe(("Unable to execute AdjustMerchantAvgTask"));
-            e.printStackTrace();
-        }
+        executor.submit(merchantAvgTask);
 
         IScheduledExecutorService dses = main.hazelcast.getScheduledExecutorService("scheduledExecutor");
         //ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
+        System.out.println("________________________");
+        System.out.println("RUN MODE" + getRunMode());
+        System.out.println("________________________");
         if (getRunMode() == RunMode.Demo) {
             PumpGrafanaStats stats = new PumpGrafanaStats();
             try {
                 dses.scheduleAtFixedRate(stats, 20, 5, TimeUnit.SECONDS);
             } catch (DuplicateTaskException dte) {
-                ; // OK to ignore - happens if we restart launcher while cluster remains up
+                ; // OK to ignore
             } catch (RejectedExecutionException ree) {
                 log.info("PumpGrafanaStats scheduled execution rejected");
             }
@@ -135,37 +147,21 @@ public class Launcher {
         RuleSetExecutor locationBasedRuleExecutor = new RuleSetExecutor(Constants.QUEUE_LOCATION,
                 new LocationBasedRuleSet(), Constants.MAP_PPFD_RESULTS);
         //Set<Member> members = main.hazelcast.getCluster().getMembers();
-        try {
-            main.distributedES.executeOnAllMembers(locationBasedRuleExecutor);
-        } catch (RejectedExecutionException e) {
-            log.severe(("Rejected execution of location rules executor"));
-            e.printStackTrace();
-        }
+        main.distributedES.executeOnAllMembers(locationBasedRuleExecutor);
         System.out.println("Submitted RuleSetExecutor for location rules to distributed executor service (all members)");
 
         RuleSetExecutor merchantRuleSetExecutor = new RuleSetExecutor(Constants.QUEUE_MERCHANT,
                 new MerchantRuleSet(), Constants.MAP_PPFD_RESULTS);
-        try {
-            main.distributedES.executeOnAllMembers(merchantRuleSetExecutor);
-        } catch (RejectedExecutionException e) {
-            log.severe("Rejected execution of merchant rules executor");
-            e.printStackTrace();
-        }
+        main.distributedES.executeOnAllMembers(merchantRuleSetExecutor);
         System.out.println("Submitted RuleSetExecutor for merchant rules to distributed executor service (all members)");
 
         // TODO: add executors for Credit rules, any others
 
         AggregationExecutor aggregator = new AggregationExecutor();
-        try {
-            main.distributedES.executeOnAllMembers(aggregator);
-        } catch (RejectedExecutionException e) {
-            log.severe("Rejected execution of aggregation executor");
-            e.printStackTrace();
-        }
+        main.distributedES.executeOnAllMembers(aggregator);
         System.out.println("Submitted AggregationExecutor to distributed executor service (all members)");
 
-        // NOT NEEDED
-//        log.info("Trigger eager load on merchant and account tables ");
+//        log.info("")
 //        try {
 //            main.merchantMap.get("1");
 //            main.accountMap.get("1"); // invalid key, done just to trigger MapLoader to begin caching the maps
@@ -176,7 +172,7 @@ public class Launcher {
         log.info("Waiting for pre-loads (Account and Merchant tables)");
         while (true) {
             // Wait until preload of Merchant and Account maps are done before starting load into preAuth
-            log.info(main.merchantMap.size() + " of " + BankInABoxProperties.MERCHANT_COUNT + " merchants");
+            log.info(main.merchantMap.size() + " of " + BankInABoxProperties.MERCHANT_COUNT + " merchants"); // Lazy load will hang here
             log.info(main.accountMap.size() + " of " + BankInABoxProperties.ACCOUNT_COUNT + " accounts");
             if (main.merchantMap.size() >= BankInABoxProperties.MERCHANT_COUNT &&
                 main.accountMap.size() >= BankInABoxProperties.ACCOUNT_COUNT)
@@ -186,17 +182,12 @@ public class Launcher {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
         }
         log.info("Beginning transaction load");
         LazyPreAuthLoader loader = new LazyPreAuthLoader();
-        //loader.run();    can't fall back to this any longer as we are dependent on HazelcastInstanceAware
-        try {
-            main.distributedES.submit(loader);
-        } catch (Throwable t) {
-            log.severe("Submit of LazyPreAuthLoader failed:");
-            t.printStackTrace();
-        }
-        //log.info("Back in Launcher after starting preAuth load"); // TODO: confirm we aren't waiting for completion
+        //loader.run();
+        main.distributedES.submit(loader);
         //log.info("All transactions loaded to preAuth");
 
 
@@ -210,6 +201,9 @@ public class Launcher {
             System.out.println("Transaction backlog (preAuth map size) " + preAuthMap.size());
             if (preAuthMap.size() == 0) {
                 System.out.println("All transactions processed, exiting");
+                System.out.println("________________________");
+                System.out.println("End: " + new java.util.Date());
+                System.out.println("________________________");
                 System.exit(0);
             }
         }
