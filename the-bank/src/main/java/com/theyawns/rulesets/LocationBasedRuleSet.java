@@ -33,6 +33,9 @@ public class LocationBasedRuleSet extends AbstractRuleSet<Transaction,Double> im
 
     @Override
     public RuleSetEvaluationResult<Transaction,Double> apply(Transaction transaction) {
+        // Create this first to start the timer
+        RuleSetEvaluationResult rser = new RuleSetEvaluationResult(transaction, getQualifiedName());
+
         //System.out.println("LocationBasedRuleSet.apply()");
         // Process rules.  With this simple rule we can aggregate as we go; more complex rules might
         // need a separate pass over the RERs to produce the RSER.
@@ -47,11 +50,6 @@ public class LocationBasedRuleSet extends AbstractRuleSet<Transaction,Double> im
             aggregatedResult += rer.getResult();
         }
 
-        // Aggregate the results into a RuleSetEvaluationResult.
-
-        RuleSetEvaluationResult rser = new RuleSetEvaluationResult(transaction, getQualifiedName());
-        rser.setResult(aggregatedResult);
-
         // What value is the threshold for pass/fail?  Will be part of the design of each ruleset, so
         // definitely an implementation detail of the individual rulesets.
         // Our median reject rates of 0.1 + 0.2 + 0.3 + 0.4 + 0.5 = 1.5
@@ -61,6 +59,9 @@ public class LocationBasedRuleSet extends AbstractRuleSet<Transaction,Double> im
         else
             rser.setRuleSetOutcome(TransactionFinalStatus.Approved);
 
+        // Aggregate the results into a RuleSetEvaluationResult.
+        // Do last so all ruleset processing is captured in the timing info
+        rser.setResult(aggregatedResult);
 
         return rser;
     }

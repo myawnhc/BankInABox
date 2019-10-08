@@ -15,6 +15,7 @@ import com.theyawns.rules.TransactionEvaluationResult;
 import com.theyawns.rulesets.RuleSetEvaluationResult;
 
 import java.io.Serializable;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,14 +64,13 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
                         .thenApplyAsync(this::processResults)   // update counters and/or maps
                         .thenAcceptAsync(this::cleanupMaps);   // delete txn from preAuth and PPFD Results
 
-
                 counter++;
                 if ((counter % 10000) == 0) {
-                    double seconds = (System.nanoTime() - startTime) / 1_000_000_000;
-                    double tps = counter / seconds;
-                    log.info("AggregationExecutor has handled " + counter + " transactions in " + seconds + " seconds, rate ~ " + (int) tps + " TPS");
+                    Duration d = Duration.ofNanos(System.nanoTime() - startTime);
+                    String elapsed = String.format("%02d:%02d:%02d.%03d", d.toHoursPart(), d.toMinutesPart(), d.toSecondsPart(), d.toMillisPart());
+                    final double tps = counter / d.toSeconds();
+                    log.info("AggregationExecutor has handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS");
                 }
-
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -97,6 +97,7 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
                     rejected = true;
                     ter.setRejectingRuleSet(rser.getRuleSetName());
                     ter.setRejectingReason(rser.getOutcomeReason());
+                    ter.setStopTime(System.nanoTime());
                     if (Launcher.getRunMode() == RunMode.Demo) {
                         // Benchmark doesn't care about the dashboard
                         rejectedForFraudCounter.getAndIncrement();
@@ -109,6 +110,7 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
                     rejected = true;
                     ter.setRejectingRuleSet(rser.getRuleSetName());
                     ter.setRejectingReason(rser.getOutcomeReason());
+                    ter.setStopTime(System.nanoTime());
                     if (Launcher.getRunMode() == RunMode.Demo) {
                         // Benchmark doesn't care about the dashboard
                         rejectedForCreditCounter.getAndIncrement();
@@ -124,6 +126,7 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
         }
         if (!rejected) {
             // This map now has eviction to allow long-running demo
+            ter.setStopTime(System.nanoTime());
             approvedMap.put(txnId, ter);
             if (Launcher.getRunMode() == RunMode.Demo) {
                 // Benchmark doesn't care about the dashboard

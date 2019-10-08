@@ -23,6 +23,8 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
     private Boolean paymentResult = Boolean.TRUE;
     private int ruleSetsToApply;
 
+    private long timeEnqueued; // nanotime
+
     // Being a little sloppy with encapsulation, will allow direct access to these
 //    public LatencyMetric processingTime = new LatencyMetric();
 //    public LatencyMetric endToEndTime = new LatencyMetric();
@@ -47,11 +49,7 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         this.acctNumber = copyfrom.acctNumber;
         this.transactionId = copyfrom.transactionId;
         this.merchantId = copyfrom.merchantId;
-        //this.timestamp = copyfrom.timestamp;
         this.amount = copyfrom.amount;
-//        this.processingTime = copyfrom.processingTime;
-//        this.endToEndTime = copyfrom.endToEndTime;
-        // result fields won't be copied
     }
 
     public String getItemID() {
@@ -94,6 +92,9 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
     public void setRuleSetsToApply(int count) { ruleSetsToApply = count; }
     public int getRuleSetsToApply() { return ruleSetsToApply; }
 
+    public void setTimeEnqueued(long time) { timeEnqueued = time; }
+    public long getTimeEnqueued() { return timeEnqueued; }
+
     @Override
     public String toString() {
         return "Transaction " + transactionId + " account " + acctNumber + " merchant " + merchantId + " amount " + amount;
@@ -121,6 +122,7 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         objectDataOutput.writeInt(fraudResult);
         objectDataOutput.writeBoolean(paymentResult);
         objectDataOutput.writeInt(ruleSetsToApply);
+        objectDataOutput.writeLong(timeEnqueued);
 //        objectDataOutput.writeObject(processingTime);
 //        objectDataOutput.writeObject(endToEndTime);
     }
@@ -135,6 +137,7 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         fraudResult = objectDataInput.readInt();
         paymentResult = objectDataInput.readBoolean();
         ruleSetsToApply = objectDataInput.readInt();
+        timeEnqueued = objectDataInput.readLong();
 //        processingTime = objectDataInput.readObject(LatencyMetric.class);
 //        endToEndTime = objectDataInput.readObject(LatencyMetric.class);
     }

@@ -80,6 +80,7 @@ public class LazyPreAuthLoader implements Runnable, Serializable, HazelcastInsta
                 else if (t == null)
                     System.out.println(" ERROR: Null entry for key " + key);
                 else
+                    t.setTimeEnqueued(System.nanoTime());
                     preAuthMap.put(key, t);
 
                 if ((key.compareTo("00000000499995") >= 0) && key.compareTo("00000000500005") <= 0) {

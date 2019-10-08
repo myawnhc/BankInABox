@@ -15,8 +15,8 @@ import java.util.List;
 
 public class TransactionEvaluationResult implements Serializable {
 
-    private long startTime; // TODO
-    private long stopTime;  // TODO
+    private long startTime;
+    private long stopTime;
 
     private Transaction transaction;
     private List<RuleSetEvaluationResult<Transaction,?>> results;
@@ -26,7 +26,8 @@ public class TransactionEvaluationResult implements Serializable {
 
     public TransactionEvaluationResult(Transaction transaction, RuleSetEvaluationResult<Transaction,?> rser) {
         //System.out.println("TransactionEvaluationResult.<init>");
-        this.startTime = System.nanoTime();
+        this.startTime = transaction.getTimeEnqueued();
+                // was System.nanoTime();
         this.transaction = transaction;
         results = new ArrayList<>();
         results.add(rser);
@@ -44,6 +45,10 @@ public class TransactionEvaluationResult implements Serializable {
 
     public void setRejectingRuleSet(String rsName) { rejectingRuleSet = rsName; }
     public void setRejectingReason(String s) { rejectingReason = s; }
+
+    public void setStopTime(long time) { stopTime = time; }
+
+    public long getLatencyNanos() { return stopTime - startTime; }
 
     public boolean checkForCompletion() {
         int ruleSetsExpected = transaction.getRuleSetsToApply();
