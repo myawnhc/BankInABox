@@ -54,7 +54,6 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
     @Override
     public void run() {
         //jvmExecutor = Executors.newFixedThreadPool(10);
-        SimpleDateFormat elapsedTimeFormat = new SimpleDateFormat("hh:mm:ss.SSS");
         long startTime = System.nanoTime();
         while (true) {
             try {
@@ -66,10 +65,6 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
 
                 counter++;
                 if ((counter % 10000) == 0) {
-//                    final long millis = (System.nanoTime() - startTime) / 1_000_000;
-//                    final double seconds = millis / 1000;
-//                    final double tps = counter / seconds;
-
                     Duration d = Duration.ofNanos(System.nanoTime() - startTime);
                     String elapsed = String.format("%02d:%02d:%02d.%03d", d.toHoursPart(), d.toMinutesPart(), d.toSecondsPart(), d.toMillisPart());
                     final double tps = counter / d.toSeconds();
