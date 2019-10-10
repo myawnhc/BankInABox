@@ -161,9 +161,10 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
 
         counter++;
         if ((counter % 10000) == 0) {
-            double seconds = (System.nanoTime() - startTime) / 1_000_000_000;
-            double tps = counter / seconds;
-            System.out.println("RuleSetExecutor has handled " + counter + " transactions in " + seconds + " seconds, rate ~ " + (int) tps + " TPS");
+            Duration d = Duration.ofNanos(System.nanoTime() - startTime);
+            String elapsed = String.format("%02d:%02d:%02d.%03d", d.toHoursPart(), d.toMinutesPart(), d.toSecondsPart(), d.toMillisPart());
+            final double tps = counter / d.toSeconds();
+            System.out.println("RuleSetExecutor " + ruleSet.getName() + " has handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS");
         }
     }
 }

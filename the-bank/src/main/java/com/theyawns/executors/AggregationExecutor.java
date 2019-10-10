@@ -38,6 +38,9 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
     private PNCounter approvalCounter;
     private PNCounter rejectedForFraudCounter;
     private PNCounter rejectedForCreditCounter;
+    private PNCounter totalLatency;
+
+    private static boolean accumLatency = false;
 
     // TODO: may need this to be an IMap ... aggregator can move due to node failure
     private Map<String, PNCounter> rejectedByRuleCounters = new HashMap<>();
@@ -52,6 +55,8 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
     public void run() {
         log.info("AggregationExecutor.run()");
         long startTime = System.nanoTime();
+        long txnsDuringWarmup = 0;
+        long latencyDuringWarmup = 0;
         while (true) {
             try {
                 long startInner = System.nanoTime();
@@ -70,6 +75,20 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
                     String elapsed = String.format("%02d:%02d:%02d.%03d", d.toHoursPart(), d.toMinutesPart(), d.toSecondsPart(), d.toMillisPart());
                     final double tps = counter / d.toSeconds();
                     log.info("AggregationExecutor has handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS");
+
+                    // Don't measure latency during initial warm-up -- first 10K transactions feels like a good time to wait.
+                    if (!accumLatency) {
+                        accumLatency = true;
+                        txnsDuringWarmup = rejectedForCreditCounter.get() + rejectedForFraudCounter.get() + approvalCounter.get();
+                        latencyDuringWarmup = totalLatency.get();
+                        log.info("     Warmup period latency is " + latencyDuringWarmup + " / " + txnsDuringWarmup + " = " + (latencyDuringWarmup / txnsDuringWarmup) / 1_000_000 + " ms");
+                        //totalLatency.reset();   // reset to zero
+                    } else {
+                        long latency = totalLatency.get() - latencyDuringWarmup;
+                        long transactions = rejectedForCreditCounter.get() + rejectedForFraudCounter.get() + approvalCounter.get() - txnsDuringWarmup;
+                        double average = (latency / transactions) / 1_000_000;
+                        log.info("     Average latency is " + latency + " / " + transactions + " = " + average + " ms");
+                    }
                 }
 
             } catch (Exception e) {
@@ -133,8 +152,10 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
                 approvalCounter.getAndIncrement();
             }
             //System.out.println("Approved " + txnId);
-
         }
+        //log.info("Transaction " + ter.getTransaction().getItemID() + " completed in " + ter.getLatencyNanos() + " ns");
+        //if (accumLatency)
+            totalLatency.getAndAdd(ter.getLatencyNanos());
         return txnId;
     }
 
@@ -160,5 +181,6 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
         approvalCounter = hazelcast.getPNCounter(Constants.PN_COUNT_APPROVED);
         rejectedForFraudCounter = hazelcast.getPNCounter(Constants.PN_COUNT_REJ_FRAUD);
         rejectedForCreditCounter = hazelcast.getPNCounter(Constants.PN_COUNT_REJ_CREDIT);
+        totalLatency = hazelcast.getPNCounter(Constants.PN_COUNT_TOTAL_LATENCY);
     }
 }

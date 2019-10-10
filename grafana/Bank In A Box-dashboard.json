@@ -1,40 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_LOCAL_GRAPHITE",
-      "label": "Local Graphite",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "graphite",
-      "pluginName": "Graphite"
-    }
-  ],
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "4.6.1"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": ""
-    },
-    {
-      "type": "datasource",
-      "id": "graphite",
-      "name": "Graphite",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "singlestat",
-      "name": "Singlestat",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -52,13 +16,13 @@
   "gnetId": null,
   "graphTooltip": 0,
   "hideControls": false,
-  "id": null,
+  "id": 3,
   "links": [],
   "refresh": "5s",
   "rows": [
     {
       "collapse": false,
-      "height": 232,
+      "height": 241,
       "panels": [
         {
           "cacheTimeout": null,
@@ -69,10 +33,10 @@
             "rgba(237, 129, 40, 0.89)",
             "#299c46"
           ],
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "format": "none",
           "gauge": {
-            "maxValue": 10000,
+            "maxValue": 4000,
             "minValue": 0,
             "show": true,
             "thresholdLabels": false,
@@ -106,7 +70,7 @@
               "to": "null"
             }
           ],
-          "span": 6,
+          "span": 4,
           "sparkline": {
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
@@ -120,8 +84,8 @@
               "target": "bib.payment.rate"
             }
           ],
-          "thresholds": "",
-          "title": "Payments",
+          "thresholds": "500, 1000",
+          "title": "Payments (TPS)",
           "type": "singlestat",
           "valueFontSize": "80%",
           "valueMaps": [
@@ -142,7 +106,7 @@
             "rgba(237, 129, 40, 0.89)",
             "#d44a3a"
           ],
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "format": "percent",
           "gauge": {
             "maxValue": 1,
@@ -179,7 +143,7 @@
               "to": "null"
             }
           ],
-          "span": 6,
+          "span": 4,
           "sparkline": {
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
@@ -193,8 +157,81 @@
               "target": "bib.fraud.rate"
             }
           ],
-          "thresholds": "",
+          "thresholds": "0.2, 0.5",
           "title": "Fraud Rate",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "#3f6833",
+            "#7eb26d",
+            "#d44a3a"
+          ],
+          "datasource": "Local Graphite",
+          "format": "none",
+          "gauge": {
+            "maxValue": 150,
+            "minValue": 0,
+            "show": true,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 4,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 4,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "refId": "A",
+              "target": "bib.latency.avg"
+            }
+          ],
+          "thresholds": "20,50",
+          "title": "Average Latency (ms)",
           "type": "singlestat",
           "valueFontSize": "80%",
           "valueMaps": [
@@ -226,7 +263,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_LOCAL_GRAPHITE}",
+          "datasource": "Local Graphite",
           "fill": 1,
           "id": 2,
           "legend": {
@@ -259,6 +296,10 @@
             {
               "refId": "B",
               "target": "bib.payments.walmart"
+            },
+            {
+              "refId": "C",
+              "target": "bib.payments.all"
             }
           ],
           "thresholds": [],
@@ -354,5 +395,5 @@
   },
   "timezone": "",
   "title": "Bank In A Box",
-  "version": 17
+  "version": 4
 }

@@ -91,6 +91,8 @@ public class PreauthMapListener implements
                 merchant_txn_count_walmart.getAndIncrement();
 
         String key = txn.getItemID();
+        if (key == null) return;
+
         if ((key.compareTo("00000000499995") >= 0) && key.compareTo("00000000500005") <= 0) {
             log.info("PreAuthMapListener sees key " + key + " value " + txn);
         }

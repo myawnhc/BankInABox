@@ -23,11 +23,14 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
     private transient PNCounter rejectedForCredit;
     private transient PNCounter walmart;
     private transient PNCounter amazon;
+    private transient PNCounter latencyNanos;
 
     private transient Map<String, PNCounter> rejectionByRule;
 
     private transient Graphite graphite;
     private boolean initialized = false;
+
+    private int measurementInterval = 5;   // seconds.   Should be in sync with schedule interval set by Launcher.
 
     private static int previouslyReportedApprovals = 0;
 
@@ -37,6 +40,7 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
         rejectedForFraud = hazelcast.getPNCounter(Constants.PN_COUNT_REJ_FRAUD);
         walmart = hazelcast.getPNCounter(Constants.PN_COUNT_WALMART);
         amazon = hazelcast.getPNCounter(Constants.PN_COUNT_AMAZON);
+        latencyNanos = hazelcast.getPNCounter(Constants.PN_COUNT_TOTAL_LATENCY);
         graphite = new Graphite();
         rejectionByRule = new HashMap<>();
         initialized = true;
@@ -76,16 +80,18 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
         double fraudRate = 0.0;
         if (total > 0)
             fraudRate = rejectedFraud / total;
+        double latencyAvg = (double) (latencyNanos.get() / total / 1_000_000);
         try {
         	//System.out.println(this.getClass().getName() + ".run()");
             graphite.writeStats("bib.fraud.rate", fraudRate);
 //            System.out.printf("  Fraud rate = %f + %f + %f = %f / %f = %f\n",
 //                    approved, rejectedCredit, rejectedFraud, total, rejectedFraud, fraudRate);
-            graphite.writeStats("bib.payment.rate", approved - previouslyReportedApprovals);
+            graphite.writeStats("bib.payment.rate", (approved - previouslyReportedApprovals) / measurementInterval); // divide to convert to TPS
             previouslyReportedApprovals = (int) approved;
             graphite.writeStats("bib.payments.amazon", amazon.get());
             graphite.writeStats("bib.payments.walmart", walmart.get());
             graphite.writeStats("bib.payments.all", total);
+            graphite.writeStats("bib.latency.avg", latencyAvg);
             //System.out.printf("  Payments by merchant %d %d\n", merchant1_10.get(), merchant11_20.get() );
             if (rejectionByRule != null && rejectionByRule.size() > 0) {
                 for (PNCounter counter : rejectionByRule.values()) {

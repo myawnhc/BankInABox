@@ -26,6 +26,10 @@ public class Constants {
     public static final String PN_COUNT_REJ_FRAUD  = "pnCounterRejectedForFraud";
     public static final String PN_COUNT_REJ_CREDIT = "pnCounterRejectedForCredit";
 
+    public static final String PN_COUNT_TOTAL_LATENCY = "pnCounterTotalLatency"; // in nanoseconds
+    // may also add bucketed counters to do a histogram view of latency, bucket cutoffs should be configurable
+    //     thinking initial setup might be <=10ms, <=25ms, <=50ms, <=100ms, >100ms
+
     // Location based rules.  Might move these constants into the Rule class
     // instead of having to detail them here.
 //    public static final String PN_COUNT_R4F_LOC1   = "pnCounterRej4Fraud_Loc_1";
