@@ -22,6 +22,7 @@ public class BankInABoxDB {
             String jdbcURL = "jdbc:" + BankInABoxProperties.JDBC_PROTOCOL + "://" +
                     BankInABoxProperties.JDBC_HOST + ":" + BankInABoxProperties.JDBC_PORT + "/";
             System.out.println("JDBC URL is " + jdbcURL);
+            System.out.println("User / Pass " + BankInABoxProperties.JDBC_USER + " / " + BankInABoxProperties.JDBC_PASS);
             conn = DriverManager.getConnection(
                     jdbcURL, BankInABoxProperties.JDBC_USER, BankInABoxProperties.JDBC_PASS);
             log.info("Established connection to MySQL/MariaDB server");

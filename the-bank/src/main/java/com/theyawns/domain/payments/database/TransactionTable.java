@@ -57,25 +57,6 @@ public class TransactionTable extends AbstractTable
     private PreparedStatement selectStatement;
     private PreparedStatement tableSizeQueryStatement;
 
-    @Override
-    public void establishConnection() {
-        super.establishConnection();
-        log.info("Getting Txn table size for offset calculations");
-        numberOfEntries = getTableSize();
-    }
-
-//    private Transaction generate(int id) {
-//        try {
-//            Transaction t = new Transaction(txnFormat.format(id));
-//            return t;
-//        } catch (Throwable t) {
-//            t.printStackTrace();
-//            System.exit(-1);
-//
-//            return null;
-//        }
-//    }
-
     public int generateAndStoreMultiple(int count) {
         Random acctRandom = new Random(123);
         Random merchantRandom = new Random(456);
@@ -132,6 +113,11 @@ public class TransactionTable extends AbstractTable
 
     public synchronized Transaction readFromDatabase(String id) {
 
+        // This should only happen once.
+        if (numberOfEntries == 0) {
+            log.info("TransactionTable.readFromDatabase: Getting Txn table size for offset calculations");
+            numberOfEntries = getTableSize();
+        }
         String originalId = id;
 
         try {
@@ -157,7 +143,6 @@ public class TransactionTable extends AbstractTable
                     }
                     txnNum -= offset;
                     id = txnFormat.format(txnNum);
-
                 }
             }
 

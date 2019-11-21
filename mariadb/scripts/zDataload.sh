@@ -1,1 +1,1 @@
-mysql -u root -padmin BankInABox < /data/backup/bib_dump.sql
+mysql -u hzuser -phzpass BankInABox < /data/backup/bib_dump.sql

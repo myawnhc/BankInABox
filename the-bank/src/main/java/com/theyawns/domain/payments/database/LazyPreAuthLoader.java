@@ -23,11 +23,7 @@ public class LazyPreAuthLoader implements Runnable, Serializable, HazelcastInsta
     private static final long serialVersionUID = -2306964662183102591L;  // TODO: getting error related to mismatch here
 
     private HazelcastInstance client;
-//    private int totalToLoad;
     private IMap<String, Transaction> preAuthMap;
-//    private int offset = 0;
-//    private static int numberOfEntries;
-
     private static final DecimalFormat txnFormat      = new DecimalFormat("00000000000000"); // 14 digit
 
     @Override
@@ -38,7 +34,6 @@ public class LazyPreAuthLoader implements Runnable, Serializable, HazelcastInsta
         int chunkSize = BankInABoxProperties.PREAUTH_CHUNK_SIZE;
 
         TransactionTable table = new TransactionTable();
-        //numberOfEntries = table.getTableSize();
 
         // In Benchmark mode, we process the number of transactions specified in BankInABoxProperties.TRANSACTION_COUNT.
         // In Demo mode, we run until stopped.

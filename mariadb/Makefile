@@ -16,7 +16,7 @@ image:
 	docker build -t $(IMAGE) .
 
 dump:
-	mysqldump BankInABox > ./data/backup/bib_dump.sql
+	mysqldump -u hzuser -phzpass BankInABox > ./data/backup/bib_dump.sql
 
 pull :
 	docker-compose pull

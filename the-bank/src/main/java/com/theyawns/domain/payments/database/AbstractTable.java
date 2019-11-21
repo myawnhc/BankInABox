@@ -15,7 +15,7 @@ public class AbstractTable {
     protected Connection conn;
 
     public synchronized void establishConnection()  {
-        log.info("AbstractTable.establishConnection()");
+        //log.info("AbstractTable.establishConnection()");
         try {
             // Register the driver, we don't need to actually assign the class to anything
             Class.forName(BankInABoxProperties.JDBC_DRIVER_CLASS);
