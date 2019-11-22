@@ -8,6 +8,14 @@ rules.
 
 ### One-time setup:
 
+Once you have the project installed (cloned from github), you'll need to build it.
+```bash
+mvn package
+```
+(Or use your favorite IDE to build the top-level project).
+
+Note that the project requires JDK 11 or later to build. 
+
 #### MariaDB
 When running, the demo operates all in-memory, but the data is originally loaded from a MariaDB database.  You'll need 
 to set up MariaDB as a service on the system where the demo will run, and do a one-time generation of test data 
