@@ -8,9 +8,15 @@ rules.
 
 ### One-time setup:
 
+You'll need to have the following dependencies installed in order to run this demo.
+* Java JDK 11 or later
+* maven
+* docker 
+* mariadb   (MySQL can also be used with some simple property changes)
+
 Once you have the project installed (cloned from github), you'll need to build it.
 ```bash
-mvn package
+mvn clean package
 ```
 (Or use your favorite IDE to build the top-level project).
 

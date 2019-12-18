@@ -7,6 +7,8 @@ services:
     environment:
       - MYSQL_DATABASE=BankInABox
       - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_USER=hzuser
+      - MYSQL_PASS=hzpass
     ports:
       - '3306:3306'
     volumes:
