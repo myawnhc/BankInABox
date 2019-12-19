@@ -10,10 +10,15 @@ prep :
 	mkdir -p \
 		data/backup
 
+clean:
+	docker rm -f $(CONTAINER) || true
+	docker rmi -f $(IMAGE)|| true
+
 image:
 	docker rm -f $(CONTAINER) || true
 	docker rmi -f $(IMAGE)|| true
 	docker build -t $(IMAGE) .
+	docker push $(IMAGE)
 
 dump:
 	mysqldump -u hzuser -phzpass BankInABox > ./data/backup/bib_dump.sql
@@ -32,3 +37,4 @@ shell :
 
 tail :
 	docker logs -f $(CONTAINER)
+
