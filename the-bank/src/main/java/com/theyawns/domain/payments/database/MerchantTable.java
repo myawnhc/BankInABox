@@ -161,7 +161,7 @@ public class MerchantTable extends AbstractTable
 
     @Override
     public synchronized Iterable<String> loadAllKeys() {
-        //log.info("MerchantTable.loadAllKeys()");
+        log.info("MerchantTable.loadAllKeys()");
         if (conn == null)
             establishConnection();
         int size = BankInABoxProperties.MERCHANT_COUNT;

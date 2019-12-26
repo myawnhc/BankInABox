@@ -21,6 +21,7 @@ public class AbstractTable {
             Class.forName(BankInABoxProperties.JDBC_DRIVER_CLASS);
             String jdbcURL = "jdbc:" + BankInABoxProperties.JDBC_PROTOCOL + "://" +
                     BankInABoxProperties.JDBC_HOST + ":" + BankInABoxProperties.JDBC_PORT + "/" + BankInABoxProperties.JDBC_DB_NAME;
+            //log.info("Attempting connection to " + jdbcURL + " for user " + BankInABoxProperties.JDBC_USER);
             conn = DriverManager.getConnection(
                     jdbcURL, BankInABoxProperties.JDBC_USER, BankInABoxProperties.JDBC_PASS);
             log.info("Established connection to BankInABox database");

@@ -33,7 +33,7 @@ make up
 lsof -i : 3306
 ```
 The last line is optional but a good check -- you should see that the docker copy of MariaDB is listening 
-on port 3306. 
+on port 3306.  (For compatibility, MariaDB identifies itself as MySQL on the output)
 
 
 ### Start IMDG Cluster:
@@ -51,10 +51,24 @@ top-level BankInABox directory
 ```bash
 make up
 ```
+You can then point a browser to `https://localhost:80` and log in with
+the default username and password.
+
+#### First time setup
+
+The first time you start Grafana you'll need to import the customized BankInABox dashboard.   Select the
+Grafana icon (Upper left corner of the screen), the Dashboards menu, and select Import from the pop-out 
+submenu.
+
+In the import dialog, click the box that says Import JSON file, and navigate to the dashboard file location
+```bash
+[BankInABox home]/grafana/Bank In A Box-dashboard.json
+```
+
+Once the dashboard is imported, you can go to the Grafana home page and then select the dashboard from 
+the list of installed dashboards.   All the gauges will be reading zero until the demo begins. 
 
 ### Start the demo (Launcher script)
-You can then point a browser to `https://localhost:80` and select the BankInABox dashboard after logging in with
-the default username and password.
 
 Finally, start the demo itself by running the following script in the top-level BankInABox directory
 ```$bash
@@ -75,6 +89,11 @@ merchant
 used by the Grafana dashboard to show results. 
 * Loads data from the database Transaction table into the preAuth map; this then triggers the 
 listener and Jet pipeline to begin processing.
+
+The Grafana dashboard you started earlier can be used to monitor the transaction results; you can see the 
+transaction volume, fraud rate, and average latency per transaction.   (Note that there is a warm-up
+time for the demo due to the initial database load; the latency will start high but then drop down
+as the maps get populated.)
 
 Hazelcast Management Center can be used to monitor the maps and watch how data moves between the maps.   (Generated
 transactions go into the preAuth map; once they have been processed they will move to either approved, rejectedForCredit, 
