@@ -10,7 +10,9 @@ import com.hazelcast.scheduledexecutor.DuplicateTaskException;
 import com.hazelcast.scheduledexecutor.IScheduledExecutorService;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.*;
+import com.theyawns.domain.payments.database.AccountTable;
 import com.theyawns.domain.payments.database.LazyPreAuthLoader;
+import com.theyawns.domain.payments.database.MerchantTable;
 import com.theyawns.executors.AggregationExecutor;
 import com.theyawns.executors.RuleSetExecutor;
 import com.theyawns.listeners.PreauthMapListener;
@@ -23,6 +25,8 @@ import com.theyawns.util.EnvironmentSetup;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -34,13 +38,18 @@ public class Launcher {
     protected HazelcastInstance hazelcast;
     protected IExecutorService distributedES;
     private final static ILogger log = Logger.getLogger(Launcher.class);
-    private static RunMode runMode = RunMode.Demo;
+    private static RunMode runMode = RunMode.Benchmark;
+    private static CloudPlatform cloudPlatform = CloudPlatform.None;
+
+    // Change this when Jet runs in the cloud
+    private static final boolean JetSupportedInCloud = false;
+    private static final boolean MapLoaderSupportedInCloud = false;
 
     // Only here for triggering eager cache load
     private IMap<String, Merchant> merchantMap;
     private IMap<String, Account> accountMap;
 
-    private IMap<String, TransactionEvaluationResult> resultMap;
+    //private IMap<String, TransactionEvaluationResult> resultMap;
 
     protected void init() {
     	new EnvironmentSetup();
@@ -120,11 +129,15 @@ public class Launcher {
         ///////////////////////////////////////
         // TODO: not sure there's any advantage to using IMDG executor service here
         // over plain Java
-        AdjustMerchantAvgTask merchantAvgTask = new AdjustMerchantAvgTask();
-        main.distributedES.submit(merchantAvgTask);
-        // This is a Jet job so doesn't need to run in the IMDG cluster ...
-        ExecutorService executor = Executors.newSingleThreadExecutor();
-        executor.submit(merchantAvgTask);
+        if (JetSupportedInCloud || cloudPlatform == CloudPlatform.None) {
+            AdjustMerchantAvgTask merchantAvgTask = new AdjustMerchantAvgTask();
+            main.distributedES.submit(merchantAvgTask);
+            // This is a Jet job so doesn't need to run in the IMDG cluster ...
+            ExecutorService executor = Executors.newSingleThreadExecutor();
+            executor.submit(merchantAvgTask);
+        } else {
+            log.info("Jet pipeline disabled since running in cloud");
+        }
 
         IScheduledExecutorService dses = main.hazelcast.getScheduledExecutorService("scheduledExecutor");
         //ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
@@ -169,21 +182,40 @@ public class Launcher {
 //            ; // ignore
 //        }
 
-        log.info("Waiting for pre-loads (Account and Merchant tables)");
-        while (true) {
-            // Wait until preload of Merchant and Account maps are done before starting load into preAuth
-            log.info(main.merchantMap.size() + " of " + BankInABoxProperties.MERCHANT_COUNT + " merchants"); // Lazy load will hang here
-            log.info(main.accountMap.size() + " of " + BankInABoxProperties.ACCOUNT_COUNT + " accounts");
-            if (main.merchantMap.size() >= BankInABoxProperties.MERCHANT_COUNT &&
-                main.accountMap.size() >= BankInABoxProperties.ACCOUNT_COUNT)
-                break;
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        if (cloudPlatform != CloudPlatform.None && !MapLoaderSupportedInCloud) {
+            /* This is a lot less efficient than the MapLoader implementation but will only
+             * be used for a short time until MapLoader support is available in the cloud
+             */
+            log.info("Manually load merchants");
+            MerchantTable merchantTable = new MerchantTable();
+            Iterable<String> merchantIDs = merchantTable.loadAllKeys();
+            for (String merchantID : merchantIDs) {
+                main.merchantMap.set(merchantID, merchantTable.load(merchantID));
             }
 
+            log.info("Manually load accounts");
+            AccountTable accountTable = new AccountTable();
+            Iterable<String> accountIDs = accountTable.loadAllKeys();
+            for (String accountID : accountIDs) {
+                main.accountMap.set(accountID, accountTable.load(accountID));
+            }
+        } else {
+            log.info("Waiting for pre-loads (Account and Merchant tables)");
+            while (true) {
+                // Wait until preload of Merchant and Account maps are done before starting load into preAuth
+                log.info(main.merchantMap.size() + " of " + BankInABoxProperties.MERCHANT_COUNT + " merchants"); // Lazy load will hang here
+                log.info(main.accountMap.size() + " of " + BankInABoxProperties.ACCOUNT_COUNT + " accounts");
+                if (main.merchantMap.size() >= BankInABoxProperties.MERCHANT_COUNT &&
+                        main.accountMap.size() >= BankInABoxProperties.ACCOUNT_COUNT)
+                    break;
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }
+
         log.info("Beginning transaction load");
         LazyPreAuthLoader loader = new LazyPreAuthLoader();
         //loader.run();

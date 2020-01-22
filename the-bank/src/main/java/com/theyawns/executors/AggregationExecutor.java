@@ -117,7 +117,7 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
                     ter.setRejectingRuleSet(rser.getRuleSetName());
                     ter.setRejectingReason(rser.getOutcomeReason());
                     ter.setStopTime(System.nanoTime());
-                    if (Launcher.getRunMode() == RunMode.Demo) {
+                    if (true /*Launcher.getRunMode() == RunMode.Demo*/) {
                         // Benchmark doesn't care about the dashboard
                         rejectedForFraudCounter.getAndIncrement();
                         incrementRejectCountForRule(rser);
@@ -130,7 +130,7 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
                     ter.setRejectingRuleSet(rser.getRuleSetName());
                     ter.setRejectingReason(rser.getOutcomeReason());
                     ter.setStopTime(System.nanoTime());
-                    if (Launcher.getRunMode() == RunMode.Demo) {
+                    if (true /*Launcher.getRunMode() == RunMode.Demo*/) {
                         // Benchmark doesn't care about the dashboard
                         rejectedForCreditCounter.getAndIncrement();
                         incrementRejectCountForRule(rser);
@@ -147,7 +147,7 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
             // This map now has eviction to allow long-running demo
             ter.setStopTime(System.nanoTime());
             approvedMap.put(txnId, ter);
-            if (Launcher.getRunMode() == RunMode.Demo) {
+            if (true /*Launcher.getRunMode() == RunMode.Demo*/) {
                 // Benchmark doesn't care about the dashboard
                 approvalCounter.getAndIncrement();
             }

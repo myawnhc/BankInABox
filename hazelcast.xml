@@ -40,7 +40,7 @@
     </properties>
 
     <cp-subsystem>
-        <cp-member-count>3</cp-member-count>
+        <cp-member-count>0</cp-member-count>
     </cp-subsystem>
 
     <executor-service name="executor">

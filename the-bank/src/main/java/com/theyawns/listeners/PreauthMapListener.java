@@ -93,9 +93,9 @@ public class PreauthMapListener implements
         String key = txn.getItemID();
         if (key == null) return;
 
-        if ((key.compareTo("00000000499995") >= 0) && key.compareTo("00000000500005") <= 0) {
-            log.info("PreAuthMapListener sees key " + key + " value " + txn);
-        }
+//        if ((key.compareTo("00000000499995") >= 0) && key.compareTo("00000000500005") <= 0) {
+//            log.info("PreAuthMapListener sees key " + key + " value " + txn);
+//        }
 
         // Keep this in sync with the number of rulesets that are active -
         txn.setRuleSetsToApply(2); // TODO: this should be determined in some way, not hard-coded
