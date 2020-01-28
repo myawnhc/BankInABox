@@ -40,6 +40,8 @@ public class Launcher {
     private final static ILogger log = Logger.getLogger(Launcher.class);
     private static RunMode runMode = RunMode.Benchmark;
     private static CloudPlatform cloudPlatform = CloudPlatform.None;
+    // externalJet = client/server mode, else embedded mode
+    private static boolean externalJet = true;
 
     // Change this when Jet runs in the cloud
     private static final boolean JetSupportedInCloud = false;
@@ -77,6 +79,8 @@ public class Launcher {
     public static RunMode getRunMode() { return runMode; }
     public static void setRunMode(RunMode mode) { runMode = mode; }
 
+    public static boolean getJetInClientServerMode() { return externalJet; }
+
     // Currently not used in this configuration, but might add payment rules back
     private static class CreditLimitRuleTask implements Runnable, Serializable {
         public void run() {
@@ -86,10 +90,12 @@ public class Launcher {
         }
     }
 
-    private static class AdjustMerchantAvgTask implements Runnable, Serializable {
+    private /*static*/ class AdjustMerchantAvgTask implements Runnable, Serializable {
         public void run() {
             System.out.println("AdjustMerchangeAvgTask Runnable has been started");
             AdjustMerchantTransactionAverage amta = new AdjustMerchantTransactionAverage();
+            amta.setHazelcastInstance(hazelcast);
+            amta.setJetClusterIsExternal(externalJet);
             amta.run();
         }
     }
@@ -105,6 +111,9 @@ public class Launcher {
         System.out.println("________________________");
         System.out.println("Start: " + new java.util.Date());
         System.out.println("________________________");
+
+        parseArgs(args);
+
         Launcher main = new Launcher();
         main.init();
 
@@ -129,10 +138,12 @@ public class Launcher {
         ///////////////////////////////////////
         // TODO: not sure there's any advantage to using IMDG executor service here
         // over plain Java
-        if (JetSupportedInCloud || cloudPlatform == CloudPlatform.None) {
-            AdjustMerchantAvgTask merchantAvgTask = new AdjustMerchantAvgTask();
-            main.distributedES.submit(merchantAvgTask);
+        if (JetSupportedInCloud || cloudPlatform == CloudPlatform.None || externalJet) {
+            log.info("Creating AdjustMerchantAvgTask");
+            AdjustMerchantAvgTask merchantAvgTask = main.new AdjustMerchantAvgTask();
+            //main.distributedES.submit(merchantAvgTask);
             // This is a Jet job so doesn't need to run in the IMDG cluster ...
+            log.info("Submitting AdjustMerchantAvgTask to newSingleThreadExecutor");
             ExecutorService executor = Executors.newSingleThreadExecutor();
             executor.submit(merchantAvgTask);
         } else {
@@ -142,7 +153,7 @@ public class Launcher {
         IScheduledExecutorService dses = main.hazelcast.getScheduledExecutorService("scheduledExecutor");
         //ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
         System.out.println("________________________");
-        System.out.println("RUN MODE" + getRunMode());
+        System.out.println("RUN MODE " + getRunMode());
         System.out.println("________________________");
         if (getRunMode() == RunMode.Demo) {
             PumpGrafanaStats stats = new PumpGrafanaStats();
@@ -173,14 +184,6 @@ public class Launcher {
         AggregationExecutor aggregator = new AggregationExecutor();
         main.distributedES.executeOnAllMembers(aggregator);
         System.out.println("Submitted AggregationExecutor to distributed executor service (all members)");
-
-//        log.info("")
-//        try {
-//            main.merchantMap.get("1");
-//            main.accountMap.get("1"); // invalid key, done just to trigger MapLoader to begin caching the maps
-//        } catch (Exception e) {
-//            ; // ignore
-//        }
 
         if (cloudPlatform != CloudPlatform.None && !MapLoaderSupportedInCloud) {
             /* This is a lot less efficient than the MapLoader implementation but will only
@@ -239,5 +242,77 @@ public class Launcher {
                 System.exit(0);
             }
         }
+    }
+
+    private static void parseArgs(String[] args) {
+        String cloud = System.getProperty("bib.cloud");
+        String runmode = System.getProperty("bib.runmode");
+        String jetmode = System.getProperty("bib.jetmode");
+
+        for (String arg : args) {
+            if (arg.startsWith("bib.cloud"))
+                cloud = arg.substring(arg.indexOf("=") + 1);
+            else if (arg.startsWith("bib.runmode"))
+                runmode = arg.substring(arg.indexOf("=") + 1);
+            else if (arg.startsWith("bib.jetmode"))
+                jetmode = arg.substring(arg.indexOf('=') + 1);
+            else if (arg.contains("usage") || arg.contains("help"))
+                usage();
+        }
+
+        if (cloud != null) {
+            cloud = cloud.toLowerCase();
+            if (cloud.equals("none"))
+                cloudPlatform = CloudPlatform.None;
+            else if (cloud.equals("hce"))
+                cloudPlatform = CloudPlatform.HZC_Enterprise_AWS;
+            else {
+                System.out.println("bib.cloud|" + cloud + "|");
+                usage();
+            }
+        }
+        if (runmode != null) {
+            runmode = runmode.toLowerCase();
+            if (runmode.equals("demo"))
+                runMode = RunMode.Demo;
+            else if (runmode.equals("benchmark"))
+                runMode= RunMode.Benchmark;
+            else {
+                System.out.println("bib.runmode|" + runmode + "|");
+                usage();
+            }
+        }
+        if (jetmode != null) {
+            jetmode = jetmode.toLowerCase();
+            if (jetmode.equals("embedded"))
+                externalJet = false;
+            else if (jetmode.equals("cs"))
+                externalJet = true;
+            else {
+                System.out.println("bib.jetmode|" + jetmode + "|");
+                usage();
+            }
+        }
+
+        // Debugging output
+        log.info("After parsing system properties and command line arguments:");
+        log.info("bib.cloud " + cloudPlatform);
+        log.info("bib.runMode " + runMode);
+        log.info("bib.jetMode client/server? " + externalJet);
+
+    }
+
+    private static void usage() {
+        System.out.println("** DEBUG WHY USAGE IS CALLED **");
+        StackTraceElement[] st = Thread.currentThread().getStackTrace();
+        for (StackTraceElement ste : st) {
+            System.out.println(ste.toString());
+        }
+        System.out.println("The following settings can be passed on the command line or as System properties\n" +
+                " command line args will override properties " +
+                " (keys are case sensitive, values not):");
+        System.out.println("bib.cloud=[none, hce]"); // future: AWS, GCP, Azure, maybe HCS
+        System.out.println("bib.runmode=[demo, benchmark]");
+        System.out.println("bib.jetmode=[embedded,cs]");
     }
 }

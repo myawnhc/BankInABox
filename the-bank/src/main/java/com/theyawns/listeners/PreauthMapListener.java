@@ -83,7 +83,8 @@ public class PreauthMapListener implements
         try {
             merchantNum = Integer.parseInt(txn.getMerchantId());  // TODO: see a rare number format exception here - null merchant id
         } catch (NumberFormatException nfe) {
-            log.warning(("Number format exception parsing merchant: " + txn));
+            log.warning(("Number format exception parsing merchant: " + txn + ", transaction will be skipped"));
+            return; // Do not process the item
         }
         if (merchantNum >= 1 && merchantNum <= 9)
                 merchant_txn_count_amazon.getAndIncrement();

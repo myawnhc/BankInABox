@@ -37,12 +37,19 @@ on port 3306.  (For compatibility, MariaDB identifies itself as MySQL on the out
 
 
 ### Start IMDG Cluster:
-First, start at least 3 IMDG Cluster nodes using the script runImdg.sh
+First, start one or more IMDG Cluster nodes using the script runImdg.sh
 ```bash
 ./runImdg.sh
 ```
+I generally start 3 nodes.  Earlier versions of the demo required this because some features of the CP
+Subsystem were used, but the current version can run with a single IMDG if desired.
 
-Three nodes are required because the demo uses some features of the CP subsystem that requires 3 nodes to operate.
+### Start Jet Cluster
+Start one or more Jet Cluster nodes using the script runJet.sh
+```bash
+./runJet.sh
+```
+A single node here should be sufficient.
 
 ### Start Grafana
 
@@ -81,8 +88,8 @@ following:
 data grid
 * Sets a listener on the preAuth map to detect incoming transactions.  The listener forwards trasactions 
 to each RuleSet Executor by writing the transaction to a ruleset specific Queue. 
-* Starts a Jet pipeline to monitor the incoming transaction stream and aggregate the average transaction amount by 
-merchant
+* Creates a Jet pipeline to monitor the incoming transaction stream and aggregate the average transaction amount by 
+merchant, and submits a job to the Jet cluster to execute the pipeline.
 * Starts executors for each RuleSet (current demo has two)
 * Starts an executor to aggregate completed RuleSet results
 * Starts a periodic task (5 second interval) that writes data to the Graphite sink

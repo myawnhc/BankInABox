@@ -40,7 +40,7 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
     private PNCounter rejectedForCreditCounter;
     private PNCounter totalLatency;
 
-    private static boolean accumLatency = false;
+    private static boolean accumLatency = false; // will flip to true after warmup period
 
     // TODO: may need this to be an IMap ... aggregator can move due to node failure
     private Map<String, PNCounter> rejectedByRuleCounters = new HashMap<>();
@@ -61,7 +61,7 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
             try {
                 long startInner = System.nanoTime();
                 String txnId = completedTransactionIDs.take();
-                double ms = (System.nanoTime() - startInner) / 1_000_000;
+                double ms = (startInner - startTime) / 1_000_000;
                 TransactionEvaluationResult ter = resultMap.get(txnId);
 
                 // TODO: may break processResults into more fine-grained steps
@@ -76,20 +76,26 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
                     final double tps = counter / d.toSeconds();
                     log.info("AggregationExecutor has handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS");
 
-                    // Don't measure latency during initial warm-up -- first 10K transactions feels like a good time to wait.
-                    if (!accumLatency) {
+                    // Don't measure latency during initial warm-up -- previously was 10K transactions,
+                    // now has additional condition that must have at least 1 minute to warm-up
+                    if (!accumLatency && ms > 60000) {
                         accumLatency = true;
                         txnsDuringWarmup = rejectedForCreditCounter.get() + rejectedForFraudCounter.get() + approvalCounter.get();
                         latencyDuringWarmup = totalLatency.get();
                         log.info("     Warmup period latency is " + latencyDuringWarmup + " / " + txnsDuringWarmup + " = " + (latencyDuringWarmup / txnsDuringWarmup) / 1_000_000 + " ms");
                         //totalLatency.reset();   // reset to zero
-                    } else {
+                    } else if (accumLatency) {
                         long latency = totalLatency.get() - latencyDuringWarmup;
                         long transactions = rejectedForCreditCounter.get() + rejectedForFraudCounter.get() + approvalCounter.get() - txnsDuringWarmup;
                         double average = (latency / transactions) / 1_000_000;
                         log.info("     Average latency is " + latency + " / " + transactions + " = " + average + " ms");
+                    } else {
+                        log.info("**** waiting to start latency calcs, ms " + ms);
                     }
+
                 }
+
+
 
             } catch (Exception e) {
                 e.printStackTrace();

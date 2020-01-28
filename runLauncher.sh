@@ -6,4 +6,4 @@ JAVA_ARGS=""
 JAVA_ARGS="${JAVA_ARGS} -Dhz.ip4.addr=localhost"
 JAVA_ARGS="${JAVA_ARGS} -Xms8G -Xmx8g"
 
-java $JAVA_MODS $JAVA_ARGS -jar bundle-launcher/target/bundle-launcher-1.0-SNAPSHOT.jar
+java $JAVA_MODS $JAVA_ARGS -jar bundle-launcher/target/bundle-launcher-1.0-SNAPSHOT.jar $1 $2 $3

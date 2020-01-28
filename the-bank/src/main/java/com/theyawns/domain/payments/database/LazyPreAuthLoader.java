@@ -76,10 +76,10 @@ public class LazyPreAuthLoader implements Runnable, Serializable, HazelcastInsta
                     System.out.println(" ERROR: Null entry for key " + key);
                 else
                     t.setTimeEnqueued(System.nanoTime());
-                    preAuthMap.put(key, t);
+                    preAuthMap.set(key, t);
 
 //                if ((key.compareTo("00000000499995") >= 0) && key.compareTo("00000000500005") <= 0) {
-//                    System.out.println("LazyPreAuthLoader put key " + key + " value " + t);
+//                    System.out.println("LazyPreAuthLoader set key " + key + " value " + t);
 //                }
             }
             System.out.println("  " + transactions.size() + " new transactions loaded to IMap, preAuth size now " + preAuthMap.size());

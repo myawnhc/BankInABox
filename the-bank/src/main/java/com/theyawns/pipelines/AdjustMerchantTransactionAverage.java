@@ -2,9 +2,8 @@ package com.theyawns.pipelines;
 
 import com.hazelcast.client.config.ClientConfig;
 import com.hazelcast.client.config.XmlClientConfigBuilder;
-import com.hazelcast.config.Config;
-import com.hazelcast.config.NetworkConfig;
-import com.hazelcast.config.XmlConfigBuilder;
+import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.core.HazelcastInstanceAware;
 import com.hazelcast.core.IMap;
 import com.hazelcast.jet.Jet;
 import com.hazelcast.jet.JetInstance;
@@ -19,11 +18,11 @@ import com.hazelcast.logging.Logger;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Merchant;
 import com.theyawns.domain.payments.Transaction;
-import com.theyawns.launcher.Launcher;
 import com.theyawns.util.EnvironmentSetup;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.hazelcast.jet.Util.mapEventNewValue;
 import static com.hazelcast.jet.Util.mapPutEvents;
@@ -31,7 +30,7 @@ import static com.hazelcast.jet.Util.mapPutEvents;
 /* Create a Jet client to the Jet cluster. Submit a job to the
  * Jet cluster that has an IMDG client to pull from IMDG cluster.
  */
-public class AdjustMerchantTransactionAverage implements Serializable {
+public class AdjustMerchantTransactionAverage implements Serializable, HazelcastInstanceAware {
 	private static final long serialVersionUID = 1L;
 
 	private final static ILogger log = Logger.getLogger(AdjustMerchantTransactionAverage.class);
@@ -41,10 +40,21 @@ public class AdjustMerchantTransactionAverage implements Serializable {
 
     private JetConfig jetConfig;
 
+    private HazelcastInstance imdg;
+
+    private boolean externalJetCluster = true; // may be overridden by bib.jetmode property or CL arg
+
+    public void setJetClusterIsExternal(boolean external) {
+        externalJetCluster = external;
+    }
+
     protected void init() {
+        //log.info("BEGIN AdjustMerchantTransactionAverage init()");
     	this.imdgClientConfig = new XmlClientConfigBuilder().build();
     	this.jetClientConfig = new XmlClientConfigBuilder().build();
 
+    	jetClientConfig.getNetworkConfig().getAddresses().clear();
+    	jetClientConfig.getNetworkConfig().addAddress("127.0.0.1:5710");
     	// This is just temporary until we move to client-server Jet usage
     	this.jetConfig = new JetConfig();
 
@@ -76,7 +86,11 @@ public class AdjustMerchantTransactionAverage implements Serializable {
         	.getKubernetesConfig().setProperty("service-port", EnvironmentSetup.JET_PORT);
         	
         	log.info("Jet Kubernetes config " + this.imdgClientConfig.getNetworkConfig().getKubernetesConfig());
+        } else if (externalJetCluster) {
+            this.jetClientConfig.getGroupConfig().setName("JetInABox");
         }
+        //log.info("END AdjustMerchantTransactionAverage init()");
+
     }
 
     public void run() {
@@ -85,28 +99,29 @@ public class AdjustMerchantTransactionAverage implements Serializable {
 
         try {
             Pipeline pipeline = buildPipeline();
-        	System.out.println("Connect to Jet cluster temporarily");
 
-        	// NOTE: Prefer to operate in client-server mode, but this is failing with exception:
-            // unable to find server hz.impl.jetService.  Until resolved, falling back to embedded.
-        	// TODO: jet = Jet.newJetClient(this.jetClientConfig);
-            jet = Jet.newJetInstance(jetConfig);
+            if (pipeline == null) {
+                log.severe("***** Pipeline construction failed, AMTA will exit");
+                return;
+            }
 
+            if (externalJetCluster) {
+                log.info("Setting JetClientConfig to point to JetInABox and creating new client");
+                jetClientConfig.getGroupConfig().setName("JetInABox");
+                jet = Jet.newJetClient(this.jetClientConfig);
+                log.info("Connected to Jet cluster in client/server mode" + jet.getName());
+            } else {
+                jet = Jet.newJetInstance(jetConfig);
+                log.info("Connected to Jet cluster in embedded mode " + jet.getName());
+            }
 
-        	System.out.println("Connected to Jet cluster temporarily as " + jet.getName());
         	JobConfig jobConfig = new JobConfig();
-            jobConfig.setName("AdjustMerchantTxnAverage");
-            System.out.println("Launching " + jobConfig);
+            jobConfig.setName("AdjustMerchantTransactionAverage");
             Job job = jet.newJob(pipeline, jobConfig);
-            System.out.println("Launch " + job.getName() + ", status==" + job.getStatus());
+            log.info("Launched " + job.getName() + ", status==" + job.getStatus());
         } catch (Exception e) {
-        	System.out.println(this.getClass().getName() + " EXCEPTION " + e.getMessage());
+        	log.severe(this.getClass().getName() + " EXCEPTION " + e.getMessage());
         	e.printStackTrace(System.out);
-        } finally {
-        	if (jet != null) {
-        		System.out.println("Disconnect from Jet " + jet.getName());
-                jet.shutdown();
-        	}
         }
     }
 
@@ -132,37 +147,46 @@ public class AdjustMerchantTransactionAverage implements Serializable {
                                     Transaction::getAmount))
                     .setName("Aggregate average transaction amount by merchant");
 
-            ContextFactory<IMap<String, Merchant>> contextFactory =
-                    ContextFactory.withCreateFn(x -> {
-                        return Jet.newJetClient(/*ccfg*/).getMap(Constants.MAP_MERCHANT);
-                    });
-
-            // arg0: ContextFactory<C> will give us a Merchant for KWR<MerchantID, Double>
-            // arg1: BiFunctionEx<C,T,R>  given Merchant, KWR<M,D>, emit Merchant with updated amt
-            StreamStage<Merchant> updatedMerchants = merchantAverages.mapUsingContext(contextFactory,
-                    (map, kwr) -> {
-                        Merchant m = map.get(kwr.getKey());
-                        m.setAvgTxnAmount(kwr.getValue());
-                        return m;
-                    }).setName("Retrieve merchant record from IMDG and update average txn amt");
+            final IMap<String, Merchant> merchantMap = imdg.getMap(Constants.MAP_MERCHANT);
+            StreamStage<Merchant> updatedMerchants = merchantAverages.mapUsingIMap(merchantMap,
+                    // lookupKeyFn takes KeyedWindowResult from previous stage, returns MerchantID String
+                    KeyedWindowResult::getKey,
+                    // mapFn takes KeyedWindowResult, Merchant corresponding to key returned by keyFn
+                    // returns Merchant with average transaction amount updated by data in the KWR value
+                    (kwr, merchant) -> {
+                        // Saw a single NPE here in 500K transactions, add check until we understand why and
+                        // fix at the source of the error
+                        if (kwr != null && merchant != null)
+                            merchant.setAvgTxnAmount(kwr.getValue());
+                        return merchant;
+            }).setName("Retrieve merchant record from IMDG and update average txn amt");
 
             updatedMerchants.drainTo(Sinks.remoteMapWithMerging("merchantMap",
                     imdgClientConfig,
                     /* toKeyFn */ Merchant::getMerchantId,
                     /* toValueFn */ Merchant::getObject,
                     /* mergeFn */ (Merchant o, Merchant n) -> {
-                        // Don't log when average varies by less than one dollar
-//                        if (Math.abs(o.getAvgTxnAmount() - n.getAvgTxnAmount()) > 1.00) {
-//                            System.out.printf("Merchant %s average transaction amount updated from %.3f to %.3f\n", o.getMerchantId(),
-//                                    o.getAvgTxnAmount(), n.getAvgTxnAmount());
-//                        }
+                        if (false) { // This logging has a HUGE negative impact on latency !!!
+                            // Don't log when average varies by less than one dollar
+                            if (Math.abs(o.getAvgTxnAmount() - n.getAvgTxnAmount()) > 1.00) {
+                                System.out.printf("Merchant %s average transaction amount updated from %.3f to %.3f\n", o.getMerchantId(),
+                                        o.getAvgTxnAmount(), n.getAvgTxnAmount());
+                            }
+                        }
                         return n;
                     })).setName("Merge updated Merchant record back to IMDG merchantMap");
 
             return p;
         } catch (Throwable e) {
-            e.printStackTrace();
+            log.severe("****** Exception in AMTA.buildPipeline", e);
             return null;
         }
+    }
+
+    // This is not called automatically by HZ core, but explicitly by the Launcher
+    @Override
+    public void setHazelcastInstance(HazelcastInstance hazelcastInstance) {
+        //log.info("**** injected HZI is from cluster " + hazelcastInstance.getCluster().toString());
+        imdg = hazelcastInstance;
     }
 }
