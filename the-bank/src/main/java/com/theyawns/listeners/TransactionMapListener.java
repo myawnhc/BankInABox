@@ -140,7 +140,7 @@ public class TransactionMapListener implements
         //System.out.println("FraudRisk " + risk);
         if (risk >= 60) {
             preAuthMap.remove(txn.getItemID());
-            rejectedForFraud.put(transactionId, txn);
+            rejectedForFraud.set(transactionId, txn);
             rejectedForFraudCounters[MERC_AVG_TXN_INDEX].getAndIncrement();
             //txn.endToEndTime.stop();
             if (false /*BankInABoxProperties.COLLECT_PERFORMANCE_STATS*/) {
@@ -174,10 +174,10 @@ public class TransactionMapListener implements
         }
         preAuthMap.remove(txn.getItemID());
         if (passed) {
-            approved.put(transactionId, txn);
+            approved.set(transactionId, txn);
             approvalCounter.getAndIncrement();
         } else {
-            rejectedForCredit.put(transactionId, txn);
+            rejectedForCredit.set(transactionId, txn);
             // TODO: either move this into the EP, or have EP return which rule[s] caused
             // rejection and use here instead of hard coded value.
             rejectedForCreditCounters[CREDIT_CHECK_INDEX].getAndIncrement();

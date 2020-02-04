@@ -54,9 +54,9 @@ public class ResultMapMonitor implements Runnable,
             // TODO: But since we know there's just one rule alive now, treat as if it's an aggregation
             boolean txnOK = resultList.get(0).getEvaluationResult();
             if (txnOK)
-                approved.put(transactionId, txn);
+                approved.set(transactionId, txn);
             else
-                rejected.put(transactionId, txn);
+                rejected.set(transactionId, txn);
             //txn.endToEndTime.stop();
             if (logPerf) {
                 // TODO: should not have hard-coded rule here

@@ -129,7 +129,7 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
                         incrementRejectCountForRule(rser);
                     }
                     // This map now has eviction to allow long-running demo
-                    rejectedForFraudMap.put(txnId, ter);
+                    rejectedForFraudMap.set(txnId, ter);
                     break;
                 case RejectedForCredit:
                     rejected = true;
@@ -142,7 +142,7 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
                         incrementRejectCountForRule(rser);
                     }
                     // This map now has eviction to allow long-running demo
-                    rejectedForCreditMap.put(txnId, ter);
+                    rejectedForCreditMap.set(txnId, ter);
                     break;
                 case Approved:
                     ;
@@ -152,7 +152,7 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
         if (!rejected) {
             // This map now has eviction to allow long-running demo
             ter.setStopTime(System.nanoTime());
-            approvedMap.put(txnId, ter);
+            approvedMap.set(txnId, ter);
             if (true /*Launcher.getRunMode() == RunMode.Demo*/) {
                 // Benchmark doesn't care about the dashboard
                 approvalCounter.getAndIncrement();

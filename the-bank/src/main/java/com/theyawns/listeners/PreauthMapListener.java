@@ -100,7 +100,7 @@ public class PreauthMapListener implements
 
         // Keep this in sync with the number of rulesets that are active -
         txn.setRuleSetsToApply(2); // TODO: this should be determined in some way, not hard-coded
-        preAuthMap.put(txn.getItemID(), txn); // rewrite the transaction so that the ruleset field is set in the map
+        preAuthMap.set(txn.getItemID(), txn); // rewrite the transaction so that the ruleset field is set in the map
 
         // TODO: Replace Queues with a ReliableTopic
         //getPaymentRulesQueue(txn).add(txn);
