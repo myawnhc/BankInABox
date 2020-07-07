@@ -1,33 +1,20 @@
 package com.theyawns.pipelines;
 
-import com.hazelcast.client.config.ClientConfig;
-import com.hazelcast.client.config.XmlClientConfigBuilder;
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.HazelcastInstanceAware;
-import com.hazelcast.jet.Util;
-import com.hazelcast.map.IMap;
-import com.hazelcast.jet.Jet;
-import com.hazelcast.jet.JetInstance;
-import com.hazelcast.jet.Job;
-import com.hazelcast.jet.aggregate.AggregateOperations;
-import com.hazelcast.jet.config.JetConfig;
-import com.hazelcast.jet.config.JobConfig;
-import com.hazelcast.jet.datamodel.KeyedWindowResult;
+import com.hazelcast.client.config.*;
+import com.hazelcast.core.*;
+import com.hazelcast.jet.*;
+import com.hazelcast.jet.aggregate.*;
+import com.hazelcast.jet.config.*;
+import com.hazelcast.jet.datamodel.*;
 import com.hazelcast.jet.pipeline.*;
-import com.hazelcast.logging.ILogger;
-import com.hazelcast.logging.Logger;
-import com.theyawns.Constants;
-import com.theyawns.domain.payments.Merchant;
-import com.theyawns.domain.payments.Transaction;
-import com.theyawns.util.EnvironmentSetup;
+import com.hazelcast.logging.*;
+import com.hazelcast.map.*;
+import com.theyawns.*;
+import com.theyawns.domain.payments.*;
+import com.theyawns.util.*;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import static com.hazelcast.jet.Util.mapEventNewValue;
-import static com.hazelcast.jet.Util.mapPutEvents;
+import java.io.*;
+import java.util.*;
 
 /* Create a Jet client to the Jet cluster. Submit a job to the
  * Jet cluster that has an IMDG client to pull from IMDG cluster.
@@ -139,7 +126,7 @@ public class AdjustMerchantTransactionAverage implements Serializable, Hazelcast
                         JournalInitialPosition.START_FROM_OLDEST);
 
             StreamStage<Transaction> txns = p.readFrom(rjSource)
-                    .withoutTimestamps()
+                    .withIngestionTimestamps()
                     .map( entry -> entry.getValue())
                     .setName("Draw transactions from PreAuth event journal");
 

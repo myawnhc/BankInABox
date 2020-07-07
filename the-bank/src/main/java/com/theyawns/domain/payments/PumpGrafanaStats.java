@@ -44,6 +44,7 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
         graphite = new Graphite();
         rejectionByRule = new HashMap<>();
         initialized = true;
+        //System.out.println("PumpGrafanaStats.init() complete");
     }
 
     // This needs to run after processing has started so that PNCounters will have been
