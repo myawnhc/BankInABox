@@ -108,7 +108,7 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
     }
 
     @Override
-    public int getId() {
+    public int getClassId() {
         return Constants.IDS_TRANSACTION_ID;
     }
 

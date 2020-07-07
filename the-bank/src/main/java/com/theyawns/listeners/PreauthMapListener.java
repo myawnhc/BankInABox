@@ -1,9 +1,11 @@
 package com.theyawns.listeners;
 
+import com.hazelcast.collection.IQueue;
 import com.hazelcast.core.*;
 import com.hazelcast.crdt.pncounter.PNCounter;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
+import com.hazelcast.map.IMap;
 import com.hazelcast.map.listener.EntryAddedListener;
 
 import com.hazelcast.map.listener.EntryLoadedListener;

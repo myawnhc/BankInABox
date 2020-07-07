@@ -71,7 +71,7 @@ public class Account implements IdentifiedDataSerializable, Serializable {
     }
 
     @Override
-    public int getId() {
+    public int getClassId() {
         return Constants.IDS_ACCOUNT_ID;
     }
 

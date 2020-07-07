@@ -1,6 +1,6 @@
 package com.theyawns.entryprocessors;
 
-import com.hazelcast.map.EntryBackupProcessor;
+//import com.hazelcast.map.EntryBackupProcessor;
 import com.hazelcast.map.EntryProcessor;
 import com.theyawns.domain.payments.Merchant;
 import com.theyawns.domain.payments.Transaction;
@@ -8,14 +8,14 @@ import com.theyawns.domain.payments.Transaction;
 import java.io.Serializable;
 import java.util.Map;
 
-public class FraudRulesEP implements EntryProcessor<String, Transaction>, Serializable {
+public class FraudRulesEP implements EntryProcessor<String, Transaction, Integer>, Serializable {
 
     private Merchant merchant;
 
     public void setMerchant(Merchant m) { this.merchant = m; }
 
     @Override
-    public Object process(Map.Entry<String, Transaction> entry) {
+    public Integer process(Map.Entry<String, Transaction> entry) {
         //System.out.println("Processing FraudRulesEP");
         if (merchant == null) {
             throw new IllegalStateException("Merchant must be set prior to invoking EntryProcessor");
@@ -46,8 +46,8 @@ public class FraudRulesEP implements EntryProcessor<String, Transaction>, Serial
         return fraudRisk;
     }
 
-    @Override
-    public EntryBackupProcessor<String, Transaction> getBackupProcessor() {
-        return null;
-    }
+//    @Override
+//    public EntryBackupProcessor<String, Transaction> getBackupProcessor() {
+//        return null;
+//    }
 }

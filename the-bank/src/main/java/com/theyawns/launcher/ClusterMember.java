@@ -23,11 +23,12 @@ public class ClusterMember {
     {
     	new EnvironmentSetup();
         ClusterMember member = new ClusterMember();
-        String groupname = member.hz.getConfig().getGroupConfig().getName();
+        String clusterName = member.hz.getConfig().getClusterName();
         Map<Integer,String> factories = member.hz.getConfig().getSerializationConfig().getDataSerializableFactoryClasses();
         log.info("IDSFactory 101:" + factories.get(101)); // VERIFIED
-        EventJournalConfig ej = member.hz.getConfig().getMapEventJournalConfig("preAuth");
+        EventJournalConfig ej = member.hz.getConfig().getMapConfig("preAuth").getEventJournalConfig();
+
         log.info("ej " + ej); // VERIFIED
-        log.info("Member started in group " + groupname); // VERIFIED
+        log.info("Member started in group " + clusterName); // VERIFIED
     }
 }

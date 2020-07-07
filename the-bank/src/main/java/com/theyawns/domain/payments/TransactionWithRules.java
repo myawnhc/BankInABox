@@ -40,7 +40,7 @@ public class TransactionWithRules extends Transaction
     }
 
     @Override
-    public int getId() {
+    public int getClassId() {
         return Constants.IDS_TXN_WITH_RULES;
     }
 

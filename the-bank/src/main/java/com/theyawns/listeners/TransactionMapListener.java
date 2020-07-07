@@ -2,7 +2,7 @@ package com.theyawns.listeners;
 
 import com.hazelcast.core.EntryEvent;
 import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.IMap;
+import com.hazelcast.map.IMap;
 import com.hazelcast.crdt.pncounter.PNCounter;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
@@ -168,7 +168,7 @@ public class TransactionMapListener implements
         //System.out.println("Executing payment rules for " + transactionId);
         Boolean passed = true;
         try {
-            passed = (Boolean) preAuthMap.executeOnKey(transactionId, paymentRulesEP);
+            passed = preAuthMap.executeOnKey(transactionId, paymentRulesEP);
         } catch (RejectedExecutionException ree) {
             log.info("Rejected execution for payment rules - have fallen behind");
         }

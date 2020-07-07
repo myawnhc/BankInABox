@@ -106,7 +106,7 @@ public class Merchant implements IdentifiedDataSerializable, Serializable {
 
     @Override
     /** WARNING - this is the serialization id, not the merchant ID! */
-    public int getId() {
+    public int getClassId() {
         return Constants.IDS_MERCHANT_ID;
     }
 

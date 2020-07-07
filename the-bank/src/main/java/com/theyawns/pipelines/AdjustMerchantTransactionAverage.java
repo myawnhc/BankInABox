@@ -4,7 +4,8 @@ import com.hazelcast.client.config.ClientConfig;
 import com.hazelcast.client.config.XmlClientConfigBuilder;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.HazelcastInstanceAware;
-import com.hazelcast.core.IMap;
+import com.hazelcast.jet.Util;
+import com.hazelcast.map.IMap;
 import com.hazelcast.jet.Jet;
 import com.hazelcast.jet.JetInstance;
 import com.hazelcast.jet.Job;
@@ -22,6 +23,7 @@ import com.theyawns.util.EnvironmentSetup;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.hazelcast.jet.Util.mapEventNewValue;
@@ -63,7 +65,7 @@ public class AdjustMerchantTransactionAverage implements Serializable, Hazelcast
         		&& this.imdgClientConfig.getNetworkConfig().getAddresses().size() > 0) {
         	log.info("IMDG Remove listed server addresses in favour of Kubernetes discovery.");
         	this.imdgClientConfig.getNetworkConfig().setAddresses(new ArrayList<>());
-        	this.imdgClientConfig.getGroupConfig().setName("BankInABox");
+        	this.imdgClientConfig.setClusterName("BankInABox");
         	
         	this.imdgClientConfig.getNetworkConfig()
         	.getKubernetesConfig().setProperty("service-dns", EnvironmentSetup.IMDG_SERVICE);
@@ -78,7 +80,7 @@ public class AdjustMerchantTransactionAverage implements Serializable, Hazelcast
         		&& this.jetClientConfig.getNetworkConfig().getAddresses().size() > 0) {
         	log.info("Jet Remove listed server addresses in favour of Kubernetes discovery.");
         	this.jetClientConfig.getNetworkConfig().setAddresses(new ArrayList<>());
-        	this.jetClientConfig.getGroupConfig().setName("JetInABox");
+        	this.jetClientConfig.setClusterName("JetInABox");
         	
         	this.jetClientConfig.getNetworkConfig()
         	.getKubernetesConfig().setProperty("service-dns", EnvironmentSetup.JET_SERVICE);
@@ -87,7 +89,7 @@ public class AdjustMerchantTransactionAverage implements Serializable, Hazelcast
         	
         	log.info("Jet Kubernetes config " + this.imdgClientConfig.getNetworkConfig().getKubernetesConfig());
         } else if (externalJetCluster) {
-            this.jetClientConfig.getGroupConfig().setName("JetInABox");
+            this.jetClientConfig.setClusterName("JetInABox");
         }
         //log.info("END AdjustMerchantTransactionAverage init()");
 
@@ -107,7 +109,7 @@ public class AdjustMerchantTransactionAverage implements Serializable, Hazelcast
 
             if (externalJetCluster) {
                 log.info("Setting JetClientConfig to point to JetInABox and creating new client");
-                jetClientConfig.getGroupConfig().setName("JetInABox");
+                jetClientConfig.setClusterName("JetInABox");
                 jet = Jet.newJetClient(this.jetClientConfig);
                 log.info("Connected to Jet cluster in client/server mode" + jet.getName());
             } else {
@@ -131,10 +133,15 @@ public class AdjustMerchantTransactionAverage implements Serializable, Hazelcast
             Pipeline p = Pipeline.create();
 
             // Stage 1: Draw transactions from the mapJournal associated with the preAuth map
-            StreamStage<Transaction> txns = p.drawFrom(Sources.<Transaction, String, Transaction>remoteMapJournal(Constants.MAP_PREAUTH, imdgClientConfig, mapPutEvents(),
-                    mapEventNewValue(), JournalInitialPosition.START_FROM_OLDEST))
-                    .withIngestionTimestamps()
-                    .setName("Draw Transactions from preAuth map");
+            StreamSource<Map.Entry<String, Transaction>> rjSource =
+                    Sources.remoteMapJournal(Constants.MAP_PREAUTH,
+                        imdgClientConfig,
+                        JournalInitialPosition.START_FROM_OLDEST);
+
+            StreamStage<Transaction> txns = p.readFrom(rjSource)
+                    .withoutTimestamps()
+                    .map( entry -> entry.getValue())
+                    .setName("Draw transactions from PreAuth event journal");
 
             // Have a very large window to improve accuracy over time, but slide over shorter intervals to get initial updates flowing earlier
             WindowDefinition window = WindowDefinition.sliding(100000, 5000);
@@ -161,7 +168,7 @@ public class AdjustMerchantTransactionAverage implements Serializable, Hazelcast
                         return merchant;
             }).setName("Retrieve merchant record from IMDG and update average txn amt");
 
-            updatedMerchants.drainTo(Sinks.remoteMapWithMerging("merchantMap",
+            updatedMerchants.writeTo(Sinks.remoteMapWithMerging("merchantMap",
                     imdgClientConfig,
                     /* toKeyFn */ Merchant::getMerchantId,
                     /* toValueFn */ Merchant::getObject,

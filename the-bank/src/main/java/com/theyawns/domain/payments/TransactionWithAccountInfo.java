@@ -29,7 +29,7 @@ public class TransactionWithAccountInfo extends TransactionWithRules
     }
 
     @Override
-    public int getId() {
+    public int getClassId() {
         return Constants.IDS_TXN_WITH_ACCT;
     }
 

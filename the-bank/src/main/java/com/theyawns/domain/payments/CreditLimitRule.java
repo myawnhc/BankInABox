@@ -1,12 +1,9 @@
 package com.theyawns.domain.payments;
 
 import com.hazelcast.client.config.ClientConfig;
-import com.hazelcast.core.IMap;
+import com.hazelcast.jet.pipeline.*;
+import com.hazelcast.map.IMap;
 import com.hazelcast.jet.Jet;
-import com.hazelcast.jet.pipeline.ContextFactory;
-import com.hazelcast.jet.pipeline.Pipeline;
-import com.hazelcast.jet.pipeline.Sinks;
-import com.hazelcast.jet.pipeline.StreamStage;
 import com.theyawns.Constants;
 import com.theyawns.IDSFactory;
 import com.theyawns.launcher.BankInABoxProperties;
@@ -22,10 +19,10 @@ import java.util.List;
  *  The same basic functionality is implemented as an IMDG EntryProcessor in entryprocessors.CreditLimitCheck.
  *
  */
+@Deprecated
 public class CreditLimitRule extends BaseRule implements Serializable {
 
     public static final String IMDG_HOST = "localhost";
-
     public static final String RULE_NAME = "CreditLimitRule";
     //private IMap<String, List<RuleExecutionResult>> resultsMap;
 
@@ -36,22 +33,41 @@ public class CreditLimitRule extends BaseRule implements Serializable {
         StreamStage<TransactionWithRules> enrichedJournal = getEnrichedJournal(p);
 
         // Rule-specific enrichment -  add Account info to get access to the Credit Limit for the account
-        ContextFactory<IMap<String, Account>> contextFactory =
-                ContextFactory.withCreateFn(x -> {
+//        ServiceFactory<IMap<String, Account>, ?> serviceFactory =
+//                ServiceFactory.withCreateContextFn(x -> {
+//                    ClientConfig clientConfig = new ClientConfig();
+//                    clientConfig.getNetworkConfig().addAddress(IMDG_HOST);
+//                    clientConfig.setClusterName("dev");
+//                    clientConfig.getSerializationConfig().addDataSerializableFactory(101, new IDSFactory());
+//                    return Jet.newJetClient(clientConfig).getMap("accountMap");
+//                });
+
+        // Alternate 4.1 way of creating service factory - is one preferred over the other?
+        ServiceFactory<?, IMap<String,Account>> factory2 =
+                ServiceFactories.sharedService(unusedctx -> {
                     ClientConfig clientConfig = new ClientConfig();
                     clientConfig.getNetworkConfig().addAddress(IMDG_HOST);
-                    clientConfig.getGroupConfig().setName("dev").setPassword("ignored");
+                    clientConfig.setClusterName("dev");
                     clientConfig.getSerializationConfig().addDataSerializableFactory(101, new IDSFactory());
                     return Jet.newJetClient(clientConfig).getMap("accountMap");
                 });
 
-        StreamStage<TransactionWithAccountInfo> txnsWithAccountInfo = enrichedJournal.mapUsingContext(contextFactory, (map, txn) -> {
+        StreamStage<TransactionWithAccountInfo> txnsWithAccountInfo = enrichedJournal.mapUsingService(factory2, (map, txn) -> {
             Account acct = map.get(txn.getAccountNumber());
             TransactionWithAccountInfo twa = new TransactionWithAccountInfo(txn);
             twa.setAccountInfo(acct);
             //System.out.println("CreditLimitRule: Enrich account info");
             return twa;
         }).setName("Enrich transactions with Account info");
+
+//        // was working before 4.0, haven't figured out how to transition ContextFactory to ServiceFactory
+//        StreamStage<TransactionWithAccountInfo> txnsWithAccountInfo = enrichedJournal.mapUsingService(serviceFactory, (map, txn) -> {
+//            Account acct = map.get(txn.getAccountNumber());
+//            TransactionWithAccountInfo twa = new TransactionWithAccountInfo(txn);
+//            twa.setAccountInfo(acct);
+//            //System.out.println("CreditLimitRule: Enrich account info");
+//            return twa;
+//        }).setName("Enrich transactions with Account info");
 
         // Common stage to all rules, can this move to base?  Will need to abstract TransactionWithAccountInfo to ? extends Transaction
         StreamStage<RuleEvaluationResult<Transaction,Boolean>> result = txnsWithAccountInfo.map(txn -> {
@@ -66,14 +82,14 @@ public class CreditLimitRule extends BaseRule implements Serializable {
         // Drain to remote (IMDG) results map, merging with any previous results
         ClientConfig clientConfig = new ClientConfig();
         clientConfig.getNetworkConfig().addAddress(IMDG_HOST);
-        clientConfig.getGroupConfig().setName("dev").setPassword("ignored");
+        clientConfig.setClusterName("dev");
         clientConfig.getSerializationConfig().addDataSerializableFactory(101, new IDSFactory());
 
         // When done inline, get class not loaded, so pull out of lambda
         boolean logPerf = BankInABoxProperties.COLLECT_LATENCY_STATS;
 
         try {
-            result.drainTo(Sinks.remoteMapWithMerging(
+            result.writeTo(Sinks.remoteMapWithMerging(
                     Constants.MAP_RESULT,
                     clientConfig,
                     (RuleEvaluationResult r) -> r.getItemId(),

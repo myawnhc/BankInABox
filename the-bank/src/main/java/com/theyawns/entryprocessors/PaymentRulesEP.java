@@ -1,6 +1,5 @@
 package com.theyawns.entryprocessors;
 
-import com.hazelcast.map.EntryBackupProcessor;
 import com.hazelcast.map.EntryProcessor;
 import com.theyawns.domain.payments.Account;
 import com.theyawns.domain.payments.Transaction;
@@ -13,14 +12,14 @@ import java.util.Map;
 import static com.theyawns.perfmon.PerfMonitor.Platform;
 import static com.theyawns.perfmon.PerfMonitor.Scope;
 
-public class PaymentRulesEP implements EntryProcessor<String, Transaction>, Serializable {
+public class PaymentRulesEP implements EntryProcessor<String, Transaction, Boolean>, Serializable {
 
     private Account account;
 
     public void setAccount(Account acct) { this.account = acct; }
 
     @Override
-    public Object process(Map.Entry<String, Transaction> entry) {
+    public Boolean process(Map.Entry<String, Transaction> entry) {
         Transaction txn = entry.getValue();
         //System.out.println("Processing PaymentRulesEP for " + txn.getID());
 
@@ -52,8 +51,8 @@ public class PaymentRulesEP implements EntryProcessor<String, Transaction>, Seri
         return clcOK;
     }
 
-    @Override
-    public EntryBackupProcessor<String, Transaction> getBackupProcessor() {
-        return null;
-    }
+//    @Override
+//    public EntryBackupProcessor<String, Transaction> getBackupProcessor() {
+//        return null;
+//    }
 }

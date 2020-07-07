@@ -30,7 +30,7 @@ public class AggregationJob {
         // Generic types of functional return, key type, item type
         // We actually only expect a single item to be in our batch source since txn id is unique
         BatchStage<List<RuleEvaluationResult<Transaction,Boolean>>> resultList =
-            p.drawFrom(Sources.<List<RuleEvaluationResult<Transaction,Boolean>>, String, List<RuleEvaluationResult<Transaction,Boolean>>>map("resultsMap",
+            p.readFrom(Sources.<List<RuleEvaluationResult<Transaction,Boolean>>, String, List<RuleEvaluationResult<Transaction,Boolean>>>map("resultsMap",
                 /* predicateFn */  e -> forAcctNo.equals(e.getValue().get(0).getItemId()),
                 /* projectionFn */ e -> e.getValue()));
 

@@ -6,6 +6,7 @@ import com.hazelcast.client.config.XmlClientConfigBuilder;
 import com.hazelcast.core.*;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
+import com.hazelcast.map.IMap;
 import com.hazelcast.scheduledexecutor.DuplicateTaskException;
 import com.hazelcast.scheduledexecutor.IScheduledExecutorService;
 import com.theyawns.Constants;
@@ -18,16 +19,12 @@ import com.theyawns.executors.RuleSetExecutor;
 import com.theyawns.listeners.PreauthMapListener;
 import com.theyawns.perfmon.PerfMonitor;
 import com.theyawns.pipelines.AdjustMerchantTransactionAverage;
-import com.theyawns.rules.TransactionEvaluationResult;
 import com.theyawns.rulesets.LocationBasedRuleSet;
 import com.theyawns.rulesets.MerchantRuleSet;
 import com.theyawns.util.EnvironmentSetup;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
@@ -38,7 +35,7 @@ public class Launcher {
     protected HazelcastInstance hazelcast;
     protected IExecutorService distributedES;
     private final static ILogger log = Logger.getLogger(Launcher.class);
-    private static RunMode runMode = RunMode.Benchmark;
+    private static RunMode runMode = RunMode.Demo;
     private static CloudPlatform cloudPlatform = CloudPlatform.None;
     // externalJet = client/server mode, else embedded mode
     private static boolean externalJet = true;
@@ -50,8 +47,6 @@ public class Launcher {
     // Only here for triggering eager cache load
     private IMap<String, Merchant> merchantMap;
     private IMap<String, Account> accountMap;
-
-    //private IMap<String, TransactionEvaluationResult> resultMap;
 
     protected void init() {
     	new EnvironmentSetup();
@@ -70,10 +65,6 @@ public class Launcher {
         distributedES = hazelcast.getExecutorService("executor");
 
         log.info("init() complete");
-//        locationRulesQueue = hazelcast.getQueue(Constants.QUEUE_LOCATION);
-//        merchantRulesQueue = hazelcast.getQueue(Constants.QUEUE_MERCHANT);
-//        paymentRulesQueue  = hazelcast.getQueue(Constants.QUEUE_CREDITRULES);
-//        resultMap = hazelcast.getMap(Constants.MAP_PPFD_RESULTS);
     }
 
     public static RunMode getRunMode() { return runMode; }
@@ -189,21 +180,21 @@ public class Launcher {
             /* This is a lot less efficient than the MapLoader implementation but will only
              * be used for a short time until MapLoader support is available in the cloud
              */
-            log.info("Manually load merchants");
+            log.info("MapLoader bypass -- Manually load merchants");
             MerchantTable merchantTable = new MerchantTable();
             Iterable<String> merchantIDs = merchantTable.loadAllKeys();
             for (String merchantID : merchantIDs) {
                 main.merchantMap.set(merchantID, merchantTable.load(merchantID));
             }
 
-            log.info("Manually load accounts");
+            log.info("MapLoader bypass -- Manually load accounts");
             AccountTable accountTable = new AccountTable();
             Iterable<String> accountIDs = accountTable.loadAllKeys();
             for (String accountID : accountIDs) {
                 main.accountMap.set(accountID, accountTable.load(accountID));
             }
         } else {
-            log.info("Waiting for pre-loads (Account and Merchant tables)");
+            log.info("Waiting for pre-loads to complete (Account and Merchant tables)");
             while (true) {
                 // Wait until preload of Merchant and Account maps are done before starting load into preAuth
                 log.info(main.merchantMap.size() + " of " + BankInABoxProperties.MERCHANT_COUNT + " merchants"); // Lazy load will hang here
@@ -303,11 +294,6 @@ public class Launcher {
     }
 
     private static void usage() {
-        System.out.println("** DEBUG WHY USAGE IS CALLED **");
-        StackTraceElement[] st = Thread.currentThread().getStackTrace();
-        for (StackTraceElement ste : st) {
-            System.out.println(ste.toString());
-        }
         System.out.println("The following settings can be passed on the command line or as System properties\n" +
                 " command line args will override properties " +
                 " (keys are case sensitive, values not):");

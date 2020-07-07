@@ -1,6 +1,6 @@
 package com.theyawns.domain.payments.database;
 
-import com.hazelcast.core.MapLoader;
+import com.hazelcast.map.MapLoader;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
 import com.theyawns.domain.payments.*;
