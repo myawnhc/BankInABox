@@ -1,0 +1,23 @@
+---
+# =========================================================
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  labels:
+    app: bankinabox-launcher
+  name: bankinabox-launcher
+  namespace: default
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        app: bankinabox-launcher
+    spec:
+      containers:
+        - image: "$(REGISTRY)/$(NAMESPACE)/launcher:latest"
+          imagePullPolicy: IfNotPresent
+          name: container-launcher
+      restartPolicy: Never
+---

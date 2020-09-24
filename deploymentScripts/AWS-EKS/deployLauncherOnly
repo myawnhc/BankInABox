@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# This file will be deleted once debugged (deployForHZCE is the replacement to push all images at once)
+
+ECR_ACCOUNT="174325405218"
+ECR_NAMESPACE="bankinabox"
+ECR_REGION=us-east-1
+
+REGISTRY="${ECR_ACCOUNT}.dkr.ecr.${ECR_REGION}.amazonaws.com"
+NAMESPACE="bankinabox"
+
+cat ../deploy-launcher.yaml | \
+sed 's/\$(REGISTRY)'"/${REGISTRY}/g" | \
+sed 's/\$(NAMESPACE)'"/${NAMESPACE}/g" > tmp
+
+cat tmp
+
+kubectl apply -f tmp
+
+

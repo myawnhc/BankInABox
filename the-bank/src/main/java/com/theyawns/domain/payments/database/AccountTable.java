@@ -186,4 +186,11 @@ public class AccountTable extends AbstractTable
         log.info("MapLoader.loadAllKeys() on ACCOUNT table returning " + allKeys.size() + " keys");
         return allKeys;
     }
+
+    public List<String> allKeys() {
+        Iterable<String> keys = loadAllKeys();
+        ArrayList<String> list = new ArrayList<>();
+        keys.iterator().forEachRemaining(list::add);
+        return list;
+    }
 }

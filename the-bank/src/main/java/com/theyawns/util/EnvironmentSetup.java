@@ -1,13 +1,13 @@
 package com.theyawns.util;
 
+import com.hazelcast.logging.ILogger;
+import com.hazelcast.logging.Logger;
+
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Enumeration;
 import java.util.jar.Attributes;
 import java.util.jar.Manifest;
-
-import com.hazelcast.logging.ILogger;
-import com.hazelcast.logging.Logger;
 
 /**
  * <p>This class sets/overrides Java system properties that may
@@ -66,7 +66,7 @@ public class EnvironmentSetup {
 	 * </p>
 	 */
 	public EnvironmentSetup() {
-		if (log.isInfoEnabled()) {
+		if (false && log.isInfoEnabled()) {
 			System.getProperties().keySet()
 			.stream()
 			.filter(key -> key.toString().toLowerCase().startsWith("hz"))
@@ -130,7 +130,7 @@ public class EnvironmentSetup {
 			}
 		}
 
-		if (log.isInfoEnabled()) {
+		if (false && log.isInfoEnabled()) {
 			log.info("*****************************");
 			log.info("<< MANIFEST.MF >>");
 			try {

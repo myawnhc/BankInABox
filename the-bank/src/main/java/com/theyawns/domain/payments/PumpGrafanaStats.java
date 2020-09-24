@@ -29,10 +29,15 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
 
     private transient Graphite graphite;
     private boolean initialized = false;
+    private String host;
 
     private int measurementInterval = 5;   // seconds.   Should be in sync with schedule interval set by Launcher.
 
     private static int previouslyReportedApprovals = 0;
+
+    public PumpGrafanaStats(String host) {
+        this.host = host;
+    }
 
     private void init() {
         approvalCounter = hazelcast.getPNCounter(Constants.PN_COUNT_APPROVED);
@@ -41,7 +46,7 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
         walmart = hazelcast.getPNCounter(Constants.PN_COUNT_WALMART);
         amazon = hazelcast.getPNCounter(Constants.PN_COUNT_AMAZON);
         latencyNanos = hazelcast.getPNCounter(Constants.PN_COUNT_TOTAL_LATENCY);
-        graphite = new Graphite();
+        graphite = new Graphite(host);
         rejectionByRule = new HashMap<>();
         initialized = true;
         //System.out.println("PumpGrafanaStats.init() complete");
@@ -105,7 +110,7 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("** Reinitializing Graphite");
-            graphite = new Graphite();
+            graphite = new Graphite(host);
         }
         //System.out.println("PumpGrafanaStats complete");
     }

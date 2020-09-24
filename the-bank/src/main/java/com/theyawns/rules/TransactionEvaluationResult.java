@@ -1,22 +1,18 @@
 package com.theyawns.rules;
 
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.HazelcastInstanceAware;
-import com.hazelcast.map.IMap;
-import com.theyawns.Constants;
-import com.theyawns.domain.payments.Transaction;
-import com.theyawns.domain.payments.TransactionFinalStatus;
-import com.theyawns.rulesets.RuleSet;
-import com.theyawns.rulesets.RuleSetEvaluationResult;
+import com.theyawns.domain.payments.*;
+import com.theyawns.rulesets.*;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
 public class TransactionEvaluationResult implements Serializable {
 
     private long startTime;
     private long stopTime;
+
+    // DEBUGGING - don't count queued time
+    private long terCreationTime;
 
     private Transaction transaction;
     private List<RuleSetEvaluationResult<Transaction,?>> results;
@@ -27,10 +23,11 @@ public class TransactionEvaluationResult implements Serializable {
     public TransactionEvaluationResult(Transaction transaction, RuleSetEvaluationResult<Transaction,?> rser) {
         //System.out.println("TransactionEvaluationResult.<init>");
         this.startTime = transaction.getTimeEnqueued();
-                // was System.nanoTime();
         this.transaction = transaction;
         results = new ArrayList<>();
         results.add(rser);
+        // DEBUG
+        this.terCreationTime = System.currentTimeMillis();
     }
 
     public void additionalResult(RuleSetEvaluationResult<Transaction,?> rser) {
@@ -53,8 +50,22 @@ public class TransactionEvaluationResult implements Serializable {
     public boolean checkForCompletion() {
         int ruleSetsExpected = transaction.getRuleSetsToApply();
         int ruleSetsCompleted = results.size();
+        debug();
         // we should probably throw an error if we got more results than expected
         //System.out.println("TER.checkForCompletion expects " + ruleSetsExpected + " has " + ruleSetsCompleted);
         return ruleSetsCompleted >= ruleSetsExpected;
+    }
+
+    private void debug() {
+        long timeWaiting = System.currentTimeMillis() - this.terCreationTime;
+        // If > 1 minute, we have a problem
+        long secondsWaiting = timeWaiting / 1_000;
+        if (timeWaiting > 60) {
+            String txnId = transaction.getItemID();
+            String haveResultFor = results.get(0).getRuleSetName();
+            System.out.printf("Stall: Txn %s has result for %s, been waiting for %d seconds\n",
+                    txnId, haveResultFor, timeWaiting);
+
+        }
     }
 }

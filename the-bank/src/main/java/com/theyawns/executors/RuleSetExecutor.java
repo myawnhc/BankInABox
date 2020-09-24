@@ -15,13 +15,11 @@ import com.theyawns.rulesets.RuleSet;
 import com.theyawns.rulesets.RuleSetEvaluationResult;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.time.LocalTime;
+import java.util.concurrent.Callable;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
 
-public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastInstanceAware,
+public class RuleSetExecutor<T,R> implements Callable<Exception>, Serializable, HazelcastInstanceAware,
         MessageListener<T> {
 
     private HazelcastInstance hazelcast;
@@ -37,17 +35,21 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
     private IMap<String, TransactionEvaluationResult> resultMap;
     private IQueue<String> completedTransactionsQueue;
 
+    private IMap<String,String> statusMap;
+
     //private transient ExecutorService jvmExecutor;
 
     private long counter = 0;
 
     /** A RuleSetExecutor is initialized with a queue from which it will read
-     * input transactions, and a RuleSet that it will apply to each transaction.
+     * input transactions, a RuleSet that it will apply to each transaction, and
+     * the map to which results will be written
      *
-     * MAYBE also an imap to write results to ...
+     * Note that this is called on client side, can't use instance.
      *
      * @param readFrom
      * @param apply
+     * @param resultMap
      */
     public RuleSetExecutor(String readFrom, RuleSet<T,R> apply, String resultMap) {
         System.out.println("RuleSetExecutor.<init>");
@@ -57,10 +59,15 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
         resultsOutMap = resultMap;
     }
 
+    // Normally runs until terminated, only returns in case of an exception
     @Override
-    public void run() {
+    public Exception call() {
         //jvmExecutor = Executors.newFixedThreadPool(10);
+        if (hazelcast == null) {
+            return new IllegalStateException("RuleSetExecutor: HazelcastInstance has not been set");
+        }
         long startTime = System.nanoTime();
+        //statusMap.put(ruleSet.getName(), "Callable invoked");
         while (true) {
             try {
                 T t = supplyTransaction();
@@ -75,11 +82,17 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
                     String elapsed = String.format("%02d:%02d:%02d.%03d", d.toHoursPart(), d.toMinutesPart(), d.toSecondsPart(), d.toMillisPart());
                     final double tps = counter / d.toSeconds();
                     System.out.println("RuleSetExecutor " + ruleSet.getName() + " has handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS");
+                    // Makes visible to cloud clients that don't see console output
+                    statusMap.put(ruleSet.getName(), "Handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS");
+
                 }
 
             } catch (Exception e) {
+                IMap emap = hazelcast.getMap("Exceptions");
+                emap.put("RuleSetExecutor", e);
                 e.printStackTrace();
-                System.exit(-1);
+                return e;
+                //System.exit(-1);
             }
         }
     }
@@ -142,7 +155,7 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
 
     @Override
     public void setHazelcastInstance(HazelcastInstance hazelcastInstance) {
-        System.out.println("RuleSetExecutor.setHazecastInstance");
+        System.out.println("RuleSetExecutor.setHazelcastInstance");
         this.hazelcast = hazelcastInstance;
         this.input = hazelcast.getQueue(transactionsInQueue);
         //this.topic = hazelcast.getReliableTopic(preAuthTopic);
@@ -153,6 +166,9 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
         if (ruleSet instanceof HazelcastInstanceAware) {
             ((HazelcastInstanceAware) ruleSet).setHazelcastInstance(hazelcastInstance);
         }
+
+        //this.statusMap = this.hazelcast.getMap("RuleSetExecutorStatus");
+        //statusMap.put(ruleSet.getName(), "Instance initialized");
     }
 
     // MessageListener interface for Topic - unused for now

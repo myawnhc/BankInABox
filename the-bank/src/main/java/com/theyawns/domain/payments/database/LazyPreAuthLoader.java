@@ -1,13 +1,11 @@
 package com.theyawns.domain.payments.database;
 
-import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.HazelcastInstanceAware;
 import com.hazelcast.map.IMap;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.launcher.BankInABoxProperties;
-import com.theyawns.launcher.Launcher;
 import com.theyawns.launcher.RunMode;
 
 import java.io.Serializable;
@@ -15,91 +13,120 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
 
 // PREVIOUSLY: Uses MapStore to load preauth via JDBC
 // NOW: bypass MapStore, do load directly so we can fiddle with transaction id
-public class LazyPreAuthLoader implements Runnable, Serializable, HazelcastInstanceAware {
+// This is submitted by Launcher to the DistributedExecutorService for execution
+public class LazyPreAuthLoader implements Callable<Exception>, Serializable, HazelcastInstanceAware {
 
     private static final long serialVersionUID = -2306964662183102591L;  // TODO: getting error related to mismatch here
 
-    private HazelcastInstance client;
+    private HazelcastInstance hazelcast;
+    private RunMode runMode;
     private IMap<String, Transaction> preAuthMap;
     private static final DecimalFormat txnFormat      = new DecimalFormat("00000000000000"); // 14 digit
 
+    private int chunkSize;
+    private int txnCount;
+    private int highLimit;
+    private int checkIntervalMs;
+
+    // Pass values we used to fetch from BankInABoxProperties; can't be sure version of that
+    // file deployed on server matches latest client-side changes.
+    public LazyPreAuthLoader(RunMode runMode, int chunkSize, int txnCount, int highLimit, int checkIntervalMs) {
+        this.runMode = runMode;
+        this.chunkSize = chunkSize;
+        this.txnCount = txnCount;
+        this.highLimit = highLimit;
+        this.checkIntervalMs = checkIntervalMs;
+    }
+
     @Override
-    public void run() {
+    public Exception call() {
 //        long startTime = System.nanoTime();
 //        int startCount = preAuthMap.size();
-        int nextTransactionToLoad = 0;
-        int chunkSize = BankInABoxProperties.PREAUTH_CHUNK_SIZE;
+        try {
+            int nextTransactionToLoad = 0;
 
-        TransactionTable table = new TransactionTable();
+            TransactionTable table = new TransactionTable();
 
-        // In Benchmark mode, we process the number of transactions specified in BankInABoxProperties.TRANSACTION_COUNT.
-        // In Demo mode, we run until stopped.
-        RunMode mode =  Launcher.getRunMode();
-        while (true) {
-            if (mode == RunMode.Benchmark && nextTransactionToLoad > BankInABoxProperties.TRANSACTION_COUNT) {
-                System.out.println("LazyPreAuthLoader, Banchmark mode: Specified transaction count reached, loader stopping");
-                break;
-            }
-
-            // sleep if we're above HWM.   Doesn't appear this happens ... we're processing nearly as fast as we can load
-            if (preAuthMap.size() > BankInABoxProperties.PREAUTH_HIGH_LIMIT) {
-                try {
-                    System.out.println("preAuth size " + preAuthMap.size() + " above limit " + BankInABoxProperties.PREAUTH_HIGH_LIMIT + ", loader sleeps");
-                    Thread.sleep(1000 * BankInABoxProperties.PREAUTH_CHECK_INTERVAL);
-                    continue;
-                } catch (InterruptedException e) {
-                    ;
+            // In Benchmark mode, we process the number of transactions specified in BankInABoxProperties.TRANSACTION_COUNT.
+            // In Demo mode, we run until stopped.
+            //RunMode runMode = Launcher.getRunMode();
+            preAuthMap.clear();  // in case IMDG cluster still has previous run's data
+            while (true) {
+                if (runMode == RunMode.Benchmark && nextTransactionToLoad > txnCount) {
+                    System.out.println("LazyPreAuthLoader, Banchmark mode: Specified transaction count reached, loader stopping");
+                    break;
                 }
-            }
 
-            // Build an array of keys
-            List<String> keys = new ArrayList<>(chunkSize);
-            int firstKey = nextTransactionToLoad;
-            int lastKey = nextTransactionToLoad + chunkSize - 1;
-            for (int i=0; i<chunkSize; i++) {
-                String key = txnFormat.format(nextTransactionToLoad++);
-                keys.add(key);
-            }
-            System.out.println("Created chunk of " + keys.size() + " keys (" + firstKey + "-" + lastKey + ")");
+                // sleep if we're above HWM.   Doesn't appear this happens ... we're processing nearly as fast as we can load
+                if (preAuthMap.size() > highLimit) {
+                    try {
+                        System.out.println("preAuth size " + preAuthMap.size() + " above limit " + highLimit + ", loader sleeps");
+                        Thread.sleep(1000 * checkIntervalMs);
+                        continue;
+                    } catch (InterruptedException e) {
+                        ;
+                    }
+                }
 
-            Map<String, Transaction> transactions = table.loadAll(keys);
-            //System.out.println("  Loaded " + keys.size() + " keys into Java HashMap resulting in " + transactions.entrySet().size() + " entries");
-            for (String key : keys) {
-                Transaction t = transactions.get(key);
-                //System.out.println("loaded " + t);
-                if (key == null)
-                    System.out.println(" ERROR: Null key");
-                else if (t == null)
-                    System.out.println(" ERROR: Null entry for key " + key);
-                else
-                    t.setTimeEnqueued(System.nanoTime());
-                    preAuthMap.set(key, t);
+                // Build an array of keys
+                List<String> keys = new ArrayList<>(chunkSize);
+                int firstKey = nextTransactionToLoad;
+                int lastKey = nextTransactionToLoad + chunkSize - 1;
+                for (int i = 0; i < chunkSize; i++) {
+                    String key = txnFormat.format(nextTransactionToLoad++);
+                    keys.add(key);
+                }
+                //System.out.println("Created chunk of " + keys.size() + " keys (" + firstKey + "-" + lastKey + ")");
+
+                Map<String, Transaction> transactions = table.loadAll(keys);
+                //System.out.println("  Loaded " + keys.size() + " keys into Java HashMap resulting in " + transactions.entrySet().size() + " entries");
+                for (String key : keys) {
+                    Transaction t = transactions.get(key);
+                    //System.out.println("loaded " + t);
+                    if (key == null)
+                        System.out.println(" ERROR: Null key");
+                    else if (t == null)
+                        System.out.println(" ERROR: Null entry for key " + key);
+                    else
+                        t.setTimeEnqueued(System.nanoTime());
+                    //preAuthMap.set(key, t);
 
 //                if ((key.compareTo("00000000499995") >= 0) && key.compareTo("00000000500005") <= 0) {
 //                    System.out.println("LazyPreAuthLoader set key " + key + " value " + t);
 //                }
+                }
+                preAuthMap.putAll(transactions);
+                System.out.print("  " + transactions.size() + " new transactions loaded to IMap, preAuth size now " + preAuthMap.size());
+                if (runMode == RunMode.Benchmark)
+                    System.out.printf("; loaded %d of %d transactions\n", nextTransactionToLoad, txnCount);
+                else
+                    System.out.println();
             }
-            System.out.println("  " + transactions.size() + " new transactions loaded to IMap, preAuth size now " + preAuthMap.size());
-
+        } catch (Exception e) {
+            //IMap emap = hazelcast.getMap("Exceptions");
+            //emap.put("AggregationExecutor", e);
+            e.printStackTrace();
+            return e;
         }
+        return null;
     }
 
     public static void main(String[] args) {
-        LazyPreAuthLoader main = new LazyPreAuthLoader();
-        main.run();
+        LazyPreAuthLoader main = new LazyPreAuthLoader(RunMode.Benchmark,
+                BankInABoxProperties.PREAUTH_CHUNK_SIZE,
+                BankInABoxProperties.TRANSACTION_COUNT,
+                BankInABoxProperties.PREAUTH_HIGH_LIMIT,
+                BankInABoxProperties.PREAUTH_CHECK_INTERVAL);
+        Exception e = main.call();
     }
 
     @Override
     public void setHazelcastInstance(HazelcastInstance hazelcastInstance) {
-        client = hazelcastInstance;
-        preAuthMap = client.getMap(Constants.MAP_PREAUTH);
+        hazelcast = hazelcastInstance;
+        preAuthMap = hazelcast.getMap(Constants.MAP_PREAUTH);
     }
-
-//    // not needed in current design ... .
-//    private void moveOffset() {
-//        offset += BankInABoxProperties.TRANSACTION_COUNT;
-//    }
 }

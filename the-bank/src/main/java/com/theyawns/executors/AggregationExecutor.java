@@ -3,10 +3,10 @@ package com.theyawns.executors;
 import com.hazelcast.collection.IQueue;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.HazelcastInstanceAware;
-import com.hazelcast.map.IMap;
 import com.hazelcast.crdt.pncounter.PNCounter;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
+import com.hazelcast.map.IMap;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.rules.TransactionEvaluationResult;
@@ -17,9 +17,10 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
 import java.util.concurrent.CompletableFuture;
 
-public class AggregationExecutor implements Runnable, Serializable, HazelcastInstanceAware {
+public class AggregationExecutor implements Callable<Exception>, Serializable, HazelcastInstanceAware {
 
     private final static ILogger log = Logger.getLogger(AggregationExecutor.class);
 
@@ -49,8 +50,9 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
         System.out.println("AggregationExecutor.<init>");
     }
 
+    // Normally runs until terminated, only returns in case of an exception
     @Override
-    public void run() {
+    public Exception call() {
         log.info("AggregationExecutor.run()");
         long startTime = System.nanoTime();
         long txnsDuringWarmup = 0;
@@ -96,8 +98,10 @@ public class AggregationExecutor implements Runnable, Serializable, HazelcastIns
 
 
             } catch (Exception e) {
+                IMap emap = hazelcast.getMap("Exceptions");
+                emap.put("AggregationExecutor", e);
                 e.printStackTrace();
-                System.exit(-1);
+                return e;
             }
         }
     }

@@ -180,4 +180,12 @@ public class MerchantTable extends AbstractTable
         log.info("MapLoader.loadAllKeys() on MERCHANT table returning " + allKeys.size() + " keys");
         return allKeys;
     }
+
+    // When bypassing MapLoader we prefer a list to an iterator
+    public List<String> allKeys() {
+        Iterable<String> keys = loadAllKeys();
+        ArrayList<String> list = new ArrayList<>();
+        keys.iterator().forEachRemaining(list::add);
+        return list;
+    }
 }

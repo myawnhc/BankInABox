@@ -19,4 +19,5 @@ ENV JAVA_ARGS "$JAVA_ARGS -Dhz.kubernetes.enabled=$HZ_KUBERNETES_ENABLED"
 ENV JAVA_ARGS "$JAVA_ARGS -Dhz.tcp.enabled=$HZ_TCP_ENABLED"
 
 # No default for namespace
-ENTRYPOINT exec java $JAVA_MODS $JAVA_ARGS -jar application.jar
+#ENTRYPOINT exec java $JAVA_MODS $JAVA_ARGS -jar application.jar   Invalid or Corrupt jarfile reported on EKS
+ENTRYPOINT exec java $JAVA_MODS $JAVA_ARGS -cp application.jar com.theyawns.launcher.Launcher

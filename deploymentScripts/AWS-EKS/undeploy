@@ -1,0 +1,6 @@
+
+kubectl delete -f ../deploy-grafana.yaml
+kubectl delete -f ../deploy-mariadb.yaml
+kubectl delete -f ../deploy-jet.yaml
+kubectl delete -f ../deploy-management-center.yaml
+kubectl delete -f ../deploy-launcher.yaml

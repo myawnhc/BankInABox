@@ -2,7 +2,6 @@ package com.theyawns.domain.payments;
 
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
-import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.theyawns.Constants;
 
 import java.io.IOException;
@@ -13,7 +12,7 @@ import java.util.Set;
 
 // Transaction enriched with the list of rules that apply to it (set at ingest time)
 public class TransactionWithRules extends Transaction
-        implements IdentifiedDataSerializable, Serializable {
+        implements /*IdentifiedDataSerializable,*/ Serializable {
 
     protected Set<String> rules;
     //private long ingestTimeInMillis;

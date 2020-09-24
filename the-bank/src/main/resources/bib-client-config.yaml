@@ -1,0 +1,38 @@
+---
+defaultConfig: local-cluster
+
+clusterConfiguration:
+
+  local:
+    # Can have mixed-case cluster name locally but not in cloud
+    name: BankInABox
+    password: dev-pass
+
+  # IMDG 4.0 is now supported in cloud-starter, so it should be poossible to do this now ...
+  cloud-starter:
+    name: bankinabox
+    password:
+    discovery-token:
+    #url-base: https://coordinator.hazelcast.cloud
+
+  cloud-enterprise-aws-public:
+    name: bankinabox
+    # password needed for 3.12 but not 4.0
+    #password: 40b0330350064a5d83672ff2cdbd4364
+    discovery-token: FmuAb0qttMsPBsBg0OGrvw6JL2fD4YKpeA5lGcRcknLNMRIPJV
+    # URL base not needed for production environment, uncomment and set when running in UAT, EA, etc.
+    url-base: https://uat.hazelcast.cloud
+
+  cloud-enterprise-aws-peered:
+    name: bankinabox
+    password:
+    discovery-token:
+    #url-base: https://coordinator.hazelcast.cloud
+    keystore-password:
+    keystore-file:
+
+  cloud-enterprise-azure-public:
+    name: bankinabox-azure
+    #password: abb53d344af54dc685459eb5e6436049
+    discovery-token: bRMCnlxsHkbxNGYQDi2r4pWplaUx1xJSz2AqOONAshDh2mNtvU
+    url-base: https://uat.hazelcast.cloud

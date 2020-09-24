@@ -71,7 +71,7 @@ public class TransactionMapListener implements
 
         merchant1_10 = instance.getPNCounter("merchant1_10");
         merchant11_20 = instance.getPNCounter("merchant11_20");
-        graphite = new Graphite();
+        //graphite = new Graphite();
     }
 
 

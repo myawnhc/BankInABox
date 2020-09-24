@@ -115,7 +115,7 @@ public class TransactionTable extends AbstractTable
 
         // This should only happen once.
         if (numberOfEntries == 0) {
-            log.info("TransactionTable.readFromDatabase: Getting Txn table size for offset calculations");
+            //log.info("TransactionTable.readFromDatabase: Getting Txn table size for offset calculations");
             numberOfEntries = getTableSize();
         }
         String originalId = id;
@@ -168,9 +168,9 @@ public class TransactionTable extends AbstractTable
             } else {
                 log.warning("TransactionTable.readFromDatabase: no entry for key " + id);
             }
-            if (txnNum >= 499995 && txnNum <= 500005) {
-                log.info("TransactionTable.read " + txnNum + ": " + t);
-            }
+//            if (txnNum >= 499995 && txnNum <= 500005) {
+//                log.info("TransactionTable.read " + txnNum + ": " + t);
+//            }
             //log.finest("TransactionTable.readFromDatabase: " + t);
             return t;
         } catch (SQLException e) {
