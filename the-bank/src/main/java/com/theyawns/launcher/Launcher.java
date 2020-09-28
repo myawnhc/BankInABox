@@ -11,6 +11,7 @@ import com.hazelcast.map.IMap;
 import com.hazelcast.scheduledexecutor.DuplicateTaskException;
 import com.hazelcast.scheduledexecutor.IScheduledExecutorService;
 import com.theyawns.Constants;
+import com.theyawns.cloud.CloudConfig;
 import com.theyawns.cloud.CloudConfigUtil;
 import com.theyawns.domain.payments.Account;
 import com.theyawns.domain.payments.CreditLimitRule;
@@ -93,8 +94,20 @@ public class Launcher {
                 throw new IllegalArgumentException("Cloud configurator not implemented " + cloudPlatform);
         }
 
-        ClientConfig cc = CloudConfigUtil.getClientConfigForCluster(configname);
+        CloudConfig cloudConfig = CloudConfigUtil.getConfig(configname);
 
+        // Override discovery token and URL if K8S has set env variables for them
+        if (System.getProperty("hz.is.cloud.enterprise", "false").equalsIgnoreCase("true")) {
+            String envDiscoveryToken = System.getProperty("hz.ce.discovery.token");
+            if (envDiscoveryToken != null)
+                cloudConfig.setDiscoveryToken(envDiscoveryToken);
+            String envUrlBase = System.getProperty("hz.ce.urlbase");
+            System.out.println("urlBase " + envUrlBase);
+            if (envUrlBase != null)
+                cloudConfig.setUrlBase(envUrlBase);
+        }
+
+        ClientConfig cc = CloudConfigUtil.getClientConfigForCluster(configname);
 
         // Clients only have one discovery mechanism
         if (cc.getNetworkConfig().getKubernetesConfig().isEnabled()
@@ -102,7 +115,7 @@ public class Launcher {
         	log.info("Remove listed server addresses in favour of Kubernetes discovery.");
         	cc.getNetworkConfig().setAddresses(new ArrayList<>());
         }
-        
+
         cc.setInstanceName("Launcher");
 
         hazelcast = HazelcastClient.newHazelcastClient(cc);
@@ -134,7 +147,7 @@ public class Launcher {
 
     private /*static*/ class AdjustMerchantAvgTask implements Runnable, Serializable {
         public void run() {
-            System.out.println("AdjustMerchangeAvgTask Runnable has been started");
+            //System.out.println("AdjustMerchangeAvgTask Runnable has been started");
             AdjustMerchantTransactionAverage amta = new AdjustMerchantTransactionAverage();
             amta.setHazelcastInstance(hazelcast);
             amta.setJetClusterIsExternal(externalJet);
@@ -158,8 +171,6 @@ public class Launcher {
 
         Launcher main = new Launcher();
         main.init();
-
-
 
         if (BankInABoxProperties.COLLECT_LATENCY_STATS || BankInABoxProperties.COLLECT_TPS_STATS) {
             ExecutorService executor = Executors.newCachedThreadPool();
@@ -320,6 +331,9 @@ public class Launcher {
 
         // This has no purpose other than monitoring the backlog during debug
         System.out.println("Everything has been started, just checking for exceptions from executors");
+        int currentSize = -1;
+        int lastSize = -1;
+        int stallCount = 0;
         while (true) {
             try {
                 Thread.sleep(30000);
@@ -349,19 +363,37 @@ public class Launcher {
             }
 
             System.out.println("Transaction backlog (preAuth map size) " + preAuthMap.size());
-            if (preAuthMap.size() == 0) { // TODO: maybe make this benchmark mode only?
+            lastSize = currentSize;
+            currentSize = preAuthMap.size();
+            if (currentSize == 0) { // TODO: maybe make this benchmark mode only?
                 System.out.println("All transactions processed, exiting");
                 System.out.println("________________________");
                 System.out.println("End: " + new java.util.Date());
                 System.out.println("________________________");
                 System.exit(0);
             }
+
+            // Detect when we've stalled and are making no progress - have seen us hang
+            // with a very small number (<10) of transactions still in preAuth, haven't
+            // found root cause of that yet.  Can also have this at start if executors
+            // are failing, for example stale code gives CCE on serialization
+            if (lastSize == currentSize) {
+                stallCount++;
+                if (stallCount > 3) {
+                    System.out.println("Stalled, forcing exit");
+                    System.out.println("________________________");
+                    System.out.println("End: " + new java.util.Date());
+                    System.out.println("________________________");
+                    System.exit(0);
+                }
+            } else stallCount = 0;
         }
     }
 
     private static void parseArgs(String[] args) {
         // First get system properties
         String cloud = System.getProperty("bib.cloud");
+        System.out.println("  first get:" + cloud);
         String runmode = System.getProperty("bib.runmode");
         String jetmode = System.getProperty("bib.jetmode");
         String peered = System.getProperty("bib.peered");

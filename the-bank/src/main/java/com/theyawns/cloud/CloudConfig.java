@@ -23,6 +23,7 @@ public class CloudConfig {
     public void setKeystorePassword(String keystorePassword) {
         this.keystorePassword = keystorePassword;
     }
+    public void setDiscoveryToken(String token) { this.discoveryToken = token; }
     public Optional<String> getDiscoveryToken() { return Optional.ofNullable(discoveryToken); }
     public Optional<String> getKeystorePassword() { return Optional.ofNullable(keystorePassword); }
 

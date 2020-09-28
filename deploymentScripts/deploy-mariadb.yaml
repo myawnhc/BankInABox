@@ -20,8 +20,8 @@ spec:
         app: bankinabox-maria
     spec:
       containers:
-        - image: "$(REGISTRY)/$(NAMESPACE)/mariadb:latest"
-          imagePullPolicy: IfNotPresent
+        - image: "$(REGISTRY)/$(NAMESPACE)/maria:latest"
+          imagePullPolicy: Always
           name: container-hazelcast-server
 ---
 # =========================================================

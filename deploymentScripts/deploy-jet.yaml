@@ -9,7 +9,7 @@ metadata:
   name: bankinabox-jet
   namespace: default
 spec:
-  replicas: 3
+  replicas: 1
   serviceName: bankinabox-jet
   selector:
     matchLabels:
@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - image: "$(REGISTRY)/$(NAMESPACE)/jet:latest"
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           livenessProbe:
             httpGet:
               path: /hazelcast/health/node-state

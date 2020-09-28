@@ -12,25 +12,22 @@ ECR_NAMESPACE="bankinabox"
 ECR_REGION=us-east-1
 ECR_REGISTRY="${ECR_ACCOUNT}.dkr.ecr.${ECR_REGION}.amazonaws.com"
 
-
 aws ecr get-login-password --region ${ECR_REGION} | docker login --username AWS --password-stdin ${ECR_REGISTRY}
 
-cd ../../bundle-grafana
-docker build -t bankinabox/grafana .
+echo Grafana
 docker tag bankinabox/grafana:latest ${ECR_REGISTRY}/${ECR_NAMESPACE}/grafana:latest
 docker push ${ECR_REGISTRY}/${ECR_NAMESPACE}/grafana:latest
 
-cd ../bundle-maria
-docker build -t bankinabox/mariadb .
-docker tag bankinabox/mariadb:latest ${ECR_REGISTRY}/${ECR_NAMESPACE}/mariadb:latest
-docker push ${ECR_REGISTRY}/${ECR_NAMESPACE}/mariadb:latest
+echo MariaDB
+docker tag bankinabox/maria:latest ${ECR_REGISTRY}/${ECR_NAMESPACE}/maria:latest
+docker push ${ECR_REGISTRY}/${ECR_NAMESPACE}/maria:latest
 
-cd ../bundle-jet
-docker build -t bankinabox/jet .
+echo Jet
 docker tag bankinabox/jet:latest ${ECR_REGISTRY}/${ECR_NAMESPACE}/jet:latest
 docker push ${ECR_REGISTRY}/${ECR_NAMESPACE}/jet:latest
 
-cd ../bundle-launcher
-docker build -t bankinabox/launcher .
+echo Launcher
 docker tag bankinabox/launcher:latest ${ECR_REGISTRY}/${ECR_NAMESPACE}/launcher:latest
 docker push ${ECR_REGISTRY}/${ECR_NAMESPACE}/launcher:latest
+
+# May add IMDG so we can run an all EKS config not using Cloud Enterprise, but not a priority now

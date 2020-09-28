@@ -45,7 +45,8 @@ public class CloudConfigUtil {
         }
     }
 
-    private static CloudConfig getConfig(String configname) {
+    // Was private; now public so launcher can override some values for K8S deployment
+    public static CloudConfig getConfig(String configname) {
         Map<String,String> configProperties = configs.get(configname);
         CloudConfig cc = new CloudConfig(configProperties.get(NAME_KEY),
                                          configProperties.get(PASSWORD_KEY),

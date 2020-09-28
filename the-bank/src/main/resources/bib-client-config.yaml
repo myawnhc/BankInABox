@@ -19,7 +19,7 @@ clusterConfiguration:
     name: bankinabox
     # password needed for 3.12 but not 4.0
     #password: 40b0330350064a5d83672ff2cdbd4364
-    discovery-token: FmuAb0qttMsPBsBg0OGrvw6JL2fD4YKpeA5lGcRcknLNMRIPJV
+    discovery-token: ecrQtKtBTMgG39mR2MrxeeJvxZLWMNpHHdVefG9H0n7ukP61UO
     # URL base not needed for production environment, uncomment and set when running in UAT, EA, etc.
     url-base: https://uat.hazelcast.cloud
 

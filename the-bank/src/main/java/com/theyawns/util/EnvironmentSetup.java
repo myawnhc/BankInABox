@@ -29,6 +29,8 @@ public class EnvironmentSetup {
     		"hz.service.dns",
     		"hz.service.port",
     		"hz.tcp.enabled",
+			"hz.is.cloud.enterprise",
+			"hz.ce.discovery.token",
     };
     
     // Reference array, so all are logged
@@ -41,6 +43,9 @@ public class EnvironmentSetup {
     private static final String SERVICE_NAME = PROPERTIES[6];
     private static final String SERVICE_PORT = PROPERTIES[7];
     private static final String TCP_ENABLED = PROPERTIES[8];
+    // Not actually processing these here, they are handled directly in Launcher
+    private static final String IS_CLOUD_ENTERPRISE = PROPERTIES[9];
+    private static final String CLOUD_ENTERPRISE_TOKEN = PROPERTIES[10];
 
     private static final String NAMESPACE = "default.svc.cluster.local";
     private static final String GRAFANA_SERVICE
@@ -66,7 +71,7 @@ public class EnvironmentSetup {
 	 * </p>
 	 */
 	public EnvironmentSetup() {
-		if (false && log.isInfoEnabled()) {
+		if (log.isInfoEnabled()) {
 			System.getProperties().keySet()
 			.stream()
 			.filter(key -> key.toString().toLowerCase().startsWith("hz"))

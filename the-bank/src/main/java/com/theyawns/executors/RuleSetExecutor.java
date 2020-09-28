@@ -84,7 +84,6 @@ public class RuleSetExecutor<T,R> implements Callable<Exception>, Serializable, 
                     System.out.println("RuleSetExecutor " + ruleSet.getName() + " has handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS");
                     // Makes visible to cloud clients that don't see console output
                     statusMap.put(ruleSet.getName(), "Handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS");
-
                 }
 
             } catch (Exception e) {
@@ -167,7 +166,7 @@ public class RuleSetExecutor<T,R> implements Callable<Exception>, Serializable, 
             ((HazelcastInstanceAware) ruleSet).setHazelcastInstance(hazelcastInstance);
         }
 
-        //this.statusMap = this.hazelcast.getMap("RuleSetExecutorStatus");
+        this.statusMap = this.hazelcast.getMap("RuleSetExecutorStatus");
         //statusMap.put(ruleSet.getName(), "Instance initialized");
     }
 
