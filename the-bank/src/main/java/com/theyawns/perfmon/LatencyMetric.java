@@ -31,7 +31,7 @@ public class LatencyMetric implements IdentifiedDataSerializable, Serializable {
     }
 
     @Override
-    public int getId() {
+    public int getClassId() {
         return Constants.IDS_LATENCY_METRIC;
     }
 

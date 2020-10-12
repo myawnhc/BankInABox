@@ -1,21 +1,26 @@
 package com.theyawns.executors;
 
-import com.hazelcast.core.*;
+import com.hazelcast.collection.IQueue;
+import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.core.HazelcastInstanceAware;
+import com.hazelcast.map.EntryProcessor;
+import com.hazelcast.map.IMap;
+import com.hazelcast.topic.ITopic;
+import com.hazelcast.topic.Message;
+import com.hazelcast.topic.MessageListener;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.rules.TransactionEvaluationResult;
-import com.theyawns.rulesets.LocationBasedRuleSet;
 import com.theyawns.rulesets.RuleSet;
 import com.theyawns.rulesets.RuleSetEvaluationResult;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.time.LocalTime;
+import java.util.Map;
+import java.util.concurrent.Callable;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
 
-public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastInstanceAware,
+public class RuleSetExecutor<T,R> implements Callable<Exception>, Serializable, HazelcastInstanceAware,
         MessageListener<T> {
 
     private HazelcastInstance hazelcast;
@@ -31,49 +36,72 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
     private IMap<String, TransactionEvaluationResult> resultMap;
     private IQueue<String> completedTransactionsQueue;
 
-    //private transient ExecutorService jvmExecutor;
+    private IMap<ExecutorStatusMapKey,String> statusMap;
+    private boolean verbose = true;
 
-    private long counter = 0;
+    private long operationCounter = 0;
 
     /** A RuleSetExecutor is initialized with a queue from which it will read
-     * input transactions, and a RuleSet that it will apply to each transaction.
+     * input transactions, a RuleSet that it will apply to each transaction, and
+     * the map to which results will be written
      *
-     * MAYBE also an imap to write results to ...
+     * Note that this is called on client side, can't use instance.
      *
      * @param readFrom
      * @param apply
+     * @param resultMap
      */
     public RuleSetExecutor(String readFrom, RuleSet<T,R> apply, String resultMap) {
-        System.out.println("RuleSetExecutor.<init>");
         this.transactionsInQueue = readFrom;
         //preAuthTopic = readFrom;
-        this.ruleSet = apply;
+        ruleSet = apply;
         resultsOutMap = resultMap;
     }
 
+    public void setVerbose(boolean verbose) { this.verbose = verbose; }
+
+    // Normally runs until terminated, only returns in case of an exception
     @Override
-    public void run() {
-        //jvmExecutor = Executors.newFixedThreadPool(10);
+    public Exception call() {
+        if (hazelcast == null) {
+            return new IllegalStateException("RuleSetExecutor: HazelcastInstance has not been set");
+        }
         long startTime = System.nanoTime();
+        operationCounter = 0;
+        long messageCounter = 0;
+
+        String memberId = hazelcast.getCluster().getLocalMember().getUuid().toString().substring(0, 4);
+        ExecutorStatusMapKey esmkey = new ExecutorStatusMapKey(ruleSet.getName(), memberId);
+
         while (true) {
             try {
                 T t = supplyTransaction();
+
                 // Making supply step async is runaway thread creation :-)
                 CompletableFuture.completedFuture(t)
+//                        .thenApplyAsync(this::recordTransactionQueueLatency)
                         .<RuleSetEvaluationResult<T,R>>thenApplyAsync(ruleSet::apply)
                         .thenAcceptAsync(this::consumeResult);
 
-                counter++;
-                if ((counter % 10000) == 0) {
-                    Duration d = Duration.ofNanos(System.nanoTime() - startTime);
-                    String elapsed = String.format("%02d:%02d:%02d.%03d", d.toHoursPart(), d.toMinutesPart(), d.toSecondsPart(), d.toMillisPart());
-                    final double tps = counter / d.toSeconds();
-                    System.out.println("RuleSetExecutor " + ruleSet.getName() + " has handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS");
+                operationCounter++;
+                if (verbose) {
+                    if ((operationCounter % 10000) == 0) {
+                        Duration d = Duration.ofNanos(System.nanoTime() - startTime);
+                        String elapsed = String.format("%02d:%02d:%02d.%03d", d.toHoursPart(), d.toMinutesPart(), d.toSecondsPart(), d.toMillisPart());
+                        final double tps = operationCounter / d.toSeconds();
+                        System.out.println("RuleSetExecutor " + ruleSet.getName() + " has handled " + operationCounter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS");
+                        // Makes visible to cloud clients that don't see console output
+                        String messageID = "[" + messageCounter++ + "] ";
+                        statusMap.put(esmkey, messageID + "Handled " + operationCounter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS");
+                    }
                 }
 
             } catch (Exception e) {
+                IMap emap = hazelcast.getMap("Exceptions");
+                emap.put("RuleSetExecutor", e);
                 e.printStackTrace();
-                System.exit(-1);
+                return e;
+                //System.exit(-1);
             }
         }
     }
@@ -88,55 +116,61 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
         }
     }
 
-    // These counters are all temporary while tuning throughput
-    private int firstResults = 0;
-    private int additionalResults = 0;
-    private int locationFirst = 0;
-    private int merchantFirst = 0;
-    private int locationSecond = 0;
-    private int merchantSecond = 0;
+    private T recordTransactionQueueLatency(T t) {
+        Transaction txn = (Transaction) t;
+        // Only add time for the first ruleset to kick in ...
+        if (txn.getQueueWaitTime() == 0) {
+            long timeQueuedForRuleEngine = System.nanoTime() - txn.getTimeEnqueuedForRuleEngine();
+            txn.addToQueueWaitTime(timeQueuedForRuleEngine);
+            // must store back, can't do that here ..
+        }
+        return t;
+    }
+
+    public static class RSEUpdater implements EntryProcessor<String, TransactionEvaluationResult, Boolean> {
+        private Transaction txn;
+        private RuleSetEvaluationResult rser;
+        public RSEUpdater(Transaction txn, RuleSetEvaluationResult rser) {
+            this.txn = txn;
+            this.rser = rser;
+        }
+        @Override
+        public Boolean process(Map.Entry<String, TransactionEvaluationResult> entry) {
+            TransactionEvaluationResult result = entry.getValue();
+            if (result == null) {
+                result = TransactionEvaluationResult.newInstance(txn);
+            }
+            result.addResult(rser);
+            entry.setValue(result);
+            return result.checkForCompletion();
+        }
+    }
 
     private void consumeResult(RuleSetEvaluationResult<T,R> rser) {
         Transaction txn = (Transaction) rser.getItem();
-        TransactionEvaluationResult ter = resultMap.get(txn.getItemID());
-
-        String key = txn.getItemID();
-//        if ((key.compareTo("00000000499995") >= 0) && key.compareTo("00000000500005") <= 0) {
-//            System.out.println("RuleSetExecutor.consumeResult, rs " + ruleSet.getName() + "  key " + key + " value " + txn);
+        String txnID = txn.getItemID();
+        RSEUpdater rseu = new RSEUpdater(txn, rser);
+        // Transaction will be complete if all rulesets have posted results
+        boolean txnComplete = resultMap.executeOnKey(txnID, rseu);
+        // Replaced by EntryProcessor
+//        TransactionEvaluationResult ter = resultMap.get(txn.getItemID());
+//        if (ter == null) {
+//            ter = TransactionEvaluationResult.newInstance(txn);
 //        }
+//        ter.addResult((RuleSetEvaluationResult<Transaction, R>) rser);
+//        resultMap.set(txn.getItemID(), ter);
 
-        // Trying to understand ordering, and what left hanging at end ...
-
-        if (ter == null) {
-            firstResults++;
-            if (ruleSet instanceof LocationBasedRuleSet)
-                locationFirst++;
-            else
-                merchantFirst++;
-            ter = new TransactionEvaluationResult(txn, (RuleSetEvaluationResult<Transaction, R>) rser);
-        } else {
-            additionalResults++;
-            if (ruleSet instanceof  LocationBasedRuleSet)
-                locationSecond++;
-            else
-                merchantSecond++;
-            ter.additionalResult((RuleSetEvaluationResult<Transaction, R>) rser);
-        }
-//        if (firstResults % 10000 == 0) {
-//            System.out.println("RuleSetExecutor.consumeResults(): First results " + firstResults + " additional results " + additionalResults);
-//            System.out.println("LocationFirst " + locationFirst + " locationSecond " + locationSecond);
-//            System.out.println("MerchantFrist " + merchantFirst + " merchantSecond " + merchantSecond);
-//        }
-        resultMap.put(txn.getItemID(), ter);
-        //System.out.println("RuleSetExecutor writes result to map for " + txn.getID());
-        if (ter.checkForCompletion()) {
-            completedTransactionsQueue.offer(txn.getItemID());
+        if (txnComplete) {
+            txn.setTimeEnqueuedForAggregator(); // deprecated
+            // LT: offer to completions queue
+            completedTransactionsQueue.offer(txnID);
         }
     }
 
     @Override
     public void setHazelcastInstance(HazelcastInstance hazelcastInstance) {
-        System.out.println("RuleSetExecutor.setHazecastInstance");
+        if (verbose)
+            System.out.println("RuleSetExecutor.setHazelcastInstance");
         this.hazelcast = hazelcastInstance;
         this.input = hazelcast.getQueue(transactionsInQueue);
         //this.topic = hazelcast.getReliableTopic(preAuthTopic);
@@ -147,6 +181,8 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
         if (ruleSet instanceof HazelcastInstanceAware) {
             ((HazelcastInstanceAware) ruleSet).setHazelcastInstance(hazelcastInstance);
         }
+
+        this.statusMap = this.hazelcast.getMap(Constants.MAP_EXECUTOR_STATUS);
     }
 
     // MessageListener interface for Topic - unused for now
@@ -159,12 +195,12 @@ public class RuleSetExecutor<T,R> implements Runnable, Serializable, HazelcastIn
                 .<RuleSetEvaluationResult<T,R>>thenApplyAsync(ruleSet::apply)
                 .thenAcceptAsync(this::consumeResult);
 
-        counter++;
-        if ((counter % 10000) == 0) {
+        operationCounter++;
+        if ((operationCounter % 10000) == 0) {
             Duration d = Duration.ofNanos(System.nanoTime() - startTime);
             String elapsed = String.format("%02d:%02d:%02d.%03d", d.toHoursPart(), d.toMinutesPart(), d.toSecondsPart(), d.toMillisPart());
-            final double tps = counter / d.toSeconds();
-            System.out.println("RuleSetExecutor " + ruleSet.getName() + " has handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS");
+            final double tps = operationCounter / d.toSeconds();
+            System.out.println("RuleSetExecutor " + ruleSet.getName() + " has handled " + operationCounter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS");
         }
     }
 }

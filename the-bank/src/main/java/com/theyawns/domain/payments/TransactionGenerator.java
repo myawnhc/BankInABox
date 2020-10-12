@@ -2,7 +2,7 @@ package com.theyawns.domain.payments;
 
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.IMap;
+import com.hazelcast.map.IMap;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
 import com.theyawns.Constants;
@@ -84,7 +84,7 @@ public class TransactionGenerator {
 //        DistributedCallable<Integer> merchantGenTask = () -> {
 //            for (int i=0; i<BankInABoxProperties.MERCHANT_COUNT; i++) {
 //                Merchant m = helper.generateNewMerchant(i);
-//                merchantMap.put(m.getMerchantId(), m);
+//                merchantMap.set(m.getMerchantId(), m);
 //            }
 //            return merchantMap.size();
 //        };
@@ -101,7 +101,7 @@ public class TransactionGenerator {
 //        DistributedCallable<Integer> accountGenTask = () -> {
 //            for (int i=0; i<BankInABoxProperties.ACCOUNT_COUNT; i++) {
 //                Account a = helper.generateNewAccount(i);
-//                accountMap.put(a.getAccountNumber(), a);
+//                accountMap.set(a.getAccountNumber(), a);
 //                // future: generate historical transactions, populate historyMap
 //            }
 //            return accountMap.size();

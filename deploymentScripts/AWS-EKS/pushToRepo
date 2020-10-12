@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+# For this to work, AWS CLI must be installed, and you must be able to authenticate
+# against the ECR account provided in the first variable.
+#
+# Currently this builds images but suspect this will get pulled out,
+# instead favoring let maven build the images with docker profile enabled --
+# then this just needs to tag & push to ECR
+
+ECR_ACCOUNT="174325405218"
+ECR_NAMESPACE="bankinabox"
+ECR_REGION=us-east-1
+ECR_REGISTRY="${ECR_ACCOUNT}.dkr.ecr.${ECR_REGION}.amazonaws.com"
+
+aws ecr get-login-password --region ${ECR_REGION} | docker login --username AWS --password-stdin ${ECR_REGISTRY}
+
+for BUNDLE in "grafana" "maria" "jet" "launcher" "imdg"
+do
+    echo $BUNDLE
+    docker tag ${ECR_NAMESPACE}/$BUNDLE:latest ${ECR_REGISTRY}/${ECR_NAMESPACE}/$BUNDLE:latest
+    docker push ${ECR_REGISTRY}/${ECR_NAMESPACE}/$BUNDLE:latest
+done
+

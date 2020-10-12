@@ -24,14 +24,21 @@
 				<directory>../mariadb/scripts</directory>
 				<includes>
 					<include>*.sql</include>
+					<include>*.sh</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>../mariadb/data/backup</directory>
+				<includes>
+					<include>bib_dump.sql</include>
 				</includes>
 			</resource>
 		</resources>
 
 		<plugins>
-                        <plugin>
-                                <groupId>com.spotify</groupId>
-                                <artifactId>dockerfile-maven-plugin</artifactId>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

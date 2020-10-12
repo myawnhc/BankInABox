@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+NAMESPACE="bankinabox"
+REGION=us-south
+REGISTRY="us.icr.io"
+
+#ibmcloud login
+#ibmcloud cr login
+#ibmcloud cr region-set $REGION
+
+cat ../run-launcher.yaml | \
+sed 's/\$(REGISTRY)'"/${REGISTRY}/g" | \
+sed 's/\$(NAMESPACE)'"/${NAMESPACE}/g" | \
+sed 's/\$(IPP)'"/Always/g" | \
+oc apply -f -

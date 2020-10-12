@@ -2,7 +2,6 @@ package com.theyawns.domain.payments;
 
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
-import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.theyawns.Constants;
 
 import java.io.IOException;
@@ -17,7 +16,7 @@ import java.util.Random;
  *
  *  Plan to deprecate this in favor of a Location system based on GeoHash
  */
-public class Location implements IdentifiedDataSerializable, Serializable {
+public class Location implements /*IdentifiedDataSerializable,*/ Serializable {
     /* Must continue to support default Java Serializable until EntryProcessors implement IdentifiedDataSerializable */
 
 
@@ -99,17 +98,17 @@ public class Location implements IdentifiedDataSerializable, Serializable {
 
     }
 
-    @Override
+    //@Override
     public int getFactoryId() {
         return Constants.IDS_FACTORY_ID;
     }
 
-    @Override
-    public int getId() {
+    //@Override
+    public int getClassId() {
         return Constants.IDS_LOCATION;
     }
 
-    @Override
+    //@Override
     public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
         objectDataOutput.writeDouble(latitude);
         objectDataOutput.writeDouble(longitude);
@@ -117,7 +116,7 @@ public class Location implements IdentifiedDataSerializable, Serializable {
         objectDataOutput.writeUTFArray(closeCities.toArray(new String[20]));
     }
 
-    @Override
+    //@Override
     public void readData(ObjectDataInput objectDataInput) throws IOException {
         latitude = objectDataInput.readDouble();
         longitude = objectDataInput.readDouble();

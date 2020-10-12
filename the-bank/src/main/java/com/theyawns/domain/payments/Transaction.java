@@ -2,14 +2,13 @@ package com.theyawns.domain.payments;
 
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
-import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.theyawns.Constants;
 import com.theyawns.ruleengine.HasID;
 
 import java.io.IOException;
 import java.io.Serializable;
 
-public class Transaction implements IdentifiedDataSerializable, Serializable, HasID {
+public class Transaction implements /*IdentifiedDataSerializable,*/ Serializable, HasID {
 
     private String transactionId;
     private String acctNumber;      // TODO: this won't be part of object eventually - txn id keys
@@ -23,7 +22,9 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
     private Boolean paymentResult = Boolean.TRUE;
     private int ruleSetsToApply;
 
-    private long timeEnqueued; // nanotime
+    private long timeEnqueuedForRuleEngine; // nanotime
+    private long timeEnqueuedForAggregator; // nanotime
+    private long timeSpentQueued; // sum of RE + Aggregator
 
     // Being a little sloppy with encapsulation, will allow direct access to these
 //    public LatencyMetric processingTime = new LatencyMetric();
@@ -92,9 +93,19 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
     public void setRuleSetsToApply(int count) { ruleSetsToApply = count; }
     public int getRuleSetsToApply() { return ruleSetsToApply; }
 
-    public void setTimeEnqueued(long time) { timeEnqueued = time; }
-    public long getTimeEnqueued() { return timeEnqueued; }
+    //public void setTimeEnqueuedForRuleEngine(long time) { timeEnqueuedForRuleEngine = time; }
+    public void setTimeEnqueuedForRuleEngine() { timeEnqueuedForRuleEngine = System.nanoTime(); }
+    public long getTimeEnqueuedForRuleEngine() { return timeEnqueuedForRuleEngine; }
 
+    public void setTimeEnqueuedForAggregator() { timeEnqueuedForAggregator = System.nanoTime(); }
+    public long getTimeEnqueuedForAggregator() { return timeEnqueuedForAggregator; }
+
+    public void addToQueueWaitTime(long value) {
+        timeSpentQueued += value;
+    }
+    public long getQueueWaitTime() {
+        return timeSpentQueued;
+    }
     @Override
     public String toString() {
         return "Transaction " + transactionId + " account " + acctNumber + " merchant " + merchantId + " amount " + amount;
@@ -102,17 +113,17 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
 
     // IdentifiedDataSerializable implementation
 
-    @Override
+    //@Override
     public int getFactoryId() {
         return Constants.IDS_FACTORY_ID;
     }
 
-    @Override
-    public int getId() {
+    //@Override
+    public int getClassId() {
         return Constants.IDS_TRANSACTION_ID;
     }
 
-    @Override
+    //@Override
     public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
         objectDataOutput.writeUTF(transactionId);
         objectDataOutput.writeUTF(acctNumber);
@@ -122,12 +133,15 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         objectDataOutput.writeInt(fraudResult);
         objectDataOutput.writeBoolean(paymentResult);
         objectDataOutput.writeInt(ruleSetsToApply);
-        objectDataOutput.writeLong(timeEnqueued);
+        objectDataOutput.writeLong(timeEnqueuedForRuleEngine);
+        objectDataOutput.writeLong(timeEnqueuedForAggregator);
+        objectDataOutput.writeLong(timeSpentQueued);
+
 //        objectDataOutput.writeObject(processingTime);
 //        objectDataOutput.writeObject(endToEndTime);
     }
 
-    @Override
+    //@Override
     public void readData(ObjectDataInput objectDataInput) throws IOException {
         transactionId = objectDataInput.readUTF();
         acctNumber = objectDataInput.readUTF();
@@ -137,7 +151,10 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         fraudResult = objectDataInput.readInt();
         paymentResult = objectDataInput.readBoolean();
         ruleSetsToApply = objectDataInput.readInt();
-        timeEnqueued = objectDataInput.readLong();
+        timeEnqueuedForRuleEngine = objectDataInput.readLong();
+        timeEnqueuedForAggregator = objectDataInput.readLong();
+        timeSpentQueued = objectDataInput.readLong();
+
 //        processingTime = objectDataInput.readObject(LatencyMetric.class);
 //        endToEndTime = objectDataInput.readObject(LatencyMetric.class);
     }

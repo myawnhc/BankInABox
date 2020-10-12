@@ -2,7 +2,6 @@ package com.theyawns.domain.payments;
 
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
-import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.theyawns.Constants;
 
 import java.io.IOException;
@@ -11,7 +10,7 @@ import java.io.Serializable;
 /* Must continue to support default Java Serializable until EntryProcessors implement IdentifiedDataSerializable */
 
 /** Simple account type for use with Bank in a Box demo app */
-public class Account implements IdentifiedDataSerializable, Serializable {
+public class Account implements /*IdentifiedDataSerializable,*/ Serializable {
 
     public enum AccountStatus { CURRENT, OVERDUE, CLOSED } // TODO: This is not currently used
 
@@ -65,17 +64,17 @@ public class Account implements IdentifiedDataSerializable, Serializable {
     }
 
 
-    @Override
+    //@Override
     public int getFactoryId() {
         return Constants.IDS_FACTORY_ID;
     }
 
-    @Override
-    public int getId() {
+    //@Override
+    public int getClassId() {
         return Constants.IDS_ACCOUNT_ID;
     }
 
-    @Override
+    //@Override
     public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
         objectDataOutput.writeUTF(accountNumber);
         objectDataOutput.writeDouble(creditLimit);
@@ -84,7 +83,7 @@ public class Account implements IdentifiedDataSerializable, Serializable {
         objectDataOutput.writeUTF(lastReportedLocation);
     }
 
-    @Override
+    //@Override
     public void readData(ObjectDataInput objectDataInput) throws IOException {
         accountNumber = objectDataInput.readUTF();
         creditLimit = objectDataInput.readDouble();

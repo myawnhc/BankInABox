@@ -2,14 +2,13 @@ package com.theyawns.domain.payments;
 
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
-import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.theyawns.Constants;
 
 import java.io.IOException;
 import java.io.Serializable;
 
 public class TransactionWithAccountInfo extends TransactionWithRules
-        implements IdentifiedDataSerializable, Serializable {
+        implements /*IdentifiedDataSerializable,*/ Serializable {
 
     protected Account enrichedAccount;
 
@@ -29,7 +28,7 @@ public class TransactionWithAccountInfo extends TransactionWithRules
     }
 
     @Override
-    public int getId() {
+    public int getClassId() {
         return Constants.IDS_TXN_WITH_ACCT;
     }
 

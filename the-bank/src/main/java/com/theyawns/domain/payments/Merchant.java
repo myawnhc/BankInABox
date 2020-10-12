@@ -2,7 +2,6 @@ package com.theyawns.domain.payments;
 
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
-import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.theyawns.Constants;
 
 import java.io.IOException;
@@ -11,7 +10,7 @@ import java.util.Random;
 
 /* Must continue to support default Java Serializable until EntryProcessors implement IdentifiedDataSerializable */
 
-public class Merchant implements IdentifiedDataSerializable, Serializable {
+public class Merchant implements /*IdentifiedDataSerializable,*/ Serializable {
 
     // NOTE: Any changes to these 5 fields will require changes to Serialization (in this file) and
     // database code in MerchantTable
@@ -99,18 +98,17 @@ public class Merchant implements IdentifiedDataSerializable, Serializable {
         return "Merchant " + merchantID + " avgTxn " + avgTxnAmount;
     }
 
-    @Override
+    //@Override
     public int getFactoryId() {
         return Constants.IDS_FACTORY_ID;
     }
 
-    @Override
-    /** WARNING - this is the serialization id, not the merchant ID! */
-    public int getId() {
+    //@Override
+    public int getClassId() {
         return Constants.IDS_MERCHANT_ID;
     }
 
-    @Override
+    //@Override
     public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
         objectDataOutput.writeUTF(merchantID);
         objectDataOutput.writeUTF(merchantName);
@@ -120,7 +118,7 @@ public class Merchant implements IdentifiedDataSerializable, Serializable {
         objectDataOutput.writeUTF(location);
     }
 
-    @Override
+    //@Override
     public void readData(ObjectDataInput objectDataInput) throws IOException {
         merchantID = objectDataInput.readUTF();
         merchantName = objectDataInput.readUTF();

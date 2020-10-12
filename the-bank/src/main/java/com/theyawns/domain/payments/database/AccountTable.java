@@ -1,6 +1,6 @@
 package com.theyawns.domain.payments.database;
 
-import com.hazelcast.core.MapLoader;
+import com.hazelcast.map.MapLoader;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
 import com.theyawns.domain.payments.Account;
@@ -185,5 +185,12 @@ public class AccountTable extends AbstractTable
         }
         log.info("MapLoader.loadAllKeys() on ACCOUNT table returning " + allKeys.size() + " keys");
         return allKeys;
+    }
+
+    public List<String> allKeys() {
+        Iterable<String> keys = loadAllKeys();
+        ArrayList<String> list = new ArrayList<>();
+        keys.iterator().forEachRemaining(list::add);
+        return list;
     }
 }

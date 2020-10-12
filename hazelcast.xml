@@ -3,16 +3,10 @@
         xmlns="http://www.hazelcast.com/schema/config"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.hazelcast.com/schema/config
-        http://www.hazelcast.com/schema/config/hazelcast-config-3.12.xsd"
+        http://www.hazelcast.com/schema/config/hazelcast-config-4.0.xsd"
         >
 
-    <group>
-        <name>${hz.groupName}</name>
-    </group>
-
-    <management-center enabled="true">
-        http://${hz.management.center}:8080/hazelcast-mancenter
-    </management-center>
+    <cluster-name>${hz.groupName}</cluster-name>
 
     <network>
         <join>
@@ -26,7 +20,7 @@
                 <service-port>${hz.service.port}</service-port>
             </kubernetes>
         </join>
-	<rest-api enabled="true">
+	    <rest-api enabled="true">
             <endpoint-group name="HEALTH_CHECK" enabled="true"/>
         </rest-api>
     </network>
@@ -52,11 +46,6 @@
         <pool-size>5</pool-size>
     </scheduled-executor-service>
 
-    <event-journal enabled="true">
-        <mapName>preAuth</mapName>
-        <capacity>1000000</capacity>
-    </event-journal>
-
     <serialization>
         <data-serializable-factories>
             <data-serializable-factory factory-id="101">
@@ -78,8 +67,7 @@
     </map>
 
     <map name="ppfdResultMap">
-        <eviction-policy>LRU</eviction-policy>
-        <max-size policy="PER_NODE">25000</max-size>
+        <eviction eviction-policy="LRU" max-size-policy="PER_NODE" size="25000" />
     </map>
 
     <map name="preAuth">
@@ -87,37 +75,36 @@
              be sufficient to keep our map size manageable; max-size set as a backstop -->
         <time-to-live-seconds>0</time-to-live-seconds>
         <max-idle-seconds>300</max-idle-seconds>
-        <eviction-policy>LRU</eviction-policy>
-        <max-size policy="PER_NODE">200000</max-size>
+        <eviction eviction-policy="LRU" max-size-policy="PER_NODE" size="200000" />
         <!--
         <map-store enabled="true" initial-mode="LAZY">
             <class-name>com.theyawns.domain.payments.database.TransactionTable</class-name>
         </map-store>
         -->
+        <event-journal enabled="true">
+            <capacity>1000000</capacity>
+        </event-journal>
     </map>
 
     <map name="approved">
         <!-- In a real app we'd flush these to disk at some point, but here we just expire them -->
         <time-to-live-seconds>0</time-to-live-seconds>
         <max-idle-seconds>300</max-idle-seconds>
-        <eviction-policy>LRU</eviction-policy>
-        <max-size policy="PER_NODE">10000</max-size>
+        <eviction eviction-policy="LRU" max-size-policy="PER_NODE" size="10000" />
     </map>
 
     <map name="rejectedForCredit">
         <!-- In a real app we'd flush these to disk at some point, but here we just expire them -->
         <time-to-live-seconds>0</time-to-live-seconds>
         <max-idle-seconds>300</max-idle-seconds>
-        <eviction-policy>LRU</eviction-policy>
-        <max-size policy="PER_NODE">10000</max-size>
+        <eviction eviction-policy="LRU" max-size-policy="PER_NODE" size="10000" />
     </map>
 
     <map name="rejectedForFraud">
         <!-- In a real app we'd flush these to disk at some point, but here we just expire them -->
         <time-to-live-seconds>0</time-to-live-seconds>
         <max-idle-seconds>300</max-idle-seconds>
-        <eviction-policy>LRU</eviction-policy>
-        <max-size policy="PER_NODE">10000</max-size>
+        <eviction eviction-policy="LRU" max-size-policy="PER_NODE" size="10000" />
     </map>
 
     <license-key/>

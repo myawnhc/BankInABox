@@ -1,13 +1,12 @@
 package com.theyawns.sink;
 
+import com.hazelcast.logging.ILogger;
+import com.hazelcast.logging.Logger;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
-
-import com.hazelcast.logging.ILogger;
-import com.hazelcast.logging.Logger;
-import com.theyawns.util.EnvironmentSetup;
 
 public class Graphite {
     private static final ILogger log = Logger.getLogger(Graphite.class);
@@ -16,19 +15,9 @@ public class Graphite {
     Socket graphiteSocket;
     private int count = 0;
 
-    public Graphite(){
+    public Graphite(String host){
         // create graphite socket
         try {
-        	String host = System.getProperty(EnvironmentSetup.GRAFANA);
-        	
-        	if (host!=null && host.length() > 0) {
-        		log.info("Graphite sink: '" + EnvironmentSetup.GRAFANA + "'=='" + host + "'");
-        	} else {
-        		log.info("Graphite sink: '" + EnvironmentSetup.GRAFANA + "'=='" + host
-        				+ "', using localhost for Graphite.");
-        		host = "localhost";
-        	}
-        	
             graphiteSocket = new Socket(host,PORT);
             log.info("Graphite socket: " + graphiteSocket.getInetAddress());
         } catch (IOException e) {

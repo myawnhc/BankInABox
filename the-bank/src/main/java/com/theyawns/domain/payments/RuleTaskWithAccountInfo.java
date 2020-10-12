@@ -1,6 +1,6 @@
 package com.theyawns.domain.payments;
 
-import com.hazelcast.core.IMap;
+import com.hazelcast.map.IMap;
 import com.theyawns.ruleengine.Rule;
 import com.theyawns.ruleengine.RuleTask;
 

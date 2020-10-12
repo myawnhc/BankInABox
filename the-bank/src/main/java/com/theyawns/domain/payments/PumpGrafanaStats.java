@@ -24,15 +24,21 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
     private transient PNCounter walmart;
     private transient PNCounter amazon;
     private transient PNCounter latencyNanos;
+    private transient PNCounter latencyItems;
 
     private transient Map<String, PNCounter> rejectionByRule;
 
     private transient Graphite graphite;
     private boolean initialized = false;
+    private String host;
 
     private int measurementInterval = 5;   // seconds.   Should be in sync with schedule interval set by Launcher.
 
-    private static int previouslyReportedApprovals = 0;
+    private static int previouslyReportedCompletions = 0;
+
+    public PumpGrafanaStats(String host) {
+        this.host = host;
+    }
 
     private void init() {
         approvalCounter = hazelcast.getPNCounter(Constants.PN_COUNT_APPROVED);
@@ -41,9 +47,14 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
         walmart = hazelcast.getPNCounter(Constants.PN_COUNT_WALMART);
         amazon = hazelcast.getPNCounter(Constants.PN_COUNT_AMAZON);
         latencyNanos = hazelcast.getPNCounter(Constants.PN_COUNT_TOTAL_LATENCY);
-        graphite = new Graphite();
+        latencyItems = hazelcast.getPNCounter(Constants.PN_COUNT_LATENCY_ITEMS);
+        graphite = new Graphite(host);
         rejectionByRule = new HashMap<>();
         initialized = true;
+        lastTimeRun = System.currentTimeMillis();
+
+        findCounters(); // move call into run loop if this changes dynamically; it doesn't currently.
+        //System.out.println("PumpGrafanaStats.init() complete");
     }
 
     // This needs to run after processing has started so that PNCounters will have been
@@ -63,6 +74,8 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
         }
     }
 
+    long lastTimeRun;
+
     // Runs at intervals
     @Override
     public void run() {
@@ -70,42 +83,49 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
         if (!initialized)
             init();
 
-        findCounters();  // TODO: run this at a less frequent interval
+        // No longer seeing this issue
+//        long timeSinceLastRun = System.currentTimeMillis() - lastTimeRun;
+//        // Seeing drop outs in TPS rate because we aren't updating frequently enough
+//        if (timeSinceLastRun / 1000 > measurementInterval * 1.5) {
+//            System.out.printf("PumpGrafanaStats last ran %d seconds ago, may see data dropouts\n", timeSinceLastRun / 1000);
+//        }
+
+        //findCounters();    Now done just once in init()
 
         // counters are integers but we want to do floating-point math with the results
         double approved = (double) approvalCounter.get();
         double rejectedFraud = (double) rejectedForFraud.get();
         double rejectedCredit = (double) rejectedForCredit.get();
-        double total = approved + rejectedFraud + rejectedCredit;
+        //double completions = approved + rejectedFraud + rejectedCredit;
+        double completions = (double)  latencyItems.get();
         double fraudRate = 0.0;
-        if (total > 0)
-            fraudRate = rejectedFraud / total;
-        double latencyAvg = (double) (latencyNanos.get() / total / 1_000_000);
+        if (completions > 0)
+            fraudRate = rejectedFraud / completions;
+        // Divide by 1 Mil to convert nanos to millis
+        double latencyAvg = latencyNanos.get() / completions / 1_000_000;
         try {
-        	//System.out.println(this.getClass().getName() + ".run()");
             graphite.writeStats("bib.fraud.rate", fraudRate);
-//            System.out.printf("  Fraud rate = %f + %f + %f = %f / %f = %f\n",
-//                    approved, rejectedCredit, rejectedFraud, total, rejectedFraud, fraudRate);
-            graphite.writeStats("bib.payment.rate", (approved - previouslyReportedApprovals) / measurementInterval); // divide to convert to TPS
-            previouslyReportedApprovals = (int) approved;
+            graphite.writeStats("bib.payment.rate", ((completions - previouslyReportedCompletions) / measurementInterval)); // divide to convert to TPS
+            previouslyReportedCompletions = (int) completions;
             graphite.writeStats("bib.payments.amazon", amazon.get());
             graphite.writeStats("bib.payments.walmart", walmart.get());
-            graphite.writeStats("bib.payments.all", total);
+            graphite.writeStats("bib.payments.all", completions);
             graphite.writeStats("bib.latency.avg", latencyAvg);
-            //System.out.printf("  Payments by merchant %d %d\n", merchant1_10.get(), merchant11_20.get() );
             if (rejectionByRule != null && rejectionByRule.size() > 0) {
                 for (PNCounter counter : rejectionByRule.values()) {
                     graphite.writeStats("bib.rejectedby." + counter.getName(), counter.get());
                 }
             } else {
-                System.out.println("Skipping rule specific counters because " + ((rejectionByRule == null) ? "null" : "empty"));
+                //System.out.println("Skipping rule specific counters because " + ((rejectionByRule == null) ? "null" : "empty"));
             }
 
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("** Reinitializing Graphite");
-            graphite = new Graphite();
+            graphite = new Graphite(host);
         }
+
+        lastTimeRun = System.currentTimeMillis();
         //System.out.println("PumpGrafanaStats complete");
     }
 

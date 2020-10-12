@@ -1,0 +1,71 @@
+---
+# =========================================================
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: bankinabox-imdg
+  name: bankinabox-imdg
+  namespace: default
+spec:
+  replicas: 3
+  serviceName: bankinabox-imdg
+  selector:
+    matchLabels:
+      app: bankinabox-imdg
+  template:
+    metadata:
+      labels:
+        app: bankinabox-imdg
+    spec:
+      containers:
+        - image: "$(REGISTRY)/$(NAMESPACE)/imdg:latest"
+          imagePullPolicy: $(IPP)
+          livenessProbe:
+            httpGet:
+              path: /hazelcast/health/node-state
+              port: 5701
+          name: container-hazelcast-server
+          readinessProbe:
+            httpGet:
+              path: /hazelcast/health/node-state
+              port: 5701
+            initialDelaySeconds: 30
+---
+# =========================================================
+---
+apiVersion: "autoscaling/v2beta1"
+kind: "HorizontalPodAutoscaler"
+metadata:
+  name: bankinabox-imdg
+  namespace: "default"
+  labels:
+    app: bankinabox-imdg
+spec:
+  scaleTargetRef:
+    kind: "Deployment"
+    name: bankinabox-imdg
+    apiVersion: "apps/v1"
+  minReplicas: 3
+  maxReplicas: 5
+  metrics:
+  - type: "Resource"
+    resource:
+      name: "cpu"
+      targetAverageUtilization: 80
+---
+# =========================================================
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bankinabox-imdg-service
+spec:
+  clusterIP: None
+  selector:
+    app: bankinabox-imdg
+  ports:
+  - protocol: TCP
+    port: 5701
+---

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>BankInABox</artifactId>
+        <groupId>com.theyawns</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>bundle-management-center</artifactId>
+
+    <name>bundle-management-center</name>
+    <description>BankInABox - Hazelcast Management Center</description>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.13</version>
+                <configuration>
+                    <buildArgs>
+                        <MC_ADMINUSER>admin</MC_ADMINUSER>
+                        <MC_ADMINPASSWORD>password1</MC_ADMINPASSWORD>
+                        <MC_LICENSE></MC_LICENSE>
+                        <MC_CLUSTER1_NAME>BankInABox</MC_CLUSTER1_NAME>
+                        <MC_CLUSTER1_ADDRESSLIST>bankinabox-imdg-service.default.svc.cluster.local</MC_CLUSTER1_ADDRESSLIST>
+                    </buildArgs>
+                    <dockerfile>Dockerfile</dockerfile>
+                    <pullNewerImage>false</pullNewerImage>
+                    <repository>bankinabox/management-center</repository>
+                    <tag>latest</tag>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <id>default</id>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

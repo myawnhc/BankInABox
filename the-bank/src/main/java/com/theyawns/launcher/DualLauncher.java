@@ -2,8 +2,8 @@ package com.theyawns.launcher;
 
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.IMap;
-import com.hazelcast.jet.function.PredicateEx;
+import com.hazelcast.function.PredicateEx;
+import com.hazelcast.map.IMap;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.CreditLimitRule;
 import com.theyawns.domain.payments.ResultMapMonitor;

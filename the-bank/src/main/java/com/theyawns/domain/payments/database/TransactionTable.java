@@ -1,6 +1,6 @@
 package com.theyawns.domain.payments.database;
 
-import com.hazelcast.core.MapLoader;
+import com.hazelcast.map.MapLoader;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
 import com.theyawns.domain.payments.*;
@@ -115,7 +115,7 @@ public class TransactionTable extends AbstractTable
 
         // This should only happen once.
         if (numberOfEntries == 0) {
-            log.info("TransactionTable.readFromDatabase: Getting Txn table size for offset calculations");
+            //log.info("TransactionTable.readFromDatabase: Getting Txn table size for offset calculations");
             numberOfEntries = getTableSize();
         }
         String originalId = id;
@@ -136,14 +136,14 @@ public class TransactionTable extends AbstractTable
                 offset += numberOfEntries;
                 log.info("Finished pass " + passesThroughTransactionFile + " through transaction file, offset now " + offset);
 
-            } else {
-                if (passesThroughTransactionFile > 0) {
-                    if (txnNum == 0 || txnNum == 1) {
-                        log.info("Pass " + passesThroughTransactionFile + 1 + " id " + txnNum + " adjusted to " + ( txnNum - offset) + " for database read");
-                    }
-                    txnNum -= offset;
-                    id = txnFormat.format(txnNum);
-                }
+            }
+
+            if (passesThroughTransactionFile > 0) {
+//                if (txnNum == 0 || txnNum == 1) {
+//                    log.info("Pass " + passesThroughTransactionFile + 1 + " id " + txnNum + " adjusted to " + ( txnNum - offset) + " for database read");
+//                }
+                txnNum -= offset;
+                id = txnFormat.format(txnNum);
             }
 
             if (selectStatement == null) {
@@ -168,9 +168,9 @@ public class TransactionTable extends AbstractTable
             } else {
                 log.warning("TransactionTable.readFromDatabase: no entry for key " + id);
             }
-            if (txnNum >= 499995 && txnNum <= 500005) {
-                log.info("TransactionTable.read " + txnNum + ": " + t);
-            }
+//            if (txnNum >= 499995 && txnNum <= 500005) {
+//                log.info("TransactionTable.read " + txnNum + ": " + t);
+//            }
             //log.finest("TransactionTable.readFromDatabase: " + t);
             return t;
         } catch (SQLException e) {

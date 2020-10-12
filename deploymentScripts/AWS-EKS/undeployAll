@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+kubectl scale --replicas=0 statefulset bankinabox-grafana
+kubectl scale --replicas=0 statefulset bankinabox-imdg
+kubectl scale --replicas=0 statefulset bankinabox-jet
+kubectl scale --replicas=0 statefulset bankinabox-maria
+kubectl scale --replicas=0 statefulset bankinabox-management-center
+
+kubectl delete service bankinabox-grafana-service
+kubectl delete service bankinabox-imdg-service
+kubectl delete service bankinabox-jet-service
+kubectl delete service bankinabox-management-center-service
+kubectl delete service bankinabox-maria-service
+
+kubectl delete horizontalpodautoscaler bankinabox-imdg
+
+kubectl delete job bankinabox-launcher

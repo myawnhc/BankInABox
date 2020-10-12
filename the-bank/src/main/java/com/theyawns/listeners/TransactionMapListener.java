@@ -2,7 +2,7 @@ package com.theyawns.listeners;
 
 import com.hazelcast.core.EntryEvent;
 import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.IMap;
+import com.hazelcast.map.IMap;
 import com.hazelcast.crdt.pncounter.PNCounter;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
@@ -71,7 +71,7 @@ public class TransactionMapListener implements
 
         merchant1_10 = instance.getPNCounter("merchant1_10");
         merchant11_20 = instance.getPNCounter("merchant11_20");
-        graphite = new Graphite();
+        //graphite = new Graphite();
     }
 
 
@@ -140,7 +140,7 @@ public class TransactionMapListener implements
         //System.out.println("FraudRisk " + risk);
         if (risk >= 60) {
             preAuthMap.remove(txn.getItemID());
-            rejectedForFraud.put(transactionId, txn);
+            rejectedForFraud.set(transactionId, txn);
             rejectedForFraudCounters[MERC_AVG_TXN_INDEX].getAndIncrement();
             //txn.endToEndTime.stop();
             if (false /*BankInABoxProperties.COLLECT_PERFORMANCE_STATS*/) {
@@ -168,16 +168,16 @@ public class TransactionMapListener implements
         //System.out.println("Executing payment rules for " + transactionId);
         Boolean passed = true;
         try {
-            passed = (Boolean) preAuthMap.executeOnKey(transactionId, paymentRulesEP);
+            passed = preAuthMap.executeOnKey(transactionId, paymentRulesEP);
         } catch (RejectedExecutionException ree) {
             log.info("Rejected execution for payment rules - have fallen behind");
         }
         preAuthMap.remove(txn.getItemID());
         if (passed) {
-            approved.put(transactionId, txn);
+            approved.set(transactionId, txn);
             approvalCounter.getAndIncrement();
         } else {
-            rejectedForCredit.put(transactionId, txn);
+            rejectedForCredit.set(transactionId, txn);
             // TODO: either move this into the EP, or have EP return which rule[s] caused
             // rejection and use here instead of hard coded value.
             rejectedForCreditCounters[CREDIT_CHECK_INDEX].getAndIncrement();
