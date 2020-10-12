@@ -348,7 +348,8 @@ public class Launcher {
                     e.printStackTrace();
                 }
             }
-            System.out.println((System.currentTimeMillis()-maploaderEagerStart) +
+            if (verbose)
+                System.out.println((System.currentTimeMillis()-maploaderEagerStart) +
                     "ms for MapLoader to eagerly load Accounts and Merchants");
         }
 
@@ -431,6 +432,7 @@ public class Launcher {
                 }
             }
 
+            // Keeping this on even when verbose is false
             System.out.println("Transaction backlog (preAuth map size) " + preAuthMap.size() + ", total loaded " + loadedToPreAuth.get());
             lastPreAuthSize = currentPreAuthSize;
             lastCompletions = currentCompletions;
@@ -653,6 +655,7 @@ public class Launcher {
         System.out.println("bib.runmode=[demo, benchmark]");
         System.out.println("bib.jetmode=[embedded,cs]");
         System.out.println("bib.grafana=[hostname or ip address] (defaults to localhost)");
+        System.out.println("bib.verbose=[true,false]"); // default true for demo, false for benchmark
         System.exit(0);
     }
 }
