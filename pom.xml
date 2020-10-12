@@ -20,6 +20,28 @@
 		<maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<my.management.center.name>${docker.image.prefix}-management-center</my.management.center.name>
+		<!-- logons for Management Center, Grafana -->
+		<my.other.admin.user>admin</my.other.admin.user>
+		<my.other.admin.password>password1</my.other.admin.password>
+
+		<!-- Taken from Neil's CVA project, not sure which we'll leverage here
+			<main.basedir>${project.basedir}</main.basedir>
+			// live
+			<my.cluster1.init.size>3</my.cluster1.init.size>
+			<my.cluster1.name>BankInABox</my.cluster1.name>
+			<my.cluster1.partitions>25057</my.cluster1.partitions>
+			<my.cluster1.partitions>1999</my.cluster1.partitions>
+			// dr
+			<my.cluster2.init.size>3</my.cluster2.init.size>
+			<my.cluster2.name>site2</my.cluster2.name>
+			<my.cluster2.partitions>271</my.cluster2.partitions>
+
+			// So Grafana can find Prometheus service, must match K8S YAML
+			<my.prometheus.name>${docker.image.prefix}-prometheus</my.prometheus.name>
+			<my.prometheus.port>9090</my.prometheus.port>
+		-->
 	</properties>
 
 	<modules>
@@ -30,7 +52,8 @@
 		<module>bundle-launcher</module>
 		<module>bundle-maria</module>
 		<module>bundle-preloader</module>
-	</modules>
+        <module>bundle-management-center</module>
+    </modules>
 
 	<dependencies>
 		<dependency>

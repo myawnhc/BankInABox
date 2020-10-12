@@ -1,8 +1,0 @@
-#
-# NOTE: for this to work, will need to authenticate first, using command like:
-# aws ecr get-login-password --region <REGION> | docker login --username AWS --password-stdin <ACCOUNT>.dkr.ecr.<REGION>.amazonaws.com
-# (Must install AWS CLI first)
-
-docker build -t bankinabox/grafana .
-docker tag bankinabox/grafana:latest 174325405218.dkr.ecr.us-east-1.amazonaws.com/bankinabox/grafana:latest
-docker push 174325405218.dkr.ecr.us-east-1.amazonaws.com/bankinabox/grafana:latest

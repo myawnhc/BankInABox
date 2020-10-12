@@ -135,7 +135,7 @@ public class EnvironmentSetup {
 			}
 		}
 
-		if (false && log.isInfoEnabled()) {
+		if (log.isInfoEnabled()) {
 			log.info("*****************************");
 			log.info("<< MANIFEST.MF >>");
 			try {

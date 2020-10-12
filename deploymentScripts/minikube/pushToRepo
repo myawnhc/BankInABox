@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# pushes to docker.io/myawn/bankinabox
+# access is currently restricted to Mike Yawn, I can add a few additional team
+# members before exceeding the free tier limit.  Maybe each developer should have
+# their own docker.io repo for this and change the registry name accordingly?
+#
+# It isn't clear there's an advantage to pushing to docker.io other than as a backup,
+# but since everything can be easily rebuilt from GitHub even that is questionable
+#
+
+NAMESPACE="bankinabox"
+REGISTRY="docker.io"   # Unused but keeping for documentation value
+
+for BUNDLE in "grafana" "maria" "jet" "launcher" "imdg"
+do
+    echo $BUNDLE
+#    docker tag ${NAMESPACE}/$BUNDLE:latest ${REGISTRY}/${NAMESPACE}/$BUNDLE:latest
+    docker push ${NAMESPACE}/$BUNDLE:latest
+done

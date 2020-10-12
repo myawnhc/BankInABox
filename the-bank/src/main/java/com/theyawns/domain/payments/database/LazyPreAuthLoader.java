@@ -2,6 +2,7 @@ package com.theyawns.domain.payments.database;
 
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.HazelcastInstanceAware;
+import com.hazelcast.crdt.pncounter.PNCounter;
 import com.hazelcast.map.IMap;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Transaction;
@@ -25,8 +26,10 @@ public class LazyPreAuthLoader implements Callable<Exception>, Serializable, Haz
     private HazelcastInstance hazelcast;
     private RunMode runMode;
     private IMap<String, Transaction> preAuthMap;
+    private PNCounter loadedToPreAuth;
     private static final DecimalFormat txnFormat      = new DecimalFormat("00000000000000"); // 14 digit
 
+    private boolean verbose; // not currently using this as I like all the output
     private int chunkSize;
     private int txnCount;
     private int highLimit;
@@ -42,10 +45,10 @@ public class LazyPreAuthLoader implements Callable<Exception>, Serializable, Haz
         this.checkIntervalMs = checkIntervalMs;
     }
 
+    public void setVerbose(boolean verbose) { this.verbose = verbose; }
+
     @Override
     public Exception call() {
-//        long startTime = System.nanoTime();
-//        int startCount = preAuthMap.size();
         try {
             int nextTransactionToLoad = 0;
 
@@ -56,15 +59,16 @@ public class LazyPreAuthLoader implements Callable<Exception>, Serializable, Haz
             //RunMode runMode = Launcher.getRunMode();
             preAuthMap.clear();  // in case IMDG cluster still has previous run's data
             while (true) {
-                if (runMode == RunMode.Benchmark && nextTransactionToLoad > txnCount) {
+                if (runMode == RunMode.Benchmark && nextTransactionToLoad >= txnCount) {
                     System.out.println("LazyPreAuthLoader, Banchmark mode: Specified transaction count reached, loader stopping");
                     break;
                 }
+                int alreadyQueued = preAuthMap.size();
 
-                // sleep if we're above HWM.   Doesn't appear this happens ... we're processing nearly as fast as we can load
-                if (preAuthMap.size() > highLimit) {
+                // sleep if we're above HWM.  Doesn't happen in local config but with network latency it does
+                if (alreadyQueued >= highLimit) {
                     try {
-                        System.out.println("preAuth size " + preAuthMap.size() + " above limit " + highLimit + ", loader sleeps");
+                        System.out.println("preAuth size " + alreadyQueued + " above limit " + highLimit + ", loader sleeps");
                         Thread.sleep(1000 * checkIntervalMs);
                         continue;
                     } catch (InterruptedException e) {
@@ -91,13 +95,11 @@ public class LazyPreAuthLoader implements Callable<Exception>, Serializable, Haz
                         System.out.println(" ERROR: Null key");
                     else if (t == null)
                         System.out.println(" ERROR: Null entry for key " + key);
-                    else
-                        t.setTimeEnqueued(System.nanoTime());
-                    //preAuthMap.set(key, t);
 
-//                if ((key.compareTo("00000000499995") >= 0) && key.compareTo("00000000500005") <= 0) {
-//                    System.out.println("LazyPreAuthLoader set key " + key + " value " + t);
-//                }
+                    // TimeEnqueued set by the map listener so in C/S setup we aren't
+                    // adding inbound network delay to our reported latency.
+                    //else
+                    t.setTimeEnqueuedForRuleEngine();
                 }
                 preAuthMap.putAll(transactions);
                 System.out.print("  " + transactions.size() + " new transactions loaded to IMap, preAuth size now " + preAuthMap.size());
@@ -105,6 +107,7 @@ public class LazyPreAuthLoader implements Callable<Exception>, Serializable, Haz
                     System.out.printf("; loaded %d of %d transactions\n", nextTransactionToLoad, txnCount);
                 else
                     System.out.println();
+                loadedToPreAuth.getAndAdd(transactions.size());
             }
         } catch (Exception e) {
             //IMap emap = hazelcast.getMap("Exceptions");
@@ -128,5 +131,6 @@ public class LazyPreAuthLoader implements Callable<Exception>, Serializable, Haz
     public void setHazelcastInstance(HazelcastInstance hazelcastInstance) {
         hazelcast = hazelcastInstance;
         preAuthMap = hazelcast.getMap(Constants.MAP_PREAUTH);
+        loadedToPreAuth = hazelcast.getPNCounter(Constants.PN_COUNT_LOADED_TO_PREAUTH);
     }
 }

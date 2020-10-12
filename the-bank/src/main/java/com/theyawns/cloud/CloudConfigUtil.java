@@ -3,6 +3,7 @@ package com.theyawns.cloud;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.hazelcast.client.config.ClientConfig;
+import com.hazelcast.client.config.XmlClientConfigBuilder;
 import com.hazelcast.client.impl.spi.impl.discovery.HazelcastCloudDiscovery;
 import com.hazelcast.client.properties.ClientProperty;
 
@@ -66,7 +67,7 @@ public class CloudConfigUtil {
 
         CloudConfig cloudConfig = getConfig(platform);
 
-        ClientConfig config = new ClientConfig();
+        ClientConfig config = new XmlClientConfigBuilder().build();
         config.setClusterName(cloudConfig.name);
         //config.setProperty("hazelcast.client.statistics.enabled", "true");
         if (cloudConfig.getDiscoveryToken().isPresent())
@@ -78,8 +79,6 @@ public class CloudConfigUtil {
         //System.out.println(config.toString());
         return config;
     }
-
-
 
     public static void main(String[] args) {
         System.out.println("Default config is " + defaultConfigName);

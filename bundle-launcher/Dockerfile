@@ -25,9 +25,11 @@ ENV JAVA_ARGS "$JAVA_ARGS -Dhz.tcp.enabled=$HZ_TCP_ENABLED"
 #ENV JAVA_ARGS "$JAVA_ARGS -Dhz.ce.discovery.token=$HZCE_TOKEN"
 #ENV JAVA_ARGS "$JAVA_ARGS -Dhz.ce.urlbase=$HZCE_URLBASE"
 
-ENV LAUNCHER_ARGS "bib.cloud=hzce_aws"
+# Options: none, hzce_aws, hzce_azure
+ENV LAUNCHER_ARGS "bib.cloud=none"
+# Options benchmark, demo
 ENV LAUNCHER_ARGS "$LAUNCHER_ARGS bib.runmode=benchmark"
-
+ENV LAUNCHER_ARGS "$LAUNCHER_ARGS bib.peered=false"
 
 # No default for namespace
 ENTRYPOINT exec java $JAVA_MODS $JAVA_ARGS -jar application.jar $LAUNCHER_ARGS

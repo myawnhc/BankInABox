@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+# For this to work, IBMCloud CLI must be installed, container registry plugin added,
+# and namespace (bankinabox) created.
+# See https://cloud.ibm.com/kubernetes/registry/main/start?platformType=openshift
+
+NAMESPACE="bankinabox"
+#REGION=us-south
+REGISTRY="gcr.io/hazelcast-33"
+
+# TODO: any required login here?
+
+for BUNDLE in "grafana" "maria" "jet" "launcher"
+do
+    echo $BUNDLE
+    docker tag ${NAMESPACE}/$BUNDLE:latest ${REGISTRY}/${NAMESPACE}/$BUNDLE:latest
+    docker push ${REGISTRY}/${NAMESPACE}/$BUNDLE:latest
+done

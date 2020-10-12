@@ -16,18 +16,18 @@ clusterConfiguration:
     #url-base: https://coordinator.hazelcast.cloud
 
   cloud-enterprise-aws-public:
-    name: bankinabox
+    name: bib-aws-public
     # password needed for 3.12 but not 4.0
     #password: 40b0330350064a5d83672ff2cdbd4364
-    discovery-token: ecrQtKtBTMgG39mR2MrxeeJvxZLWMNpHHdVefG9H0n7ukP61UO
+    discovery-token: Lvdm9J87PQ3jnos744u16rfJq4L1eMwAzsbgt2OWdwEN9HNlft
     # URL base not needed for production environment, uncomment and set when running in UAT, EA, etc.
     url-base: https://uat.hazelcast.cloud
 
   cloud-enterprise-aws-peered:
-    name: bankinabox
-    password:
-    discovery-token:
-    #url-base: https://coordinator.hazelcast.cloud
+    name: bib-aws-public
+    #password:
+    discovery-token: AwcpbpAvvFdUOwWpV7dnCUyWFyZGgkp0sFlScmSnGK2ZVMpoPb
+    url-base: https://uat.hazelcast.cloud
     keystore-password:
     keystore-file:
 

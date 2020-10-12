@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - image: "$(REGISTRY)/$(NAMESPACE)/maria:latest"
-          imagePullPolicy: Always
+          imagePullPolicy: $(IPP)
           name: container-hazelcast-server
 ---
 # =========================================================

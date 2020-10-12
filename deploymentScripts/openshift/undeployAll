@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+oc scale --replicas=0 statefulset bankinabox-grafana
+oc scale --replicas=0 statefulset bankinabox-imdg
+oc scale --replicas=0 statefulset bankinabox-jet
+oc scale --replicas=0 statefulset bankinabox-maria
+#oc scale --replicas=0 statefulset bankinabox-management-center
+
+oc delete deployment bankinabox-management-center
+
+oc delete service bankinabox-grafana-service
+oc delete service bankinabox-imdg-service
+oc delete service bankinabox-jet-service
+oc delete service management-center-service
+oc delete service bankinabox-maria-service
+
+oc delete horizontalpodautoscaler bankinabox-imdg
+
+oc delete job bankinabox-launcher

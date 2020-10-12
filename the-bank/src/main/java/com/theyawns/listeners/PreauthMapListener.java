@@ -13,6 +13,7 @@ import com.theyawns.Constants;
 import com.theyawns.domain.payments.Account;
 import com.theyawns.domain.payments.Merchant;
 import com.theyawns.domain.payments.Transaction;
+import com.theyawns.executors.LatencyTracking;
 
 
 public class PreauthMapListener implements
@@ -25,6 +26,8 @@ public class PreauthMapListener implements
     private IMap<String, Transaction> preAuthMap;
     private IMap<String, Merchant> merchantMap;
     private IMap<String, Account> accountMap;  // not used here but getting ref triggers eager load
+
+    private IMap<String, LatencyTracking> latencyMap;
 
     // Queues to pass to RuleExecutors -- TODO: replace these with a single ReliableTopic
     //private ITopic<Transaction> preAuthTopic;
@@ -48,6 +51,7 @@ public class PreauthMapListener implements
         paymentRulesQueue = instance.getQueue(Constants.QUEUE_CREDITRULES);
         merchant_txn_count_amazon = instance.getPNCounter(Constants.PN_COUNT_AMAZON);
         merchant_txn_count_walmart = instance.getPNCounter(Constants.PN_COUNT_WALMART);
+        latencyMap = instance.getMap(Constants.MAP_LATENCY);
     }
 
     public IQueue<Transaction> getLocationRulesQueue(Transaction t) {
@@ -78,7 +82,7 @@ public class PreauthMapListener implements
 
         //log.finest("entryAdded key " + entryEvent.getKey() + " value " + entryEvent.getValue());
         Transaction txn = entryEvent.getValue();
-        // TODO: add averarge transaction volume to merchants, use to scale
+        // TODO: add average transaction volume to merchants, use to scale
         //       transactions appropriately.   Until that is in place, we fudge the
         //       numbers by using multiple merchants to represent the big two
         int merchantNum = 1;
@@ -96,9 +100,12 @@ public class PreauthMapListener implements
         String key = txn.getItemID();
         if (key == null) return;
 
-//        if ((key.compareTo("00000000499995") >= 0) && key.compareTo("00000000500005") <= 0) {
-//            log.info("PreAuthMapListener sees key " + key + " value " + txn);
-//        }
+        // This is a better representation of 'time queued' than having preAuthLoader set the
+        // time in a batch of 10K items all pushed at once using putMany!
+        txn.setTimeEnqueuedForRuleEngine();
+//        LatencyTracking lt = new LatencyTracking();
+//        lt.timeEnqueued = txn.getTimeEnqueuedForRuleEngine();
+//        latencyMap.set(txn.getItemID(), lt);
 
         // Keep this in sync with the number of rulesets that are active -
         txn.setRuleSetsToApply(2); // TODO: this should be determined in some way, not hard-coded

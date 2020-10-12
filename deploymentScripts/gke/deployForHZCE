@@ -1,18 +1,14 @@
 #!/usr/bin/env bash
 
 # This deployment assumes IMDG will be running in Hazelcast Cloud Enterprise, so the IMDG container
-# does not need to be deployed to EKS.
+# does not need to be deployed.
 
-ECR_ACCOUNT="174325405218"
-ECR_NAMESPACE="bankinabox"
-ECR_REGION=us-east-1
-
-REGISTRY="${ECR_ACCOUNT}.dkr.ecr.${ECR_REGION}.amazonaws.com"
+REGISTRY="gcr.io/hazelcast-33"
 NAMESPACE="bankinabox"
 
 for FILE in ../deploy-*.yaml
 do
-  # Skip IMDG
+    # Skip IMDG
   if [ $FILE == "deploy-imdg.yaml" ]
     then echo Skipping IMDG for Cloud Enterprise deployment
     continue

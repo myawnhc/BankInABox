@@ -22,7 +22,9 @@ public class Transaction implements /*IdentifiedDataSerializable,*/ Serializable
     private Boolean paymentResult = Boolean.TRUE;
     private int ruleSetsToApply;
 
-    private long timeEnqueued; // nanotime
+    private long timeEnqueuedForRuleEngine; // nanotime
+    private long timeEnqueuedForAggregator; // nanotime
+    private long timeSpentQueued; // sum of RE + Aggregator
 
     // Being a little sloppy with encapsulation, will allow direct access to these
 //    public LatencyMetric processingTime = new LatencyMetric();
@@ -91,9 +93,19 @@ public class Transaction implements /*IdentifiedDataSerializable,*/ Serializable
     public void setRuleSetsToApply(int count) { ruleSetsToApply = count; }
     public int getRuleSetsToApply() { return ruleSetsToApply; }
 
-    public void setTimeEnqueued(long time) { timeEnqueued = time; }
-    public long getTimeEnqueued() { return timeEnqueued; }
+    //public void setTimeEnqueuedForRuleEngine(long time) { timeEnqueuedForRuleEngine = time; }
+    public void setTimeEnqueuedForRuleEngine() { timeEnqueuedForRuleEngine = System.nanoTime(); }
+    public long getTimeEnqueuedForRuleEngine() { return timeEnqueuedForRuleEngine; }
 
+    public void setTimeEnqueuedForAggregator() { timeEnqueuedForAggregator = System.nanoTime(); }
+    public long getTimeEnqueuedForAggregator() { return timeEnqueuedForAggregator; }
+
+    public void addToQueueWaitTime(long value) {
+        timeSpentQueued += value;
+    }
+    public long getQueueWaitTime() {
+        return timeSpentQueued;
+    }
     @Override
     public String toString() {
         return "Transaction " + transactionId + " account " + acctNumber + " merchant " + merchantId + " amount " + amount;
@@ -121,7 +133,10 @@ public class Transaction implements /*IdentifiedDataSerializable,*/ Serializable
         objectDataOutput.writeInt(fraudResult);
         objectDataOutput.writeBoolean(paymentResult);
         objectDataOutput.writeInt(ruleSetsToApply);
-        objectDataOutput.writeLong(timeEnqueued);
+        objectDataOutput.writeLong(timeEnqueuedForRuleEngine);
+        objectDataOutput.writeLong(timeEnqueuedForAggregator);
+        objectDataOutput.writeLong(timeSpentQueued);
+
 //        objectDataOutput.writeObject(processingTime);
 //        objectDataOutput.writeObject(endToEndTime);
     }
@@ -136,7 +151,10 @@ public class Transaction implements /*IdentifiedDataSerializable,*/ Serializable
         fraudResult = objectDataInput.readInt();
         paymentResult = objectDataInput.readBoolean();
         ruleSetsToApply = objectDataInput.readInt();
-        timeEnqueued = objectDataInput.readLong();
+        timeEnqueuedForRuleEngine = objectDataInput.readLong();
+        timeEnqueuedForAggregator = objectDataInput.readLong();
+        timeSpentQueued = objectDataInput.readLong();
+
 //        processingTime = objectDataInput.readObject(LatencyMetric.class);
 //        endToEndTime = objectDataInput.readObject(LatencyMetric.class);
     }

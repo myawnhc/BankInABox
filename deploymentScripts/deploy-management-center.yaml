@@ -1,13 +1,26 @@
 ---
-# =========================================================
+# Service DNS will be "mancenter-service.default.svc.cluster.local".
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: management-center-service
+spec:
+  selector:
+    app: bankinabox-management-center
+  ports:
+    - name: management-center
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
+---
+# Only need 1 management center
 ---
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
   name: bankinabox-management-center
 spec:
-  replicas: 1
-  serviceName: bankinabox-management-center-service
   selector:
     matchLabels:
       app: bankinabox-management-center
@@ -18,33 +31,17 @@ spec:
     spec:
       containers:
         - env:
-          - name: JAVA_OPTS
-            value: "-Dhazelcast.mc.allowMultipleLogin=true -Dhazelcast.mc.healthCheck.enable=true"
-          image: "hazelcast/management-center:latest"
-          imagePullPolicy: IfNotPresent
-#          livenessProbe:
-#            httpGet:
-#              path: /hazelcast-mancenter/health
-#              port: 8081
+          image: "$(REGISTRY)/$(NAMESPACE)/management-center:latest"
+          imagePullPolicy: $(IPP)
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8081
           name: container-hazelcast-management-center
-#          readinessProbe:
-#            httpGet:
-#              path: /hazelcast-mancenter/health
-#              port: 8081
-#            initialDelaySeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8081
+            initialDelaySeconds: 30
 ---
-# =========================================================
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: bankinabox-management-center-service
-spec:
-  ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8080
-  selector:
-    app: bankinabox-management-center
-  type: LoadBalancer
----
+

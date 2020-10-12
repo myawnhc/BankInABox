@@ -6,6 +6,7 @@ import com.hazelcast.core.HazelcastInstanceAware;
 import com.hazelcast.crdt.pncounter.PNCounter;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
+import com.hazelcast.map.EntryProcessor;
 import com.hazelcast.map.IMap;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Transaction;
@@ -38,8 +39,17 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
     private PNCounter rejectedForFraudCounter;
     private PNCounter rejectedForCreditCounter;
     private PNCounter totalLatency;
+    private PNCounter latencyItems;
 
-    private static boolean accumLatency = false; // will flip to true after warmup period
+    private IMap<ExecutorStatusMapKey,String> statusMap;
+
+//    private boolean latencyTracking = false;
+//    private IMap<String, LatencyTracking> latencyMap;
+//    private LatencyTracking latency = null;
+
+    private boolean verbose = true;
+
+    //private static boolean accumLatency = false; // will flip to true after warmup period
 
     // TODO: may need this to be an IMap ... aggregator can move due to node failure
     private Map<String, PNCounter> rejectedByRuleCounters = new HashMap<>();
@@ -50,53 +60,54 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
         System.out.println("AggregationExecutor.<init>");
     }
 
+    public void setVerbose(boolean verbose) { this.verbose = verbose; }
+
     // Normally runs until terminated, only returns in case of an exception
     @Override
     public Exception call() {
         log.info("AggregationExecutor.run()");
         long startTime = System.nanoTime();
-        long txnsDuringWarmup = 0;
-        long latencyDuringWarmup = 0;
+        counter = 0;
+        long messageCounter = 0;
+        String memberId = hazelcast.getCluster().getLocalMember().getUuid().toString().substring(0, 4);
+        ExecutorStatusMapKey esmkey = new ExecutorStatusMapKey("AggregationExecutor", memberId);
+
         while (true) {
             try {
-                long startInner = System.nanoTime();
                 String txnId = completedTransactionIDs.take();
-                double ms = (startInner - startTime) / 1_000_000;
                 TransactionEvaluationResult ter = resultMap.get(txnId);
 
                 // TODO: may break processResults into more fine-grained steps
                 CompletableFuture.completedFuture(ter)
+//                        .thenApplyAsync(this::recordCommpletionQueueLatency)
                         .thenApplyAsync(this::processResults)   // update counters and/or maps
                         .thenAcceptAsync(this::cleanupMaps);   // delete txn from preAuth and PPFD Results
 
+                // END of PROCESSING - everything else is just reporting back to Launcher
+
                 counter++;
-                if ((counter % 10000) == 0) {
-                    Duration d = Duration.ofNanos(System.nanoTime() - startTime);
-                    String elapsed = String.format("%02d:%02d:%02d.%03d", d.toHoursPart(), d.toMinutesPart(), d.toSecondsPart(), d.toMillisPart());
-                    final double tps = counter / d.toSeconds();
-                    log.info("AggregationExecutor has handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS");
+                if (verbose) {
+                    if ((counter % 10000) == 0) {
+                        Duration d = Duration.ofNanos(System.nanoTime() - startTime);
+                        String elapsed = String.format("%02d:%02d:%02d.%03d", d.toHoursPart(), d.toMinutesPart(), d.toSecondsPart(), d.toMillisPart());
+                        final double tps = counter / d.toSeconds();
 
-                    // Don't measure latency during initial warm-up -- previously was 10K transactions,
-                    // now has additional condition that must have at least 1 minute to warm-up
-                    if (!accumLatency && ms > 60000) {
-                        accumLatency = true;
-                        txnsDuringWarmup = rejectedForCreditCounter.get() + rejectedForFraudCounter.get() + approvalCounter.get();
-                        latencyDuringWarmup = totalLatency.get();
-                        log.info("     Warmup period latency is " + latencyDuringWarmup + " / " + txnsDuringWarmup + " = " + (latencyDuringWarmup / txnsDuringWarmup) / 1_000_000 + " ms");
-                        //totalLatency.reset();   // reset to zero
-                    } else if (accumLatency) {
-                        long latency = totalLatency.get() - latencyDuringWarmup;
-                        long transactions = rejectedForCreditCounter.get() + rejectedForFraudCounter.get() + approvalCounter.get() - txnsDuringWarmup;
-                        double average = (latency / transactions) / 1_000_000;
-                        log.info("     Average latency is " + latency + " / " + transactions + " = " + average + " ms");
-                    } else {
-                        log.info("**** waiting to start latency calcs, ms " + ms);
+                        long latencyNanos = totalLatency.get();
+                        long latencyMillis = latencyNanos / 1_000_000;
+                        long latencyItemCount = latencyItems.get();
+                        String messageID = "[" + messageCounter++ + "]";
+
+                        if (latencyItemCount > 0) {
+                            double average = latencyMillis / latencyItems.get();
+                            log.info("Average latency is " + average + " ms");
+
+                            log.info("AggregationExecutor has handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS, " + average + " ms latency");
+                            statusMap.put(esmkey, messageID + " has handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS, " + average + " ms latency");
+                        } else {
+                            statusMap.put(esmkey, messageID + " has handled " + counter + " transactions in " + elapsed + " but latencyItems is zero while millis is " + latencyMillis);
+                        }
                     }
-
                 }
-
-
-
             } catch (Exception e) {
                 IMap emap = hazelcast.getMap("Exceptions");
                 emap.put("AggregationExecutor", e);
@@ -106,9 +117,42 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
         }
     }
 
+    private TransactionEvaluationResult recordCommpletionQueueLatency(TransactionEvaluationResult ter) {
+//        if (latencyTracking) {
+//            String txnId = ter.getTransaction().getItemID();
+//            latency = latencyMap.get(txnId);
+//            latency.timeTakenFromCompletionQueue = System.nanoTime();
+//            latencyMap.put(txnId, latency);
+//        }
+        return ter;
+    }
+
+    public static class TxnDeleter implements EntryProcessor<String, Transaction, Void> {
+        @Override
+        public Void process(Map.Entry<String, Transaction> entry) {
+            entry.setValue(null);
+            return null;
+        }
+    }
+
+    public static class TERDeleter implements EntryProcessor<String, TransactionEvaluationResult, Void> {
+        @Override
+        public Void process(Map.Entry<String, TransactionEvaluationResult> entry) {
+            entry.setValue(null);
+            return null;
+        }
+    }
+
+    public static TxnDeleter txnDeleter = new TxnDeleter();
+    public static TERDeleter terDeleter = new TERDeleter();
+
     private void cleanupMaps(String txnId) {
-        preAuthMap.delete(txnId);
-        resultMap.delete(txnId);
+        // In some (CPU limited) environments, the clean up of maps is lagging
+        // very far behind ... see if submitting via EP improves this
+        preAuthMap.executeOnKey(txnId, txnDeleter);
+        resultMap.executeOnKey(txnId, terDeleter);
+//        preAuthMap.delete(txnId);
+//        resultMap.delete(txnId);
     }
 
     private String processResults(TransactionEvaluationResult ter) {
@@ -125,29 +169,27 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
                     ter.setRejectingRuleSet(rser.getRuleSetName());
                     ter.setRejectingReason(rser.getOutcomeReason());
                     ter.setStopTime(System.nanoTime());
-                    if (true /*Launcher.getRunMode() == RunMode.Demo*/) {
-                        // Benchmark doesn't care about the dashboard
-                        rejectedForFraudCounter.getAndIncrement();
-                        incrementRejectCountForRule(rser);
-                    }
+                    rejectedForFraudCounter.getAndIncrement();
+                    incrementRejectCountForRule(rser);
                     // This map now has eviction to allow long-running demo
                     rejectedForFraudMap.set(txnId, ter);
-                    break;
+                    break; // no need to check other results
                 case RejectedForCredit:
                     rejected = true;
                     ter.setRejectingRuleSet(rser.getRuleSetName());
                     ter.setRejectingReason(rser.getOutcomeReason());
                     ter.setStopTime(System.nanoTime());
-                    if (true /*Launcher.getRunMode() == RunMode.Demo*/) {
-                        // Benchmark doesn't care about the dashboard
-                        rejectedForCreditCounter.getAndIncrement();
-                        incrementRejectCountForRule(rser);
-                    }
+                    rejectedForCreditCounter.getAndIncrement();
+                    incrementRejectCountForRule(rser);
                     // This map now has eviction to allow long-running demo
                     rejectedForCreditMap.set(txnId, ter);
-                    break;
+                    break; // no need to check other results
                 case Approved:
-                    ;
+                    // Because we have multiple rulesets, we can't do the
+                    // approval logic unless all rulesets have processed and
+                    // none reject the transaction - so approval is handled
+                    // after we complete the evaluation loop.
+                    continue; // check other results
 
             }
         }
@@ -155,15 +197,19 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
             // This map now has eviction to allow long-running demo
             ter.setStopTime(System.nanoTime());
             approvedMap.set(txnId, ter);
-            if (true /*Launcher.getRunMode() == RunMode.Demo*/) {
-                // Benchmark doesn't care about the dashboard
-                approvalCounter.getAndIncrement();
-            }
+            approvalCounter.getAndIncrement();
             //System.out.println("Approved " + txnId);
         }
-        //log.info("Transaction " + ter.getTransaction().getItemID() + " completed in " + ter.getLatencyNanos() + " ns");
-        //if (accumLatency)
+        //log.info("Transaction " + ter.getTransaction().getItemID() + " completed in " + ter.getLatencyNanos() / 1_000_000 + " ms");
+
+        // Protect against negative values throwing off results;
+        // TER will now throw exception if a stop time < start time is set.
+        if (ter.getLatencyNanos() > 0) {
             totalLatency.getAndAdd(ter.getLatencyNanos());
+            latencyItems.getAndIncrement();
+        } else {
+            System.out.printf("Negative or zero value %d not added to latency\n", ter.getLatencyNanos());
+        }
         return txnId;
     }
 
@@ -190,5 +236,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
         rejectedForFraudCounter = hazelcast.getPNCounter(Constants.PN_COUNT_REJ_FRAUD);
         rejectedForCreditCounter = hazelcast.getPNCounter(Constants.PN_COUNT_REJ_CREDIT);
         totalLatency = hazelcast.getPNCounter(Constants.PN_COUNT_TOTAL_LATENCY);
+        latencyItems = hazelcast.getPNCounter(Constants.PN_COUNT_LATENCY_ITEMS);
+        this.statusMap = this.hazelcast.getMap(Constants.MAP_EXECUTOR_STATUS);
     }
 }

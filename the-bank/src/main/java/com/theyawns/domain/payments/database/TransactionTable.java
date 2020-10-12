@@ -136,14 +136,14 @@ public class TransactionTable extends AbstractTable
                 offset += numberOfEntries;
                 log.info("Finished pass " + passesThroughTransactionFile + " through transaction file, offset now " + offset);
 
-            } else {
-                if (passesThroughTransactionFile > 0) {
-                    if (txnNum == 0 || txnNum == 1) {
-                        log.info("Pass " + passesThroughTransactionFile + 1 + " id " + txnNum + " adjusted to " + ( txnNum - offset) + " for database read");
-                    }
-                    txnNum -= offset;
-                    id = txnFormat.format(txnNum);
-                }
+            }
+
+            if (passesThroughTransactionFile > 0) {
+//                if (txnNum == 0 || txnNum == 1) {
+//                    log.info("Pass " + passesThroughTransactionFile + 1 + " id " + txnNum + " adjusted to " + ( txnNum - offset) + " for database read");
+//                }
+                txnNum -= offset;
+                id = txnFormat.format(txnNum);
             }
 
             if (selectStatement == null) {

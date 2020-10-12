@@ -1,10 +1,13 @@
 package com.theyawns.launcher;
 
 import com.hazelcast.client.HazelcastClient;
+import com.hazelcast.client.HazelcastClientNotActiveException;
 import com.hazelcast.client.config.ClientConfig;
 import com.hazelcast.cluster.Member;
+import com.hazelcast.collection.IQueue;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IExecutorService;
+import com.hazelcast.crdt.pncounter.PNCounter;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
 import com.hazelcast.map.IMap;
@@ -22,6 +25,7 @@ import com.theyawns.domain.payments.database.AccountTable;
 import com.theyawns.domain.payments.database.LazyPreAuthLoader;
 import com.theyawns.domain.payments.database.MerchantTable;
 import com.theyawns.executors.AggregationExecutor;
+import com.theyawns.executors.ExecutorStatusMapKey;
 import com.theyawns.executors.RuleSetExecutor;
 import com.theyawns.listeners.PreauthMapListener;
 import com.theyawns.perfmon.PerfMonitor;
@@ -31,7 +35,9 @@ import com.theyawns.rulesets.MerchantRuleSet;
 import com.theyawns.util.EnvironmentSetup;
 
 import java.io.Serializable;
+import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -47,7 +53,6 @@ public class Launcher {
     protected HazelcastInstance hazelcast;
     protected IExecutorService distributedES;
     protected ExecutorService localES;
-    //protected CompletionService<Exception> completionService ;
     private final static ILogger log = Logger.getLogger(Launcher.class);
     private static RunMode runMode = RunMode.Demo;
     private static CloudPlatform cloudPlatform = CloudPlatform.None;
@@ -66,14 +71,18 @@ public class Launcher {
 
     private List<Future<Exception>> executorFutures = new ArrayList<>();
 
+    private static Date runStarted;
+    private static boolean verbose = false;
+
     protected void init() {
     	new EnvironmentSetup();
+    	// ClientConfig is now built in CloudConfigUtil
         //ClientConfig cc = new XmlClientConfigBuilder().build();
 
-        // TODO: should introduce a command line arg to override this
+        // Default config to use if no command line argument is passed
         String configname = "local";
 
-        // Note that parseArgs called before init so cloudPlatform should be correctly set
+        // Note that parseArgs is called before init so cloudPlatform should be correctly set
         switch (cloudPlatform) {
             case None:                  configname = "local"; break;
             case HZC_Starter:           configname = "cloud-starter"; break;
@@ -102,7 +111,6 @@ public class Launcher {
             if (envDiscoveryToken != null)
                 cloudConfig.setDiscoveryToken(envDiscoveryToken);
             String envUrlBase = System.getProperty("hz.ce.urlbase");
-            System.out.println("urlBase " + envUrlBase);
             if (envUrlBase != null)
                 cloudConfig.setUrlBase(envUrlBase);
         }
@@ -119,14 +127,40 @@ public class Launcher {
         cc.setInstanceName("Launcher");
 
         hazelcast = HazelcastClient.newHazelcastClient(cc);
-        log.info("Getting distributed executor service");
+        //log.info("Getting distributed executor service");
         distributedES = hazelcast.getExecutorService("executor");
-        //completionService = new ExecutorCompletionService<>(distributedES);
         localES = Executors.newFixedThreadPool(1);
 
         // If grafana host set by command line, override EnvironmentSetups default to localhost
         if (granfanaHost != null)
             System.setProperty("GRAFANA", granfanaHost);
+
+        // Clear any data that might be left in the cluster from previous runs
+        IMap resultMap = hazelcast.getMap(Constants.MAP_PPFD_RESULTS);
+        resultMap.clear();
+        IMap preAuthMap = hazelcast.getMap(Constants.MAP_PREAUTH);
+        preAuthMap.clear();
+        IMap approvedMap = hazelcast.getMap(Constants.MAP_APPROVED);
+        approvedMap.clear();
+        IMap rejectedForFraudMap = hazelcast.getMap(Constants.MAP_REJECTED_FRAUD);
+        rejectedForFraudMap.clear();
+        IMap rejectedForCreditMap = hazelcast.getMap(Constants.MAP_REJECTED_CREDIT);
+        rejectedForCreditMap.clear();
+        IQueue completedTransactionIDs = hazelcast.getQueue(Constants.QUEUE_COMPLETIONS);
+        completedTransactionIDs.clear();
+        // reset doesn't clear, would have to get and then subtract if non-zero.
+        PNCounter approvalCounter = hazelcast.getPNCounter(Constants.PN_COUNT_APPROVED);
+        long val = approvalCounter.get();
+        if (val > 0) approvalCounter.getAndSubtract(val);
+        PNCounter rejectedForFraudCounter = hazelcast.getPNCounter(Constants.PN_COUNT_REJ_FRAUD);
+        val = rejectedForFraudCounter.get();
+        if (val > 0) rejectedForFraudCounter.getAndSubtract(val);
+        PNCounter rejectedForCreditCounter = hazelcast.getPNCounter(Constants.PN_COUNT_REJ_CREDIT);
+        val = rejectedForCreditCounter.get();
+        if (val > 0) rejectedForCreditCounter.getAndSubtract(val);
+        PNCounter totalLatency = hazelcast.getPNCounter(Constants.PN_COUNT_TOTAL_LATENCY);
+        val = totalLatency.get();
+        if (val > 0) totalLatency.getAndSubtract(val);
 
         log.info("init() complete");
     }
@@ -147,7 +181,7 @@ public class Launcher {
 
     private /*static*/ class AdjustMerchantAvgTask implements Runnable, Serializable {
         public void run() {
-            //System.out.println("AdjustMerchangeAvgTask Runnable has been started");
+            //System.out.println("AdjustMerchantAvgTask Runnable has been started");
             AdjustMerchantTransactionAverage amta = new AdjustMerchantTransactionAverage();
             amta.setHazelcastInstance(hazelcast);
             amta.setJetClusterIsExternal(externalJet);
@@ -164,7 +198,8 @@ public class Launcher {
 
     public static void main(String[] args) {
         System.out.println("________________________");
-        System.out.println("Start: " + new java.util.Date());
+        runStarted = new java.util.Date();
+        System.out.println("Start: " + runStarted);
         System.out.println("________________________");
 
         parseArgs(args);
@@ -172,6 +207,7 @@ public class Launcher {
         Launcher main = new Launcher();
         main.init();
 
+        // Should probably remove this code entirely, it is broken
         if (BankInABoxProperties.COLLECT_LATENCY_STATS || BankInABoxProperties.COLLECT_TPS_STATS) {
             ExecutorService executor = Executors.newCachedThreadPool();
             System.out.println("Launcher initiating PerfMonitor via non-HZ executor service");
@@ -181,8 +217,7 @@ public class Launcher {
         ///////////////////////////////////////
         // Start up the various Jet pipelines
         ///////////////////////////////////////
-        // TODO: not sure there's any advantage to using IMDG executor service here
-        // over plain Java
+
         if (JetSupportedInCloud || cloudPlatform == CloudPlatform.None || externalJet) {
             log.info("Creating AdjustMerchantAvgTask");
             AdjustMerchantAvgTask merchantAvgTask = main.new AdjustMerchantAvgTask();
@@ -196,11 +231,11 @@ public class Launcher {
         }
 
         IScheduledExecutorService dses = main.hazelcast.getScheduledExecutorService("scheduledExecutor");
-        //ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
         System.out.println("________________________");
         System.out.println("RUN MODE " + getRunMode());
         System.out.println("________________________");
-        if (getRunMode() == RunMode.Demo) {
+        // Pump stats to Grafana dashboard even during benchmark -- at least temporarily
+        if (true /*getRunMode() == RunMode.Demo*/) {
             String host = System.getProperty(EnvironmentSetup.GRAFANA);
             // Check for command-line override of GrafanaHost
             if (granfanaHost != null)
@@ -227,35 +262,40 @@ public class Launcher {
 
         RuleSetExecutor locationBasedRuleExecutor = new RuleSetExecutor(Constants.QUEUE_LOCATION,
                 new LocationBasedRuleSet(), Constants.MAP_PPFD_RESULTS);
-        //Set<Member> members = main.hazelcast.getCluster().getMembers();
+        locationBasedRuleExecutor.setVerbose(main.verbose);
         try {
             Map<Member,CompletableFuture<Exception>> futures = main.distributedES.submitToAllMembers(locationBasedRuleExecutor);
             main.executorFutures.addAll(futures.values());
         } catch (Throwable t) {
             t.printStackTrace();
         }
-        System.out.println("Submitted RuleSetExecutor for location rules to distributed executor service (all members)");
+        if (main.verbose)
+            System.out.println("Submitted RuleSetExecutor for location rules to distributed executor service (all members)");
 
         RuleSetExecutor merchantRuleSetExecutor = new RuleSetExecutor(Constants.QUEUE_MERCHANT,
                 new MerchantRuleSet(), Constants.MAP_PPFD_RESULTS);
+        merchantRuleSetExecutor.setVerbose(main.verbose);
         try {
             Map<Member,CompletableFuture<Exception>> futures = main.distributedES.submitToAllMembers(merchantRuleSetExecutor);
             main.executorFutures.addAll(futures.values());
         } catch (Throwable t) {
             t.printStackTrace();
         }
-        System.out.println("Submitted RuleSetExecutor for merchant rules to distributed executor service (all members)");
+        if (main.verbose)
+            System.out.println("Submitted RuleSetExecutor for merchant rules to distributed executor service (all members)");
 
-        // TODO: add executors for Credit rules, any others
+        // future: add executors for Credit rules, any others
 
         AggregationExecutor aggregator = new AggregationExecutor();
+        aggregator.setVerbose(main.verbose);
         try {
             Map<Member,Future<Exception>> futures = main.distributedES.submitToAllMembers(aggregator);
             main.executorFutures.addAll(futures.values());
         } catch (Throwable t) {
             t.printStackTrace();
         }
-        System.out.println("Submitted AggregationExecutor to distributed executor service (all members)");
+        if (main.verbose)
+            System.out.println("Submitted AggregationExecutor to distributed executor service (all members)");
 
         long maploaderEagerStart = System.currentTimeMillis();
         log.info("Getting preAuth map [lazy]");
@@ -266,11 +306,16 @@ public class Launcher {
         main.accountMap = main.hazelcast.getMap(Constants.MAP_ACCOUNT);
         //log.info("Maps initialized");
 
+        // Because this is eventually consistent, it may not work for the tracking I'm
+        // attempting to do -- this may get backed out.
+        PNCounter completions = main.hazelcast.getPNCounter(Constants.PN_COUNT_LATENCY_ITEMS);
+        PNCounter loaded = main.hazelcast.getPNCounter(Constants.PN_COUNT_LOADED_TO_PREAUTH);
+
         // All processing is triggered from this listener
         preAuthMap.addEntryListener(new PreauthMapListener(main.hazelcast), true);
 
         if (cloudPlatform != CloudPlatform.None && !MapLoaderSupportedInCloud) {
-            /* This is a lot less efficient than the MapLoader implementation but will only
+            /* This is less efficient than the MapLoader implementation but will only
              * be used for a short time until MapLoader support is available in the cloud
              */
             long start = System.currentTimeMillis();
@@ -313,27 +358,38 @@ public class Launcher {
                 BankInABoxProperties.TRANSACTION_COUNT,
                 BankInABoxProperties.PREAUTH_HIGH_LIMIT,
                 BankInABoxProperties.PREAUTH_CHECK_INTERVAL);
-        //loader.run();
+        loader.setVerbose(verbose);
         Future<Exception> loaderExc = null;
         try {
             // Might change this to always use local, or at least any time the
-            // cluster is physically colocated with the client and (more importantly) database
+            // cluster is physically co-located with the client and (more importantly) database
             if (cloudPlatform == CloudPlatform.None)
                 loaderExc = main.distributedES.submit(loader);
             else {
+                // have not tested access from HZCE to MariaDB, so load
+                // preAuth from a local thread rather than a remote one.
                 loader.setHazelcastInstance(main.hazelcast);
                 loaderExc = main.localES.submit(loader);
             }
         } catch (Throwable t) {
             t.printStackTrace();
         }
+
         //log.info("All transactions loaded to preAuth");
 
         // This has no purpose other than monitoring the backlog during debug
-        System.out.println("Everything has been started, just checking for exceptions from executors");
-        int currentSize = -1;
-        int lastSize = -1;
+        if (verbose)
+            System.out.println("Everything has been started, monitoring executors status");
+        int currentPreAuthSize = 0;
+        long currentCompletions = 0;
+        int lastPreAuthSize = 0;
+        long lastCompletions = 0;
+        long lastLoaded = 0;
+        long currentLoaded = 0;
         int stallCount = 0;
+        boolean loaderFinished = false;
+        int timesPreAuthBelow20 = 0;
+        PNCounter loadedToPreAuth = main.hazelcast.getPNCounter(Constants.PN_COUNT_LOADED_TO_PREAUTH);
         while (true) {
             try {
                 Thread.sleep(30000);
@@ -342,14 +398,24 @@ public class Launcher {
                     Exception e = loaderExc.get(1, TimeUnit.SECONDS);
                     if (e != null) {
                         log.severe("Error in preAuth loader", e);
+                    } else {
+                        // If loader exits with no exception we are in benchmark mode and
+                        // have loader the requested number of transactions.
+                        loaderFinished = true;
                     }
+
                     for (Future<Exception> fe : main.executorFutures) {
                         if (fe.get(1, TimeUnit.SECONDS) != null) {
                             log.severe("Error in executor", e);
                         }
                     }
                 } catch (TimeoutException to) {
-                    System.out.println("Launcher finished exception checking after wakeup");
+                    ; // System.out.println("Launcher finished exception checking after wakeup");
+                } catch (HazelcastClientNotActiveException hcne) {
+                    if (loaderFinished)
+                        ; // have seen this exception (rarely) on a normal shutdown
+                    else
+                        hcne.printStackTrace();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -357,46 +423,143 @@ public class Launcher {
 
             // For visibility to what's going on in cloud - gives us TPS results that
             // otherwise are written to console
-            IMap<String,String> rsExecStatusMap = main.hazelcast.getMap("RuleSetExecutorStatus");
-            for (String key : rsExecStatusMap.keySet()) {
-                System.out.printf("%s %s\n", key, rsExecStatusMap.get(key));
+            if (main.verbose) {
+                IMap<ExecutorStatusMapKey, String> rsExecStatusMap = main.hazelcast.getMap(Constants.MAP_EXECUTOR_STATUS);
+                for (ExecutorStatusMapKey key : rsExecStatusMap.keySet()) {
+                    String status = rsExecStatusMap.get(key);
+                    System.out.printf("[Remote status] %s %s\n", key, status);
+                }
             }
 
-            System.out.println("Transaction backlog (preAuth map size) " + preAuthMap.size());
-            lastSize = currentSize;
-            currentSize = preAuthMap.size();
-            if (currentSize == 0) { // TODO: maybe make this benchmark mode only?
+            System.out.println("Transaction backlog (preAuth map size) " + preAuthMap.size() + ", total loaded " + loadedToPreAuth.get());
+            lastPreAuthSize = currentPreAuthSize;
+            lastCompletions = currentCompletions;
+            lastLoaded = currentLoaded;
+            currentPreAuthSize = preAuthMap.size();
+            currentCompletions = completions.get();
+            currentLoaded = loaded.get();
+
+            // No longer needed, and only useful in a single-node deployment.
+            if (main.verbose) {
+                if (runMode == RunMode.Benchmark) {
+                    long loadedChange = currentLoaded - lastLoaded;
+                    long completionsChange = currentCompletions - lastCompletions;
+                    long preAuthChange = currentPreAuthSize - lastPreAuthSize;
+                    long expectedPreAuthSize = lastPreAuthSize + loadedChange - completionsChange;
+                    if (currentPreAuthSize != expectedPreAuthSize) {
+                        System.out.printf("Expected: old size %d + loaded %d - completed %d = new size %d. ", lastPreAuthSize, loadedChange, completionsChange, expectedPreAuthSize);
+                        System.out.printf("Actual:  %d, difference: %d\n", currentPreAuthSize, expectedPreAuthSize - currentPreAuthSize);
+                    }
+                }
+            }
+
+            // Normally commented out, can use to debug if something is falling behind
+//            IQueue mQueue = main.hazelcast.getQueue(Constants.QUEUE_MERCHANT);
+//            IQueue lQueue = main.hazelcast.getQueue(Constants.QUEUE_LOCATION);
+//            IQueue aQueue = main.hazelcast.getQueue(Constants.QUEUE_COMPLETIONS);
+//            Map ppfdMap = main.hazelcast.getMap(Constants.MAP_PPFD_RESULTS);
+//            System.out.println("Merchant Rules queue size " + mQueue.size());
+//            System.out.println("Location Rules queue size " + lQueue.size());
+//            System.out.println("Intermediate results map size " + ppfdMap.size());
+//            System.out.println("Awaiting aggregation queue size " + aQueue.size());
+//            long latencyNanos = main.hazelcast.getPNCounter(Constants.PN_COUNT_TOTAL_LATENCY).get();
+//            long latencyMillis = latencyNanos / 1_000_000;
+//            long approved = main.hazelcast.getPNCounter(Constants.PN_COUNT_APPROVED).get();
+//            long rejFraud = main.hazelcast.getPNCounter(Constants.PN_COUNT_REJ_FRAUD).get();
+//            long rejCredit = main.hazelcast.getPNCounter(Constants.PN_COUNT_REJ_CREDIT).get();
+//            long completions = approved + rejFraud + rejCredit;
+//            System.out.println("Average latency " + latencyMillis / completions + " ms");
+            // back to regularly scheduled programming
+
+            if (runMode == RunMode.Benchmark && loaderFinished && currentPreAuthSize == 0) {
                 System.out.println("All transactions processed, exiting");
-                System.out.println("________________________");
-                System.out.println("End: " + new java.util.Date());
-                System.out.println("________________________");
+                main.printResults();
+                main.hazelcast.shutdown();
                 System.exit(0);
             }
 
-            // Detect when we've stalled and are making no progress - have seen us hang
-            // with a very small number (<10) of transactions still in preAuth, haven't
-            // found root cause of that yet.  Can also have this at start if executors
-            // are failing, for example stale code gives CCE on serialization
-            if (lastSize == currentSize) {
-                stallCount++;
-                if (stallCount > 3) {
-                    System.out.println("Stalled, forcing exit");
-                    System.out.println("________________________");
-                    System.out.println("End: " + new java.util.Date());
-                    System.out.println("________________________");
-                    System.exit(0);
+            // Odd behavior where preAuth is almost empty but then seems to bounce around
+            // between 1 and 20 items, even though loader has finished so count should
+            // only be decreasing.   Definitely a bug, need to track it down, but for
+            // now just terminate the run.
+            if (runMode == RunMode.Benchmark && loaderFinished && currentPreAuthSize < 20) {
+                if (timesPreAuthBelow20 >= 5) {
+                    System.out.println("Failed to drain preAuth");
+                    main.printResults();
+                    try {
+                        main.hazelcast.shutdown();
+                    } catch (HazelcastClientNotActiveException e) {
+                        ; // ignore
+                    } finally {
+                        System.exit(0);
+                    }
+                } else {
+                    timesPreAuthBelow20++;
                 }
-            } else stallCount = 0;
+            }
         }
+    }
+
+    private void printResults() {
+        System.out.println("________________________");
+        Date runFinished = new java.util.Date();
+        System.out.println("End: " + runFinished);
+        Duration d = Duration.between(runStarted.toInstant(), runFinished.toInstant());
+        String elapsed = String.format("%02d:%02d:%02d.%03d", d.toHoursPart(), d.toMinutesPart(), d.toSecondsPart(), d.toMillisPart());
+        System.out.println("Elapsed: " + elapsed);
+        // Note: No rounding done, should get nanos and increment this if over half a second
+        long elapsedWallSeconds = d.getSeconds();
+        int elapsedWallNanos = d.getNano();
+        if (elapsedWallNanos >= 500_000_000)
+            elapsedWallSeconds++;
+        long elapsedNanos = hazelcast.getPNCounter(Constants.PN_COUNT_TOTAL_LATENCY).get();
+        long elapsedMS = elapsedNanos / 1_000_000;
+        //long elapsedSeconds = elapsedMS / 1000;
+        //System.out.printf("Total elapsed nanos %d millis %d seconds %d\n", elapsedNanos, elapsedMS, elapsedSeconds);
+//        long approved = hazelcast.getPNCounter(Constants.PN_COUNT_APPROVED).get();
+//        long rejFraud = hazelcast.getPNCounter(Constants.PN_COUNT_REJ_FRAUD).get();
+//        long rejCredit = hazelcast.getPNCounter(Constants.PN_COUNT_REJ_CREDIT).get();
+//        //long outcomes = approved + rejFraud + rejCredit; // seems to overcount, same txn may match multiple rejection criteria
+        long completions = hazelcast.getPNCounter(Constants.PN_COUNT_LATENCY_ITEMS).get();
+//        System.out.printf("%d approved + %d rej4fraud + %d rej4credit = %d\n", approved, rejFraud, rejCredit, completions);
+        System.out.printf("Ran for %d seconds, completed %d txns, throughput %d TPS\n", elapsedWallSeconds, completions, completions / elapsedWallSeconds);
+        System.out.printf("Average latency %d ms\n", elapsedMS / completions);
+        System.out.println("________________________");
+
+//        IMap<String, LatencyTracking> latencyMap = hazelcast.getMap(Constants.MAP_LATENCY);
+//        System.out.println("==== DETAILED LATENCY BREAKDOWN =====");
+//        long valueCount = 0;
+//        long waitingForLocationRuleset = 0;
+//        long waitingForMerchantRuleset = 0;
+//        long locationEPExecution = 0;
+//        long merchantEPExecution = 0;
+//        long waitingForAggregator = 0;
+//        long cleaningMaps = 0;
+//        for (LatencyTracking l : latencyMap.values()) {
+//            valueCount++;
+//            waitingForLocationRuleset += l.timeWaitingForTakeByRuleset(LatencyTracking.LOCATION_RULESET_INDEX);
+//            waitingForMerchantRuleset += l.timeWaitingForTakeByRuleset(LatencyTracking.MERCHANT_RULESET_INDEX);
+//            locationEPExecution += l.timeWaitingForEntryProcessor(LatencyTracking.LOCATION_RULESET_INDEX);
+//            merchantEPExecution += l.timeWaitingForEntryProcessor(LatencyTracking.MERCHANT_RULESET_INDEX);
+//            waitingForAggregator += l.timeWaitingOnCompletionQueue();
+//            cleaningMaps += l.timeCleaningUp();
+//        }
+//
+//            System.out.println("Queued for Location Ruleset " + waitingForLocationRuleset / valueCount);
+//            System.out.println("Queued for Merchant Ruleset " + waitingForMerchantRuleset / valueCount);
+//            System.out.println("Executing Location EntryProcessor " + locationEPExecution / valueCount);
+//            System.out.println("Executing Merchant EntryProcessor " + merchantEPExecution / valueCount);
+//            System.out.println("Queued for aggregator " + waitingForAggregator / valueCount);
+//            System.out.println("Cleaning up " + cleaningMaps / valueCount);
     }
 
     private static void parseArgs(String[] args) {
         // First get system properties
         String cloud = System.getProperty("bib.cloud");
-        System.out.println("  first get:" + cloud);
         String runmode = System.getProperty("bib.runmode");
         String jetmode = System.getProperty("bib.jetmode");
         String peered = System.getProperty("bib.peered");
+        String verbose = System.getProperty("bib.verbose");
 
         // Overwrite system properties with command line values if present
         for (String arg : args) {
@@ -410,6 +573,9 @@ public class Launcher {
                 peered = arg.substring(arg.indexOf("=") + 1);
             else if (arg.startsWith("bib.grafana"))
                 granfanaHost = arg.substring(arg.indexOf("=") + 1);
+            else if (arg.startsWith("bib.verbose"))
+                verbose = arg.substring(arg.indexOf("=") + 1);
+
             else if (arg.contains("usage") || arg.contains("help"))
                 usage();
         }
@@ -455,6 +621,17 @@ public class Launcher {
                 usage();
             }
         }
+        // Set default based on runmode, then override if specified via arg
+        if (runMode == RunMode.Benchmark)
+            Launcher.verbose = false;
+        else
+            Launcher.verbose = true;
+        if (verbose != null) {
+            if (verbose.equalsIgnoreCase("true"))
+                Launcher.verbose = true;
+            else if (verbose.equalsIgnoreCase("false"))
+                Launcher.verbose = false;
+        }
 
         // Debugging output
         log.info("After parsing system properties and command line arguments:");
@@ -463,6 +640,7 @@ public class Launcher {
         log.info("bib.peered " + Launcher.peered);
         log.info("bib.jetMode client/server? " + externalJet);
         log.info("bib.grafana " + granfanaHost);
+        log.info("bib.verbose " + verbose);
 
     }
 

@@ -20,7 +20,7 @@
                 <service-port>${hz.service.port}</service-port>
             </kubernetes>
         </join>
-	<rest-api enabled="true">
+	    <rest-api enabled="true">
             <endpoint-group name="HEALTH_CHECK" enabled="true"/>
         </rest-api>
     </network>

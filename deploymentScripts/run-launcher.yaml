@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - image: "$(REGISTRY)/$(NAMESPACE)/launcher:latest"
-          imagePullPolicy: Always
+          imagePullPolicy: $(IPP)
           name: container-launcher
       restartPolicy: Never
 ---

@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - image: "$(REGISTRY)/$(NAMESPACE)/jet:latest"
-          imagePullPolicy: Always
+          imagePullPolicy: $(IPP)
           livenessProbe:
             httpGet:
               path: /hazelcast/health/node-state

@@ -21,14 +21,19 @@
 	<build>
 		<resources>
 			<resource>
+				<!-- bankinabox-dashboard -->
+				<directory>../grafana</directory>
+			</resource>
+			<resource>
+				<!-- Jet.json, which we don't really use so may drop in the future -->
 				<directory>src/main/resources</directory>
 			</resource>
 		</resources>
 
 		<plugins>
-                        <plugin>
-                                <groupId>com.spotify</groupId>
-                                <artifactId>dockerfile-maven-plugin</artifactId>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

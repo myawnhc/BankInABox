@@ -20,13 +20,21 @@ public class Constants {
 
     public static final String QUEUE_COMPLETIONS   = "resultsCompleteQ";
 
+    // Added these for debugging purposes but keeping them as they can be
+    // generally useful
+    public static final String MAP_EXECUTOR_STATUS = "ruleSetExecutorStatus";
+    // this is broken down for each processing step, vs. end-to-end in PNCounters
+    public static final String MAP_LATENCY = "latencyMap";
+
     public static final String PN_COUNT_WALMART    = "pnCounterWalmart";
     public static final String PN_COUNT_AMAZON     = "pnCounterAmazon";
     public static final String PN_COUNT_APPROVED   = "pnCounterApproved";
     public static final String PN_COUNT_REJ_FRAUD  = "pnCounterRejectedForFraud";
     public static final String PN_COUNT_REJ_CREDIT = "pnCounterRejectedForCredit";
+    public static final String PN_COUNT_LOADED_TO_PREAUTH = "pnCounterLoadedToPreAuth";
 
     public static final String PN_COUNT_TOTAL_LATENCY = "pnCounterTotalLatency"; // in nanoseconds
+    public static final String PN_COUNT_LATENCY_ITEMS = "pnCounterLatencyItems"; // divisor for above
     // may also add bucketed counters to do a histogram view of latency, bucket cutoffs should be configurable
     //     thinking initial setup might be <=10ms, <=25ms, <=50ms, <=100ms, >100ms
 

@@ -12,12 +12,6 @@ NAMESPACE="bankinabox"
 
 for FILE in ../deploy-*.yaml
 do
-  # Skip IMDG
-  if [ $FILE == "deploy-imdg.yaml" ]
-    then echo Skipping IMDG for Cloud Enterprise deployment
-    continue
-  fi
-
   echo $FILE
   cat $FILE | \
   sed 's/\$(REGISTRY)'"/${REGISTRY}/g" | \
