@@ -298,11 +298,14 @@ public class Launcher {
             System.out.println("Submitted AggregationExecutor to distributed executor service (all members)");
 
         long maploaderEagerStart = System.currentTimeMillis();
-        log.info("Getting preAuth map [lazy]");
+        if (verbose)
+            log.info("Getting preAuth map [lazy]");
         IMap<String, Transaction> preAuthMap = main.hazelcast.getMap(Constants.MAP_PREAUTH);
-        log.info("Getting merchant map");
+        if (verbose)
+            log.info("Getting merchant map");
         main.merchantMap = main.hazelcast.getMap(Constants.MAP_MERCHANT);
-        log.info("Getting account map");
+        if (verbose)
+            log.info("Getting account map");
         main.accountMap = main.hazelcast.getMap(Constants.MAP_ACCOUNT);
         //log.info("Maps initialized");
 
@@ -319,26 +322,33 @@ public class Launcher {
              * be used for a short time until MapLoader support is available in the cloud
              */
             long start = System.currentTimeMillis();
-            log.info("MapLoader bypass -- Manually load merchants");
+            if (verbose)
+                log.info("MapLoader bypass -- Manually load merchants");
             MerchantTable merchantTable = new MerchantTable();
             List<String> merchantIDs = merchantTable.allKeys();
             Map<String,Merchant> merchantData = merchantTable.loadAll(merchantIDs);
             main.merchantMap.putAll(merchantData);
-            log.info((System.currentTimeMillis() - start)+"ms to load merchants");
+            if (verbose)
+                log.info((System.currentTimeMillis() - start)+"ms to load merchants");
 
             start = System.currentTimeMillis();
-            log.info("MapLoader bypass -- Manually load accounts");
+            if (verbose)
+                log.info("MapLoader bypass -- Manually load accounts");
             AccountTable accountTable = new AccountTable();
             List<String> accountIDs = accountTable.allKeys();
             Map<String,Account> accountData = accountTable.loadAll(accountIDs);
             main.accountMap.putAll(accountData);
-            log.info((System.currentTimeMillis() - start)+"ms to load accounts");
+            if (verbose)
+                log.info((System.currentTimeMillis() - start)+"ms to load accounts");
         } else {
-            log.info("Waiting for pre-loads to complete (Account and Merchant tables)");
+            if (verbose)
+                log.info("Waiting for pre-loads to complete (Account and Merchant tables)");
             while (true) {
                 // Wait until preload of Merchant and Account maps are done before starting load into preAuth
-                log.info(main.merchantMap.size() + " of " + BankInABoxProperties.MERCHANT_COUNT + " merchants"); // Lazy load will hang here
-                log.info(main.accountMap.size() + " of " + BankInABoxProperties.ACCOUNT_COUNT + " accounts");
+                if (verbose) {
+                    log.info(main.merchantMap.size() + " of " + BankInABoxProperties.MERCHANT_COUNT + " merchants"); // Lazy load will hang here
+                    log.info(main.accountMap.size() + " of " + BankInABoxProperties.ACCOUNT_COUNT + " accounts");
+                }
                 if (main.merchantMap.size() >= BankInABoxProperties.MERCHANT_COUNT &&
                         main.accountMap.size() >= BankInABoxProperties.ACCOUNT_COUNT)
                     break;
@@ -503,6 +513,7 @@ public class Launcher {
     }
 
     private void printResults() {
+        // Show this end-of-run summary even when verbose is false
         System.out.println("________________________");
         Date runFinished = new java.util.Date();
         System.out.println("End: " + runFinished);
