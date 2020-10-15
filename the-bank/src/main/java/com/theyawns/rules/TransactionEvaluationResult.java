@@ -105,7 +105,7 @@ public class TransactionEvaluationResult implements Serializable {
         // If > 1 minute, we have a problem
         long secondsWaiting = timeWaiting / 1_000;
         if (secondsWaiting > 60) {
-            String txnId = transaction.getItemID();
+            String txnId = transaction.getTransactionKey().transactionID;
             String haveResultFor = results.get(0).getRuleSetName();
             System.out.printf("Stall: Txn %s has result for %s, been waiting for %d seconds\n",
                     txnId, haveResultFor, secondsWaiting);

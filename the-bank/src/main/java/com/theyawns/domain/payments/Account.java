@@ -21,7 +21,6 @@ public class Account implements /*IdentifiedDataSerializable,*/ Serializable {
     //private Location lastReportedLocation;
     private String lastReportedLocation = "unknown";
 
-
     public Account(String acctNo) {
         this.accountNumber = acctNo;
         status = AccountStatus.CURRENT;

@@ -6,8 +6,6 @@ import com.hazelcast.map.IMap;
 import com.hazelcast.map.listener.EntryAddedListener;
 import com.hazelcast.map.listener.EntryUpdatedListener;
 import com.theyawns.Constants;
-import com.theyawns.launcher.BankInABoxProperties;
-import com.theyawns.perfmon.PerfMonitor;
 import com.theyawns.ruleengine.RuleEvaluationResult;
 
 import java.util.List;
@@ -17,29 +15,26 @@ import java.util.List;
  * Not used in mainline Bank in a Box demo
  * Used by DualLauncher / PerfMonitor experimental code
  */
+@Deprecated
 public class ResultMapMonitor implements Runnable,
-        EntryAddedListener<String, List<RuleEvaluationResult<Transaction, Boolean>>>,
-        EntryUpdatedListener<String, List<RuleEvaluationResult<Transaction, Boolean>>> {
+        EntryAddedListener<TransactionKey, List<RuleEvaluationResult<Transaction, Boolean>>>,
+        EntryUpdatedListener<TransactionKey, List<RuleEvaluationResult<Transaction, Boolean>>> {
         //EntryRemovedListener<String, Transaction> {
 
     private HazelcastInstance hazelcast;
-    private IMap<String,Transaction> preAuthMap;
-    private IMap<String,Transaction> approved;
-    private IMap<String,Transaction> rejected;
-    private IMap<String,List<RuleEvaluationResult<Transaction, Boolean>>> resultMap;
+    private IMap<TransactionKey,Transaction> preAuthMap;
+    private IMap<TransactionKey,Transaction> approved;
+    private IMap<TransactionKey,Transaction> rejected;
+    private IMap<TransactionKey,List<RuleEvaluationResult<Transaction, Boolean>>> resultMap;
 
     public ResultMapMonitor(HazelcastInstance instance) {
         hazelcast = instance;
     }
 
-    public void common(EntryEvent<String, List<RuleEvaluationResult<Transaction, Boolean>>> entryEvent) {
-        String transactionId = entryEvent.getKey();
-        boolean logPerf = BankInABoxProperties.COLLECT_LATENCY_STATS;
-        if (logPerf) {
-            // TODO: should not have hard-coded rule here
-            PerfMonitor.getInstance().endLatencyMeasurement(PerfMonitor.Platform.Jet,
-                    PerfMonitor.Scope.Processing, "CreditLimitRule",transactionId);
-        }
+    public void common(EntryEvent<TransactionKey, List<RuleEvaluationResult<Transaction, Boolean>>> entryEvent) {
+        //String transactionId = entryEvent.getKey();
+        TransactionKey key = entryEvent.getKey();
+
         List<RuleEvaluationResult<Transaction, Boolean>> resultList = entryEvent.getValue();
         // TODO: This cast should always work but still should add an instanceof or change RER member variable type
         TransactionWithRules txn = (TransactionWithRules) resultList.get(0).getItem();
@@ -49,35 +44,26 @@ public class ResultMapMonitor implements Runnable,
             System.out.println("Intermediate result received");
         } else {
             //System.out.println("Final result received");
-            preAuthMap.remove(transactionId);
+            preAuthMap.remove(key);
             // TODO: we really should have an aggregation coming to us, not individual results!
             // TODO: But since we know there's just one rule alive now, treat as if it's an aggregation
             boolean txnOK = resultList.get(0).getEvaluationResult();
             if (txnOK)
-                approved.set(transactionId, txn);
+                approved.set(key, txn);
             else
-                rejected.set(transactionId, txn);
-            //txn.endToEndTime.stop();
-            if (logPerf) {
-                // TODO: should not have hard-coded rule here
-                PerfMonitor.getInstance().endLatencyMeasurement(PerfMonitor.Platform.Jet,
-                        PerfMonitor.Scope.EndToEnd, "CreditLimitRule", txn.getItemID());
-            }
-            if (BankInABoxProperties.COLLECT_TPS_STATS) {
-                PerfMonitor.getInstance().recordTransaction("Jet", txn);
-            }
+                rejected.set(key, txn);
         }
     }
 
 
     @Override
-    public void entryAdded(EntryEvent<String, List<RuleEvaluationResult<Transaction, Boolean>>> entryEvent) {
+    public void entryAdded(EntryEvent<TransactionKey, List<RuleEvaluationResult<Transaction, Boolean>>> entryEvent) {
         //System.out.println("Added " + entryEvent);
         common(entryEvent);
     }
 
     @Override
-    public void entryUpdated(EntryEvent<String, List<RuleEvaluationResult<Transaction, Boolean>>> entryEvent) {
+    public void entryUpdated(EntryEvent<TransactionKey, List<RuleEvaluationResult<Transaction, Boolean>>> entryEvent) {
         //System.out.println("updated " + entryEvent");
         common(entryEvent);
     }

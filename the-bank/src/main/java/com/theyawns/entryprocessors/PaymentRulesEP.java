@@ -3,31 +3,24 @@ package com.theyawns.entryprocessors;
 import com.hazelcast.map.EntryProcessor;
 import com.theyawns.domain.payments.Account;
 import com.theyawns.domain.payments.Transaction;
-import com.theyawns.launcher.BankInABoxProperties;
-import com.theyawns.perfmon.PerfMonitor;
+import com.theyawns.domain.payments.TransactionKey;
 
 import java.io.Serializable;
 import java.util.Map;
 
-import static com.theyawns.perfmon.PerfMonitor.Platform;
-import static com.theyawns.perfmon.PerfMonitor.Scope;
-
-public class PaymentRulesEP implements EntryProcessor<String, Transaction, Boolean>, Serializable {
+@Deprecated // Replaced by Executor
+public class PaymentRulesEP implements EntryProcessor<TransactionKey, Transaction, Boolean>, Serializable {
 
     private Account account;
 
     public void setAccount(Account acct) { this.account = acct; }
 
     @Override
-    public Boolean process(Map.Entry<String, Transaction> entry) {
+    public Boolean process(Map.Entry<TransactionKey, Transaction> entry) {
         Transaction txn = entry.getValue();
         //System.out.println("Processing PaymentRulesEP for " + txn.getID());
 
         // Run a credit limit check
-        if (BankInABoxProperties.COLLECT_LATENCY_STATS) {
-            PerfMonitor.getInstance().beginLatencyMeasurement(Platform.IMDG,
-                    Scope.Processing, "CreditLimitRule", txn.getItemID());
-        }
         CreditLimitCheck clc = new CreditLimitCheck();
         clc.setAccount(account);
         boolean clcOK = clc.process(txn);
@@ -42,10 +35,7 @@ public class PaymentRulesEP implements EntryProcessor<String, Transaction, Boole
 
         //txn.processingTime.stop();
         entry.setValue(txn);  // update the transaction in the map with the result
-        if (BankInABoxProperties.COLLECT_LATENCY_STATS) {
-            PerfMonitor.getInstance().endLatencyMeasurement(Platform.IMDG,
-                    Scope.Processing, "CreditLimitRule", txn.getItemID());
-        }
+
         // Record now does TPS only, so call only at E2E completion
         //PerfMonitor.getInstance().recordTransaction("IMDG", txn);
         return clcOK;

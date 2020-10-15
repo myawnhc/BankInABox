@@ -10,11 +10,15 @@ import com.hazelcast.jet.Jet;
 import com.hazelcast.jet.JetInstance;
 import com.hazelcast.jet.Job;
 import com.hazelcast.jet.config.JetConfig;
-import com.hazelcast.jet.pipeline.*;
+import com.hazelcast.jet.pipeline.JournalInitialPosition;
+import com.hazelcast.jet.pipeline.Pipeline;
+import com.hazelcast.jet.pipeline.ServiceFactories;
+import com.hazelcast.jet.pipeline.ServiceFactory;
+import com.hazelcast.jet.pipeline.Sources;
+import com.hazelcast.jet.pipeline.StreamSource;
+import com.hazelcast.jet.pipeline.StreamStage;
 import com.theyawns.Constants;
 import com.theyawns.IDSFactory;
-import com.theyawns.launcher.BankInABoxProperties;
-import com.theyawns.perfmon.PerfMonitor;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -88,11 +92,6 @@ public abstract class BaseRule implements Serializable {
                     filtered.mapUsingService(getJetServiceFactory(), (JetInstance jet, Transaction t) -> {
                                 // This isn't working, we're starting a copy of the timer
                                 //t.processingTime.start();
-                                // TODO: rule name should not be hard coded here!
-                                if (BankInABoxProperties.COLLECT_LATENCY_STATS) {
-                                    PerfMonitor.getInstance().beginLatencyMeasurement(PerfMonitor.Platform.Jet, PerfMonitor.Scope.Processing,
-                                            "CreditLimitRule", t.getItemID());
-                                }
                                 List<Job> activeJobs = jet.getJobs();
                                 Set<String> rules = new HashSet<>();
                                 for (Job j : activeJobs) {

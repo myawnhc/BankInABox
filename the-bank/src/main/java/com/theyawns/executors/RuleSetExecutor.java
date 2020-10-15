@@ -10,6 +10,7 @@ import com.hazelcast.topic.Message;
 import com.hazelcast.topic.MessageListener;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Transaction;
+import com.theyawns.domain.payments.TransactionKey;
 import com.theyawns.rules.TransactionEvaluationResult;
 import com.theyawns.rulesets.RuleSet;
 import com.theyawns.rulesets.RuleSetEvaluationResult;
@@ -33,8 +34,8 @@ public class RuleSetExecutor<T,R> implements Callable<Exception>, Serializable, 
     private ITopic<T> topic;
     private IQueue<T> input;
     private RuleSet<T,R> ruleSet;
-    private IMap<String, TransactionEvaluationResult> resultMap;
-    private IQueue<String> completedTransactionsQueue;
+    private IMap<TransactionKey, TransactionEvaluationResult> resultMap;
+    private IQueue<TransactionKey> completedTransactionsQueue;
 
     private IMap<ExecutorStatusMapKey,String> statusMap;
     private boolean verbose = true;
@@ -127,7 +128,7 @@ public class RuleSetExecutor<T,R> implements Callable<Exception>, Serializable, 
         return t;
     }
 
-    public static class RSEUpdater implements EntryProcessor<String, TransactionEvaluationResult, Boolean> {
+    public static class RSEUpdater implements EntryProcessor<TransactionKey, TransactionEvaluationResult, Boolean> {
         private Transaction txn;
         private RuleSetEvaluationResult rser;
         public RSEUpdater(Transaction txn, RuleSetEvaluationResult rser) {
@@ -135,7 +136,7 @@ public class RuleSetExecutor<T,R> implements Callable<Exception>, Serializable, 
             this.rser = rser;
         }
         @Override
-        public Boolean process(Map.Entry<String, TransactionEvaluationResult> entry) {
+        public Boolean process(Map.Entry<TransactionKey, TransactionEvaluationResult> entry) {
             TransactionEvaluationResult result = entry.getValue();
             if (result == null) {
                 result = TransactionEvaluationResult.newInstance(txn);
@@ -148,10 +149,11 @@ public class RuleSetExecutor<T,R> implements Callable<Exception>, Serializable, 
 
     private void consumeResult(RuleSetEvaluationResult<T,R> rser) {
         Transaction txn = (Transaction) rser.getItem();
-        String txnID = txn.getItemID();
+        //String txnID = txn.getItemID();
+        TransactionKey key = txn.getTransactionKey();
         RSEUpdater rseu = new RSEUpdater(txn, rser);
         // Transaction will be complete if all rulesets have posted results
-        boolean txnComplete = resultMap.executeOnKey(txnID, rseu);
+        boolean txnComplete = resultMap.executeOnKey(key, rseu);
         // Replaced by EntryProcessor
 //        TransactionEvaluationResult ter = resultMap.get(txn.getItemID());
 //        if (ter == null) {
@@ -163,7 +165,7 @@ public class RuleSetExecutor<T,R> implements Callable<Exception>, Serializable, 
         if (txnComplete) {
             txn.setTimeEnqueuedForAggregator(); // deprecated
             // LT: offer to completions queue
-            completedTransactionsQueue.offer(txnID);
+            completedTransactionsQueue.offer(key);
         }
     }
 

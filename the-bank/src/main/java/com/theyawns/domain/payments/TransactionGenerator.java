@@ -2,20 +2,21 @@ package com.theyawns.domain.payments;
 
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.map.IMap;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
+import com.hazelcast.map.IMap;
+import com.hazelcast.replicatedmap.ReplicatedMap;
 import com.theyawns.Constants;
 import com.theyawns.launcher.BankInABoxProperties;
-import com.theyawns.perfmon.PerfMonitor;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Random;
-import java.util.concurrent.*;
-
-import static com.theyawns.perfmon.PerfMonitor.Platform;
-import static com.theyawns.perfmon.PerfMonitor.Scope;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 @Deprecated // Data is now pre-generated and stored to database
 public class TransactionGenerator {
@@ -25,9 +26,9 @@ public class TransactionGenerator {
     private int txnnum;
 
     private IMap<String,Account> accountMap; // Key = Account ID
-    private IMap<String,Transaction> preAuthMap; // Key = Transaction ID
-    private IMap<String, List<Transaction>> historyMap; // Key = Account ID;
-    private IMap<String, Merchant> merchantMap;
+    private IMap<TransactionKey,Transaction> preAuthMap; // Key = Transaction ID
+//    private IMap<String, List<Transaction>> historyMap; // Key = Account ID;
+    private ReplicatedMap<String, Merchant> merchantMap;
 
     private HazelcastInstance hazelcast;
     private ExecutorService singleThreadExecutor;
@@ -41,7 +42,7 @@ public class TransactionGenerator {
         helper = new TransactionGeneratorHelper(hazelcast);
         accountMap = hz.getMap(Constants.MAP_ACCOUNT);
         preAuthMap = hz.getMap(Constants.MAP_PREAUTH);
-        merchantMap = hz.getMap(Constants.MAP_MERCHANT);
+        merchantMap = hz.getReplicatedMap(Constants.MAP_MERCHANT);
         //executor = hz.getExecutorService("dataLoader");
         singleThreadExecutor = Executors.newSingleThreadExecutor();
         threadPoolExecutor = Executors.newFixedThreadPool(BankInABoxProperties.TRANSACTION_THREADS);
@@ -67,11 +68,11 @@ public class TransactionGenerator {
                 int acctNum = acctRandom.nextInt(BankInABoxProperties.ACCOUNT_COUNT);
                 Account a = accountMap.get(TransactionGeneratorHelper.formatAccountId(acctNum));
                 Transaction t = helper.generateTransactionForAccount(a, txnnum++);
-                if (BankInABoxProperties.COLLECT_LATENCY_STATS) {
-                    PerfMonitor.getInstance().beginLatencyMeasurement(Platform.Either,
-                        Scope.EndToEnd, "CreditLimitRule", t.getItemID());
-                }
-                preAuthMap.set(t.getItemID(), t);
+//                if (BankInABoxProperties.COLLECT_LATENCY_STATS) {
+//                    PerfMonitor.getInstance().beginLatencyMeasurement(Platform.Either,
+//                        Scope.EndToEnd, "CreditLimitRule", t.getItemID());
+//                }
+                preAuthMap.set(t.getTransactionKey(), t);
             }
             log.info("Transaction generator " + generatorID + " finished.");
             return count;

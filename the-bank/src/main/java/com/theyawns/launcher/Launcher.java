@@ -29,7 +29,6 @@ import com.theyawns.domain.payments.ruleengine.FraudDetectionEngine;
 import com.theyawns.executors.AggregationExecutor;
 import com.theyawns.executors.ExecutorStatusMapKey;
 import com.theyawns.listeners.PreauthMapListener;
-import com.theyawns.perfmon.PerfMonitor;
 import com.theyawns.pipelines.AdjustMerchantTransactionAverage;
 import com.theyawns.util.EnvironmentSetup;
 
@@ -65,7 +64,7 @@ public class Launcher {
 
     // Only here for triggering eager cache load
     private ReplicatedMap<String, Merchant> merchantMap;
-    private ReplicatedMap<String, Account> accountMap;
+    private IMap<String, Account> accountMap;
 
     private List<Future<Exception>> executorFutures = new ArrayList<>();
 
@@ -205,13 +204,6 @@ public class Launcher {
         Launcher main = new Launcher();
         main.init();
 
-        // Should probably remove this code entirely, it is broken
-        if (BankInABoxProperties.COLLECT_LATENCY_STATS || BankInABoxProperties.COLLECT_TPS_STATS) {
-            ExecutorService executor = Executors.newCachedThreadPool();
-            System.out.println("Launcher initiating PerfMonitor via non-HZ executor service");
-            executor.submit(PerfMonitor.getInstance());
-        }
-
         ///////////////////////////////////////
         // Start up the various Jet pipelines
         ///////////////////////////////////////
@@ -279,7 +271,7 @@ public class Launcher {
         main.merchantMap = main.hazelcast.getReplicatedMap(Constants.MAP_MERCHANT);
         if (verbose)
             log.info("Getting account map");
-        main.accountMap = main.hazelcast.getReplicatedMap(Constants.MAP_ACCOUNT);
+        main.accountMap = main.hazelcast.getMap(Constants.MAP_ACCOUNT);
         //log.info("Maps initialized");
 
         // Because this is eventually consistent, it may not work for the tracking I'm

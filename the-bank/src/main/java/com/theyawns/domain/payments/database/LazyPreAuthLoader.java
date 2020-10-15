@@ -6,6 +6,7 @@ import com.hazelcast.crdt.pncounter.PNCounter;
 import com.hazelcast.map.IMap;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Transaction;
+import com.theyawns.domain.payments.TransactionKey;
 import com.theyawns.launcher.BankInABoxProperties;
 import com.theyawns.launcher.RunMode;
 
@@ -25,7 +26,7 @@ public class LazyPreAuthLoader implements Callable<Exception>, Serializable, Haz
 
     private HazelcastInstance hazelcast;
     private RunMode runMode;
-    private IMap<String, Transaction> preAuthMap;
+    private IMap<TransactionKey, Transaction> preAuthMap;
     private PNCounter loadedToPreAuth;
     private static final DecimalFormat txnFormat      = new DecimalFormat("00000000000000"); // 14 digit
 
@@ -86,21 +87,16 @@ public class LazyPreAuthLoader implements Callable<Exception>, Serializable, Haz
                 }
                 //System.out.println("Created chunk of " + keys.size() + " keys (" + firstKey + "-" + lastKey + ")");
 
-                Map<String, Transaction> transactions = table.loadAll(keys);
-                //System.out.println("  Loaded " + keys.size() + " keys into Java HashMap resulting in " + transactions.entrySet().size() + " entries");
-                for (String key : keys) {
-                    Transaction t = transactions.get(key);
-                    //System.out.println("loaded " + t);
-                    if (key == null)
-                        System.out.println(" ERROR: Null key");
-                    else if (t == null)
-                        System.out.println(" ERROR: Null entry for key " + key);
+                Map<TransactionKey, Transaction> transactions = table.loadAll(keys);
+               // System.out.println("  Loaded " + keys.size() + " keys into Java HashMap resulting in " + transactions.entrySet().size() + " entries");
 
+                // Obsolete / overwritten by preAuthMapListener
+                //for (Transaction t : transactions.values()) {
                     // TimeEnqueued set by the map listener so in C/S setup we aren't
                     // adding inbound network delay to our reported latency.
-                    //else
-                    t.setTimeEnqueuedForRuleEngine();
-                }
+                    //t.setTimeEnqueuedForRuleEngine();
+                //}
+
                 preAuthMap.putAll(transactions);
                 System.out.print("  " + transactions.size() + " new transactions loaded to IMap, preAuth size now " + preAuthMap.size());
                 if (runMode == RunMode.Benchmark)

@@ -11,17 +11,18 @@ import com.hazelcast.map.listener.EntryAddedListener;
 import com.hazelcast.map.listener.EntryLoadedListener;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Transaction;
+import com.theyawns.domain.payments.TransactionKey;
 import com.theyawns.ruleengine.RuleEngineController;
 
 
 public class PreauthMapListener implements
-        EntryAddedListener<String, Transaction>,
-        EntryLoadedListener<String, Transaction> {
+        EntryAddedListener<TransactionKey, Transaction>,
+        EntryLoadedListener<TransactionKey, Transaction> {
 
     private final static ILogger log = Logger.getLogger(PreauthMapListener.class);
 
     //private HazelcastInstance hazelcast;
-    private IMap<String, Transaction> preAuthMap;
+    private IMap<TransactionKey, Transaction> preAuthMap;
 
     // Queues to pass to RuleExecutors -- TODO: replace these with a single ReliableTopic
     //private ITopic<Transaction> preAuthTopic;
@@ -60,19 +61,19 @@ public class PreauthMapListener implements
     }
 
     @Override
-    public void entryLoaded(EntryEvent<String, Transaction> entryEvent) {
+    public void entryLoaded(EntryEvent<TransactionKey, Transaction> entryEvent) {
         entryAdded(entryEvent);
     }
 
     @Override
-    public void entryAdded(EntryEvent<String, Transaction> entryEvent) {
+    public void entryAdded(EntryEvent<TransactionKey, Transaction> entryEvent) {
 
         // In the future, we might split queues to better distribute the workload; so
         // we call a function to return the appropriate queue.  In this version of the
         // demo we'll always get the same queue for each set of rules, but we could
         // easily scale this up by using round-robin, modulo the transaction id, or
         // some other scheme
-
+        TransactionKey txnKey = entryEvent.getKey();
         //log.finest("entryAdded key " + entryEvent.getKey() + " value " + entryEvent.getValue());
         Transaction txn = entryEvent.getValue();
         // TODO: add average transaction volume to merchants, use to scale
@@ -90,8 +91,8 @@ public class PreauthMapListener implements
             else if (merchantNum >= 10 && merchantNum <= 20)
                 merchant_txn_count_walmart.getAndIncrement();
 
-        String key = txn.getItemID();
-        if (key == null) return;
+//        String key = txn.getItemID();
+//        if (key == null) return;
 
 
         /* Ideally, the RuleEngineController could forward the transaction to
@@ -107,7 +108,7 @@ public class PreauthMapListener implements
         // This is a better representation of 'time queued' than having preAuthLoader set the
         // time in a batch of 10K items all pushed at once using putMany!
         txn.setTimeEnqueuedForRuleEngine(); // sets to now
-        preAuthMap.set(txn.getItemID(), txn); // rewrite the transaction so that the ruleset field is set in the map
+        preAuthMap.set(txnKey, txn); // rewrite the transaction so that the ruleset field is set in the map
 
         // see comment block above
         getLocationRulesQueue(txn).add(txn);

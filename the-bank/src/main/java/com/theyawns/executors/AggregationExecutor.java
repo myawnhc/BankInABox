@@ -10,6 +10,7 @@ import com.hazelcast.map.EntryProcessor;
 import com.hazelcast.map.IMap;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Transaction;
+import com.theyawns.domain.payments.TransactionKey;
 import com.theyawns.rules.TransactionEvaluationResult;
 import com.theyawns.rulesets.RuleSetEvaluationResult;
 
@@ -27,12 +28,12 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
 
     private HazelcastInstance hazelcast;
 
-    private IQueue<String> completedTransactionIDs;
-    private IMap<String, TransactionEvaluationResult> resultMap;
-    private IMap<String, Transaction> preAuthMap;
-    private IMap<String, TransactionEvaluationResult> approvedMap;
-    private IMap<String, TransactionEvaluationResult> rejectedForFraudMap;
-    private IMap<String, TransactionEvaluationResult> rejectedForCreditMap;
+    private IQueue<TransactionKey> completedTransactionIDs;
+    private IMap<TransactionKey, TransactionEvaluationResult> resultMap;
+    private IMap<TransactionKey, Transaction> preAuthMap;
+    private IMap<TransactionKey, TransactionEvaluationResult> approvedMap;
+    private IMap<TransactionKey, TransactionEvaluationResult> rejectedForFraudMap;
+    private IMap<TransactionKey, TransactionEvaluationResult> rejectedForCreditMap;
 
     // Counters for Grafana dashboard
     private PNCounter approvalCounter;
@@ -43,15 +44,8 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
 
     private IMap<ExecutorStatusMapKey,String> statusMap;
 
-//    private boolean latencyTracking = false;
-//    private IMap<String, LatencyTracking> latencyMap;
-//    private LatencyTracking latency = null;
-
     private boolean verbose = true;
 
-    //private static boolean accumLatency = false; // will flip to true after warmup period
-
-    // TODO: may need this to be an IMap ... aggregator can move due to node failure
     private Map<String, PNCounter> rejectedByRuleCounters = new HashMap<>();
 
     private long counter = 0;
@@ -74,12 +68,11 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
 
         while (true) {
             try {
-                String txnId = completedTransactionIDs.take();
-                TransactionEvaluationResult ter = resultMap.get(txnId);
+                TransactionKey txnKey = completedTransactionIDs.take();
+                TransactionEvaluationResult ter = resultMap.get(txnKey);
 
                 // TODO: may break processResults into more fine-grained steps
                 CompletableFuture.completedFuture(ter)
-//                        .thenApplyAsync(this::recordCommpletionQueueLatency)
                         .thenApplyAsync(this::processResults)   // update counters and/or maps
                         .thenAcceptAsync(this::cleanupMaps);   // delete txn from preAuth and PPFD Results
 
@@ -117,27 +110,17 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
         }
     }
 
-    private TransactionEvaluationResult recordCommpletionQueueLatency(TransactionEvaluationResult ter) {
-//        if (latencyTracking) {
-//            String txnId = ter.getTransaction().getItemID();
-//            latency = latencyMap.get(txnId);
-//            latency.timeTakenFromCompletionQueue = System.nanoTime();
-//            latencyMap.put(txnId, latency);
-//        }
-        return ter;
-    }
-
-    public static class TxnDeleter implements EntryProcessor<String, Transaction, Void> {
+    public static class TxnDeleter implements EntryProcessor<TransactionKey, Transaction, Void> {
         @Override
-        public Void process(Map.Entry<String, Transaction> entry) {
+        public Void process(Map.Entry<TransactionKey, Transaction> entry) {
             entry.setValue(null);
             return null;
         }
     }
 
-    public static class TERDeleter implements EntryProcessor<String, TransactionEvaluationResult, Void> {
+    public static class TERDeleter implements EntryProcessor<TransactionKey, TransactionEvaluationResult, Void> {
         @Override
-        public Void process(Map.Entry<String, TransactionEvaluationResult> entry) {
+        public Void process(Map.Entry<TransactionKey, TransactionEvaluationResult> entry) {
             entry.setValue(null);
             return null;
         }
@@ -146,7 +129,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
     public static TxnDeleter txnDeleter = new TxnDeleter();
     public static TERDeleter terDeleter = new TERDeleter();
 
-    private void cleanupMaps(String txnId) {
+    private void cleanupMaps(TransactionKey txnId) {
         // In some (CPU limited) environments, the clean up of maps is lagging
         // very far behind ... see if submitting via EP improves this
         preAuthMap.executeOnKey(txnId, txnDeleter);
@@ -155,10 +138,11 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
 //        resultMap.delete(txnId);
     }
 
-    private String processResults(TransactionEvaluationResult ter) {
+    private TransactionKey processResults(TransactionEvaluationResult ter) {
         boolean rejected = false;
         List<RuleSetEvaluationResult<Transaction,?>> results = ter.getResults();
-        String txnId = ter.getTransaction().getItemID();
+        //String txnId = ter.getTransaction().getItemID();
+        TransactionKey key = ter.getTransaction().getTransactionKey();
 
         // Loop over results (even though at this stage we'll only have one)
         // Any reject will break us out of the loop, if we process all without a reject, then we approve.
@@ -172,7 +156,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
                     rejectedForFraudCounter.getAndIncrement();
                     incrementRejectCountForRule(rser);
                     // This map now has eviction to allow long-running demo
-                    rejectedForFraudMap.set(txnId, ter);
+                    rejectedForFraudMap.set(key, ter);
                     break; // no need to check other results
                 case RejectedForCredit:
                     rejected = true;
@@ -182,7 +166,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
                     rejectedForCreditCounter.getAndIncrement();
                     incrementRejectCountForRule(rser);
                     // This map now has eviction to allow long-running demo
-                    rejectedForCreditMap.set(txnId, ter);
+                    rejectedForCreditMap.set(key, ter);
                     break; // no need to check other results
                 case Approved:
                     // Because we have multiple rulesets, we can't do the
@@ -196,7 +180,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
         if (!rejected) {
             // This map now has eviction to allow long-running demo
             ter.setStopTime(System.nanoTime());
-            approvedMap.set(txnId, ter);
+            approvedMap.set(key, ter);
             approvalCounter.getAndIncrement();
             //System.out.println("Approved " + txnId);
         }
@@ -210,7 +194,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
         } else {
             System.out.printf("Negative or zero value %d not added to latency\n", ter.getLatencyNanos());
         }
-        return txnId;
+        return key;
     }
 
     private void incrementRejectCountForRule(RuleSetEvaluationResult rser) {

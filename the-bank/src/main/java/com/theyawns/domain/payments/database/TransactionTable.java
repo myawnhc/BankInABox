@@ -1,9 +1,10 @@
 package com.theyawns.domain.payments.database;
 
-import com.hazelcast.map.MapLoader;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
-import com.theyawns.domain.payments.*;
+import com.theyawns.domain.payments.Merchant;
+import com.theyawns.domain.payments.Transaction;
+import com.theyawns.domain.payments.TransactionKey;
 import com.theyawns.launcher.BankInABoxProperties;
 
 import java.sql.PreparedStatement;
@@ -11,10 +12,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DecimalFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
+// No longer a legal MapLoader implementation, as our SQL key type
+// (String) doesn't match our IMap key type (TransactionKey), forcing us to
+// change method signatures in ways incompatible with MapLoader
 public class TransactionTable extends AbstractTable
-                           implements MapLoader<String, Transaction> {
+                          // implements MapLoader<String, Transaction>
+{
 
     private final static ILogger log = Logger.getLogger(TransactionTable.class);
 
@@ -62,9 +72,11 @@ public class TransactionTable extends AbstractTable
         Random merchantRandom = new Random(456);
         MerchantTable mTable = new MerchantTable();
         for (int i = 0; i < count; i++) {
-            Transaction t = new Transaction(txnFormat.format(i));
             int acctNum = acctRandom.nextInt(BankInABoxProperties.ACCOUNT_COUNT);
             String acctId = accountFormat.format(acctNum);
+            String txnID = txnFormat.format(i);
+            //TransactionKey key = new TransactionKey(txnID, acctId);
+            Transaction t = new Transaction(txnID, acctId);
             int merchantNum = merchantRandom.nextInt(BankInABoxProperties.MERCHANT_COUNT);
             String merchantId = merchantFormat.format(merchantNum);
             t.setAccountNumber(acctId);
@@ -135,13 +147,9 @@ public class TransactionTable extends AbstractTable
                 passesThroughTransactionFile++;
                 offset += numberOfEntries;
                 log.info("Finished pass " + passesThroughTransactionFile + " through transaction file, offset now " + offset);
-
             }
 
             if (passesThroughTransactionFile > 0) {
-//                if (txnNum == 0 || txnNum == 1) {
-//                    log.info("Pass " + passesThroughTransactionFile + 1 + " id " + txnNum + " adjusted to " + ( txnNum - offset) + " for database read");
-//                }
                 txnNum -= offset;
                 id = txnFormat.format(txnNum);
             }
@@ -162,16 +170,14 @@ public class TransactionTable extends AbstractTable
                 // rewind and reuse the dataset multiple times if the demo is long-running.
                 t.setItemID(originalId);
                 t.setAccountNumber(rs.getString(ACCT_NUMBER));
+                t.setTransactionKey(new TransactionKey(originalId, t.getAccountNumber()));
                 t.setMerchantId(rs.getString(MERCHANT_ID));
                 t.setAmount(rs.getDouble(AMOUNT));
                 t.setLocation(rs.getString(LOCATION));
             } else {
                 log.warning("TransactionTable.readFromDatabase: no entry for key " + id);
             }
-//            if (txnNum >= 499995 && txnNum <= 500005) {
-//                log.info("TransactionTable.read " + txnNum + ": " + t);
-//            }
-            //log.finest("TransactionTable.readFromDatabase: " + t);
+
             return t;
         } catch (SQLException e) {
             log.severe("Error in " + selectStatement.toString() + " --> " + e.getMessage());
@@ -204,25 +210,27 @@ public class TransactionTable extends AbstractTable
 
     // MapLoader interface
 
-    @Override
-    public synchronized Transaction load(String s) {
-        //log.info("TransactionTable.load " + s);
+    //@Override
+    public synchronized Transaction load(String key) {
+        //log.info("TransactionTable.load " + key);
         if (conn == null)
             establishConnection();
-        return readFromDatabase(s);
+        //String txnID = key.transactionID;
+        return readFromDatabase(key);
     }
 
-    @Override
-    public synchronized Map<String, Transaction> loadAll(Collection<String> collection) {
+    //@Override
+    public synchronized Map<TransactionKey, Transaction> loadAll(Collection<String> collection) {
         //log.info("TransactionTable.loadAll() with " + collection.size() + " keys");
         if (conn == null)
             establishConnection();
-        Map<String,Transaction> results = new HashMap<>(collection.size());
+        Map<TransactionKey,Transaction> results = new HashMap<>(collection.size());
         // NOTE: parallelStream here leads to SQLException in read database, so drop back here until we
         // can make that threadsafe. (Trying to use shared PreparedStatement with different parameters)
-        collection.stream().forEach((String key) -> {
-            Transaction t = load(key);
-            results.put(key, t);
+        collection.stream().forEach((String txnid) -> {
+            Transaction t = load(txnid);
+            String acct = t.getAccountNumber();
+            results.put(new TransactionKey(txnid, acct), t);
         });
         if (results.size() != collection.size()) {
             log.warning(("TransactionTable loadAll: " + collection.size() + " items requested but only " + results.size() + " were found."));
@@ -230,7 +238,7 @@ public class TransactionTable extends AbstractTable
         return results;
     }
 
-    @Override
+    //@Override
     public synchronized Iterable<String> loadAllKeys() {
         log.info("TransactionTable.loadAllKeys()");
         if (conn == null)

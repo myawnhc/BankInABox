@@ -1,21 +1,24 @@
 package com.theyawns.entryprocessors;
 
 //import com.hazelcast.map.EntryBackupProcessor;
+
 import com.hazelcast.map.EntryProcessor;
 import com.theyawns.domain.payments.Merchant;
 import com.theyawns.domain.payments.Transaction;
+import com.theyawns.domain.payments.TransactionKey;
 
 import java.io.Serializable;
 import java.util.Map;
 
-public class FraudRulesEP implements EntryProcessor<String, Transaction, Integer>, Serializable {
+@Deprecated // replaced by RulesetExecutor
+public class FraudRulesEP implements EntryProcessor<TransactionKey, Transaction, Integer>, Serializable {
 
     private Merchant merchant;
 
     public void setMerchant(Merchant m) { this.merchant = m; }
 
     @Override
-    public Integer process(Map.Entry<String, Transaction> entry) {
+    public Integer process(Map.Entry<TransactionKey, Transaction> entry) {
         //System.out.println("Processing FraudRulesEP");
         if (merchant == null) {
             throw new IllegalStateException("Merchant must be set prior to invoking EntryProcessor");

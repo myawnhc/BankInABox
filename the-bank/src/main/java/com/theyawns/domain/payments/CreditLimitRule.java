@@ -1,13 +1,16 @@
 package com.theyawns.domain.payments;
 
 import com.hazelcast.client.config.ClientConfig;
-import com.hazelcast.jet.pipeline.*;
-import com.hazelcast.map.IMap;
 import com.hazelcast.jet.Jet;
+import com.hazelcast.jet.pipeline.Pipeline;
+import com.hazelcast.jet.pipeline.ServiceFactories;
+import com.hazelcast.jet.pipeline.ServiceFactory;
+import com.hazelcast.jet.pipeline.Sinks;
+import com.hazelcast.jet.pipeline.StreamStage;
+import com.hazelcast.map.IMap;
 import com.theyawns.Constants;
 import com.theyawns.IDSFactory;
 import com.theyawns.launcher.BankInABoxProperties;
-import com.theyawns.perfmon.PerfMonitor;
 import com.theyawns.ruleengine.RuleEvaluationResult;
 
 import java.io.Serializable;
@@ -99,18 +102,7 @@ public class CreditLimitRule extends BaseRule implements Serializable {
                         o.addAll(n);
                         // following lines just for performance statistics collection
                         Transaction t = (Transaction) o.get(0).getItem();
-                        //t.processingTime.stop();
-                        if (logPerf) {
-                            //System.out.println(">>> CreditLimitRule call end Jet Processing from drainTo");
-                            PerfMonitor.getInstance().endLatencyMeasurement(PerfMonitor.Platform.Jet,
-                                    PerfMonitor.Scope.Processing, "CreditLimitRule", t.getItemID());
-                            //PerfMonitor.getInstance().recordTransaction("Jet", t);
-                            //System.out.println("<<< CreditLimitRule call end Jet Processing from drainTo");
-                        } else {
-                            //System.out.println("CreditLimitRule omitted call to end Jet Processing due to hang");
-                        }
-                        // end perf collection
-                        return o;
+                      return o;
                     })).setName("Drain to IMDG results map");
 
 //            result.drainTo(Sinks.logger((rer) -> {

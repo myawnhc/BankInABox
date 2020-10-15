@@ -11,8 +11,9 @@ import java.io.Serializable;
 public class Transaction implements /*IdentifiedDataSerializable,*/ Serializable, HasID {
 
     private String transactionId;
-    private String acctNumber;      // TODO: this won't be part of object eventually - txn id keys
+    private String acctNumber;
     private String merchantId;
+    private TransactionKey transactionKey;
 
     //private long timestamp;
     private Double amount = 0.0;
@@ -34,8 +35,10 @@ public class Transaction implements /*IdentifiedDataSerializable,*/ Serializable
         //timestamp = System.currentTimeMillis();
     }
 
-    public Transaction(String txnId) {
+    public Transaction(String txnId, String acctNo) {
         this.transactionId = txnId;
+        this.acctNumber = acctNo;
+        this.transactionKey = new TransactionKey(transactionId, acctNo);
     }
 
     @Deprecated
@@ -56,6 +59,16 @@ public class Transaction implements /*IdentifiedDataSerializable,*/ Serializable
         return transactionId;
     }
     public void setItemID(String id) { transactionId = id; }
+
+    public TransactionKey getTransactionKey() {
+        return transactionKey;
+    }
+
+    public void setTransactionKey(TransactionKey key) {
+        this.transactionKey = key;
+        this.transactionId = key.transactionID;
+        this.acctNumber = key.accountID;
+    }
 
     public void setAccountNumber(String acct) { this.acctNumber = acct; }
     public String getAccountNumber() {
@@ -141,6 +154,7 @@ public class Transaction implements /*IdentifiedDataSerializable,*/ Serializable
     public void readData(ObjectDataInput objectDataInput) throws IOException {
         transactionId = objectDataInput.readUTF();
         acctNumber = objectDataInput.readUTF();
+        transactionKey = new TransactionKey(transactionId, acctNumber);
         merchantId = objectDataInput.readUTF();
         amount = objectDataInput.readDouble();
         location = objectDataInput.readUTF();

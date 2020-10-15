@@ -8,6 +8,7 @@ import com.theyawns.Constants;
 import com.theyawns.domain.payments.CreditLimitRule;
 import com.theyawns.domain.payments.ResultMapMonitor;
 import com.theyawns.domain.payments.Transaction;
+import com.theyawns.domain.payments.TransactionKey;
 import com.theyawns.listeners.TransactionMapListener;
 import com.theyawns.perfmon.PerfMonitor;
 
@@ -33,7 +34,7 @@ public class DualLauncher {
     private static class CreditLimitRuleTask implements Runnable, Serializable {
         public void run() {
             Thread.currentThread().setName("Jet-CreditLimitRuleTask");
-            PredicateEx<Transaction> filter = (PredicateEx<Transaction>) transaction -> isOdd(transaction.getItemID());
+            PredicateEx<Transaction> filter = (PredicateEx<Transaction>) transaction -> isOdd(transaction.getTransactionKey().transactionID);
 
             CreditLimitRule creditLimitRule = new CreditLimitRule();
             creditLimitRule.setFilter(filter);
@@ -67,12 +68,12 @@ public class DualLauncher {
 
         // This runs the EntryProcessor version of the rule.   Not getting any hits.
         // Are we getting the map from the 'wrong' instance? (Internal vs. external?)
-        IMap<String, Transaction> preAuthMap = main.hazelcast.getMap(Constants.MAP_PREAUTH);
+        IMap<TransactionKey, Transaction> preAuthMap = main.hazelcast.getMap(Constants.MAP_PREAUTH);
         System.out.println("initial PreAuth size " + preAuthMap.size());
 
         // Run entry listener only on even number transactions
         preAuthMap.addEntryListener(new TransactionMapListener(main.hazelcast),
-                entry -> (isEven(entry.getValue().getItemID())), true);
+                entry -> (isEven(entry.getValue().getTransactionKey().transactionID)), true);
 
         // Start performance monitoring.  Just based on laptop performance 'feel', seems this
         // is fairly intrusive and probably should not be on by default.
