@@ -2,8 +2,6 @@ package com.theyawns.rulesets;
 
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.HazelcastInstanceAware;
-import com.hazelcast.map.IMap;
-import com.theyawns.Constants;
 import com.theyawns.domain.payments.Merchant;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.domain.payments.TransactionFinalStatus;
@@ -86,7 +84,6 @@ public class MerchantRuleSet extends AbstractRuleSet<Transaction,Merchant.RISK> 
     public void setHazelcastInstance(HazelcastInstance hazelcastInstance) {
         //System.out.println("Setting HazelcastInstance for MerchantRuleSet");
         this.hazelcast = hazelcastInstance;
-        //merchantMap = hazelcast.getMap(Constants.MAP_MERCHANT);
         // Some, but not all, rules need HazelcastInstance, they need to be marked acccordingly
         for (Rule r : getRules()) {
             if (r instanceof HazelcastInstanceAware) {

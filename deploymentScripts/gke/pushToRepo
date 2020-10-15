@@ -13,7 +13,7 @@ gcloud container clusters get-credentials bankinabox --zone us-central1-a --proj
 gcloud auth configure-docker
 # kubectl context will now be changed to gke
 
-for BUNDLE in "grafana" "maria" "jet" "launcher" "imdg"
+for BUNDLE in "grafana" "maria" "jet" "launcher" "imdg" "management-center"
 do
     echo $BUNDLE
     docker tag ${NAMESPACE}/$BUNDLE:latest ${REGISTRY}/${NAMESPACE}/$BUNDLE:latest

@@ -1,20 +1,34 @@
 package com.theyawns.pipelines;
 
-import com.hazelcast.client.config.*;
-import com.hazelcast.core.*;
-import com.hazelcast.jet.*;
-import com.hazelcast.jet.aggregate.*;
-import com.hazelcast.jet.config.*;
-import com.hazelcast.jet.datamodel.*;
-import com.hazelcast.jet.pipeline.*;
-import com.hazelcast.logging.*;
-import com.hazelcast.map.*;
-import com.theyawns.*;
-import com.theyawns.domain.payments.*;
-import com.theyawns.util.*;
+import com.hazelcast.client.config.ClientConfig;
+import com.hazelcast.client.config.XmlClientConfigBuilder;
+import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.core.HazelcastInstanceAware;
+import com.hazelcast.jet.Jet;
+import com.hazelcast.jet.JetInstance;
+import com.hazelcast.jet.Job;
+import com.hazelcast.jet.aggregate.AggregateOperations;
+import com.hazelcast.jet.config.JetConfig;
+import com.hazelcast.jet.config.JobConfig;
+import com.hazelcast.jet.datamodel.KeyedWindowResult;
+import com.hazelcast.jet.pipeline.JournalInitialPosition;
+import com.hazelcast.jet.pipeline.Pipeline;
+import com.hazelcast.jet.pipeline.Sinks;
+import com.hazelcast.jet.pipeline.Sources;
+import com.hazelcast.jet.pipeline.StreamSource;
+import com.hazelcast.jet.pipeline.StreamStage;
+import com.hazelcast.jet.pipeline.WindowDefinition;
+import com.hazelcast.logging.ILogger;
+import com.hazelcast.logging.Logger;
+import com.hazelcast.replicatedmap.ReplicatedMap;
+import com.theyawns.Constants;
+import com.theyawns.domain.payments.Merchant;
+import com.theyawns.domain.payments.Transaction;
+import com.theyawns.util.EnvironmentSetup;
 
-import java.io.*;
-import java.util.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Map;
 
 /* Create a Jet client to the Jet cluster. Submit a job to the
  * Jet cluster that has an IMDG client to pull from IMDG cluster.
@@ -141,8 +155,8 @@ public class AdjustMerchantTransactionAverage implements Serializable, Hazelcast
                                     Transaction::getAmount))
                     .setName("Aggregate average transaction amount by merchant");
 
-            final IMap<String, Merchant> merchantMap = imdg.getMap(Constants.MAP_MERCHANT);
-            StreamStage<Merchant> updatedMerchants = merchantAverages.mapUsingIMap(merchantMap,
+            final ReplicatedMap<String, Merchant> merchantMap = imdg.getReplicatedMap(Constants.MAP_MERCHANT);
+            StreamStage<Merchant> updatedMerchants = merchantAverages.mapUsingReplicatedMap(merchantMap,
                     // lookupKeyFn takes KeyedWindowResult from previous stage, returns MerchantID String
                     KeyedWindowResult::getKey,
                     // mapFn takes KeyedWindowResult, Merchant corresponding to key returned by keyFn

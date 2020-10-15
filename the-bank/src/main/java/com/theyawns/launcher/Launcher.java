@@ -11,6 +11,7 @@ import com.hazelcast.crdt.pncounter.PNCounter;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
 import com.hazelcast.map.IMap;
+import com.hazelcast.replicatedmap.ReplicatedMap;
 import com.hazelcast.scheduledexecutor.DuplicateTaskException;
 import com.hazelcast.scheduledexecutor.IScheduledExecutorService;
 import com.theyawns.Constants;
@@ -63,8 +64,8 @@ public class Launcher {
     private static final boolean MapLoaderSupportedInCloud = false;
 
     // Only here for triggering eager cache load
-    private IMap<String, Merchant> merchantMap;
-    private IMap<String, Account> accountMap;
+    private ReplicatedMap<String, Merchant> merchantMap;
+    private ReplicatedMap<String, Account> accountMap;
 
     private List<Future<Exception>> executorFutures = new ArrayList<>();
 
@@ -257,33 +258,6 @@ public class Launcher {
 
         // Rulesets are now defined and managed by the FDE
         FraudDetectionEngine fde = new FraudDetectionEngine(main.hazelcast);
-//        // Setup Executors for RuleSets
-//
-//        RuleSetExecutor locationBasedRuleExecutor = new RuleSetExecutor(Constants.QUEUE_LOCATION,
-//                new LocationBasedRuleSet(), Constants.MAP_PPFD_RESULTS);
-//        locationBasedRuleExecutor.setVerbose(main.verbose);
-//        try {
-//            Map<Member,CompletableFuture<Exception>> futures = main.distributedES.submitToAllMembers(locationBasedRuleExecutor);
-//            main.executorFutures.addAll(futures.values());
-//        } catch (Throwable t) {
-//            t.printStackTrace();
-//        }
-//        if (main.verbose)
-//            System.out.println("Submitted RuleSetExecutor for location rules to distributed executor service (all members)");
-//
-//        RuleSetExecutor merchantRuleSetExecutor = new RuleSetExecutor(Constants.QUEUE_MERCHANT,
-//                new MerchantRuleSet(), Constants.MAP_PPFD_RESULTS);
-//        merchantRuleSetExecutor.setVerbose(main.verbose);
-//        try {
-//            Map<Member,CompletableFuture<Exception>> futures = main.distributedES.submitToAllMembers(merchantRuleSetExecutor);
-//            main.executorFutures.addAll(futures.values());
-//        } catch (Throwable t) {
-//            t.printStackTrace();
-//        }
-//        if (main.verbose)
-//            System.out.println("Submitted RuleSetExecutor for merchant rules to distributed executor service (all members)");
-
-        // future: add executors for Credit rules, any others
 
         AggregationExecutor aggregator = new AggregationExecutor();
         aggregator.setVerbose(main.verbose);
@@ -302,10 +276,10 @@ public class Launcher {
         IMap<String, Transaction> preAuthMap = main.hazelcast.getMap(Constants.MAP_PREAUTH);
         if (verbose)
             log.info("Getting merchant map");
-        main.merchantMap = main.hazelcast.getMap(Constants.MAP_MERCHANT);
+        main.merchantMap = main.hazelcast.getReplicatedMap(Constants.MAP_MERCHANT);
         if (verbose)
             log.info("Getting account map");
-        main.accountMap = main.hazelcast.getMap(Constants.MAP_ACCOUNT);
+        main.accountMap = main.hazelcast.getReplicatedMap(Constants.MAP_ACCOUNT);
         //log.info("Maps initialized");
 
         // Because this is eventually consistent, it may not work for the tracking I'm
@@ -316,7 +290,8 @@ public class Launcher {
         // All processing is triggered from this listener
         preAuthMap.addEntryListener(new PreauthMapListener(main.hazelcast, fde), true);
 
-        if (cloudPlatform != CloudPlatform.None && !MapLoaderSupportedInCloud) {
+        if (true) { // need this behavior for replicated maps
+ //               cloudPlatform != CloudPlatform.None && !MapLoaderSupportedInCloud) {
             /* This is less efficient than the MapLoader implementation but will only
              * be used for a short time until MapLoader support is available in the cloud
              */
@@ -450,20 +425,6 @@ public class Launcher {
             currentPreAuthSize = preAuthMap.size();
             currentCompletions = completions.get();
             currentLoaded = loaded.get();
-
-            // No longer needed, and only useful in a single-node deployment.
-            if (main.verbose) {
-                if (runMode == RunMode.Benchmark) {
-                    long loadedChange = currentLoaded - lastLoaded;
-                    long completionsChange = currentCompletions - lastCompletions;
-                    long preAuthChange = currentPreAuthSize - lastPreAuthSize;
-                    long expectedPreAuthSize = lastPreAuthSize + loadedChange - completionsChange;
-                    if (currentPreAuthSize != expectedPreAuthSize) {
-                        System.out.printf("Expected: old size %d + loaded %d - completed %d = new size %d. ", lastPreAuthSize, loadedChange, completionsChange, expectedPreAuthSize);
-                        System.out.printf("Actual:  %d, difference: %d\n", currentPreAuthSize, expectedPreAuthSize - currentPreAuthSize);
-                    }
-                }
-            }
 
             // Normally commented out, can use to debug if something is falling behind
 //            IQueue mQueue = main.hazelcast.getQueue(Constants.QUEUE_MERCHANT);
@@ -636,7 +597,7 @@ public class Launcher {
         }
         // Set default based on runmode, then override if specified via arg
         if (runMode == RunMode.Benchmark)
-            Launcher.verbose = false;
+            Launcher.verbose = true; // TODO: may revert back
         else
             Launcher.verbose = true;
         if (verbose != null) {

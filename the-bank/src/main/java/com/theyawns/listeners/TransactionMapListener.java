@@ -2,11 +2,12 @@ package com.theyawns.listeners;
 
 import com.hazelcast.core.EntryEvent;
 import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.map.IMap;
 import com.hazelcast.crdt.pncounter.PNCounter;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
+import com.hazelcast.map.IMap;
 import com.hazelcast.map.listener.EntryAddedListener;
+import com.hazelcast.replicatedmap.ReplicatedMap;
 import com.theyawns.domain.payments.Account;
 import com.theyawns.domain.payments.Merchant;
 import com.theyawns.domain.payments.Transaction;
@@ -37,8 +38,8 @@ public class TransactionMapListener implements
 
     //private HazelcastInstance hazelcast;
     private IMap<String, Transaction> preAuthMap;
-    private IMap<String, Account> accountMap;
-    private IMap<String, Merchant> merchantMap;
+    private ReplicatedMap<String, Account> accountMap;
+    private ReplicatedMap<String, Merchant> merchantMap;
     private IMap<String, Transaction> approved;
     private IMap<String, Transaction> rejectedForFraud;
     private IMap<String, Transaction> rejectedForCredit;
@@ -55,8 +56,8 @@ public class TransactionMapListener implements
     public TransactionMapListener(HazelcastInstance instance) {
         //hazelcast = instance;
         preAuthMap = instance.getMap("preAuth");
-        accountMap = instance.getMap("accountMap");
-        merchantMap = instance.getMap("merchantMap");
+        accountMap = instance.getReplicatedMap("accountMap");
+        merchantMap = instance.getReplicatedMap("merchantMap");
         approved = instance.getMap("approved");
         rejectedForFraud = instance.getMap("rejectedForFraud");
         rejectedForCredit = instance.getMap("rejectedForCredit");

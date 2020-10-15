@@ -2,7 +2,7 @@ package com.theyawns.rules;
 
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.HazelcastInstanceAware;
-import com.hazelcast.map.IMap;
+import com.hazelcast.replicatedmap.ReplicatedMap;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Merchant;
 import com.theyawns.domain.payments.Transaction;
@@ -15,7 +15,7 @@ public class TxnAmtWithinMerchantAvgRange extends AbstractRule<Transaction, Merc
     public static final String RULE_NAME = "TxnAmtWithinMerchantAvgRange";
 
     private transient HazelcastInstance hazelcast;
-    private IMap<String, Merchant> merchantMap;
+    private ReplicatedMap<String, Merchant> merchantMap;
 
     public TxnAmtWithinMerchantAvgRange(RuleSet merchantRuleSet) {
         super(RULE_NAME, merchantRuleSet, RuleCategory.FraudRules);
@@ -50,6 +50,6 @@ public class TxnAmtWithinMerchantAvgRange extends AbstractRule<Transaction, Merc
     @Override
     public void setHazelcastInstance(HazelcastInstance hazelcastInstance) {
         this.hazelcast = hazelcastInstance;
-        this.merchantMap = hazelcast.getMap(Constants.MAP_MERCHANT);
+        this.merchantMap = hazelcast.getReplicatedMap(Constants.MAP_MERCHANT);
     }
 }

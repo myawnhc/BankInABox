@@ -54,17 +54,21 @@
         </data-serializable-factories>
     </serialization>
 
-    <map name="merchantMap">
+    <replicatedmap name="merchantMap">
+        <!-- not available for replicated
         <map-store enabled="true" initial-mode="EAGER">
             <class-name>com.theyawns.domain.payments.database.MerchantTable</class-name>
         </map-store>
-    </map>
+        -->
+    </replicatedmap>
 
-    <map name="accountMap">
+    <replicatedmap name="accountMap">
+        <!-- not available for replicated
         <map-store enabled="true" initial-mode="EAGER">
             <class-name>com.theyawns.domain.payments.database.AccountTable</class-name>
         </map-store>
-    </map>
+        -->
+    </replicatedmap>
 
     <map name="ppfdResultMap">
         <eviction eviction-policy="LRU" max-size-policy="PER_NODE" size="25000" />

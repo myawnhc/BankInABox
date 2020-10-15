@@ -11,7 +11,6 @@ import com.hazelcast.map.listener.EntryAddedListener;
 import com.hazelcast.map.listener.EntryLoadedListener;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Transaction;
-import com.theyawns.executors.LatencyTracking;
 import com.theyawns.ruleengine.RuleEngineController;
 
 
@@ -23,10 +22,6 @@ public class PreauthMapListener implements
 
     //private HazelcastInstance hazelcast;
     private IMap<String, Transaction> preAuthMap;
-//    private IMap<String, Merchant> merchantMap;
-//    private IMap<String, Account> accountMap;  // not used here but getting ref triggers eager load
-
-    private IMap<String, LatencyTracking> latencyMap;
 
     // Queues to pass to RuleExecutors -- TODO: replace these with a single ReliableTopic
     //private ITopic<Transaction> preAuthTopic;
@@ -42,17 +37,13 @@ public class PreauthMapListener implements
 
 
     public PreauthMapListener(HazelcastInstance instance, RuleEngineController rec) {
-        //hazelcast = instance;
         preAuthMap = instance.getMap(Constants.MAP_PREAUTH);
-//        merchantMap = instance.getReplicatedMap(Constants.MAP_MERCHANT);
-//        accountMap = instance.getMap(Constants.MAP_ACCOUNT);
         //preAuthTopic = instance.getReliableTopic(Constants.TOPIC_PREAUTH);
         locationRulesQueue = instance.getQueue(Constants.QUEUE_LOCATION);
         merchantRulesQueue = instance.getQueue(Constants.QUEUE_MERCHANT);
         paymentRulesQueue = instance.getQueue(Constants.QUEUE_CREDITRULES);
         merchant_txn_count_amazon = instance.getPNCounter(Constants.PN_COUNT_AMAZON);
         merchant_txn_count_walmart = instance.getPNCounter(Constants.PN_COUNT_WALMART);
-        latencyMap = instance.getMap(Constants.MAP_LATENCY);
         this.ruleEngineController = rec;
     }
 
