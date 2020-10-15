@@ -10,8 +10,6 @@ import com.hazelcast.map.IMap;
 import com.hazelcast.map.listener.EntryAddedListener;
 import com.hazelcast.map.listener.EntryLoadedListener;
 import com.theyawns.Constants;
-import com.theyawns.domain.payments.Account;
-import com.theyawns.domain.payments.Merchant;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.executors.LatencyTracking;
 import com.theyawns.ruleengine.RuleEngineController;
@@ -25,8 +23,8 @@ public class PreauthMapListener implements
 
     //private HazelcastInstance hazelcast;
     private IMap<String, Transaction> preAuthMap;
-    private IMap<String, Merchant> merchantMap;
-    private IMap<String, Account> accountMap;  // not used here but getting ref triggers eager load
+//    private IMap<String, Merchant> merchantMap;
+//    private IMap<String, Account> accountMap;  // not used here but getting ref triggers eager load
 
     private IMap<String, LatencyTracking> latencyMap;
 
@@ -46,8 +44,8 @@ public class PreauthMapListener implements
     public PreauthMapListener(HazelcastInstance instance, RuleEngineController rec) {
         //hazelcast = instance;
         preAuthMap = instance.getMap(Constants.MAP_PREAUTH);
-        merchantMap = instance.getMap(Constants.MAP_MERCHANT);
-        accountMap = instance.getMap(Constants.MAP_ACCOUNT);
+//        merchantMap = instance.getReplicatedMap(Constants.MAP_MERCHANT);
+//        accountMap = instance.getMap(Constants.MAP_ACCOUNT);
         //preAuthTopic = instance.getReliableTopic(Constants.TOPIC_PREAUTH);
         locationRulesQueue = instance.getQueue(Constants.QUEUE_LOCATION);
         merchantRulesQueue = instance.getQueue(Constants.QUEUE_MERCHANT);
@@ -58,17 +56,17 @@ public class PreauthMapListener implements
         this.ruleEngineController = rec;
     }
 
-//    public IQueue<Transaction> getLocationRulesQueue(Transaction t) {
-//        return locationRulesQueue;
-//    }
-//
-//    public IQueue<Transaction> getMerchantRulesQueue(Transaction t) {
-//        return merchantRulesQueue;
-//    }
-//
-//    public IQueue<Transaction> getPaymentRulesQueue(Transaction t) {
-//        return paymentRulesQueue;
-//    }
+    public IQueue<Transaction> getLocationRulesQueue(Transaction t) {
+        return locationRulesQueue;
+    }
+
+    public IQueue<Transaction> getMerchantRulesQueue(Transaction t) {
+        return merchantRulesQueue;
+    }
+
+    public IQueue<Transaction> getPaymentRulesQueue(Transaction t) {
+        return paymentRulesQueue;
+    }
 
     @Override
     public void entryLoaded(EntryEvent<String, Transaction> entryEvent) {
@@ -104,16 +102,25 @@ public class PreauthMapListener implements
         String key = txn.getItemID();
         if (key == null) return;
 
+
+        /* Ideally, the RuleEngineController could forward the transaction to
+         * appliable rulesets and return to us the value to update in the
+         * transaction.  This proved to add about 100ms of latency per transaction
+         * so has been backed out and we'll stick with the hard-coded routing
+         * until a more efficient routing can be designed.
+         *
+         * int routedToCounter = ruleEngineController.forwardToApplicableRuleSets(txn);
+         */
+        txn.setNumberOfRuleSetsThatApply(2);
+
         // This is a better representation of 'time queued' than having preAuthLoader set the
         // time in a batch of 10K items all pushed at once using putMany!
-        int routedToCounter = ruleEngineController.forwardToApplicableRuleSets(txn);
-        // is there any concern the counter will be checked before we update it?
-        txn.setNumberOfRuleSetsThatApply(routedToCounter);
         txn.setTimeEnqueuedForRuleEngine(); // sets to now
         preAuthMap.set(txn.getItemID(), txn); // rewrite the transaction so that the ruleset field is set in the map
 
-//        getLocationRulesQueue(txn).add(txn);
-//        getMerchantRulesQueue(txn).add(txn);
+        // see comment block above
+        getLocationRulesQueue(txn).add(txn);
+        getMerchantRulesQueue(txn).add(txn);
         //System.out.println("PreauthMapListener distributed transaction to queues");
 
     }
