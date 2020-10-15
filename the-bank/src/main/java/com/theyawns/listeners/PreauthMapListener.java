@@ -1,19 +1,20 @@
 package com.theyawns.listeners;
 
 import com.hazelcast.collection.IQueue;
-import com.hazelcast.core.*;
+import com.hazelcast.core.EntryEvent;
+import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.crdt.pncounter.PNCounter;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
 import com.hazelcast.map.IMap;
 import com.hazelcast.map.listener.EntryAddedListener;
-
 import com.hazelcast.map.listener.EntryLoadedListener;
 import com.theyawns.Constants;
 import com.theyawns.domain.payments.Account;
 import com.theyawns.domain.payments.Merchant;
 import com.theyawns.domain.payments.Transaction;
 import com.theyawns.executors.LatencyTracking;
+import com.theyawns.ruleengine.RuleEngineController;
 
 
 public class PreauthMapListener implements
@@ -39,8 +40,10 @@ public class PreauthMapListener implements
     private PNCounter merchant_txn_count_walmart;
     private PNCounter merchant_txn_count_amazon;
 
+    private RuleEngineController ruleEngineController;
 
-    public PreauthMapListener(HazelcastInstance instance) {
+
+    public PreauthMapListener(HazelcastInstance instance, RuleEngineController rec) {
         //hazelcast = instance;
         preAuthMap = instance.getMap(Constants.MAP_PREAUTH);
         merchantMap = instance.getMap(Constants.MAP_MERCHANT);
@@ -52,19 +55,20 @@ public class PreauthMapListener implements
         merchant_txn_count_amazon = instance.getPNCounter(Constants.PN_COUNT_AMAZON);
         merchant_txn_count_walmart = instance.getPNCounter(Constants.PN_COUNT_WALMART);
         latencyMap = instance.getMap(Constants.MAP_LATENCY);
+        this.ruleEngineController = rec;
     }
 
-    public IQueue<Transaction> getLocationRulesQueue(Transaction t) {
-        return locationRulesQueue;
-    }
-
-    public IQueue<Transaction> getMerchantRulesQueue(Transaction t) {
-        return merchantRulesQueue;
-    }
-
-    public IQueue<Transaction> getPaymentRulesQueue(Transaction t) {
-        return paymentRulesQueue;
-    }
+//    public IQueue<Transaction> getLocationRulesQueue(Transaction t) {
+//        return locationRulesQueue;
+//    }
+//
+//    public IQueue<Transaction> getMerchantRulesQueue(Transaction t) {
+//        return merchantRulesQueue;
+//    }
+//
+//    public IQueue<Transaction> getPaymentRulesQueue(Transaction t) {
+//        return paymentRulesQueue;
+//    }
 
     @Override
     public void entryLoaded(EntryEvent<String, Transaction> entryEvent) {
@@ -102,19 +106,17 @@ public class PreauthMapListener implements
 
         // This is a better representation of 'time queued' than having preAuthLoader set the
         // time in a batch of 10K items all pushed at once using putMany!
-        txn.setTimeEnqueuedForRuleEngine();
-//        LatencyTracking lt = new LatencyTracking();
-//        lt.timeEnqueued = txn.getTimeEnqueuedForRuleEngine();
-//        latencyMap.set(txn.getItemID(), lt);
-
-        // Keep this in sync with the number of rulesets that are active -
-        txn.setRuleSetsToApply(2); // TODO: this should be determined in some way, not hard-coded
+        txn.setTimeEnqueuedForRuleEngine(); // sets to now
+        int routedToCounter = ruleEngineController.forwardToApplicableRuleSets(txn);
+        // is there any concern the counter will be checked before we update it?
+        txn.setNumberOfRuleSetsThatApply(routedToCounter);
         preAuthMap.set(txn.getItemID(), txn); // rewrite the transaction so that the ruleset field is set in the map
 
-        // TODO: Replace Queues with a ReliableTopic
+        // TODO: Replace Queues with a ReliableTopic - or make configurable
+        // TODO: RuleEngineController should give us a command to route these ...
         //getPaymentRulesQueue(txn).add(txn);
-        getLocationRulesQueue(txn).add(txn);
-        getMerchantRulesQueue(txn).add(txn);
+//        getLocationRulesQueue(txn).add(txn);
+//        getMerchantRulesQueue(txn).add(txn);
         //preAuthTopic.publish(txn);
         //System.out.println("PreauthMapListener distributed transaction to queues");
 

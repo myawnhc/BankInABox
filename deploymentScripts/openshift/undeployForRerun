@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Leave management center, grafana, maria running so service URLs aren't impacted
+# restart IMDG and JET so we start with clean data structures
+# after this finishes, deployPods and startLauncher as usual
+
+oc scale --replicas=0 statefulset bankinabox-imdg
+oc scale --replicas=0 statefulset bankinabox-jet
+
+oc delete horizontalpodautoscaler bankinabox-imdg
+
+oc delete job bankinabox-launcher

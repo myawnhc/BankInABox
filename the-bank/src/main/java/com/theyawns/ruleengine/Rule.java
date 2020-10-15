@@ -1,7 +1,9 @@
 package com.theyawns.ruleengine;
 
-// TOOO: May parameterize RuleEvaluationResult as well
-
+// This may find use in the Jet-centric version of a RuleEngine,
+// otherwise it can be removed.
+// See the current Rule interface in the rules package
+@Deprecated
 public interface Rule<T extends HasID,R> {
 
     boolean checkPreconditions(T streamItem);

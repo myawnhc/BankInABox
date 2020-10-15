@@ -10,6 +10,7 @@ import java.io.Serializable;
  *  apply numeric scores to all the items under consideration, but the final RuleSet evaluation may be a simple
  *  boolean - recommend or do not recommend.
  */
+@Deprecated
 public class RuleSetEvaluationResult<T extends HasID, R> implements Serializable {
 
     R evaluationResult;

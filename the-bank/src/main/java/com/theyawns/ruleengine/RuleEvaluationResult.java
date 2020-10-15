@@ -12,6 +12,7 @@ import java.io.Serializable;
  *
  * @param <R> Result type
  */
+@Deprecated
 public class RuleEvaluationResult<T extends HasID, R> implements Serializable {
 
     String ruleName;

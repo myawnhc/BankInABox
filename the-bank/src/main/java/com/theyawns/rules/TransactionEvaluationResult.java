@@ -91,7 +91,7 @@ public class TransactionEvaluationResult implements Serializable {
     public long getLatencyNanos() { return stopTime - startTime; }
 
     public synchronized boolean checkForCompletion() {
-        int ruleSetsExpected = transaction.getRuleSetsToApply();
+        int ruleSetsExpected = transaction.getNumberOfRuleSetsThatApply();
         int ruleSetsCompleted = getNumberOfResultsPosted();
         //debug();
         return ruleSetsCompleted >= ruleSetsExpected;

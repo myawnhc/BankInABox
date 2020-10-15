@@ -5,12 +5,15 @@
 # See https://cloud.ibm.com/kubernetes/registry/main/start?platformType=openshift
 
 NAMESPACE="bankinabox"
-#REGION=us-south
 REGISTRY="gcr.io/hazelcast-33"
 
-# TODO: any required login here?
+# Hazelcast internal - others can set their credentials as needed
+gcloud auth login
+gcloud container clusters get-credentials bankinabox --zone us-central1-a --project hazelcast-33
+gcloud auth configure-docker
+# kubectl context will now be changed to gke
 
-for BUNDLE in "grafana" "maria" "jet" "launcher"
+for BUNDLE in "grafana" "maria" "jet" "launcher" "imdg"
 do
     echo $BUNDLE
     docker tag ${NAMESPACE}/$BUNDLE:latest ${REGISTRY}/${NAMESPACE}/$BUNDLE:latest

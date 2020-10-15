@@ -18,17 +18,16 @@ public class Transaction implements /*IdentifiedDataSerializable,*/ Serializable
     private Double amount = 0.0;
     private String location; // Should this be a separate object, enrichment source?
 
+    // These fields should all really be pulled out of Transaction and put
+    // into some sort of wrapper / carrier object, so that it all passes
+    // along through the processing stages but doesn't pollute the domain
+    // object with temporary in-process state.
     private int fraudResult = -1;
     private Boolean paymentResult = Boolean.TRUE;
-    private int ruleSetsToApply;
-
+    private int numberOfRuleSetsThatApply;
     private long timeEnqueuedForRuleEngine; // nanotime
-    private long timeEnqueuedForAggregator; // nanotime
-    private long timeSpentQueued; // sum of RE + Aggregator
-
-    // Being a little sloppy with encapsulation, will allow direct access to these
-//    public LatencyMetric processingTime = new LatencyMetric();
-//    public LatencyMetric endToEndTime = new LatencyMetric();
+    private long timeEnqueuedForAggregator; // nanotime - not used
+    private long timeSpentQueued; // sum of RE + Aggregator - not used
 
     // No-arg constructor for use by serialization
     public Transaction() {
@@ -90,8 +89,8 @@ public class Transaction implements /*IdentifiedDataSerializable,*/ Serializable
         paymentResult = result;
     }
 
-    public void setRuleSetsToApply(int count) { ruleSetsToApply = count; }
-    public int getRuleSetsToApply() { return ruleSetsToApply; }
+    public void setNumberOfRuleSetsThatApply(int count) { numberOfRuleSetsThatApply = count; }
+    public int getNumberOfRuleSetsThatApply() { return numberOfRuleSetsThatApply; }
 
     //public void setTimeEnqueuedForRuleEngine(long time) { timeEnqueuedForRuleEngine = time; }
     public void setTimeEnqueuedForRuleEngine() { timeEnqueuedForRuleEngine = System.nanoTime(); }
@@ -132,13 +131,10 @@ public class Transaction implements /*IdentifiedDataSerializable,*/ Serializable
         objectDataOutput.writeUTF(location);
         objectDataOutput.writeInt(fraudResult);
         objectDataOutput.writeBoolean(paymentResult);
-        objectDataOutput.writeInt(ruleSetsToApply);
+        objectDataOutput.writeInt(numberOfRuleSetsThatApply);
         objectDataOutput.writeLong(timeEnqueuedForRuleEngine);
         objectDataOutput.writeLong(timeEnqueuedForAggregator);
         objectDataOutput.writeLong(timeSpentQueued);
-
-//        objectDataOutput.writeObject(processingTime);
-//        objectDataOutput.writeObject(endToEndTime);
     }
 
     //@Override
@@ -150,12 +146,9 @@ public class Transaction implements /*IdentifiedDataSerializable,*/ Serializable
         location = objectDataInput.readUTF();
         fraudResult = objectDataInput.readInt();
         paymentResult = objectDataInput.readBoolean();
-        ruleSetsToApply = objectDataInput.readInt();
+        numberOfRuleSetsThatApply = objectDataInput.readInt();
         timeEnqueuedForRuleEngine = objectDataInput.readLong();
         timeEnqueuedForAggregator = objectDataInput.readLong();
         timeSpentQueued = objectDataInput.readLong();
-
-//        processingTime = objectDataInput.readObject(LatencyMetric.class);
-//        endToEndTime = objectDataInput.readObject(LatencyMetric.class);
     }
 }

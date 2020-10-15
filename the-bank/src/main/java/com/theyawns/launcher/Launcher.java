@@ -24,14 +24,12 @@ import com.theyawns.domain.payments.Transaction;
 import com.theyawns.domain.payments.database.AccountTable;
 import com.theyawns.domain.payments.database.LazyPreAuthLoader;
 import com.theyawns.domain.payments.database.MerchantTable;
+import com.theyawns.domain.payments.ruleengine.FraudDetectionEngine;
 import com.theyawns.executors.AggregationExecutor;
 import com.theyawns.executors.ExecutorStatusMapKey;
-import com.theyawns.executors.RuleSetExecutor;
 import com.theyawns.listeners.PreauthMapListener;
 import com.theyawns.perfmon.PerfMonitor;
 import com.theyawns.pipelines.AdjustMerchantTransactionAverage;
-import com.theyawns.rulesets.LocationBasedRuleSet;
-import com.theyawns.rulesets.MerchantRuleSet;
 import com.theyawns.util.EnvironmentSetup;
 
 import java.io.Serializable;
@@ -40,7 +38,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -258,31 +255,33 @@ public class Launcher {
             }
         }
 
-        // Setup Executors for RuleSets
-
-        RuleSetExecutor locationBasedRuleExecutor = new RuleSetExecutor(Constants.QUEUE_LOCATION,
-                new LocationBasedRuleSet(), Constants.MAP_PPFD_RESULTS);
-        locationBasedRuleExecutor.setVerbose(main.verbose);
-        try {
-            Map<Member,CompletableFuture<Exception>> futures = main.distributedES.submitToAllMembers(locationBasedRuleExecutor);
-            main.executorFutures.addAll(futures.values());
-        } catch (Throwable t) {
-            t.printStackTrace();
-        }
-        if (main.verbose)
-            System.out.println("Submitted RuleSetExecutor for location rules to distributed executor service (all members)");
-
-        RuleSetExecutor merchantRuleSetExecutor = new RuleSetExecutor(Constants.QUEUE_MERCHANT,
-                new MerchantRuleSet(), Constants.MAP_PPFD_RESULTS);
-        merchantRuleSetExecutor.setVerbose(main.verbose);
-        try {
-            Map<Member,CompletableFuture<Exception>> futures = main.distributedES.submitToAllMembers(merchantRuleSetExecutor);
-            main.executorFutures.addAll(futures.values());
-        } catch (Throwable t) {
-            t.printStackTrace();
-        }
-        if (main.verbose)
-            System.out.println("Submitted RuleSetExecutor for merchant rules to distributed executor service (all members)");
+        // Rulesets are now defined and managed by the FDE
+        FraudDetectionEngine fde = new FraudDetectionEngine(main.hazelcast);
+//        // Setup Executors for RuleSets
+//
+//        RuleSetExecutor locationBasedRuleExecutor = new RuleSetExecutor(Constants.QUEUE_LOCATION,
+//                new LocationBasedRuleSet(), Constants.MAP_PPFD_RESULTS);
+//        locationBasedRuleExecutor.setVerbose(main.verbose);
+//        try {
+//            Map<Member,CompletableFuture<Exception>> futures = main.distributedES.submitToAllMembers(locationBasedRuleExecutor);
+//            main.executorFutures.addAll(futures.values());
+//        } catch (Throwable t) {
+//            t.printStackTrace();
+//        }
+//        if (main.verbose)
+//            System.out.println("Submitted RuleSetExecutor for location rules to distributed executor service (all members)");
+//
+//        RuleSetExecutor merchantRuleSetExecutor = new RuleSetExecutor(Constants.QUEUE_MERCHANT,
+//                new MerchantRuleSet(), Constants.MAP_PPFD_RESULTS);
+//        merchantRuleSetExecutor.setVerbose(main.verbose);
+//        try {
+//            Map<Member,CompletableFuture<Exception>> futures = main.distributedES.submitToAllMembers(merchantRuleSetExecutor);
+//            main.executorFutures.addAll(futures.values());
+//        } catch (Throwable t) {
+//            t.printStackTrace();
+//        }
+//        if (main.verbose)
+//            System.out.println("Submitted RuleSetExecutor for merchant rules to distributed executor service (all members)");
 
         // future: add executors for Credit rules, any others
 
@@ -315,7 +314,7 @@ public class Launcher {
         PNCounter loaded = main.hazelcast.getPNCounter(Constants.PN_COUNT_LOADED_TO_PREAUTH);
 
         // All processing is triggered from this listener
-        preAuthMap.addEntryListener(new PreauthMapListener(main.hazelcast), true);
+        preAuthMap.addEntryListener(new PreauthMapListener(main.hazelcast, fde), true);
 
         if (cloudPlatform != CloudPlatform.None && !MapLoaderSupportedInCloud) {
             /* This is less efficient than the MapLoader implementation but will only
@@ -415,6 +414,7 @@ public class Launcher {
                         loaderFinished = true;
                     }
 
+                    // TODO: remove, or move into FraudDetectionEngine class
                     for (Future<Exception> fe : main.executorFutures) {
                         if (fe.get(1, TimeUnit.SECONDS) != null) {
                             log.severe("Error in executor", e);

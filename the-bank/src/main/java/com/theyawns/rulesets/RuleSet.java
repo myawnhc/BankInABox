@@ -15,6 +15,8 @@ public interface RuleSet<T,R> extends Function<T, RuleSetEvaluationResult<T,R>> 
     String getQualifiedName();  // includes category
     int getRuleCount();
     List<Rule<T,R>> getRules();
+    // implementors can override this to filter out irrelevant input items
+    default boolean isApplicableTo(T input) { return true; }
 
     // Now considering this a private implementation detail, not public API
     //RuleSetEvaluationResult<R> aggregateResults();

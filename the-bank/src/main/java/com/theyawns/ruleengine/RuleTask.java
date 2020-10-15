@@ -3,6 +3,7 @@ package com.theyawns.ruleengine;
 import java.io.Serializable;
 
 // TODO: better serialization
+@Deprecated
 public class RuleTask<T extends HasID> implements Runnable, Serializable {
     // For each transaction, create one RuleTask for each Rule.   Queue these up for the worker pool.
     // Each completed RuleTask notes completion in some structure (probably map keyed by transaction ruleName)
