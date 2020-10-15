@@ -5,7 +5,7 @@
 HOST=`ipconfig getifaddr en0`
 MANCENTER_OPT=MANCENTER_URL="http://${HOST}:8080/hazelcast-mancenter"
 CONFIG_OPT="-Dhazelcast.config=/data/hazelcast/hazelcast.xml"
-CONFIG_VOLUME="${PWD}/data/hazelcast:/data/hazelcast:ro"   # read-only config volume iniitialized from project config file
+CONFIG_VOLUME="${PWD}/data/hazelcast:/data/hazelcast:ro"   # read-only config volume initialized from project config file
 USER_CODE_VOLUME="${PWD}/usercode:/opt/hazelcast/usercode"
 
 # Copy config file to mounted volume location

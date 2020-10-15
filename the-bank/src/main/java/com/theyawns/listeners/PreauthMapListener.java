@@ -106,18 +106,14 @@ public class PreauthMapListener implements
 
         // This is a better representation of 'time queued' than having preAuthLoader set the
         // time in a batch of 10K items all pushed at once using putMany!
-        txn.setTimeEnqueuedForRuleEngine(); // sets to now
         int routedToCounter = ruleEngineController.forwardToApplicableRuleSets(txn);
         // is there any concern the counter will be checked before we update it?
         txn.setNumberOfRuleSetsThatApply(routedToCounter);
+        txn.setTimeEnqueuedForRuleEngine(); // sets to now
         preAuthMap.set(txn.getItemID(), txn); // rewrite the transaction so that the ruleset field is set in the map
 
-        // TODO: Replace Queues with a ReliableTopic - or make configurable
-        // TODO: RuleEngineController should give us a command to route these ...
-        //getPaymentRulesQueue(txn).add(txn);
 //        getLocationRulesQueue(txn).add(txn);
 //        getMerchantRulesQueue(txn).add(txn);
-        //preAuthTopic.publish(txn);
         //System.out.println("PreauthMapListener distributed transaction to queues");
 
     }

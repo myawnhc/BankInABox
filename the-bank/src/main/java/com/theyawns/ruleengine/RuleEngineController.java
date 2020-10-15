@@ -29,7 +29,7 @@ public class RuleEngineController<T> {
         // be that we support IQueue, Topic, perhaps Kafka or JMS, etc.
         // As we do so, the addRuleSet method of the outer class will be
         // overloaded to take additional communication channels
-        private IQueue inputQueue; // ?? considering
+        private IQueue inputQueue;
 
         public RuleSetInfo (RuleSet set, IQueue channel) {
             this.ruleSet = set;
@@ -37,15 +37,10 @@ public class RuleEngineController<T> {
             this.channel = ChannelType.IQueue;
         }
         // possibly version info?
-        // possibly reference to a Jet job where the RuleSet is running?
+        // possibly reference to a Jet job where the RuleSet is running
+
         // would be nice to have some metrics - pass/fail rate, for example -- not sure best place to hold that.
-        // Possible have Queue, Topic here (would be passthru from a
-        //   setter on outer class; then could have a method
-        //   REC.routeToApplicableRulesets(t)
-        //   (And that method - rather than lazy PEListener - should set
-        //    the count in the transaction object.  Since that requires
-        //    knowledge of T's type, maybe it is done in FDE subclass
-        //    rather than here.
+
         public void routeItem(T item) {
             switch (channel) {
                 case IQueue:
@@ -58,6 +53,7 @@ public class RuleEngineController<T> {
         }
     }
 
+    // Expect this will get overloaded with other comm channels at some point
     public void addRuleSet(RuleSet set, IQueue queue) {
         RuleSetInfo info = new RuleSetInfo(set, queue);
         knownRuleSets.put(set.getName(), info);
@@ -81,16 +77,6 @@ public class RuleEngineController<T> {
         return allSets;
     }
 
-//    public List<RuleSet> getRuleSetsApplicableTo(T input) {
-//        List<RuleSet> applicable = new ArrayList<>(knownRuleSets.size());
-//        for (RuleSet r : getAllRuleSets()) {
-//            if (r.isApplicableTo(input)) {
-//                applicable.add(r);
-//            }
-//        }
-//        return applicable;
-//    }
-
     public RuleSet getRuleSet(String name) {
         RuleSetInfo info = knownRuleSets.get(name);
         return info.ruleSet;
@@ -105,7 +91,6 @@ public class RuleEngineController<T> {
     // should there be a start() method here that launches all the non-disabled
     // rulesets ?   How does that impact the ability of Launcher to monitor, or
     // should the monitoring/logging be done here instead?
-
 
     public int forwardToApplicableRuleSets(T item) {
         int counter = 0;
