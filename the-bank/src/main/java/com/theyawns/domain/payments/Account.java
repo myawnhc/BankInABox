@@ -2,6 +2,7 @@ package com.theyawns.domain.payments;
 
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
+import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.theyawns.Constants;
 
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.io.Serializable;
 /* Must continue to support default Java Serializable until EntryProcessors implement IdentifiedDataSerializable */
 
 /** Simple account type for use with Bank in a Box demo app */
-public class Account implements /*IdentifiedDataSerializable,*/ Serializable {
+public class Account implements IdentifiedDataSerializable, Serializable {
 
     public enum AccountStatus { CURRENT, OVERDUE, CLOSED } // TODO: This is not currently used
 

@@ -32,4 +32,5 @@ public class RuleEvaluationResult<R> implements Serializable {
     public String toString() {
         return result.toString();
     }
+
 }

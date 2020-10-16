@@ -38,15 +38,6 @@ public class Constants {
     // may also add bucketed counters to do a histogram view of latency, bucket cutoffs should be configurable
     //     thinking initial setup might be <=10ms, <=25ms, <=50ms, <=100ms, >100ms
 
-    // Location based rules.  Might move these constants into the Rule class
-    // instead of having to detail them here.
-//    public static final String PN_COUNT_R4F_LOC1   = "pnCounterRej4Fraud_Loc_1";
-//    public static final String PN_COUNT_R4F_LOC2   = "pnCounterRej4Fraud_Loc_2";
-//    public static final String PN_COUNT_R4F_LOC3   = "pnCounterRej4Fraud_Loc_3";
-//    public static final String PN_COUNT_R4F_LOC4   = "pnCounterRej4Fraud_Loc_4";
-//    public static final String PN_COUNT_R4F_LOC5   = "pnCounterRej4Fraud_Loc_5";
-
-
     // IdentifiedDataSerializable
     public static final int IDS_FACTORY_ID = 101;
 
