@@ -1,7 +1,6 @@
 package com.theyawns.rulesets;
 
 import com.theyawns.domain.payments.TransactionFinalStatus;
-import com.theyawns.rules.TransactionEvaluationResult;
 
 import java.io.Serializable;
 
