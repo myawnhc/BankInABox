@@ -2,6 +2,7 @@ package com.theyawns.domain.payments;
 
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
+import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.theyawns.Constants;
 
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.util.Random;
 
 /* Must continue to support default Java Serializable until EntryProcessors implement IdentifiedDataSerializable */
 
-public class Merchant implements /*IdentifiedDataSerializable,*/ Serializable {
+public class Merchant implements IdentifiedDataSerializable, Serializable {
 
     // NOTE: Any changes to these 5 fields will require changes to Serialization (in this file) and
     // database code in MerchantTable

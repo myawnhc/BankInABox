@@ -2,13 +2,14 @@ package com.theyawns.domain.payments;
 
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
+import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.theyawns.Constants;
 import com.theyawns.ruleengine.HasID;
 
 import java.io.IOException;
 import java.io.Serializable;
 
-public class Transaction implements /*IdentifiedDataSerializable,*/ Serializable, HasID {
+public class Transaction implements IdentifiedDataSerializable, Serializable, HasID {
 
     private String transactionId;
     private String acctNumber;      // TODO: this won't be part of object eventually - txn id keys

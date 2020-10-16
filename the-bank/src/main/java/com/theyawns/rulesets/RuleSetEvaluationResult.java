@@ -1,11 +1,15 @@
 package com.theyawns.rulesets;
 
+import com.hazelcast.nio.ObjectDataInput;
+import com.hazelcast.nio.ObjectDataOutput;
+import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
+import com.theyawns.Constants;
 import com.theyawns.domain.payments.TransactionFinalStatus;
-import com.theyawns.rules.TransactionEvaluationResult;
 
+import java.io.IOException;
 import java.io.Serializable;
 
-public class RuleSetEvaluationResult<T,R> implements Serializable {
+public class RuleSetEvaluationResult<T,R> implements IdentifiedDataSerializable, Serializable {
 
     private long startTime;
     private long stopTime;
@@ -24,6 +28,9 @@ public class RuleSetEvaluationResult<T,R> implements Serializable {
         this.ruleSetName = ruleSetName;
         startTime = System.nanoTime();
     }
+
+    // for IDS Serialization
+    public RuleSetEvaluationResult() {}
 
     public String getRuleSetName() {
         return ruleSetName;
@@ -60,5 +67,25 @@ public class RuleSetEvaluationResult<T,R> implements Serializable {
 
     public String toString() {
         return result.toString();
+    }
+
+    @Override
+    public int getFactoryId() {
+        return Constants.IDS_FACTORY_ID;
+    }
+
+    @Override
+    public int getClassId() {
+        return Constants.IDS_RSER;
+    }
+
+    @Override
+    public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
+
+    }
+
+    @Override
+    public void readData(ObjectDataInput objectDataInput) throws IOException {
+
     }
 }
