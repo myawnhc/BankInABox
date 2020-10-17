@@ -16,7 +16,7 @@
 
 	<properties>
 		<docker.image.name>preloader</docker.image.name>
-		<my.main.class>com.theyawns.domain.payments.database.GenerateAll</my.main.class>
+		<my.main.class>com.theyawns.banking.database.GenerateAll</my.main.class>
 	</properties>
 
 	<dependencies>

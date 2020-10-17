@@ -16,7 +16,7 @@
 
 	<properties>
 		<docker.image.name>jet</docker.image.name>
-		<my.main.class>com.theyawns.launcher.JetMain</my.main.class>
+		<my.main.class>com.theyawns.controller.launcher.JetMain</my.main.class>
 	</properties>
 
 	<dependencies>

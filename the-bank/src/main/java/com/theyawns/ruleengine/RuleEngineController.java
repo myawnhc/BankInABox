@@ -1,7 +1,7 @@
 package com.theyawns.ruleengine;
 
 import com.hazelcast.collection.IQueue;
-import com.theyawns.rulesets.RuleSet;
+import com.theyawns.ruleengine.rulesets.RuleSet;
 
 import java.util.ArrayList;
 import java.util.HashMap;

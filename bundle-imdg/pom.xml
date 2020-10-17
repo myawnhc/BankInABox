@@ -16,7 +16,7 @@
 
 	<properties>
 		<docker.image.name>imdg</docker.image.name>
-		<my.main.class>com.theyawns.launcher.ClusterMember</my.main.class>
+		<my.main.class>com.theyawns.controller.launcher.ClusterMember</my.main.class>
 	</properties>
 
 	<dependencies>

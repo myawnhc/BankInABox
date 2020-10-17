@@ -49,7 +49,7 @@
     <serialization>
         <data-serializable-factories>
             <data-serializable-factory factory-id="101">
-                com.theyawns.IDSFactory
+                com.theyawns.controller.IDSFactory
             </data-serializable-factory>
         </data-serializable-factories>
     </serialization>
@@ -57,7 +57,7 @@
     <replicatedmap name="merchantMap">
         <!-- not available for replicated
         <map-store enabled="true" initial-mode="EAGER">
-            <class-name>com.theyawns.domain.payments.database.MerchantTable</class-name>
+            <class-name>com.theyawns.banking.database.MerchantTable</class-name>
         </map-store>
         -->
     </replicatedmap>
@@ -65,7 +65,7 @@
     <replicatedmap name="accountMap">
         <!-- not available for replicated
         <map-store enabled="true" initial-mode="EAGER">
-            <class-name>com.theyawns.domain.payments.database.AccountTable</class-name>
+            <class-name>com.theyawns.banking.database.AccountTable</class-name>
         </map-store>
         -->
     </replicatedmap>
@@ -82,7 +82,7 @@
         <eviction eviction-policy="LRU" max-size-policy="PER_NODE" size="200000" />
         <!--
         <map-store enabled="true" initial-mode="LAZY">
-            <class-name>com.theyawns.domain.payments.database.TransactionTable</class-name>
+            <class-name>com.theyawns.banking.database.TransactionTable</class-name>
         </map-store>
         -->
         <event-journal enabled="true">

@@ -41,7 +41,7 @@
     <serialization>
         <data-serializable-factories>
             <data-serializable-factory factory-id="101">
-                com.theyawns.IDSFactory
+                com.theyawns.controller.IDSFactory
             </data-serializable-factory>
         </data-serializable-factories>
     </serialization>
