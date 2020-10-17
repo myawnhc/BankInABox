@@ -478,10 +478,9 @@ public class Launcher {
         int elapsedWallNanos = d.getNano();
         if (elapsedWallNanos >= 500_000_000)
             elapsedWallSeconds++;
-        long elapsedNanos = hazelcast.getPNCounter(Constants.PN_COUNT_TOTAL_LATENCY).get();
-        long elapsedMS = elapsedNanos / 1_000_000;
+        long elapsedMS = hazelcast.getPNCounter(Constants.PN_COUNT_TOTAL_LATENCY).get();
         //long elapsedSeconds = elapsedMS / 1000;
-        //System.out.printf("Total elapsed nanos %d millis %d seconds %d\n", elapsedNanos, elapsedMS, elapsedSeconds);
+        //System.out.printf("Total elapsed millis %d seconds %d\n", elapsedMS, elapsedSeconds);
 //        long approved = hazelcast.getPNCounter(Constants.PN_COUNT_APPROVED).get();
 //        long rejFraud = hazelcast.getPNCounter(Constants.PN_COUNT_REJ_FRAUD).get();
 //        long rejCredit = hazelcast.getPNCounter(Constants.PN_COUNT_REJ_CREDIT).get();

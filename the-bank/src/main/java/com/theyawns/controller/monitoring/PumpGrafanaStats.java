@@ -23,7 +23,7 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
     private transient PNCounter rejectedForCredit;
     private transient PNCounter walmart;
     private transient PNCounter amazon;
-    private transient PNCounter latencyNanos;
+    private transient PNCounter latencyMillis;
     private transient PNCounter latencyItems;
 
     private transient Map<String, PNCounter> rejectionByRule;
@@ -46,7 +46,7 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
         rejectedForFraud = hazelcast.getPNCounter(Constants.PN_COUNT_REJ_FRAUD);
         walmart = hazelcast.getPNCounter(Constants.PN_COUNT_WALMART);
         amazon = hazelcast.getPNCounter(Constants.PN_COUNT_AMAZON);
-        latencyNanos = hazelcast.getPNCounter(Constants.PN_COUNT_TOTAL_LATENCY);
+        latencyMillis = hazelcast.getPNCounter(Constants.PN_COUNT_TOTAL_LATENCY);
         latencyItems = hazelcast.getPNCounter(Constants.PN_COUNT_LATENCY_ITEMS);
         graphite = new Graphite(host);
         rejectionByRule = new HashMap<>();
@@ -83,13 +83,6 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
         if (!initialized)
             init();
 
-        // No longer seeing this issue
-//        long timeSinceLastRun = System.currentTimeMillis() - lastTimeRun;
-//        // Seeing drop outs in TPS rate because we aren't updating frequently enough
-//        if (timeSinceLastRun / 1000 > measurementInterval * 1.5) {
-//            System.out.printf("PumpGrafanaStats last ran %d seconds ago, may see data dropouts\n", timeSinceLastRun / 1000);
-//        }
-
         //findCounters();    Now done just once in init()
 
         // counters are integers but we want to do floating-point math with the results
@@ -102,7 +95,7 @@ public class PumpGrafanaStats implements Serializable, Runnable, HazelcastInstan
         if (completions > 0)
             fraudRate = rejectedFraud / completions;
         // Divide by 1 Mil to convert nanos to millis
-        double latencyAvg = latencyNanos.get() / completions / 1_000_000;
+        double latencyAvg = latencyMillis.get() / completions;
         try {
             graphite.writeStats("bib.fraud.rate", fraudRate);
             graphite.writeStats("bib.payment.rate", ((completions - previouslyReportedCompletions) / measurementInterval)); // divide to convert to TPS

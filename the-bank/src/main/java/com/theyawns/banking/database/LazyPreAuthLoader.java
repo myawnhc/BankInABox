@@ -21,7 +21,7 @@ import java.util.concurrent.Callable;
 // This is submitted by Launcher to the DistributedExecutorService for execution
 public class LazyPreAuthLoader implements Callable<Exception>, Serializable, HazelcastInstanceAware {
 
-    private static final long serialVersionUID = -2306964662183102591L;  // TODO: getting error related to mismatch here
+    private static final long serialVersionUID = -2306964662183102591L;
 
     private HazelcastInstance hazelcast;
     private RunMode runMode;

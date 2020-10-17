@@ -26,8 +26,8 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
     private int fraudResult = -1;
     private Boolean paymentResult = Boolean.TRUE;
     private int numberOfRuleSetsThatApply;
-    private long timeEnqueuedForRuleEngine; // nanotime
-    private long timeEnqueuedForAggregator; // nanotime - not used
+    private long timeEnqueuedForRuleEngine; // millis
+    private long timeEnqueuedForAggregator; // millis
     private long timeSpentQueued; // sum of RE + Aggregator - not used
 
     // No-arg constructor for use by serialization
@@ -94,10 +94,10 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
     public int getNumberOfRuleSetsThatApply() { return numberOfRuleSetsThatApply; }
 
     //public void setTimeEnqueuedForRuleEngine(long time) { timeEnqueuedForRuleEngine = time; }
-    public void setTimeEnqueuedForRuleEngine() { timeEnqueuedForRuleEngine = System.nanoTime(); }
+    public void setTimeEnqueuedForRuleEngine() { timeEnqueuedForRuleEngine = System.currentTimeMillis(); }
     public long getTimeEnqueuedForRuleEngine() { return timeEnqueuedForRuleEngine; }
 
-    public void setTimeEnqueuedForAggregator() { timeEnqueuedForAggregator = System.nanoTime(); }
+    public void setTimeEnqueuedForAggregator() { timeEnqueuedForAggregator = System.currentTimeMillis(); }
     public long getTimeEnqueuedForAggregator() { return timeEnqueuedForAggregator; }
 
     public void addToQueueWaitTime(long value) {

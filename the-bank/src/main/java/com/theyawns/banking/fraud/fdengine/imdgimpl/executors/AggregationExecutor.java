@@ -43,13 +43,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
 
     private IMap<ExecutorStatusMapKey,String> statusMap;
 
-//    private boolean latencyTracking = false;
-//    private IMap<String, LatencyTracking> latencyMap;
-//    private LatencyTracking latency = null;
-
     private boolean verbose = true;
-
-    //private static boolean accumLatency = false; // will flip to true after warmup period
 
     // TODO: may need this to be an IMap ... aggregator can move due to node failure
     private Map<String, PNCounter> rejectedByRuleCounters = new HashMap<>();
@@ -79,7 +73,6 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
 
                 // TODO: may break processResults into more fine-grained steps
                 CompletableFuture.completedFuture(ter)
-//                        .thenApplyAsync(this::recordCommpletionQueueLatency)
                         .thenApplyAsync(this::processResults)   // update counters and/or maps
                         .thenAcceptAsync(this::cleanupMaps);   // delete txn from preAuth and PPFD Results
 
@@ -92,8 +85,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
                         String elapsed = String.format("%02d:%02d:%02d.%03d", d.toHoursPart(), d.toMinutesPart(), d.toSecondsPart(), d.toMillisPart());
                         final double tps = counter / d.toSeconds();
 
-                        long latencyNanos = totalLatency.get();
-                        long latencyMillis = latencyNanos / 1_000_000;
+                        long latencyMillis = totalLatency.get();
                         long latencyItemCount = latencyItems.get();
                         String messageID = "[" + messageCounter++ + "]";
 
@@ -115,16 +107,6 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
                 return e;
             }
         }
-    }
-
-    private TransactionEvaluationResult recordCommpletionQueueLatency(TransactionEvaluationResult ter) {
-//        if (latencyTracking) {
-//            String txnId = ter.getTransaction().getItemID();
-//            latency = latencyMap.get(txnId);
-//            latency.timeTakenFromCompletionQueue = System.nanoTime();
-//            latencyMap.put(txnId, latency);
-//        }
-        return ter;
     }
 
     public static class TxnDeleter implements EntryProcessor<String, Transaction, Void> {
@@ -168,7 +150,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
                     rejected = true;
                     ter.setRejectingRuleSet(rser.getRuleSetName());
                     ter.setRejectingReason(rser.getOutcomeReason());
-                    ter.setStopTime(System.nanoTime());
+                    ter.setStopTime(System.currentTimeMillis());
                     rejectedForFraudCounter.getAndIncrement();
                     incrementRejectCountForRule(rser);
                     // This map now has eviction to allow long-running demo
@@ -178,7 +160,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
                     rejected = true;
                     ter.setRejectingRuleSet(rser.getRuleSetName());
                     ter.setRejectingReason(rser.getOutcomeReason());
-                    ter.setStopTime(System.nanoTime());
+                    ter.setStopTime(System.currentTimeMillis());
                     rejectedForCreditCounter.getAndIncrement();
                     incrementRejectCountForRule(rser);
                     // This map now has eviction to allow long-running demo
@@ -195,7 +177,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
         }
         if (!rejected) {
             // This map now has eviction to allow long-running demo
-            ter.setStopTime(System.nanoTime());
+            ter.setStopTime(System.currentTimeMillis());
             approvedMap.set(txnId, ter);
             approvalCounter.getAndIncrement();
             //System.out.println("Approved " + txnId);
@@ -204,11 +186,11 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
 
         // Protect against negative values throwing off results;
         // TER will now throw exception if a stop time < start time is set.
-        if (ter.getLatencyNanos() > 0) {
-            totalLatency.getAndAdd(ter.getLatencyNanos());
+        if (ter.getLatencyMillis() >= 0) {
+            totalLatency.getAndAdd(ter.getLatencyMillis());
             latencyItems.getAndIncrement();
         } else {
-            System.out.printf("Negative or zero value %d not added to latency\n", ter.getLatencyNanos());
+            System.out.printf("Negative value %d not added to latency\n", ter.getLatencyMillis());
         }
         return txnId;
     }

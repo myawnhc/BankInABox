@@ -35,17 +35,6 @@ public class TransactionEvaluationResult implements Serializable {
 
     }
 
-    // Not thread safe, replaced by newInstance factory method above
-//    public TransactionEvaluationResult(Transaction transaction, RuleSetEvaluationResult<Transaction,?> rser) {
-//        //System.out.println("TransactionEvaluationResult.<init>");
-//        this.startTime = transaction.getTimeEnqueued();
-//        this.transaction = transaction;
-//        results = new ArrayList<>();
-//        results.add(rser);
-//        // DEBUG
-//        //this.terCreationTime = System.currentTimeMillis();
-//    }
-
     public synchronized void addResult(RuleSetEvaluationResult<Transaction,?> rser) {
         // maybe results should be keyed by ruleset in case we somehow get multiple
         // results for same set?  Seems fine everywhere but OpenShift where we get
@@ -88,7 +77,7 @@ public class TransactionEvaluationResult implements Serializable {
 
     }
 
-    public long getLatencyNanos() { return stopTime - startTime; }
+    public long getLatencyMillis() { return stopTime - startTime; }
 
     public synchronized boolean checkForCompletion() {
         int ruleSetsExpected = transaction.getNumberOfRuleSetsThatApply();
@@ -109,7 +98,6 @@ public class TransactionEvaluationResult implements Serializable {
             String haveResultFor = results.get(0).getRuleSetName();
             System.out.printf("Stall: Txn %s has result for %s, been waiting for %d seconds\n",
                     txnId, haveResultFor, secondsWaiting);
-
         }
     }
 }
