@@ -21,7 +21,7 @@ public class RuleSetEvaluationResult<T,R> implements Serializable {
         this.item = item;
         //this.ruleSet = ruleSet;
         this.ruleSetName = ruleSetName;
-        startTime = System.nanoTime();
+        startTime = System.currentTimeMillis();
     }
 
     public String getRuleSetName() {
@@ -30,7 +30,7 @@ public class RuleSetEvaluationResult<T,R> implements Serializable {
 
     public void setResult(R result) {
         this.result = result;
-        this.stopTime = System.nanoTime();
+        this.stopTime = System.currentTimeMillis();
     }
 
     public R getResult() {
@@ -53,7 +53,7 @@ public class RuleSetEvaluationResult<T,R> implements Serializable {
     }
     public String getOutcomeReason() { return reason; }
 
-    public long getElapsedNanos() {
+    public long getElapsedMillis() {
         return stopTime - startTime;
     }
 

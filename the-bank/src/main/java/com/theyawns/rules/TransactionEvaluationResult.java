@@ -13,8 +13,6 @@ public class TransactionEvaluationResult implements Serializable {
 
     // DEBUGGING - don't count queued time
     private long terCreationTime;
-    // openshift debugging
-    private static long duplicateResults = 0;
 
     private Transaction transaction;
     private Map<String, RuleSetEvaluationResult<Transaction,?>> results;
@@ -25,41 +23,25 @@ public class TransactionEvaluationResult implements Serializable {
     public static TransactionEvaluationResult newInstance(Transaction txn) {
             TransactionEvaluationResult ter = new TransactionEvaluationResult();
             ter.startTime = txn.getTimeEnqueuedForRuleEngine();
+            ter.terCreationTime = System.currentTimeMillis(); // not used currently
+            // DEBUG
+            long millisSinceEnqueued = (System.currentTimeMillis() - ter.startTime);
+            if (millisSinceEnqueued > 20_000)  {
+                System.out.println("TER created > 20 seconds after txn queued " + millisSinceEnqueued);
+            }
+            // ~DEBUG
             ter.transaction = txn;
             ter.results = new HashMap<>();
             return ter;
     }
 
-    // private no-arg constructor
-    private TransactionEvaluationResult() {
-
-    }
-
-    // Not thread safe, replaced by newInstance factory method above
-//    public TransactionEvaluationResult(Transaction transaction, RuleSetEvaluationResult<Transaction,?> rser) {
-//        //System.out.println("TransactionEvaluationResult.<init>");
-//        this.startTime = transaction.getTimeEnqueued();
-//        this.transaction = transaction;
-//        results = new ArrayList<>();
-//        results.add(rser);
-//        // DEBUG
-//        //this.terCreationTime = System.currentTimeMillis();
-//    }
+    private TransactionEvaluationResult() { }
 
     public synchronized void addResult(RuleSetEvaluationResult<Transaction,?> rser) {
-        // maybe results should be keyed by ruleset in case we somehow get multiple
-        // results for same set?  Seems fine everywhere but OpenShift where we get
-        // more completions than we have transactions - a logical impossibility
+        // Previously a list, map helps avoid duplicate results from same set -- only
+        // seen in a rare split-brain merge scenario
         String key = rser.getRuleSetName();
-        Object o = results.put(key, rser);
-        // This apparently happens only on OpenShift, and possibly only after
-        // we start to be throttled by some as-yet-unidentified mechanism.
-        if (o != null) {
-            duplicateResults++;
-            if (duplicateResults % 1000 == 0) {
-                System.out.printf("TER has seen %d attempts to post duplicate results\n", duplicateResults);
-            }
-        }
+        results.put(key, rser);
     }
 
     public Transaction getTransaction() { return transaction; }
@@ -77,18 +59,22 @@ public class TransactionEvaluationResult implements Serializable {
     public void setRejectingRuleSet(String rsName) { rejectingRuleSet = rsName; }
     public void setRejectingReason(String s) { rejectingReason = s; }
 
-    public void setStopTime(long time) {
-        stopTime = time;
+    public void setStopTime(long millis) {
+        stopTime = millis;
 
-        // hopefully briefly here for debugging
-        if (time < startTime) {
+        // hopefully briefly here for debugging.  Never seen, can remove
+        if (millis < startTime) {
             throw new IllegalArgumentException("StopTime cannot be less than start time" +
                     "Start = " + startTime + " Stop = " + stopTime);
+        }
+        long millisElapsed = (stopTime - startTime);
+        if (millisElapsed > 20_000)  {
+            System.out.println("TER stop > 20 seconds after TER start " + millisElapsed);
         }
 
     }
 
-    public long getLatencyNanos() { return stopTime - startTime; }
+    public long getLatencyMillis() { return stopTime - startTime; }
 
     public synchronized boolean checkForCompletion() {
         int ruleSetsExpected = transaction.getNumberOfRuleSetsThatApply();

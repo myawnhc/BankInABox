@@ -43,13 +43,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
 
     private IMap<ExecutorStatusMapKey,String> statusMap;
 
-//    private boolean latencyTracking = false;
-//    private IMap<String, LatencyTracking> latencyMap;
-//    private LatencyTracking latency = null;
-
     private boolean verbose = true;
-
-    //private static boolean accumLatency = false; // will flip to true after warmup period
 
     // TODO: may need this to be an IMap ... aggregator can move due to node failure
     private Map<String, PNCounter> rejectedByRuleCounters = new HashMap<>();
@@ -66,7 +60,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
     @Override
     public Exception call() {
         log.info("AggregationExecutor.run()");
-        long startTime = System.nanoTime();
+        long startTime = System.currentTimeMillis();
         counter = 0;
         long messageCounter = 0;
         String memberId = hazelcast.getCluster().getLocalMember().getUuid().toString().substring(0, 4);
@@ -79,7 +73,6 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
 
                 // TODO: may break processResults into more fine-grained steps
                 CompletableFuture.completedFuture(ter)
-//                        .thenApplyAsync(this::recordCommpletionQueueLatency)
                         .thenApplyAsync(this::processResults)   // update counters and/or maps
                         .thenAcceptAsync(this::cleanupMaps);   // delete txn from preAuth and PPFD Results
 
@@ -88,12 +81,13 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
                 counter++;
                 if (verbose) {
                     if ((counter % 10000) == 0) {
-                        Duration d = Duration.ofNanos(System.nanoTime() - startTime);
+                        Duration d = Duration.ofNanos(System.currentTimeMillis() - startTime);
                         String elapsed = String.format("%02d:%02d:%02d.%03d", d.toHoursPart(), d.toMinutesPart(), d.toSecondsPart(), d.toMillisPart());
-                        final double tps = counter / d.toSeconds();
 
-                        long latencyNanos = totalLatency.get();
-                        long latencyMillis = latencyNanos / 1_000_000;
+                        final double tps = d.toSeconds() == 0 ? 0 : counter / d.toSeconds();
+
+                        long latencyMillis = totalLatency.get();
+                        //long latencyMillis = latencyNanos / 1_000_000;
                         long latencyItemCount = latencyItems.get();
                         String messageID = "[" + messageCounter++ + "]";
 
@@ -102,29 +96,22 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
                             log.info("Average latency is " + average + " ms");
 
                             log.info("AggregationExecutor has handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS, " + average + " ms latency");
-                            statusMap.put(esmkey, messageID + " has handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS, " + average + " ms latency");
+                            statusMap.set(esmkey, messageID + " has handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS, " + average + " ms latency");
+                            // TODO: remove this after debugging latency
+                            statusMap.set(esmkey, "AggExec sees " + latencyMillis + " ms latency across " + latencyItemCount + " items, averaging " + average);
+
                         } else {
-                            statusMap.put(esmkey, messageID + " has handled " + counter + " transactions in " + elapsed + " but latencyItems is zero while millis is " + latencyMillis);
+                            statusMap.set(esmkey, messageID + " has handled " + counter + " transactions in " + elapsed + " but latencyItems is zero while millis is " + latencyMillis);
                         }
                     }
                 }
             } catch (Exception e) {
                 IMap emap = hazelcast.getMap("Exceptions");
-                emap.put("AggregationExecutor", e);
+                emap.set("AggregationExecutor", e);
                 e.printStackTrace();
                 return e;
             }
         }
-    }
-
-    private TransactionEvaluationResult recordCommpletionQueueLatency(TransactionEvaluationResult ter) {
-//        if (latencyTracking) {
-//            String txnId = ter.getTransaction().getItemID();
-//            latency = latencyMap.get(txnId);
-//            latency.timeTakenFromCompletionQueue = System.nanoTime();
-//            latencyMap.put(txnId, latency);
-//        }
-        return ter;
     }
 
     public static class TxnDeleter implements EntryProcessor<String, Transaction, Void> {
@@ -168,7 +155,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
                     rejected = true;
                     ter.setRejectingRuleSet(rser.getRuleSetName());
                     ter.setRejectingReason(rser.getOutcomeReason());
-                    ter.setStopTime(System.nanoTime());
+                    ter.setStopTime(System.currentTimeMillis());
                     rejectedForFraudCounter.getAndIncrement();
                     incrementRejectCountForRule(rser);
                     // This map now has eviction to allow long-running demo
@@ -195,7 +182,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
         }
         if (!rejected) {
             // This map now has eviction to allow long-running demo
-            ter.setStopTime(System.nanoTime());
+            ter.setStopTime(System.currentTimeMillis());
             approvedMap.set(txnId, ter);
             approvalCounter.getAndIncrement();
             //System.out.println("Approved " + txnId);
@@ -203,12 +190,13 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
         //log.info("Transaction " + ter.getTransaction().getItemID() + " completed in " + ter.getLatencyNanos() / 1_000_000 + " ms");
 
         // Protect against negative values throwing off results;
-        // TER will now throw exception if a stop time < start time is set.
-        if (ter.getLatencyNanos() > 0) {
-            totalLatency.getAndAdd(ter.getLatencyNanos());
+        // TER will now throw an exception if a stop time < start time is set.
+        // We do see legitimate zero latency transactions due to timer resolution
+        if (ter.getLatencyMillis() >= 0) {
+            totalLatency.getAndAdd(ter.getLatencyMillis());
             latencyItems.getAndIncrement();
         } else {
-            System.out.printf("Negative or zero value %d not added to latency\n", ter.getLatencyNanos());
+            System.out.printf("Negative value %d not added to latency\n", ter.getLatencyMillis());
         }
         return txnId;
     }

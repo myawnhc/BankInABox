@@ -26,8 +26,8 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
     private int fraudResult = -1;
     private Boolean paymentResult = Boolean.TRUE;
     private int numberOfRuleSetsThatApply;
-    private long timeEnqueuedForRuleEngine; // nanotime
-    private long timeEnqueuedForAggregator; // nanotime - not used
+    private long timeEnqueuedForRuleEngine; // millis
+    private long timeEnqueuedForAggregator; // millis - not used
     private long timeSpentQueued; // sum of RE + Aggregator - not used
 
     // No-arg constructor for use by serialization
@@ -94,10 +94,10 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
     public int getNumberOfRuleSetsThatApply() { return numberOfRuleSetsThatApply; }
 
     //public void setTimeEnqueuedForRuleEngine(long time) { timeEnqueuedForRuleEngine = time; }
-    public void setTimeEnqueuedForRuleEngine() { timeEnqueuedForRuleEngine = System.nanoTime(); }
+    public void setTimeEnqueuedForRuleEngine() { timeEnqueuedForRuleEngine = System.currentTimeMillis(); }
     public long getTimeEnqueuedForRuleEngine() { return timeEnqueuedForRuleEngine; }
 
-    public void setTimeEnqueuedForAggregator() { timeEnqueuedForAggregator = System.nanoTime(); }
+    public void setTimeEnqueuedForAggregator() { timeEnqueuedForAggregator = System.currentTimeMillis(); }
     public long getTimeEnqueuedForAggregator() { return timeEnqueuedForAggregator; }
 
     public void addToQueueWaitTime(long value) {
@@ -123,6 +123,10 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         return Constants.IDS_TRANSACTION_ID;
     }
 
+    // Seeing bogus values of 783 mil and change (consistently), suspect
+    // it's an error in serialization since it only happens with IDS.
+    private static final long ONE_HUNDRED_MIL = 100_000_000L;
+
     //@Override
     public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
         objectDataOutput.writeUTF(transactionId);
@@ -133,6 +137,8 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         objectDataOutput.writeInt(fraudResult);
         objectDataOutput.writeBoolean(paymentResult);
         objectDataOutput.writeInt(numberOfRuleSetsThatApply);
+//        if (timeEnqueuedForRuleEngine > ONE_HUNDRED_MIL)
+//            throw new IllegalArgumentException("writeData enqeued too large: " + timeEnqueuedForRuleEngine);
         objectDataOutput.writeLong(timeEnqueuedForRuleEngine);
         objectDataOutput.writeLong(timeEnqueuedForAggregator);
         objectDataOutput.writeLong(timeSpentQueued);
@@ -149,6 +155,9 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         paymentResult = objectDataInput.readBoolean();
         numberOfRuleSetsThatApply = objectDataInput.readInt();
         timeEnqueuedForRuleEngine = objectDataInput.readLong();
+//        if (timeEnqueuedForRuleEngine > ONE_HUNDRED_MIL) {
+//            throw new IllegalArgumentException("readData enqueued too large " + timeEnqueuedForRuleEngine);
+//        }
         timeEnqueuedForAggregator = objectDataInput.readLong();
         timeSpentQueued = objectDataInput.readLong();
     }
