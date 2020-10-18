@@ -2,6 +2,7 @@ package com.theyawns.ruleengine.rules;
 
 import java.io.Serializable;
 
+@Deprecated
 public abstract class AbstractEvaluationResult<R> implements Serializable {
 
     public long startTime;
