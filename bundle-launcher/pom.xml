@@ -16,7 +16,7 @@
 
 	<properties>
 		<docker.image.name>launcher</docker.image.name>
-		<my.main.class>com.theyawns.launcher.Launcher</my.main.class>
+		<my.main.class>com.theyawns.controller.launcher.Launcher</my.main.class>
 	</properties>
 
 	<dependencies>
