@@ -1,12 +1,16 @@
 package com.theyawns.banking.fraud.fdengine.imdgimpl;
 
-import com.theyawns.banking.Transaction;
+import com.theyawns.ruleengine.HasID;
+import com.theyawns.ruleengine.ItemCarrier;
 import com.theyawns.ruleengine.rulesets.RuleSetEvaluationResult;
 
-import java.io.*;
-import java.util.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-public class TransactionEvaluationResult implements Serializable {
+public class TransactionEvaluationResult<T extends HasID> implements Serializable {
 
     private long startTime;
     private long stopTime;
@@ -16,16 +20,17 @@ public class TransactionEvaluationResult implements Serializable {
     // openshift debugging
     private static long duplicateResults = 0;
 
-    private Transaction transaction;
-    private Map<String, RuleSetEvaluationResult<Transaction,?>> results;
+    private ItemCarrier<T> carrier;
+    //private Transaction transaction;
+    private Map<String, RuleSetEvaluationResult<T,?>> results;
 
     private String rejectingRuleSet;
     private String  rejectingReason;
 
-    public static TransactionEvaluationResult newInstance(Transaction txn) {
+    public static <T extends HasID> TransactionEvaluationResult<T> newInstance(ItemCarrier<T> carrier) {
             TransactionEvaluationResult ter = new TransactionEvaluationResult();
-            ter.startTime = txn.getTimeEnqueuedForRuleEngine();
-            ter.transaction = txn;
+            ter.startTime = carrier.getTimeEnqueuedForRouting();
+            ter.carrier = carrier;
             ter.results = new HashMap<>();
             return ter;
     }
@@ -35,7 +40,7 @@ public class TransactionEvaluationResult implements Serializable {
 
     }
 
-    public synchronized void addResult(RuleSetEvaluationResult<Transaction,?> rser) {
+    public synchronized void addResult(RuleSetEvaluationResult<T,?> rser) {
         // maybe results should be keyed by ruleset in case we somehow get multiple
         // results for same set?  Seems fine everywhere but OpenShift where we get
         // more completions than we have transactions - a logical impossibility
@@ -51,10 +56,11 @@ public class TransactionEvaluationResult implements Serializable {
         }
     }
 
-    public Transaction getTransaction() { return transaction; }
+    public ItemCarrier<T> getCarrier() { return carrier; }
+    //public Transaction getTransaction() { return transaction; }
 
-    public synchronized List<RuleSetEvaluationResult<Transaction,?>> getResults() {
-        List<RuleSetEvaluationResult<Transaction, ?>> a = new ArrayList<>();
+    public synchronized List<RuleSetEvaluationResult<T,?>> getResults() {
+        List<RuleSetEvaluationResult<T, ?>> a = new ArrayList<>();
         a.addAll(results.values());
         return a;
     }
@@ -80,7 +86,7 @@ public class TransactionEvaluationResult implements Serializable {
     public long getLatencyMillis() { return stopTime - startTime; }
 
     public synchronized boolean checkForCompletion() {
-        int ruleSetsExpected = transaction.getNumberOfRuleSetsThatApply();
+        int ruleSetsExpected = carrier.getNumberOfRuleSetsThatApply();
         int ruleSetsCompleted = getNumberOfResultsPosted();
         //debug();
         return ruleSetsCompleted >= ruleSetsExpected;
@@ -89,15 +95,15 @@ public class TransactionEvaluationResult implements Serializable {
     // Keep if needed in the future; stalls called by thread safety issue where more than
     // one ruleset could create the TransactionEvaluationResult entry, and the completion condition
     // of all rulesets having posted results was never satisfied.
-    private void debug() {
-        long timeWaiting = System.currentTimeMillis() - this.terCreationTime;
-        // If > 1 minute, we have a problem
-        long secondsWaiting = timeWaiting / 1_000;
-        if (secondsWaiting > 60) {
-            String txnId = transaction.getItemID();
-            String haveResultFor = results.get(0).getRuleSetName();
-            System.out.printf("Stall: Txn %s has result for %s, been waiting for %d seconds\n",
-                    txnId, haveResultFor, secondsWaiting);
-        }
-    }
+//    private void debug() {
+//        long timeWaiting = System.currentTimeMillis() - this.terCreationTime;
+//        // If > 1 minute, we have a problem
+//        long secondsWaiting = timeWaiting / 1_000;
+//        if (secondsWaiting > 60) {
+//            String txnId = transaction.getItemID();
+//            String haveResultFor = results.get(0).getRuleSetName();
+//            System.out.printf("Stall: Txn %s has result for %s, been waiting for %d seconds\n",
+//                    txnId, haveResultFor, secondsWaiting);
+//        }
+//    }
 }

@@ -140,7 +140,8 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
     private String processResults(TransactionEvaluationResult ter) {
         boolean rejected = false;
         List<RuleSetEvaluationResult<Transaction,?>> results = ter.getResults();
-        String txnId = ter.getTransaction().getItemID();
+        //String txnId = ter.getTransaction().getItemID();
+        String txnId = ter.getCarrier().getItem().getItemID();
 
         // Loop over results (even though at this stage we'll only have one)
         // Any reject will break us out of the loop, if we process all without a reject, then we approve.

@@ -1,5 +1,7 @@
 package com.theyawns.ruleengine.rulesets;
 
+import com.theyawns.ruleengine.HasID;
+import com.theyawns.ruleengine.ItemCarrier;
 import com.theyawns.ruleengine.rules.Rule;
 
 import java.util.List;
@@ -8,7 +10,7 @@ import java.util.function.Function;
 // T - type of item to apply rules to, e.g., Transaction
 // R - type of final result from the ruleset, currently either Double (fraud rules)
 //     or Boolean (credit rules)
-public interface RuleSet<T,R> extends Function<T, RuleSetEvaluationResult<T,R>> {
+public interface RuleSet<T extends HasID,R> extends Function<ItemCarrier<T>, RuleSetEvaluationResult<T,R>> {
 
     void add(Rule<T,R> rule);
     String getName();
