@@ -11,7 +11,6 @@ import com.theyawns.ruleengine.ItemCarrier;
 import java.io.IOException;
 import java.io.Serializable;
 
-// Why can't I do ItemCarrier<T> here ?
 public class RuleSetEvaluationResult<T extends HasID,R> implements IdentifiedDataSerializable, Serializable {
 
 //    private long startTime;
@@ -86,9 +85,9 @@ public class RuleSetEvaluationResult<T extends HasID,R> implements IdentifiedDat
 
     @Override
     public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
-        objectDataOutput.writeLong(startTime);
-        objectDataOutput.writeLong(stopTime);
-        objectDataOutput.writeObject(item);
+//        objectDataOutput.writeLong(startTime);
+//        objectDataOutput.writeLong(stopTime);
+        objectDataOutput.writeObject(carrier);
         objectDataOutput.writeObject(result);
         objectDataOutput.writeObject(ruleSetOutcome);
         objectDataOutput.writeUTF(reason);
@@ -97,9 +96,9 @@ public class RuleSetEvaluationResult<T extends HasID,R> implements IdentifiedDat
 
     @Override
     public void readData(ObjectDataInput objectDataInput) throws IOException {
-        startTime = objectDataInput.readLong();
-        stopTime = objectDataInput.readLong();
-        item = objectDataInput.readObject();
+//        startTime = objectDataInput.readLong();
+//        stopTime = objectDataInput.readLong();
+        carrier = objectDataInput.readObject();
         result = objectDataInput.readObject();
         ruleSetOutcome = objectDataInput.readObject();
         reason = objectDataInput.readUTF();

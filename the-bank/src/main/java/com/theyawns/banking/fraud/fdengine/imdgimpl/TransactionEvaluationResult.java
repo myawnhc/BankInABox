@@ -5,12 +5,18 @@ import com.hazelcast.nio.ObjectDataOutput;
 import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.theyawns.banking.Transaction;
 import com.theyawns.controller.Constants;
+import com.theyawns.ruleengine.HasID;
+import com.theyawns.ruleengine.ItemCarrier;
 import com.theyawns.ruleengine.rulesets.RuleSetEvaluationResult;
 
-import java.io.*;
-import java.util.*;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-public class TransactionEvaluationResult implements Serializable, IdentifiedDataSerializable {
+public class TransactionEvaluationResult<T extends HasID> implements Serializable, IdentifiedDataSerializable {
 
     private long startTime;
     private long stopTime;
@@ -20,16 +26,17 @@ public class TransactionEvaluationResult implements Serializable, IdentifiedData
     // openshift debugging
     private static long duplicateResults = 0;
 
-    private Transaction transaction;
+    private ItemCarrier<T> carrier;
+    //private Transaction transaction;
     private Map<String, RuleSetEvaluationResult<Transaction,?>> results;
 
     private String rejectingRuleSet;
     private String  rejectingReason;
 
-    public static TransactionEvaluationResult newInstance(Transaction txn) {
+    public static <T extends HasID> TransactionEvaluationResult<T> newInstance(ItemCarrier<T> carrier) {
             TransactionEvaluationResult ter = new TransactionEvaluationResult();
-            ter.startTime = txn.getTimeEnqueuedForRuleEngine();
-            ter.transaction = txn;
+            ter.startTime = carrier.getTimeEnqueuedForRouting();
+            ter.carrier = carrier;
             ter.results = new HashMap<>();
             return ter;
     }
@@ -52,7 +59,8 @@ public class TransactionEvaluationResult implements Serializable, IdentifiedData
         }
     }
 
-    public Transaction getTransaction() { return transaction; }
+    public ItemCarrier<T> getCarrier() { return carrier; }
+    //public Transaction getTransaction() { return transaction; }
 
     public synchronized List<RuleSetEvaluationResult<Transaction,?>> getResults() {
         List<RuleSetEvaluationResult<Transaction, ?>> a = new ArrayList<>();
@@ -81,7 +89,7 @@ public class TransactionEvaluationResult implements Serializable, IdentifiedData
     public long getLatencyMillis() { return stopTime - startTime; }
 
     public synchronized boolean checkForCompletion() {
-        int ruleSetsExpected = transaction.getNumberOfRuleSetsThatApply();
+        int ruleSetsExpected = carrier.getNumberOfRuleSetsThatApply();
         int ruleSetsCompleted = getNumberOfResultsPosted();
         //debug();
         return ruleSetsCompleted >= ruleSetsExpected;
@@ -101,7 +109,7 @@ public class TransactionEvaluationResult implements Serializable, IdentifiedData
     public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
         objectDataOutput.writeLong(startTime);
         objectDataOutput.writeLong(stopTime);
-        objectDataOutput.writeObject(transaction);
+        objectDataOutput.writeObject(carrier);
         objectDataOutput.writeObject(results);
         //Map<String, RuleSetEvaluationResult<Transaction,?>> results;
         objectDataOutput.writeUTF(rejectingRuleSet);
@@ -112,7 +120,7 @@ public class TransactionEvaluationResult implements Serializable, IdentifiedData
     public void readData(ObjectDataInput objectDataInput) throws IOException {
         startTime = objectDataInput.readLong();
         stopTime = objectDataInput.readLong();
-        transaction = objectDataInput.readObject();
+        carrier = objectDataInput.readObject();
         results = objectDataInput.readObject();
         rejectingRuleSet = objectDataInput.readUTF();
         rejectingReason = objectDataInput.readUTF();

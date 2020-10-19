@@ -6,6 +6,7 @@ import com.theyawns.banking.Account;
 import com.theyawns.banking.Merchant;
 import com.theyawns.banking.Transaction;
 import com.theyawns.banking.fraud.fdengine.imdgimpl.TransactionEvaluationResult;
+import com.theyawns.ruleengine.ItemCarrier;
 import com.theyawns.ruleengine.rulesets.RuleSetEvaluationResult;
 import com.theyawns.ruleengine.rules.RuleEvaluationResult;
 
@@ -26,6 +27,7 @@ public class IDSFactory implements DataSerializableFactory, Serializable {
             case Constants.IDS_TXN_EVAL_RESULT: return new TransactionEvaluationResult();
             case Constants.IDS_RULE_EVAL_RESULT: return new RuleEvaluationResult();
             case Constants.IDS_RULESET_EVAL_RESULT: return new RuleSetEvaluationResult();
+            case Constants.IDS_CARRIER: return new ItemCarrier();
         }
         throw new IllegalArgumentException("Missing constructor invocation for type in IDSFactory");
     }
