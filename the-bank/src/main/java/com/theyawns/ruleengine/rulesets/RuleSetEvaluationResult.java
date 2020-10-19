@@ -18,7 +18,6 @@ public class RuleSetEvaluationResult<T,R> implements IdentifiedDataSerializable,
     private R result;
     private TransactionFinalStatus ruleSetOutcome;
     private String reason;
-
     //private transient RuleSet ruleSet;
     private String ruleSetName;
 
@@ -81,11 +80,23 @@ public class RuleSetEvaluationResult<T,R> implements IdentifiedDataSerializable,
 
     @Override
     public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
-
+        objectDataOutput.writeLong(startTime);
+        objectDataOutput.writeLong(stopTime);
+        objectDataOutput.writeObject(item);
+        objectDataOutput.writeObject(result);
+        objectDataOutput.writeObject(ruleSetOutcome);
+        objectDataOutput.writeUTF(reason);
+        objectDataOutput.writeUTF(ruleSetName);
     }
 
     @Override
     public void readData(ObjectDataInput objectDataInput) throws IOException {
-
+        startTime = objectDataInput.readLong();
+        stopTime = objectDataInput.readLong();
+        item = objectDataInput.readObject();
+        result = objectDataInput.readObject();
+        ruleSetOutcome = objectDataInput.readObject();
+        reason = objectDataInput.readUTF();
+        ruleSetName = objectDataInput.readUTF();
     }
 }

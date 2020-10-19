@@ -50,4 +50,5 @@ public class Constants {
     public static final int IDS_TXN_WITH_ACCT  = 207;
     public static final int IDS_RER  = 208;
     public static final int IDS_RSER = 209;
+    public static final int IDS_TXN_EVAL_RESULT = 210;
 }

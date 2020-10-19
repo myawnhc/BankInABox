@@ -1,21 +1,19 @@
 package com.theyawns.banking.fraud.fdengine.imdgimpl;
 
+import com.hazelcast.nio.ObjectDataInput;
+import com.hazelcast.nio.ObjectDataOutput;
+import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.theyawns.banking.Transaction;
+import com.theyawns.controller.Constants;
 import com.theyawns.ruleengine.rulesets.RuleSetEvaluationResult;
 
 import java.io.*;
 import java.util.*;
 
-public class TransactionEvaluationResult implements Serializable {
+public class TransactionEvaluationResult implements Serializable, IdentifiedDataSerializable {
 
     private long startTime;
     private long stopTime;
-
-    // DEBUGGING - don't count queued time
-    private long terCreationTime;
-    // openshift debugging
-    private static long duplicateResults = 0;
-
     private Transaction transaction;
     private Map<String, RuleSetEvaluationResult<Transaction,?>> results;
 
@@ -30,25 +28,14 @@ public class TransactionEvaluationResult implements Serializable {
             return ter;
     }
 
-    // private no-arg constructor
-    private TransactionEvaluationResult() {
+    // No-arg constructor had to be made public for IDS
+    public TransactionEvaluationResult() {
 
     }
 
     public synchronized void addResult(RuleSetEvaluationResult<Transaction,?> rser) {
-        // maybe results should be keyed by ruleset in case we somehow get multiple
-        // results for same set?  Seems fine everywhere but OpenShift where we get
-        // more completions than we have transactions - a logical impossibility
         String key = rser.getRuleSetName();
         Object o = results.put(key, rser);
-        // This apparently happens only on OpenShift, and possibly only after
-        // we start to be throttled by some as-yet-unidentified mechanism.
-        if (o != null) {
-            duplicateResults++;
-            if (duplicateResults % 1000 == 0) {
-                System.out.printf("TER has seen %d attempts to post duplicate results\n", duplicateResults);
-            }
-        }
     }
 
     public Transaction getTransaction() { return transaction; }
@@ -69,7 +56,7 @@ public class TransactionEvaluationResult implements Serializable {
     public void setStopTime(long time) {
         stopTime = time;
 
-        // hopefully briefly here for debugging
+        // Not seen, can probably remove this check
         if (time < startTime) {
             throw new IllegalArgumentException("StopTime cannot be less than start time" +
                     "Start = " + startTime + " Stop = " + stopTime);
@@ -86,18 +73,34 @@ public class TransactionEvaluationResult implements Serializable {
         return ruleSetsCompleted >= ruleSetsExpected;
     }
 
-    // Keep if needed in the future; stalls called by thread safety issue where more than
-    // one ruleset could create the TransactionEvaluationResult entry, and the completion condition
-    // of all rulesets having posted results was never satisfied.
-    private void debug() {
-        long timeWaiting = System.currentTimeMillis() - this.terCreationTime;
-        // If > 1 minute, we have a problem
-        long secondsWaiting = timeWaiting / 1_000;
-        if (secondsWaiting > 60) {
-            String txnId = transaction.getItemID();
-            String haveResultFor = results.get(0).getRuleSetName();
-            System.out.printf("Stall: Txn %s has result for %s, been waiting for %d seconds\n",
-                    txnId, haveResultFor, secondsWaiting);
-        }
+    @Override
+    public int getFactoryId() {
+        return Constants.IDS_FACTORY_ID;
+    }
+
+    @Override
+    public int getClassId() {
+        return Constants.IDS_TXN_EVAL_RESULT;
+    }
+
+    @Override
+    public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
+        objectDataOutput.writeLong(startTime);
+        objectDataOutput.writeLong(stopTime);
+        objectDataOutput.writeObject(transaction);
+        objectDataOutput.writeObject(results);
+        //Map<String, RuleSetEvaluationResult<Transaction,?>> results;
+        objectDataOutput.writeUTF(rejectingRuleSet);
+        objectDataOutput.writeUTF(rejectingReason);
+    }
+
+    @Override
+    public void readData(ObjectDataInput objectDataInput) throws IOException {
+        startTime = objectDataInput.readLong();
+        stopTime = objectDataInput.readLong();
+        transaction = objectDataInput.readObject();
+        results = objectDataInput.readObject();
+        rejectingRuleSet = objectDataInput.readUTF();
+        rejectingReason = objectDataInput.readUTF();
     }
 }

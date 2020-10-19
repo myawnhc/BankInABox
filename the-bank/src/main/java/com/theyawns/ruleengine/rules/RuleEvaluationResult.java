@@ -10,16 +10,17 @@ import java.io.Serializable;
 
 public class RuleEvaluationResult<R> implements IdentifiedDataSerializable, Serializable {
 
-    private long startTime;
-    private long stopTime;
+//    private long startTime;
+//    private long stopTime;
 
     private R result;
 
-    private Rule rule;
+    // Not sure this needs to be here ... not being used currently
+    private transient Rule rule;
 
     public RuleEvaluationResult(Rule rule) {
         this.rule = rule;
-        startTime = System.nanoTime();
+//        startTime = System.nanoTime();
     }
 
     // for IDS Serialization
@@ -27,16 +28,16 @@ public class RuleEvaluationResult<R> implements IdentifiedDataSerializable, Seri
 
     public void setResult(R result) {
         this.result = result;
-        this.stopTime = System.nanoTime();
+//        this.stopTime = System.nanoTime();
     }
 
     public R getResult() {
         return result;
     }
 
-    public long getElapsedNanos() {
-        return stopTime - startTime;
-    }
+//    public long getElapsedNanos() {
+//        return stopTime - startTime;
+//    }
 
     public String toString() {
         return result.toString();
@@ -54,11 +55,17 @@ public class RuleEvaluationResult<R> implements IdentifiedDataSerializable, Seri
 
     @Override
     public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
-
+//        objectDataOutput.writeLong(startTime);
+//        objectDataOutput.writeLong(stopTime);
+        objectDataOutput.writeObject(result);
+//        objectDataOutput.writeObject(rule);
     }
 
     @Override
     public void readData(ObjectDataInput objectDataInput) throws IOException {
-
+//        startTime = objectDataInput.readLong();
+//        stopTime = objectDataInput.readLong();
+        result = objectDataInput.readObject();
+//        rule = objectDataInput.readObject();
     }
 }
