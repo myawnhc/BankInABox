@@ -3,7 +3,6 @@ package com.theyawns.banking.fraud.fdengine.imdgimpl;
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
 import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
-import com.theyawns.banking.Transaction;
 import com.theyawns.controller.Constants;
 import com.theyawns.ruleengine.HasID;
 import com.theyawns.ruleengine.ItemCarrier;
@@ -28,7 +27,7 @@ public class TransactionEvaluationResult<T extends HasID> implements Serializabl
 
     private ItemCarrier<T> carrier;
     //private Transaction transaction;
-    private Map<String, RuleSetEvaluationResult<Transaction,?>> results;
+    private Map<String, RuleSetEvaluationResult<T,?>> results;
 
     private String rejectingRuleSet;
     private String  rejectingReason;
@@ -46,7 +45,7 @@ public class TransactionEvaluationResult<T extends HasID> implements Serializabl
 
     }
 
-    public synchronized void addResult(RuleSetEvaluationResult<Transaction,?> rser) {
+    public synchronized void addResult(RuleSetEvaluationResult<T,?> rser) {
         String key = rser.getRuleSetName();
         Object o = results.put(key, rser);
         // This apparently happens only on OpenShift, and possibly only after
@@ -62,8 +61,8 @@ public class TransactionEvaluationResult<T extends HasID> implements Serializabl
     public ItemCarrier<T> getCarrier() { return carrier; }
     //public Transaction getTransaction() { return transaction; }
 
-    public synchronized List<RuleSetEvaluationResult<Transaction,?>> getResults() {
-        List<RuleSetEvaluationResult<Transaction, ?>> a = new ArrayList<>();
+    public synchronized List<RuleSetEvaluationResult<T,?>> getResults() {
+        List<RuleSetEvaluationResult<T, ?>> a = new ArrayList<>();
         a.addAll(results.values());
         return a;
     }

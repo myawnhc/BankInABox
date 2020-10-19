@@ -7,8 +7,8 @@ import com.theyawns.banking.Merchant;
 import com.theyawns.banking.Transaction;
 import com.theyawns.banking.fraud.fdengine.imdgimpl.TransactionEvaluationResult;
 import com.theyawns.ruleengine.ItemCarrier;
-import com.theyawns.ruleengine.rulesets.RuleSetEvaluationResult;
 import com.theyawns.ruleengine.rules.RuleEvaluationResult;
+import com.theyawns.ruleengine.rulesets.RuleSetEvaluationResult;
 
 import java.io.Serializable;
 

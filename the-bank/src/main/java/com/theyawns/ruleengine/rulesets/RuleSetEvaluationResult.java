@@ -13,13 +13,14 @@ import java.io.Serializable;
 
 public class RuleSetEvaluationResult<T extends HasID,R> implements IdentifiedDataSerializable, Serializable {
 
-//    private long startTime;
-//    private long stopTime;
+    private long startTime;
+    private long stopTime;
 
     private ItemCarrier<T> carrier;
     private R result;
     private TransactionFinalStatus ruleSetOutcome;
     private String reason;
+
     //private transient RuleSet ruleSet;
     private String ruleSetName;
 
@@ -27,7 +28,7 @@ public class RuleSetEvaluationResult<T extends HasID,R> implements IdentifiedDat
         this.carrier = carrier;
         //this.ruleSet = ruleSet;
         this.ruleSetName = ruleSetName;
-//        startTime = System.nanoTime();
+        startTime = System.nanoTime();
     }
 
     // for IDS Serialization
@@ -39,7 +40,7 @@ public class RuleSetEvaluationResult<T extends HasID,R> implements IdentifiedDat
 
     public void setResult(R result) {
         this.result = result;
-//        this.stopTime = System.nanoTime();
+        this.stopTime = System.nanoTime();
     }
 
     public R getResult() {
@@ -65,9 +66,9 @@ public class RuleSetEvaluationResult<T extends HasID,R> implements IdentifiedDat
     }
     public String getOutcomeReason() { return reason; }
 
-//    public long getElapsedNanos() {
-//        return stopTime - startTime;
-//    }
+    public long getElapsedNanos() {
+        return stopTime - startTime;
+    }
 
     public String toString() {
         return result.toString();
@@ -85,8 +86,8 @@ public class RuleSetEvaluationResult<T extends HasID,R> implements IdentifiedDat
 
     @Override
     public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
-//        objectDataOutput.writeLong(startTime);
-//        objectDataOutput.writeLong(stopTime);
+        objectDataOutput.writeLong(startTime);
+        objectDataOutput.writeLong(stopTime);
         objectDataOutput.writeObject(carrier);
         objectDataOutput.writeObject(result);
         objectDataOutput.writeObject(ruleSetOutcome);
@@ -96,8 +97,8 @@ public class RuleSetEvaluationResult<T extends HasID,R> implements IdentifiedDat
 
     @Override
     public void readData(ObjectDataInput objectDataInput) throws IOException {
-//        startTime = objectDataInput.readLong();
-//        stopTime = objectDataInput.readLong();
+        startTime = objectDataInput.readLong();
+        stopTime = objectDataInput.readLong();
         carrier = objectDataInput.readObject();
         result = objectDataInput.readObject();
         ruleSetOutcome = objectDataInput.readObject();
