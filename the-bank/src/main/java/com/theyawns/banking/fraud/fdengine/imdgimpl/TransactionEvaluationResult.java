@@ -20,11 +20,6 @@ public class TransactionEvaluationResult<T extends HasID> implements Serializabl
     private long startTime;
     private long stopTime;
 
-    // DEBUGGING - don't count queued time
-    private long terCreationTime;
-    // openshift debugging
-    private static long duplicateResults = 0;
-
     private ItemCarrier<T> carrier;
     //private Transaction transaction;
     private Map<String, RuleSetEvaluationResult<T,?>> results;
@@ -41,21 +36,12 @@ public class TransactionEvaluationResult<T extends HasID> implements Serializabl
     }
 
     // No-arg constructor had to be made public for IDS
-    public TransactionEvaluationResult() {
-
-    }
+    public TransactionEvaluationResult() { }
 
     public synchronized void addResult(RuleSetEvaluationResult<T,?> rser) {
         String key = rser.getRuleSetName();
         Object o = results.put(key, rser);
-        // This apparently happens only on OpenShift, and possibly only after
-        // we start to be throttled by some as-yet-unidentified mechanism.
-        if (o != null) {
-            duplicateResults++;
-            if (duplicateResults % 1000 == 0) {
-                System.out.printf("TER has seen %d attempts to post duplicate results\n", duplicateResults);
-            }
-        }
+        // non-null o means we posted a duplicate result
     }
 
     public ItemCarrier<T> getCarrier() { return carrier; }
@@ -74,15 +60,13 @@ public class TransactionEvaluationResult<T extends HasID> implements Serializabl
     public void setRejectingRuleSet(String rsName) { rejectingRuleSet = rsName; }
     public void setRejectingReason(String s) { rejectingReason = s; }
 
-    public void setStopTime(long time) {
-        stopTime = time;
-
-        // hopefully briefly here for debugging
-        if (time < startTime) {
+    public void setStopTime() {
+        stopTime = System.currentTimeMillis();
+        // No longer an issue
+        if (stopTime < startTime) {
             throw new IllegalArgumentException("StopTime cannot be less than start time" +
                     "Start = " + startTime + " Stop = " + stopTime);
         }
-
     }
 
     public long getLatencyMillis() { return stopTime - startTime; }
@@ -90,7 +74,6 @@ public class TransactionEvaluationResult<T extends HasID> implements Serializabl
     public synchronized boolean checkForCompletion() {
         int ruleSetsExpected = carrier.getNumberOfRuleSetsThatApply();
         int ruleSetsCompleted = getNumberOfResultsPosted();
-        //debug();
         return ruleSetsCompleted >= ruleSetsExpected;
     }
 
