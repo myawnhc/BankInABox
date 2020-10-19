@@ -12,7 +12,7 @@ import java.util.Map;
 // Idea is to move from current hard-coded set of RuleSets (see
 // PreAuthMapListener) to a dynamic configuration that can be adjusted
 // while the app is running.
-public class RuleEngineController<T> {
+public class RuleEngineController<T extends HasID> {
 
     private Map<String, RuleSetInfo> knownRuleSets = new HashMap<>();
 

@@ -8,9 +8,10 @@ import com.hazelcast.map.IMap;
 import com.hazelcast.topic.ITopic;
 import com.hazelcast.topic.Message;
 import com.hazelcast.topic.MessageListener;
-import com.theyawns.controller.Constants;
-import com.theyawns.banking.Transaction;
 import com.theyawns.banking.fraud.fdengine.imdgimpl.TransactionEvaluationResult;
+import com.theyawns.controller.Constants;
+import com.theyawns.ruleengine.HasID;
+import com.theyawns.ruleengine.ItemCarrier;
 import com.theyawns.ruleengine.rulesets.RuleSet;
 import com.theyawns.ruleengine.rulesets.RuleSetEvaluationResult;
 
@@ -20,8 +21,8 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CompletableFuture;
 
-public class RuleSetExecutor<T,R> implements Callable<Exception>, Serializable, HazelcastInstanceAware,
-        MessageListener<T> {
+public class RuleSetExecutor<T extends HasID,R> implements Callable<Exception>, Serializable, HazelcastInstanceAware,
+        MessageListener<ItemCarrier<T>> {
 
     private HazelcastInstance hazelcast;
 
@@ -31,7 +32,7 @@ public class RuleSetExecutor<T,R> implements Callable<Exception>, Serializable, 
     private String completionQueueName = Constants.QUEUE_COMPLETIONS;
 
     private ITopic<T> topic;
-    private IQueue<T> input;
+    private IQueue<ItemCarrier<T>> input;
     private RuleSet<T,R> ruleSet;
     private IMap<String, TransactionEvaluationResult> resultMap;
     private IQueue<String> completedTransactionsQueue;
@@ -75,11 +76,11 @@ public class RuleSetExecutor<T,R> implements Callable<Exception>, Serializable, 
 
         while (true) {
             try {
-                T t = supplyTransaction();
+                ItemCarrier<T> t = supplyCarrierItem();
 
                 // Making supply step async is runaway thread creation :-)
                 CompletableFuture.completedFuture(t)
-//                        .thenApplyAsync(this::recordTransactionQueueLatency)
+                        .thenApplyAsync(this::recordTransactionQueueLatency)
                         .<RuleSetEvaluationResult<T,R>>thenApplyAsync(ruleSet::apply)
                         .thenAcceptAsync(this::consumeResult);
 
@@ -107,7 +108,7 @@ public class RuleSetExecutor<T,R> implements Callable<Exception>, Serializable, 
     }
 
     // conforms to Supplier<U>
-    private T supplyTransaction() {
+    private ItemCarrier<T> supplyCarrierItem() {
         try {
             return input.take();
         } catch (InterruptedException e) {
@@ -116,29 +117,25 @@ public class RuleSetExecutor<T,R> implements Callable<Exception>, Serializable, 
         }
     }
 
-    private T recordTransactionQueueLatency(T t) {
-        Transaction txn = (Transaction) t;
-        // Only add time for the first ruleset to kick in ...
-        if (txn.getQueueWaitTime() == 0) {
-            long timeQueuedForRuleEngine = System.nanoTime() - txn.getTimeEnqueuedForRuleEngine();
-            txn.addToQueueWaitTime(timeQueuedForRuleEngine);
-            // must store back, can't do that here ..
-        }
-        return t;
+    private ItemCarrier<T> recordTransactionQueueLatency(ItemCarrier<T> carrier) {
+        carrier.setTimeEnqueuedForExecutor();
+        return carrier;
     }
 
-    public static class RSEUpdater implements EntryProcessor<String, TransactionEvaluationResult, Boolean> {
-        private Transaction txn;
+    public static class RSEUpdater<T extends HasID> implements EntryProcessor<String, TransactionEvaluationResult, Boolean> {
+        //private Transaction txn;
+        private ItemCarrier<T> carrier;
         private RuleSetEvaluationResult rser;
-        public RSEUpdater(Transaction txn, RuleSetEvaluationResult rser) {
-            this.txn = txn;
+        public RSEUpdater(ItemCarrier<T> carrier, RuleSetEvaluationResult rser) {
+            //this.txn = txn;
+            this.carrier = carrier;
             this.rser = rser;
         }
         @Override
         public Boolean process(Map.Entry<String, TransactionEvaluationResult> entry) {
             TransactionEvaluationResult result = entry.getValue();
             if (result == null) {
-                result = TransactionEvaluationResult.newInstance(txn);
+                result = TransactionEvaluationResult.newInstance(carrier);
             }
             result.addResult(rser);
             entry.setValue(result);
@@ -147,21 +144,16 @@ public class RuleSetExecutor<T,R> implements Callable<Exception>, Serializable, 
     }
 
     private void consumeResult(RuleSetEvaluationResult<T,R> rser) {
-        Transaction txn = (Transaction) rser.getItem();
-        String txnID = txn.getItemID();
-        RSEUpdater rseu = new RSEUpdater(txn, rser);
+        ItemCarrier<T> carrier = rser.getCarrier();
+//        Transaction txn = (Transaction) rser.getItem();
+//        String txnID = txn.getItemID();
+        RSEUpdater<T> rseu = new RSEUpdater(carrier, rser);
+        String txnID = carrier.getItem().getItemID();
         // Transaction will be complete if all rulesets have posted results
         boolean txnComplete = resultMap.executeOnKey(txnID, rseu);
-        // Replaced by EntryProcessor
-//        TransactionEvaluationResult ter = resultMap.get(txn.getItemID());
-//        if (ter == null) {
-//            ter = TransactionEvaluationResult.newInstance(txn);
-//        }
-//        ter.addResult((RuleSetEvaluationResult<Transaction, R>) rser);
-//        resultMap.set(txn.getItemID(), ter);
 
         if (txnComplete) {
-            txn.setTimeEnqueuedForAggregator(); // deprecated
+            carrier.setTimeEnqueuedForAggregator();
             // LT: offer to completions queue
             completedTransactionsQueue.offer(txnID);
         }
@@ -187,11 +179,11 @@ public class RuleSetExecutor<T,R> implements Callable<Exception>, Serializable, 
 
     // MessageListener interface for Topic - unused for now
     @Override
-    public void onMessage(Message<T> message) {
+    public void onMessage(Message<ItemCarrier<T>> message) {
         long startTime = System.nanoTime();
         System.out.println("RuleSetExecutor.onMessage()");
-        T txn = message.getMessageObject();
-        CompletableFuture.completedFuture(txn)
+        ItemCarrier<T> carrier = message.getMessageObject();
+        CompletableFuture.completedFuture(carrier)
                 .<RuleSetEvaluationResult<T,R>>thenApplyAsync(ruleSet::apply)
                 .thenAcceptAsync(this::consumeResult);
 

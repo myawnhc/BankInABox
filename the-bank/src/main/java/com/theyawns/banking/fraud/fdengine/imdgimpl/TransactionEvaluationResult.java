@@ -14,6 +14,12 @@ public class TransactionEvaluationResult implements Serializable, IdentifiedData
 
     private long startTime;
     private long stopTime;
+
+    // DEBUGGING - don't count queued time
+    private long terCreationTime;
+    // openshift debugging
+    private static long duplicateResults = 0;
+
     private Transaction transaction;
     private Map<String, RuleSetEvaluationResult<Transaction,?>> results;
 
@@ -36,6 +42,14 @@ public class TransactionEvaluationResult implements Serializable, IdentifiedData
     public synchronized void addResult(RuleSetEvaluationResult<Transaction,?> rser) {
         String key = rser.getRuleSetName();
         Object o = results.put(key, rser);
+        // This apparently happens only on OpenShift, and possibly only after
+        // we start to be throttled by some as-yet-unidentified mechanism.
+        if (o != null) {
+            duplicateResults++;
+            if (duplicateResults % 1000 == 0) {
+                System.out.printf("TER has seen %d attempts to post duplicate results\n", duplicateResults);
+            }
+        }
     }
 
     public Transaction getTransaction() { return transaction; }
@@ -56,7 +70,7 @@ public class TransactionEvaluationResult implements Serializable, IdentifiedData
     public void setStopTime(long time) {
         stopTime = time;
 
-        // Not seen, can probably remove this check
+        // hopefully briefly here for debugging
         if (time < startTime) {
             throw new IllegalArgumentException("StopTime cannot be less than start time" +
                     "Start = " + startTime + " Stop = " + stopTime);

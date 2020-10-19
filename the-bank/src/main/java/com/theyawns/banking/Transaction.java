@@ -25,10 +25,10 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
     // object with temporary in-process state.
     private int fraudResult = -1;
     private Boolean paymentResult = Boolean.TRUE;
-    private int numberOfRuleSetsThatApply;
-    private long timeEnqueuedForRuleEngine; // millis
-    private long timeEnqueuedForAggregator; // millis
-    private long timeSpentQueued; // sum of RE + Aggregator - not used
+//    private int numberOfRuleSetsThatApply;
+//    private long timeEnqueuedForRuleEngine; // millis
+//    private long timeEnqueuedForAggregator; // millis
+//    private long timeSpentQueued; // sum of RE + Aggregator - not used
 
     // No-arg constructor for use by serialization
     public Transaction() {
@@ -90,23 +90,7 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         paymentResult = result;
     }
 
-    public void setNumberOfRuleSetsThatApply(int count) { numberOfRuleSetsThatApply = count; }
-    public int getNumberOfRuleSetsThatApply() { return numberOfRuleSetsThatApply; }
-
-    //public void setTimeEnqueuedForRuleEngine(long time) { timeEnqueuedForRuleEngine = time; }
-    public void setTimeEnqueuedForRuleEngine() { timeEnqueuedForRuleEngine = System.currentTimeMillis(); }
-    public long getTimeEnqueuedForRuleEngine() { return timeEnqueuedForRuleEngine; }
-
-    public void setTimeEnqueuedForAggregator() { timeEnqueuedForAggregator = System.currentTimeMillis(); }
-    public long getTimeEnqueuedForAggregator() { return timeEnqueuedForAggregator; }
-
-    public void addToQueueWaitTime(long value) {
-        timeSpentQueued += value;
-    }
-    public long getQueueWaitTime() {
-        return timeSpentQueued;
-    }
-    @Override
+   @Override
     public String toString() {
         return "Transaction " + transactionId + " account " + acctNumber + " merchant " + merchantId + " amount " + amount;
     }
@@ -132,10 +116,10 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         objectDataOutput.writeUTF(location);
         objectDataOutput.writeInt(fraudResult);
         objectDataOutput.writeBoolean(paymentResult);
-        objectDataOutput.writeInt(numberOfRuleSetsThatApply);
-        objectDataOutput.writeLong(timeEnqueuedForRuleEngine);
-        objectDataOutput.writeLong(timeEnqueuedForAggregator);
-        objectDataOutput.writeLong(timeSpentQueued);
+//        objectDataOutput.writeInt(numberOfRuleSetsThatApply);
+//        objectDataOutput.writeLong(timeEnqueuedForRuleEngine);
+//        objectDataOutput.writeLong(timeEnqueuedForAggregator);
+//        objectDataOutput.writeLong(timeSpentQueued);
     }
 
     //@Override
@@ -147,9 +131,9 @@ public class Transaction implements IdentifiedDataSerializable, Serializable, Ha
         location = objectDataInput.readUTF();
         fraudResult = objectDataInput.readInt();
         paymentResult = objectDataInput.readBoolean();
-        numberOfRuleSetsThatApply = objectDataInput.readInt();
-        timeEnqueuedForRuleEngine = objectDataInput.readLong();
-        timeEnqueuedForAggregator = objectDataInput.readLong();
-        timeSpentQueued = objectDataInput.readLong();
+//        numberOfRuleSetsThatApply = objectDataInput.readInt();
+//        timeEnqueuedForRuleEngine = objectDataInput.readLong();
+//        timeEnqueuedForAggregator = objectDataInput.readLong();
+//        timeSpentQueued = objectDataInput.readLong();
     }
 }

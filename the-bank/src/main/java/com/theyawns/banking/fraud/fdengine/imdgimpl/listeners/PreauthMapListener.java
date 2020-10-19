@@ -8,15 +8,20 @@ import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
 import com.hazelcast.map.IMap;
 import com.hazelcast.map.listener.EntryAddedListener;
-import com.hazelcast.map.listener.EntryLoadedListener;
-import com.theyawns.controller.Constants;
 import com.theyawns.banking.Transaction;
+import com.theyawns.controller.Constants;
+import com.theyawns.ruleengine.ItemCarrier;
 import com.theyawns.ruleengine.RuleEngineController;
 
+// TODO: This can probably be abstracted to not be domain-specific --
+//     wrap an item, route it, mark Q'd time are all generic
+// Reference to specific RuleSets and Queues is domain-specific but this
+//   will be extracting into a RuleEngineRoutingInfo IMap that the
+//   routing controller will use to route incoming items to appropriate
+//   rulesets.
 
 public class PreauthMapListener implements
-        EntryAddedListener<String, Transaction>,
-        EntryLoadedListener<String, Transaction> {
+        EntryAddedListener<String, Transaction> {
 
     private final static ILogger log = Logger.getLogger(PreauthMapListener.class);
 
@@ -25,9 +30,9 @@ public class PreauthMapListener implements
 
     // Queues to pass to RuleExecutors -- TODO: replace these with a single ReliableTopic
     //private ITopic<Transaction> preAuthTopic;
-    private IQueue<Transaction> locationRulesQueue;
-    private IQueue<Transaction> merchantRulesQueue;
-    private IQueue<Transaction> paymentRulesQueue;
+    private IQueue<ItemCarrier<Transaction>> locationRulesQueue;
+    private IQueue<ItemCarrier<Transaction>> merchantRulesQueue;
+//    private IQueue<ItemCarrier<Transaction>> paymentRulesQueue;
 
     // Counters for Grafana dashboard
     private PNCounter merchant_txn_count_walmart;
@@ -41,28 +46,23 @@ public class PreauthMapListener implements
         //preAuthTopic = instance.getReliableTopic(Constants.TOPIC_PREAUTH);
         locationRulesQueue = instance.getQueue(Constants.QUEUE_LOCATION);
         merchantRulesQueue = instance.getQueue(Constants.QUEUE_MERCHANT);
-        paymentRulesQueue = instance.getQueue(Constants.QUEUE_CREDITRULES);
+        //paymentRulesQueue = instance.getQueue(Constants.QUEUE_CREDITRULES);
         merchant_txn_count_amazon = instance.getPNCounter(Constants.PN_COUNT_AMAZON);
         merchant_txn_count_walmart = instance.getPNCounter(Constants.PN_COUNT_WALMART);
         this.ruleEngineController = rec;
     }
 
-    public IQueue<Transaction> getLocationRulesQueue(Transaction t) {
+    public IQueue<ItemCarrier<Transaction>> getLocationRulesQueue(Transaction t) {
         return locationRulesQueue;
     }
 
-    public IQueue<Transaction> getMerchantRulesQueue(Transaction t) {
+    public IQueue<ItemCarrier<Transaction>> getMerchantRulesQueue(Transaction t) {
         return merchantRulesQueue;
     }
 
-    public IQueue<Transaction> getPaymentRulesQueue(Transaction t) {
-        return paymentRulesQueue;
-    }
-
-    @Override
-    public void entryLoaded(EntryEvent<String, Transaction> entryEvent) {
-        entryAdded(entryEvent);
-    }
+//    public IQueue<ItemCarrier<Transaction>> getPaymentRulesQueue(Transaction t) {
+//        return paymentRulesQueue;
+//    }
 
     @Override
     public void entryAdded(EntryEvent<String, Transaction> entryEvent) {
@@ -74,6 +74,7 @@ public class PreauthMapListener implements
         // some other scheme
 
         //log.finest("entryAdded key " + entryEvent.getKey() + " value " + entryEvent.getValue());
+        //ItemCarrier<Transaction> carrier = entryEvent.getValue();
         Transaction txn = entryEvent.getValue();
         // TODO: add average transaction volume to merchants, use to scale
         //       transactions appropriately.   Until that is in place, we fudge the
@@ -102,16 +103,20 @@ public class PreauthMapListener implements
          *
          * int routedToCounter = ruleEngineController.forwardToApplicableRuleSets(txn);
          */
-        txn.setNumberOfRuleSetsThatApply(2);
+        ItemCarrier<Transaction> carrier = new ItemCarrier<>(txn);
+
+        carrier.setNumberOfRuleSetsThatApply(2);
 
         // This is a better representation of 'time queued' than having preAuthLoader set the
         // time in a batch of 10K items all pushed at once using putMany!
-        txn.setTimeEnqueuedForRuleEngine(); // sets to now
-        preAuthMap.set(txn.getItemID(), txn); // rewrite the transaction so that the ruleset field is set in the map
+        carrier.setTimeEnqueuedForRouting(); // sets to now
+
+        // Now that carrier has the latency and writing info, no need to rewrite the input txn
+        //preAuthMap.set(txn.getItemID(), txn); // rewrite the transaction so that the ruleset field is set in the map
 
         // see comment block above
-        getLocationRulesQueue(txn).add(txn);
-        getMerchantRulesQueue(txn).add(txn);
+        getLocationRulesQueue(txn).add(carrier);
+        getMerchantRulesQueue(txn).add(carrier);
         //System.out.println("PreauthMapListener distributed transaction to queues");
 
     }

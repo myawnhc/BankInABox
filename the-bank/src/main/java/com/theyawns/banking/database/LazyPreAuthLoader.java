@@ -88,19 +88,6 @@ public class LazyPreAuthLoader implements Callable<Exception>, Serializable, Haz
 
                 Map<String, Transaction> transactions = table.loadAll(keys);
                 //System.out.println("  Loaded " + keys.size() + " keys into Java HashMap resulting in " + transactions.entrySet().size() + " entries");
-                for (String key : keys) {
-                    Transaction t = transactions.get(key);
-                    //System.out.println("loaded " + t);
-                    if (key == null)
-                        System.out.println(" ERROR: Null key");
-                    else if (t == null)
-                        System.out.println(" ERROR: Null entry for key " + key);
-
-                    // TimeEnqueued set by the map listener so in C/S setup we aren't
-                    // adding inbound network delay to our reported latency.
-                    //else
-                    t.setTimeEnqueuedForRuleEngine();
-                }
                 preAuthMap.putAll(transactions);
                 System.out.print("  " + transactions.size() + " new transactions loaded to IMap, preAuth size now " + preAuthMap.size());
                 if (runMode == RunMode.Benchmark)
