@@ -10,8 +10,8 @@ public class Constants {
     public static final String MAP_APPROVED        = "approved";
     public static final String MAP_REJECTED_CREDIT = "rejectedForCredit";
     public static final String MAP_REJECTED_FRAUD  = "rejectedForFraud";
-
-    public static final String MAP_PPFD_RESULTS    = "ppfdResultMap";
+    public static final String MAP_RESULTS         = "resultMap";
+    public static final String MAP_RS_ROUTING      = "ruleSetRoutingMap";
 
     public static final String TOPIC_PREAUTH       = "preAuthTopic";
     public static final String QUEUE_LOCATION      = "locationRulesQ";
@@ -20,11 +20,8 @@ public class Constants {
 
     public static final String QUEUE_COMPLETIONS   = "resultsCompleteQ";
 
-    // Added these for debugging purposes but keeping them as they can be
-    // generally useful
+    // Added  for debugging purposes
     public static final String MAP_EXECUTOR_STATUS = "ruleSetExecutorStatus";
-    // this is broken down for each processing step, vs. end-to-end in PNCounters
-    public static final String MAP_LATENCY = "latencyMap";
 
     public static final String PN_COUNT_WALMART    = "pnCounterWalmart";
     public static final String PN_COUNT_AMAZON     = "pnCounterAmazon";

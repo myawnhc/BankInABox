@@ -1,6 +1,5 @@
 package com.theyawns.banking.fraud.fdengine.imdgimpl.listeners;
 
-import com.hazelcast.collection.IQueue;
 import com.hazelcast.core.EntryEvent;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.crdt.pncounter.PNCounter;
@@ -8,61 +7,54 @@ import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
 import com.hazelcast.map.IMap;
 import com.hazelcast.map.listener.EntryAddedListener;
-import com.hazelcast.map.listener.EntryLoadedListener;
-import com.theyawns.controller.Constants;
 import com.theyawns.banking.Transaction;
-import com.theyawns.ruleengine.RuleEngineController;
+import com.theyawns.controller.Constants;
+import com.theyawns.ruleengine.RuleEngineRoutingController;
 
 
 public class PreauthMapListener implements
-        EntryAddedListener<String, Transaction>,
-        EntryLoadedListener<String, Transaction> {
+        EntryAddedListener<String, Transaction> {
 
     private final static ILogger log = Logger.getLogger(PreauthMapListener.class);
 
     //private HazelcastInstance hazelcast;
     private IMap<String, Transaction> preAuthMap;
 
-    // Queues to pass to RuleExecutors -- TODO: replace these with a single ReliableTopic
-    //private ITopic<Transaction> preAuthTopic;
-    private IQueue<Transaction> locationRulesQueue;
-    private IQueue<Transaction> merchantRulesQueue;
-    private IQueue<Transaction> paymentRulesQueue;
+    // Queues to pass to RuleExecutors -- possibly replace these with a single ReliableTopic
+//    //private ITopic<Transaction> preAuthTopic;
+//    private IQueue<Transaction> locationRulesQueue;
+//    private IQueue<Transaction> merchantRulesQueue;
+//    private IQueue<Transaction> paymentRulesQueue;
 
     // Counters for Grafana dashboard
     private PNCounter merchant_txn_count_walmart;
     private PNCounter merchant_txn_count_amazon;
 
-    private RuleEngineController ruleEngineController;
+    private RuleEngineRoutingController routingController;
 
 
-    public PreauthMapListener(HazelcastInstance instance, RuleEngineController rec) {
+    public PreauthMapListener(HazelcastInstance instance, RuleEngineRoutingController rec) {
         preAuthMap = instance.getMap(Constants.MAP_PREAUTH);
         //preAuthTopic = instance.getReliableTopic(Constants.TOPIC_PREAUTH);
-        locationRulesQueue = instance.getQueue(Constants.QUEUE_LOCATION);
-        merchantRulesQueue = instance.getQueue(Constants.QUEUE_MERCHANT);
-        paymentRulesQueue = instance.getQueue(Constants.QUEUE_CREDITRULES);
+//        locationRulesQueue = instance.getQueue(Constants.QUEUE_LOCATION);
+//        merchantRulesQueue = instance.getQueue(Constants.QUEUE_MERCHANT);
+//        paymentRulesQueue = instance.getQueue(Constants.QUEUE_CREDITRULES);
         merchant_txn_count_amazon = instance.getPNCounter(Constants.PN_COUNT_AMAZON);
         merchant_txn_count_walmart = instance.getPNCounter(Constants.PN_COUNT_WALMART);
-        this.ruleEngineController = rec;
+        routingController = rec;
     }
 
-    public IQueue<Transaction> getLocationRulesQueue(Transaction t) {
-        return locationRulesQueue;
-    }
+//    public IQueue<Transaction> getLocationRulesQueue(Transaction t) {
+//        return locationRulesQueue;
+//    }
+//
+//    public IQueue<Transaction> getMerchantRulesQueue(Transaction t) {
+//        return merchantRulesQueue;
+//    }
 
-    public IQueue<Transaction> getMerchantRulesQueue(Transaction t) {
-        return merchantRulesQueue;
-    }
-
-    public IQueue<Transaction> getPaymentRulesQueue(Transaction t) {
-        return paymentRulesQueue;
-    }
-
-    @Override
-    public void entryLoaded(EntryEvent<String, Transaction> entryEvent) {
-        entryAdded(entryEvent);
-    }
+    //public IQueue<Transaction> getPaymentRulesQueue(Transaction t) {
+    //    return paymentRulesQueue;
+    //}
 
     @Override
     public void entryAdded(EntryEvent<String, Transaction> entryEvent) {
@@ -72,6 +64,10 @@ public class PreauthMapListener implements
         // demo we'll always get the same queue for each set of rules, but we could
         // easily scale this up by using round-robin, modulo the transaction id, or
         // some other scheme
+        if (! entryEvent.getMember().localMember())  {
+            //System.out.println("remote event ignored");
+            return;
+        }
 
         //log.finest("entryAdded key " + entryEvent.getKey() + " value " + entryEvent.getValue());
         Transaction txn = entryEvent.getValue();
@@ -90,29 +86,9 @@ public class PreauthMapListener implements
             else if (merchantNum >= 10 && merchantNum <= 20)
                 merchant_txn_count_walmart.getAndIncrement();
 
-        String key = txn.getItemID();
-        if (key == null) return;
-
-
-        /* Ideally, the RuleEngineController could forward the transaction to
-         * appliable rulesets and return to us the value to update in the
-         * transaction.  This proved to add about 100ms of latency per transaction
-         * so has been backed out and we'll stick with the hard-coded routing
-         * until a more efficient routing can be designed.
-         *
-         * int routedToCounter = ruleEngineController.forwardToApplicableRuleSets(txn);
-         */
-        txn.setNumberOfRuleSetsThatApply(2);
-
-        // This is a better representation of 'time queued' than having preAuthLoader set the
-        // time in a batch of 10K items all pushed at once using putMany!
+        int routedToCounter = routingController.forwardToApplicableRuleSets(txn);
+        txn.setNumberOfRuleSetsThatApply(routedToCounter);
         txn.setTimeEnqueuedForRuleEngine(); // sets to now
         preAuthMap.set(txn.getItemID(), txn); // rewrite the transaction so that the ruleset field is set in the map
-
-        // see comment block above
-        getLocationRulesQueue(txn).add(txn);
-        getMerchantRulesQueue(txn).add(txn);
-        //System.out.println("PreauthMapListener distributed transaction to queues");
-
     }
 }

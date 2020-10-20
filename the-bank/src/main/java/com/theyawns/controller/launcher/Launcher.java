@@ -14,13 +14,8 @@ import com.hazelcast.map.IMap;
 import com.hazelcast.replicatedmap.ReplicatedMap;
 import com.hazelcast.scheduledexecutor.DuplicateTaskException;
 import com.hazelcast.scheduledexecutor.IScheduledExecutorService;
-import com.theyawns.controller.Constants;
-import com.theyawns.controller.config.cloud.CloudConfig;
-import com.theyawns.controller.config.cloud.CloudConfigUtil;
 import com.theyawns.banking.Account;
-import com.theyawns.banking.payments.rules.CreditLimitRule;
 import com.theyawns.banking.Merchant;
-import com.theyawns.controller.monitoring.PumpGrafanaStats;
 import com.theyawns.banking.Transaction;
 import com.theyawns.banking.database.AccountTable;
 import com.theyawns.banking.database.LazyPreAuthLoader;
@@ -28,9 +23,13 @@ import com.theyawns.banking.database.MerchantTable;
 import com.theyawns.banking.fraud.fdengine.FraudDetectionEngine;
 import com.theyawns.banking.fraud.fdengine.imdgimpl.executors.AggregationExecutor;
 import com.theyawns.banking.fraud.fdengine.imdgimpl.executors.ExecutorStatusMapKey;
-import com.theyawns.banking.fraud.fdengine.imdgimpl.listeners.PreauthMapListener;
 import com.theyawns.banking.fraud.fdengine.jetimpl.pipelines.AdjustMerchantTransactionAverage;
+import com.theyawns.banking.payments.rules.CreditLimitRule;
+import com.theyawns.controller.Constants;
 import com.theyawns.controller.config.EnvironmentSetup;
+import com.theyawns.controller.config.cloud.CloudConfig;
+import com.theyawns.controller.config.cloud.CloudConfigUtil;
+import com.theyawns.controller.monitoring.PumpGrafanaStats;
 
 import java.io.Serializable;
 import java.time.Duration;
@@ -113,14 +112,12 @@ public class Launcher {
         }
 
         ClientConfig cc = CloudConfigUtil.getClientConfigForCluster(configname);
-
         // Clients only have one discovery mechanism
         if (cc.getNetworkConfig().getKubernetesConfig().isEnabled()
         		&& cc.getNetworkConfig().getAddresses().size() > 0) {
         	log.info("Remove listed server addresses in favour of Kubernetes discovery.");
         	cc.getNetworkConfig().setAddresses(new ArrayList<>());
         }
-
         cc.setInstanceName("Launcher");
 
         hazelcast = HazelcastClient.newHazelcastClient(cc);
@@ -133,7 +130,7 @@ public class Launcher {
             System.setProperty("GRAFANA", granfanaHost);
 
         // Clear any data that might be left in the cluster from previous runs
-        IMap resultMap = hazelcast.getMap(Constants.MAP_PPFD_RESULTS);
+        IMap resultMap = hazelcast.getMap(Constants.MAP_RESULTS);
         resultMap.clear();
         IMap preAuthMap = hazelcast.getMap(Constants.MAP_PREAUTH);
         preAuthMap.clear();
@@ -281,7 +278,8 @@ public class Launcher {
         PNCounter loaded = main.hazelcast.getPNCounter(Constants.PN_COUNT_LOADED_TO_PREAUTH);
 
         // All processing is triggered from this listener
-        preAuthMap.addEntryListener(new PreauthMapListener(main.hazelcast, fde), true);
+        // FraudDetectionEngine now handles arming the listener on the node side rather than client side
+        //preAuthMap.addEntryListener(new PreauthMapListener(main.hazelcast, fde), true);
 
         if (true) { // need this behavior for replicated maps
  //               cloudPlatform != CloudPlatform.None && !MapLoaderSupportedInCloud) {
