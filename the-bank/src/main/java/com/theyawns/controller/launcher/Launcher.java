@@ -332,10 +332,8 @@ public class Launcher {
 
         log.info("Beginning transaction load");
         LazyPreAuthLoader loader = new LazyPreAuthLoader(getRunMode(),
-                BankInABoxProperties.PREAUTH_CHUNK_SIZE,
                 BankInABoxProperties.TRANSACTION_COUNT,
-                BankInABoxProperties.PREAUTH_HIGH_LIMIT,
-                BankInABoxProperties.PREAUTH_CHECK_INTERVAL);
+                BankInABoxProperties.PREAUTH_TARGET_TPS);
         loader.setVerbose(verbose);
         Future<Exception> loaderExc = null;
         try {

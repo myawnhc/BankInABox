@@ -29,6 +29,8 @@ public class BankInABoxProperties {
     public static String JDBC_USER;
     public static String JDBC_PASS;
 
+    public static int PREAUTH_TARGET_TPS;
+
     public static int PREAUTH_CHUNK_SIZE;
     public static int PREAUTH_HIGH_LIMIT;
     public static int PREAUTH_LOW_LIMIT;
@@ -124,6 +126,8 @@ public class BankInABoxProperties {
         PREAUTH_LOW_LIMIT = Integer.parseInt(temp);
         temp = properties.getProperty("PreAuth_Check_Interval");
         PREAUTH_CHECK_INTERVAL = Integer.parseInt(temp);
+        temp = properties.getProperty("PreAuth_Target_TPS");
+        PREAUTH_TARGET_TPS = Integer.parseInt(temp);
 
     }
 }
