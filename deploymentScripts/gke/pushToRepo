@@ -8,9 +8,9 @@ NAMESPACE="bankinabox"
 REGISTRY="gcr.io/hazelcast-33"
 
 # Hazelcast internal - others can set their credentials as needed
-gcloud auth login
-gcloud container clusters get-credentials bankinabox --zone us-central1-a --project hazelcast-33
-gcloud auth configure-docker
+#gcloud auth login
+#gcloud container clusters get-credentials bankinabox --zone us-central1-a --project hazelcast-33
+#gcloud auth configure-docker
 # kubectl context will now be changed to gke
 
 for BUNDLE in "grafana" "maria" "jet" "launcher" "imdg" "management-center"
