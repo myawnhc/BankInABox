@@ -23,7 +23,7 @@ public class ResultMapListener implements
 
     public ResultMapListener(HazelcastInstance instance) {
         //hazelcast = instance;
-        resultMap = instance.getMap(Constants.MAP_PPFD_RESULTS);
+        resultMap = instance.getMap(Constants.MAP_RESULTS);
     }
 
 

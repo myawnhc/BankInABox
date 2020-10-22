@@ -210,7 +210,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
     @Override
     public void setHazelcastInstance(HazelcastInstance hazelcastInstance) {
         this.hazelcast = hazelcastInstance;
-        this.resultMap = hazelcast.getMap(Constants.MAP_PPFD_RESULTS);
+        this.resultMap = hazelcast.getMap(Constants.MAP_RESULTS);
         this.preAuthMap = hazelcast.getMap(Constants.MAP_PREAUTH);
         this.approvedMap = hazelcast.getMap(Constants.MAP_APPROVED);
         this.rejectedForFraudMap = hazelcast.getMap(Constants.MAP_REJECTED_FRAUD);

@@ -161,8 +161,6 @@ public class RuleSetExecutor<T extends HasID,R> implements Callable<Exception>, 
 
     @Override
     public void setHazelcastInstance(HazelcastInstance hazelcastInstance) {
-        if (verbose)
-            System.out.println("RuleSetExecutor.setHazelcastInstance");
         this.hazelcast = hazelcastInstance;
         this.input = hazelcast.getQueue(transactionsInQueue);
         //this.topic = hazelcast.getReliableTopic(preAuthTopic);

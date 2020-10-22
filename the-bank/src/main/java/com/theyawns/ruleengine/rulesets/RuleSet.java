@@ -19,6 +19,7 @@ public interface RuleSet<T extends HasID,R> extends Function<ItemCarrier<T>, Rul
     List<Rule<T,R>> getRules();
     // implementors can override this to filter out irrelevant input items
     default boolean isApplicableTo(T input) { return true; }
+    default RuleSetSelectionFilter getSelectionFilter() { return new RuleSetSelectionFilter.AppliesToAll(); }
 
     // Now considering this a private implementation detail, not public API
     //RuleSetEvaluationResult<R> aggregateResults();

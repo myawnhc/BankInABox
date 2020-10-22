@@ -8,6 +8,8 @@ import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
 import com.hazelcast.map.IMap;
 import com.hazelcast.map.listener.EntryAddedListener;
+import com.hazelcast.map.listener.EntryLoadedListener;
+import com.theyawns.controller.Constants;
 import com.theyawns.banking.Transaction;
 import com.theyawns.controller.Constants;
 import com.theyawns.ruleengine.ItemCarrier;
@@ -47,22 +49,15 @@ public class PreauthMapListener implements
         locationRulesQueue = instance.getQueue(Constants.QUEUE_LOCATION);
         merchantRulesQueue = instance.getQueue(Constants.QUEUE_MERCHANT);
         //paymentRulesQueue = instance.getQueue(Constants.QUEUE_CREDITRULES);
+//        locationRulesQueue = instance.getQueue(Constants.QUEUE_LOCATION);
+//        merchantRulesQueue = instance.getQueue(Constants.QUEUE_MERCHANT);
+//        paymentRulesQueue = instance.getQueue(Constants.QUEUE_CREDITRULES);
         merchant_txn_count_amazon = instance.getPNCounter(Constants.PN_COUNT_AMAZON);
         merchant_txn_count_walmart = instance.getPNCounter(Constants.PN_COUNT_WALMART);
         this.ruleEngineController = rec;
     }
 
-    public IQueue<ItemCarrier<Transaction>> getLocationRulesQueue(Transaction t) {
-        return locationRulesQueue;
-    }
 
-    public IQueue<ItemCarrier<Transaction>> getMerchantRulesQueue(Transaction t) {
-        return merchantRulesQueue;
-    }
-
-//    public IQueue<ItemCarrier<Transaction>> getPaymentRulesQueue(Transaction t) {
-//        return paymentRulesQueue;
-//    }
 
     @Override
     public void entryAdded(EntryEvent<String, Transaction> entryEvent) {
@@ -72,6 +67,10 @@ public class PreauthMapListener implements
         // demo we'll always get the same queue for each set of rules, but we could
         // easily scale this up by using round-robin, modulo the transaction id, or
         // some other scheme
+        if (! entryEvent.getMember().localMember())  {
+            //System.out.println("remote event ignored");
+            return;
+        }
 
         //log.finest("entryAdded key " + entryEvent.getKey() + " value " + entryEvent.getValue());
         //ItemCarrier<Transaction> carrier = entryEvent.getValue();
@@ -91,8 +90,12 @@ public class PreauthMapListener implements
             else if (merchantNum >= 10 && merchantNum <= 20)
                 merchant_txn_count_walmart.getAndIncrement();
 
-        String key = txn.getItemID();
-        if (key == null) return;
+//        int routedToCounter = ruleEngineController.forwardToApplicableRuleSets(txn);
+//        txn.setNumberOfRuleSetsThatApply(routedToCounter);
+//        txn.setTimeEnqueuedForRuleEngine(); // sets to now
+//        preAuthMap.set(txn.getItemID(), txn); // rewrite the transaction so that the ruleset field is set in the map
+//        String key = txn.getItemID();
+//        if (key == null) return;
 
 
         /* Ideally, the RuleEngineController could forward the transaction to
@@ -115,8 +118,8 @@ public class PreauthMapListener implements
         //preAuthMap.set(txn.getItemID(), txn); // rewrite the transaction so that the ruleset field is set in the map
 
         // see comment block above
-        getLocationRulesQueue(txn).add(carrier);
-        getMerchantRulesQueue(txn).add(carrier);
+//        getLocationRulesQueue(txn).add(carrier);
+//        getMerchantRulesQueue(txn).add(carrier);
         //System.out.println("PreauthMapListener distributed transaction to queues");
 
     }
