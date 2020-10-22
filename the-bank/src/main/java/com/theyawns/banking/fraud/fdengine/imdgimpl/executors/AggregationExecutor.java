@@ -92,7 +92,6 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
                         if (latencyItemCount > 0) {
                             double average = latencyMillis / latencyItems.get();
                             log.info("Average latency is " + average + " ms");
-
                             log.info("AggregationExecutor has handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS, " + average + " ms latency");
                             statusMap.put(esmkey, messageID + " has handled " + counter + " transactions in " + elapsed + ", rate ~ " + (int) tps + " TPS, " + average + " ms latency");
                         } else {
@@ -130,7 +129,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
 
     private void cleanupMaps(String txnId) {
         // In some (CPU limited) environments, the clean up of maps is lagging
-        // very far behind ... see if submitting via EP improves this
+        // very far behind ... submitting via EP improves this considerably
         preAuthMap.executeOnKey(txnId, txnDeleter);
         resultMap.executeOnKey(txnId, terDeleter);
 //        preAuthMap.delete(txnId);
@@ -140,7 +139,8 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
     private String processResults(TransactionEvaluationResult ter) {
         boolean rejected = false;
         List<RuleSetEvaluationResult<Transaction,?>> results = ter.getResults();
-        String txnId = ter.getTransaction().getItemID();
+        //String txnId = ter.getTransaction().getItemID();
+        String txnId = ter.getCarrier().getItem().getItemID();
 
         // Loop over results (even though at this stage we'll only have one)
         // Any reject will break us out of the loop, if we process all without a reject, then we approve.
@@ -150,7 +150,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
                     rejected = true;
                     ter.setRejectingRuleSet(rser.getRuleSetName());
                     ter.setRejectingReason(rser.getOutcomeReason());
-                    ter.setStopTime(System.currentTimeMillis());
+                    ter.setStopTime();
                     rejectedForFraudCounter.getAndIncrement();
                     incrementRejectCountForRule(rser);
                     // This map now has eviction to allow long-running demo
@@ -160,7 +160,7 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
                     rejected = true;
                     ter.setRejectingRuleSet(rser.getRuleSetName());
                     ter.setRejectingReason(rser.getOutcomeReason());
-                    ter.setStopTime(System.currentTimeMillis());
+                    ter.setStopTime();
                     rejectedForCreditCounter.getAndIncrement();
                     incrementRejectCountForRule(rser);
                     // This map now has eviction to allow long-running demo
@@ -172,12 +172,11 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
                     // none reject the transaction - so approval is handled
                     // after we complete the evaluation loop.
                     continue; // check other results
-
             }
         }
         if (!rejected) {
             // This map now has eviction to allow long-running demo
-            ter.setStopTime(System.currentTimeMillis());
+            ter.setStopTime();
             approvedMap.set(txnId, ter);
             approvalCounter.getAndIncrement();
             //System.out.println("Approved " + txnId);
@@ -190,6 +189,9 @@ public class AggregationExecutor implements Callable<Exception>, Serializable, H
             totalLatency.getAndAdd(ter.getLatencyMillis());
             latencyItems.getAndIncrement();
         } else {
+            // No longer happening; did see this when using nanotime as some nodes
+            // could have a negative time offset.  Lesson learned - don't use
+            // nanotime in a distributed environment!
             System.out.printf("Negative value %d not added to latency\n", ter.getLatencyMillis());
         }
         return txnId;

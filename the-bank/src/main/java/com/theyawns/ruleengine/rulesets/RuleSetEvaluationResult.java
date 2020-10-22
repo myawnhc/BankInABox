@@ -3,26 +3,29 @@ package com.theyawns.ruleengine.rulesets;
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
 import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
-import com.theyawns.controller.Constants;
 import com.theyawns.banking.fraud.fdengine.imdgimpl.TransactionFinalStatus;
+import com.theyawns.controller.Constants;
+import com.theyawns.ruleengine.HasID;
+import com.theyawns.ruleengine.ItemCarrier;
 
 import java.io.IOException;
 import java.io.Serializable;
 
-public class RuleSetEvaluationResult<T,R> implements IdentifiedDataSerializable, Serializable {
+public class RuleSetEvaluationResult<T extends HasID,R> implements IdentifiedDataSerializable, Serializable {
 
     private long startTime;
     private long stopTime;
 
-    private T item;
+    private ItemCarrier<T> carrier;
     private R result;
     private TransactionFinalStatus ruleSetOutcome;
     private String reason;
+
     //private transient RuleSet ruleSet;
     private String ruleSetName;
 
-    public RuleSetEvaluationResult(T item, String ruleSetName) {
-        this.item = item;
+    public RuleSetEvaluationResult(ItemCarrier<T> carrier, String ruleSetName) {
+        this.carrier = carrier;
         //this.ruleSet = ruleSet;
         this.ruleSetName = ruleSetName;
         startTime = System.nanoTime();
@@ -44,7 +47,10 @@ public class RuleSetEvaluationResult<T,R> implements IdentifiedDataSerializable,
         return result;
     }
 
-    public T getItem() { return item; }
+    public ItemCarrier<T> getCarrier() { return carrier; }
+
+    // Can restore if needed but suspect carrier will always be preferred
+    //public T getItem() { return carrier.getItem(); }
 
     public void setRuleSetOutcome(TransactionFinalStatus passFail) {
         setRuleSetOutcome(passFail, null);
@@ -75,14 +81,14 @@ public class RuleSetEvaluationResult<T,R> implements IdentifiedDataSerializable,
 
     @Override
     public int getClassId() {
-        return Constants.IDS_RSER;
+        return Constants.IDS_RULESET_EVAL_RESULT;
     }
 
     @Override
     public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
         objectDataOutput.writeLong(startTime);
         objectDataOutput.writeLong(stopTime);
-        objectDataOutput.writeObject(item);
+        objectDataOutput.writeObject(carrier);
         objectDataOutput.writeObject(result);
         objectDataOutput.writeObject(ruleSetOutcome);
         objectDataOutput.writeUTF(reason);
@@ -93,7 +99,7 @@ public class RuleSetEvaluationResult<T,R> implements IdentifiedDataSerializable,
     public void readData(ObjectDataInput objectDataInput) throws IOException {
         startTime = objectDataInput.readLong();
         stopTime = objectDataInput.readLong();
-        item = objectDataInput.readObject();
+        carrier = objectDataInput.readObject();
         result = objectDataInput.readObject();
         ruleSetOutcome = objectDataInput.readObject();
         reason = objectDataInput.readUTF();

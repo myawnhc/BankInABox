@@ -2,6 +2,7 @@ package com.theyawns.banking.fraud.fdengine.imdgimpl.rulesets;
 
 import com.theyawns.banking.Transaction;
 import com.theyawns.banking.fraud.fdengine.imdgimpl.TransactionFinalStatus;
+import com.theyawns.ruleengine.ItemCarrier;
 import com.theyawns.ruleengine.rules.RandomDoubleRule;
 import com.theyawns.ruleengine.rules.Rule;
 import com.theyawns.ruleengine.rules.RuleCategory;
@@ -37,16 +38,16 @@ public class LocationBasedRuleSet extends AbstractRuleSet<Transaction,Double> im
     }
 
     @Override
-    public RuleSetEvaluationResult<Transaction,Double> apply(Transaction transaction) {
+    public RuleSetEvaluationResult<Transaction,Double> apply(ItemCarrier<Transaction> carrier) {
         // Create this first to start the timer
-        RuleSetEvaluationResult rser = new RuleSetEvaluationResult(transaction, getQualifiedName());
+        RuleSetEvaluationResult rser = new RuleSetEvaluationResult(carrier, getQualifiedName());
 
         //System.out.println("LocationBasedRuleSet.apply()");
         // Process rules.  With this simple rule we can aggregate as we go; more complex rules might
         // need a separate pass over the RERs to produce the RSER.
         double aggregatedResult = 0.0;
         for (Rule<Transaction,Double> rule : super.rules) {
-            RuleEvaluationResult<Double> rer = rule.apply(transaction);
+            RuleEvaluationResult<Double> rer = rule.apply(carrier.getItem());
             if (rer == null) {
                 System.out.println("Null result from " + rule.getName());
                 throw new IllegalStateException("Null result from " + rule.getName());

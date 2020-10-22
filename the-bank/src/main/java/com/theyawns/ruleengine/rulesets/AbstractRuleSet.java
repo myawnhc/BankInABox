@@ -1,5 +1,6 @@
 package com.theyawns.ruleengine.rulesets;
 
+import com.theyawns.ruleengine.HasID;
 import com.theyawns.ruleengine.rules.Rule;
 import com.theyawns.ruleengine.rules.RuleCategory;
 
@@ -7,7 +8,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractRuleSet<T,R> implements RuleSet<T,R>, Serializable {
+// T = ItemController<T>
+public abstract class AbstractRuleSet<T extends HasID,R> implements RuleSet<T,R>, Serializable {
 
     protected String name;
     protected RuleCategory category;

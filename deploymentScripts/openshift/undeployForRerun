@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+#ibmcloud login
+#ibmcloud cr login
+#oc login
+
 # Leave management center, grafana, maria running so service URLs aren't impacted
 # restart IMDG and JET so we start with clean data structures
 # after this finishes, deployPods and startLauncher as usual

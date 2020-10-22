@@ -50,7 +50,7 @@ public class RuleEvaluationResult<R> implements IdentifiedDataSerializable, Seri
 
     @Override
     public int getClassId() {
-        return Constants.IDS_RER;
+        return Constants.IDS_RULE_EVAL_RESULT;
     }
 
     @Override

@@ -42,13 +42,14 @@ public class Constants {
     public static final int IDS_FACTORY_ID = 101;
 
     public static final int IDS_ACCOUNT_ID     = 201;
-    public static final int IDS_LATENCY_METRIC = 202;
+    public static final int IDS_LATENCY_METRIC = 202; // UNUSED
     public static final int IDS_LOCATION       = 203;
     public static final int IDS_MERCHANT_ID    = 204;
     public static final int IDS_TRANSACTION_ID = 205;
-    public static final int IDS_TXN_WITH_RULES = 206;
-    public static final int IDS_TXN_WITH_ACCT  = 207;
-    public static final int IDS_RER  = 208;
-    public static final int IDS_RSER = 209;
-    public static final int IDS_TXN_EVAL_RESULT = 210;
+    public static final int IDS_TXN_WITH_RULES = 206; // UNUSED
+    public static final int IDS_TXN_WITH_ACCT  = 207; // UNUSED
+    public static final int IDS_RULE_EVAL_RESULT  = 208;
+    public static final int IDS_RULESET_EVAL_RESULT = 209;
+    public static final int IDS_CARRIER = 210;
+    public static final int IDS_TXN_EVAL_RESULT = 211; // UNUSED
 }

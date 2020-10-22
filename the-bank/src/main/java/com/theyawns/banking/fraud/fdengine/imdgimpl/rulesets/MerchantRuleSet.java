@@ -6,11 +6,12 @@ import com.theyawns.banking.Merchant;
 import com.theyawns.banking.Transaction;
 import com.theyawns.banking.fraud.fdengine.imdgimpl.TransactionFinalStatus;
 import com.theyawns.banking.fraud.fdengine.imdgimpl.rules.TxnAmtWithinMerchantAvgRange;
-import com.theyawns.ruleengine.rulesets.AbstractRuleSet;
-import com.theyawns.ruleengine.rulesets.RuleSetEvaluationResult;
+import com.theyawns.ruleengine.ItemCarrier;
 import com.theyawns.ruleengine.rules.Rule;
 import com.theyawns.ruleengine.rules.RuleCategory;
 import com.theyawns.ruleengine.rules.RuleEvaluationResult;
+import com.theyawns.ruleengine.rulesets.AbstractRuleSet;
+import com.theyawns.ruleengine.rulesets.RuleSetEvaluationResult;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -30,12 +31,12 @@ public class MerchantRuleSet extends AbstractRuleSet<Transaction,Merchant.RISK> 
     }
 
     @Override
-    public RuleSetEvaluationResult<Transaction, Merchant.RISK> apply(Transaction transaction) {
+    public RuleSetEvaluationResult<Transaction, Merchant.RISK> apply(ItemCarrier<Transaction> carrier) {
         //System.out.println("MerchantRuleSet.apply()");
 
         // Process rules.  With this simple rule we can aggregate as we go; more complex rules might
         // need a separate pass over the RERs to produce the RSER.
-
+        Transaction transaction = carrier.getItem();
         // Each rule returns a High, Medium or Low risk score
         // We will reject on a single High or multiple mediums.
         int mediumRiskCount = 0;
@@ -69,7 +70,7 @@ public class MerchantRuleSet extends AbstractRuleSet<Transaction,Merchant.RISK> 
 
         // Aggregate the individual rule results into a RuleSetEvaluationResult.
 
-        RuleSetEvaluationResult rser = new RuleSetEvaluationResult(transaction, getQualifiedName());
+        RuleSetEvaluationResult rser = new RuleSetEvaluationResult(carrier, getQualifiedName());
         rser.setResult(aggregatedRisk);
 
         // Merchant rules are using Merchant.RISK as outcome
