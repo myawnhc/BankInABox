@@ -10,10 +10,12 @@ import com.theyawns.controller.Constants;
 import com.theyawns.ruleengine.rulesets.RuleSet;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 // Send items to the applicable rulesets
-public class RuleEngineRoutingController<T> implements Runnable, Serializable, HazelcastInstanceAware
+public class RuleEngineRoutingController<T extends HasID> implements Runnable, Serializable, HazelcastInstanceAware
 {
     private transient HazelcastInstance hazelcast;
     // NO: Use IMAP
@@ -28,7 +30,7 @@ public class RuleEngineRoutingController<T> implements Runnable, Serializable, H
     // NOT used for initial setup (that comes from FDE), but for other
     // dynamically added items
     public void addRuleSet(RuleSet set, String queue) {
-        RuleSetRoutingInfo info = new RuleSetRoutingInfo(set, queue);
+        RuleSetRoutingInfo<T> info = new RuleSetRoutingInfo(set, queue);
         //knownRuleSets.put(set.getName(), info);
         routingInfoMap.put(set.getName(), info);
         System.out.println("RERC.add (only for dynamic changes) Added RuleSet " + set.getName() + " to routing info");
@@ -67,16 +69,19 @@ public class RuleEngineRoutingController<T> implements Runnable, Serializable, H
     // rulesets ?   How does that impact the ability of Launcher to monitor, or
     // should the monitoring/logging be done here instead?
 
-    public int forwardToApplicableRuleSets(T item) {
-        int counter = 0;
+    public void forwardToApplicableRuleSets(ItemCarrier<T> carrier) {
+        List<RuleSetRoutingInfo> qualified = new ArrayList<>();
         for ( RuleSetRoutingInfo info : routingInfoMap.values()) {
-            if (info.isApplicableTo(item)) {
-                info.routeItem(item);
-                counter++;
+            if (info.isApplicableTo(carrier.getItem())) {
+                qualified.add(info);
             }
         }
-        //System.out.println("Forwarded " + item + " to " + counter + " of " + routingInfoMap.size() + " sets");
-        return counter;
+        carrier.setNumberOfRuleSetsThatApply(qualified.size());
+        carrier.setTimeEnqueuedForRouting();
+
+        for ( RuleSetRoutingInfo info : qualified ) {
+            info.routeItem(carrier);
+        }
     }
 
     @Override

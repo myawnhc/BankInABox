@@ -12,7 +12,6 @@ import java.io.Serializable;
 // Will be stored in IMap RuleSetRoutingMap
 public class RuleSetRoutingInfo<T> implements Serializable, HazelcastInstanceAware  {
 
-
     private enum ChannelType {IQueue} // more to come
 
     private transient HazelcastInstance hazelcast;

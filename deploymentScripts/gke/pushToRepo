@@ -8,9 +8,12 @@ NAMESPACE="bankinabox"
 REGISTRY="gcr.io/hazelcast-33"
 
 # Hazelcast internal - others can set their credentials as needed
-#gcloud auth login
-#gcloud container clusters get-credentials bankinabox --zone us-central1-a --project hazelcast-33
-#gcloud auth configure-docker
+gcloud auth login
+gcloud container clusters get-credentials bankinabox --zone us-central1-a --project hazelcast-33
+# This will add credHelpers to ~/.docker/config.json in a way that breaks the build.
+# annoying AF but can't push to GKE CR without it.  So after the push, have to delete
+# the added block in config file before you can build again.
+gcloud auth configure-docker
 # kubectl context will now be changed to gke
 
 for BUNDLE in "grafana" "maria" "jet" "launcher" "imdg" "management-center"

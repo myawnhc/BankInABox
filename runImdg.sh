@@ -5,7 +5,7 @@ JAVA_MODS="--add-modules java.se --add-exports java.base/jdk.internal.ref=ALL-UN
 JAVA_ARGS="-Dhz.is.imdg=true"
 JAVA_ARGS="${JAVA_ARGS} -Dhz.ip4.addr=localhost"
 JAVA_ARGS="${JAVA_ARGS} -Xms8G -Xmx8g"
-#JAVA_ARGS="${JAVA_ARGS} -XX:+FlightRecorder"
-#JAVA_ARGS="${JAVA_ARGS} -XX:StartFlightRecording=disk=true,dumponexit=true,filename=recording-imdg.jfr,maxsize=1024m,maxage=1d,settings=profile"
+JAVA_ARGS="${JAVA_ARGS} -XX:+FlightRecorder"
+JAVA_ARGS="${JAVA_ARGS} -XX:StartFlightRecording=disk=true,dumponexit=true,filename=recording-imdg.jfr,maxsize=1024m,maxage=1d,settings=profile"
 
 java $JAVA_MODS $JAVA_ARGS -jar bundle-imdg/target/bundle-imdg-1.0-SNAPSHOT.jar
