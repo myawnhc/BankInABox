@@ -5,5 +5,6 @@ JAVA_MODS="--add-modules java.se --add-exports java.base/jdk.internal.ref=ALL-UN
 JAVA_ARGS="-Dhz.is.imdg=false"
 JAVA_ARGS="${JAVA_ARGS} -Dhz.ip4.addr=localhost"
 JAVA_ARGS="${JAVA_ARGS} -Xms8G -Xmx8g"
+JAVA_ARGS="${JAVA_ARGS} -Dsun.io.serialization.extendedDebugInfo=true"
 
 java $JAVA_MODS $JAVA_ARGS -jar bundle-jet/target/bundle-jet-1.0-SNAPSHOT.jar

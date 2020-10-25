@@ -40,6 +40,9 @@ public class RuleSetRoutingInfo<T> implements Serializable, HazelcastInstanceAwa
         return filter.apply(item);
     }
 
+    // channel & queue are internal for IMDG, but name exposed for Jet
+    public String getQueueName() { return queueName; }
+
 //    public RuleSet getRuleSet() { return ruleSet; }
 //    public void setRuleSet(RuleSet set) { ruleSet = set; }
 

@@ -9,6 +9,7 @@ import com.theyawns.banking.fraud.fdengine.imdgimpl.rulesets.MerchantRuleSet;
 import com.theyawns.controller.Constants;
 import com.theyawns.ruleengine.RuleEngineRoutingController;
 import com.theyawns.ruleengine.RuleSetRoutingInfo;
+import com.theyawns.ruleengine.rules.Rule;
 import com.theyawns.ruleengine.rulesets.RuleSet;
 
 // Really just a helper class for the launcher that collects together several
@@ -22,6 +23,7 @@ public class FraudDetectionEngine {
     private IExecutorService distributedES;
     private ReplicatedMap<String,RuleSetRoutingInfo> routingInfoMap;
     private boolean verbose = true; // should add setter & toggle from launcher
+    //private RuleEngineRoutingController<T> router;
 
     public FraudDetectionEngine(HazelcastInstance hz) {
         distributedES = hz.getExecutorService("RuleSetExecutorService");

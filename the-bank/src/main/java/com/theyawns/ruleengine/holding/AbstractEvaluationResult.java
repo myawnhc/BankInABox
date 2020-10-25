@@ -1,4 +1,6 @@
-package com.theyawns.ruleengine.rules;
+package com.theyawns.ruleengine.holding;
+
+import com.theyawns.ruleengine.rules.RuleExecutionPlatform;
 
 import java.io.Serializable;
 

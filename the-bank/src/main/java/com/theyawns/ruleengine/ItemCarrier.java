@@ -43,7 +43,11 @@ public class ItemCarrier<T extends HasID> implements Serializable, IdentifiedDat
     public void setTimeEnqueuedForRouting() { timeEnqueuedForRouting = System.currentTimeMillis(); }
     public long getTimeEnqueuedForRouting() { return timeEnqueuedForRouting; }
 
-    public void setTimeEnqueuedForExecutor() { timeEnqueuedForExecutor = System.currentTimeMillis(); }
+    // Return this to allow easier use in Jet pipelines
+    public ItemCarrier<T> setTimeEnqueuedForExecutor() {
+        timeEnqueuedForExecutor = System.currentTimeMillis();
+        return this;
+    }
     public long getTimeEnqueuedForExecutor() { return timeEnqueuedForExecutor; }
     public void setTimeEnqueuedForAggregator() { timeEnqueuedForAggregation = System.currentTimeMillis(); }
     public long getTimeEnqueuedForAggregator() { return timeEnqueuedForAggregation; }

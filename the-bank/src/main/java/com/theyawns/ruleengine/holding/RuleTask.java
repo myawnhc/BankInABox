@@ -1,4 +1,4 @@
-package com.theyawns.ruleengine.rules;
+package com.theyawns.ruleengine.holding;
 
 import com.theyawns.ruleengine.HasID;
 import com.theyawns.ruleengine.jetimpl.rules.Rule;

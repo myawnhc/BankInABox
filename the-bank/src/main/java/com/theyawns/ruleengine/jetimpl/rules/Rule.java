@@ -1,7 +1,7 @@
 package com.theyawns.ruleengine.jetimpl.rules;
 
 import com.theyawns.ruleengine.HasID;
-import com.theyawns.ruleengine.rules.RuleTask;
+import com.theyawns.ruleengine.holding.RuleTask;
 
 // This may find use in the Jet-centric version of a RuleEngine,
 // otherwise it can be removed.

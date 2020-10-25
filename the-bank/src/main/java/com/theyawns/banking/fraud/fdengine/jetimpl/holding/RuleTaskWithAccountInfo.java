@@ -4,7 +4,7 @@ import com.hazelcast.map.IMap;
 import com.theyawns.banking.Account;
 import com.theyawns.banking.Transaction;
 import com.theyawns.ruleengine.jetimpl.rules.Rule;
-import com.theyawns.ruleengine.rules.RuleTask;
+import com.theyawns.ruleengine.holding.RuleTask;
 
 public class RuleTaskWithAccountInfo<R> extends RuleTask<Transaction> {
 

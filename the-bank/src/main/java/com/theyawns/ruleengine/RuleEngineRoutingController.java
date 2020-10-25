@@ -69,7 +69,7 @@ public class RuleEngineRoutingController<T extends HasID> implements Runnable, S
     // rulesets ?   How does that impact the ability of Launcher to monitor, or
     // should the monitoring/logging be done here instead?
 
-    public void forwardToApplicableRuleSets(ItemCarrier<T> carrier) {
+    public ItemCarrier<T> forwardToApplicableRuleSets(ItemCarrier<T> carrier) {
         List<RuleSetRoutingInfo> qualified = new ArrayList<>();
         for ( RuleSetRoutingInfo info : routingInfoMap.values()) {
             if (info.isApplicableTo(carrier.getItem())) {
@@ -82,6 +82,7 @@ public class RuleEngineRoutingController<T extends HasID> implements Runnable, S
         for ( RuleSetRoutingInfo info : qualified ) {
             info.routeItem(carrier);
         }
+        return carrier;
     }
 
     @Override
