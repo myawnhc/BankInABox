@@ -89,8 +89,8 @@ public class RuleEngineRoutingController<T extends HasID> implements Runnable, S
     public void run() {
         PreauthMapListener paml = new PreauthMapListener(hazelcast, this);
         IMap<String, Transaction> preAuth = hazelcast.getMap(Constants.MAP_PREAUTH);
-        //preAuth.addLocalEntryListener(paml);
-        preAuth.addEntryListener(paml, true);
+        preAuth.addLocalEntryListener(paml);
+        //preAuth.addEntryListener(paml, true);
     }
 
     @Override

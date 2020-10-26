@@ -13,7 +13,8 @@ public class Constants {
     public static final String MAP_RESULTS         = "resultMap";
     public static final String MAP_RS_ROUTING      = "ruleSetRoutingMap";
 
-    public static final String TOPIC_PREAUTH       = "preAuthTopic";
+    public static final String TOPIC_PREAUTH       = "preAuthTopic";   // Raw transactions
+    public static final String TOPIC_AUTH_ITEMS    = "authItemsTopic"; // wrapped with ItemCarrier
     public static final String QUEUE_LOCATION      = "locationRulesQ";
     public static final String QUEUE_MERCHANT      = "merchantRulesQ";
     public static final String QUEUE_CREDITRULES   = "creditRulesQ";

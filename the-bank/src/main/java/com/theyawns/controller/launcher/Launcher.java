@@ -30,7 +30,7 @@ import com.theyawns.controller.config.EnvironmentSetup;
 import com.theyawns.controller.config.cloud.CloudConfig;
 import com.theyawns.controller.config.cloud.CloudConfigUtil;
 import com.theyawns.controller.monitoring.PumpGrafanaStats;
-import com.theyawns.ruleengine.jetimpl.JetStage1Pipeline;
+import com.theyawns.ruleengine.jetimpl.AuthItemsIngestJob;
 
 import java.io.Serializable;
 import java.time.Duration;
@@ -333,7 +333,7 @@ public class Launcher {
         ////
 
         // Jet Pipeline - so far, ingest and count only
-        JetStage1Pipeline experimental = new JetStage1Pipeline();
+        AuthItemsIngestJob experimental = new AuthItemsIngestJob();
         // FDE creates RERC but then submits it to run on the cluster ... we
         // either need to get a reference to the executing Runnable and
         // call it, or build our own router using the IMAP ...
