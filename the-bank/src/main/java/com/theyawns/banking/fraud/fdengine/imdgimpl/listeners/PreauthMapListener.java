@@ -52,10 +52,10 @@ public class PreauthMapListener implements
         // demo we'll always get the same queue for each set of rules, but we could
         // easily scale this up by using round-robin, modulo the transaction id, or
         // some other scheme
-        if (! entryEvent.getMember().localMember())  {
-            //System.out.println("remote event ignored");
-            return;
-        }
+//        if (! entryEvent.getMember().localMember())  {
+//            //System.out.println("remote event ignored");
+//            return;
+//        }
 
         Transaction txn = entryEvent.getValue();
         accumulateMerchantStats(txn);
