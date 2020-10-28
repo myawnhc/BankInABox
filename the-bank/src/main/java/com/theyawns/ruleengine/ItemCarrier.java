@@ -36,6 +36,8 @@ public class ItemCarrier<T extends HasID> implements Serializable, IdentifiedDat
 
     public T getItem() { return item; }
 
+    public String getItemID() { return item.getItemID(); }
+
     public void setNumberOfRuleSetsThatApply(int count) { numberOfRuleSetsThatApply = count; }
     public int getNumberOfRuleSetsThatApply() { return numberOfRuleSetsThatApply; }
 

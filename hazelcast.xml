@@ -70,7 +70,7 @@
         -->
     </replicatedmap>
 
-    <map name="ppfdResultMap">
+    <map name="resultMap">
         <eviction eviction-policy="LRU" max-size-policy="PER_NODE" size="25000" />
     </map>
 
@@ -88,6 +88,16 @@
         <event-journal enabled="true">
             <capacity>1000000</capacity>
         </event-journal>
+    </map>
+
+    <!-- Jet -->
+    <map name="wrappedItemsMap">
+        <event-journal enabled="true"/>
+    </map>
+
+    <!-- Jet -->
+    <map name="completionsMap">
+        <event-journal enabled="true"/>
     </map>
 
     <map name="approved">

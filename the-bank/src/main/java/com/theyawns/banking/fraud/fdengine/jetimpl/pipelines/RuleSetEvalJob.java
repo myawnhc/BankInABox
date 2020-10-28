@@ -12,22 +12,29 @@ import com.hazelcast.jet.datamodel.WindowResult;
 import com.hazelcast.jet.pipeline.*;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.logging.Logger;
+import com.theyawns.banking.Transaction;
+import com.theyawns.banking.fraud.fdengine.imdgimpl.TransactionEvaluationResult;
+import com.theyawns.banking.fraud.fdengine.imdgimpl.rulesets.LocationBasedRuleSet;
 import com.theyawns.controller.Constants;
 import com.theyawns.controller.config.EnvironmentSetup;
 import com.theyawns.ruleengine.HasID;
 import com.theyawns.ruleengine.ItemCarrier;
+import com.theyawns.ruleengine.rulesets.RuleSet;
+import com.theyawns.ruleengine.rulesets.RuleSetEvaluationResult;
 
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class RuleSetEvalJob<T extends HasID> implements Runnable {
+public class RuleSetEvalJob<T extends HasID, R> implements Runnable {
 
     private final static ILogger log = Logger.getLogger(RuleSetEvalJob.class);
 
     private JetConfig    jetConfig;
     private ClientConfig imdgClientConfig;
     private ClientConfig jetClientConfig;
+
+    private RuleSet<T,R> ruleSet; //  = new LocationBasedRuleSet(); // Transaction, Double
 
     boolean externalJetCluster = true; // vs. embedded
 
@@ -72,14 +79,13 @@ public class RuleSetEvalJob<T extends HasID> implements Runnable {
         }
     }
 
-//    // Helper functions - keeps the pipeline more compact and readable
-//    private StreamSource<Map.Entry<String, T>> getMapJournal() {
-//        StreamSource<Map.Entry<String, T>> rjSource =
-//                Sources.remoteMapJournal(Constants.MAP_PREAUTH,
-//                        imdgClientConfig,
-//                        JournalInitialPosition.START_FROM_OLDEST);
-//        return rjSource;
-//    }
+    // Helper functions - keeps the pipeline more compact and readable
+    private StreamSource<Map.Entry<String, ItemCarrier<T>>> getMapJournal() {
+        StreamSource<Map.Entry<String, ItemCarrier<T>>> rjSource =
+                Sources.mapJournal(Constants.MAP_WRAPPED_ITEMS,
+                        JournalInitialPosition.START_FROM_OLDEST);
+        return rjSource;
+    }
 
 //    private Pipeline buildCompactPipeline() {
 //        Pipeline p = Pipeline.create();
@@ -121,32 +127,53 @@ public class RuleSetEvalJob<T extends HasID> implements Runnable {
         try {
             Pipeline p = Pipeline.create();
 
-//            // Stage 1: Read, wrap, and route
-//            // 1a: Draw transactions from the mapJournal associated with the preAuth map
-//            StreamStage<T> carriers = p.readFrom(Sources.)
-//                    .withIngestionTimestamps()
-//                    .map(Map.Entry::getValue)
-//                    .setName("Read items from Topic");
-//
-//            // Stage 1b: Wrap with ItemCarrier, set time enqueued
-//            StreamStage<ItemCarrier<T>> carriers = txns.map(ItemCarrier::new)
-//                    .map(ItemCarrier::setTimeEnqueuedForExecutor)
-//                    .setName("Wrap items with ItemCarrier");
-//
-//            // Write to a Reliable Topic that all RuleSet Jobs will read - filtering
-//            // will be done by those jobs rather than by a router task here
-//
-//            // Write carrier item into the ReliableTopic for each qualified ruleset
-//            // TODO: decide on a good name for this and add it to constants
-//            SinkStage itemSink = carriers.writeTo(Sinks.reliableTopic(Constants.TOPIC_AUTH_ITEMS))
-//                    .setName("Write to Reliable Topic");
-//
-//            // Output count every 30 seconds
-//            SlidingWindowDefinition smallWindow = WindowDefinition.tumbling(TimeUnit.SECONDS.toMillis(30));
-//            StageWithWindow timingWindow = carriers.window(smallWindow);
-//
-//            StreamStage<WindowResult<Long>> itemCount = timingWindow.aggregate(AggregateOperations.counting());
-//            itemCount.writeTo(Sinks.logger(count -> count.result() / 30 + " TPS")); // Should see count of items
+            // Stage 1: Read wrapped items
+            // Draw transactions from the mapJournal associated with the preAuth map
+            StreamStage<ItemCarrier<T>> carriers = p.readFrom(getMapJournal())
+                    .withIngestionTimestamps()
+                    .map(Map.Entry::getValue)
+                    .setName("Read ItemCarriers");
+
+            // ? Do we want to add another timestamp to the carrier here ?
+
+            // Stage 2: Execute the ruleset.  At this point we're hoping that the
+            // evaluation job is generic enough that it can be passed any RuleSet
+            // and will handle it.
+
+            StreamStage<RuleSetEvaluationResult<T,R>> results = carriers.map(ruleSet::apply)
+                    .setName("Evaluate RuleSet " + ruleSet.getName());
+
+            // Add result to accumulated results in TER, creating new when needed.
+            // Concerned about race condition here.
+            StreamStage<TransactionEvaluationResult<T>> ters = results.mapUsingIMap(Constants.MAP_RESULTS,
+                    rser -> rser.getCarrier().getItemID(),
+                    (RuleSetEvaluationResult rser, TransactionEvaluationResult<T> ter) -> {
+                        if (ter == null) {
+                            ter = TransactionEvaluationResult.newInstance(rser.getCarrier());
+                            System.out.println("New TER for RSER " + rser.getCarrier().getItemID());
+                        } else {
+                            System.out.println("Adding RSER to existing TER " + rser.getCarrier().getItemID());
+                        }
+                        ter.addResult(rser);
+                        return ter;
+                    })
+                    .setName("Add results to TER");
+
+            // filter on ter.checkCompletion - write completed to completions (was Q, now map?)
+            ters.filter( ter -> ter.checkForCompletion())
+                    .writeTo(Sinks.map("Completions",
+                            (TransactionEvaluationResult<T> ter) -> ter.getCarrier().getItemID(),
+                            ter -> ter.getCarrier()));
+
+
+            // TPS at this level counts all processed, whether completed or not.  In aggregation stage
+            //     we only count completed, and that's the 'real' TPS count.
+            // Output count every 30 seconds
+            SlidingWindowDefinition smallWindow = WindowDefinition.tumbling(TimeUnit.SECONDS.toMillis(30));
+            StageWithWindow timingWindow = ters.window(smallWindow);
+
+            StreamStage<WindowResult<Long>> itemCount = timingWindow.aggregate(AggregateOperations.counting());
+            itemCount.writeTo(Sinks.logger(count -> count.result() / 30 + " TPS")); // Should see count of items
 
 
             return p;
@@ -159,6 +186,9 @@ public class RuleSetEvalJob<T extends HasID> implements Runnable {
     public void run() {
         this.init();
         JetInstance jet;
+
+        // THIS SHOULD BE PASSED IN - HARD CODED FOR TEST ONLY
+        this.ruleSet = (RuleSet<T,R>) new LocationBasedRuleSet();
 
         if (externalJetCluster) {
             log.info("Setting JetClientConfig to point to JetInABox and creating new client");

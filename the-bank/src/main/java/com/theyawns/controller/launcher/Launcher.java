@@ -24,6 +24,7 @@ import com.theyawns.banking.fraud.fdengine.FraudDetectionEngine;
 import com.theyawns.banking.fraud.fdengine.imdgimpl.executors.AggregationExecutor;
 import com.theyawns.banking.fraud.fdengine.imdgimpl.executors.ExecutorStatusMapKey;
 import com.theyawns.banking.fraud.fdengine.jetimpl.pipelines.AdjustMerchantTransactionAverage;
+import com.theyawns.banking.fraud.fdengine.jetimpl.pipelines.RuleSetEvalJob;
 import com.theyawns.banking.payments.rules.CreditLimitRule;
 import com.theyawns.controller.Constants;
 import com.theyawns.controller.config.EnvironmentSetup;
@@ -124,7 +125,7 @@ public class Launcher {
         hazelcast = HazelcastClient.newHazelcastClient(cc);
         //log.info("Getting distributed executor service");
         distributedES = hazelcast.getExecutorService("executor");
-        localES = Executors.newFixedThreadPool(1);
+        localES = Executors.newFixedThreadPool(5); // Launcher, Jet job starters
 
         // If grafana host set by command line, override EnvironmentSetups default to localhost
         if (granfanaHost != null)
@@ -185,12 +186,12 @@ public class Launcher {
         }
     }
 
-    // Used only when run via DualLauncher
-    public static boolean isEven(String txnId) {
-        int numericID = Integer.parseInt(txnId);
-        boolean result =  (numericID % 2) == 0;
-        return result;
-    }
+//    // Used only when run via DualLauncher
+//    public static boolean isEven(String txnId) {
+//        int numericID = Integer.parseInt(txnId);
+//        boolean result =  (numericID % 2) == 0;
+//        return result;
+//    }
 
     public static void main(String[] args) {
         System.out.println("________________________");
@@ -333,12 +334,15 @@ public class Launcher {
         ////
 
         // Jet Pipeline - so far, ingest and count only
-        AuthItemsIngestJob experimental = new AuthItemsIngestJob();
+        AuthItemsIngestJob ingestJob = new AuthItemsIngestJob();
         // FDE creates RERC but then submits it to run on the cluster ... we
-        // either need to get a reference to the executing Runnable and
+        // either need to get a reference to executing Runnable and
         // call it, or build our own router using the IMAP ...
         //experimental.setRouter(fde.getRouter());
-        main.localES.submit(experimental);
+        main.localES.submit(ingestJob);
+
+        RuleSetEvalJob locationJob = new RuleSetEvalJob();
+        main.localES.submit(locationJob);
 
         ////
         ////

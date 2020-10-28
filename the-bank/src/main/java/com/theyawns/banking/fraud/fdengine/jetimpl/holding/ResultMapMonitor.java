@@ -73,7 +73,7 @@ public class ResultMapMonitor implements Runnable,
     @Override
     public void run() {
         preAuthMap = hazelcast.getMap(Constants.MAP_PREAUTH);
-        resultMap = hazelcast.getMap(Constants.MAP_RESULT);
+        resultMap = hazelcast.getMap(Constants.MAP_RESULTS);
         // Intent is for grafana to graph these ...
         approved = hazelcast.getMap(Constants.MAP_APPROVED);
         rejected = hazelcast.getMap(Constants.MAP_REJECTED_CREDIT);

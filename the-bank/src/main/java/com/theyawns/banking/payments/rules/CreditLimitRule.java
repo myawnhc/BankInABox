@@ -98,7 +98,8 @@ public class CreditLimitRule extends BaseRule implements Serializable {
 
         try {
             result.writeTo(Sinks.remoteMapWithMerging(
-                    Constants.MAP_RESULT,
+                    Constants.MAP_RESULTS, // NOTE: this is different than the currently active resultMap, so
+                       // if this class is resurrected we'll need to decide where this output really goes ...
                     clientConfig,
                     (RuleEvaluationResult r) -> r.getItemId(),
                     (RuleEvaluationResult r) -> new ArrayList<>(Arrays.asList(r)),

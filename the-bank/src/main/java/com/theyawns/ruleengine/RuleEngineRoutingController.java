@@ -3,6 +3,7 @@ package com.theyawns.ruleengine;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.HazelcastInstanceAware;
 import com.hazelcast.map.IMap;
+import com.hazelcast.query.Predicates;
 import com.hazelcast.replicatedmap.ReplicatedMap;
 import com.theyawns.banking.Transaction;
 import com.theyawns.banking.fraud.fdengine.imdgimpl.listeners.PreauthMapListener;
@@ -89,8 +90,7 @@ public class RuleEngineRoutingController<T extends HasID> implements Runnable, S
     public void run() {
         PreauthMapListener paml = new PreauthMapListener(hazelcast, this);
         IMap<String, Transaction> preAuth = hazelcast.getMap(Constants.MAP_PREAUTH);
-        preAuth.addLocalEntryListener(paml);
-        //preAuth.addEntryListener(paml, true);
+        preAuth.addLocalEntryListener(paml, Predicates.alwaysTrue(), true);
     }
 
     @Override

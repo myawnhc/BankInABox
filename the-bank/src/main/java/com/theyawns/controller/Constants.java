@@ -6,12 +6,16 @@ public class Constants {
     public static final String MAP_PREAUTH         = "preAuth";
     public static final String MAP_ACCOUNT         = "accountMap";
     public static final String MAP_MERCHANT        = "merchantMap";
-    public static final String MAP_RESULT          = "resultMap";
     public static final String MAP_APPROVED        = "approved";
     public static final String MAP_REJECTED_CREDIT = "rejectedForCredit";
     public static final String MAP_REJECTED_FRAUD  = "rejectedForFraud";
     public static final String MAP_RESULTS         = "resultMap";
     public static final String MAP_RS_ROUTING      = "ruleSetRoutingMap";
+
+    // Maps held in Jet
+    public static final String MAP_WRAPPED_ITEMS   = "wrappedItemsMap";
+    public static final String MAP_COMPLETIONS     = "completionsMap";
+    // Jet also keeps a resultMap using the same constant defined for the IMDG result map
 
     public static final String TOPIC_PREAUTH       = "preAuthTopic";   // Raw transactions
     public static final String TOPIC_AUTH_ITEMS    = "authItemsTopic"; // wrapped with ItemCarrier

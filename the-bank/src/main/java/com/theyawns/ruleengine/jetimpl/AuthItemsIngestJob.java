@@ -27,17 +27,7 @@ public class AuthItemsIngestJob<T extends HasID> implements Runnable {
     private ClientConfig imdgClientConfig;
     private ClientConfig jetClientConfig;
 
-//    private JetInstance jet;
-//    private HazelcastInstance imdg;
-//
-//    //RuleEngineRoutingController<T> router;
-//    static IMap<String, RuleSetRoutingInfo> router;
-//
-//    // Initialize before job starts --
-//    List<RuleSetRoutingInfo<T>> routingInfo;
-
     boolean externalJetCluster = true; // vs. embedded
-
 
     protected void init() {
         this.imdgClientConfig = new XmlClientConfigBuilder().build();
@@ -104,9 +94,11 @@ public class AuthItemsIngestJob<T extends HasID> implements Runnable {
                 .map(ItemCarrier::setTimeEnqueuedForExecutor)
                 .setName("Wrap items with ItemCarrier");
 
-        // Stage 1c: Write to a Reliable Topic
-        carriers.writeTo(Sinks.reliableTopic("Items"))
-                .setName("Write to Reliable Topic");
+        // Stage 1c: Pass to Ruleset Jobs via IMap's EventJournal
+        carriers.writeTo(Sinks.map(Constants.MAP_WRAPPED_ITEMS,
+                carrier -> carrier.getItemID(),
+                carrier -> carrier))
+                .setName("Write to map for RuleSet jobs to process");
 
 
         // These steps are not needed for the pipeline to function, just
@@ -141,13 +133,11 @@ public class AuthItemsIngestJob<T extends HasID> implements Runnable {
                     .map(ItemCarrier::setTimeEnqueuedForExecutor)
                     .setName("Wrap items with ItemCarrier");
 
-            // Write to a Reliable Topic that all RuleSet Jobs will read - filtering
-            // will be done by those jobs rather than by a router task here
-
-            // Write carrier item into the ReliableTopic for each qualified ruleset
-            // TODO: decide on a good name for this and add it to constants
-            SinkStage itemSink = carriers.writeTo(Sinks.reliableTopic(Constants.TOPIC_AUTH_ITEMS))
-                    .setName("Write to Reliable Topic");
+            // Stage 1c: Pass to Ruleset Jobs via IMap's EventJournal
+            carriers.writeTo(Sinks.map(Constants.MAP_WRAPPED_ITEMS,
+                    carrier -> carrier.getItemID(),
+                    carrier -> carrier))
+                    .setName("Write to map for RuleSet jobs to process");
 
             // Output count every 30 seconds
             SlidingWindowDefinition smallWindow = WindowDefinition.tumbling(TimeUnit.SECONDS.toMillis(30));
@@ -155,7 +145,6 @@ public class AuthItemsIngestJob<T extends HasID> implements Runnable {
 
             StreamStage<WindowResult<Long>> itemCount = timingWindow.aggregate(AggregateOperations.counting());
             itemCount.writeTo(Sinks.logger(count -> count.result() / 30 + " TPS")); // Should see count of items
-
 
             return p;
         } catch (Throwable t) {
