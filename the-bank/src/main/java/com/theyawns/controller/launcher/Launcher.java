@@ -339,10 +339,10 @@ public class Launcher {
         // either need to get a reference to executing Runnable and
         // call it, or build our own router using the IMAP ...
         //experimental.setRouter(fde.getRouter());
-        main.localES.submit(ingestJob);
+//        main.localES.submit(ingestJob);
 
         RuleSetEvalJob locationJob = new RuleSetEvalJob();
-        main.localES.submit(locationJob);
+//        main.localES.submit(locationJob);
 
         ////
         ////

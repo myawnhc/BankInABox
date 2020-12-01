@@ -127,7 +127,6 @@ public class RuleSetExecutor<T extends HasID,R> implements Callable<Exception>, 
         private ItemCarrier<T> carrier;
         private RuleSetEvaluationResult rser;
         public RSEUpdater(ItemCarrier<T> carrier, RuleSetEvaluationResult rser) {
-            //this.txn = txn;
             this.carrier = carrier;
             this.rser = rser;
         }
@@ -145,8 +144,6 @@ public class RuleSetExecutor<T extends HasID,R> implements Callable<Exception>, 
 
     private void consumeResult(RuleSetEvaluationResult<T,R> rser) {
         ItemCarrier<T> carrier = rser.getCarrier();
-//        Transaction txn = (Transaction) rser.getItem();
-//        String txnID = txn.getItemID();
         RSEUpdater<T> rseu = new RSEUpdater(carrier, rser);
         String txnID = carrier.getItem().getItemID();
         // Transaction will be complete if all rulesets have posted results

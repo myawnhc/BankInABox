@@ -4,9 +4,8 @@ import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.HazelcastInstanceAware;
 import com.hazelcast.crdt.pncounter.PNCounter;
 import com.hazelcast.map.IMap;
-import com.theyawns.controller.Constants;
 import com.theyawns.banking.Transaction;
-import com.theyawns.controller.launcher.BankInABoxProperties;
+import com.theyawns.controller.Constants;
 import com.theyawns.controller.launcher.RunMode;
 
 import java.io.Serializable;
@@ -62,7 +61,7 @@ public class LazyPreAuthLoader implements Callable<Exception>, Serializable, Haz
         this.chunksPerSecond = 20; // may later add to properties & constructor
         this.chunkSize = targetTPS / chunksPerSecond;
         // secondary throttle - if we see preAuth growth, back off
-        this.highLimit = chunkSize * 2;
+        this.highLimit = chunkSize * 5; // 2 better for K8S environments
         this.checkIntervalMs = 500; // check every second whether to resume
     }
 
