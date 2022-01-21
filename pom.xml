@@ -28,7 +28,7 @@
 	<properties>
 		<docker.image.prefix>bankinabox</docker.image.prefix>
 		<dockerfile-maven-plugin.version>1.4.12</dockerfile-maven-plugin.version>
-		<hazelcast-jet.version>4.2</hazelcast-jet.version>
+		<hazelcast-jet.version>4.5.3</hazelcast-jet.version>
 		<!-- Kubernetes 1.5.x for IMDG 3.x; Kubernetes 2.x for IMDG 4.x -->
 		<hazelcast-kubernetes.version>2.0.1</hazelcast-kubernetes.version>
 		<java.version>11</java.version>
